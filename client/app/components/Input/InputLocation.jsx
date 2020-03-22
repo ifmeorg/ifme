@@ -1,19 +1,21 @@
 // @flow
 import React, { useState } from 'react';
 import LocationAutocomplete from 'location-autocomplete';
-import { I18n } from '../../libs/i18n';
+import css from './Input.scss';
 
 export type Props = {
-  placeholder: string,
+  label: string,
   apiKey: string,
   id: string,
+  name: string,
   value?: any,
 };
 
 export function InputLocation({
-  placeholder,
+  label,
   apiKey,
   id,
+  name,
   value: defaultAddress,
 }: Props) {
   const [address, setAddress] = useState<string>(defaultAddress || '');
@@ -30,14 +32,13 @@ export function InputLocation({
 
   return (
     <LocationAutocomplete
-      name="user[location]"
-      placeholder={placeholder}
+      name={name}
       googleAPIKey={apiKey}
       onChange={handleChange}
       onDropdownSelect={handleDropdownSelect}
-      className="smallerMarginBottom"
       id={id}
-      aria-label={I18n.t('common.form.location')}
+      className={css.location}
+      aria-label={label}
       value={address}
     />
   );

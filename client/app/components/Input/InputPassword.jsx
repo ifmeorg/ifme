@@ -1,10 +1,7 @@
 // @flow
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faEye,
-  faEyeSlash,
-} from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { I18n } from '../../libs/i18n';
 import css from './InputPassword.scss';
 import inputCss from './Input.scss';
@@ -15,10 +12,28 @@ export type Props = {
   placeholder?: string,
   required?: boolean,
   label?: string,
+  hasError?: Function,
 };
 
 export type State = {
   showText: boolean,
+};
+
+const onFocus = (required: ?boolean, hasError: ?Function) => {
+  if (required && hasError) {
+    hasError(false);
+  }
+};
+
+const onBlur = (
+  e: SyntheticEvent<HTMLInputElement>,
+  required: ?boolean,
+  hasError: ?Function,
+) => {
+  const { value } = e.currentTarget;
+  if (required && hasError) {
+    hasError(!value);
+  }
 };
 
 export function InputPassword({
@@ -27,6 +42,7 @@ export function InputPassword({
   placeholder,
   required,
   label,
+  hasError,
 }: Props) {
   const [showText, setShowText] = useState<boolean>(false);
 
@@ -45,6 +61,8 @@ export function InputPassword({
         aria-label={label}
         autoComplete="off"
         className={inputCss.password}
+        onFocus={() => onFocus(required, hasError)}
+        onBlur={(e: SyntheticEvent<HTMLInputElement>) => onBlur(e, required, hasError)}
       />
       <button
         type="button"

@@ -365,7 +365,9 @@ storiesOf('Input', module)
   ))
   .add('Password with accordion', () => (
     <>
-      {InputMocks.createInput(InputMocks.inputPasswordProps, { accordion: true })}
+      {InputMocks.createInput(InputMocks.inputPasswordProps, {
+        accordion: true,
+      })}
       {InputMocks.createInput(InputMocks.inputPasswordProps, {
         large: true,
         accordion: true,

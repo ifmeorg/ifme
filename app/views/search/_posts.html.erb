@@ -1,9 +1,16 @@
 <div class="marginBottom">
   <%= form_for(:search, url: posts_search_index_path, html: { method: :get }) do |f| %>
     <div class="search">
-      <%= f.text_field :name, placeholder: t('search.search_by_name'), 'aria-label': t('search.search_by_name') %>
+      <%= react_component 'Input', props: {
+        type: 'search',
+        name: 'search[name]',
+        id: 'search_name',
+        label: t('search.search_by_name'),
+        placeholder: t('search.search_by_name'),
+        dark: true
+      } %>
       <%= f.hidden_field :data_type, value: local_assigns[:data_type] %>
-      <%= f.submit t('search.label'), class: 'searchSubmit' %>
+      <%= f.submit t('search.label'), class: 'searchSubmit buttonDarkL' %>
     </div>
   <% end %>
 </div>

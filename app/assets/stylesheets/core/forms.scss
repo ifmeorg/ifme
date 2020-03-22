@@ -1,34 +1,3 @@
-@mixin staticInputStyle() {
-  @include setFontSize($size-18);
-  @include setPadding($size-24, $size-24, $size-24, $size-24);
-  @include linearTransition(0.25s);
-  color: $white;
-  background-color: $white-10;
-  font-weight: $font-weight-400;
-  border: none;
-  border-radius: $size-4;
-  box-shadow: $size-0 $size-2 $size-10 $black-10;
-  width: 100%;
-  box-sizing: border-box;
-  &:focus,
-  &:focus-within {
-    background-color: $white-20;
-    outline: none;
-  }
-  &::placeholder {
-    color: $white-80;
-  }
-}
-
-@mixin dashboardInputStyle() {
-  box-sizing: border-box;
-  padding: $size-20;
-  box-shadow: $size-0 $size-2 $size-10 $black-10;
-  border-radius: $size-4;
-  background: $white;
-  border: none;
-}
-
 .label,
 label {
   @include setMargin($size-0, $size-0, $size-10, $size-0);
@@ -43,43 +12,4 @@ label {
 
 .label i, .sidebar_label i {
   opacity: 0.5;
-}
-
-textarea {
-  width: 50%;
-  height: 200px;
-}
-
-.static {
-  input,
-  textarea,
-  select,
-  fieldset {
-    @include setFontSize($size-20);
-    @include staticInputStyle();
-    @media screen and (max-width: $medium) {
-      width: 100%;
-    }
-  }
-}
-
-.dashboard {
-  input,
-  textarea,
-  select,
-  fieldset {
-    @include setFontSize($size-20);
-    @include dashboardInputStyle();
-    @media screen and (max-width: $medium) {
-      width: 100%;
-    }
-  }
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-  @include setMargin($size-0, $size-10, $size-0, $size-4);
-  width: auto;
-  height: auto;
-  box-shadow: none;
 }

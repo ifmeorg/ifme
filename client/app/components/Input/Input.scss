@@ -10,7 +10,8 @@
 .small {
   .default,
   .tagAutocomplete,
-  .password {
+  .password,
+  .location {
     @include setPadding($size-18, $size-18, $size-18, $size-18);
   }
   .select {
@@ -27,7 +28,8 @@
 .large {
   .default,
   .tagAutocomplete,
-  .password {
+  .password,
+  .location {
     @include setPadding($size-26, $size-26, $size-26, $size-26);
     @include setFontSize($size-20);
   }
@@ -53,7 +55,8 @@
 .dark {
   .default,
   .tagAutocomplete,
-  .password {
+  .password,
+  .location {
     background-color: $mulberry-70;
     &:focus,
     &:focus-within {
@@ -82,7 +85,8 @@
 
 .default,
 .tagAutocomplete,
-.password {
+.password,
+.location {
   @include setFontSize($size-18);
   @include setPadding($size-24, $size-24, $size-24, $size-24);
   @include linearTransition(0.25s);
