@@ -1,0 +1,28 @@
+<% title @medication.name %>
+<%= render partial: '/medications/story_body', locals: { medication: @medication } %>
+<% if @medication.comments.present? %>
+	<%= sanitize(@medication.comments) %>
+<% end %>
+<div class="gridItemBoxDark smallMarginTop">
+  <div class="gridRowSpaceBetween">
+    <div class="gridRowSpaceBetween">
+      <div class="smallMarginRight"><%= t('common.actions.plural') %>:</div>
+      <%= react_component('StoryActions', props: {
+        dark: true,
+        actions: {
+          edit: {
+            name: t('common.actions.edit'),
+            link: edit_medication_path(@medication)
+          },
+          delete: {
+            name: t('common.actions.delete'),
+            link: url_for(@medication),
+            dataConfirm: t('common.actions.confirm'),
+            dataMethod: 'delete'
+          }
+        }
+      }) %>
+    </div>
+    <%= print_reminders(@medication) %>
+  </div>
+</div>

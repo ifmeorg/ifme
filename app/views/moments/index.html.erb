@@ -1,0 +1,51 @@
+<% title t('moments.plural') %>
+<% page_new new_moment_path %>
+
+<div class="subtitle">
+  <%= t('moments.index.subtitle') %>
+</div>
+
+<% if @moments.length > 0 %>
+  <%= render partial: '/search/posts', locals: { data_type: 'moment' } %>
+  <div class="hideOnMobile marginTop marginBottom">
+    <%= react_component("ChartControl", props: {
+      types: [],
+      initialParams: {
+        type: 'Moments',
+        data: {
+          Moments: @react_moments,
+        }
+      }
+    })%>
+ </div>
+
+  <%= render partial: '/shared/stats', locals: { data_type: 'moment', user: current_user } %>
+  <%= react_component('BaseContainer', props: {
+    container: 'StoryContainer',
+    data: moments_or_strategy_props(@moments),
+    fetchUrl: moments_path,
+    lastPage: @moments.last_page?
+  }) %>
+<% else %>
+  <%= raw t('moments.index.instructions') %>
+  <div class="gridTwo marginTop">
+    <div class="gridTwoItemBoxLight">
+      <%
+        example_mood_names = t('moods.example_moods')
+        example_moods = []
+        example_mood_names.split(',').each do |m|
+          example_moods.push({ name: m, slug: '' })
+        end
+      %>
+      <%= react_component('Story', html_options: html_options, props: {
+        name: t('moments.index.example_name'),
+        link: moments_path,
+        actions: {
+          viewers: t('comment.control')
+        },
+        categories: [{ name: t('moments.index.example_category'), slug: '' }],
+        moods: example_moods
+      }) %>
+    </div>
+  </div>
+<% end %>

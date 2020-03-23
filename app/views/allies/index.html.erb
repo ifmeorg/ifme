@@ -1,0 +1,72 @@
+<% title t('allies.index.title') %>
+<%= render partial: '/search/form' %>
+<%= link_to t('allies.index.invite'), new_user_invitation_path, class: 'smallMarginTop buttonM fullWidth center' %>
+
+<% if @outgoing_ally_requests.any? %>
+  <div class="marginTop">
+    <div class="title"><%= t('allies.index.outgoing') %></div>
+    <div class="gridThree">
+    <% @outgoing_ally_requests.each do |ally| %>
+      <div class="gridThreeItemBoxLight ally">
+        <%= link_to ProfilePicture.fetch(ally.avatar.url, name: ally.name), profile_index_path(uid: ally.uid) %>
+        <div class="subtle"><%= ally.location %></div>
+        <%= link_to t('allies.index.cancel'), remove_allies_path(ally_id: ally.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+<% end %>
+
+<% if @incoming_ally_requests.any? %>
+  <div class="marginTop">
+    <div class="title"><%= t('allies.index.incoming') %></div>
+    <div class="gridThree">
+    <% @incoming_ally_requests.each do |ally| %>
+      <div class="gridThreeItemBoxLight ally">
+        <%= link_to ProfilePicture.fetch(ally.avatar.url, name: ally.name), profile_index_path(uid: ally.uid) %>
+        <div class="subtle"><%= ally.location %></div>
+        <%= link_to t('allies.accept'), add_allies_path(ally_id: ally.id), method: :post %> | <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: ally.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+<% end %>
+<% if @invited_allies.any? %>
+  <div class="marginTop">
+    <div class="title"><%= t('allies.index.invited') %></div>
+    <div class="gridThree">
+    <% @invited_allies.each do |ally| %>
+      <div class="gridThreeItemBoxLight ally">
+        <div><%= mail_to "#{ally.email}" %></div>
+        <div class="subtle"><%=t('allies.index.invited_on', date: format_date(ally.invitation_sent_at)) %></div>
+        <div class="subtle"><%= ally.invitation_sent_at < 2.weeks.ago ? t('allies.index.invitation_expired') : nil %></div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+<% end %>
+<% if @accepted_allies.present? %>
+  <div class="marginTop">
+    <div class="title"><%= t('allies.index.title') %></div>
+    <div class="gridThree">
+      <% @accepted_allies.each do |ally| %>
+        <div class="gridThreeItemBoxLight ally">
+          <%= link_to ProfilePicture.fetch(ally.avatar.url, name: ally.name), profile_index_path(uid: ally.uid) %>
+          <div class="subtle"><%= ally.location %></div>
+          <div>
+            <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: ally.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
+          </div>
+          <div>
+            <%= link_to t('common.actions.report'), new_report_path(uid: ally.uid) %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<% if @outgoing_ally_requests.empty? && @incoming_ally_requests.empty? && @accepted_allies.count == 0 %>
+  <div class="marginTop">
+    <%= t('allies.index.none') %>
+  </div>
+<% end %>

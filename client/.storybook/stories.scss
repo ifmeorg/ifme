@@ -1,0 +1,11 @@
+@import "../app/styles/global.scss";
+
+/* This file is to override Storybook default styles */
+
+body {
+  /* Needed to get Storybook Backgrounds Addon to work */
+  background-color: transparent !important;
+  height: auto !important;
+  /* Add padding to story page to give it some space against the edges */
+  padding: 20px !important;
+}

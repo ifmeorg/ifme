@@ -1,0 +1,28 @@
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+  <%= f.hidden_field :reset_password_token %>
+
+  <%= react_component 'Input', props: {
+    type: 'password',
+    name: 'user[password]',
+    id: 'user_password',
+    label: t('devise.new_password'),
+    light: true,
+    required: true
+  } %>
+
+  <div class="smallMarginTop">
+    <%= react_component 'Input', props: {
+      type: 'password',
+      name: 'user[password_confirmation]',
+      id: 'user_password_confirmation',
+      label: t('devise.passwords.edit.confirmation'),
+      light: true,
+      required: true
+    } %>
+  </div>
+
+  <%= f.submit t('devise.password_change'), class: 'buttonGhostM marginTop' %>
+<% end %>
+
+<%= render "devise/shared/links" %>

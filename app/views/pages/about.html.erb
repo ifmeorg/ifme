@@ -1,0 +1,53 @@
+<% title t('navigation.about') %>
+
+<div class="messageMain">
+  <%= raw t('pages.about.main_message_one', {
+    app_name: t('app_name')
+  }) %>
+</div>
+
+<div class="messageBody">
+  <%= t('pages.about.message_text_one') %>
+</div>
+
+<div class="largeMarginTop largeMarginBottom center">
+  <i class="fas fa-heart purpleYay" aria-disabled="true"></i>
+</div>
+
+<div class="messageMain">
+  <%= t('pages.about.main_message_two') %>
+</div>
+
+<div class="messageBody largeMarginBottom">
+  <%= raw t('pages.about.message_text_two') %>
+</div>
+
+<div class="messageMain">
+  <%= t('pages.home.not_signed_in.main_message_two') %>
+</div>
+
+<div class="messageBody largeMarginBottom">
+  <%= raw t('pages.home.not_signed_in.message_text_two', {
+    help: link_to(t('pages.home.not_signed_in.help'), contribute_path),
+    feedback: link_to(t('navigation.feedback'), 'http://goo.gl/forms/8EqoJDDiXY', target: 'blank')
+  }) %>
+</div>
+
+
+<div class="messageMain">
+  <%= t('pages.about.main_message_three') %>
+</div>
+
+<div class="messageBody">
+  <%= raw t('pages.about.message_text_three', {
+    fund_club_link: link_to(t('pages.about.fund_club'), 'http://joinfundclub.com', target: 'blank'),
+    patreon_link: link_to(t('navigation.patreon'), 'http://patreon.com/ifme', target: 'blank'),
+    opencollective_link: link_to(t('navigation.opencollective'), 'https://opencollective.com/ifme', target: 'blank')
+  }) %>
+
+  <p class="noMarginBottom">
+    <%= raw t('pages.about.email_us', {
+      email_link: link_to(t('pages.about.send_us'), "mailto:#{t('email')}")
+    }) %>
+  </p>
+</div>

@@ -1,0 +1,27 @@
+fr:
+  devise:
+    failure:
+      invited: 'Vous avez une invitation, acceptez-là pour terminer la création de votre compte.'
+    invitations:
+      send_instructions: 'Un mail d''invitation a été envoyé à %{email}.'
+      failed_send: 'Une erreur s''est produite. %{email} n''a pas pu être invité.'
+      invitation_token_invalid: 'L''invitation n''est pas valide !'
+      updated: 'Votre mot de passe à été enregistré avec succès. Vous êtes maintenant connecté.'
+      updated_not_active: 'Votre mot de passe a été enregistré avec succès.'
+      no_invitations_remaining: 'Aucune invitation restante'
+      invitation_removed: 'Votre invitation n''est plus valide.'
+      new:
+        header: 'Envoyer une invitation d''allié'
+        submit_button: 'Envoyer une invitation'
+      edit:
+        header: 'Définissez votre mot de passe'
+        submit_button: 'Définir mon mot de passe'
+    mailer:
+      invitation_instructions:
+        subject: '%{name} vous a invité à rejoindre if me!'
+        subject_nameless: 'Quelqu''un vous a invité à rejoindre if me!'
+        hello: 'Salut %{email}!'
+        someone_invited_you: '%{name} vous a invité à rejoindre http://www.if-me.org, une communauté pour partager vos experiences de santés mentales avec ceux que vous aimé et garder des traces de vos experiences, médications, et soins personnels. Vous pouvez accepter l''invitation grâce au lien ci-dessous.'
+        accept: 'Accepter l''invitation!'
+        accept_until: 'Cette invitation expirera le %{due_date}.'
+        ignore: 'Si vous ne voulez pas accepter cette invitation, merci d''ignorer cet e-mail. <br />Votre compte ne sera pas créé tant que vous n''accederez pas au lien ci-dessous et que vous n''aurez pas définit votre mot de passe.'

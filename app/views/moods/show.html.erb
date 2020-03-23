@@ -1,0 +1,32 @@
+<% title @mood.name %>
+<% if @mood.description.present? && @mood.description.length > 0 %>
+  <%= sanitize(@mood.description) %>
+<% else %>
+  <div class="messageMain">
+    <%= t('warnings.no_description') %>
+  </div>
+  <div class="messageBody noMarginBottom">
+    <%= t('warnings.yes_description') %>
+  </div>
+<% end %>
+<div class="gridItemBoxDark gridRowSpaceBetween smallMarginTop">
+	<div class="gridRowSpaceBetween">
+		<div class="smallMarginRight"><%= t('common.actions.plural') %>:</div>
+		<%= react_component('StoryActions', props: {
+			dark: true,
+			actions: {
+				delete: {
+					name: t('common.actions.delete'),
+					link: url_for(@mood),
+					dataConfirm: t('common.actions.confirm'),
+					dataMethod: 'delete'
+				},
+				edit: {
+					name: t('common.actions.edit'),
+					link: edit_mood_path(@mood)
+				}
+			}
+		}) %>
+	</div>
+</div>
+<%= render partial: '/tag_usage/index' %>

@@ -1,0 +1,14 @@
+<%= form_for(:search, url: search_index_path, html: { method: :get }) do |f| %>
+  <div class="search">
+    <%= react_component 'Input', props: {
+      type: 'search',
+      name: 'search[email]',
+      id: 'search_email',
+      label: t('search.form.search_by_email'),
+      placeholder: t('search.form.search_by_email'),
+      dark: true,
+      value: @email || nil
+    } %>
+    <%= f.submit t('search.label'), class: 'searchSubmit buttonDarkL' %>
+  </div>
+<% end %>

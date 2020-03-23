@@ -1,0 +1,20 @@
+// Place all the styles related to the Profile controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Profiles */
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  &Info {
+    margin-left: $size-20;
+    > div {
+      @include setMargin($size-0, $size-0, $size-10, $size-0);
+    }
+    > div:last-of-type {
+      margin: $size-0;
+    }
+  }
+}

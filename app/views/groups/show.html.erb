@@ -1,0 +1,29 @@
+<% title @group.name %>
+<% page_new new_meeting_path(group_id: @group.id) %>
+<%= render partial: '/groups/info', locals: { group: @group } %>
+
+<% if @meetings.present? %>
+  <div class="gridTwo smallMarginTop">
+    <% @meetings.each do |meeting| %>
+      <div class="gridTwoItemBoxLight">
+        <%= react_component('Story', html_options: html_options, props: {
+          name: meeting.name,
+          link: url_for(meeting),
+          actions: {
+            edit: user_is_leader_of?(meeting) ? {
+              name: t('common.actions.edit'),
+              link: edit_meeting_path(meeting)
+            } : nil,
+            delete: meeting.leaders.include?(current_user) ? {
+              name: t('common.actions.delete'),
+				      link: url_for(meeting),
+				      dataConfirm: t('common.actions.confirm'),
+				      dataMethod: 'delete'
+            } : nil
+          }.merge(google_cal_actions(meeting)),
+          body: render(partial: '/meetings/story_body', locals: { meeting: meeting })
+        }) %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

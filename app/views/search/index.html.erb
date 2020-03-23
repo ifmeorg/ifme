@@ -1,0 +1,29 @@
+<% title t('search.index.title') %>
+<%= render 'form' %>
+<%= link_to t('allies.index.view_all_allies'), allies_path, class: 'smallMarginTop buttonM fullWidth center' %>
+<div class="gridThree marginTop">
+  <% if @matching_users.present? %>
+    <% @matching_users.each do |user| %>
+        <div class="gridThreeItemBoxLight ally">
+          <%= link_to ProfilePicture.fetch(user.avatar.url, name: user.name), profile_index_path(uid: user.uid) %>
+          <div class="subtle"><%= user.location %></div>
+          <% if current_user.allies_by_status(:pending_from_ally).include?(user) %>
+            <%= link_to t('allies.cancel_ally_request'), remove_allies_path(ally_id: user.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
+          <% elsif current_user.allies_by_status(:pending_from_user).include?(user) %>
+            <%= link_to t('allies.accept'), add_allies_path(ally_id: user.id), method: :post %>
+          <% elsif current_user.allies_by_status(:accepted).include?(user) %>
+            <div>
+              <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: user.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
+            </div>
+            <div>
+              <%= link_to t('common.actions.report'), new_report_path(uid: user.uid) %>
+            </div>
+          <% else %>
+            <%= link_to t('allies.add_ally'), add_allies_path(ally_id: user.id), method: :post %>
+          <% end %>
+        </div>
+    <% end %>
+  <% else %>
+    <%= t('search.index.user_not_found', email: @email_query) %>
+  <% end %>
+</div>

@@ -1,0 +1,26 @@
+@import '../../styles/_global.scss';
+
+.comments {
+  @include setMargin($size-40, $size-0, $size-0, $size-0);
+}
+
+.comment {
+  @include fadeIn(1.5s);
+  @include gridItemBoxLight();
+
+  &:last-of-type {
+    @include setMargin($size-0, $size-0, $size-0, $size-0);
+  }
+
+  &Info {
+    @include setMargin($size-20, $size-0, $size-0, $size-0);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &Content {
+    @include setMargin($size-0, $size-0, $size-30, $size-0);
+  }
+}

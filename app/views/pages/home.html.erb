@@ -1,0 +1,20 @@
+<% if user_signed_in? && @stories.any? %>
+  <% title t('pages.home.stories') %>
+<% elsif user_signed_in? %>
+  <% title t('pages.home.signed_in_empty.main_message_one', { name: current_user.name }) %>
+<% end %>
+
+<% if !user_signed_in? %>
+  <%= render partial: 'not_signed_in' %>
+<% elsif @stories.any? %>
+  <%= react_component('BaseContainer', props: {
+    container: 'StoryContainer',
+    data: moments_or_strategy_props(@stories),
+    fetchUrl: home_data_path,
+    lastPage: @stories.last_page?
+  }) %>
+<% else %>
+  <%= render partial: 'signed_in_empty' %>
+<% end %>
+
+<%= render partial: 'update_password_modal' %>

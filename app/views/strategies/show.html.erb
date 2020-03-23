@@ -1,0 +1,55 @@
+<% title @strategy.name %>
+<div class="gridRowSpaceBetween">
+  <%= react_component('StoryDate', props: {
+    date: TimeAgo.created_or_edited(@strategy)
+  }) %>
+  <% if !@strategy.published? %>
+    <%= react_component('StoryDraft', props: {
+      draft: !@strategy.published? ?  t('draft') : nil
+    }) %>
+  <% end %>
+</div>
+<div class="smallMarginTop">
+  <%= react_component('StoryCategories', props: {
+    categories: @strategy.category_names_and_slugs
+  }) %>
+</div>
+
+<% if @strategy.description.present? %>
+  <div class="smallMarginTop">
+    <%= sanitize(@strategy.description) %>
+  </div>
+<% end %>
+
+<% if @strategy.user_id == current_user.id %>
+  <div class="gridItemBoxDark smallMarginTop">
+    <div class="gridRowSpaceBetween">
+      <div class="gridRowSpaceBetween">
+        <div class="smallMarginRight"><%= t('common.actions.plural') %>:</div>
+        <%= react_component('StoryActions', props: {
+          dark: true,
+          actions: {
+            edit: {
+              link: edit_strategy_path(@strategy),
+              name: t('common.actions.edit')
+            },
+            delete: {
+              name: t('common.actions.delete'),
+              link: url_for(@strategy),
+              dataMethod: 'delete',
+              dataConfirm:  t('common.actions.confirm')
+            },
+            viewers: get_viewer_list(@strategy.viewers, nil)
+          }
+        }) %>
+      </div>
+      <%= print_reminders(@strategy) %>
+    </div>
+  </div>
+<% end %>
+
+<% if @strategy.published? && @strategy.comment %>
+  <%= render partial: '/shared/comments', locals: { commentable: @strategy } %>
+<% end %>
+
+<%= render partial: '/tag_usage/index' %>

@@ -1,0 +1,7 @@
+<p>
+  <%= t('salutation', name: @user.name) %>
+</p>
+<p>
+  <%= t('medications.refill_mailer.body',
+  name: @model.name, refill: @model.refill) %>
+</p>

@@ -1,0 +1,30 @@
+<% title t('moods.plural') %>
+<% page_new new_mood_path %>
+
+<div class="subtitle">
+  <%= t('moods.index.subtitle') %>
+</div>
+
+<% if @moods.any? %>
+  <%= render partial: '/search/posts', locals: { data_type: 'mood' } %>
+  <%= render partial: '/shared/stats', locals: { data_type: 'moods', user: current_user } %>
+
+  <%= react_component('BaseContainer', props: {
+    container: 'StoryContainer',
+    data: categories_or_moods_props(@moods),
+    fetchUrl: moods_path,
+    lastPage: @moods.last_page?
+  }) %>
+<% else %>
+  <%= raw t('moods.index.instructions') %>
+  <%= button_to t('common.actions.add_all'), premade_moods_path, class: 'smallMarginTop buttonDarkS' %>
+  <div class="gridTwo marginTop">
+    <% (1..4).each do |n| %>
+      <div class="gridTwoItemBoxLight">
+        <%= react_component('Story', html_options: html_options, props: {
+          name: t("moods.index.premade#{n}_name")
+        }) %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,9 @@
+.displayNone {
+  display: none;
+}
+
+.hideOnMobile {
+  @media screen and (max-width: $small) {
+    display: none;
+  }
+}

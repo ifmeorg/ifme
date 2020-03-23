@@ -1,0 +1,7 @@
+.fa-inline {
+  @include setMargin($size-0, $size-10, $size-0, $size-0);
+}
+
+.fa-left {
+  @include setMargin($size-0, $size-0, $size-0, $size-20);
+}

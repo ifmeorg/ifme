@@ -1,0 +1,85 @@
+<% title @moment.name %>
+<div class="gridRowSpaceBetween">
+  <%= react_component('StoryDate', props: {
+    date: TimeAgo.created_or_edited(@moment)
+  }) %>
+  <% if !@moment.published? %>
+    <%= react_component('StoryDraft', props: {
+      draft: !@moment.published? ?  t('draft') : nil
+    }) %>
+  <% end %>
+</div>
+<div class="smallMarginTop">
+  <%= react_component('StoryCategories', props: {
+    categories: @moment.category_names_and_slugs
+  }) %>
+  <%= react_component('StoryMoods', props: {
+    moods: @moment.mood_names_and_slugs
+  }) %>
+</div>
+
+<% if @moment.why.present? %>
+  <div class="smallMarginTop">
+    <div class="label"><%= label_tag t('moments.form.why') %></div>
+    <%= sanitize(@moment.why) %>
+  </div>
+<% end %>
+
+<% if @moment.fix.present? %>
+  <div class="smallMarginTop">
+    <div class="label"><%= label_tag t('moments.form.fix') %></div>
+    <%= sanitize(@moment.fix) %>
+  </div>
+<% end %>
+
+<% if @moment.strategies.count > 0 %>
+  <div class="smallMarginTop">
+    <div class="label"><%= label_tag t('moments.show.strategies') %></div>
+    <ul>
+      <% @moment.strategies.each do |item| %>
+          <li><%= link_to item.name, item %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% if @moment.owned_by?(current_user) && @moment.shared? %>
+  <div class="smallMarginTop">
+    <%= react_component('Form', props: secret_share_props(@moment)) %>
+  </div>
+<% end %>
+
+<% if @moment.owned_by?(current_user) %>
+  <div class="gridItemBoxDark smallMarginTop">
+    <div class="gridRowSpaceBetween">
+      <div class="gridRowSpaceBetween">
+        <div class="smallMarginRight"><%= t('common.actions.plural') %>:</div>
+        <%= react_component('StoryActions', props: {
+          dark: true,
+          actions: {
+            edit: {
+              link: edit_moment_path(@moment),
+              name: t('common.actions.edit')
+            },
+            delete: {
+              name: t('common.actions.delete'),
+              link: url_for(@moment),
+              dataMethod: 'delete',
+              dataConfirm:  t('common.actions.confirm')
+            },
+            viewers: get_viewer_list(@moment.viewers, nil)
+          }
+        }) %>
+      </div>
+      <% if @moment.shared? %>
+        <%= button_to t('moments.secret_share.cancel_secret_share'), secret_share_path(id: @moment.id), { method: :delete, class: 'buttonGhostXS' } %>
+      <% elsif @moment.published? %>
+        <%= button_to t('moments.secret_share.singular'), secret_shares_path(moment: @moment.id), { class: 'buttonGhostXS' } %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<% if user_signed_in? && @moment.published? && @moment.comment %>
+  <%= render partial: '/shared/comments', locals: { commentable: @moment } %>
+<% end %>

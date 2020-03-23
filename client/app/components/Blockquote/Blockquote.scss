@@ -1,0 +1,21 @@
+@import "../../styles/_global.scss";
+
+.text {
+  @include setFontSize($size-24);
+  display: inline-block;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.1);
+  font-style: italic;
+  text-align: center;
+  align-content: center;
+  text-shadow: $size-0 $size-2 4px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  padding: $size-50;
+  color: $white;
+  @media screen and (max-width: $medium) {
+    padding: $size-20;
+  }
+  .author {
+    @include setMargin($size-10, $size-0, $size-0, $size-0);
+  }
+}

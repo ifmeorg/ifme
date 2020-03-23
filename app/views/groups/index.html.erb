@@ -1,0 +1,69 @@
+<% title t('groups.plural') %>
+<% page_new new_group_path %>
+
+<div class="subtitle">
+  <%= t('groups.index.subtitle') %>
+</div>
+
+<% if @groups.any? %>
+  <div class="title"><%= t('groups.index.joined_groups') %></div>
+  <div class="gridTwo">
+    <% @groups.each do |group| %>
+      <div class="gridTwoItemBoxLight">
+        <%= react_component('Story', html_options: html_options, props: {
+          name: group.name,
+          link: url_for(group),
+          actions: {
+            leave: user_can_leave?(group) ? {
+              name: t('common.actions.leave'),
+              link: group_membership_path(group_id: group.id, id: 'leave'),
+              dataConfirm: t('common.actions.confirm'),
+              dataMethod: 'delete'
+            } : nil,
+            edit: user_can_edit?(group) ? {
+              name: t('common.actions.edit'),
+              link: edit_group_path(group)
+            } : nil,
+            delete: user_can_delete?(group) ? {
+              name: t('common.actions.delete'),
+              link: url_for(group),
+              dataConfirm: t('common.actions.confirm'),
+              dataMethod: 'delete'
+            } : nil
+          }
+        }) %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <%= raw t('groups.index.instructions') %>
+  <div class="smallMarginTop">
+    <div class="title">
+      <%= t('pages.faq.group_question') %>
+    </div>
+    <%= raw t('pages.faq.group_answer', {
+      group: link_to(t('groups.singular'), groups_path)
+    }) %>
+  </div>
+<% end %>
+
+<% if @available_groups.any? %>
+  <div class="title"><%= t('groups.index.available_groups') %></div>
+  <div class="gridTwo">
+    <% @available_groups.each do |group| %>
+      <div class="gridTwoItemBoxLight">
+        <%= react_component('Story', html_options: html_options, props: {
+          name: group.name,
+          link: url_for(group),
+          actions: {
+            join: {
+              name: t('common.actions.join'),
+              link: group_membership_path(group_id: group.id, id: 'join'),
+              dataMethod: 'post'
+            }
+          }
+        }) %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

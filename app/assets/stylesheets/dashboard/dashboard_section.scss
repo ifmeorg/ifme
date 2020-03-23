@@ -1,0 +1,85 @@
+@mixin dashboardSectionStyles() {
+  @media screen and (max-width: $small) {
+    @include buttonFull();
+  }
+
+  b, strong {
+    color: $mulberry;
+  }
+
+  @include dashboardSectionLink();
+
+  .page {
+    &Title {
+      @include setFontSize($size-32);
+      @include setMargin($size-0, $size-0, $size-20, $size-0);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+      color: $mulberry;
+      word-break: break-all;
+      a {
+        display: inline-block;
+        color: $mulberry;
+      }
+      &Right {
+        margin-left: auto;
+        padding-left: $size-20;
+      }
+      @media screen and (max-width: $small) {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        &Right {
+          margin: $size-10 $size-0 $size-0 $size-0;
+          padding-left: $size-0;
+          width: 100%;
+        }
+      }
+    }
+    &Author {
+      @include setFontSize($size-24);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      white-space: nowrap;
+      .avatar {
+        display: flex;
+        margin-right: $size-10;
+      }
+    }
+  }
+
+  .subtitle {
+    @include setFontSize($size-22);
+    @include setMargin($size-0, $size-0, $size-20, $size-0);
+    color: $mulberry-90;
+    font-weight: $font-weight-400;
+  }
+
+  .title {
+    @include setFontSize($size-28);
+    @include setMargin($size-0, $size-0, $size-20, $size-0);
+    font-weight: $font-weight-400;
+  }
+
+  .label,
+  label {
+    color: $mulberry-90;
+  }
+}
+
+.dashboardSection {
+  flex-basis: 80vw;
+  background: $white-80;
+  border-radius: $size-0 15px 15px $size-0;
+  padding: $size-44;
+  @media screen and (max-width: $medium) {
+    border-radius: 0;
+    padding: 15px 20px;
+    flex-basis: auto;
+  }
+  @include dashboardSectionStyles();
+}

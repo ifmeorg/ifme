@@ -1,0 +1,38 @@
+.dashboardNav {
+  flex-basis: 20vw;
+  background: $black-30;
+  border-radius: $size-16 $size-0 $size-0 $size-16;
+  @media screen and (max-width: $medium) {
+    display: none;
+  }
+
+  &Links {
+    font-size: $size-18;
+    a {
+      @include standardTransition();
+      display: block;
+      padding: $size-14 $size-26;
+      text-decoration: none;
+      border: none;
+      color: $white;
+      background: $black-20;
+    }
+    &Active {
+      background: $white-70 !important;
+      color: $black !important;
+    }
+    @media screen and (max-width: $medium) {
+      font-size: $size-16;
+      text-align: center;
+    }
+  }
+
+  &Actions {
+    padding: $size-22 $size-26;
+    > a {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

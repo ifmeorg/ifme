@@ -1,0 +1,71 @@
+<% title @profile.name %>
+<div class="profile">
+  <%= ProfilePicture.fetch(@profile.avatar.url) %>
+  <div class="profileInfo">
+    <% if @profile.about %>
+      <div>
+      <%= sanitize(@profile.about) %>
+      </div>
+    <% end %>
+    <% if @profile == current_user %>
+      <div>
+        <%= link_to t('profile.index.edit_user'), edit_user_registration_path %>
+      </div>
+    <% end %>
+    <% if @profile.location.present? %>
+      <div>
+        <i class="fa fa-location-arrow fa-inline smallMarginRight"></i><%= @profile.location %>
+      </div>
+    <% end %>
+    <% if @profile.id != current_user.id %>
+      <% if current_user.allies_by_status(:pending_from_ally).include? @profile %>
+        <div>
+          <%= link_to t('allies.cancel_ally_request'), remove_allies_path(ally_id: @profile.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
+        </div>
+      <% elsif current_user.allies_by_status(:accepted).include? @profile %>
+        <div>
+          <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: @profile.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
+        </div>
+        <div>
+          <%= link_to t('common.actions.report'), new_report_path(uid: @profile.uid) %>
+        </div>
+      <% elsif current_user.allies_by_status(:pending_from_user).include? @profile %>
+        <div>
+          <%= link_to t('allies.accept'), add_allies_path(ally_id: @profile.id), method: :post %> | <%= link_to t('allies.reject'), remove_allies_path(ally_id: @profile.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
+        </div>
+      <% else %>
+        <div>
+          <%= link_to t('allies.add_ally'), add_allies_path(ally_id: @profile.id), method: :post %>
+        </div>
+      <% end %>
+    <% end %>
+    <% if current_user.admin? %>
+      <% if @profile.banned? %>
+        <div>
+          <%= link_to t('reports.remove_ban'), remove_ban_profile_index_path(user_id: @profile.id), method: :post %>
+        </div>
+      <% else %>
+        <div>
+          <%= link_to t('reports.ban_user'), add_ban_profile_index_path(user_id: @profile.id), method: :post %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<% if !@stories.nil? && @stories.any? %>
+  <div class="marginTop">
+    <%= render partial: '/shared/stats', locals: { data_type: 'categories', user: @profile } %>
+    <%= render partial: '/shared/stats', locals: { data_type: 'moods', user: @profile } %>
+    <%= render partial: '/shared/stats', locals: { data_type: 'strategies', user: @profile } %>
+  </div>
+  <div class="title">
+    <%= t('pages.home.stories') %>
+  </div>
+  <%= react_component('BaseContainer', props: {
+    container: 'StoryContainer',
+    data: moments_or_strategy_props(@stories),
+    fetchUrl: data_profile_index_path(uid: params[:uid]),
+    lastPage: @stories.last_page?,
+  }) %>
+<% end %>

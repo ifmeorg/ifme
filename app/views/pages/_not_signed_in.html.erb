@@ -1,0 +1,73 @@
+<div class="messageHero">
+  <div class="messageMain">
+    <div class="messageMainLogo">
+      <%= react_component('Logo', props: { lg: true }) %>
+    </div>
+    <%= t('app_description') %>
+  </div>
+  <div class="messageBody">
+    <div class="messageBodyLinks">
+      <%= link_to t('navigation.about'), about_path, class: 'buttonL' %>
+      <%= link_to t('common.actions.join'), new_user_registration_path, class: 'buttonGhostL' %>
+    </div>
+  </div>
+</div>
+
+<div class="messageHero">
+  <div class="gridThree">
+  <% @posts.first(3).each do |p| %>
+    <div class="gridThreeItem">
+    <%= react_component('Resource', props: {
+      external: true,
+      title: p[:link_name],
+      link: p[:link],
+      author: p[:author]
+    }) %>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+<div class="messageHero">
+  <div class="messageMain">
+    <%= t('pages.home.not_signed_in.main_message_one') %>
+  </div>
+  <div class="messageBody marginBottom">
+    <%= t('pages.home.not_signed_in.message_text_one') %>
+  </div>
+  <div class="gridThree center">
+    <div class="gridThreeItem">
+      <%= inline_svg_tag('phone.svg', aria_hidden: true, class: 'notSignedInIcon') %>
+      <div class="marginTop">
+        <%= t('pages.home.not_signed_in.message_one') %>
+      </div>
+    </div>
+    <div class="gridThreeItem">
+      <%= inline_svg_tag('lotus.svg', aria_hidden: true, class: 'notSignedInIcon') %>
+      <div class="marginTop">
+        <%= t('pages.home.not_signed_in.message_two') %>
+      </div>
+    </div>
+    <div class="gridThreeItem">
+      <%= inline_svg_tag('documents.svg', aria_hidden: true , class: 'notSignedInIcon') %>
+      <div class="marginTop">
+        <%= t('pages.home.not_signed_in.message_three') %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="messageMain">
+  <%= t('pages.home.not_signed_in.main_message_two') %>
+</div>
+<div class="messageBody">
+  <%= raw t('pages.home.not_signed_in.message_text_two', {
+    help: link_to(t('pages.home.not_signed_in.help'), contribute_path),
+    feedback: link_to(t('navigation.feedback'), 'http://goo.gl/forms/8EqoJDDiXY', target: 'blank')
+  }) %>
+  <div class="gridMany marginTop">
+    <% @blurbs.each do |blurb| %>
+      <%= render partial: 'contributor_blurb', locals: { blurb: blurb } %>
+    <% end %>
+  </div>
+</div>

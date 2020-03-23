@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+require 'pathname'
+require 'fileutils'
+include FileUtils
+
+APP_ROOT = Pathname.new File.expand_path('../../', __FILE__)
+
+chdir APP_ROOT do
+  puts "\n== Installing gems =="
+  system('bundle install')
+  puts "\n== Installing npm packages =="
+  system('cd client/ && yarn install && cd ..')
+  puts "\n== Starting application server (foreman) =="
+  system('foreman start -f Procfile.dev')
+end

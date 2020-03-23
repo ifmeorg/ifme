@@ -1,0 +1,12 @@
+version: '2'
+services:
+  app:
+    depends_on:
+      - selenium
+    environment:
+      - SELENIUM_REMOTE_HOST=selenium
+      - RAILS_ENV=test
+      - RACK_ENV=test
+  selenium:
+    image: selenium/standalone-firefox
+    container_name: selenium

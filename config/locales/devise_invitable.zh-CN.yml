@@ -1,0 +1,27 @@
+zh-CN:
+  devise:
+    failure:
+      invited: '您有待处理的邀请，请接受邀请以完成创建帐户'
+    invitations:
+      send_instructions: '邀请电子邮件已发送到%{email}。'
+      failed_send: '发生错误。无法邀请%{email}。'
+      invitation_token_invalid: '提供的邀请令牌无效！'
+      updated: '您的密码设置成功。您现在已登录。'
+      updated_not_active: '您的密码设置成功'
+      no_invitations_remaining: '没有剩余邀请'
+      invitation_removed: '您的邀请已删除。'
+      new:
+        header: '发送盟友邀请'
+        submit_button: '发送邀请'
+      edit:
+        header: '设置你的密码'
+        submit_button: '设置我的密码'
+    mailer:
+      invitation_instructions:
+        subject: '%{name}邀请您加入 if me!'
+        subject_nameless: '有人邀请你加入 if me!'
+        hello: '嗨，%{email}！'
+        someone_invited_you: '%{name}邀请您加入 http://www.if-me.org, 与您的亲人分享心理健康经验并跟踪您的情绪，药物和自我保健的社区。您可以通过下面的链接接受邀请。'
+        accept: '接受邀请！'
+        accept_until: '此邀请将在%{due_date}到期。'
+        ignore: '如果您不想接受邀请，请忽略此电子邮件。<br />您将无法创建您的帐户，除非您访问上面的链接并设置密码。'

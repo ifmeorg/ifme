@@ -1,0 +1,76 @@
+@import "../../styles/_global.scss";
+
+@mixin setColor($if-color, $me-color) {
+  .if {
+    color: $if-color;
+  }
+
+  .me {
+    color: $me-color;
+    &::before {
+      border-top: 0.15ex solid $me-color;
+      border-bottom: 0.15ex solid $me-color;
+    }
+  }
+}
+
+@mixin setSize($font-size) {
+  font-size: $font-size;
+  line-height: $font-size;
+  height: 1.5 * $font-size;
+
+  .if, .me {
+    height: $font-size;
+  }
+
+  .me {
+    margin: 0 0 0 0.5ex;
+    position: relative;
+    &::before {
+      content: ' ';
+      position: absolute;
+      height: 1.5 * $font-size;
+      width: 100%;
+      transform: translateY(-13%);
+    }
+  }
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: $font-weight-400;
+  text-transform: lowercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  width: min-content;
+  display: -ms-grid;
+  -ms-grid-columns: min-content;
+  @include standardTransition();
+  @include setSize($size-30);
+  @include setColor($white, $key-lime);
+
+  &:link, &:visited, &:hover, &:active {
+    text-decoration: none;
+    border: none;
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &.solid {
+    @include setSize($size-30);
+    @include setColor($black, $black);
+  }
+
+  &.sm {
+    @include setSize($size-24);
+  }
+
+  &.lg {
+    @include setSize($size-40);
+  }
+}

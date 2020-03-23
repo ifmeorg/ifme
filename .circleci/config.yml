@@ -1,0 +1,205 @@
+version: 2
+defaults: &defaults
+  working_directory: ~/ifmeorg/ifme
+  parallelism: 1
+  shell: /bin/bash --login
+  environment:
+    CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
+    CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
+  docker:
+    - image: circleci/ruby:2.6-node-browsers-legacy
+      environment:
+        PGHOST: 127.0.0.1
+        PGUSER: circleci
+        NODE_ENV: test
+    - image: circleci/postgres:9.5-alpine
+      environment:
+        POSTGRES_USER: circleci
+        POSTGRES_DB: ifme_test
+        POSTGRES_PASSWORD: ""
+  steps:
+    - checkout
+jobs:
+  setup-coverage:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Download cc-test-reporter
+          command: |
+            mkdir -p tmp/
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
+            chmod +x ./tmp/cc-test-reporter
+      - persist_to_workspace:
+          root: tmp
+          paths:
+            - cc-test-reporter
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/ifmeorg/ifme/tmp
+      - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
+      - restore_cache:
+          keys:
+          - v1-dep-{{ .Branch }}-
+          - v1-dep-master-
+          - v1-dep-
+      - run:
+          name: Update to Node v13.11.0
+          command: |
+            curl -sSL "https://nodejs.org/dist/v13.11.0/node-v13.11.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v13.11.0-linux-x64/bin/node
+            curl https://www.npmjs.com/install.sh | sudo bash
+      - run: gem install bundler
+      - run: bundle install --path=vendor/bundle --jobs=4 --retry=3
+      - run: yarn install --cache-folder ~/.cache/yarn
+      - save_cache:
+          key: v1-dep-{{ .Branch }}-{{ epoch }}
+          paths:
+          - ~/.cache/yarn
+          - ./node_modules
+          - ./vendor/bundle
+      - run: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
+          command: bundle exec rake db:create db:schema:load --trace
+          environment:
+            RAILS_ENV: test
+            RACK_ENV: test
+      - run: RAILS_ENV=test bundle exec rake db:create db:schema:load
+      - run: RAILS_ENV=test bundle exec rake react_on_rails:locale
+      - run:
+          name: Run React Jest Tests
+          command: |
+            set -e
+            cd client && yarn lint:flow && yarn lint:eslint && yarn test:circleci
+            cd ~/ifmeorg/ifme/tmp && ./cc-test-reporter format-coverage -t lcov -o codeclimate.frontend.json ../client/coverage/lcov.info
+      - run:
+          name: Run YAML linter
+          command: |
+            set -e
+            curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+            python get-pip.py --user
+            python -m pip install --user yamllint
+            cd config && yamllint locales/
+      - persist_to_workspace:
+          root: tmp
+          paths:
+            - codeclimate.frontend.json
+      - run:
+          name: Run Rails Rspec Tests
+          command: |
+            set -e
+            bundle exec rspec --format progress --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec.xml
+            cd ~/ifmeorg/ifme/tmp && ./cc-test-reporter format-coverage -t simplecov -o codeclimate.backend.json ../coverage/.resultset.json
+      - persist_to_workspace:
+          root: tmp
+          paths:
+            - codeclimate.backend.json
+      - run: bundle exec bundle-audit check --ignore CVE-2015-9284 --update
+      - store_test_results:
+          path: /tmp/circleci-test-results
+      - store_artifacts:
+          path: /tmp/circleci-artifacts
+      - store_artifacts:
+          path: /tmp/circleci-test-results
+  upload-coverage:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/ifmeorg/ifme/tmp
+      - run:
+          name: Upload coverage results to Code Climate
+          command: |
+            ./tmp/cc-test-reporter sum-coverage --output tmp/codeclimate.total.json --parts 2 tmp/codeclimate.*.json
+            sed -i.bak 's@"/home/circleci/ifmeorg/ifme/@"@' tmp/codeclimate.total.json
+            ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.total.json
+  deploy:
+    docker:
+      - image: buildpack-deps:trusty
+    steps:
+      - checkout
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            GIT_CURL_VERBOSE=1 GIT_TRACE=1 git push https://heroku:$HEROKU_API_KEY@git.heroku.com/ifme.git master
+  deploy-storybook:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/ifmeorg/ifme/tmp
+      - restore_cache:
+          keys:
+          - v1-dep-{{ .Branch }}-
+          - v1-dep-master-
+          - v1-dep-
+      - run:
+          name: Update to Node v13.11.0
+          command: |
+            curl -sSL "https://nodejs.org/dist/v13.11.0/node-v13.11.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v13.11.0-linux-x64/bin/node
+            curl https://www.npmjs.com/install.sh | sudo bash
+      - run: gem install bundler
+      - run: bundle install --path=vendor/bundle --jobs=4 --retry=3
+      - run: yarn install --cache-folder ~/.cache/yarn
+      - run:
+          name: Deploy Storybook
+          command: |
+            cd client
+            yarn deploy:storybook
+      - save_cache:
+          key: v1-dep-{{ .Branch }}-{{ epoch }}
+          paths:
+          - ~/.cache/yarn
+          - ./node_modules
+          - ./vendor/bundle
+
+workflows:
+  version: 2
+  build-test:
+    jobs:
+      - setup-coverage
+      - build:
+          requires:
+            - setup-coverage
+      - upload-coverage:
+          requires:
+            - build
+  build-test-deploy:
+    jobs:
+      - setup-coverage:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
+      - build:
+          requires:
+            - setup-coverage
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
+      - upload-coverage:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
+      - deploy:
+          requires:
+            - upload-coverage
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
+      - deploy-storybook:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v[0-9]+\.[0-9]+\.[0-9]+/

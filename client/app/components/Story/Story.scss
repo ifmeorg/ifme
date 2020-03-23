@@ -1,0 +1,110 @@
+@import "../../styles/_global.scss";
+
+.story {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  &Type {
+    @include setFontSize($size-16);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $mulberry-90;
+    a {
+      @include standardTransition();
+      color: $mulberry-90 !important;
+    }
+  }
+  &By {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &Author {
+      @include setFontSize($size-18);
+      margin-left: $size-10;
+      color: $mulberry;
+      a {
+        @include standardTransition();
+        color: $mulberry !important;
+      }
+    }
+  }
+  .header {
+    &Title {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      > div:first-of-type {
+        @include setMargin($size-0, $size-10, $size-0, $size-0);
+      }
+    }
+  }
+  .name {
+    @include setFontSize($size-20);
+    @include standardTransition();
+    color: $mulberry;
+    word-break: break-word;
+  }
+  .body {
+    @include setMargin($size-10, $size-0, $size-0, $size-0);
+    @include setFontSize($size-18);
+    color: $black-80;
+    font-weight: $font-weight-400;
+  }
+  .info {
+    @include setMargin($size-12, $size-0, $size-0, $size-0);
+    &Right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  }
+  .footer {
+    margin-top: auto;
+  }
+}
+
+.actions {
+  @include setMargin($size-4, $size-0, $size-0, $size-0);
+  display: flex;
+  flex-direction: row;
+  .action {
+    @include setFontSize($size-20);
+    cursor: pointer;
+    color: $mulberry-90;
+    &Dark {
+      color: $white,
+    }
+  }
+  > div {
+    margin-right: $size-14;
+    &:last-of-type {
+      margin-right: $size-0;
+    }
+  }
+  a {
+    @include standardTransition();
+  }
+}
+
+.date {
+  @include setFontSize($size-14);
+  @include setMargin($size-10, $size-0, $size-0, $size-0);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $mulberry-90;
+}
+
+.draft {
+  > div {
+    border: $size-1 solid $mulberry;
+    box-sizing: border-box;
+    border-radius: $size-4;
+  }
+}
+
+.categories,
+.moods {
+  @include setMargin($size-8, $size-0, $size-0, $size-0);
+  font-size: $size-0;
+  word-break: break-all;
+}

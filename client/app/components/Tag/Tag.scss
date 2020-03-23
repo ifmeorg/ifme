@@ -1,0 +1,54 @@
+@import "../../styles/_global.scss";
+
+.tag {
+  @include setFontSize($size-14);
+  @include setMargin($size-0, $size-8, $size-8, $size-0);
+  padding: $size-4 $size-12;
+  text-indent: 4px;
+  display: inline-block;
+  text-align: center;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: $size-4;
+  border: $size-1 solid $mulberry;
+  mix-blend-mode: normal;
+  color: $mulberry;
+  &:link, &:visited, &:hover {
+    color: $mulberry;
+  }
+
+  &:last-child{
+    @include setMargin($size-0, $size-0, $size-0, $size-0);
+  }
+
+  &.dark {
+    color: $white;
+    border: $size-1;
+    background-color: $mulberry;
+    &:link, &:visited, &:hover {
+      color: $white;
+    }
+  }
+
+  &.normal {
+    color: $white;
+    border: $size-1;
+    background-color: $white-10;
+    &:link, &:visited, &:hover {
+      color: $white;
+    }
+  }
+
+  &.secondary {
+    color: $black;
+    border: $size-1;
+    background-color: $key-lime;
+    &:link, &:visited, &:hover {
+      color: $black;
+    }
+  }
+
+  &.clickable {
+    cursor: pointer;
+  }
+}

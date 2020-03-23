@@ -1,0 +1,183 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <%= react_component 'Input', props: {
+    type: 'text',
+    name: 'user[name]',
+    id: 'user_name',
+    label: t('common.name'),
+    autoComplete: 'off',
+    dark: true,
+    required: true,
+    value: current_user.name || nil
+  } %>
+
+  <div class="smallMarginTop">
+    <%= react_component 'Input', props: {
+      type: 'location',
+      googleAPIKey: ENV['GOOGLE_API_KEY'],
+      id: 'user_location',
+      name: 'user[location]',
+      value: current_user.location || nil,
+      label: t('common.form.location'),
+      dark: true
+    } %>
+  </div>
+
+  <% if current_user.provider == 'google_oauth2' %>
+    <div class="smallMarginTop">
+      <%= raw t('devise.registrations.google_auth1') %>
+    </div>
+  <% end %>
+
+  <div class="smallMarginTop">
+    <%= react_component 'Input', props: {
+      type: 'email',
+      name: 'user[email]',
+      id: 'user_email',
+      label: t('common.form.email'),
+      dark: true,
+      required: true,
+      value: current_user.email || nil
+    } %>
+  </div>
+
+  <div class="label smallMarginTop">
+    <%= t('devise.registrations.email_notifications') %>
+  </div>
+
+  <div class="smallerMarginTop">
+    <%= react_component 'Input', props: {
+      type: 'checkbox',
+      name: 'user[comment_notify]',
+      id: 'user_comment_notify',
+      label: t('devise.registrations.comment_notify_text'),
+      value: true,
+      uncheckedValue: false,
+      checked: current_user.comment_notify || current_user.comment_notify.nil?,
+      dark: true
+    } %>
+  </div>
+
+  <%= react_component 'Input', props: {
+    type: 'checkbox',
+    name: 'user[ally_notify]',
+    id: 'user_ally_notify',
+    label: t('devise.registrations.ally_notify_text'),
+    value: true,
+    uncheckedValue: false,
+    checked: current_user.ally_notify || current_user.ally_notify.nil?,
+    dark: true
+  } %>
+
+  <%= react_component 'Input', props: {
+    type: 'checkbox',
+    name: 'user[group_notify]',
+    id: 'user_group_notify',
+    label: t('devise.registrations.group_notify_text'),
+    value: true,
+    uncheckedValue: false,
+    checked: current_user.group_notify || current_user.group_notify.nil?,
+    dark: true
+  } %>
+
+  <%= react_component 'Input', props: {
+    type: 'checkbox',
+    name: 'user[meeting_notify]',
+    id: 'user_meeting_notify',
+    label: t('devise.registrations.meeting_notify_text'),
+    value: true,
+    uncheckedValue: false,
+    checked: current_user.meeting_notify || current_user.meeting_notify.nil?,
+    dark: true
+  } %>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div class="smallMarginTop">
+      Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+    </div>
+  <% end %>
+
+  <div class="label smallMarginTop">
+    <%= t('devise.registrations.edit.labels.profile_picture') %>
+  </div>
+
+  <div class="smallMarginBottom">
+    <%= ProfilePicture.fetch(resource.avatar.url) %>
+  </div>
+
+  <div class="smallerMarginTop">
+    <%= f.file_field :avatar, 'aria-label': t('devise.registrations.edit.labels.profile_picture') %>
+  </div>
+
+  <% unless resource.avatar.blank? %>
+    <div class="smallerMarginTop">
+      <%= react_component 'Input', props: {
+        type: 'checkbox',
+        name: 'user[remove_avatar]',
+        id: 'user_remove_avatar',
+        label: t('devise.registrations.edit.labels.remove_picture'),
+        value: true,
+        dark: true
+      } %>
+    </div>
+  <% end %>
+
+  <div class="smallMarginTop">
+    <%= react_component 'Input', props: {
+      type: 'textarea',
+      name: 'user[about]',
+      id: 'user_about',
+      label: t('devise.registrations.edit.labels.about'),
+      placeholder: t('devise.registrations.edit.placeholders.about'),
+      dark: true,
+      value: current_user.about || nil
+    } %>
+  </div>
+
+  <div class="label smallMarginTop">
+    <%= raw t('devise.registrations.edit.labels.password_for') %>
+  </div>
+  <% if current_user.provider == 'google_oauth2' %>
+    <div>
+      <%= raw t('devise.registrations.google_auth2') %>
+    </div>
+  <% end %>
+
+  <% if current_user.provider != 'google_oauth2' %>
+    <div class="smallMarginTop">
+      <%= react_component 'Input', props: {
+        type: 'password',
+        name: 'user[current_password]',
+        id: 'user_current_password',
+        label: t('devise.current_password'),
+        dark: true
+      } %>
+    </div>
+  <% end %>
+
+  <div class="smallMarginTop">
+    <%= react_component 'Input', props: {
+      type: 'password',
+      name: 'user[password]',
+      id: 'user_password',
+      label: t('devise.new_password'),
+      dark: true
+    } %>
+  </div>
+
+  <div class="smallMarginTop">
+    <%= react_component 'Input', props: {
+      type: 'password',
+      name: 'user[password_confirmation]',
+      id: 'user_password_confirmation',
+      label: t('devise.registrations.placeholders.repeat_password'),
+      dark: true
+    } %>
+  </div>
+
+  <%= f.submit t('devise.registrations.edit.labels.update'), class: 'buttonDarkM marginTop' %>
+<% end %>
+
+<div class="label marginTop"><%= raw t('devise.registrations.edit.delete.text') %></div>
+<%= button_to t('devise.registrations.edit.delete.button'), registration_path(resource_name), data: { confirm: t('devise.registrations.edit.delete.confirm') }, method: :delete, class: 'buttonDarkM' %>

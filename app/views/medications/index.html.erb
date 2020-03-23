@@ -1,0 +1,27 @@
+<% title t('medications.index.title') %>
+<% page_new new_medication_path %>
+
+<div class="subtitle">
+  <%= t('medications.index.subtitle') %>
+</div>
+
+<% if @medications.length > 0 %>
+  <%= render partial: '/search/posts', locals: { data_type: 'medication' } %>
+  <%= react_component('BaseContainer', props: {
+    container: 'StoryContainer',
+    data: medications_props(@medications),
+    fetchUrl: medications_path,
+    lastPage: @medications.last_page?
+  }) %>
+<% else %>
+  <%= raw t('medications.index.instructions') %>
+  <div class="gridTwo marginTop">
+    <div class="gridTwoItemBoxLight noMarginBottom">
+      <h1 class="medication_name"><%= t('medications.index.example_name') %></h1>
+      <strong><%= t('medications.strength') %></strong> <%= t('medications.index.example_strength') %>
+      <br><strong><%= t('medications.form.total') %></strong> <%= t('medications.index.example_total') %>
+      <br><strong><%= t('medications.dosage') %></strong> <%= t('medications.index.example_dosage') %>
+      <br><strong><%= t('medications.refill') %></strong> <%= t('medications.index.example_refill') %>
+    </div>
+  </div>
+<% end %>

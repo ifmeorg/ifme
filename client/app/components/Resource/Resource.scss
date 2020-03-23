@@ -1,0 +1,43 @@
+@import '../../styles/_global.scss';
+
+.resource {
+  position: relative;
+  width: 100%;
+  padding: 25px $size-10;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: $size-10;
+    top: 9px;
+    border: $size-1 solid $white;
+    border-width: 0 $size-40 0 0;
+    height: 3px;
+  }
+
+  .link {
+    @include setFontSize($size-20);
+    display: block;
+    color: $white;
+    padding-bottom: $size-10;
+  }
+
+  a {
+    @include standardTransition();
+    text-decoration: none;
+    color: $white;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  .author {
+    @include setFontSize($size-16);
+    @include setMargin($size-0, $size-0, $size-10, $size-0);
+    color: $white-80;
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+}
+

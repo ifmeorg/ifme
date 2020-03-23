@@ -1,0 +1,22 @@
+development: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV['PSQL_HOST'] || '' %>
+  database: ifme_development
+  username: <%= ENV['PSQL_USERNAME'] %>
+  password: <%= ENV['PSQL_PASSWORD'] %>
+  allow_concurrency: true
+  pool: 5
+  min_messages: warning
+test:
+  <<: *default
+  database: ifme_test
+  min_messages: error
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: ifme_production
+  username: <%= ENV['PSQL_USERNAME'] %>
+  password: <%= ENV['PSQL_PASSWORD'] %>
+  allow_concurrency: true
+  pool: 5

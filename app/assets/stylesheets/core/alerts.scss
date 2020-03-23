@@ -1,0 +1,10 @@
+.alert {
+  @include setMargin($size-0, $size-0, $size-26, $size-0);
+  background: $carmine;
+  color: $white;
+  padding: $size-10;
+  text-align: center;
+  &Text {
+    color: $carmine;
+  }
+}
