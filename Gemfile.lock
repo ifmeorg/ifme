@@ -229,6 +229,8 @@ GEM
       jwt (>= 2.0)
       omniauth (>= 1.1.1)
       omniauth-oauth2 (>= 1.5)
+    omniauth-facebook (5.0.0)
+      omniauth-oauth2 (~> 1.2)
     omniauth-oauth2 (1.6.0)
       oauth2 (~> 1.1)
       omniauth (~> 1.9)
@@ -523,6 +525,7 @@ DEPENDENCIES
   kaminari (= 1.1.1)
   letter_opener
   omniauth-google-oauth2 (~> 0.7.0)
+  omniauth-facebook
   omniauth-rails_csrf_protection (~> 0.1.2)
   pg (= 1.1.4)
   premailer-rails
