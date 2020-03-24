@@ -18,7 +18,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.from_omniauth request.env["omniauth.auth"]
     if @user.valid?
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success',
-                              kind: t('omniauth.google'))
+                              kind: t('omniauth.facebook'))
       sign_in_and_redirect @user, event: :authentication
     else
       redirect_to new_user_session_path, notice: t('omniauth.access_denied')
