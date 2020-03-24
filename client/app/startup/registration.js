@@ -13,6 +13,7 @@ import { Chart } from '../components/Chart';
 import { ChartControl } from '../components/Chart/ChartControl';
 import Header from '../components/Header';
 import Form from '../components/Form';
+import { Facebook } from '../components/Facebook';
 import { HeaderProfile } from '../components/Header/HeaderProfile';
 import { Logo } from '../components/Logo';
 import { Modal } from '../components/Modal';
@@ -42,6 +43,7 @@ ReactOnRails.register({
   ChartControl,
   Comments,
   Form,
+  Facebook,
   Header,
   HeaderProfile,
   Input,

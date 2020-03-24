@@ -55,7 +55,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :uid,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
-         omniauth_providers: [:google_oauth2]
+         omniauth_providers: [:google_oauth2, :fb_oauth2]
 
   mount_uploader :avatar, AvatarUploader
 
@@ -103,6 +103,22 @@ class User < ApplicationRecord
     token.present?
   end
 
+  def self.find_for_fb_oauth2(access_token)
+    user = find_or_initialize_by(email: access_token.info.email)
+    user.name ||= access_token.info.name
+    user.password ||= Devise.friendly_token[0, 20]
+    update_access_token_fields(user: user, access_token: access_token)
+    user
+  end
+
+  def fb_access_token
+    fb_access_token_expired? ? update_access_token : token
+  end
+
+  def fb_oauth2_enabled?
+    token.present?
+  end
+
   def remove_leading_trailing_whitespace
     @email&.strip!
     @name&.strip!
@@ -141,6 +157,10 @@ class User < ApplicationRecord
   private
 
   def google_access_token_expired?
+    !access_expires_at || Time.zone.now > access_expires_at
+  end
+
+  def fb_access_token_expired?
     !access_expires_at || Time.zone.now > access_expires_at
   end
 end

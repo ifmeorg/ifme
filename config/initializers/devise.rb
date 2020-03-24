@@ -317,4 +317,20 @@ Devise.setup do |config|
     approval_prompt: 'select_account consent force',
     scope: 'userinfo.email,userinfo.profile,calendar'
   )
+
+
+    require 'omniauth-fb_oauth2'
+    config.omniauth(
+      :fb_oauth2,
+      ENV['FACEBOOK_CLIENT_ID'],
+      ENV['FACEBOOK_CLIENT_SECRET'],
+      scope: 'public_profile,email',
+      info_fields: 'email,first_name,last_name',
+      client_options: {
+      site: 'https://graph.facebook.com/v2.11',
+      authorize_url: "https://www.facebook.com/v2.11/dialog/oauth"
+    },
+    token_params: { parse: :json },
+    strategy_class: OmniAuth::Strategies::Facebook
+    )
 end

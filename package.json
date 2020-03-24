@@ -1,7 +1,14 @@
 {
   "name": "ifme",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "@types/react": "^16.9.25",
+    "@types/react-dom": "^16.9.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-facebook-login": "^4.1.1",
+    "react-router-dom": "^5.1.2"
+  },
   "scripts": {
     "postinstall": "cd client && yarn install",
     "start": "foreman start -f Procfile.dev"
