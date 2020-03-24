@@ -325,7 +325,7 @@ end
     ENV['FACEBOOK_CLIENT_ID'],
     ENV['FACEBOOK_CLIENT_SECRET'],
     scope: 'public_profile,email',
-    info_fields: 'email,first_name,last_name'
+    info_fields: 'email,first_name,last_name',
     client_options: {
     site: 'https://graph.facebook.com/v2.11',
     authorize_url: "https://www.facebook.com/v2.11/dialog/oauth"
