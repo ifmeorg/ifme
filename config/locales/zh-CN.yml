@@ -383,6 +383,7 @@ zh-CN:
   omniauth:
     google: 谷歌
     access_denied: '拒绝访问'
+    facebook: 脸书
   pages:
     about:
       send_us: 我们
@@ -729,6 +730,8 @@ zh-CN:
     shared:
       sign_in_google: '使用Google登录'
       sign_up_google: '使用Google注册'
+      sign_in_facebook: '使用Facebook登录'
+      sign_up_facebook: '使用Facebook注册'
       confirmation: '没有收到确认指示吗？'
       unlock: '没有收到解锁指令吗？'
     unlock:
