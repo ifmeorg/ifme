@@ -9,10 +9,10 @@
           provider), method: :post, class: 'buttonGhostM' %>
       <% end -%>
 
-      <% if provider.to_s == "Facebook" && (current_page?(new_user_session_path) || current_page?(new_user_password_path)) %>
+      <% if provider.to_s == "facebook" && (current_page?(new_user_session_path) || current_page?(new_user_password_path)) %>
         <%= button_to t('devise.shared.sign_in_facebook'), omniauth_authorize_path(resource_name, provider),
         method: :post, class: 'buttonGhostM' %>
-      <% elsif provider.to_s == "Facebook" %>
+      <% elsif provider.to_s == "facebook" %>
         <%= button_to t('devise.shared.sign_up_facebook'), omniauth_authorize_path(resource_name, provider),
         method: :post, class: 'buttonGhostM' %>
       <% end -%>
