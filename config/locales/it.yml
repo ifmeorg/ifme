@@ -383,6 +383,7 @@ it:
   omniauth:
     google: Google
     access_denied: 'Accesso Negato'
+    facebook: Facebook
   pages:
     about:
       send_us: noi
@@ -726,8 +727,10 @@ it:
     sessions:
       subtitle: 'Bentornato, non vediamo l’ora di aiutarti ad affrontare questa giornata!'
     shared:
-      sign_in_google: 'Effettua il login con Google'
+      sign_in_google]: 'Effettua il login con Google'
       sign_up_google: 'Registrati con Google'
+      sign_in_facebook: 'Effettua il login con Facebook'
+      sign_up_facebook: 'Registrati con Facebook'
       confirmation: 'Non hai ricevuto le istruzioni per confermare la tua EMail?'
       unlock: 'Non hai ricevuto le istruzioni per sbloccare il tuo account?'
     unlock:

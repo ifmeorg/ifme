@@ -383,6 +383,7 @@ es:
   omniauth:
     google: Google
     access_denied: 'Acceso Denegado'
+    facebook: Facebook
   pages:
     about:
       send_us: Envíanos
@@ -728,6 +729,8 @@ es:
     shared:
       sign_in_google: 'Registrarse con Google'
       sign_up_google: 'Ingresar con Google'
+      sign_in_facebook: 'Registrarse con Facebook'
+      sign_up_facebook: 'Ingresar con Facebook'
       confirmation: '¿No recibiste instrucciones de confirmación?'
       unlock: '¿No recibiste instrucciones para desbloquear?'
     unlock:
