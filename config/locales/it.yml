@@ -727,7 +727,7 @@ it:
     sessions:
       subtitle: 'Bentornato, non vediamo l’ora di aiutarti ad affrontare questa giornata!'
     shared:
-      sign_in_google]: 'Effettua il login con Google'
+      sign_in_google: 'Effettua il login con Google'
       sign_up_google: 'Registrati con Google'
       sign_in_facebook: 'Effettua il login con Facebook'
       sign_up_facebook: 'Registrati con Facebook'
