@@ -15,7 +15,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def facebook
-    @user = User.from_omniauth request.env["omniauth.auth"]
+    @user = User.from_omniauth request.env['omniauth.auth']
     if @user.valid?
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success',
                               kind: t('omniauth.facebook'))
@@ -24,7 +24,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_session_path, notice: t('omniauth.access_denied')
     end
   end
-
 
   private
 
