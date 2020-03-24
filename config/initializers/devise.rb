@@ -317,7 +317,6 @@ Devise.setup do |config|
     approval_prompt: 'select_account consent force',
     scope: 'userinfo.email,userinfo.profile,calendar'
   )
-end
 
   require 'omniauth-facebook'
   config.omniauth(
