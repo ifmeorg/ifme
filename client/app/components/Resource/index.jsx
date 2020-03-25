@@ -15,7 +15,7 @@ type Props = {
 };
 
 const scrollUp = () => {
-  window.scrollTo(0, 0)
+  window.scrollTo(0, 0);
 };
 
 const taggedResources = (
@@ -24,7 +24,7 @@ const taggedResources = (
   updateTagFilter,
 ) => {
   if (tagged && tags) {
-    scrollUp()
+    scrollUp();
     return (
       <div className="tags">
         {tags.map((tag) => (
