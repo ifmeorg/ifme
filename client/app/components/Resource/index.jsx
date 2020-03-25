@@ -14,12 +14,17 @@ type Props = {
   updateTagFilter?: Function,
 };
 
+const scrollUp = () => {
+  window.scrollTo(0, 0)
+};
+
 const taggedResources = (
   tagged: ?boolean,
   tags: ?(string[]),
   updateTagFilter,
 ) => {
   if (tagged && tags) {
+    scrollUp()
     return (
       <div className="tags">
         {tags.map((tag) => (
