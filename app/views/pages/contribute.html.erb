@@ -24,5 +24,37 @@
 </div>
 
 <div class="messageBody">
-  <%= t('pages.contribute.thanks') %> <%= print_contributors(@contributors) %>
+  <%= t('pages.contribute.thanks') %>
+  <br><br>
+
+  <% k=0 %>
+  <table>
+      <tbody>
+        <% (0..@contributors.length/4).each do |c| %>
+          <tr>
+            <td width="1600px; height: 100px;">
+              <% if @contributors[k] !=nil %>
+                <%= link_to @contributors[k]['name'], @contributors[k]['link'], target: 'blank' %>
+              <% end %>
+            </td>
+            <td width="1600px; height: 100px;">
+              <% if @contributors[k+1] !=nil %>
+                <%= link_to @contributors[k+1]['name'], @contributors[k+1]['link'], target: 'blank' %>
+              <% end %>
+            </td>
+            <td width="1600px; height: 100px;">
+              <% if @contributors[k+2] !=nil %>
+                <%= link_to @contributors[k+2]['name'], @contributors[k+2]['link'], target: 'blank' %>
+              <% end %>
+            </td>
+            <td width="1600px; height: 100px;">
+              <% if @contributors[k+3] !=nil %>
+                <%= link_to @contributors[k+3]['name'], @contributors[k+3]['link'], target: 'blank' %>
+              <% end %>
+            </td>
+          </tr>
+          <% k+=4 %>
+        <% end %>
+      </tbody>
+    </table>
 </div>
