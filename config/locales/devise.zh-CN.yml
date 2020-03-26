@@ -2,8 +2,12 @@ zh-CN:
   devise:
     confirmations:
       confirmed: '您的电子邮件地址已成功确认'
-      send_instructions: '您将在几分钟之内收到一封包含有关如何确认电子邮件地址的说明的电子邮件'
-      send_paranoid_instructions: '如果您的电子邮件地址存在于我们的数据库中，您将在几分钟内收到一封电子邮件，其中包含有关如何确认您的电子邮件地址的说明'
+      send_instructions: >-
+                     您将在几分钟之内收到一封包含有关如何确认电子邮件地址的说明的电子邮件
+      send_paranoid_instructions: >-
+                              如果您的电子邮件地址存在于我们的数据库中，
+                              您将在几分钟内收到一封电子邮件，
+                              其中包含有关如何确认您的电子邮件地址的说明
     failure:
       already_authenticated: '您已经登录'
       inactive: '您的帐户尚未激活'
@@ -27,9 +31,13 @@ zh-CN:
       failure: '无法通过%{kind}对您进行身份验证，因为“%{reason}”'
       success: '已成功通过%{kind}帐户进行身份验证'
     passwords:
-      no_token: '没有密码重置电子邮件，您将无法访问此页面。如果您确实来自密码重置电子邮件，请确保您使用提供的完整URL'
+      no_token: >-
+            没有密码重置电子邮件，您将无法访问此页面。如果您确实来自密码重置电子邮件，
+            请确保您使用提供的完整URL
       send_instructions: '您将在几分钟内收到一封电子邮件，其中包含有关如何重设密码的说明'
-      send_paranoid_instructions: '如果您的电子邮件地址存在于我们的数据库中，那么您将在几分钟之内在您的电子邮件地址上收到一个密码恢复链接'
+      send_paranoid_instructions: >-
+                              如果您的电子邮件地址存在于我们的数据库中，
+                              那么您将在几分钟之内在您的电子邮件地址上收到一个密码恢复链接
       updated: '你已经成功更改密码。您现在已登录'
       updated_not_active: '你已经成功更改密码'
     registrations:
@@ -37,16 +45,24 @@ zh-CN:
       signed_up: '欢迎！您已成功注册。'
       signed_up_but_inactive: '您已成功注册。但是，由于您的帐户尚未激活，我们无法登录。'
       signed_up_but_locked: '您已成功注册。但是，由于您的帐户已被锁定，我们无法登录。'
-      signed_up_but_unconfirmed: '带有确认链接的消息已发送到您的电子邮件地址。请点击链接激活您的帐户。'
-      update_needs_confirmation: '您已成功更新帐户，但我们需要验证您的新电子邮件地址。请检查您的电子邮件，然后单击确认链接以确认您的新电子邮件地址。'
+      signed_up_but_unconfirmed: >-
+                             带有确认链接的消息已发送到您的电子邮件地址。
+                             请点击链接激活您的帐户。
+      update_needs_confirmation: >-
+                             您已成功更新帐户，但我们需要验证您的新电子邮件地址。
+                             请检查您的电子邮件，然后单击确认链接以确认您的新电子邮件地址。
       updated: '您的帐户已成功更新'
     sessions:
       signed_in: '登录成功'
       signed_out: '登出成功'
       already_signed_out: '登出成功'
     unlocks:
-      send_instructions: '您将收到一封电子邮件，其中包含有关如何在几分钟内解锁帐户的说明的电子邮件'
-      send_paranoid_instructions: '如果您的帐户存在，您将收到一封电子邮件，其中包含有关如何在几分钟内将其解锁的​​说明'
+      send_instructions: >-
+                      您将收到一封电子邮件，
+                      其中包含有关如何在几分钟内解锁帐户的说明的电子邮件
+      send_paranoid_instructions: >-
+                               如果您的帐户存在，您将收到一封电子邮件，
+                               其中包含有关如何在几分钟内将其解锁的​​说明
       unlocked: '您的帐户已成功解锁。请登录以继续'
   errors:
     messages:

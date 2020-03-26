@@ -14,4 +14,6 @@ pt-BR:
           one: 'Exibindo <b>1</b> %{entry_name}'
           other: 'Exibindo <b>todos %{count}</b> %{entry_name}'
       more_pages:
-        display_entries: 'Exibindo %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> registros'
+        display_entries: >-
+                      Exibindo %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}
+                      </b> de <b>%{total}</b> registros
