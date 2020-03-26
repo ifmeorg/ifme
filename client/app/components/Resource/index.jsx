@@ -24,7 +24,6 @@ const taggedResources = (
   updateTagFilter,
 ) => {
   if (tagged && tags) {
-    scrollUp();
     return (
       <div className="tags">
         {tags.map((tag) => (
@@ -36,6 +35,7 @@ const taggedResources = (
               updateTagFilter
                 ? (tagLabel) => {
                   updateTagFilter(tagLabel);
+                  scrollUp();
                 }
                 : null
             }
