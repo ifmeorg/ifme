@@ -81,22 +81,26 @@ class User < ApplicationRecord
   validates :locale, inclusion: {
     in: Rails.application.config.i18n.available_locales.map(&:to_s).push(nil)
   }
-  validate :password_complexity
+  validate :password_complexity, unless: :oauth_provided?
+
+  end
 
   def active_for_authentication?
     super && !banned
   end
 
+  def self.find_for_google_oauth2(auth)
+    user = find_or_initialize_by(email: auth.info.email)
+    user.name ||= auth.info.name
+    user.password ||= Devise.friendly_token[0, 20]
+    update_access_token_fields(user: user, access_token: auth)
+    user
+  end
+
   def self.from_omniauth(auth)
-    user = find_or_initialize_by(email: access_token.info.email)
-    user.provider = auth.provider
-    user.name = auth.info.name
-    user.user_id = auth.user_id
-    user.password = Devise.friendly_token[0, 20]
-    user.token = auth.credentials.token
-    user.refresh_token = auth.credentials.refresh_token
-    user.access_expires_at = Time.zone.at(auth.credentials.expires_at)
-    user.save!
+    where(provider: auth.provider, uid: auth.provider + auth.uid).first_or_create do |user|
+      UserBuilder::Builder.build(user: user, auth: auth)
+    end
   end
 
   def google_access_token
@@ -104,7 +108,7 @@ class User < ApplicationRecord
   end
 
   def google_oauth2_enabled?
-    token.present? && google_provider?
+    token.present?
   end
 
   def remove_leading_trailing_whitespace
@@ -142,11 +146,11 @@ class User < ApplicationRecord
     )
   end
 
-  def google_provider?
-    provider == 'google_oauth2'
-  end
-
   private
+
+  def oauth_provided?
+    provider.present? || token.present?
+  end
 
   def google_access_token_expired?
     !access_expires_at || Time.zone.now > access_expires_at
