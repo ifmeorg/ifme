@@ -96,7 +96,8 @@ class User < ApplicationRecord
   end
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.provider + auth.uid).first_or_create do |user|
+    where(provider: auth.provider,
+       uid: auth.provider + auth.uid).first_or_create do |user|
       UserBuilder::Builder.build(user: user, auth: auth)
     end
   end
@@ -153,5 +154,4 @@ class User < ApplicationRecord
   def google_access_token_expired?
     !access_expires_at || Time.zone.now > access_expires_at
   end
-
 end
