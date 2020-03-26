@@ -895,7 +895,7 @@ it:
     password_change: 'Cambia la password'
     remember_me: Ricordami
     show_password: 'Mostra password'
-    hide_password: 'Nascondi la password'    
+    hide_password: 'Nascondi la password'
     confirmations:
       resend_confirmation: 'Inviami di nuovo le istruzioni'
     mailer:
