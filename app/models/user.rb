@@ -55,7 +55,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :uid,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
-         omniauth_providers: [:google_oauth2]
+         omniauth_providers: %i[:google_oauth2 facebook]
 
   mount_uploader :avatar, AvatarUploader
 
@@ -87,12 +87,16 @@ class User < ApplicationRecord
     super && !banned
   end
 
-  def self.find_for_google_oauth2(access_token)
+  def self.from_omniauth(auth)
     user = find_or_initialize_by(email: access_token.info.email)
-    user.name ||= access_token.info.name
-    user.password ||= Devise.friendly_token[0, 20]
-    update_access_token_fields(user: user, access_token: access_token)
-    user
+    user.provider = auth.provider
+    user.name = auth.info.name
+    user.user_id = auth.user_id
+    user.password = Devise.friendly_token[0, 20]
+    user.token = auth.credentials.token
+    user.refresh_token = auth.credentials.refresh_token
+    user.access_expires_at = Time.zone.at(auth.credentials.expires_at)
+    user.save!
   end
 
   def google_access_token
@@ -100,7 +104,7 @@ class User < ApplicationRecord
   end
 
   def google_oauth2_enabled?
-    token.present?
+    token.present? && google_provider?
   end
 
   def remove_leading_trailing_whitespace
@@ -136,6 +140,10 @@ class User < ApplicationRecord
       uid: access_token.uid,
       access_expires_at: Time.zone.at(access_token.credentials.expires_at)
     )
+  end
+
+  def google_provider?
+    provider == 'google_oauth2'
   end
 
   private
