@@ -16,6 +16,6 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def oauth_provider?(provider)
-    provider == 'google_oauth2' || provider == 'facebook'
+    %w[google_oauth2 facebook].include? provider
   end
 end
