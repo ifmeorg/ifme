@@ -155,3 +155,5 @@ class User < ApplicationRecord
   def google_access_token_expired?
     !access_expires_at || Time.zone.now > access_expires_at
   end
+
+end
