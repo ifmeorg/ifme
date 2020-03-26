@@ -83,8 +83,6 @@ class User < ApplicationRecord
   }
   validate :password_complexity, unless: :oauth_provided?
 
-  end
-
   def active_for_authentication?
     super && !banned
   end
