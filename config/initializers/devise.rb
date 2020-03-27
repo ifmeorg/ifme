@@ -321,8 +321,8 @@ Devise.setup do |config|
   require 'omniauth-facebook'
   config.omniauth(
     :facebook,
-    ENV['FACEBOOK_CLIENT_ID'],
-    ENV['FACEBOOK_CLIENT_SECRET'],
+    ENV['FACEBOOK_APP_ID'],
+    ENV['FACEBOOK_APP_SECRET'],
     scope: 'public_profile,email',
     info_fields: 'email,first_name,last_name',
     client_options: {
