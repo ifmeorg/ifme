@@ -1,6 +1,7 @@
 it:
   app_name: 'if me'
-  app_description: 'Una community per la condivisione di esperienze relative alla salute mentale'
+  app_description: 'Una community per la condivisione di esperienze relative
+  alla salute mentale'
   email: join.ifme@gmail.com
   created: 'Creato %{created_at}'
   draft: Bozza
@@ -137,12 +138,14 @@ it:
     edit_category: 'Modifica Categoria'
     new: 'Nuova Categoria'
     form:
-      name_hint: 'Categorizza persone ricorrenti, luoghi, cose, attività, e tanto più'
+      name_hint: 'Categorizza persone ricorrenti, luoghi, cose, attività, e
+      tanto più'
     label:
       one: 'Categoria:'
       other: 'Categorie:'
     index:
-      subtitle: 'La vita è disordinata, categorizza le differenti persone, luoghi e cose.'
+      subtitle: 'La vita è disordinata, categorizza le differenti persone,
+      luoghi e cose.'
       premade1_name: Famiglia
       premade1_description: 'Relativo alla famiglia'
       premade2_name: Amici
@@ -151,7 +154,9 @@ it:
       premade3_description: 'Relativo al lavoro'
       premade4_name: Meditazione
       premade4_description: 'Meditazione, respirazione e attività rilassanti'
-      instructions: 'Non hai ancora creato nessuna categoria personalizzata.<br>Puoi anche scegliere una delle seguenti categorie già pronte e personalizzarle più avanti.'
+      instructions: 'Non hai ancora creato nessuna categoria personalizzata.<br>
+      Puoi anche scegliere una delle seguenti categorie già pronte e
+      personalizzarle più avanti.'
   errors:
     home_page: 'Torna alla Home'
     internal_server_error:
@@ -169,11 +174,16 @@ it:
       error_save: 'Non possiamo salvare questo gruppo perché: '
       error_edit_permission: 'Devi essere il leader di un gruppo per modificarlo'
     index:
-      subtitle: 'Crea e unisciti a gruppi che offrono supporto, insegnamento e discussione.'
+      subtitle: 'Crea e unisciti a gruppi che offrono supporto, insegnamento e
+      discussione.'
       available_groups: 'Gruppi Disponibili'
       joined_groups: 'Gruppi a cui appartieni'
       leader: (Leader)
-      instructions: 'Non fai ancora parte di nessun gruppo!<br><br>I gruppi di supporto sono ottimi per avere discussioni aperte sulla salute mentale! Puoi creare gruppi, invitare membri, e organizzare incontri ed eventi online e offline. Puoi anche unirti a gruppi che i tuoi alleati hanno creato.'
+      instructions: 'Non fai ancora parte di nessun gruppo!<br><br>I gruppi di
+      supporto sono ottimi per avere discussioni aperte sulla salute mentale!
+      Puoi creare gruppi, invitare membri, e organizzare incontri ed eventi
+      online e offline. Puoi anche unirti a gruppi che i tuoi alleati hanno
+      creato.'
     join:
       success: 'Ti sei unito a questo gruppo.'
       group_not_exists: 'Non puoi unirti a un gruppo che non esiste.'
@@ -181,7 +191,8 @@ it:
       error: 'Non puoi lasciare il gruppo, sei l’unico leader.'
       success: 'Hai lasciato %{group}'
       remove_member_success: 'Hai rimosso %{user} da %{group}'
-      remove_member_error: 'Non puoi calciare un membro del gruppo perché non sei un leader.'
+      remove_member_error: 'Non puoi calciare un membro del gruppo perché non
+      sei un leader.'
     new: 'Nuovo Gruppo'
     show:
       led_by: 'Gestito da:'
@@ -193,8 +204,10 @@ it:
       update_account: 'Personalizza il tuo account'
     mailer:
       html:
-        app_description: '%{app_name} è una community che incoraggia le persone a condividere storie sulla loro salute mentale con i propri cari.'
-        no_reply: 'Non puoi rispondere a questa EMail. Se hai domande, preoccupazioni o consigli contattaci su %{email}!'
+        app_description: '%{app_name} è una community che incoraggia le persone
+        a condividere storie sulla loro salute mentale con i propri cari.'
+        no_reply: 'Non puoi rispondere a questa EMail. Se hai domande,
+        preoccupazioni o consigli contattaci su %{email}!'
     title:
       reset_password: 'Resetta la tua password'
   medications:
@@ -214,16 +227,21 @@ it:
       dosage: dosaggio
       dosage_placeholder: 'es. 2'
       refill: riempimento
-      comments_hint: 'Aggiungi qualsiasi commento aggiuntivo qui, esempio: sintomi'
+      comments_hint: 'Aggiungi qualsiasi commento aggiuntivo qui, esempio:
+        sintomi'
       add_to_google_cal: 'Reminder Google Calendar'
-      google_cal_hint: 'Aggiungeremo un reminder per questa medicazione al tuo Google Calendar.'
-      strength_hint: 'Quanto è potente questo medicinale? Solitamente si trova accanto al nome'
+      google_cal_hint: 'Aggiungeremo un reminder per questa medicazione al tuo
+      Google Calendar.'
+      strength_hint: 'Quanto è potente questo medicinale? Solitamente si trova
+      accanto al nome'
       total_hint: 'Numero totale di pillole o quantità totale'
       dosage_hint: 'Numero di pillole o dose giornaliera'
       weekly_dosage_hint: 'I giorni della settimana per prendere questo farmaco'
       refill_hint: 'Quando riempire questa prescrizione'
-      refill_reminder_hint: 'Ti invieremo una EMail la settimana prossima prima che la tua medicazione abbia bisogno di un refill.'
-      daily_reminder_hint: 'Ti invieremo una EMail giornaliera ricordandoti di prendere la medicazione'
+      refill_reminder_hint: 'Ti invieremo una EMail la settimana prossima prima
+      che la tua medicazione abbia bisogno di un refill.'
+      daily_reminder_hint: 'Ti invieremo una EMail giornaliera ricordandoti di
+      prendere la medicazione'
       total: Totale
     new: 'Nuova Medicazione'
     units:
@@ -241,8 +259,10 @@ it:
       body: 'Hey, non dimenticare di prendere un refill di %{name} il %{refill}!'
     index:
       title: Medicazioni
-      subtitle: 'Tieni traccia delle tue medicazioni, includendo dosaggio e refill.'
-      instructions: 'Non hai ancora salvato nessuna medicazione.<br><br>Eccoti un esempio di medicazione! Puoi anche scrivere riguardo le tue esperienze.'
+      subtitle: 'Tieni traccia delle tue medicazioni, includendo dosaggio e
+      refill.'
+      instructions: 'Non hai ancora salvato nessuna medicazione.<br><br>Eccoti
+      un esempio di medicazione! Puoi anche scrivere riguardo le tue esperienze.'
       example_name: Prozac
       example_strength: '10 mg'
       example_total: '40 pastiglie'
@@ -266,7 +286,8 @@ it:
         other: '%{count} Membri di %{group}'
     reminder_mailer:
       subject: 'Il tuo raduno "%{meeting_name}" è domani all’ora %{time}!'
-      body: 'Hey, il tuo raduno "%{meeting_name}", si terrà domani all’ora %{time} presso %{location}!'
+      body: 'Hey, il tuo raduno "%{meeting_name}", si terrà domani all’ora
+      %{time} presso %{location}!'
     leave:
       error: 'Non puoi lasciare il raduno, sei l’unico leader.'
       success: 'Hai lasciato %{meeting}'
@@ -275,11 +296,13 @@ it:
       create:
         add: 'Aggiungi a Google Calendar'
         success: 'Riunione aggiunta correttamente a Google Calendar.'
-        error: 'Qualcosa è andato storto durante l''aggiunta della riunione a Google Calendar.'
+        error: 'Qualcosa è andato storto durante l''aggiunta della riunione a
+        Google Calendar.'
       destroy:
         remove: 'Rimuovi da Google Calendar'
         success: 'Riunione rimossa da Google Calendar con successo.'
-        error: 'Qualcosa è andato storto durante la rimozione della riunione da Google Calendar.'
+        error: 'Qualcosa è andato storto durante la rimozione della riunione da
+        Google Calendar.'
   moments:
     singular: Momento
     plural: Momenti
@@ -298,8 +321,13 @@ it:
       viewers_hint: 'Alleati che possono vedere il tuo momento'
       draft_question: 'Vuoi salvare il tuo momento come una bozza?'
     index:
-      subtitle: 'Immergiti nei tuoi momenti - eventi e situazioni che hanno effetto sul tuo stato mentale.'
-      instructions: 'Non hai ancora aggiunto nessun momento.<br><br>Non sai dove cominciare? Non c’è qualcosa che ti è successo oggi di cui ti piacerebbe parlare con qualcuno? Può essere positivo o negativo! Non devi necessariamente parlarne ora - solo quando ti senti pronto! Nel frattempo, eccoti un esempio di momento.'
+      subtitle: 'Immergiti nei tuoi momenti - eventi e situazioni che hanno
+      effetto sul tuo stato mentale.'
+      instructions: 'Non hai ancora aggiunto nessun momento.<br><br>Non sai
+      dove cominciare? Non c’è qualcosa che ti è successo oggi di cui ti
+      piacerebbe parlare con qualcuno? Può essere positivo o negativo! Non devi
+      necessariamente parlarne ora - solo quando ti senti pronto! Nel frattempo,
+      eccoti un esempio di momento.'
       example_name: 'In ansia per il colloquio di domani!'
       example_category: Carriera
     show:
@@ -311,18 +339,24 @@ it:
     new: 'Nuovo stato d’animo'
     example_moods: 'Nervoso, Ansioso, Speranzoso'
     index:
-      subtitle: 'Crea tag che descrivono il tuo stato d’animo, sentimenti ed emozioni.'
+      subtitle: 'Crea tag che descrivono il tuo stato d’animo, sentimenti ed
+      emozioni.'
       premade1_name: Accettante
       premade1_description: 'Essere a proprio agio tra differenze e limitazioni'
       premade2_name: Ambizioso
-      premade2_description: 'Essere ottimisti riguardo il raggiungimento di obiettivi'
+      premade2_description: 'Essere ottimisti riguardo il raggiungimento di
+      obiettivi'
       premade3_name: Curioso
       premade3_description: 'Sentirsi curiosi di fronte all’incertezza'
       premade4_name: Vendicativo
-      premade4_description: 'Non accettare alcuni fatti, sentirsi arrabbiati, vendicativi e/o gelosi'
+      premade4_description: 'Non accettare alcuni fatti, sentirsi arrabbiati,
+      vendicativi e/o gelosi'
       premade5_name: 'Senza Speranza'
-      premade5_description: 'Sentirsi tristi e senza speranza - incapaci di trovare soluzioni'
-      instructions: 'Non hai ancora creato nessuno stato d''animo personalizzato.<br>Puoi anche scegliere uno dei seguenti stati d''animo già pronti e personalizzarli più avanti.'
+      premade5_description: 'Sentirsi tristi e senza speranza - incapaci di
+      trovare soluzioni'
+      instructions: 'Non hai ancora creato nessuno stato d''animo personalizzato.
+      <br>Puoi anche scegliere uno dei seguenti stati d''animo già pronti e
+      personalizzarli più avanti.'
   notifications:
     plural: Notifiche
     none: 'Nessuna notifica.'
@@ -343,43 +377,67 @@ it:
       add_group_leader: '%{name} è diventato il leader di "%{group_name}"'
       remove_group_leader: '%{name} non è un più un leader di "%{group_name}"'
     meeting:
-      new_meeting: '%{name} ha creato il nuovo raduno "%{meeting_name}" per "%{group_name}"'
+      new_meeting: '%{name} ha creato il nuovo raduno "%{meeting_name}" per
+      "%{group_name}"'
       remove_meeting: '%{name} ha rimosso "%{meeting_name}" per "%{group_name}"'
-      update_meeting: '%{name} ha aggiornato "%{meeting_name}" per "%{group_name}"'
+      update_meeting: '%{name} ha aggiornato "%{meeting_name}" per
+      "%{group_name}"'
       join_meeting: '%{name} si è unito a "%{meeting_name}" per "%{group_name}"'
     mailer:
-      comment_on_moment_subject: 'if me | %{user} ha commentato il tuo momento "%{moment}"'
-      comment_on_strategy_subject: 'if me | %{user} ha commentato la tua strategia "%{strategy}"'
-      comment_on_meeting_subject: 'if me | %{user} ha commentato il raduno "%{meeting}" nel gruppo "%{group}"'
-      comment_on_private_body: '<p>Il tuo alleato <strong>%{user}</strong> ha aggiunto un commento privato:</p>'
-      comment_on_body: '<p>Il tuo alleato <strong>%{user}</strong> ha commentato:</p>'
+      comment_on_moment_subject: 'if me | %{user} ha commentato il tuo momento
+      "%{moment}"'
+      comment_on_strategy_subject: 'if me | %{user} ha commentato la tua
+      strategia "%{strategy}"'
+      comment_on_meeting_subject: 'if me | %{user} ha commentato il raduno
+      "%{meeting}" nel gruppo "%{group}"'
+      comment_on_private_body: '<p>Il tuo alleato <strong>%{user}</strong> ha
+      aggiunto un commento privato:</p>'
+      comment_on_body: '<p>Il tuo alleato <strong>%{user}</strong> ha
+      commentato:</p>'
       comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>Per leggerlo, %{link}!</p>'
       new_group_subject: 'if me | %{user} ha creato il gruppo "%{group}"'
-      new_group_body: '<p>%{user} ha creato il gruppo "%{group}":</p><p><i>%{description}</i></p><p>Per saperne di più ed unirti, %{link}!</p><p>Per favore, segui il nostro %{code_of_conduct_link}!</p>'
-      new_group_member_subject: 'if me | %{user} si è unito al tuo gruppo "%{group}"'
-      add_group_leader_you_subject: 'if me | Sei diventato un leader di "%{group}"'
-      add_group_leader_subject: 'if me | %{user} é diventato un leader di " %{group}"'
+      new_group_body: '<p>%{user} ha creato il gruppo "%{group}":</p><p><i>
+      %{description}</i></p><p>Per saperne di più ed unirti, %{link}!</p><p>Per
+      favore, segui il nostro %{code_of_conduct_link}!</p>'
+      new_group_member_subject: 'if me | %{user} si è unito al tuo gruppo
+      "%{group}"'
+      add_group_leader_you_subject: 'if me | Sei diventato un leader di
+      "%{group}"'
+      add_group_leader_subject: 'if me | %{user} é diventato un leader di
+      " %{group}"'
       add_remove_group_leader_body: '<p>Per vedere "%{group}", %{link}!</p>'
-      remove_group_leader_you_subject: 'if me | Non sei più un leader di "%{group}"'
-      remove_group_leader_subject: 'if me | %{user} non è più un leader di "%{group}"'
-      update_meeting_subject: 'if me | %{user} ha aggiornato il raduno "%{meeting}" per "%{group}"'
-      new_meeting_subject: 'if me | %{user} ha creato il nuovo raduno "%{meeting}" per "%{group}"'
-      meeting_body: '<p>%{subject}</p><p><i>%{description}</i></p><p><strong>Luogo:</strong> %{location}</p><p><strong>Data:</strong> %{date}</p><p><strong>Ora:</strong> %{time}</p>'
+      remove_group_leader_you_subject: 'if me | Non sei più un leader di
+      "%{group}"'
+      remove_group_leader_subject: 'if me | %{user} non è più un leader di
+      "%{group}"'
+      update_meeting_subject: 'if me | %{user} ha aggiornato il raduno
+      "%{meeting}" per "%{group}"'
+      new_meeting_subject: 'if me | %{user} ha creato il nuovo raduno
+      "%{meeting}" per "%{group}"'
+      meeting_body: '<p>%{subject}</p><p><i>%{description}</i></p><p><strong>
+      Luogo:</strong> %{location}</p><p><strong>Data:</strong> %{date}</p><p>
+      <strong>Ora:</strong> %{time}</p>'
       new_meeting_link: '<p>Per saperne di più ed unirti, %{link}!</p>'
       update_meeting_link: '<p>Per saperne di più, %{link}!</p>'
-      remove_meeting_subject: 'if me | %{user} ha eliminato "%{meeting}" per "%{group}"'
-      join_meeting_subject: 'if me | %{user} si è unito a "%{meeting}" per "%{group}"'
+      remove_meeting_subject: 'if me | %{user} ha eliminato "%{meeting}" per
+      "%{group}"'
+      join_meeting_subject: 'if me | %{user} si è unito a "%{meeting}" per
+      "%{group}"'
       join_meeting_body: '<p>Per vedere "%{meeting}", %{link}!</p>'
       reported_user_subject: 'if me | Hai segnalato un utente'
-      reported_user_body: 'Lei ha riferito %{reported_name}. Questo sarà esaminato da un amministratore.'
+      reported_user_body: 'Lei ha riferito %{reported_name}. Questo sarà
+      esaminato da un amministratore.'
       reportee_user_subject: 'if me | Sei stato segnalato'
-      reportee_user_body: 'Sei stato segnalato. Questo sarà esaminato da un amministratore.'
+      reportee_user_body: 'Sei stato segnalato. Questo sarà esaminato da un
+      amministratore.'
       add_ban_subject: 'if me | Sei stato escluso'
-      add_ban_body: 'Sei stato bannato per aver violato la nostra %{code_of_conduct_link}.'
+      add_ban_body: 'Sei stato bannato per aver violato la nostra
+      %{code_of_conduct_link}.'
       remove_ban_subject: 'if me | Non sei più bannato'
-      remove_ban_body: 'In precedenza sei stato bannato per aver violato la nostra %{code_of_conduct_link}. Non sei più bannato.'
+      remove_ban_body: 'In precedenza sei stato bannato per aver violato la
+      nostra %{code_of_conduct_link}. Non sei più bannato.'
   omniauth:
     google: Google
     access_denied: 'Accesso Negato'
@@ -387,85 +445,209 @@ it:
     about:
       send_us: noi
       email_us: 'Manda pure una EMail a %{email_link}!'
-      main_message_one: '%{app_name} è una community dedicata a esperienze sulla salute mentale che incoraggia i propri utenti a condividere le loro storie con alleati di cui ci si può fidare.'
-      message_text_one: 'Gli alleati sono le persone con cui interagiamo quotidianamente includendo amici, familiari, colleghi, professori ed esperti di salute mentale.'
-      main_message_two: 'Avere a che fare con la salute mentale è ciò che ci rende umani. Ma per molti di noi, essere aperti al riguardo è spesso molto difficile.'
-      message_text_two: '<p>Non tutti sono terapeuti. Le persone con cui abbiamo a che fare ogni giorno danno forma alle nostre emozioni e comportamenti. Renderli partecipi nel trattamento della salute mentale è la chiave per la cura.</p><p class="subtitle">"Non è solo nella tua testa, ma tutto attorno a te. Possiamo raggiungere una soluzione, insieme."</p><p>La salute mentale è un''esperienza individuale ed unica. Al mondo non esistono due menti uguali! Affrontare il problema richiede l''aiuto di tutti, motivo per cui il progetto è open source.</p>'
+      main_message_one: '%{app_name} è una community dedicata a esperienze
+      sulla salute mentale che incoraggia i propri utenti a condividere le loro
+      storie con alleati di cui ci si può fidare.'
+      message_text_one: 'Gli alleati sono le persone con cui interagiamo
+      quotidianamente includendo amici, familiari, colleghi, professori ed
+      esperti di salute mentale.'
+      main_message_two: 'Avere a che fare con la salute mentale è ciò che ci
+      rende umani. Ma per molti di noi, essere aperti al riguardo è spesso molto
+      difficile.'
+      message_text_two: '<p>Non tutti sono terapeuti. Le persone con cui abbiamo
+      a che fare ogni giorno danno forma alle nostre emozioni e comportamenti.
+      Renderli partecipi nel trattamento della salute mentale è la chiave per
+      la cura.</p><p class="subtitle">"Non è solo nella tua testa, ma tutto
+      attorno a te. Possiamo raggiungere una soluzione, insieme."</p><p>La
+      salute mentale è un''esperienza individuale ed unica. Al mondo non
+      esistono due menti uguali! Affrontare il problema richiede l''aiuto di
+      tutti, motivo per cui il progetto è open source.</p>'
       main_message_three: 'Vuoi finanziarci?'
-      message_text_three: 'La nostra app è un progetto <u>completamente</u> open source. È costruito e mantenuto da volontari dalle differenti storie e abilità.</p><p>Nel 2016, abbiamo ricevuto un contributo comunitario da Linebreak. Nel 2017, abbiamo ricevuto finanziamenti da %{fund_club_link}.</p>Puoi supportarci donando a %{patreon_link}.</p>'
+      message_text_three: 'La nostra app è un progetto <u>completamente</u> open
+      source. È costruito e mantenuto da volontari dalle differenti storie e
+      abilità.</p><p>Nel 2016, abbiamo ricevuto un contributo comunitario da
+      Linebreak. Nel 2017, abbiamo ricevuto finanziamenti da %{fund_club_link}.
+      </p>Puoi supportarci donando a %{patreon_link}.</p>'
       fund_club: 'Fund Club'
     blog:
-      description: 'Se vorresti scrivere per noi, contattaci su %{email}! Diamo il benvenuto anche a contribuzioni anonime.'
+      description: 'Se vorresti scrivere per noi, contattaci su %{email}! Diamo
+      il benvenuto anche a contribuzioni anonime.'
     contribute:
       contributor_avatar_alt: 'Biografia del collaboratore per %{name}'
-      main_message_one: 'if me è costruito e mantenuto da volontari con differenti storie e abilità.'
-      message_text_one: 'Siamo sempre in cerca di nuove idee da chiunque, includendo <strong>appassionati</strong>, <strong>professionisti</strong>, <strong>programmatori</strong>, <strong>traduttori</strong>, e <strong>user experience designers</strong>!<p class="noMarginBottom">Raggiungici tramite %{email_link} e ti ricontatteremo! Potrai unirti al nostro canale slack %{slack_link}, la nostra principale forma di comunicazione. Non dimenticare di forkare la nostra repository github %{github_link}!</p>'
+      main_message_one: 'if me è costruito e mantenuto da volontari con
+      differenti storie e abilità.'
+      message_text_one: 'Siamo sempre in cerca di nuove idee da chiunque,
+      includendo <strong>appassionati</strong>, <strong>professionisti</strong>,
+      <strong>programmatori</strong>, <strong>traduttori</strong>, e <strong>
+      user experience designers</strong>!<p class="noMarginBottom">Raggiungici
+      tramite %{email_link} e ti ricontatteremo! Potrai unirti al nostro canale
+      slack %{slack_link}, la nostra principale forma di comunicazione. Non
+      dimenticare di forkare la nostra repository github %{github_link}!</p>'
       more_contributors: 'Altri fantastici contributori!'
       thanks: 'Grazie mille a'
       slack: Slack
     faq:
       title: 'Domande Frequenti'
       data_access_question: 'Chi ha accesso ai miei dati?'
-      data_access_answer: 'I tuoi dati non sono dati o resi accessibili a terzi. Eliminare il tuo account li rimuoverà completamente.<br><br>I dati degli utenti sono analizzati internamente dall’app in modo da fornire esperienze personalizzate.'
+      data_access_answer: 'I tuoi dati non sono dati o resi accessibili a terzi.
+      Eliminare il tuo account li rimuoverà completamente.<br><br>I dati degli
+      utenti sono analizzati internamente dall’app in modo da fornire esperienze
+      personalizzate.'
       moment_question: 'Co’è un Momento?'
-      moment_answer: 'Un <strong>%{moment}</strong> è un evento o una situazione che ha influenzato il tuo stato mentale. Può essere positivo o negativo. Puoi considerarlo una voce nel tuo diario o uno stato.<br><br>Puoi taggare i tuoi Momenti con Strategie, Categorie e Stati d’animo. Puoi anche specificare chi dei tuoi alleati può vedere e commentare i tuoi Momenti. O renderli visibili solo a te stesso.'
+      moment_answer: 'Un <strong>%{moment}</strong> è un evento o una situazione
+      che ha influenzato il tuo stato mentale. Può essere positivo o negativo.
+      Puoi considerarlo una voce nel tuo diario o uno stato.<br><br>Puoi taggare
+      i tuoi Momenti con Strategie, Categorie e Stati d’animo. Puoi anche
+      specificare chi dei tuoi alleati può vedere e commentare i tuoi Momenti.
+      O renderli visibili solo a te stesso.'
       strategy_question: 'Cos’è una Strategia?'
-      strategy_answer: 'Una <strong>%{strategy}</strong> è un’attività, modo di pensare o modo di agire che ti aiuta a sopportare o concentrarti a migliorare.<br><br>Puoi taggare i Strategie con Categorie. Puoi decidere chi dei tuoi alleati può vederle e chi no. O renderle solo visibili a te stesso. Le strategie condivise saranno visibili a tutti gli alleati, il che significa che puoi collegare i tuoi Ricordi con le tue Strategie!'
+      strategy_answer: 'Una <strong>%{strategy}</strong> è un’attività, modo di
+      pensare o modo di agire che ti aiuta a sopportare o concentrarti a
+      migliorare.<br><br>Puoi taggare i Strategie con Categorie. Puoi decidere
+      chi dei tuoi alleati può vederle e chi no. O renderle solo visibili a te
+      stesso. Le strategie condivise saranno visibili a tutti gli alleati, il
+      che significa che puoi collegare i tuoi Ricordi con le tue Strategie!'
       category_question: 'Cos’è una Categoria?'
-      category_answer: 'Una <strong>%{category}</strong> è una tag che rappresenta le persone, luoghi e cose che sono importanti per te.'
+      category_answer: 'Una <strong>%{category}</strong> è una tag che
+      rappresenta le persone, luoghi e cose che sono importanti per te.'
       mood_question: 'Cos’è uno stato d’Animo?'
-      mood_answer: 'Uno <strong>%{mood}</strong> rappresenta la tua situazione psicologica, i tuoi sentimenti e le tue emozioni.'
+      mood_answer: 'Uno <strong>%{mood}</strong> rappresenta la tua situazione
+      psicologica, i tuoi sentimenti e le tue emozioni.'
       group_question: 'Cos’è un Gruppo?'
-      group_answer: 'Un <strong>%{group}</strong> offre supporto, insegnamento, e discussioni riguardo la salute mentale. Puoi creare i gruppi a cui i tuoi alleati possono unirsi. Ricorda che puoi solo unirti a gruppi che sono stati creati dai tuoi alleati.<br><br>Come leader di un Gruppo, puoi organizzare <strong>Raduni</strong>. I Raduni hanno un luogo e un orario. Il luogo può essere un luogo fisico o un URL di Google Hangout. I raduni permettono anche di commentare. Se sei il leader di un gruppo, non puoi lasciarlo a meno che non rimanga almeno un altro leader. I Gruppi possono solo essere eliminati quando hanno un unico membro.'
+      group_answer: 'Un <strong>%{group}</strong> offre supporto, insegnamento,
+      e discussioni riguardo la salute mentale. Puoi creare i gruppi a cui i
+      tuoi alleati possono unirsi. Ricorda che puoi solo unirti a gruppi che
+      sono stati creati dai tuoi alleati.<br><br>Come leader di un Gruppo, puoi
+      organizzare <strong>Raduni</strong>. I Raduni hanno un luogo e un orario.
+      Il luogo può essere un luogo fisico o un URL di Google Hangout. I raduni
+      permettono anche di commentare. Se sei il leader di un gruppo, non puoi
+      lasciarlo a meno che non rimanga almeno un altro leader. I Gruppi possono
+      solo essere eliminati quando hanno un unico membro.'
       medications_question: 'Come uso la funzionalità "Medicinali"?'
-      medications_answer: 'La funzionalità <strong>%{medications}</strong> ti permette di salvare e catalogare i medicinali di cui hai bisogno, e tenere conto di cose come i sintomi collegati e i dosaggi.'
+      medications_answer: 'La funzionalità <strong>%{medications}</strong> ti
+      permette di salvare e catalogare i medicinali di cui hai bisogno, e tenere
+      conto di cose come i sintomi collegati e i dosaggi.'
       invite_question: 'Come posso invitare i miei cari a utilizzare l’app?'
-      invite_answer: 'Vai sulla pagina <strong>%{allies}</strong> e clicca sul link "Invita i tuoi Cari". A quel punto potrai invitarli via EMail. Quando accetteranno, saranno aggiunti alla lista dei tuoi Alleati.'
-      email_notifications_question: 'Come posso gestire le notifiche che ricevo via EMail?'
-      email_notifications_answer: 'Vai sulla pagina <strong>%{accounts}</strong>. Puoi modificare la tua EMail, password, immagine del profilo e introduzione. Puoi anche eliminare il tuo account. Una volta fatto ciò, tutti i tuoi dati saranno eliminati.'
+      invite_answer: 'Vai sulla pagina <strong>%{allies}</strong> e clicca sul
+      link "Invita i tuoi Cari". A quel punto potrai invitarli via EMail.
+      Quando accetteranno, saranno aggiunti alla lista dei tuoi Alleati.'
+      email_notifications_question: 'Come posso gestire le notifiche che ricevo
+      via EMail?'
+      email_notifications_answer: 'Vai sulla pagina <strong>%{accounts}</strong>.
+      Puoi modificare la tua EMail, password, immagine del profilo e introduzione.
+      Puoi anche eliminare il tuo account. Una volta fatto ciò, tutti i tuoi dati
+      saranno eliminati.'
     home:
       update_pwd_modal:
         title: 'Aggiorna password'
-        body: 'Abbiamo rafforzato le migliori misure di sicurezza per i nostri utenti, per favore %{update_password_link}'
+        body: 'Abbiamo rafforzato le migliori misure di sicurezza per i nostri
+        utenti, per favore %{update_password_link}'
         update_link: 'aggiorna la tua password'
       stories: Storie
       not_signed_in:
-        main_message_one: 'Una migliore comunicazioni con i propri cari porta ad un migliore stato mentale.'
-        message_text_one: 'Abbiamo bisogno l’uno del supporto dell''altro per liberarci dei taboo sociali.'
-        message_one: 'Condividi i tuoi pensieri con i tuoi cari e ricevi il supporto di cui hai bisogno'
+        main_message_one: 'Una migliore comunicazioni con i propri cari porta
+        ad un migliore stato mentale.'
+        message_text_one: 'Abbiamo bisogno l’uno del supporto dell''altro per
+        liberarci dei taboo sociali.'
+        message_one: 'Condividi i tuoi pensieri con i tuoi cari e ricevi il
+        supporto di cui hai bisogno'
         message_two: 'Sii te stesso, libero ma con sicurezza e privacy'
         message_three: 'Documenta i tuoi stati d’animo e medicazioni'
-        main_message_two: 'Siamo open source perché la salute mentale dovrebbe essere aperta a tutti.'
-        message_text_two: 'Siamo <strong>sempre</strong> in cerca del tuo %{help} e %{feedback}!'
+        main_message_two: 'Siamo open source perché la salute mentale dovrebbe
+        essere aperta a tutti.'
+        message_text_two: 'Siamo <strong>sempre</strong> in cerca del tuo
+        %{help} e %{feedback}!'
         help: aiuto
       signed_in_empty:
         main_message_one: 'Ciao %{name}!'
-        message_text_one: 'Ecco come puoi cominciare a condividere i tuoi pensieri.'
+        message_text_one: 'Ecco come puoi cominciare a condividere i tuoi
+        pensieri.'
         main_message_two: 'Parlaci di te.'
-        cell_one: 'Personalizza il tuo %{profile} - aggiungi un’introduzione ed un’immagine del profilo<br>Aggiungi uno %{moods} personalizzato per condividere le tue emozioni<br>Aggiungi %{allies} - amici, famiglia, chiunque reputi importante'
+        cell_one: 'Personalizza il tuo %{profile} - aggiungi un’introduzione ed
+        un’immagine del profilo<br>Aggiungi uno %{moods} personalizzato per
+        condividere le tue emozioni<br>Aggiungi %{allies} - amici, famiglia,
+        chiunque reputi importante'
         main_message_three: 'Racconta i tuoi pensieri.'
-        cell_two: 'Crea %{categories} personalizzate per organizzare al meglio i tuoi momenti<br>Parla dei %{moments} - gli eventi ed emozioni che influenzano il tuo stato d’animo'
+        cell_two: 'Crea %{categories} personalizzate per organizzare al meglio
+        i tuoi momenti<br>Parla dei %{moments} - gli eventi ed emozioni che
+        influenzano il tuo stato d’animo'
         main_message_four: 'Prenditi cura di te stesso.'
-        cell_three: '%{strategize} il tuo piano per prenderti cura di te stesso!<br>Stai prendendo %{medications}? Tienine traccia e ricevi delle EMail di notifica per non dimenticare nulla!<br>Hai bisogno di aiuto? Unisciti o crea un %{group} per aprirti'
+        cell_three: '%{strategize} il tuo piano per prenderti cura di te stesso!
+        <br>Stai prendendo %{medications}? Tienine traccia e ricevi delle EMail
+        di notifica per non dimenticare nulla!<br>Hai bisogno di aiuto?
+        Unisciti o crea un %{group} per aprirti'
         main_message_five: 'Hai dubbi o preoccupazioni?'
-        message_text_three: 'Dà un’occhiata alla nostra pagina %{faq} o raggiungici via EMail su %{email_link}!'
+        message_text_three: 'Dà un’occhiata alla nostra pagina %{faq} o
+        raggiungici via EMail su %{email_link}!'
         strategize: 'Organizza una Strategia'
     partners:
-      description: 'Queste sono le incredibili organizzaioni che ci ispirano e con cui abbiamo avuto il privilegio di collaborare. Ci piacerebbe lavorare anche con la tua organizzazione, inviaci una EMail su %{email}.'
+      description: 'Queste sono le incredibili organizzaioni che ci ispirano e
+      con cui abbiamo avuto il privilegio di collaborare. Ci piacerebbe
+      lavorare anche con la tua organizzazione, inviaci una EMail su %{email}.'
     privacy:
       summary: Riassunto
-      summary_description: '<p>Questa informativa sulla privacy è valida su questo sito e determina la privacy degli utenti che decidono di utilizzarlo.</p><p>Dati i contenuti sensibili del sito, la privacy è un problema di vitale importanza per noi. L’informativa si pone l’obiettivo di delineare il modo in cui le informazioni vengono raccolte, per cosa sono utilizzate, e come vengono protette.</p>'
+      summary_description: '<p>Questa informativa sulla privacy è valida su
+      questo sito e determina la privacy degli utenti che decidono di
+      utilizzarlo.</p><p>Dati i contenuti sensibili del sito, la privacy è un
+      problema di vitale importanza per noi. L’informativa si pone l’obiettivo
+      di delineare il modo in cui le informazioni vengono raccolte, per cosa
+      sono utilizzate, e come vengono protette.</p>'
       user_data: 'Dati degli Utenti'
-      user_data_description: '<p>Gli utenti ci forniscono informazioni personali e fatti riguardanti la loro vita (nell’area Ricordi), aneddoti e medicinali. Le informazioni nei Momenti vengono esclusivamente condivise con gli utenti specificati dall’autore. I dati nella funzionalità Medicinali sono invece visualizzabili esclusivamente dall’utente stesso. Entrambe queste tipologie di dati non saranno utilizzate per nessun altro scopo né tantomeno forniti a terze parti.</p><p>L’applicazione contiene inoltre dati riguardanti gruppi di supporto e strategie per affrontare le sfide poste dalla vita. Questi dati sono solo forniti agli utenti che hanno il permesso di visualizzarli. I dati contenuti in queste due aree potrebbero essere mostrati pubblicamente in modo da dare un’idea dell’applicazione ad utenti attuali o futuri. L’identità degli utenti a cui appartengono saranno però mantenute private.</p>'
+      user_data_description: '<p>Gli utenti ci forniscono informazioni personali
+      e fatti riguardanti la loro vita (nell’area Ricordi), aneddoti e
+      medicinali. Le informazioni nei Momenti vengono esclusivamente condivise
+      con gli utenti specificati dall’autore. I dati nella funzionalità
+      Medicinali sono invece visualizzabili esclusivamente dall’utente stesso.
+      Entrambe queste tipologie di dati non saranno utilizzate per nessun altro
+      scopo né tantomeno forniti a terze parti.</p><p>L’applicazione contiene
+      inoltre dati riguardanti gruppi di supporto e strategie per affrontare le
+      sfide poste dalla vita. Questi dati sono solo forniti agli utenti che
+      hanno il permesso di visualizzarli. I dati contenuti in queste due aree
+      potrebbero essere mostrati pubblicamente in modo da dare un’idea
+      dell’applicazione ad utenti attuali o futuri. L’identità degli utenti a
+      cui appartengono saranno però mantenute private.</p>'
       cookies: 'Utilizzo di Cookie'
-      cookies_description: '<p>Questo sito utilizza cookie al fine di fornire l’esperienza migliore possibile ai propri utenti. Quando possibile il sito fornisce un sistema di controllo cookie permettendo all’utente di abilitare o disabilitare l’utiizzo dei cookie alla prima visita / visita da un nuovo dispositivo.</p><p>I cookie sono piccoli file salvati sul dispositivo dell’utente che raccolgono e salvano informazioni riguardanti le interazioni e l’utilizzo generale del sito da parte dell’utente. Ciò permette al sito di fornire un’esperienza personalizzata ad ogni utente in base alle sue preferenze.</p><p>È necessario notare che nel caso in cui l’utente ritenga necessario negare la raccolta e salvataggio dei cookie da parte del sito sarebbe preferibile entrare nelle impostazioni del browser e bloccare direttamente i cookie per questo sito e gli affiliati.</p><p>Questo sito utilizza software di tracking per capire meglio l’utenza. Questo servizio è offerto da Google Analytics, che utilizza i cookie per distinguere gli utenti. Il software salverà un cookie sul tuo dispositivo per seguire e monitorare il tuo utilizzo del sito, ma non salverà alcun tipo di dato personale. Puoi leggere la %{google_privacy_policy} di Google per maggiori informazioni.</p>'
+      cookies_description: '<p>Questo sito utilizza cookie al fine di fornire
+      l’esperienza migliore possibile ai propri utenti. Quando possibile il
+      sito fornisce un sistema di controllo cookie permettendo all’utente di
+      abilitare o disabilitare l’utiizzo dei cookie alla prima visita / visita
+      da un nuovo dispositivo.</p><p>I cookie sono piccoli file salvati sul
+      dispositivo dell’utente che raccolgono e salvano informazioni riguardanti
+      le interazioni e l’utilizzo generale del sito da parte dell’utente. Ciò
+      permette al sito di fornire un’esperienza personalizzata ad ogni utente
+      in base alle sue preferenze.</p><p>È necessario notare che nel caso in
+      cui l’utente ritenga necessario negare la raccolta e salvataggio dei
+      cookie da parte del sito sarebbe preferibile entrare nelle impostazioni
+      del browser e bloccare direttamente i cookie per questo sito e gli
+      affiliati.</p><p>Questo sito utilizza software di tracking per capire
+      meglio l’utenza. Questo servizio è offerto da Google Analytics, che
+      utilizza i cookie per distinguere gli utenti. Il software salverà un
+      cookie sul tuo dispositivo per seguire e monitorare il tuo utilizzo del
+      sito, ma non salverà alcun tipo di dato personale. Puoi leggere la
+      %{google_privacy_policy} di Google per maggiori informazioni.</p>'
       social_media: 'Piattaforme di Social Media'
-      social_media_description: '<p>Comunicazioni ed azioni effettuare su piattaforme social esterne a questo sito sono soggette ai Termini e Condizioni delle stesse.</p><p>È importante utilizare con cautela tali piattaforme, tenendo conto dei rispettivi comportamenti riguardo la privacy. Questo sito non chiederà mai informazioni personali riguardo piattaforme social: Gli utenti che intendono discutere di tali informazioni sono invitati a utilizzare le principali forme di comunicazione: Telefono ed EMail.</p><p>Il sito potrebbe utilizzare tasti di condivisione social per facilitare appunto la condivisione di contenuti interessanti sulle stesse. È importante tener conto prima di utilizzare questa funzionalità che la piattaforma social potrebbe monitorare e salvare la richiesta o mostrarla sul tuo account, in base alla funzionalità del canale social.</p>'
+      social_media_description: '<p>Comunicazioni ed azioni effettuare su
+      piattaforme social esterne a questo sito sono soggette ai Termini e
+      Condizioni delle stesse.</p><p>È importante utilizare con cautela tali
+      piattaforme, tenendo conto dei rispettivi comportamenti riguardo la privacy.
+      Questo sito non chiederà mai informazioni personali riguardo piattaforme
+      social: Gli utenti che intendono discutere di tali informazioni sono
+      invitati a utilizzare le principali forme di comunicazione: Telefono ed
+      EMail.</p><p>Il sito potrebbe utilizzare tasti di condivisione social per
+      facilitare appunto la condivisione di contenuti interessanti sulle stesse.
+      È importante tener conto prima di utilizzare questa funzionalità che la
+      piattaforma social potrebbe monitorare e salvare la richiesta o mostrarla
+      sul tuo account, in base alla funzionalità del canale social.</p>'
       contact: Contattaci
-      contact_description: '<p>Per favore, inviaci una EMail su %{email_link} sei hai domande o c’è qualcosa che ti preoccupa.</p><p class="noMarginBottom"><em>Informativa sulla Privacy adattata da %{jamie_king_media}.</em></p>'
+      contact_description: '<p>Per favore, inviaci una EMail su %{email_link}
+      sei hai domande o c’è qualcosa che ti preoccupa.</p>
+      <p class="noMarginBottom"><em>Informativa sulla Privacy adattata da
+      %{jamie_king_media}.</em></p>'
     resources:
-      description: 'Questa è la nostra lista curata di risorse per la salute mentale, che include comunità, strumenti educativi, hotline e servizi.'
-      emergency: 'Se tu o qualcuno che conosci state vivendo un''emergenza per la salute mentale, contattate il più presto possibile.'
+      description: 'Questa è la nostra lista curata di risorse per la salute
+      mentale, che include comunità, strumenti educativi, hotline e servizi.'
+      emergency: 'Se tu o qualcuno che conosci state vivendo un''emergenza per
+      la salute mentale, contattate il più presto possibile.'
       tags:
         communities: community
         education: educazione
@@ -621,9 +803,12 @@ it:
     meeting_info:
       attending: 'Parteciperai. Cambiato idea?'
       not_attending: 'Non parteciperai. %{join}'
-      not_attending_one_spot_left: 'Non parteciperai. Rimane solo un posto! %{join}'
-      not_attending_spots_left: 'Non parteciperai. Rimangono %{number} posti! %{join}'
-      not_attending_no_spots_left: 'Non parteciperai. Non è rimasto nessun posto.'
+      not_attending_one_spot_left: 'Non parteciperai. Rimane solo un posto!
+      %{join}'
+      not_attending_spots_left: 'Non parteciperai. Rimangono %{number} posti!
+      %{join}'
+      not_attending_no_spots_left: 'Non parteciperai. Non è rimasto nessun
+      posto.'
     quick_create:
       new: 'Nuovo %{name}'
   strategies:
@@ -636,35 +821,73 @@ it:
       describe: 'Descrivi la Strategia.'
       strategies_label: 'Quali strategie ti aiuterebbero a porti in questo modo?'
       name_hint: 'Qualsiasi attività, modo di fare o cura di sé che ti è d’aiuto'
-      viewers_hint: 'Alleati che possono visualizzare la tua strategia e taggarci i propri momenti'
-      daily_reminder_hint: 'Ti ricorderemo via EMail ogni giorno di utilizzare questa strategia.'
+      viewers_hint: 'Alleati che possono visualizzare la tua strategia e
+      taggarci i propri momenti'
+      daily_reminder_hint: 'Ti ricorderemo via EMail ogni giorno di utilizzare
+      questa strategia.'
       draft_question: 'Vuoi salvare la tua strategia come bozza?'
     label:
       one: 'Strategia:'
       other: 'Strategie:'
     index:
-      subtitle: 'Organizza la strategia adatta a raggiungere il tuo stato d’animo desiderato.'
+      subtitle: 'Organizza la strategia adatta a raggiungere il tuo stato
+      d’animo desiderato.'
       premade1_name: 'Cinque minuti di meditazione'
-      premade1_description: '1) <b>Trova una posizione comoda e rilassata.</b> Potresti essere su una sedia o su un cuscino sul pavimento. Mantieni la schiena dritta, ma non troppo. Le braccia ovunque ti sia comodo. La lingua sul tetto della bocca o ovunque sia più comodo.<br><br>2) <b>Rilassa il corpo.</b> Prova ad acquistare consapevolezza della forma del tuo corpo, il suo peso. Rilassati e lascia che la curiosità sul tuo corpo venga a galla, rimanendo seduto - le sensazioni, il tocco, il contatto con la sedia o il pavimento. Rilascia ogni tipo di tensione. Respira e basta.<br><br>3) <b>Da'' ritmo al tuo respiro.</b> Senti il flusso naturale d''inspirazione ed espirazione. Non devi fare nulla di particolare riguardo il tuo modo di respirare. Né lungo, né corto. Naturale. Fa'' caso a dove senti il respiro. Potrebbe essere nel tuo ventre. Potrebbe essere nel tuo petto, nella gola o nelle narici. Cerca di sentire ogni sensazione del respiro, un respiro alla volta. Alla fine di uno, comincia quello dopo.<br><br>4) <b>Sii gentile alla tua mente vagante.</b> Facendo questo, potresti notare che la tua mente comincia a vagare. Potresti cominciare a pensare riguardo altre cose. Se succede, non è un problema. È naturale. Semplicemente, fa'' caso al fatto che la tua mente stia vagando liberamente.Puoi pronunciare le parole "pensando" o ]"vagando" a mente, dolcemente. Riporta poi gentilmente l''attenzione sul tuo respiro.<br><br>5) <b>Rimani così per cinque minuti.</b> Ascolta il tuo respiro, in silenzio. Di tanto in tanto, ti perderai nei tuoi pensieri, tornerai poi alla respirazione.<br><br> 6) <b>È importante prenderti cura di te prima che sia troppo tardi.</b> Passati alcuni minuti, riacquista la consapevolezza del tuo intero corpo, seduto qui. Lasciati rilassare ancora un po'', e poi apprezzati per aver completato questa pratica oggi.<br><br><i>Preso da http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
-      instructions: 'Non hai ancora creato nessuna strategia personalizzata.<br>Puoi anche scegliere una delle seguenti strategie già pronte e personalizzare più avanti.'
+      premade1_description: '1) <b>Trova una posizione comoda e rilassata.</b>
+      Potresti essere su una sedia o su un cuscino sul pavimento. Mantieni la
+      schiena dritta, ma non troppo. Le braccia ovunque ti sia comodo. La lingua
+      sul tetto della bocca o ovunque sia più comodo.<br><br>2) <b>Rilassa il
+      corpo.</b> Prova ad acquistare consapevolezza della forma del tuo corpo,
+      il suo peso. Rilassati e lascia che la curiosità sul tuo corpo venga a
+      galla, rimanendo seduto - le sensazioni, il tocco, il contatto con la
+      sedia o il pavimento. Rilascia ogni tipo di tensione. Respira e basta.
+      <br><br>3) <b>Da'' ritmo al tuo respiro.</b> Senti il flusso naturale
+      d''inspirazione ed espirazione. Non devi fare nulla di particolare riguardo
+      il tuo modo di respirare. Né lungo, né corto. Naturale. Fa'' caso a dove
+      senti il respiro. Potrebbe essere nel tuo ventre. Potrebbe essere nel tuo
+      petto, nella gola o nelle narici. Cerca di sentire ogni sensazione del
+      respiro, un respiro alla volta. Alla fine di uno, comincia quello dopo.
+      <br><br>4) <b>Sii gentile alla tua mente vagante.</b> Facendo questo,
+      potresti notare che la tua mente comincia a vagare. Potresti cominciare a
+      pensare riguardo altre cose. Se succede, non è un problema. È naturale.
+      Semplicemente, fa'' caso al fatto che la tua mente stia vagando
+      liberamente.Puoi pronunciare le parole "pensando" o ]"vagando" a mente,
+      dolcemente. Riporta poi gentilmente l''attenzione sul tuo respiro.<br><br>
+      5) <b>Rimani così per cinque minuti.</b> Ascolta il tuo respiro, in
+      silenzio. Di tanto in tanto, ti perderai nei tuoi pensieri, tornerai poi
+      alla respirazione.<br><br> 6) <b>È importante prenderti cura di te prima
+      che sia troppo tardi.</b> Passati alcuni minuti, riacquista la
+      consapevolezza del tuo intero corpo, seduto qui. Lasciati rilassare ancora
+      un po'', e poi apprezzati per aver completato questa pratica oggi.<br><br>
+      <i>Preso da http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
+      instructions: 'Non hai ancora creato nessuna strategia personalizzata.
+      <br>Puoi anche scegliere una delle seguenti strategie già pronte e
+      personalizzare più avanti.'
     reminder_mailer:
       subject: 'Non dimenticare di fare %{name}!'
       body: 'Hey, non dimenticare di fare %{name}!'
   stats:
-    total_moments: 'Hai creato un <strong>totale</strong> di <strong>%{count}</strong> momenti.'
-    total_moment: 'Hai creato un <strong>totale</strong> di <strong>%{count}</strong> momento.'
-    monthly_moments: 'Questo <strong>mese</strong> hai creato <strong>%{count}</strong> momenti.'
-    monthly_moment: 'Questo <strong>mese</strong> hai creato <strong>%{count}</strong> momento.'
+    total_moments: 'Hai creato un <strong>totale</strong> di <strong>%{count}
+    </strong> momenti.'
+    total_moment: 'Hai creato un <strong>totale</strong> di <strong>%{count}
+    </strong> momento.'
+    monthly_moments: 'Questo <strong>mese</strong> hai creato <strong>%{count}
+    </strong> momenti.'
+    monthly_moment: 'Questo <strong>mese</strong> hai creato <strong>%{count}
+    </strong> momento.'
   warnings:
     no_description: 'Non hai specificato una descrizione!'
-    yes_description: 'Scriverne una può aiutare te e gli altri a capire meglio in dettaglio'
+    yes_description: 'Scriverne una può aiutare te e gli altri a capire meglio
+    in dettaglio'
   mailers:
     accepted_ally_request:
       subject: 'if me | %{ally_name} ha accettato la tua richiesta di alleanza!'
-      message: '<p>Congratulazioni! Puoi ora condividere Momenti, Strategie e molto altro con %{ally_name}.</p>'
+      message: '<p>Congratulazioni! Puoi ora condividere Momenti, Strategie e
+      molto altro con %{ally_name}.</p>'
     new_ally_request:
       subject: 'if me | %{ally_name} ti ha inviato una richiesta di alleanza!'
-      message: '<p>Per favore <a href="%{allies_url}">logga</a> per accettarla o rifiutarla!</p>'
+      message: '<p>Per favore <a href="%{allies_url}">logga</a> per accettarla
+      o rifiutarla!</p>'
   devise:
     password: Password
     new_password: 'Nuova password'
@@ -677,15 +900,20 @@ it:
       resend_confirmation: 'Inviami di nuovo le istruzioni'
     mailer:
       confirmation:
-        link_instructions: 'Puoi convalidare l’EMail associata al tuo account con il link sottostante'
+        link_instructions: 'Puoi convalidare l’EMail associata al tuo account
+        con il link sottostante'
         link_text: 'Conferma l’account'
       reset_password:
-        link_instructions: 'Qualcuno ha richiesto un link per resettare la tua password. Puoi farlo attraverso il link sottostante.'
+        link_instructions: 'Qualcuno ha richiesto un link per resettare la tua
+        password. Puoi farlo attraverso il link sottostante.'
         ignore: 'Se non sei stato tu, ignora pure questa EMail.'
-        info: 'La tua password rimarrà invariata finché non aprirai il link e ne creerai una nuova.'
+        info: 'La tua password rimarrà invariata finché non aprirai il link e
+        ne creerai una nuova.'
       unlock:
-        info: 'Il tuo account è stato momentaneamente bloccato in seguito a svariati tentativi falliti di effettuare il login.'
-        link_instructions: 'Clicca sul link sottostante per sbloccare il tuo account'
+        info: 'Il tuo account è stato momentaneamente bloccato in seguito a
+        svariati tentativi falliti di effettuare il login.'
+        link_instructions: 'Clicca sul link sottostante per sbloccare il tuo
+        account'
         link_text: 'Sblocca il mio account'
     passwords:
       edit:
@@ -698,10 +926,14 @@ it:
       ally_notify_text: 'Richieste di alleanza, nuove ed accettate'
       group_notify_text: 'Aggiornamenti sui gruppi'
       meeting_notify_text: 'Aggiornamenti sui raduni'
-      google_auth1: 'Se non vuoi più effettuare l’autenticazione tramite Google, per favore inserisci una nuova EMail e password.'
-      google_auth2: 'Avendo effettuato l’autenticazione tramite Google, non devi inserire la password.<br>Se non vuoi che sia così, per favore specifica una nuova EMail e password.'
+      google_auth1: 'Se non vuoi più effettuare l’autenticazione tramite Google,
+      per favore inserisci una nuova EMail e password.'
+      google_auth2: 'Avendo effettuato l’autenticazione tramite Google, non devi
+      inserire la password.<br>Se non vuoi che sia così, per favore specifica
+      una nuova EMail e password.'
       password_errors:
-        format: 'dovrebbe contenere da 8 a 128 caratteri, inclusi 1 maiuscolo, 1 minuscolo, 1 carattere e 1 carattere speciale.'
+        format: 'dovrebbe contenere da 8 a 128 caratteri, inclusi 1 maiuscolo,
+        1 minuscolo, 1 carattere e 1 carattere speciale.'
         used: 'deve essere diverso dalle ultime tre password.'
       placeholders:
         repeat_password: 'Ripeti la password'
@@ -714,17 +946,21 @@ it:
           update: Modifica
         placeholders:
           optional: Opzionale
-          about: 'Presentati! Perché sei qui e qual’è il tuo obiettivo? Tieni conto che la tua introduzione sarà visibile agli utenti che ti cercano'
+          about: 'Presentati! Perché sei qui e qual’è il tuo obiettivo? Tieni
+          conto che la tua introduzione sarà visibile agli utenti che ti cercano'
           required: Obbligatorio
         delete:
           text: '<strong>if me</strong> non sta funzionando?'
           button: 'Elimina permanentemente il mio account'
-          confirm: 'Sei sicuro? Perderai tutti i tuoi dati. Ma puoi sempre registrarti di nuovo!'
+          confirm: 'Sei sicuro? Perderai tutti i tuoi dati. Ma puoi sempre
+          registrarti di nuovo!'
       new:
-        subtitle: 'Comincia a raccontare i tuoi eventi e mantenere la tua salute in un posto sano e privato'
+        subtitle: 'Comincia a raccontare i tuoi eventi e mantenere la tua
+        salute in un posto sano e privato'
         label: 'Alcuni dettagli'
     sessions:
-      subtitle: 'Bentornato, non vediamo l’ora di aiutarti ad affrontare questa giornata!'
+      subtitle: 'Bentornato, non vediamo l’ora di aiutarti ad affrontare questa
+      giornata!'
     shared:
       sign_in_google: 'Effettua il login con Google'
       sign_up_google: 'Registrati con Google'
