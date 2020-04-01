@@ -826,5 +826,17 @@
     "link": "https://yourpersonality.net/attachment/",
     "tags": ["attachment", "relationships", "quiz", "free", "mood_tracking"],
     "languages": ["en"]
+  },
+  {
+    "name": "Brightmind",
+    "link": "https://www.brightmind.com/",
+    "tags": ["meditation", "paid", "android", "ios"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Unwinding Anxiety",
+    "link": "https://www.unwindinganxiety.com/",
+    "tags": ["anxiety", "support_groups", "coaching", "journaling", "paid", "android", "ios"],
+    "languages": ["en"]
   }
 ]
