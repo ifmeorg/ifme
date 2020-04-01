@@ -55,7 +55,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :uid,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
-         omniauth_providers: %i[google_oauth2 facebook]
+         omniauth_providers: [:google_oauth2 facebook]
 
   mount_uploader :avatar, AvatarUploader
 
@@ -81,24 +81,22 @@ class User < ApplicationRecord
   validates :locale, inclusion: {
     in: Rails.application.config.i18n.available_locales.map(&:to_s).push(nil)
   }
-  validate :password_complexity, unless: :oauth_provided?
+  validate :password_complexity
 
   def active_for_authentication?
     super && !banned
   end
 
-  def self.find_for_google_oauth2(auth)
-    user = find_or_initialize_by(email: auth.info.email)
-    user.name ||= auth.info.name
-    user.password ||= Devise.friendly_token[0, 20]
-    update_access_token_fields(user: user, access_token: auth)
-    user
-  end
-
   def self.from_omniauth(auth)
-    where(provider: auth.provider,
-          uid: auth.provider + auth.uid).first_or_create do |user|
-      UserBuilder::Builder.build(user: user, auth: auth)
+    first_or_create(email: auth.info.email).tap do |u|
+      u.provider = auth.provider
+      u.name = auth.info.name
+      u.uid = auth.uid
+      u.password = Devise.friendly_token[0, 20]
+      u.token = auth.credentials.token
+      u.refresh_token = auth.credentials.refresh_token
+      u.access_expires_at = Time.zone.at(auth.credentials.expires_at)
+      u.save!
     end
   end
 
@@ -107,7 +105,7 @@ class User < ApplicationRecord
   end
 
   def google_oauth2_enabled?
-    token.present?
+    token.present? && google_provider?
   end
 
   def remove_leading_trailing_whitespace
@@ -145,11 +143,11 @@ class User < ApplicationRecord
     )
   end
 
-  private
-
-  def oauth_provided?
-    provider.present? || token.present?
+  def google_provider?
+    provider == 'google_oauth2'
   end
+
+  private
 
   def google_access_token_expired?
     !access_expires_at || Time.zone.now > access_expires_at
