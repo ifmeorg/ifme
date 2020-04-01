@@ -81,23 +81,26 @@ class User < ApplicationRecord
   validates :locale, inclusion: {
     in: Rails.application.config.i18n.available_locales.map(&:to_s).push(nil)
   }
-  validate :password_complexity
+  validate :password_complexity, unless: :oauth_provided?
 
   def active_for_authentication?
     super && !banned
   end
 
   def self.from_omniauth(auth)
-    first_or_create(email: auth.info.email).tap do |u|
-      u.provider = auth.provider
-      u.name = auth.info.name
-      u.uid = auth.uid
-      u.password = Devise.friendly_token[0, 20]
-      u.token = auth.credentials.token
-      u.refresh_token = auth.credentials.refresh_token
-      u.access_expires_at = Time.zone.at(auth.credentials.expires_at)
-      u.save!
-    end
+  user = find_or_initialize_by(email: access_token.info.email)
+  user.name ||= access_token.info.name
+  user.password ||= Devise.friendly_token[0, 20]
+  update_access_token_fields(user: user, access_token: access_token)
+  user
+  user.provider = auth.provider
+  user.name = auth.info.name
+  user.user_id = auth.user_id
+  user.password = Devise.friendly_token[0, 20]
+  user.token = auth.credentials.token
+  user.refresh_token = auth.credentials.refresh_token
+  user.access_expires_at = Time.zone.at(auth.credentials.expires_at)
+  user.save!
   end
 
   def google_access_token
@@ -105,7 +108,7 @@ class User < ApplicationRecord
   end
 
   def google_oauth2_enabled?
-    token.present? && google_provider?
+    token.present?
   end
 
   def remove_leading_trailing_whitespace
@@ -143,11 +146,15 @@ class User < ApplicationRecord
     )
   end
 
-  def google_provider?
-    provider == 'google_oauth2'
-  end
-
   private
+
+  def oauth_provided?
+<<<<<<< HEAD
+  provider.present? || token.present?
+=======
+    provider.present? || token.present?
+>>>>>>> parent of c74980a... changed user.rb
+  end
 
   def google_access_token_expired?
     !access_expires_at || Time.zone.now > access_expires_at
