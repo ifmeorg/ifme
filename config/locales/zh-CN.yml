@@ -426,7 +426,7 @@ zh-CN:
       contributor_avatar_alt: '的贡献者传记 %{name}'
       main_message_one: '如果我是由具有不同背景和技能的志愿者构建和维护的。'
       message_text_one: '我们一直在寻找每个人的想法, 包含<strong>精神卫生倡导者
-      </strong>,<strong>卫生专业人员</strong>,<strong>软件开发人员</strong>,
+      </strong>,<strong>卫生专业人员</strong>, <strong>软件开发人员</strong>,
       <strong>译者</strong>, 和<strong>用户体验设计师</strong>!
       <p class="noMarginBottom">请 %{email_link} 我们会和你联系!
       您将被邀请参加我们的%{slack_link} 页, 我们的主要沟通工具. 确保将我们的存储库分叉到
