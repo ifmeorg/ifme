@@ -838,5 +838,17 @@
     "link": "https://www.unwindinganxiety.com/",
     "tags": ["anxiety", "support_groups", "coaching", "journaling", "paid", "android", "ios"],
     "languages": ["en"]
+  },
+  {
+    "name": "Thrive Global",
+    "link": "https://thriveglobal.com/",
+    "tags": ["blog", "stress", "workplace"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Ten Percent Happier",
+    "link": "https://www.tenpercent.com/",
+    "tags": ["meditation", "paid", "android", "ios", "podcast"],
+    "languages": ["en"]
   }
 ]
