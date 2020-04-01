@@ -25,15 +25,11 @@
 
 <div class="messageBody">
   <%= t('pages.contribute.thanks') %>
-  <br>
-
-    <div class="marginTop">
-      <div class="gridThreeAlways">
-      <% @contributors.each do |c| %>
-        <div class="gridThreeAlwaysItem">
-          <%= link_to c['name'], c['link'], target: 'blank' %>
-        </div>
-      <% end %>
+  <div class="gridThreeAlways marginTop">
+    <% @contributors.each do |c| %>
+      <div class="gridThreeAlwaysItem">
+        <%= link_to c['name'], c['link'], target: 'blank' %>
       </div>
-    </div>
+    <% end %>
+  </div>
 </div>
