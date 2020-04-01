@@ -149,11 +149,8 @@ class User < ApplicationRecord
   private
 
   def oauth_provided?
-<<<<<<< HEAD
-  provider.present? || token.present?
-=======
     provider.present? || token.present?
->>>>>>> parent of c74980a... changed user.rb
+    provider.present? || token.present?
   end
 
   def google_access_token_expired?
