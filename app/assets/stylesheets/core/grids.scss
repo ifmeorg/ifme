@@ -37,8 +37,10 @@
 
 @mixin gridThreeItemAlways() {
   @include gridThreeItem();
-  display: flex;
-  flex: 33%;
+  @media screen and (max-width: $medium) {
+    width: calc(33% - 20px);
+  	padding: 0;
+  }
 }
 
 @mixin gridItemBox() {
