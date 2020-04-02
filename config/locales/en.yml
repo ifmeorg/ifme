@@ -937,6 +937,7 @@ en:
                         We'll email you a daily reminder to perform this
                         strategy
       draft_question: 'Do you want to save your strategy as draft?'
+      mark_as_finished: 'Mark as finished'
     label:
       one: 'Strategy:'
       other: 'Strategies:'

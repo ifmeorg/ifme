@@ -123,7 +123,8 @@ class StrategiesController < ApplicationController
 
   def quick_create_params(viewers)
     { user_id: current_user.id, comment: true, viewers: viewers, visible: true,
-      description: params[:strategy][:description], published_at: Time.zone.now,
-      category: params[:strategy][:category], name: params[:strategy][:name] }
+      finished: params[:strategy][:finished], description: params[:strategy][:description],
+      published_at: Time.zone.now, category: params[:strategy][:category],
+      name: params[:strategy][:name] }
   end
 end

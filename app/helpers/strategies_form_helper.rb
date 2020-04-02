@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# frozen_string_literal: true
 
 module StrategiesFormHelper
   include CategoriesHelper
@@ -69,6 +70,15 @@ module StrategiesFormHelper
       label: t('comment.allow_comments'),
       info: t('comment.hint')
     )
+  end
+
+  def build_strategy_finished(strategy)
+    build_switch_input(true, strategy.finished, false)
+      .merge(
+        id: 'strategy_finished',
+        name: 'strategy[finished]',
+        label: t('strategies.form.mark_as_finished')
+      )
   end
 
   def build_strategy_publishing(strategy)
