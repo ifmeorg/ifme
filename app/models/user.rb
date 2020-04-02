@@ -82,7 +82,8 @@ class User < ApplicationRecord
     in: Rails.application.config.i18n.available_locales.map(&:to_s).push(nil)
   }
 
-  # add unless statement here instead of the concern, to make it more readable and composable
+  # add unless statement here instead of the concern for readability
+  # TODO: refactor the Password validator concern
   validate :password_complexity, unless: :oauth_provided?
 
   def active_for_authentication?
