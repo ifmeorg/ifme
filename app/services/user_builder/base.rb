@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 module UserBuilder
   class Base
-    def self.call(user: user, auth: auth)
+    def self.call(user:, auth:)
       new(user: user, auth: auth)
     end
 
-    def initialize(user: user, auth: auth)
+    def initialize(user:, auth:)
       user.tap do
         user.provider = auth.provider
         user.name     = auth.info.name

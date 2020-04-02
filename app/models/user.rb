@@ -102,7 +102,8 @@ class User < ApplicationRecord
 
   # to refactor, could be single oauth method to begin with
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.provider + auth.uid).first_or_create do |user|
+    where(provider: auth.provider,
+          uid: auth.provider + auth.uid).first_or_create do |user|
       UserBuilder::Builder.build(user: user, auth: auth)
     end
   end
