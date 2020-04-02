@@ -85,8 +85,8 @@ group :development, :test do
 
   gem 'bullet'
 
-  gem 'webdrivers'
   gem 'awesome_print'
+  gem 'webdrivers'
 end
 
 group :test do

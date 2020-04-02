@@ -1,9 +1,10 @@
+# frozen_string_literal: true
 module UserBuilder
   class Builder
     # Adds new omni auth providers here
     SERVICE = {
       # 'google_oauth' => GoogleOauth2
-    }
+    }.freeze
 
     # UserBuilder::Builder.build(user: user, provider: provider, auth: auth)
     def self.build(user:, auth:)

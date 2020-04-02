@@ -1,6 +1,6 @@
+# frozen_string_literal: true
 module UserBuilder
   class Base
-
     def self.call(user: user, auth: auth)
       new(user: user, auth: auth)
     end
@@ -11,7 +11,7 @@ module UserBuilder
         user.name     = auth.info.name
         user.uid      = provider_uid(auth)
         user.email    = auth.info.email
-        user.password = default_password 
+        user.password = default_password
       end
     end
 
