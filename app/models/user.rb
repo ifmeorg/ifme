@@ -148,7 +148,7 @@ class User < ApplicationRecord
   private
 
   def oauth_provided?
-   provider.present? || token.present?
+    provider.present? || token.present?
   end
 
   def google_access_token_expired?
