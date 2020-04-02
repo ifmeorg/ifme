@@ -397,6 +397,7 @@ zh-CN:
       您不再被禁止。'
   omniauth:
     google: 谷歌
+    github: Github
     access_denied: '拒绝访问'
   pages:
     about:
@@ -828,6 +829,8 @@ zh-CN:
     shared:
       sign_in_google: '使用Google登录'
       sign_up_google: '使用Google注册'
+      sign_in_github: 'Sign in with Github'
+      sign_up_github: 'Sign up with Github'
       confirmation: '没有收到确认指示吗？'
       unlock: '没有收到解锁指令吗？'
     unlock:

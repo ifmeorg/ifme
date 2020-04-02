@@ -440,6 +440,7 @@ it:
       nostra %{code_of_conduct_link}. Non sei più bannato.'
   omniauth:
     google: Google
+    github: Github
     access_denied: 'Accesso Negato'
   pages:
     about:
@@ -965,6 +966,8 @@ it:
     shared:
       sign_in_google: 'Effettua il login con Google'
       sign_up_google: 'Registrati con Google'
+      sign_in_github: 'Sign in with Github'
+      sign_up_github: 'Sign up with Github'
       confirmation: 'Non hai ricevuto le istruzioni per confermare la tua EMail?'
       unlock: 'Non hai ricevuto le istruzioni per sbloccare il tuo account?'
     unlock:

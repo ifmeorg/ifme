@@ -511,6 +511,7 @@ de:
                     mehr blockiert.
   omniauth:
     google: Google
+    github: Github
     access_denied: 'Zutritt verweigert'
   pages:
     about:
@@ -1183,6 +1184,8 @@ de:
     shared:
       sign_in_google: 'Mit Google einloggen'
       sign_up_google: 'Mit Google anmelden'
+      sign_in_github: 'Sign in with Github'
+      sign_up_github: 'Sign up with Github'
       confirmation: 'Keine Anweisungen zur Bestätigung erhalten?'
       unlock: 'Keine Anweisungen zur Freischaltung erhalten?'
     unlock:

@@ -446,6 +446,7 @@ pt-BR:
       %{code_of_conduct_link}. Você não está mais banido.'
   omniauth:
     google: Google
+    github: Github
     access_denied: 'Acesso negado'
   pages:
     about:
@@ -1000,6 +1001,8 @@ pt-BR:
     shared:
       sign_in_google: 'Entrar com sua conta Google'
       sign_up_google: 'Cadastre-se com sua conta Google'
+      sign_in_github: 'Sign in with Github'
+      sign_up_github: 'Sign up with Github'
       confirmation: 'Não recebeu as instruções de confirmação?'
       unlock: 'Não recebeu as instruções de desbloqueio?'
     unlock:

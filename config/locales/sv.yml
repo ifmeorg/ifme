@@ -433,6 +433,7 @@ sv:
       %{code_of_conduct_link}. Du är inte längre förbjuden.'
   omniauth:
     google: Google
+    github: Github
     access_denied: 'Åtkomst nekad'
   pages:
     about:

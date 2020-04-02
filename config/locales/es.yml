@@ -434,6 +434,7 @@ es:
       %{code_of_conduct_link}. Ya no estás baneado/a.'
   omniauth:
     google: Google
+    github: Github
     access_denied: 'Acceso Denegado'
   pages:
     about:
@@ -972,6 +973,8 @@ es:
     shared:
       sign_in_google: 'Registrarse con Google'
       sign_up_google: 'Ingresar con Google'
+      sign_in_github: 'Sign in with Github'
+      sign_up_github: 'Sign up with Github'
       confirmation: '¿No recibiste instrucciones de confirmación?'
       unlock: '¿No recibiste instrucciones para desbloquear?'
     unlock:
