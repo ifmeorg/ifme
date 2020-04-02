@@ -6,10 +6,30 @@ module MostFocusHelper
     data = get_data(data_type, user)
     return unless data.any?
 
-    top_three_focus(data)
+    filter_visible_data(data, data_type)
   end
 
   private
+
+  def filter_visible_data(data, data_type)
+    visible_data = get_visible_data_for(data, data_type).map(&:id)
+    data = data.select { |h| visible_data.include? h }
+
+    return unless data.any?
+
+    top_three_focus(data)
+  end
+
+  def get_visible_data_for(data, data_type)
+    case data_type
+    when 'moods'
+      Mood.where(id: data.uniq, visible: true)
+    when 'categories'
+      Category.where(id: data.uniq, visible: true)
+    when 'strategies'
+      Strategy.where(id: data.uniq, visible: true)
+    end
+  end
 
   def get_data(data_type, user)
     data = get_data_type(user.moments.published, data_type)

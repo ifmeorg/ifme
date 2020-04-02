@@ -28,6 +28,16 @@ describe StrategiesHelper do
           value: @category.description,
           dark: true
         },
+        { 
+          id: 'category_visible',
+          type: 'switch',
+          label: t('shared.stats.visible_in_stats'),
+          dark: true,
+          name: 'category[visible]',
+          value: true,
+          uncheckedValue: false,
+          checked: @category.visible,
+        },
         {
           id: 'submit',
           type: 'submit',
@@ -89,6 +99,15 @@ describe StrategiesHelper do
         value: '0',
         uncheckedValue: '1',
         checked: !strategy.published?
+      },
+      { id: 'strategy_visible',
+        type: 'switch',
+        label: t('shared.stats.visible_in_stats'),
+        dark: true,
+        name: 'strategy[visible]',
+        value: true,
+        uncheckedValue: false,
+        checked: strategy.visible 
       },
       {
         id: 'strategy_perform_strategy_reminder',

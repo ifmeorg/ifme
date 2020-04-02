@@ -1,7 +1,9 @@
 nb:
   devise:
     failure:
-      invited: 'Du har en ventende invitasjon, aksepter den ved å fullføre registrering av kontoen din.'
+      invited: >-
+            Du har en ventende invitasjon, aksepter den ved å fullføre
+            registrering av kontoen din.
     invitations:
       send_instructions: 'En invitasjons e-post har blitt sendt til %{email}.'
       failed_send: 'En feil oppstod. %{email} kunne ikke bli invitert.'
@@ -21,7 +23,15 @@ nb:
         subject: '%{name} inviterte deg til å bli med i if me!'
         subject_nameless: 'Noen inviterte deg til å bli med i if me!'
         hello: 'Hei %{email}!'
-        someone_invited_you: '%{name} har invitert deg til å bli med i http://www.if-me.org, et felleskap for å dele mental helse opplevelser med dine kjente og holde styr på humøret ditt, medisiner, og selvpleie. Du kan akseptere invitasjonen igjennom linken nedenfor.'
+        someone_invited_you: >-
+                          %{name} har invitert deg til å bli med i
+                          http://www.if-me.org, et felleskap for å dele mental
+                          helse opplevelser med dine kjente og holde styr på
+                          humøret ditt, medisiner, og selvpleie. Du kan
+                          akseptere invitasjonen igjennom linken nedenfor.
         accept: 'Aksepter invitasjonen!'
         accept_until: 'Denne invitasjonen utløper om %{due_date}.'
-        ignore: 'Hvis du ikke ønsker å akseptere invitasjonen, ignorer denne e-posten.<br />Kontoen din opprettes ikke før du klikker på linken ovenfor og setter passordet ditt.'
+        ignore: >-
+             Hvis du ikke ønsker å akseptere invitasjonen, ignorer denne
+             e-posten.<br/>Kontoen din opprettes ikke før du klikker på linken
+             ovenfor og setter passordet ditt.

@@ -121,15 +121,8 @@ class StrategiesController < ApplicationController
     redirect_to_path(strategies_path)
   end
 
-  def strategy_params
-    params.require(:strategy).permit(
-      :name, :description, :published_at, :draft, :comment, { category: [] },
-      { viewers: [] }, perform_strategy_reminder_attributes: %i[active id]
-    )
-  end
-
   def quick_create_params(viewers)
-    { user_id: current_user.id, comment: true, viewers: viewers,
+    { user_id: current_user.id, comment: true, viewers: viewers, visible: true,
       description: params[:strategy][:description], published_at: Time.zone.now,
       category: params[:strategy][:category], name: params[:strategy][:name] }
   end
