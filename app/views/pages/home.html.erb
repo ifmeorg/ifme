@@ -1,5 +1,7 @@
 <% if user_signed_in? && @stories.any? %>
   <% title t('pages.home.stories') %>
+  <% @page_new = "New Moment" %>
+  <% page_new new_moment_path %>
 <% elsif user_signed_in? %>
   <% title t('pages.home.signed_in_empty.main_message_one', { name: current_user.name }) %>
 <% end %>
