@@ -42,7 +42,8 @@ describe StrategiesHelper do
           id: 'submit',
           type: 'submit',
           value: t('common.actions.submit'),
-          dark: true
+          dark: true,
+          name: 'commit'
         }
       ],
       action: '/categories/quick_create'
