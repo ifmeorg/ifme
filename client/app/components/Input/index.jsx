@@ -91,6 +91,7 @@ const Input = ({
       return (
         <InputSubmit
           id={id}
+          name={name}
           onClick={onClick}
           value={value}
           large={large}

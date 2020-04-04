@@ -64,7 +64,8 @@ export type Props = {
     | 'location'
     | 'password'
     | 'email'
-    | 'search',
+    | 'search'
+    | 'quickCreate',
   name: string,
   label?: string,
   placeholder?: string,
