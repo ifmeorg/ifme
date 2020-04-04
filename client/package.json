@@ -92,7 +92,7 @@
     "glob": "^7.1.4",
     "identity-obj-proxy": "^3.0.0",
     "imports-loader": "^0.8.0",
-    "jest": "^24.9.0",
+    "jest": "^25.2.7",
     "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "prettier-eslint": "^9.0.0",
