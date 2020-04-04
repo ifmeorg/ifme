@@ -1,17 +1,17 @@
 describe GroupsFormHelper do
   let(:group) { create(:group) }
-  
+
   before do
-    @group = group 
+    @group = group
   end
-  
+
   describe '#new_group_props' do
     subject { new_group_props }
 
     before do
-      @group = nil 
+      @group = nil
     end
-  
+
     it 'returns correct props' do
       expect(subject).to eq(
         inputs: [
@@ -33,7 +33,7 @@ describe GroupsFormHelper do
             required: true,
             dark: true
           },
-          { id: 'submit', type: 'submit', value: 'Submit', dark: true }
+          { id: 'submit', type: 'submit', value: 'Submit', dark: true, name: 'commit' }
         ],
         action: '/groups'
       )
@@ -79,7 +79,7 @@ describe GroupsFormHelper do
             type: 'checkboxGroup'
           },
           { id: '_method', name: '_method', type: 'hidden', value: 'patch' },
-          { id: 'submit', type: 'submit', value: 'Submit', dark: true }
+          { id: 'submit', type: 'submit', value: 'Submit', dark: true, name: 'commit' }
         ],
         action: '/groups/test-group'
       )
