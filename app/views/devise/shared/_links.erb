@@ -11,9 +11,6 @@
         <% elsif provider.to_s == 'github' %>
           <%= button_to t('devise.shared.sign_up_github'), omniauth_authorize_path(resource_name, provider), method: :post, class: 'buttonGhostM smallMarginBottom' %>
         <% end -%>
-
-
-      <% end -%>
     <% end -%>
   <% end -%>
 </div>
