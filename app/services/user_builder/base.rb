@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 module UserBuilder
   class Base
+    attr_reader :user
+
     def self.call(user:, auth:)
       new(user: user, auth: auth)
     end
 
     def initialize(user:, auth:)
-      user.tap do
+      @user = user
+      @user.tap do
         user.provider = auth.provider
         user.name     = auth.info.name
         user.uid      = provider_uid(auth)
