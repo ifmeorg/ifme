@@ -112,10 +112,10 @@ const Notifications = ({
       </div>
     );
   };
+}
 
   export default ({
   element,
   }: Props) => (
   <Notifications element={element} />
   );
-}
