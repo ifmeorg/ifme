@@ -27,19 +27,12 @@ const Notifications = ({
   const [modalKey, setModalKey] = useState(undefined);
   const [signedInKey, setSignedInKey] = useState(undefined);
 
-  const setBody = (notifications) => {
+  const setBody = (notifications1: string[]) => { //I have changed notifications to notifications1 in order to avoid no-shadow error.
     let updatedNotifications = '';
-    notifications.forEach((item: string) => {
+    notifications1.forEach((item: string) => {
       updatedNotifications += `<div>${item}</div>`;
     });
     setNotifications(updatedNotifications);
-  };
-
-  const changeTitle = (count: number) => {
-    let { title } = window.document;
-    const eliminate = `${title.substr(0, title.indexOf(') '))})`;
-    title = title.replace(eliminate, '');
-    window.document.title = count === 0 ? title : `(${count}) ${title}`;
   };
 
   const fetchNotifications = () => {
@@ -71,14 +64,14 @@ const Notifications = ({
 
   useEffect(() => fetchNotifications(), []);
 
-  const getPusherKey = (signedInKey) => {
-    setSignedInKey(signedInKey);
+  const getPusherKey = (signedInKey1: number) => {
+    setSignedInKey(signedInKey1);
     const metaPusherKey = Array.from(
       window.document.getElementsByTagName('meta'),
     ).filter((item) => item.getAttribute('name') === 'pusher-key')[0];
     const pusherKey = metaPusherKey.getAttribute('content');
     const pusher = new window.Pusher(pusherKey, { encrypted: true });
-    const channel = pusher.subscribe(`private-${signedInKey}`);
+    const channel = pusher.subscribe(`private-${signedInKey1}`);
     channel.bind('new_notification', (response: any) => {
       if (response && response.data) {
         fetchNotifications();
