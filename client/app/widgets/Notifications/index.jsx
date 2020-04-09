@@ -27,7 +27,8 @@ const Notifications = ({
   const [modalKey, setModalKey] = useState(undefined);
   const [signedInKey, setSignedInKey] = useState(undefined);
 
-  const setBody = (notifications1: string[]) => { //I have changed notifications to notifications1 in order to avoid no-shadow error.
+  const setBody = (notifications1: string[]) => {
+    // I have changed notifications to notifications1 in order to avoid no-shadow error.
     let updatedNotifications = '';
     notifications1.forEach((item: string) => {
       updatedNotifications += `<div>${item}</div>`;
