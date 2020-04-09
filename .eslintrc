@@ -112,7 +112,7 @@ rules:
   no-undef: 0
   no-undefined: 0
   no-unused-vars: 0
-  no-use-before-define: 0
+  no-use-before-define: 1
 
   # Node.js and CommonJS
   callback-return: 2
