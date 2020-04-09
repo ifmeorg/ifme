@@ -27,6 +27,33 @@ const Notifications = ({
   const [modalKey, setModalKey] = useState(undefined);
   const [signedInKey, setSignedInKey] = useState(undefined);
 
+  const fetchNotifications = () => {
+    setAlreadyMounted(alreadyMounted);
+    setSignedInKey(signedInKey);
+    return axios
+      .get('/notifications/signed_in')
+      .then((response: any) => {
+        if (response && response.data && response.data.signed_in !== -1) {
+          if (response.data.signed_in !== signedInKey) {
+            getPusherKey(response.data.signed_in);
+          }
+          return axios.get('/notifications/fetch_notifications');
+        }
+        return -1;
+      })
+      .then((response: any) => {
+        if (response && response.data && response.data.fetch_notifications) {
+          changeTitle(response.data.fetch_notifications.length);
+          setBody(response.data.fetch_notifications);
+          if (!alreadyMounted && response.data.fetch_notifications.length > 0) {
+            setAlreadyMounted(true);
+            setOpen(true);
+            setModalKey(Utils.randomString());
+            }
+          }
+      });
+  };
+
   useEffect(() => fetchNotifications(), []);
 
   const changeTitle = (count: number) => {
@@ -54,36 +81,9 @@ const Notifications = ({
   const setBody = (notifications: string[]) => {
     let updatedNotifications = '';
     notifications.forEach((item: string) => {
-      updatedNotifications += `<div>${item}</div>`;
-    });
+    updatedNotifications += `<div>${item}</div>`;
+  });
     setNotifications(updatedNotifications);
-  };
-
-  const fetchNotifications = () => {
-    setAlreadyMounted(alreadyMounted);
-    setSignedInKey(signedInKey);
-    return axios
-      .get('/notifications/signed_in')
-      .then((response: any) => {
-        if (response && response.data && response.data.signed_in !== -1) {
-          if (response.data.signed_in !== signedInKey) {
-            getPusherKey(response.data.signed_in);
-          }
-          return axios.get('/notifications/fetch_notifications');
-        }
-        return -1;
-      })
-      .then((response: any) => {
-        if (response && response.data && response.data.fetch_notifications) {
-          changeTitle(response.data.fetch_notifications.length);
-          setBody(response.data.fetch_notifications);
-          if (!alreadyMounted && response.data.fetch_notifications.length > 0) {
-            setAlreadyMounted(true);
-            setOpen(true);
-            setModalKey(Utils.randomString());
-            }
-          }
-      });
   };
 
   const clearNotifications = () => {
@@ -128,10 +128,10 @@ const Notifications = ({
       key={modalKey}
     />
   );
-}
+};
 
-  export default ({
+export default ({
   element,
-  }: Props) => (
-  <Notifications element={element} />
-  );
+}: Props) => (
+    <Notifications element={element} />
+);
