@@ -27,6 +27,21 @@ const Notifications = ({
   const [modalKey, setModalKey] = useState(undefined);
   const [signedInKey, setSignedInKey] = useState(undefined);
 
+  const setBody = (notifications: string[]) => {
+    let updatedNotifications = '';
+    notifications.forEach((item: string) => {
+      updatedNotifications += `<div>${item}</div>`;
+    });
+    setNotifications(updatedNotifications);
+  };
+
+  const changeTitle = (count: number) => {
+    let { title } = window.document;
+    const eliminate = `${title.substr(0, title.indexOf(') '))})`;
+    title = title.replace(eliminate, '');
+    window.document.title = count === 0 ? title : `(${count}) ${title}`;
+  };
+
   const fetchNotifications = () => {
     setAlreadyMounted(alreadyMounted);
     setSignedInKey(signedInKey);
@@ -56,13 +71,6 @@ const Notifications = ({
 
   useEffect(() => fetchNotifications(), []);
 
-  const changeTitle = (count: number) => {
-    let { title } = window.document;
-    const eliminate = `${title.substr(0, title.indexOf(') '))})`;
-    title = title.replace(eliminate, '');
-    window.document.title = count === 0 ? title : `(${count}) ${title}`;
-  };
-
   const getPusherKey = (signedInKey: number) => {
     setSignedInKey(signedInKey);
     const metaPusherKey = Array.from(
@@ -76,14 +84,6 @@ const Notifications = ({
         fetchNotifications();
       }
     });
-  };
-
-  const setBody = (notifications: string[]) => {
-    let updatedNotifications = '';
-    notifications.forEach((item: string) => {
-      updatedNotifications += `<div>${item}</div>`;
-    });
-    setNotifications(updatedNotifications);
   };
 
   const clearNotifications = () => {
