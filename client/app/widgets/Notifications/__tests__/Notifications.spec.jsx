@@ -12,7 +12,7 @@ const data = {
   fetch_notifications: ['Notification 1'],
 };
 
-const getComponent = () => (
+const component = (
   <Notifications element={<button type="button">Notifications</button>} />
 );
 

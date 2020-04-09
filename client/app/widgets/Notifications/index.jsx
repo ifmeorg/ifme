@@ -24,8 +24,6 @@ const Notifications = ({
   const [notifications, setNotifications] = useState('');
   const [alreadyMounted, setAlreadyMounted] = useState(false);
   const [open, setOpen] = useState(false);
-  const [modalKey, setModalKey] = useState('');
-  const [signedInKey, setSignedInKey] = useState(0);
 
   useEffect(() => fetchNotifications(), []);
 
@@ -112,6 +110,22 @@ const Notifications = ({
       </div>
     );
   };
+
+  return (
+    <Modal
+      element={element}
+      elementId="notificationsElement"
+      title={I18n.t('notifications.plural')}
+      body={
+        notifications.length
+          ? displayNotifications()
+          : I18n.t('notifications.none')
+      }
+      openListener={fetchNotifications}
+      open={open}
+      key={modalKey}
+    />
+  );
 }
 
   export default ({
