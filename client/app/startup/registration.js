@@ -16,7 +16,7 @@ import Form from '../components/Form';
 import { HeaderProfile } from '../components/Header/HeaderProfile';
 import { Logo } from '../components/Logo';
 import { Modal } from '../components/Modal';
-import { Notifications } from '../widgets/Notifications';
+import Notifications from '../widgets/Notifications';
 import { Resource } from '../components/Resource';
 import { Resources } from '../widgets/Resources';
 import { Story } from '../components/Story';

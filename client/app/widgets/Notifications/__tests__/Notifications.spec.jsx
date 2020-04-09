@@ -2,7 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 import { mount } from 'enzyme';
-import { Notifications } from '../index';
+import Notifications from '../index';
 
 let axiosGetSpy;
 let axiosDeleteSpy;
@@ -12,7 +12,7 @@ const data = {
   fetch_notifications: ['Notification 1'],
 };
 
-const component = (
+const getComponent = () => (
   <Notifications element={<button type="button">Notifications</button>} />
 );
 
