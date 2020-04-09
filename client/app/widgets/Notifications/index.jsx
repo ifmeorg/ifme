@@ -35,6 +35,13 @@ const Notifications = ({
     setNotifications(updatedNotifications);
   };
 
+  const changeTitle = (count: number) => {
+    let { title } = window.document;
+    const eliminate = `${title.substr(0, title.indexOf(') '))})`;
+    title = title.replace(eliminate, '');
+    window.document.title = count === 0 ? title : `(${count}) ${title}`;
+  };
+
   const fetchNotifications = () => {
     setAlreadyMounted(alreadyMounted);
     setSignedInKey(signedInKey);
