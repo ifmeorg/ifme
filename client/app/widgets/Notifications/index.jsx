@@ -27,7 +27,7 @@ const Notifications = ({
   const [modalKey, setModalKey] = useState(undefined);
   const [signedInKey, setSignedInKey] = useState(undefined);
 
-  const setBody = (notifications: string[]) => {
+  const setBody = (notifications) => {
     let updatedNotifications = '';
     notifications.forEach((item: string) => {
       updatedNotifications += `<div>${item}</div>`;
@@ -71,7 +71,7 @@ const Notifications = ({
 
   useEffect(() => fetchNotifications(), []);
 
-  const getPusherKey = (signedInKey: number) => {
+  const getPusherKey = (signedInKey) => {
     setSignedInKey(signedInKey);
     const metaPusherKey = Array.from(
       window.document.getElementsByTagName('meta'),
