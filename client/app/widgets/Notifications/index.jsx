@@ -49,8 +49,8 @@ const Notifications = ({
             setAlreadyMounted(true);
             setOpen(true);
             setModalKey(Utils.randomString());
-            }
           }
+        }
       });
   };
 
@@ -81,8 +81,8 @@ const Notifications = ({
   const setBody = (notifications: string[]) => {
     let updatedNotifications = '';
     notifications.forEach((item: string) => {
-    updatedNotifications += `<div>${item}</div>`;
-  });
+      updatedNotifications += `<div>${item}</div>`;
+    });
     setNotifications(updatedNotifications);
   };
 
@@ -133,5 +133,5 @@ const Notifications = ({
 export default ({
   element,
 }: Props) => (
-    <Notifications element={element} />
+  <Notifications element={element} />
 );
