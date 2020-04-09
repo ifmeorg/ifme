@@ -59,7 +59,7 @@ const Notifications = ({
     setNotifications(updatedNotifications);
   };
 
-  const fetchNotifications = () => {
+  const fetchNotifications = (): void => {
     setAlreadyMounted(alreadyMounted);
     setSignedInKey(signedInKey);
     return axios
@@ -86,7 +86,7 @@ const Notifications = ({
       });
   };
 
-  const clearNotifications = () => {
+  const clearNotifications = (): void => {
     axios.delete('/notifications/clear').then((response: any) => {
       if (response) {
         changeTitle(0);
@@ -97,7 +97,7 @@ const Notifications = ({
     });
   };
 
-  const displayNotifications = () => {
+  const displayNotifications = (): void => {
     setNotifications(notifications);
     return (
       <div aria-live="polite">
