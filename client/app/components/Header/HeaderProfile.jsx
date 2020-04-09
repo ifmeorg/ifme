@@ -3,7 +3,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
 import type { Profile } from './types';
-import { Notifications } from '../../widgets/Notifications';
+import Notifications from '../../widgets/Notifications';
 import { Avatar } from '../Avatar';
 import css from './HeaderProfile.scss';
 import globalCSS from '../../styles/_global.scss';
