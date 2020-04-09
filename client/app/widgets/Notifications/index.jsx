@@ -24,6 +24,8 @@ const Notifications = ({
   const [notifications, setNotifications] = useState('');
   const [alreadyMounted, setAlreadyMounted] = useState(false);
   const [open, setOpen] = useState(false);
+  const [modalKey, setModalKey] = useState(undefined);
+  const [signedInKey, setSignedInKey] = useState(undefined);
 
   useEffect(() => fetchNotifications(), []);
 
@@ -57,7 +59,7 @@ const Notifications = ({
     setNotifications(updatedNotifications);
   };
 
-  const fetchNotifications = (): void => {
+  const fetchNotifications = () => {
     setAlreadyMounted(alreadyMounted);
     setSignedInKey(signedInKey);
     return axios
@@ -84,7 +86,7 @@ const Notifications = ({
       });
   };
 
-  const clearNotifications = (): void => {
+  const clearNotifications = () => {
     axios.delete('/notifications/clear').then((response: any) => {
       if (response) {
         changeTitle(0);
@@ -95,7 +97,7 @@ const Notifications = ({
     });
   };
 
-  const displayNotifications = (): void => {
+  const displayNotifications = () => {
     setNotifications(notifications);
     return (
       <div aria-live="polite">
