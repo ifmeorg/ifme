@@ -81,7 +81,7 @@ const Notifications = ({
   useEffect(() => fetchNotifications(), []);
 
   const subscribeToPusher = (signedInKey1: number) => {
-    getPusherKey(signedInKey1);
+    pusherKey = getPusherKey(signedInKey1);
     const pusher = new window.Pusher(pusherKey, { encrypted: true });
     const channel = pusher.subscribe(`private-${signedInKey1}`);
     channel.bind('new_notification', (response: any) => {
