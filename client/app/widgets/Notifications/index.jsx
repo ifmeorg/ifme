@@ -43,6 +43,14 @@ const Notifications = ({
     window.document.title = count === 0 ? title : `(${count}) ${title}`;
   };
 
+  const getPusherKey = (signedInKey1: number) => {
+    setSignedInKey(signedInKey1);
+    const metaPusherKey = Array.from(
+      window.document.getElementsByTagName('meta'),
+    ).filter((item) => item.getAttribute('name') === 'pusher-key')[0];
+    const pusherKey = metaPusherKey.getAttribute('content');
+  };
+
   const fetchNotifications = () => {
     setAlreadyMounted(alreadyMounted);
     setSignedInKey(signedInKey);
@@ -72,12 +80,8 @@ const Notifications = ({
 
   useEffect(() => fetchNotifications(), []);
 
-  const getPusherKey = (signedInKey1: number) => {
-    setSignedInKey(signedInKey1);
-    const metaPusherKey = Array.from(
-      window.document.getElementsByTagName('meta'),
-    ).filter((item) => item.getAttribute('name') === 'pusher-key')[0];
-    const pusherKey = metaPusherKey.getAttribute('content');
+  const subscribeToPusher = (signedInKey1: number) => {
+    getPusherKey(signedInKey1);
     const pusher = new window.Pusher(pusherKey, { encrypted: true });
     const channel = pusher.subscribe(`private-${signedInKey1}`);
     channel.bind('new_notification', (response: any) => {
