@@ -38,7 +38,8 @@ describe CategoriesHelper do
           dark: true,
           id: 'submit',
           type: 'submit',
-          value: 'Submit'
+          value: 'Submit',
+          name: 'commit'
         }
       ],
       action: quick_create ? '/categories/quick_create' : '/categories'

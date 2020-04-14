@@ -76,7 +76,7 @@ describe MomentsFormHelper do
                   type: 'textarea',
                   value: nil
                 },
-                { 
+                {
                   id: 'category_visible',
                   type: 'switch',
                   label: t('shared.stats.visible_in_stats'),
@@ -90,7 +90,8 @@ describe MomentsFormHelper do
                   dark: true,
                   id: 'submit',
                   type: 'submit',
-                  value: 'Submit'
+                  value: 'Submit',
+                  name: 'commit'
                 }
               ]
             },
@@ -122,7 +123,7 @@ describe MomentsFormHelper do
                   type: 'textarea',
                   value: nil
                 },
-                { 
+                {
                   dark: true,
                   id: 'mood_visible',
                   label: t('shared.stats.visible_in_stats'),
@@ -130,13 +131,14 @@ describe MomentsFormHelper do
                   type: 'switch',
                   value: true,
                   uncheckedValue: false,
-                  checked: true 
+                  checked: true
                 },
                 {
                   dark: true,
                   id: 'submit',
                   type: 'submit',
-                  value: 'Submit'
+                  value: 'Submit',
+                  name: 'commit'
                 }
               ]
             },
@@ -174,7 +176,8 @@ describe MomentsFormHelper do
                   dark: true,
                   id: 'submit',
                   type: 'submit',
-                  value: 'Submit'
+                  value: 'Submit',
+                  name: 'commit'
                 }
               ]
             },
@@ -237,7 +240,8 @@ describe MomentsFormHelper do
             dark: true,
             id: 'submit',
             type: 'submit',
-            value: 'Submit'
+            value: 'Submit',
+            name: 'commit'
           }
         ]
       )
@@ -317,7 +321,7 @@ describe MomentsFormHelper do
                   value: 'Test description category',
                   dark: true
                 },
-                { 
+                {
                   id: 'category_visible',
                   type: 'switch',
                   label: t('shared.stats.visible_in_stats'),
@@ -331,7 +335,8 @@ describe MomentsFormHelper do
                   id: 'submit',
                   type: 'submit',
                   value: 'Submit',
-                  dark: true
+                  dark: true,
+                  name: 'commit'
                 }
               ],
               action: '/categories/quick_create'
@@ -370,7 +375,7 @@ describe MomentsFormHelper do
                   value: 'Test Mood',
                   dark: true
                 },
-                { 
+                {
                   dark: true,
                   id: 'mood_visible',
                   label: t('shared.stats.visible_in_stats'),
@@ -378,13 +383,14 @@ describe MomentsFormHelper do
                   type: 'switch',
                   value: true,
                   uncheckedValue: false,
-                  checked: true 
+                  checked: true
                 },
                 {
                   id: 'submit',
                   type: 'submit',
                   value: 'Submit',
-                  dark: true
+                  dark: true,
+                  name: 'commit'
                 }
               ],
               action: '/moods/quick_create'
@@ -430,7 +436,8 @@ describe MomentsFormHelper do
                   id: 'submit',
                   type: 'submit',
                   value: 'Submit',
-                  dark: true
+                  dark: true,
+                  name: 'commit'
                 }
               ],
               action: '/strategies/quick_create'
@@ -496,7 +503,8 @@ describe MomentsFormHelper do
             id: 'submit',
             type: 'submit',
             value: 'Submit',
-            dark: true
+            dark: true,
+            name: 'commit'
           }
         ],
         action: '/moments/test-moment'
