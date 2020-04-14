@@ -5,7 +5,6 @@ import renderHTML from 'react-render-html';
 import { Modal } from '../../components/Modal';
 import { Utils } from '../../utils';
 import { I18n } from '../../libs/i18n/index';
-/* eslint no-use-before-define: ["error", { "functions": false }] */
 
 export type Props = {
   element: any,
@@ -73,6 +72,7 @@ const Notifications = ({
 
   useEffect(() => fetchNotifications(), []);
 
+  /* eslint no-use-before-define: ["error", { "functions": false }] */
   const getPusherKey = (signedInKey1: number) => {
     setSignedInKey(signedInKey1);
     const metaPusherKey = Array.from(
