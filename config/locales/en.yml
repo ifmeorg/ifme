@@ -168,6 +168,8 @@ en:
     not_found:
       header_message: 'This page does not exist'
     empty_params: 'Can''t be blank'
+  tasks:
+    plural: Tasks
   groups:
     singular: Group
     plural: Groups
@@ -532,7 +534,7 @@ en:
                      We're always looking for ideas from everyone,
                      including <strong>mental health advocates</strong>,
                      <strong>health professionals</strong>, <strong>software
-                     developers</strong>, <strong>translators</strong>, and
+                     developers</strong>,<strong>translators</strong>, and
                      <strong>user experience designers</strong>!
                      <p class="noMarginBottom">Please %{email_link} and
                      we'll connect with you! You will be invited to
@@ -927,6 +929,7 @@ en:
     form:
       describe: 'Describe the strategy.'
       strategies_label: 'What strategies would help achieve these thoughts?'
+      mark_as_finished: 'Mark as Finished'
       name_hint: >-
               Any activity, train of thought, or form or self-care that
               helps you
@@ -937,7 +940,6 @@ en:
                         We'll email you a daily reminder to perform this
                         strategy
       draft_question: 'Do you want to save your strategy as draft?'
-      mark_as_finished: 'Mark as finished'
     label:
       one: 'Strategy:'
       other: 'Strategies:'

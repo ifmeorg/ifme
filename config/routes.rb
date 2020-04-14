@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :tasks do
+   resources :todo_items
+  end
   get 'errors/not_found'
   get 'errors/internal_server_error'
 

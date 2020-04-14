@@ -14,9 +14,7 @@
 #  slug         :string
 #  published_at :datetime
 #  visible     :boolean
-#  finished    :boolean
 #
-
 class Strategy < ApplicationRecord
   include Viewer
   include CommonMethods
@@ -40,7 +38,6 @@ class Strategy < ApplicationRecord
   validates :user_id, :name, :description, presence: true
   validates :description, length: { minimum: 1 }
   validates :visible, inclusion: [true, false]
-  validates :finished, inclusion: [true, false]
 
   scope :published, -> { where.not(published_at: nil) }
   scope :recent, -> { order('created_at DESC') }
@@ -70,5 +67,29 @@ class Strategy < ApplicationRecord
 
   def comments
     Comment.comments_from(self)
+  end
+
+  after_save :update_tasks_table
+
+  private
+
+  def update_tasks_table
+    if !Task.exists?(self.id)
+      @task = Task.new(id: self.id)
+    else
+      @task = Task.find(self.id)
+    end
+    @task.title = self.name
+
+    @task.description = (self.description)
+    @task.finished = self.finished
+    @task.date = self.updated_at
+    if self.finished
+      @task.no_of_days_followed = 1
+    else
+      @task.no_of_days_followed = 0
+    end
+    @task.total_no_of_days = (self.created_at.to_date - Date.today).to_i + 1
+    @task.save
   end
 end

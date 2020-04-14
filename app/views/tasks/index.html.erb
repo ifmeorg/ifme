@@ -1,0 +1,7 @@
+<% title t('tasks.plural') %>
+<%= react_component('BaseContainer', props: {
+  container: 'StoryContainer',
+  data: task_props(@tasks),
+  fetchUrl: tasks_path,
+  lastPage: true
+})%>

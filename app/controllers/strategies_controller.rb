@@ -94,12 +94,17 @@ class StrategiesController < ApplicationController
     end
     empty_array_for :viewers, :category
     shared_update(@strategy, strategy_params)
+    t = Task.find(id = @strategy.id)
+    t.finished = @strategy.finished
+    t.title = @strategy.name
   end
 
   # DELETE /strategies/1
   # DELETE /strategies/1.json
   def destroy
     shared_destroy(@strategy)
+    t = Task.find(id = @strategy.id)
+    t.delete
     PerformStrategyReminder.where(strategy_id: @strategy.id).destroy_all
   end
 
@@ -123,8 +128,7 @@ class StrategiesController < ApplicationController
 
   def quick_create_params(viewers)
     { user_id: current_user.id, comment: true, viewers: viewers, visible: true,
-      finished: params[:strategy][:finished], description: params[:strategy][:description],
-      published_at: Time.zone.now, category: params[:strategy][:category],
-      name: params[:strategy][:name] }
+      description: params[:strategy][:description], published_at: Time.zone.now,
+      category: params[:strategy][:category], name: params[:strategy][:name] }
   end
 end
