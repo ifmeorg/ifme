@@ -29,7 +29,7 @@ describe FormHelper do
             { id: 'some-id', type: 'text', value: 'Hello' },
             { id: 'some-other-id', type: 'number', value: 1 },
             { id: '_method', name: '_method', type: 'hidden', value: 'patch' },
-            { id: 'submit', type: 'submit', value: 'Submit', dark: true }
+            { id: 'submit', type: 'submit', value: 'Submit', dark: true, name: 'commit' }
           ],
           action: '/categories'
         )
@@ -54,7 +54,7 @@ describe FormHelper do
           inputs: [
             { id: 'some-id', type: 'text', value: 'Hello' },
             { id: 'some-other-id', type: 'number', value: 1 },
-            { id: 'submit', type: 'submit', value: 'Submit', dark: true }
+            { id: 'submit', type: 'submit', value: 'Submit', dark: true, name: 'commit' }
           ],
           action: '/categories'
         )
@@ -79,7 +79,7 @@ describe FormHelper do
           inputs: [
             { id: 'some-id', type: 'text', value: 'Hello' },
             { id: 'some-other-id', type: 'number', value: 1 },
-            { id: 'submit', type: 'submit', value: 'Submit', dark: true }
+            { id: 'submit', type: 'submit', value: 'Submit', dark: true, name: 'commit' }
           ],
           action: '/categories'
         )

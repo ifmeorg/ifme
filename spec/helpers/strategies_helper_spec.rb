@@ -28,7 +28,7 @@ describe StrategiesHelper do
           value: @category.description,
           dark: true
         },
-        { 
+        {
           id: 'category_visible',
           type: 'switch',
           label: t('shared.stats.visible_in_stats'),
@@ -42,7 +42,8 @@ describe StrategiesHelper do
           id: 'submit',
           type: 'submit',
           value: t('common.actions.submit'),
-          dark: true
+          dark: true,
+          name: 'commit'
         }
       ],
       action: '/categories/quick_create'
@@ -107,7 +108,7 @@ describe StrategiesHelper do
         name: 'strategy[visible]',
         value: true,
         uncheckedValue: false,
-        checked: strategy.visible 
+        checked: strategy.visible
       },
       {
         id: 'strategy_perform_strategy_reminder',

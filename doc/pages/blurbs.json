@@ -556,5 +556,15 @@
     "link_name": "leeacto",
     "link": "https://github.com/leeacto",
     "social": "github"
+  },
+  {
+    "name": "Stephanie Warmenhoven",
+    "image": "/assets/contributors/stephanie_warmenhoven.jpg",
+    "profile": "I'm a Web Developer and travel enthusiast who is curious by nature and loves to learn. If Me is one of the first open source projects I am contributing to, and I'm excited to be a part of a project with a purpose that is near to my heart.  Mental health is something that I struggle with myself, and I see the value of maintaining and growing an application like if-me.org.",
+    "location": "Vancouver, Canada",
+    "link_name": "s-warmenhoven",
+    "link": "https://github.com/s-warmenhoven",
+    "social": "github"
   }
+
 ]

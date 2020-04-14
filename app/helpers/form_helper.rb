@@ -6,6 +6,7 @@ module FormHelper
 
     props = form_props(inputs, action)
     props[:inputs].push(update_input).push(submit_field)
+    props[:inputs] = props[:inputs].reject(&:empty?)
     props
   end
 
@@ -14,14 +15,14 @@ module FormHelper
 
     props = form_props(inputs, action)
     props[:inputs].push(submit_field)
+    props[:inputs] = props[:inputs].reject(&:empty?)
     props
   end
 
   def quick_create_form_props(inputs, action)
     return nil unless inputs.class == Array && action
 
-    props = new_form_props(inputs, action)
-    props
+    new_form_props(inputs, action)
   end
 
   private
@@ -35,6 +36,7 @@ module FormHelper
   def submit_field
     {
       id: 'submit',
+      name: 'commit',
       type: 'submit',
       value: t('common.actions.submit'),
       dark: true
