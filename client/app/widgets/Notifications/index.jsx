@@ -51,6 +51,7 @@ const Notifications = ({
       .then((response: any) => {
         if (response && response.data && response.data.signed_in !== -1) {
           if (response.data.signed_in !== signedInKey) {
+            // eslint-disable-next-line no-use-before-define
             getPusherKey(response.data.signed_in);
           }
           return axios.get('/notifications/fetch_notifications');
@@ -72,7 +73,6 @@ const Notifications = ({
 
   useEffect(() => fetchNotifications(), []);
 
-  /* eslint no-use-before-define: ["error", { "functions": false }] */
   const getPusherKey = (signedInKey1: number) => {
     setSignedInKey(signedInKey1);
     const metaPusherKey = Array.from(
