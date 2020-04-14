@@ -5,7 +5,7 @@ import renderHTML from 'react-render-html';
 import { Modal } from '../../components/Modal';
 import { Utils } from '../../utils';
 import { I18n } from '../../libs/i18n/index';
-// eslint-disable-next-line no-use-before-define
+/*eslint no-use-before-define: ["error", { "functions": false }]*/
 
 export type Props = {
   element: any,
