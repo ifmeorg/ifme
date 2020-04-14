@@ -171,6 +171,8 @@ fr:
     not_found:
       header_message: "Cette page n'existe pas"
     empty_params: 'Ne peut pas être vide'
+  tasks:
+    plural: Tâches
   groups:
     singular: Groupe
     plural: Groupes

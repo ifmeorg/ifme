@@ -165,6 +165,8 @@ nl:
     not_found:
       header_message: 'Deze pagina bestaat niet'
     empty_params: 'Kan niet leeg zijn'
+  tasks:
+    plural: 'Taak'
   groups:
     singular: Groep
     plural: Groepen

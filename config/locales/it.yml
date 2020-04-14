@@ -164,6 +164,8 @@ it:
     not_found:
       header_message: 'Questa pagina non esiste'
     empty_params: 'Non può essere vuoto'
+  tasks:
+    plural: Compiti
   groups:
     singular: Gruppo
     plural: Gruppi

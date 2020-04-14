@@ -167,6 +167,8 @@ pt-BR:
     not_found:
       header_message: 'Esta página não existe'
     empty_params: 'Não pode ficar em branco'
+  tasks:
+    plural: Tarefas
   groups:
     singular: Grupo
     plural: Grupos

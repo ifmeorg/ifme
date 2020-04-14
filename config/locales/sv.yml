@@ -165,6 +165,8 @@ sv:
     not_found:
       header_message: 'Den här sidan existerar inte'
     empty_params: 'Kan inte vara tomt'
+  tasks:
+    plural: 'Uppgifter'
   groups:
     singular: Grupp
     plural: Grupper

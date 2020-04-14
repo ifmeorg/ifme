@@ -160,6 +160,8 @@ zh-CN:
     not_found:
       header_message: '本页面不存在'
     empty_params: '不能空白'
+  tasks:
+    plural: '任务'
   groups:
     singular: 组
     plural: 团体

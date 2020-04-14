@@ -164,6 +164,8 @@ vi:
     not_found:
       header_message: 'Trang này không tồn tại'
     empty_params: 'Không thể để trống'
+  tasks:
+    plural: 'Nhiệm vụ'
   groups:
     singular: Nhóm
     plural: Nhóm

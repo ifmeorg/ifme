@@ -163,6 +163,8 @@ nb:
     not_found:
       header_message: 'Denne siden finnes ikke'
     empty_params: 'Kan ikke være tomt'
+  tasks:
+    plural: 'Oppgaver'
   groups:
     singular: Gruppe
     plural: Grupper

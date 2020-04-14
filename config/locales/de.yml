@@ -171,6 +171,8 @@ de:
     not_found:
       header_message: 'Diese Seite existiert nicht'
     empty_params: 'Kann nicht leer sein'
+  tasks:
+    plural: 'Aufgaben'
   groups:
     singular: Gruppe
     plural: Gruppen

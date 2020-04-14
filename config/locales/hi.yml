@@ -161,6 +161,8 @@ hi:
     not_found:
       header_message: 'यह पृष्ठ मौजूद नहीं है'
     empty_params: 'रिक्त नहीं हो सकता'
+  tasks:
+    plural: 'कार्य'
   groups:
     singular: 'समूह'
     plural: 'समूह'
