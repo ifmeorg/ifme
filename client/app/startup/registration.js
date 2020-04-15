@@ -19,6 +19,7 @@ import Modal from '../components/Modal';
 import { Notifications } from '../widgets/Notifications';
 import { Resource } from '../components/Resource';
 import Resources from '../widgets/Resources';
+import SkipToContent from '../components/SkipToContent';
 import { Story } from '../components/Story';
 import { StoryDraft } from '../components/Story/StoryDraft';
 import { StoryActions } from '../components/Story/StoryActions';
@@ -52,6 +53,7 @@ ReactOnRails.register({
   Notifications,
   Resource,
   Resources,
+  SkipToContent,
   Story,
   StoryActions,
   StoryCategories,
