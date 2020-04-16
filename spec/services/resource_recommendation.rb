@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ResourceRecommendation
     def initialize(moment)
         @moment = moment
