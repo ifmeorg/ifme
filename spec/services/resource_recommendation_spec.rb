@@ -12,5 +12,10 @@ describe ResourceRecommendation do
         allow(JSON).to receive(:parse) { available_resource }
         expect(resources).to eq(available_resource)
       end
+      it 'does not return any matched resources' do
+        available_resource2 = [{'tags'=> ['self_care', 'anonymous', 'ios', 'communities']}]
+        allow(JSON).to receive(:parse) { available_resource2 }
+        expect(resources).not_to eq(available_resource2)
+      end
     end
   end
