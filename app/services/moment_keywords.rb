@@ -1,10 +1,10 @@
 # frozen_string_literal: true
+
 class MomentKeywords
   def initialize(moment)
     @moment = moment
     @moment_keywords = []
   end
-end
 
 def extract_moment_keywords
   extract_keywords(@moment.categories)
@@ -47,6 +47,7 @@ def remove_special_chars
     keyword.tr!('-', ' ')
     keyword.gsub!(/[^\p{Alpha} -]/, '')
   end
+end
 
   def downcase_keywords
     @moment_keywords = @moment_keywords.map(&:downcase)
