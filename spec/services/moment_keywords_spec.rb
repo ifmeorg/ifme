@@ -24,4 +24,11 @@ describe MomentKeywords do
   it 'removes special characters' do
     expect(keywords).to include('teachers')
   end
+
+  it 'returns an array of all the key words' do
+    expect(keywords).to eq(
+                            ['free', 'description','name', 'blog', 'name', 'books',
+                             'addiction', 'self care', 'teachers']
+                        )
+  end
 end
