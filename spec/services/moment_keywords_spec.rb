@@ -10,4 +10,10 @@ describe MomentKeywords do
         fix: '@Teachers!!'
     )
   end
+
+  subject(:keywords) { MomentKeywords.new(moment).extract_moment_keywords }
+
+  it 'downcases words' do
+    expect(keywords).to include('addiction')
+  end
 end
