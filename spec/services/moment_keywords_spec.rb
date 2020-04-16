@@ -18,6 +18,10 @@ describe MomentKeywords do
   end
 
   it 'removes hyphen from compound words' do
-    expect(keywords).to include("self care")
+    expect(keywords).to include('self care')
+  end
+
+  it 'removes special characters' do
+    expect(keywords).to include('teachers')
   end
 end
