@@ -29,3 +29,10 @@ end
 def extract_moment_fix
   @moment_keywords.push(strip_tags(@moment.fix).split)
 end
+
+def remove_special_chars
+  @moment_keywords = @moment_keywords.flatten.each do |keyword|
+    keyword.tr!('-', ' ')
+    keyword.gsub!(/[^\p{Alpha} -]/, '')
+  end
+end
