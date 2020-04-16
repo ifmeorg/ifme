@@ -35,4 +35,8 @@ def remove_special_chars
     keyword.tr!('-', ' ')
     keyword.gsub!(/[^\p{Alpha} -]/, '')
   end
+
+  def downcase_keywords
+    @moment_keywords = @moment_keywords.map(&:downcase)
+  end
 end
