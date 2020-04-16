@@ -1,14 +1,21 @@
-# Issues observed
+# Issues
 
-Reaction 1: 
-1. erb file: SkipToContent component is above the Header component:
-2. logo is attaching to menu instead of hanging in the left OR
+1. Component file: added a variable instead of a fixed id for href: 
+  ______
+  function SkipToContent(props) {
+  return <a className={css.test} href={"#", props.id}>Skip to main content</a>;
+  }
 
-Reaction 2: 
-1. erb file: SkipToContent component is below the Header:
-2. SkipToContent component doesn't work 😭
+  export default SkipToContent;
+  ___
+    
+  In the html file, we have: 
+  <%= react_component('SkipToContent', props: { id: "maincontent" }) %>
 
-Hypothesis: SCSS is bloody affecting things
+  
+  and we are finding the following console error: Uncaught Error: ReactOnRails encountered an error while rendering component: SkipToContent.Original message: Could not find component registered with name SkipToContent.
+   
+  Could you please help????
 
 # To solve the issue we still need...
 
