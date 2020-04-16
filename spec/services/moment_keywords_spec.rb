@@ -16,4 +16,8 @@ describe MomentKeywords do
   it 'downcases words' do
     expect(keywords).to include('addiction')
   end
+
+  it 'removes hyphen from compound words' do
+    expect(keywords).to include("self care")
+  end
 end
