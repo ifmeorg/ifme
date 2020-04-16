@@ -17,3 +17,15 @@ def extract_keywords(array)
                           strip_tags(item['description']).split)
   end
 end
+
+def extract_moment_name
+  @moment_keywords.push(@moment.name.split)
+end
+
+def extract_moment_why
+  @moment_keywords.push(strip_tags(@moment.why).split)
+end
+
+def extract_moment_fix
+  @moment_keywords.push(strip_tags(@moment.fix).split)
+end
