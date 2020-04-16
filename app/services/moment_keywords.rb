@@ -5,6 +5,17 @@ class MomentKeywords
   end
 end
 
+def extract_moment_keywords
+  extract_keywords(@moment.categories)
+  extract_keywords(@moment.moods)
+  extract_keywords(@moment.strategies)
+  extract_moment_name
+  extract_moment_why
+  extract_moment_fix
+  remove_special_chars
+  downcase_keywords
+end
+
 private
 
 def strip_tags(str)
