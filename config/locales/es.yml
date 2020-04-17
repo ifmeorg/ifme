@@ -829,6 +829,7 @@ es:
       describe: 'Describir estrategia'
       strategies_label: '¿Qué estrategias ayudarían a conseguir estos
       pensamientos?'
+      mark_as_finished: 'Marcar como terminada'
       name_hint: 'Cualquier actividad, tren de pensamiento, o forma de auto
       cuidado que te ayude'
       viewers_hint: 'Los aliados que pueden ver tu estrategia y etiquetar con

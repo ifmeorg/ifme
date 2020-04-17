@@ -823,6 +823,7 @@ it:
     form:
       describe: 'Descrivi la Strategia.'
       strategies_label: 'Quali strategie ti aiuterebbero a porti in questo modo?'
+      mark_as_finished: 'Segna come finito'
       name_hint: 'Qualsiasi attività, modo di fare o cura di sé che ti è d’aiuto'
       viewers_hint: 'Alleati che possono visualizzare la tua strategia e
       taggarci i propri momenti'

@@ -832,6 +832,7 @@ nl:
       describe: 'Omschrijf de Strategie.'
       strategies_label: 'Welke Strategieën zouden helpen deze gedachten te
       vervullen?'
+      mark_as_finished: 'Markeer als voltooid'
       name_hint: 'Elke activiteit, gedachtestroom of vorm van zelfzorg die je
       helpt'
       viewers_hint: 'Bondgenoten die je strategie kunnen bekijken en hun eigen

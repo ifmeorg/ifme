@@ -5,7 +5,6 @@ class TodoItemsController < ApplicationController
 
   def create
     @todo_item = @task.todo_items.create(todo_item_params)
-    redirect_to @task
   end
 
   private

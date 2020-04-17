@@ -854,6 +854,7 @@ pt-BR:
       describe: 'Descreva a estratégia'
       strategies_label: 'Quais estratégias poderiam te ajudar a alcançar suas
       metas?'
+      mark_as_finished: 'Marcar como concluído'
       name_hint: 'Qualquer atividade, linha de pensamento ou forma de
       cuidado-próprio que ajude você'
       viewers_hint: 'Aliados que podem visualizar suas estratégias e marcar

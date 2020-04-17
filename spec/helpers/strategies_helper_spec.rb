@@ -110,6 +110,15 @@ describe StrategiesHelper do
         uncheckedValue: false,
         checked: strategy.visible
       },
+      { id: 'strategy_finished',
+        type: 'switch',
+        label: t('strategies.form.mark_as_finished'),
+        dark: true,
+        name: 'strategy[finished]',
+        value: true,
+        uncheckedValue: false,
+        checked: strategy.finished
+      },
       {
         id: 'strategy_perform_strategy_reminder',
         type: 'checkbox',

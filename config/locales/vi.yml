@@ -824,6 +824,7 @@ vi:
     form:
       describe: 'Miêu tả chiến lược.'
       strategies_label: 'Chiến lược nào sẽ giúp ban đạt được suy nghĩ này?'
+      mark_as_finished: 'Đánh dấu là đã hoàn thành'
       name_hint: 'Có bất kỳ hành động, dòng suy nghĩ hay hình tự chăm sóc nào
       giúp đỡ bạn hay không?'
       viewers_hint: 'Đồng minh có thể xem chiến lược của bạn và gắng bình luận

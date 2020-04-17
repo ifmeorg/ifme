@@ -973,6 +973,7 @@ fr:
       strategies_label: >-
                      Quelles stratégies aideraient à atteindre cet état
                      d''esprit ?
+      mark_as_finished: 'Marquer comme terminé'
       name_hint: >-
               Une activité, fil de pensées ou pratique de bien-être qui vous
               aide.

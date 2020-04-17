@@ -811,6 +811,7 @@ sv:
       describe: 'Beskriv strategin.'
       strategies_label: 'Vilka strategier skulle hjälpa till att uppnå dessa
       tankar?'
+      mark_as_finished: 'Markera som färdig'
       name_hint: 'Eventuella aktiviteter, tankegång eller form eller
       självomsorg som hjälper dig'
       viewers_hint: 'Allierade som kan se din strategi och tagga egna

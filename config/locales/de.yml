@@ -999,6 +999,7 @@ de:
       describe: 'Beschreibe deine Strategie.'
       strategies_label: >-
                      Welche Strategien helfen dir, auf diese Gedanken zu kommen?
+      mark_as_finished: 'Als fertig markieren'
       name_hint: >-
               Jegliche Aktivität, Gedankengang oder Form von Selbsthilfe, die
               dich weiterbringt

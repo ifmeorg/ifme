@@ -719,6 +719,7 @@ zh-CN:
     form:
       describe: '描述策略。'
       strategies_label: '哪些策略可以帮助实现这些想法？'
+      mark_as_finished: '标记为完成'
       name_hint: '可以帮助您的任何活动，思路，形式或自我保健'
       viewers_hint: '可以查看您的策略并标记自己的时刻的盟友'
       daily_reminder_hint: '我们会通过电子邮件每天提醒您执行此策略'

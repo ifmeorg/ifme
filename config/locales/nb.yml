@@ -816,6 +816,7 @@ nb:
     form:
       describe: 'Beskriv strategien.'
       strategies_label: 'Hvilke strategier kan hjelpe deg oppnå disse tankene?'
+      mark_as_finished: 'Merk som ferdig'
       name_hint: 'Hvilken som helst aktivitet, tankerekke eller form for
       selvpleie som hjelper deg'
       viewers_hint: 'Allierte som kan se din strategi og tagge deres egne

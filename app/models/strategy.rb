@@ -79,7 +79,7 @@ class Strategy < ApplicationRecord
     @task.description = description
     @task.finished = finished
     @task.date = updated_at
-    @task.no_of_days_followed = self.finished ? 1 : 0
+    @task.no_of_days_followed = finished ? 1 : 0
     @task.total_no_of_days = (created_at.to_date - Time.zone.today).to_i + 1
     @task.save
   end

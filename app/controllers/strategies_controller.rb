@@ -82,6 +82,13 @@ class StrategiesController < ApplicationController
     end
   end
 
+  def create_task(strategy)
+    task = Task.find(strategy.id)
+    task.finished = strategy.finished
+    task.title = strategy.name
+    task.save
+  end
+
   # PATCH/PUT /strategies/1
   # PATCH/PUT /strategies/1.json
   def update
@@ -94,9 +101,7 @@ class StrategiesController < ApplicationController
     end
     empty_array_for :viewers, :category
     shared_update(@strategy, strategy_params)
-    task = Task.find(@strategy.id)
-    task.finished = @strategy.finished
-    task.title = @strategy.name
+    create_task(@strategy)
   end
 
   # DELETE /strategies/1
