@@ -1,20 +1,18 @@
 @import "../../styles/_global.scss";
 
-.test
-{
-  position:absolute;
-  left:-10000px;
-  top:auto;
-  width:1px;
-  height:1px;
-  overflow:hidden;
+.skipToContent {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
  
-.test:focus
-{
-  position:static;
-  width:auto;
-  height:auto;
+.skipToContent:focus {
+  position: static;
+  width: auto;
+  height: auto;
   color: #990019;
   background: #91D7E8;
   align-items: center;
