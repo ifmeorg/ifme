@@ -74,22 +74,13 @@ class Strategy < ApplicationRecord
   private
 
   def update_tasks_table
-    if !Task.exists?(self.id)
-      @task = Task.new(id: self.id)
-    else
-      @task = Task.find(self.id)
-    end
-    @task.title = self.name
-
-    @task.description = (self.description)
-    @task.finished = self.finished
-    @task.date = self.updated_at
-    if self.finished
-      @task.no_of_days_followed = 1
-    else
-      @task.no_of_days_followed = 0
-    end
-    @task.total_no_of_days = (self.created_at.to_date - Date.today).to_i + 1
+    @task = Task.exists?(id) ? Task.find(id) : Task.new(id: id)
+    @task.title = name
+    @task.description = description
+    @task.finished = finished
+    @task.date = updated_at
+    @task.no_of_days_followed = self.finished ? 1 : 0
+    @task.total_no_of_days = (created_at.to_date - Time.zone.today).to_i + 1
     @task.save
   end
 end

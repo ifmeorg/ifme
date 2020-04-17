@@ -72,7 +72,6 @@ spec:mailers
 spec:models
 spec:routing
 spec:services
-spec:views
 stats
 strategies:update
 test

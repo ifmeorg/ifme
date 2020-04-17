@@ -94,17 +94,17 @@ class StrategiesController < ApplicationController
     end
     empty_array_for :viewers, :category
     shared_update(@strategy, strategy_params)
-    t = Task.find(id = @strategy.id)
-    t.finished = @strategy.finished
-    t.title = @strategy.name
+    task = Task.find(@strategy.id)
+    task.finished = @strategy.finished
+    task.title = @strategy.name
   end
 
   # DELETE /strategies/1
   # DELETE /strategies/1.json
   def destroy
     shared_destroy(@strategy)
-    t = Task.find(id = @strategy.id)
-    t.delete
+    task = Task.find(@strategy.id)
+    task.delete
     PerformStrategyReminder.where(strategy_id: @strategy.id).destroy_all
   end
 
