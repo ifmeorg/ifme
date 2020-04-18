@@ -121,6 +121,7 @@
   "resolutions": {
     "minimist": "^0.2.1",
     "marked": ">=0.6.2",
-    "braces": ">=2.3.1"
+    "braces": ">=2.3.1",
+    "https-proxy-agent": "^2.2.3"
   }
 }
