@@ -95,6 +95,14 @@ class User < ApplicationRecord
     user
   end
 
+  def self.find_for_facebook(auth)
+    user = find_or_initialize_by(email: auth.info.email)
+    user.name ||= auth.info.name
+    user.password ||= Devise.friendly_token[0, 20]
+    update_access_token_fields(user: user, access_token: auth)
+    user
+  end
+
   def self.from_omniauth(auth)
     where(provider: auth.provider,
           uid: auth.provider + auth.uid).first_or_create do |user|
@@ -106,7 +114,15 @@ class User < ApplicationRecord
     google_access_token_expired? ? update_access_token : token
   end
 
+  def facebook_access_token
+    facebook_access_token_expired? ? update_access_token : token
+  end
+
   def google_oauth2_enabled?
+    token.present?
+  end
+
+  def facebook_enabled?
     token.present?
   end
 
@@ -152,6 +168,10 @@ class User < ApplicationRecord
   end
 
   def google_access_token_expired?
+    !access_expires_at || Time.zone.now > access_expires_at
+  end
+
+  def facebook_access_token_expired?
     !access_expires_at || Time.zone.now > access_expires_at
   end
 end
