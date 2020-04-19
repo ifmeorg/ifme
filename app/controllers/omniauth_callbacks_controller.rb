@@ -15,10 +15,10 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def facebook
-    @user = User.from_omniauth request.env['omniauth.auth']
-    if @user.valid?
+    if user.present?
+      user.accept_invitation! if invitation_token
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success',
-                              kind: t('omniauth.facebook'))
+                              kind: 'Facebook')
       sign_in_and_redirect @user, event: :authentication
     else
       redirect_to new_user_session_path, notice: t('omniauth.access_denied')
@@ -28,10 +28,14 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   private
 
   def user
-    @user ||= User.find_for_google_oauth2(request.env['omniauth.auth'])
+    @user ||= User.find_for_facebook(request.env['omniauth.auth'])
   end
 
   def google_avatar
+    request.env['omniauth.auth']&.[]('info')&.[]('image')
+  end
+
+  def facebook_avatar
     request.env['omniauth.auth']&.[]('info')&.[]('image')
   end
 
