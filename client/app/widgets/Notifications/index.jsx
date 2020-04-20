@@ -24,8 +24,8 @@ const Notifications = ({
   const [notifications, setNotifications] = useState('');
   const [alreadyMounted, setAlreadyMounted] = useState(false);
   const [open, setOpen] = useState(false);
-  const [modalKey, setModalKey] = useState(undefined);
-  const [signedInKey, setSignedInKey] = useState(undefined);
+  const [modalKey, setModalKey] = useState();
+  const [signedInKey, setSignedInKey] = useState();
 
   const setBody = (notifications1: string[]) => {
     // I have changed notifications to notifications1 in order to avoid no-shadow error.
