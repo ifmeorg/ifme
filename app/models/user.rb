@@ -87,15 +87,7 @@ class User < ApplicationRecord
     super && !banned
   end
 
-  def self.find_for_google_oauth2(auth)
-    user = find_or_initialize_by(email: auth.info.email)
-    user.name ||= auth.info.name
-    user.password ||= Devise.friendly_token[0, 20]
-    update_access_token_fields(user: user, access_token: auth)
-    user
-  end
-
-  def self.find_for_facebook(auth)
+  def self.find_for_oauth(auth)
     user = find_or_initialize_by(email: auth.info.email)
     user.name ||= auth.info.name
     user.password ||= Devise.friendly_token[0, 20]
