@@ -76,7 +76,7 @@ const Notifications = ({
   const getPusherKey = (signedInKey1: number) => {
     setSignedInKey(signedInKey1);
     const metaPusherKey = Array.from(
-      window.document.getElementsByTagName('meta'),
+      document.getElementsByTagName('meta'),
     ).filter((item) => item.getAttribute('name') === 'pusher-key')[0];
     const pusherKey = metaPusherKey.getAttribute('content');
     const pusher = new window.Pusher(pusherKey, { encrypted: true });
