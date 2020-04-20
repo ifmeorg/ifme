@@ -48,7 +48,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
     context 'when google_oauth2 enabling fails' do
       before do
         stub_env_for_omniauth
-        allow(User).to receive(:find_for_google_oauth2)
+        allow(User).to receive(:find_for_oauth)
           .with(request.env['omniauth.auth']).and_return(nil)
         get :google_oauth2
       end
@@ -152,7 +152,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
     context 'when facebook enabling fails' do
       before do
         stub_env_for_omniauth_fb
-        allow(User).to receive(:find_for_facebook)
+        allow(User).to receive(:find_for_oauth)
           .with(request.env['omniauth.auth']).and_return(nil)
         get :facebook
       end
