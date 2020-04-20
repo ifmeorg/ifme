@@ -28,7 +28,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   private
 
   def user
-    @user ||= User.find_for_facebook(request.env['omniauth.auth'])
+    @user ||= User.find_for_oauth(request.env['omniauth.auth'])
   end
 
   def google_avatar
