@@ -120,7 +120,7 @@ describe User do
     end
   end
 
-  describe '#find_for_google_oauth2' do
+  describe '#find_for_oauth' do
     let(:access_token) do
       double(
         info: double(email: 'some@user.com', name: 'some name'),
@@ -136,7 +136,7 @@ describe User do
       let!(:user) { User.create(name: 'some name', email: 'some@user.com', password: 'asdfaS1!df') }
 
       it 'updates token information' do
-        User.find_for_google_oauth2(access_token)
+        User.find_for_oauth(access_token)
         user.reload
         expect(user.provider).to eq('asdf')
         expect(user.token).to eq('some token')
@@ -146,19 +146,19 @@ describe User do
       end
 
       it 'returns a user' do
-        expect(User.find_for_google_oauth2(access_token)).to eq(user.reload)
+        expect(User.find_for_oauth(access_token)).to eq(user.reload)
       end
     end
 
     context 'a new user' do
       it 'creates a new user' do
         expect(User.where(email: 'some@user.com').first).to be_nil
-        User.find_for_google_oauth2(access_token)
+        User.find_for_oauth(access_token)
         expect(User.where(email: 'some@user.com').first).to be_a_kind_of(User)
       end
 
       it 'returns a user' do
-        expect(User.find_for_google_oauth2(access_token)).to be_a_kind_of(User)
+        expect(User.find_for_oauth(access_token)).to be_a_kind_of(User)
       end
     end
   end
