@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
 class StrategiesController < ApplicationController
-  include CollectionPageSetupConcern
-  include ReminderHelper
-  include StrategiesConcern
-  include Shared
-  include MomentsHelper
-  include TagsHelper
+  include CollectionPageSetupConcern, ReminderHelper, Shared
+  include StrategiesConcern, MomentsHelper, TagsHelper
 
   before_action :set_strategy, only: %i[show edit update destroy]
 
