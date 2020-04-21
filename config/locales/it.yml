@@ -31,6 +31,7 @@ it:
     zh-CN: 中文
     ko: 한국어
   navigation:
+    skip_to_main_content: Salta al contenuto principale
     main_menu: Menu del sito principale
     user_menu: Menu utente
     about: Riguardo a noi
