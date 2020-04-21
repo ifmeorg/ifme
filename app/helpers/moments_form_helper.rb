@@ -88,7 +88,6 @@ module MomentsFormHelper
         value: true,
         uncheckedValue: false,
         checked: @moment.bookmarked,
-        info: t('comment.hint'),
         dark: true
       )
   end

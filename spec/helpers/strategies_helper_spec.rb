@@ -110,6 +110,15 @@ describe StrategiesHelper do
         uncheckedValue: false,
         checked: strategy.visible
       },
+      { id: 'strategy_bookmarked',
+        type: 'switch',
+        label: t('strategies.bookmark'),
+        dark: true,
+        name: 'strategy[bookmarked]',
+        value: true,
+        uncheckedValue: false,
+        checked: strategy.bookmarked
+      },
       {
         id: 'strategy_perform_strategy_reminder',
         type: 'checkbox',

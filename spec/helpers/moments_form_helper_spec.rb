@@ -237,6 +237,16 @@ describe MomentsFormHelper do
             value: '0'
           },
           {
+            checked: false,
+            dark: true,
+            id: 'moment_bookmarked',
+            label: 'Bookmark this moment?',
+            name: 'moment[bookmarked]',
+            type: 'switch',
+            uncheckedValue: false,
+            value: true
+          },
+          {
             dark: true,
             id: 'submit',
             type: 'submit',
@@ -492,6 +502,16 @@ describe MomentsFormHelper do
             value: '0',
             uncheckedValue: '1',
             checked: true
+          },
+          {
+            id: 'moment_bookmarked',
+            label: 'Bookmark this moment?',
+            name: 'moment[bookmarked]',
+            type: 'switch',
+            uncheckedValue: false,
+            value: true,
+            dark: true,
+            checked: false,
           },
           {
             id: '_method',
