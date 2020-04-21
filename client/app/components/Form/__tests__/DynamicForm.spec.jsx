@@ -7,7 +7,7 @@ import { InputMocks } from '../../../mocks/InputMocks';
 
 // TODO (julianguyen): Include InputTextarea after writing stubs for pell editor
 
-const defualtMockInputs = [
+const defaultMockInputs = [
   { ...InputMocks.inputTextProps, required: true },
   InputMocks.inputSelectProps,
   { ...InputMocks.inputCheckboxGroupProps, required: true },
@@ -28,10 +28,10 @@ const getMockInputs = (nameValue) => {
         info: 'Some Name Info',
         required: true,
       },
-      ...defualtMockInputs,
+      ...defaultMockInputs,
     ];
   }
-  return defualtMockInputs;
+  return defaultMockInputs;
 };
 
 const getComponent = (options = {}) => {
