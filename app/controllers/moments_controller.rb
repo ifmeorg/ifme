@@ -97,8 +97,8 @@ class MomentsController < ApplicationController
 
   def moment_params
     params.require(:moment).permit(:name, :why, :fix, :comment, :draft,
-                                   category: [], mood: [], viewers: [],
-                                   strategy: [])
+                                   :bookmarked, category: [], mood: [],
+                                   viewers: [], strategy: [])
   end
 
   def set_association_variables!

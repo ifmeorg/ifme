@@ -82,13 +82,24 @@ module MomentsFormHelper
       checked: !@moment.published? }
   end
 
+  def moment_bookmarked
+    moment_input_props('bookmarked', 'switch', 'moments.bookmark')
+      .merge(
+        value: true,
+        uncheckedValue: false,
+        checked: @moment.bookmarked,
+        info: t('comment.hint'),
+        dark: true
+      )
+  end
+
   def moment_form_inputs
     [
       moment_name, moment_why, moment_fix, moment_category, moment_mood,
       moment_strategy, get_viewers_input(
         @viewers, 'moment', 'moments', @moment
       ),
-      moment_comment, moment_publishing
+      moment_comment, moment_publishing, moment_bookmarked
     ]
   end
 
