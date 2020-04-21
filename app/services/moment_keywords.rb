@@ -6,7 +6,7 @@ class MomentKeywords
     @moment_keywords = []
   end
 
-  def assemble
+  def call
     gather(@moment.categories)
     gather(@moment.moods)
     gather(@moment.strategies)
