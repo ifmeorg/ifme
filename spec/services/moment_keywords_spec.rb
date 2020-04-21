@@ -2,12 +2,12 @@ describe MomentKeywords do
   let(:moment) do
     FactoryBot.build(
         :moment,
-        categories: [build(:category, name: 'free', description: 'Description')],
-        moods: [build(:mood, name: 'Name', description: 'Blog^^')],
-        strategies: [build(:strategy, name: 'Name', description: 'books@!##.')],
+        categories: [build(:category, name: 'free', description: '<div>Description</div>')],
+        moods: [build(:mood, name: 'Name', description: '<div>Blog^^</div>')],
+        strategies: [build(:strategy, name: 'Name', description: '<div>books@!##.</div>')],
         name: 'ADDICTION',
-        why: 'self-care.',
-        fix: '@Teachers!!'
+        why: '<div>self-care.<\div>',
+        fix: '<div>@Teachers!!<\div>'
     )
   end
 
@@ -23,6 +23,10 @@ describe MomentKeywords do
 
   it 'removes special characters' do
     expect(keywords).to include('teachers')
+  end
+
+  it 'sanitizes html tags' do
+    expect(keywords).to include('blog')
   end
 
   it 'returns an array of all the key words' do
