@@ -43,6 +43,7 @@
   </div>
 <% end %>
 
+<% if @resources.any? %>
 <div class="smallMarginTop">
   <div class="label"><%= label_tag "What resources could help?" %> </div>
   <ul>
@@ -52,6 +53,7 @@
     <li><%= link_to  'More...', resources_path %></li>
   </ul>
 </div>
+<% end %>
 
 <% if @moment.owned_by?(current_user) && @moment.shared? %>
   <div class="smallMarginTop">
