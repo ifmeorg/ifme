@@ -6,8 +6,8 @@ class ResourceRecommendations
     @moment_keywords = []
   end
 
-  def collect
-    @moment_keywords = MomentKeywords.new(@moment).assemble
+  def call
+    @moment_keywords = MomentKeywords.new(@moment).call
     all_resources.select do |resource|
       tags = resource['tags'].flat_map do |tag|
         tag.tr('_', ' ')
