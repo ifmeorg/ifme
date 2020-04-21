@@ -1,12 +1,12 @@
-describe ResourceRecommendation do
+describe ResourceRecommendations do
     let(:moment) {FactoryBot.build(:moment,
                                        name: 'SELF-INJURY@',
                                        why: 'text',
                                        fix: 'text' )}
   
-    subject(:resources) { ResourceRecommendation.new(moment).resources}
+    subject(:resources) { ResourceRecommendations.new(moment).resources}
   
-    describe 'A test for resources method from ResourceRecommendation class' do
+    describe 'A test for resources method from ResourceRecommendations class' do
       it 'returns recommended resources based on moment keywords' do
         available_resource = [{'tags'=> ["self_injury"]}]
         allow(JSON).to receive(:parse) { available_resource }

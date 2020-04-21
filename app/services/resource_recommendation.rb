@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ResourceRecommendation
+class ResourceRecommendations
   def initialize(moment)
     @moment = moment
     @moment_keywords = []
