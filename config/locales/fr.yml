@@ -336,6 +336,7 @@ fr:
     edit_moment: 'Modifier le moment'
     tagged_moments: 'Moments étiquetés'
     new: 'Nouveau moment'
+    bookmark: 'Signet'
     secret_share:
       singular: 'Partage de secret'
       expires_at: 'Expire le'
@@ -966,6 +967,7 @@ fr:
     edit_strategy: 'Modifier la stratégie'
     tagged_strategies: 'Stratégies étiquetées'
     new: 'Nouvelle stratégie'
+    bookmark: 'Signet'
     form:
       describe: 'Décrire la stratégie.'
       strategies_label: >-

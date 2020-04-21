@@ -288,6 +288,7 @@ zh-CN:
     edit_moment: '编辑片刻'
     tagged_moments: '标记的时刻'
     new: '新时刻'
+    bookmark: '书签'
     secret_share:
       singular: '秘密分享'
       expires_at: '于到期'
@@ -714,6 +715,7 @@ zh-CN:
     edit_strategy: '修改策略'
     tagged_strategies: '标记策略'
     new: '新策略'
+    bookmark: '书签'
     form:
       describe: '描述策略。'
       strategies_label: '哪些策略可以帮助实现这些想法？'

@@ -339,6 +339,7 @@ de:
     edit_moment: 'Moment bearbeiten'
     tagged_moments: 'Getaggte Momente'
     new: 'Neuer Moment'
+    bookmark: 'Lesezeichen'
     secret_share:
       singular: 'Geheimnis teilen'
       expires_at: 'Läuft ab am'
@@ -993,6 +994,7 @@ de:
     edit_strategy: 'Strategie bearbeiten'
     tagged_strategies: 'Gekennzeichnete Strategien'
     new: 'Neue Strategie'
+    bookmark: 'Lesezeichen'
     form:
       describe: 'Beschreibe deine Strategie.'
       strategies_label: >-
