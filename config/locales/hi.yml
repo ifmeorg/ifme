@@ -31,6 +31,7 @@ hi:
     zh-CN: 中文
     ko: 한국어
   navigation:
+    skip_to_main_content: मुख्य सामग्री पर जाएं
     main_menu: मुख्य साइट मेनू
     google: गूगल
     user_menu: उपयोगकर्ता विकल्प सूची

@@ -31,6 +31,7 @@ pt-BR:
     zh-CN: 中文
     ko: 한국어
   navigation:
+    skip_to_main_content: Pular para o conteúdo principal
     main_menu: Menu do site principal
     user_menu: Menu do usuário
     about: Sobre

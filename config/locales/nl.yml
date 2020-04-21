@@ -31,6 +31,7 @@ nl:
     zh-CN: 中文
     ko: 한국어
   navigation:
+    skip_to_main_content: 'Ga naar hoofdinhoud'
     main_menu: Hoofdsitemenu
     user_menu: Gebruikersmenu
     about: Over

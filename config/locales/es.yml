@@ -31,6 +31,7 @@ es:
     zh-CN: 中文
     ko: 한국어
   navigation:
+    skip_to_main_content: Saltar al contenido principal
     main_menu: Menú del sitio principal
     google: Google
     user_menu: Menú del Usuario

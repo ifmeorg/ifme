@@ -31,6 +31,7 @@ sv:
     zh-CN: 中文
     ko: 한국어
   navigation:
+    skip_to_main_content: Hoppa till huvudinnehåll
     main_menu: Huvudsidan meny
     user_menu: Användarmeny
     about: Om
