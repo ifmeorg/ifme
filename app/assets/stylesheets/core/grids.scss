@@ -140,6 +140,7 @@
 
   &ThreeAlways {
     @include grid();
+    align-items: center;
     &Item {
       @include gridThreeItemAlways();
       &BoxLight {
