@@ -87,7 +87,7 @@ module StrategiesFormHelper
         label: t('strategies.bookmark')
       )
   end
-  
+
   def build_strategy_visible(strategy)
     build_switch_input(true, strategy.visible, false).merge(
       id: 'strategy_visible',
