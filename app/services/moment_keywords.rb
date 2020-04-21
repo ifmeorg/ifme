@@ -24,7 +24,7 @@ class MomentKeywords
   def extract_keywords(array)
     array.each do |item|
       @moment_keywords.push(item['name'].split,
-                            strip_html(item['description']).split)
+                            extract(item['description']))
     end
   end
 
