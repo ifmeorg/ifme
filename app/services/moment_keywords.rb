@@ -10,7 +10,9 @@ class MomentKeywords
     collect_keywords(@moment.categories)
     collect_keywords(@moment.moods)
     collect_keywords(@moment.strategies)
-    @moment_keywords.push(extract(@moment.name), extract(@moment.why), extract(@moment.fix))
+    @moment_keywords.push(extract(@moment.name),
+                          extract(@moment.why),
+                          extract(@moment.fix))
     remove_special_chars
     downcase_keywords
   end
