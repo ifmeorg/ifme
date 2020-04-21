@@ -65,20 +65,15 @@ module MomentsFormHelper
   def moment_comment
     moment_input_props('comment', 'switch', 'comment.allow_comments')
       .merge(value: true,
-             uncheckedValue: false,
-             checked: @moment.comment,
-             info: t('comment.hint'),
-             dark: true)
+             uncheckedValue: false, checked: @moment.comment,
+             info: t('comment.hint'), dark: true)
   end
 
   def moment_publishing
-    { id: 'moment_publishing',
-      type: 'switch',
+    { id: 'moment_publishing', type: 'switch',
       label: t('moments.form.draft_question'),
-      dark: true,
-      name: 'publishing',
-      value: '0',
-      uncheckedValue: '1',
+      dark: true, name: 'publishing',
+      value: '0', uncheckedValue: '1',
       checked: !@moment.published? }
   end
 
