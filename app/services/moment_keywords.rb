@@ -10,7 +10,7 @@ class MomentKeywords
     extract_keywords(@moment.categories)
     extract_keywords(@moment.moods)
     extract_keywords(@moment.strategies)
-    @moment_keywords.push(extract_name, extract_why, extract_fix)
+    @moment_keywords.push(extract(@moment.name), extract(@moment.why), extract(@moment.fix))
     remove_special_chars
     downcase_keywords
   end
@@ -28,16 +28,8 @@ class MomentKeywords
     end
   end
 
-  def extract_name
-    @moment.name.split
-  end
-
-  def extract_why
-    strip_html(@moment.why).split
-  end
-
-  def extract_fix
-    strip_html(@moment.fix).split
+  def extract(array)
+    strip_html(array).split
   end
 
   def remove_special_chars
