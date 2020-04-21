@@ -11,7 +11,7 @@ describe MomentKeywords do
     )
   end
 
-  subject(:keywords) { MomentKeywords.new(moment).extract_moment_keywords }
+  subject(:keywords) { MomentKeywords.new(moment).assemble }
 
   it 'downcases words' do
     expect(keywords).to include('addiction')

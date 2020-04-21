@@ -6,7 +6,7 @@ class MomentKeywords
     @moment_keywords = []
   end
 
-  def extract_moment_keywords
+  def assemble
     extract_keywords(@moment.categories)
     extract_keywords(@moment.moods)
     extract_keywords(@moment.strategies)
