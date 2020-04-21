@@ -7,9 +7,9 @@ class MomentKeywords
   end
 
   def call
-    gather(@moment.categories)
-    gather(@moment.moods)
-    gather(@moment.strategies)
+    collect_keywords(@moment.categories)
+    collect_keywords(@moment.moods)
+    collect_keywords(@moment.strategies)
     @moment_keywords.push(extract(@moment.name), extract(@moment.why), extract(@moment.fix))
     remove_special_chars
     downcase_keywords
@@ -21,7 +21,7 @@ class MomentKeywords
     ActionController::Base.helpers.strip_tags(str)
   end
 
-  def gather(array)
+  def collect_keywords(array)
     array.each do |item|
       @moment_keywords.push(item['name'].split,
                             extract(item['description']))
