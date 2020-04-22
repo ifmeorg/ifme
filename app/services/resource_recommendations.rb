@@ -4,6 +4,7 @@ class ResourceRecommendations
   def initialize(moment)
     @moment = moment
     @moment_keywords = []
+    @filtered_tags = []
   end
 
   def call

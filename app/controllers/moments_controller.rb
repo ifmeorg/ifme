@@ -26,6 +26,8 @@ class MomentsController < ApplicationController
   def show
     show_with_comments(@moment)
     @resources = ResourceRecommendations.new(@moment).call
+    @moment_keywords = MomentKeywords.new(@moment).call
+    @filter_tags = 'filter[]=paid&filter[]=free'
   end
 
   # GET /moments/new
