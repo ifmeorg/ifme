@@ -93,7 +93,8 @@ module MomentsFormHelper
       moment_strategy, get_viewers_input(
         @viewers, 'moment', 'moments', @moment
       ),
-      moment_comment, moment_publishing, moment_bookmarked
+      moment_comment, moment_publishing,
+      Rails.env.development? ? moment_bookmarked : ''
     ]
   end
 
