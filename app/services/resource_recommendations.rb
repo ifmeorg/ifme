@@ -4,7 +4,6 @@ class ResourceRecommendations
   def initialize(moment)
     @moment = moment
     @moment_keywords = []
-    @filtered_tags = []
   end
 
   def call
@@ -15,6 +14,14 @@ class ResourceRecommendations
       end
       (tags & @moment_keywords).any?
     end
+  end
+
+  def matched_tags
+    @moment_keywords = MomentKeywords.new(@moment).call
+     resource_tags = all_resources.flat_map do |resource|
+       resource['tags']
+     end
+     matched_tags = (@moment_keywords & resource_tags)
   end
 
   private
