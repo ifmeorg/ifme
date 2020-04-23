@@ -15,7 +15,7 @@ class MomentKeywords
                           extract(@moment.fix))
     remove_special_chars
     downcase_keywords
-    @moment_keywords = @moment_keywords.join(' ')
+    @moment_keywords = @moment_keywords.uniq.join(' ')
   end
 
   private
