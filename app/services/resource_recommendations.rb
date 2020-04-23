@@ -15,15 +15,15 @@ class ResourceRecommendations
     end
   end
 
-  # def matched_tags
-  #   @moment_keywords = MomentKeywords.new(@moment).call
-  #    resource_tags = all_resources.flat_map do |resource|
-  #      resource['tags'].map do |tag|
-  #        tag.tr('_', '-')
-  #      end
-  #    end
-  #    matched_tags = (@moment_keywords & resource_tags)
-  # end
+  def matched_tags
+    @moment_keywords = MomentKeywords.new(@moment).call
+     resource_tags = all_resources.flat_map do |resource|
+       resource['tags'].select do |tag|
+         @moment_keywords.match?(tag)
+       end
+     end
+     resource_tags
+  end
 
   private
 
