@@ -47,14 +47,13 @@
 <div class="smallMarginTop">
   <div class="label"><%= label_tag "What resources could help?" %> </div>
   <ul>
-    <% @resources.each do |item|  %>
+    <% @resources.take(3).each do |item|  %>
       <li><%= link_to item['name'], item['link'] %></li>
     <%end %>
     <li><%= link_to  'More...', "/resources?#{@filter_tags}" %></li>
   </ul>
 </div>
 <% end %>
-
 
 <% if @moment.owned_by?(current_user) && @moment.shared? %>
   <div class="smallMarginTop">
