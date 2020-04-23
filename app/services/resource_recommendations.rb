@@ -9,9 +9,7 @@ class ResourceRecommendations
   def call
     @moment_keywords = MomentKeywords.new(@moment).call
     all_resources.select do |resource|
-      tags = resource['tags'].flat_map do |tag|
-        tag.tr('_', '-')
-      end
+      tags = resource['tags']
       (tags & @moment_keywords).any?
     end
   end
