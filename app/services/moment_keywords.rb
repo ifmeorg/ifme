@@ -15,7 +15,7 @@ class MomentKeywords
                           extract(@moment.fix))
     remove_special_chars
     downcase_keywords
-    @moment_keywords = @moment_keywords.uniq.join(' ')
+    @moment_keywords = @moment_keywords.join(' ')
   end
 
   private
@@ -37,7 +37,6 @@ class MomentKeywords
 
   def remove_special_chars
     @moment_keywords = @moment_keywords.flatten.each do |keyword|
-      # keyword.gsub!(/[\-_]/, ' ')
       keyword.gsub!(/[^\p{Alpha} -]/, '')
     end
   end

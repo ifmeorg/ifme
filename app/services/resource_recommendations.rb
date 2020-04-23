@@ -10,25 +10,24 @@ class ResourceRecommendations
     @moment_keywords = MomentKeywords.new(@moment).call
     all_resources.select do |resource|
       resource['tags'].any? do |tag|
-         @moment_keywords.match?(tag)
+        @moment_keywords.match?(tag)
       end
     end
   end
 
   def matched_tags
     @moment_keywords = MomentKeywords.new(@moment).call
-     resource_tags = all_resources.flat_map do |resource|
-       resource['tags'].select do |tag|
-         @moment_keywords.match?(tag)
-       end
-     end
-     resource_tags
+    resource_tags = all_resources.flat_map do |resource|
+      resource['tags'].select do |tag|
+        @moment_keywords.match?(tag)
+      end
+    end
+    resource_tags
   end
 
   private
 
   def all_resources
-    # JSON.parse(File.read(Rails.root.join('doc', 'pages', 'resources.json')))
     resources = JSON.parse(File.read('doc/pages/resources.json'))
     resources.each do |item|
       item['tags'].map! { |tag| I18n.t("pages.resources.tags.#{tag}") }
