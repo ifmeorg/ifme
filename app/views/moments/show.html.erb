@@ -47,15 +47,12 @@
 <div class="smallMarginTop">
   <div class="label"><%= label_tag "What resources could help?" %> </div>
   <ul>
-    <% @resources.take(3).each do |item|  %>
+    <% @resources.each do |item|  %>
       <li><%= link_to item['name'], item['link'] %></li>
     <%end %>
     <li><%= link_to  'More...', "/resources?#{@filter_tags}" %></li>
   </ul>
 </div>
-  <div>
-    <%= "Tags:" "#{@filter_tags}" %>
-  </div>
   <%= "Moment keywords:" "#{@moment_keywords}" %>
 <% end %>
 

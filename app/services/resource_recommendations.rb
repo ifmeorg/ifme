@@ -9,20 +9,21 @@ class ResourceRecommendations
   def call
     @moment_keywords = MomentKeywords.new(@moment).call
     all_resources.select do |resource|
-      tags = resource['tags']
-      (tags & @moment_keywords).any?
+      resource['tags'].any? do |tag|
+         @moment_keywords.match?(tag)
+      end
     end
   end
 
-  def matched_tags
-    @moment_keywords = MomentKeywords.new(@moment).call
-     resource_tags = all_resources.flat_map do |resource|
-       resource['tags'].map do |tag|
-         tag.tr('_', '-')
-       end
-     end
-     matched_tags = (@moment_keywords & resource_tags)
-  end
+  # def matched_tags
+  #   @moment_keywords = MomentKeywords.new(@moment).call
+  #    resource_tags = all_resources.flat_map do |resource|
+  #      resource['tags'].map do |tag|
+  #        tag.tr('_', '-')
+  #      end
+  #    end
+  #    matched_tags = (@moment_keywords & resource_tags)
+  # end
 
   private
 
