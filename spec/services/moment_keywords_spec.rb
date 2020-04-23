@@ -16,11 +16,7 @@ describe MomentKeywords do
   it 'downcases words' do
     expect(keywords).to include('addiction')
   end
-
-  it 'removes hyphen from compound words' do
-    expect(keywords).to include('self care')
-  end
-
+  
   it 'removes special characters' do
     expect(keywords).to include('teachers')
   end
@@ -29,10 +25,9 @@ describe MomentKeywords do
     expect(keywords).to include('blog')
   end
 
-  it 'returns an array of all the key words' do
+  it 'returns a string with all keywords' do
     expect(keywords).to eq(
-                            ['free', 'description','name', 'blog', 'name', 'books',
-                             'addiction', 'self care', 'teachers']
+                            'free description name blog name books addiction self-care teachers'
                         )
   end
 end
