@@ -31,7 +31,6 @@ class ResourceRecommendations
     resources = JSON.parse(File.read('doc/pages/resources.json'))
     resources.each do |item|
       item['tags'].map! { |tag| I18n.t("pages.resources.tags.#{tag}") }
-      item['languages'].map! { |language| I18n.t("languages.#{language}") }
     end
     resources
   end
