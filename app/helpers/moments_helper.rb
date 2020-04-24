@@ -66,7 +66,7 @@ module MomentsHelper
     filter_tags = matched_tags.uniq.map do |t|
       "filter[]=#{t}&"
     end
-    URI.encode(filter_tags.join)
+   filter_tags.join
   end
 
   private
