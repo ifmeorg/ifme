@@ -66,7 +66,7 @@ module MomentsHelper
     filter_tags = matched_tags.uniq.map do |t|
       "filter[]=#{t}&"
     end
-   filter_tags.join
+    filter_tags.join
   end
 
   private
@@ -115,5 +115,4 @@ module MomentsHelper
       moods: element&.mood_names_and_slugs
     }
   end
-
 end
