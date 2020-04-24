@@ -94,7 +94,7 @@ module MomentsFormHelper
         @viewers, 'moment', 'moments', @moment
       ),
       moment_comment, moment_publishing,
-      Rails.env.development? ? moment_bookmarked : ''
+      Rails.env.development? ? moment_bookmarked : nil
     ]
   end
 
