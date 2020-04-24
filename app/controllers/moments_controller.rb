@@ -27,7 +27,6 @@ class MomentsController < ApplicationController
     show_with_comments(@moment)
     @resources = ResourceRecommendations.new(@moment).call
     @matched_tags = ResourceRecommendations.new(@moment).matched_tags
-    @moment_keywords = MomentKeywords.new(@moment).call
     @filter_tags = @matched_tags.uniq.map do |t|
       "filter[]=#{t}&"
     end
