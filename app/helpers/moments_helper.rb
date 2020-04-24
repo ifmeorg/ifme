@@ -107,4 +107,12 @@ module MomentsHelper
       moods: element&.mood_names_and_slugs
     }
   end
+
+  def resources_url_tags
+    matched_tags = ResourceRecommendations.new(@moment).matched_tags
+    filter_tags = matched_tags.uniq.map do |t|
+      "filter[]=#{t}&"
+    end
+    filter_tags.join
+  end
 end
