@@ -16,7 +16,7 @@ describe MomentKeywords do
   it 'downcases words' do
     expect(keywords).to include('addiction')
   end
-  
+
   it 'removes special characters' do
     expect(keywords).to include('teachers')
   end

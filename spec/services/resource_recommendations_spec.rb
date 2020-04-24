@@ -3,9 +3,9 @@ describe ResourceRecommendations do
                                        name: 'SELF-INJURY@',
                                        why: 'text',
                                        fix: 'text' )}
-  
+
     subject(:resources) { ResourceRecommendations.new(moment).call}
-  
+
     describe 'A test for resources method from ResourceRecommendations class' do
       it 'returns recommended resources based on moment keywords' do
         available_resource = [{'tags'=> ["self_injury"]}]
