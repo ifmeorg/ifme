@@ -313,6 +313,7 @@ pt-BR:
     edit_moment: 'Editar momento'
     tagged_moments: 'Momentos com tags'
     new: 'Novo momento'
+    bookmark: 'Marca páginas'
     secret_share:
       singular: 'Compartilhar segredo'
       expires_at: 'Expirar em'
@@ -848,6 +849,7 @@ pt-BR:
     edit_strategy: 'Editar Estratégia'
     tagged_strategies: 'Estratégias marcadas'
     new: 'Nova Estratégia'
+    bookmark: 'Marca páginas'
     form:
       describe: 'Descreva a estratégia'
       strategies_label: 'Quais estratégias poderiam te ajudar a alcançar suas

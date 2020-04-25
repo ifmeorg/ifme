@@ -327,6 +327,7 @@ en:
     edit_moment: 'Edit Moment'
     tagged_moments: 'Tagged Moments'
     new: 'New Moment'
+    bookmark: 'Bookmark this moment?'
     secret_share:
       singular: 'Secret Share'
       expires_at: 'Expire at'
@@ -924,6 +925,7 @@ en:
     edit_strategy: 'Edit Strategy'
     tagged_strategies: 'Tagged Strategies'
     new: 'New Strategy'
+    bookmark: 'Bookmark this strategy?'
     form:
       describe: 'Describe the strategy.'
       strategies_label: 'What strategies would help achieve these thoughts?'

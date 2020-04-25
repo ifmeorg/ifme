@@ -306,6 +306,7 @@ nb:
     edit_moment: 'Rediger øyeblikk'
     tagged_moments: 'tag øyeblikk'
     new: 'Nytt øyeblikk'
+    bookmark: 'Bookmark'
     secret_share:
       singular: 'Hemmelig deling'
       expires_at: Utløper
@@ -811,6 +812,7 @@ nb:
     edit_strategy: 'Rediger strategi'
     tagged_strategies: 'Taggede strategier'
     new: 'Ny strategi'
+    bookmark: 'Bookmark'
     form:
       describe: 'Beskriv strategien.'
       strategies_label: 'Hvilke strategier kan hjelpe deg oppnå disse tankene?'

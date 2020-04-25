@@ -309,6 +309,7 @@ nl:
     edit_moment: 'Bewerk Moment'
     tagged_moments: 'Getagde Momenten'
     new: 'Nieuw Moment'
+    bookmark: 'Bladwijzer'
     secret_share:
       singular: 'Geheim Delen'
       expires_at: 'Verloopt op'
@@ -826,6 +827,7 @@ nl:
     edit_strategy: 'Bewerk Strategie'
     tagged_strategies: 'Getagde Strategieën'
     new: 'Nieuwe Strategie'
+    bookmark: 'Bladwijzer'
     form:
       describe: 'Omschrijf de Strategie.'
       strategies_label: 'Welke Strategieën zouden helpen deze gedachten te

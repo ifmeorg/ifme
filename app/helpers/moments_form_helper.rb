@@ -65,21 +65,26 @@ module MomentsFormHelper
   def moment_comment
     moment_input_props('comment', 'switch', 'comment.allow_comments')
       .merge(value: true,
-             uncheckedValue: false,
-             checked: @moment.comment,
-             info: t('comment.hint'),
-             dark: true)
+             uncheckedValue: false, checked: @moment.comment,
+             info: t('comment.hint'), dark: true)
   end
 
   def moment_publishing
-    { id: 'moment_publishing',
-      type: 'switch',
+    { id: 'moment_publishing', type: 'switch',
       label: t('moments.form.draft_question'),
-      dark: true,
-      name: 'publishing',
-      value: '0',
-      uncheckedValue: '1',
+      dark: true, name: 'publishing',
+      value: '0', uncheckedValue: '1',
       checked: !@moment.published? }
+  end
+
+  def moment_bookmarked
+    moment_input_props('bookmarked', 'switch', 'moments.bookmark')
+      .merge(
+        value: true,
+        uncheckedValue: false,
+        checked: @moment.bookmarked,
+        dark: true
+      )
   end
 
   def moment_form_inputs
@@ -88,7 +93,8 @@ module MomentsFormHelper
       moment_strategy, get_viewers_input(
         @viewers, 'moment', 'moments', @moment
       ),
-      moment_comment, moment_publishing
+      moment_comment, moment_publishing,
+      Rails.env.development? ? moment_bookmarked : {}
     ]
   end
 

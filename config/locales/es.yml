@@ -305,6 +305,7 @@ es:
     edit_moment: 'Editar Momento'
     tagged_moments: 'Etiquetar Momento'
     new: 'Nuevo Momento'
+    bookmark: 'Marcador'
     secret_share:
       singular: 'Compartir en Secreto'
       expires_at: 'Caduca en'
@@ -823,6 +824,7 @@ es:
     edit_strategy: 'Editar estrategia'
     tagged_strategies: 'Estrategias etiquetadas'
     new: 'Nueva estrategia'
+    bookmark: 'Marcador'
     form:
       describe: 'Describir estrategia'
       strategies_label: '¿Qué estrategias ayudarían a conseguir estos

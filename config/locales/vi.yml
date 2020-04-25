@@ -304,6 +304,7 @@ vi:
     edit_moment: 'Hiệu chỉnh khoản khắc'
     tagged_moments: 'Những khoản khắc đã được ghi'
     new: 'Khoản khắc mới'
+    bookmark: 'Đánh dấu trang'
     secret_share:
       singular: 'Chia sẻ bí mật'
       expires_at: 'Hết hạn lúc'
@@ -819,6 +820,7 @@ vi:
     edit_strategy: 'Chỉnh sửa chiến lược '
     tagged_strategies: 'Gắn nhãn cho chiến lược'
     new: 'Chiến lược mới'
+    bookmark: 'Đánh dấu trang'
     form:
       describe: 'Miêu tả chiến lược.'
       strategies_label: 'Chiến lược nào sẽ giúp ban đạt được suy nghĩ này?'

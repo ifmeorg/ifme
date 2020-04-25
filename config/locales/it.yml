@@ -309,6 +309,7 @@ it:
     edit_moment: 'Modifica Momento'
     tagged_moments: 'Momenti taggati'
     new: 'Nuovo Momento'
+    bookmark: 'Segnalibro'
     secret_share:
       singular: 'Condivisione Segreta'
       expires_at: Scadenza
@@ -818,6 +819,7 @@ it:
     edit_strategy: 'Modifica Strategia'
     tagged_strategies: 'Strategie Taggate'
     new: 'Nuova Strategia'
+    bookmark: 'Segnalibro'
     form:
       describe: 'Descrivi la Strategia.'
       strategies_label: 'Quali strategie ti aiuterebbero a porti in questo modo?'

@@ -5,33 +5,27 @@ module StrategiesFormHelper
 
   def build_strategy_name(strategy)
     {
-      id: 'strategy_name',
-      type: 'text',
-      name: 'strategy[name]',
-      label: t('common.name'),
+      id: 'strategy_name', type: 'text',
+      name: 'strategy[name]', label: t('common.name'),
       value: strategy.name || nil,
       placeholder: t('strategies.form.name_hint'),
-      required: true,
-      dark: true
+      required: true, dark: true
     }
   end
 
   def build_strategy_description(strategy)
     {
-      id: 'strategy_description',
-      type: 'textarea',
+      id: 'strategy_description', type: 'textarea',
       name: 'strategy[description]',
       label: t('strategies.form.describe'),
       value: strategy.description || nil,
-      required: true,
-      dark: true
+      required: true, dark: true
     }
   end
 
   def build_strategy_category
     {
-      id: 'strategy_category',
-      type: 'quickCreate',
+      id: 'strategy_category', type: 'quickCreate',
       name: 'strategy[category][]',
       label: t('categories.plural'),
       placeholder: t('common.form.search_by_keywords'),
@@ -46,8 +40,7 @@ module StrategiesFormHelper
       name: 'strategy[perform_strategy_reminder_attributes][active]',
       label: t('common.daily_reminder'),
       info: t('strategies.form.daily_reminder_hint'),
-      value: true,
-      uncheckedValue: false,
+      value: true, uncheckedValue: false,
       checked: strategy&.perform_strategy_reminder&.active,
       dark: true
     }
@@ -64,25 +57,29 @@ module StrategiesFormHelper
 
   def build_strategy_comment(strategy)
     build_switch_input(true, strategy.comment, false).merge(
-      id: 'strategy_comment',
-      name: 'strategy[comment]',
-      label: t('comment.allow_comments'),
-      info: t('comment.hint')
+      id: 'strategy_comment', name: 'strategy[comment]',
+      label: t('comment.allow_comments'), info: t('comment.hint')
     )
   end
 
   def build_strategy_publishing(strategy)
     build_switch_input('0', !strategy.published?, '1').merge(
-      id: 'strategy_publishing',
-      name: 'publishing',
+      id: 'strategy_publishing', name: 'publishing',
       label: t('strategies.form.draft_question')
     )
   end
 
+  def build_strategy_bookmarked(strategy)
+    build_switch_input(true, strategy.bookmarked, false)
+      .merge(
+        id: 'strategy_bookmarked', name: 'strategy[bookmarked]',
+        label: t('strategies.bookmark')
+      )
+  end
+
   def build_strategy_visible(strategy)
     build_switch_input(true, strategy.visible, false).merge(
-      id: 'strategy_visible',
-      name: 'strategy[visible]',
+      id: 'strategy_visible', name: 'strategy[visible]',
       label: t('shared.stats.visible_in_stats')
     )
   end
@@ -91,8 +88,7 @@ module StrategiesFormHelper
 
   def build_switch_input(value, checked, unchecked_value)
     {
-      type: 'switch',
-      value: value,
+      type: 'switch', value: value,
       uncheckedValue: unchecked_value,
       checked: checked,
       dark: true
