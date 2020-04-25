@@ -328,6 +328,7 @@ sv:
       example_category: Karriär
     show:
       strategies: 'Vilka strategier skulle hjälpa till?'
+      resources: 'Vilka resurser kan hjälpa?'
   moods:
     singular: Humör
     plural: Humör
