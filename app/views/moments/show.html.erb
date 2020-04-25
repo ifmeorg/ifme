@@ -45,7 +45,7 @@
 
 <% if @resources.any? %>
 <div class="smallMarginTop">
-  <div class="label"><%= label_tag "What resources could help?" %> </div>
+  <div class="label"><%= label_tag t('moments.show.resources') %> </div>
   <ul>
     <% @resources.take(3).each do |item|  %>
       <li><%= link_to item['name'], item['link'] %></li>
