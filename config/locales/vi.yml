@@ -329,6 +329,7 @@ vi:
       example_category: 'Nghề nghiệp'
     show:
       strategies: 'Có cách nào sẽ giúp cho bạn không?'
+      resources: 'Những nguồn lực nào có thể giúp đỡ?'
   moods:
     singular: 'Tâm trạng'
     plural: 'Tâm trạng'
