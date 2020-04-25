@@ -14,6 +14,7 @@
 #  slug         :string
 #  published_at :datetime
 #  visible     :boolean
+#  bookmarked   :boolean
 #
 
 class Strategy < ApplicationRecord

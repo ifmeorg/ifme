@@ -34,6 +34,7 @@ module StrategiesHelper
      get_viewers_input(viewers, 'strategy', 'strategies', strategy),
      build_strategy_comment(strategy), build_strategy_publishing(strategy),
      build_strategy_visible(strategy),
+     Rails.env.development? ? build_strategy_bookmarked(strategy) : {},
      build_strategy_reminder(strategy).merge(type: 'checkbox'),
      build_strategy_reminder_attributes(strategy)]
   end

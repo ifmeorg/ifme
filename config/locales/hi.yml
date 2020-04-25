@@ -293,6 +293,7 @@ hi:
     edit_moment: 'क्षण संपादित करें'
     tagged_moments: 'टैग किए गए लम्हें'
     new: 'नया पल'
+    bookmark: 'बुकमार्क'
     secret_share:
       singular: 'गुप्त हिस्सा'
       expires_at: 'पर समाप्त'
@@ -760,6 +761,7 @@ hi:
     edit_strategy: 'रणनीति संपादित करें'
     tagged_strategies: 'टैग की गईं रणनीतियाँ'
     new: 'नई रणनीति'
+    bookmark: 'बुकमार्क'
     form:
       describe: 'रणनीति का वर्णन करें।'
       strategies_label: 'क्या रणनीति इन विचारों को प्राप्त करने में मदद करेगी?'

@@ -305,6 +305,7 @@ sv:
     edit_moment: 'Redigera Ögonblick'
     tagged_moments: 'Taggade Ögonblick'
     new: 'Nya Ögonblick'
+    bookmark: 'Bokmärke'
     secret_share:
       singular: 'Hemlig Andel'
       expires_at: 'Förfaller vid'
@@ -805,6 +806,7 @@ sv:
     edit_strategy: 'Redigera Strategi'
     tagged_strategies: 'Taggade Strategier'
     new: 'Ny Strategi'
+    bookmark: 'Bokmärke'
     form:
       describe: 'Beskriv strategin.'
       strategies_label: 'Vilka strategier skulle hjälpa till att uppnå dessa
