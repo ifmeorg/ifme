@@ -222,4 +222,3 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
         end
       end
   end
-end
