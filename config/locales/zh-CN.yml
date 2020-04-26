@@ -309,6 +309,7 @@ zh-CN:
       example_category: 事业
     show:
       strategies: '哪些策略会有所帮助？心情'
+      resources: '哪些资源可以帮助您?'
   moods:
     singular: 心情
     plural: 心情
