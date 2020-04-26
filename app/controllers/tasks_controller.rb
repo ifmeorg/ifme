@@ -7,6 +7,8 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
+  def show; end
+
   private
 
   def set_task
