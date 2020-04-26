@@ -333,6 +333,7 @@ nl:
       example_category: Carrière
     show:
       strategies: 'Welke strategieën zouden helpen?'
+      resources: 'Welke middelen zouden kunnen helpen?'
   moods:
     singular: Stemming
     plural: Stemmingen

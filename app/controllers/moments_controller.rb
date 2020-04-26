@@ -25,6 +25,8 @@ class MomentsController < ApplicationController
   # GET /moments/1.json
   def show
     show_with_comments(@moment)
+    @resources = ResourceRecommendations.new(@moment).call
+    @resources_tags = resources_url_tags(@moment)
   end
 
   # GET /moments/new

@@ -329,6 +329,7 @@ es:
       example_category: Carrera
     show:
       strategies: '¿Qué estrategias podrían ayudar?'
+      resources: '¿Qué recursos podrían ayudar?'
   moods:
     singular: 'Estado de Ánimo'
     plural: 'Estados de Ánimo'

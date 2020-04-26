@@ -316,6 +316,7 @@ hi:
       example_category: 'व्यवसाय'
     show:
       strategies: 'क्या रणनीतियों से मदद मिलेगी?'
+      resources: 'किन संसाधनों से मदद मिल सकती है?'
   moods:
     singular: 'मनोदशा'
     plural: 'मनोदशा'

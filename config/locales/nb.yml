@@ -330,6 +330,7 @@ nb:
       example_category: Karriere
     show:
       strategies: 'Hvilke strategier kan hjelpe?'
+      resources: 'Hvilke ressurser kan hjelpe?'
   moods:
     singular: Humør
     plural: Humør

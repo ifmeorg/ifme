@@ -354,6 +354,7 @@ en:
       example_category: Career
     show:
       strategies: 'What strategies would help?'
+      resources: 'What resources could help?'
   moods:
     singular: Mood
     plural: Moods

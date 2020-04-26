@@ -333,6 +333,7 @@ it:
       example_category: Carriera
     show:
       strategies: 'Che strategie sarebbero utili?'
+      resources: 'Che risorse potrebbero aiutare?'
   moods:
     singular: 'Stato d’animo'
     plural: 'Stati d’animo'

@@ -366,6 +366,7 @@ de:
       example_category: Karriere
     show:
       strategies: 'Welche Herangehensweise würde helfen?'
+      resources: 'Welche Ressourcen könnten helfen?'
   moods:
     singular: Stimmung
     plural: Stimmungen
