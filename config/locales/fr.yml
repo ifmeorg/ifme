@@ -363,6 +363,7 @@ fr:
       example_category: Carrière
     show:
       strategies: 'Quelle stratégie aiderait ?'
+      resources: 'Quelles ressources pourraient aider?'
   moods:
     singular: Humeur
     plural: Humeurs
