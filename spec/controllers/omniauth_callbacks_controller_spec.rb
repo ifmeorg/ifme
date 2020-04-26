@@ -195,6 +195,26 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
       let(:oauth_user) { User.find_by(email: oauth_email) }
       let(:user) { oauth_user }
       before { get :facebook }
+      
+      context 'when third party avatar is not nil' do
+        it 'uploads avatar when third_party_avatar has changed' do
+          new_avatar = 'http://example.com/images/different_profile.jpeg'
+          request.env['omniauth.auth']['info']['image'] = new_avatar
+          get :facebook
+
+          expect(user.third_party_avatar).to eq(new_avatar)
+        end
+
+        it 'uploads avatar when third_party_avatar is nil' do
+          expect(user.third_party_avatar).to eq(request.env['omniauth.auth']['info']['image'])
+        end
+
+        it 'does not upload third party avatar if current avatar is the same' do
+          third_party_avatar = request.env['omniauth.auth']['info']['image']
+          expect(user).not_to receive(:third_party_avatar=)
+        end
+      end
+
 
       context 'when third party avatar is nil' do
         it 'does not set third_party_avatar' do
