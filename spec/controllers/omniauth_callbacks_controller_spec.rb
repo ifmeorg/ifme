@@ -202,6 +202,17 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
           expect(user).not_to receive(:third_party_avatar=)
         end
       end
+      
+      context 'when third party avatar is not nil' do
+        it 'uploads avatar when third_party_avatar has changed' do
+          new_avatar = 'http://example.com/images/different_profile.jpeg'
+          request.env['omniauth.auth']['info']['image'] = new_avatar
+          get :facebook
+
+          expect(user.third_party_avatar).to eq(new_avatar)
+        end
+      end
+      
     end
   end
 end
