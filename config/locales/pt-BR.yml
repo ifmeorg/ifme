@@ -339,6 +339,7 @@ pt-BR:
       example_category: Carreira
     show:
       strategies: 'Quais estratégias poderiam ajudar nesse momento?'
+      resources: 'Quais recursos poderiam ajudar?'
   moods:
     singular: Humor
     plural: Humores
