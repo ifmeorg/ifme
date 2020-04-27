@@ -355,10 +355,8 @@ zh-CN:
     mailer:
       comment_on_moment_subject: '%{user} 评论了你的日记 "%{moment}"'
       comment_on_strategy_subject: '%{user} 评论了你的规划 "%{strategy}"'
-      comment_on_meeting_subject: '%{user} 在组中 "%{group}" - "%{meeting}" 发表了评论' 
-      
-      comment_on_private_body: '<p>你的朋友 <strong>%{user}</strong> 的秘密分享:
-        </p>'
+      comment_on_meeting_subject: '%{user} 在组中 "%{group}" - "%{meeting}" 发表了评论'
+      comment_on_private_body: '<p>你的朋友 <strong>%{user}</strong> 的秘密分享:</p>'
       comment_on_body: '<p>你的朋友 <strong>%{user}</strong> 的分享: </p>'
       comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
       comment_text: '<p><i>%{comment}</i></p>'
