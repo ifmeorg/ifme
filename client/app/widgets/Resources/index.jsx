@@ -134,7 +134,7 @@ export class Resources extends React.Component<Props, State> {
       const tagCheck = selectedCheckboxes.map((checkbox: Checkbox) =>
         // eslint-disable-next-line implicit-arrow-linebreak
         resource.tags.concat(resource.languages).includes(checkbox.id));
-      return !tagCheck.includes(false);
+      return selectedCheckboxes.length > 0 ? tagCheck.includes(true) : true;
     });
   };
 
