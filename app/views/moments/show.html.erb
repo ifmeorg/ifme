@@ -50,7 +50,7 @@
     <% @resources.take(3).each do |item|  %>
       <li><%= link_to item['name'], item['link'] %></li>
     <%end %>
-    <li><%= link_to  "#{t('load_more')}", "/resources?#{@resources_tags}" %></li>
+    <li><%= link_to  "#{t('load_more')}...", "/resources?#{@resources_tags}" %></li>
   </ul>
 </div>
 <% end %>
