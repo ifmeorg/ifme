@@ -17,6 +17,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     if user.present?
       user.accept_invitation! if invitation_token
+      upload_avatar(omniauth_avatar)
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success',
                               kind: 'Facebook')
       sign_in_and_redirect @user, event: :authentication
