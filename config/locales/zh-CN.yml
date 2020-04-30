@@ -160,6 +160,8 @@ zh-CN:
     not_found:
       header_message: '本页面不存在'
     empty_params: '不能空白'
+  tasks:
+    plural: '任务'
   groups:
     singular: 小组
     plural: 小组
@@ -713,6 +715,7 @@ zh-CN:
     form:
       describe: '描述健康规划。'
       strategies_label: '哪些健康规划可以帮助实现这些想法？'
+      mark_as_finished: '标记为完成'
       name_hint: '可以帮助你的任何活动，思路，形式或自我保健'
       viewers_hint: '可以查看你的健康规划并标记自己的日记的好友'
       daily_reminder_hint: '我们会通过电子邮件每天提醒你执行此健康规划'
