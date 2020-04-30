@@ -1,7 +1,9 @@
 {
   "name": "ifme",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "react-router-dom": "^5.1.2"
+  },
   "scripts": {
     "postinstall": "cd client && yarn install",
     "start": "foreman start -f Procfile.dev"
@@ -12,5 +14,8 @@
   "cacheDirectories": [
     "node_modules",
     "client/node_modules"
-  ]
+  ],
+  "devDependencies": {
+    "@types/react-router-dom": "^5.1.5"
+  }
 }
