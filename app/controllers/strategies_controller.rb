@@ -110,8 +110,7 @@ class StrategiesController < ApplicationController
   # DELETE /strategies/1.json
   def destroy
     shared_destroy(@strategy)
-    task = Task.find(@strategy.id)
-    task.delete
+    Task.where(id: @strategy.id).destroy_all
     PerformStrategyReminder.where(strategy_id: @strategy.id).destroy_all
   end
 
