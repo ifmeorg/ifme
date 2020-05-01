@@ -18,8 +18,8 @@ zh-CN:
         submit_button: '设置我的密码'
     mailer:
       invitation_instructions:
-        subject: '%{name}邀请您加入 if me!'
-        subject_nameless: '有人邀请你加入 if me!'
+        subject: '%{name}邀请您加入 if-me.org!'
+        subject_nameless: '有人邀请你加入 if-me.org!'
         hello: '嗨，%{email}！'
         someone_invited_you: >-
                           %{name}邀请您加入 http://www.if-me.org,

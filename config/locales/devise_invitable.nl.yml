@@ -22,9 +22,9 @@ nl:
         submit_button: 'Stel mijn wachtwoord in'
     mailer:
       invitation_instructions:
-        subject: '%{name} heeft je uitgenodigd om lid te worden van if me!'
+        subject: '%{name} heeft je uitgenodigd om lid te worden van if-me.org!'
         subject_nameless: >-
-                       Iemand heeft je uitgenodigd om lid te worden van if me!
+                       Iemand heeft je uitgenodigd om lid te worden van if-me.org!
         hello: 'Hallo %{e-mail}!'
         someone_invited_you: >-
                           %{name} heeft je uitgenodigd om lid te worden van

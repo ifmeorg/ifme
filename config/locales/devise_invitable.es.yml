@@ -22,8 +22,8 @@ es:
         submit_button: 'Guardar mi contraseña'
     mailer:
       invitation_instructions:
-        subject: '¡ %{name} te ha invitado a if me!'
-        subject_nameless: '¡Te han invitado a if me!'
+        subject: '¡ %{name} te ha invitado a if-me.org!'
+        subject_nameless: '¡Te han invitado a if-me.org!'
         hello: 'Hola %{email}!'
         someone_invited_you: >-
                           %{name} te ha invitado a unirte a

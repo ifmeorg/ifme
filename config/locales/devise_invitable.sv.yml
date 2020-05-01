@@ -20,8 +20,8 @@ sv:
         submit_button: 'Skapa mitt lösenord'
     mailer:
       invitation_instructions:
-        subject: 'Du har blivit inbjuden att gå med i if me!'
-        subject_nameless: 'Någon inbjudna dig att gå med if me!'
+        subject: 'Du har blivit inbjuden att gå med i if-me.org!'
+        subject_nameless: 'Någon inbjudna dig att gå med if-me.org!'
         hello: 'Hej %{email}!'
         someone_invited_you: >-
                           %{name} har bjudit in dig att gå med i

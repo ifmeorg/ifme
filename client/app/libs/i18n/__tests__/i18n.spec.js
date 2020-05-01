@@ -26,7 +26,7 @@ describe('I18n', () => {
       describe('has valid scope', () => {
         describe('has no options', () => {
           it('returns correct result', () => {
-            expect(I18n.t('app_name')).toEqual('if me');
+            expect(I18n.t('app_name')).toEqual('if-me.org');
           });
         });
 
@@ -72,7 +72,7 @@ describe('I18n', () => {
 
         describe('has no options', () => {
           it('returns correct result', () => {
-            expect(I18n.t('app_name')).toEqual('if me');
+            expect(I18n.t('app_name')).toEqual('if-me.org');
           });
         });
 

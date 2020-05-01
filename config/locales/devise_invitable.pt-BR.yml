@@ -20,9 +20,9 @@ pt-BR:
         submit_button: 'Defina sua senha'
     mailer:
       invitation_instructions:
-        subject: '{%name} convidou você para participar do if me!'
+        subject: '{%name} convidou você para participar do if-me.org!'
         subject_nameless: >-
-                       Você acabou de ser convidado para participar do if me!
+                       Você acabou de ser convidado para participar do if-me.org!
         hello: 'Olá, %{email}!'
         someone_invited_you: >-
                           %{name} foi convidado para se juntar ao

@@ -18,8 +18,8 @@ hi:
         submit_button: 'अपना पासवर्ड निर्धारित करें'
     mailer:
       invitation_instructions:
-        subject: '%{name} ने आपको if me में शामिल होने के लिए आमंत्रित किया!'
-        subject_nameless: 'किसी ने आपको if me में शामिल होने के लिए आमंत्रित किया!'
+        subject: '%{name} ने आपको if-me.org में शामिल होने के लिए आमंत्रित किया!'
+        subject_nameless: 'किसी ने आपको if-me.org में शामिल होने के लिए आमंत्रित किया!'
         hello: 'नमस्ते %{email}!'
         someone_invited_you: >-
                           %{name} ने आपको http://www.if-me.org से जुड़ने के लिए आमंत्रित

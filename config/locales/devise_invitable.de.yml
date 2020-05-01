@@ -24,8 +24,8 @@ en:
         submit_button: 'Setze mein Passwort'
     mailer:
       invitation_instructions:
-        subject: '%{name} hat dich eingeladen mitzumachen if me!'
-        subject_nameless: 'Jemand hat dich eingeladen, beizutreten if me!'
+        subject: '%{name} hat dich eingeladen mitzumachen if-me.org!'
+        subject_nameless: 'Jemand hat dich eingeladen, beizutreten if-me.org!'
         hello: 'Hallo %{email}!'
         someone_invited_you: >-
                           %{name} hat dich eingeladen mitzumachen
