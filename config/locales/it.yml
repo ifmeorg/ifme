@@ -443,7 +443,6 @@ it:
   omniauth:
     google: Google
     access_denied: 'Accesso Negato'
-    facebook: Facebook
   pages:
     about:
       send_us: noi
