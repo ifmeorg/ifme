@@ -488,8 +488,6 @@ en:
     access_denied: 'Access Denied'
   pages:
     about:
-      send_us: us
-      email_us: 'Feel free to email %{email_link}!'
       main_message_one: >-
                      %{app_name} is a community for mental health
                      experiences that encourages people to share their
@@ -503,21 +501,14 @@ en:
                      But for a lot of us, it's a struggle to be open about
                      it.
       message_text_two: >-
-                     <p>Not everyone is a counsellor or therapist. The
+                     Not everyone is a counsellor or therapist. The
                      people who we interact with everyday shape our emotions
                      and behaviour. Getting them involved in mental health
-                     treatment is the key to recovery.</p><p>Mental health is such an
-                     individual and unique experience. No two brains are
-                     alike! Tackling the problem requires ideas from
-                     everyone, which is why the project is open source.</p>
-      main_message_three: 'Wanna help fund us?'
+                     treatment is the key to recovery.
       message_text_three: >-
-                       Our app is a <u>completely</u> open source project.
-                       It's built and maintained by volunteers of many
-                       different backgrounds and skill sets.</p><p>In 2016,
+                       <strong>Wanna help fund us?</strong> In 2016,
                        we received a community grant from Linebreak. In 2017,
-                       we received funding from %{fund_club_link}.</p>You
-                       can support us by donating to our %{patreon_link}.</p>
+                       we received funding from %{fund_club_link}. You can support us by donating to our %{open_collective_link}.
       fund_club: 'Fund Club'
     blog:
       description: >-
@@ -525,9 +516,6 @@ en:
                 %{email}! We welcome anonymous submissions too.
     contribute:
       contributor_avatar_alt: 'Contributor biography for %{name}'
-      main_message_one: >-
-                     if-me.org is built and maintained by volunteers of many
-                     different backgrounds and skill sets.
       message_text_one: >-
                      We're always looking for ideas from everyone,
                      including <strong>mental health advocates</strong>,

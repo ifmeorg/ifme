@@ -452,8 +452,6 @@ nl:
     access_denied: 'Toegang geweigerd'
   pages:
     about:
-      send_us: ons
-      email_us: 'Voel je vrij om een e-mail te sturen naar %{email_link}!'
       main_message_one: '%{app_name} is een gemeenschap voor geestelijke
       gezondheidservaringen dat mensen aanspoort om hun persoonlijke verhalen
       te delen met hun vertrouwde bondgenoten.'
@@ -462,26 +460,18 @@ nl:
       leraren en GGZ-medewerkers.'
       main_message_two: 'Omgaan met geestelijke gezondheid is wat ons menselijk
       maakt. Maar voor velen van ons is het moeilijk om er open over te zijn.'
-      message_text_two: '<p>Niet iedereen is een mentor of een therapeut. De
+      message_text_two: 'Niet iedereen is een mentor of een therapeut. De
       mensen met wie we dagelijks omgaan geven vorm aan onze emoties en ons
-      gedrag. Hun betrokkenheid is de sleutel tot herstel.</p><p>Geestelijke gezondheid is
-      een individueel en unieke beleving. Er zijn niet twee hersenen hetzelfde!
-      Het probleem tackelen behoeft ideeën van iedereen, dat is waarom dit
-      project open source is.</p>'
-      main_message_three: 'Wil je ons financieel helpen?'
-      message_text_three: 'Onze applicatie is een <u>compleet</u> open source
-      project. Het wordt ontwikkeld en onderhouden door vrijwilligers uit
-      verschillende achtergronden en met verschillende vaardigheden.</p><p>In
+      gedrag. Hun betrokkenheid is de sleutel tot herstel.'
+      message_text_three: '<strong>Wil je ons financieel helpen?</strong> In
       2016, hebben wij een community grant ontvangen van Linebreak. In 2017,
-      ontvingen wij geld van %{fund_club_link}.</p>Jij kunt ons ondersteunen
-      door te doneren via onze %{patreon_link}.</p>'
+      ontvingen wij geld van %{fund_club_link}. Jij kunt ons ondersteunen
+      door te doneren via onze %{open_collective_link}.'
       fund_club: 'Fund Club'
     blog:
       description: 'Als je voor ons wil schrijven, stuur ons een e-mail op
       %{email}! We staan open voor anonieme bijdragen.'
     contribute:
-      main_message_one: 'if-me.org is ontwikkeld en onderhouden door vrijwilligers
-      van verschillende achtergronden met verschillende vaardigheden.'
       contributor_avatar_alt: "Bijdrage biografie voor %{name}"
       message_text_one: 'We zijn altijd op zoek naar nieuwe ideeën van iedereen,
       inclusief <strong>vooraanstaanden in de geestelijke gezondheidswereld

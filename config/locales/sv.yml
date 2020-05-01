@@ -438,8 +438,6 @@ sv:
     access_denied: 'Åtkomst nekad'
   pages:
     about:
-      send_us: oss
-      email_us: 'Skicka gärna e-post %{email_link}!'
       main_message_one: '%{app_name} är en gemenskap för mentala erfarenheter
       som uppmuntrar människor att dela sina personliga historier med betrodda
       allierade.'
@@ -448,26 +446,18 @@ sv:
       psykiatriska arbetstagare.'
       main_message_two: 'Att hantera mental hälsa är det som gör oss mänskliga.
       Men för många av oss är det en kamp att vara öppen om det.'
-      message_text_two: '<p>Inte alla är en rådgivare eller terapeut. De
+      message_text_two: 'Inte alla är en rådgivare eller terapeut. De
       människor som vi interagerar med varje dag formar våra känslor och
-      beteende. Att få dem att delta i mentalvård är nyckeln till återhämtning.
-      </p><p>Mental hälsa är en sådan individ och
-      unik upplevelse. Inga två hjärnor är lika! Att hantera problemet kräver
-      idéer från alla, varför projektet är öppen källkod.</p>'
-      main_message_three: 'Vill du hjälpa till att finansiera oss?'
-      message_text_three: 'Vår app är ett <u>fullständigt</u> öppen
-      källkods-projekt. Det är byggt och underhållet av volontärer med många
-      olika bakgrunder och kunskaper.</p><p>År 2016 mottog vi ett stipendium
-      från Linebreak. År 2017 mottog vi finansiering från %{fund_club_link}.</p>
-      Du kan stödja oss genom att donera till vår %{patreon_link}.</p>'
+      beteende. Att få dem att delta i mentalvård är nyckeln till återhämtning.'
+      message_text_three: '<strong>Vill du hjälpa till att finansiera oss?</strong> År 2016 mottog vi ett stipendium
+      från Linebreak. År 2017 mottog vi finansiering från %{fund_club_link}.
+      Du kan stödja oss genom att donera till vår %{open_collective_link}.'
       fund_club: 'Fund Club'
     blog:
       description: 'Om du är intresserad av att skriva för oss, pitcha oss på
       %{email}! Vi välkomnar anonyma inlägg också.'
     contribute:
       contributor_avatar_alt: 'Bidragsgivare biografi för %{name}'
-      main_message_one: 'if-me.org är byggs och underhålls av volontärer med många
-      olika bakgrunder och kunskaper.'
       message_text_one: 'Vi letar alltid efter idéer från alla, inklusive
       <strong>mental hälsa-förespråkare</strong>, <strong>hälsoproffs</strong>,
       <strong>mjukvaruutvecklare</strong>, <strong>översättare</strong>, och

@@ -396,28 +396,21 @@ zh-CN:
     access_denied: '服务器拒绝访问'
   pages:
     about:
-      send_us: 我们团队
-      email_us: '向我们团队发送电子邮件 %{email_link}!'
       main_message_one: '%{app_name} 是一个促进心理健康的社区，
       鼓励人们与可信赖的好友分享他们的个人故事。'
       message_text_one: '我们每天交流的人，包括朋友，家人，同事，老师和心理健康服务人员, 可以成为可信赖的好友。'
       main_message_two: '处理心理健康的问题是我们生活的很重要的一部分。但是对于我们许多人来说，
       开口分享心理健康的问题是很困难的。'
-      message_text_two: '<p>并非每个人都是精神健康顾问或心理学专家。
-      我们每天相处的人会影响我们的情感和行为。鼓励他人参与心理健康治疗与活动是很重要的。</p><p>心理健康是一种个人成长的经历。没有两个人是一样的！解决心理问题需要所有人出力，
-      这是该项目是开源的原因。</p>'
-      main_message_three: '想资助我们吗？'
-      message_text_three: '我们的应用是 <u>百分百</u> 的开源项目。
-      不同背景和技能的志愿者创建和维护的。</p><p>自2016年起，我们获得了来自
-      Linebreak的财政支持。 2017年，我们获得了来自 %{fund_club_link} 的财政支持。</p>
-      你可以通过向我们捐款来支持我们 %{patreon_link}</p>。'
-      # linebreak
+      message_text_two: '并非每个人都是精神健康顾问或心理学专家。
+      我们每天相处的人会影响我们的情感和行为。鼓励他人参与心理健康治疗与活动是很重要的。'
+      message_text_three: '<strong>想资助我们吗？</strong> 自2016年起，我们获得了来自
+      Linebreak的财政支持。 2017年，我们获得了来自 %{fund_club_link} 的财政支持。
+      你可以通过向我们捐款来支持我们 %{open_collective_link}。'
       fund_club: 'Fund Club'
     blog:
       description: '如果你有兴趣为我们写电子邮件，请向我们联系 %{email}！我们也欢迎匿名提交。'
     contribute:
       contributor_avatar_alt: '志愿者 %{name}'
-      main_message_one: '不同背景和技能的志愿者创建和维护的'
       message_text_one: '我们一直在努力寻求每个人的看法, <strong>心理健康倡导者
       </strong>,<strong>精神健康专业人员</strong>, <strong>软件开发人员</strong>,
       <strong>翻译人员</strong>, 和<strong>用户体验设计师</strong>!

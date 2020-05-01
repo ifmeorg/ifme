@@ -516,8 +516,6 @@ de:
     access_denied: 'Zutritt verweigert'
   pages:
     about:
-      send_us: uns
-      email_us: 'Schicke %{email_link} gerne eine E-Mail!'
       main_message_one: >-
                      %{app_name} ist eine Community rund um das Thema
                      psychische Gesundheit, die Leute dazu ermutigt, ihre
@@ -533,24 +531,17 @@ de:
                      unseres Lebens. Für viele von uns ist es jedoch ein
                      Problem, offen darüber zu sprechen.
       message_text_two: >-
-                     <p>Nicht jeder ist ein professioneller Ratgeber oder
+                     Nicht jeder ist ein professioneller Ratgeber oder
                      Therapeut. Die Menschen, mit denen wir interagieren,
                      beeinflussen unser Verhalten und unsere Emotionen.
                      Gemeinsam mit diesen Menschen zu arbeiten ist der beste
-                     Weg zur erfolgreichen psychischen Genesung.</p><p>Psychische Gesundheit ist individuell und von Person zu
-                     Person unterschiedlich. Jeder Mensch tickt anders! Daher
-                     braucht es die Hilfe jedes einzelnen. Das ist auch der
-                     Grund, warum dieses ein Open-Source-Projekt ist.</p>
-      main_message_three: 'Möchtest du uns finanziell unterstützen?'
+                     Weg zur erfolgreichen psychischen Genesung.
       message_text_three: >-
-                       Unsere App ist <u>komplett</u>Open-Source, entwickelt
-                       und gepflegt von Freiwilligen mit unterschiedlichen
-                       Kenntnissen und Werdegängen.</p><p>Im Jahr 2016 haben
-                       wir von Linebreak einen Zuschuss für gemeinschaftliche
-                       Zwecke erhalten. Im Jahr 2017 gab uns der
-                       %{fund_club_link} finanzielle Unterstützung.</p>Du
+                       <strong>Möchtest du uns finanziell unterstützen?</strong>
+                       Im Jahr 2016 haben wir von Linebreak einen Zuschuss für gemeinschaftliche Zwecke erhalten. Im Jahr 2017 gab uns der
+                       %{fund_club_link} finanzielle Unterstützung. Du
                        kannst uns ebenfalls mit einer Spende unterstützen:
-                         %{patreon_link}.</p>
+                         %{open_collective_link}.
       fund_club: 'Fund Club'
     blog:
       description: >-
@@ -559,9 +550,6 @@ de:
                 berücksichtigt.
     contribute:
       contributor_avatar_alt: 'Mitwirkende Biographie für %{name}'
-      main_message_one: >-
-                     if-me.org wird von Freiwilligen mit unterschiedlichen
-                     Kenntnissen und Werdegängen entwickelt und gepflegt.
       message_text_one: >-
                      Wir sind immer auf der Suche nach und offen für neuen
                      Ideen, insbesondere von <strong>Experten im Bereich

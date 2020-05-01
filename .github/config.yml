@@ -24,7 +24,7 @@ newPRWelcomeComment: >
 
 # Comment to be posted to on pull requests merged by a first time user
 firstPRMergeComment: >
-  Thank you for merging this pull request with us! If you haven't already, in another pull request, please [add yourself](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb) to our [Contribute](https://www.if-me.org/contribute) page.
+  Thank you for merging this pull request with us! If you haven't already, in another pull request, please [add yourself](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb) to our [About](https://www.if-me.org/about) page.
 
 # Link for member-bot to use for joining us
 howToJoinLink: >

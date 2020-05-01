@@ -19,11 +19,6 @@ class PagesController < ApplicationController
     end
   end
 
-  def contribute
-    @blurbs = set_blurbs
-    @contributors = set_contributors
-  end
-
   def home_data
     setup_stories
     respond_to do |format|
@@ -56,7 +51,10 @@ class PagesController < ApplicationController
     @keywords = filter_keywords
   end
 
-  def about; end
+  def about
+    @blurbs = set_blurbs
+    @contributors = set_contributors
+  end
 
   def faq; end
 

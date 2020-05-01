@@ -64,7 +64,7 @@ module ApplicationHelper
   def static_page?
     non_devise_paths = [
       about_path, resources_path, faq_path,
-      contribute_path, partners_path, press_path, privacy_path
+      partners_path, press_path, privacy_path
     ].select { |path| active?(path) }
     devise = ally_accept_invitation_path? || reset_password_path?
     devise || non_devise_paths.count == 1
