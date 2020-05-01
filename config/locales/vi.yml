@@ -440,8 +440,6 @@ vi:
     access_denied: 'Truy nhập từ chối'
   pages:
     about:
-      send_us: 'chúng tôi'
-      email_us: 'Hãy email %{email_link}!'
       main_message_one: '%{app_name} là một cộng đồng của sức khỏe tâm thần
       trong đó khuyến khích người dùng chia sẻ những câu chuyện cá nhân của họ
       với những người bạn thân tín.'
@@ -451,29 +449,21 @@ vi:
       main_message_two: 'Giải quyết các vấn đề về sức khỏe tâm thần làm nên con
       người chúng ta. Nhưng nhiều người trong chúng ta đắn đo khi mở lòng để
       chia sẻ những điều đó.'
-      message_text_two: '<p>Không phải ai cũng là nhà tư vấn tâm lý hay trị
+      message_text_two: 'Không phải ai cũng là nhà tư vấn tâm lý hay trị
       liệu. Những người có liên hệ với cuộc sống chúng ta mỗi ngày chính la
       những người làm nên cảm xúc và cách cư xử của chúng ta. Mời gọi họ tham
       gia vào các phương pháp trị liệu sức khỏe tâm thần sẽ là chìa khóa giúp
-      ta hồi phục.</p><p>Sức khỏe tâm thần là những kinh nghiệm của từng các
-      nhân riêng việt. Không có hai cái não giống nhau, giải quyết các vấn đề
-      đòi hỏi từ tất cả mọi người và đó là lý do tại sao dự án có mã nguồn mở.
-      </p>'
-      main_message_three: 'Mong muốn ủng hộ chúng tôi?'
-      message_text_three: 'Ứng dụng của chúng tôi là một dự án mã nguồn mở <u>
-      hoàn toàn </u>. Nó được xây dựng và duy trì bởi các tình nguyện viên có
-      nhiều nền tảng và kỹ năng khác nhau.</p><p>Vào năm 2016, chúng tôi đã
-      nhận được khoản trợ cấp cộng đồng từ Linebreak. Năm 2017, chúng tôi nhận
-      được tài trợ từ %{fund_club_link}.</p>Bạn có thể hỗ trợ chúng tôi bằng
-      cách quyên góp cho %{patreon_link} của chúng tôi.</p>'
+      ta hồi phục.'
+      message_text_three: '<strong>Mong muốn ủng hộ chúng tôi?</strong>
+      Vào năm 2016, chúng tôi đã nhận được khoản trợ cấp cộng đồng từ Linebreak.
+      Năm 2017, chúng tôi nhận được tài trợ từ %{fund_club_link}.
+      Bạn có thể hỗ trợ chúng tôi bằng cách quyên góp cho %{open_collective_link} của chúng tôi.'
       fund_club: 'Fund Club'
     blog:
       description: 'Nếu bạn quan tâm đến việc viết thư cho chúng tôi, hãy cho
       chúng tôi biết về %{email}! Chúng tôi hoan nghênh quá trình gửi ẩn danh.'
     contribute:
       contributor_avatar_alt: 'Tiểu sử cộng tác viên cho %{name}'
-      main_message_one: 'if-me.org được xây dựng và duy trì bởi nhiều tình nguyện
-      viên khác nhau với kiến thức và kinh nghiệm khác nhau.'
       message_text_one: 'Chúng tôi tìm kiếm những ý tưởng từ tất cả mọi người,
       bao gồm: <strong>các nhà tư vấn tâm lý</strong>, <strong>chuyên gia sức
       khỏe</strong>, <strong>nhà phát triển phần mềm</strong>, <strong>biên

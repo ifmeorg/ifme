@@ -496,8 +496,6 @@ fr:
     access_denied: 'Accès refusé'
   pages:
     about:
-      send_us: us
-      email_us: 'Contactez-nous %{email_link}!'
       main_message_one: >-
                      %{app_name} est une communauté en bien-être et santé
                      mentale qui encourage les gens à partager leur expériences
@@ -512,23 +510,17 @@ fr:
                      humain. Pour certain d'entre-nous, il est difficile d'en
                      parler.
       message_text_two: >-
-                     <p>Tout le monde n''est pas conseiller ou thérapiste. Les
+                     Tout le monde n''est pas conseiller ou thérapiste. Les
                      personnes avec qui on intéragit tous les jours conditionnent
                      nos émotions et comportements. Les impliquer dans les
                      traitement psychotérapeutique est essentiel pour un bon
-                     rétablissement.</p><p>Le bien-être mental est une
-                     expérience personnelle et unique. Pas deux cerveaux sont
-                     identiques! Résoudre le problème demande la participation
-                     de tous, c''est pourquoi le projet est open source.</p>
-      main_message_three: 'Vous voulez nous financer ?'
+                     rétablissement.
       message_text_three: >-
-                       Notre app est un projet <u>complétement</u> open source.
-                       Il est construit et maintenu par des volontaires de
-                       milieux différents et des compétences diverses.</p><p>En
+                       <strong>Vous voulez nous financer ?</strong> En
                        2016, nous avons reçu une subvention communautaire de
                        Linebreak. En 2017, nous avons reçu un financement de
-                       %{fund_club_link}.</p>Vous pouvez nous apporter votre
-                       soutien sur  %{patreon_link}.</p>
+                       %{fund_club_link}. Vous pouvez nous apporter votre
+                       soutien sur  %{open_collective_link}.
       fund_club: 'Fund Club'
     blog:
       description: >-
@@ -537,9 +529,6 @@ fr:
                 anonymes.
     contribute:
       contributor_avatar_alt: 'Biographie de contributeur pour %{name}'
-      main_message_one: >-
-                     if-me.org est construit et maintenu par des volontaires de
-                     milieux différents et des compétences diverses.
       message_text_one: >-
                      Nous apprécions les contributions et idées de tout le
                      monde, y compris <strong>spécialistes en santé mentale

@@ -451,8 +451,6 @@ pt-BR:
     access_denied: 'Acesso negado'
   pages:
     about:
-      send_us: 'por e-mail'
-      email_us: 'Sinta-se a vontade para entrar em contato conosco %{email_link}!'
       main_message_one: '%{app_name} é uma comunidade para experiências
       relacionadas a saúde mental que encoraja as pessoas a compartilharem suas
       histórias pessoais com aliados de confiança.'
@@ -462,27 +460,18 @@ pt-BR:
       main_message_two: 'Lidar com a saúde mental é o que nos faz humanos. Mas
       para muitos de nós é um problema lidar com saúde mental de uma forma
       aberta.'
-      message_text_two: '<p>Nem todas as pessoas são terapeutas ou psicólogas.
+      message_text_two: 'Nem todas as pessoas são terapeutas ou psicólogas.
       As pessoas com as quais interagimos diariamente formam nossa emoções e
       comportamentos. Envolvê-las no cuidado da sáude mental é a chave para a
-      recuperação.</p><p>Saúde mental é uma experiência pessoal e
-      única. Não existem duas mentes iguais! Identificar o problema necessita
-      de novas idéias de diversas pessoas, e por isso o projeto é open source.
-      </p>'
-      main_message_three: 'Quer patrocinar o projeto?'
-      message_text_three: ' Nosso aplicativo é <u>completamente</u> open source
-      (Código aberto). É construido e mantido por voluntários com diferentes
-      experiências e habilidades.</p><p>Em 2016, recebemos o apoio de Linebreak.
-      Em 2017, recebemos financiamento de %{fund_club_link}.</p>Você pode nos
-      dar suporte através do %{patreon_link}.</p>'
+      recuperação.'
+      message_text_three: '<strong>Quer patrocinar o projeto?</strong> Em 2016, recebemos o apoio de Linebreak. Em 2017, recebemos financiamento de %{fund_club_link}.
+      Você pode nos dar suporte através do %{open_collective_link}.'
       fund_club: 'Fund Club'
     blog:
       description: 'Se você estiver interessado em escrever para nosso blog,
       envie um e-mail para %{email}! Aceitaremos contribuições anônimas também.'
     contribute:
       contributor_avatar_alt: 'Biografia de contribuinte para %{name}'
-      main_message_one: 'if-me.org é desenvolvido e mantido por voluntários com
-      diferentes experiências e habilidades.'
       message_text_one: 'Estamos sempre procurando por novas idéias de diversas
       pessoas, incluindo <strong>defensores da saúde mental</strong>, <strong>
       profissionais da sáude</strong>, <strong>desenvolvedores de software
