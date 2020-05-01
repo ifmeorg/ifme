@@ -494,7 +494,6 @@ fr:
   omniauth:
     google: Google
     access_denied: 'Accès refusé'
-    facebook: Facebook
   pages:
     about:
       send_us: us
