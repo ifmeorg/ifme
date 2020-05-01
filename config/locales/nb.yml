@@ -960,6 +960,8 @@ nb:
     shared:
       sign_in_google: 'Logg inn med Google'
       sign_up_google: 'Registrer deg med Google'
+      sign_in_facebook: 'Logg inn med Facebook'
+      sign_up_facebook: 'Registrer deg med Facebook'
       confirmation: 'Mottok ikke bekreftelsesinstruksjoner?'
       unlock: 'Mottok ikke opplåsningsinstruksjoner?'
     unlock:

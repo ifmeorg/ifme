@@ -1163,6 +1163,8 @@ fr:
     shared:
       sign_in_google: "S'identifier avec Google"
       sign_up_google: "S'enregistrer avec Google"
+      sign_in_facebook: "S'identifier avec Facebook"
+      sign_up_facebook: "S'enregistrer avec Facebook"
       confirmation: "Vous n'avez pas reçu vous informations de confirmation ?"
       unlock: >-
            Vous n'avez pas reçu vos informations pour débloquer votre compte ?

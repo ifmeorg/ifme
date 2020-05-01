@@ -968,6 +968,8 @@ it:
     shared:
       sign_in_google: 'Effettua il login con Google'
       sign_up_google: 'Registrati con Google'
+      sign_in_facebook: 'Effettua il login con Facebook'
+      sign_up_facebook: 'Registrati con Facebook'
       confirmation: 'Non hai ricevuto le istruzioni per confermare la tua EMail?'
       unlock: 'Non hai ricevuto le istruzioni per sbloccare il tuo account?'
     unlock:

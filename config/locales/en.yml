@@ -1110,6 +1110,8 @@ en:
     shared:
       sign_in_google: 'Sign in with Google'
       sign_up_google: 'Sign up with Google'
+      sign_in_facebook: 'Sign in with Facebook'
+      sign_up_facebook: 'Sign up with Facebook'
       confirmation: 'Didn''t receive confirmation instructions?'
       unlock: 'Didn''t receive unlock instructions?'
     unlock:

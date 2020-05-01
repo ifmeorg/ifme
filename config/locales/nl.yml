@@ -979,6 +979,8 @@ nl:
     shared:
       sign_in_google: 'Log in met Google'
       sign_up_google: 'Registreren met Google'
+      sign_in_facebook: 'Log in met Facebook'
+      sign_up_facebook: 'Registreren met Facebook'
       confirmation: 'Bevestiginginstructies niet ontvangen?'
       unlock: 'Ontgrendelingsinstructies niet ontvangen?'
     unlock:

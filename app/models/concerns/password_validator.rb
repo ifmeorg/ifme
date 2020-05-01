@@ -7,7 +7,7 @@ module PasswordValidator
   PASSWORD_VALIDITY_MONTHS = 12
 
   def password_needs_update?
-    return false if google_oauth2_enabled?
+    return false if oauth_enabled?
 
     no_histories? || outdated_password?
   end
@@ -36,7 +36,7 @@ module PasswordValidator
   end
 
   def password_complexity
-    google_oauth2_enabled? ||
+    oauth_enabled? ||
       password.blank? ||
       (!saved_change_to_encrypted_password? && strong_password?)
   end

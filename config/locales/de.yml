@@ -1186,6 +1186,8 @@ de:
     shared:
       sign_in_google: 'Mit Google einloggen'
       sign_up_google: 'Mit Google anmelden'
+      sign_in_facebook: 'Mit Facebook einloggen'
+      sign_up_facebook: 'Mit Facebook anmelden'
       confirmation: 'Keine Anweisungen zur Bestätigung erhalten?'
       unlock: 'Keine Anweisungen zur Freischaltung erhalten?'
     unlock:

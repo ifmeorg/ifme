@@ -955,6 +955,8 @@ sv:
     shared:
       sign_in_google: 'Logga in med Google'
       sign_up_google: 'Registrera dig hos Google'
+      sign_in_facebook: 'Logga in med Facebook'
+      sign_up_facebook: 'Registrera dig hos Facebook'
       confirmation: 'Fick du inte bekräftelsesinstruktioner?'
       unlock: 'Fick du inte upplåsningsinstruktioner?'
     unlock:

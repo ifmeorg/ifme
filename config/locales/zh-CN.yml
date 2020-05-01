@@ -824,6 +824,8 @@ zh-CN:
     shared:
       sign_in_google: '使用谷歌登录'
       sign_up_google: '使用谷歌注册'
+      sign_in_facebook: '用Facebook登录'
+      sign_up_facebook: '用Facebook注册'
       confirmation: '没有收到确认指示吗？'
       unlock: '没有收到解锁指令吗？'
     unlock:

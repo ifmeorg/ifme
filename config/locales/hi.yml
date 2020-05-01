@@ -891,6 +891,8 @@ hi:
     shared:
       sign_in_google: 'Google के साथ साइन इन करें'
       sign_up_google: 'Google के साथ साइन अप करें'
+      sign_in_facebook: 'Facebook के साथ साइन इन करें'
+      sign_up_facebook: 'Facebook के साथ साइन अप करें'
       confirmation: 'पुष्टि निर्देश प्राप्त नहीं हुआ?'
       unlock: 'क्या अनलॉक निर्देश प्राप्त नहीं होंगे?'
     unlock:

@@ -1003,6 +1003,8 @@ pt-BR:
     shared:
       sign_in_google: 'Entrar com sua conta Google'
       sign_up_google: 'Cadastre-se com sua conta Google'
+      sign_in_facebook: 'Entrar com sua conta Facebook'
+      sign_up_facebook: 'Cadastre-se com sua conta Facebook'
       confirmation: 'Não recebeu as instruções de confirmação?'
       unlock: 'Não recebeu as instruções de desbloqueio?'
     unlock:
