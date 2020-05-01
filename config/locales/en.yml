@@ -486,7 +486,6 @@ en:
   omniauth:
     google: Google
     access_denied: 'Access Denied'
-    facebook: Facebook
   pages:
     about:
       send_us: us
