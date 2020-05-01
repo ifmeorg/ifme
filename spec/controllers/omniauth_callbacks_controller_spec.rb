@@ -196,7 +196,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
       let(:user) { oauth_user }
       before { get :facebook }
       
-      context 'when third party avatar is not nil' do
+      context 'when third party avatar exists' do
         it 'uploads avatar when third_party_avatar has changed' do
           new_avatar = 'http://example.com/images/different_profile.jpeg'
           request.env['omniauth.auth']['info']['image'] = new_avatar
