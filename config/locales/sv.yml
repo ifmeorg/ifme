@@ -436,7 +436,6 @@ sv:
   omniauth:
     google: Google
     access_denied: 'Åtkomst nekad'
-    facebook: Facebook
   pages:
     about:
       send_us: oss
