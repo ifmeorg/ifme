@@ -449,7 +449,6 @@ pt-BR:
   omniauth:
     google: Google
     access_denied: 'Acesso negado'
-    facebook: Facebook
   pages:
     about:
       send_us: 'por e-mail'
