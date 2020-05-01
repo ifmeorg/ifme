@@ -450,7 +450,6 @@ nl:
   omniauth:
     google: Google
     access_denied: 'Toegang geweigerd'
-    facebook: Facebook
   pages:
     about:
       send_us: ons
