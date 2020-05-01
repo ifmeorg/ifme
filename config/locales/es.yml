@@ -437,7 +437,6 @@ es:
   omniauth:
     google: Google
     access_denied: 'Acceso Denegado'
-    facebook: Facebook
   pages:
     about:
       send_us: Envíanos
