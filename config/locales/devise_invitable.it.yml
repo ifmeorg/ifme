@@ -22,9 +22,9 @@ it:
         submit_button: 'Salva la mia password'
     mailer:
       invitation_instructions:
-        subject: '%{name} ti ha invitato a unirti a if me!'
-        subject_nameless: 'Someone invited you to join if me!'
-        hello: 'Hey %{email}!'
+        subject: '%{name} ti ha invitato a unirti a if-me.org!'
+        subject_nameless: 'Qualcuno ti ha invitato a iscriverti a if-me.org!'
+        hello: 'Hallo %{email}!'
         someone_invited_you: >-
                           %{name} ti ha invitato a unirti http://www.if-me.org,
                           una community che incoraggia le persone a condividere
