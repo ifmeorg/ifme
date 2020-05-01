@@ -514,7 +514,6 @@ de:
   omniauth:
     google: Google
     access_denied: 'Zutritt verweigert'
-    facebook: Facebook
   pages:
     about:
       send_us: uns
