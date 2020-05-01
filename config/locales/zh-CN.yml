@@ -394,7 +394,6 @@ zh-CN:
   omniauth:
     google: 谷歌
     access_denied: '服务器拒绝访问'
-    facebook: 脸书
   pages:
     about:
       send_us: 我们团队
