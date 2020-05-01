@@ -1,5 +1,5 @@
 de:
-  app_name: 'if me'
+  app_name: 'if-me.org'
   app_description: 'ist eine Community rund um das Thema psychische Gesundheit'
   email: join.ifme@gmail.com
   created: 'Erstellt %{created_at}'
@@ -435,13 +435,13 @@ de:
                  "%{group_name}" beigetreten
     mailer:
       comment_on_moment_subject: >-
-                              if me | %{user} hat deinen Moment "%{moment}"
+                              if-me.org | %{user} hat deinen Moment "%{moment}"
                               kommentiert
       comment_on_strategy_subject: >-
-                                if me | %{user} hat deine Strategie
+                                if-me.org | %{user} hat deine Strategie
                                 "%{strategy}" kommentiert
       comment_on_meeting_subject: >-
-                               if me | %{user} hat das Meeting "%{meeting}" in
+                               if-me.org | %{user} hat das Meeting "%{meeting}" in
                                der Gruppe "%{group}" kommentiert
       comment_on_private_body: >-
                             <p>Dein Helfer <strong>%{user}</strong>hat dir
@@ -452,34 +452,34 @@ de:
       comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>Um ihn zu lesen, %{link}!</p>'
-      new_group_subject: 'if me | %{user} hat die Gruppe "%{group}" erstellt'
+      new_group_subject: 'if-me.org | %{user} hat die Gruppe "%{group}" erstellt'
       new_group_body: >-
                    <p>%{user} hat die Gruppe "%{group}" erstellt:</p><p><i>
                    %{description}</i></p><p>Um mehr zu erfahren oder
                    beizutreten, %{link}!</p>
       new_group_member_subject: >-
-                             if me | %{user} ist der Gruppe "%{group}"
+                             if-me.org | %{user} ist der Gruppe "%{group}"
                              beigetreten
       add_group_leader_you_subject: >-
-                                 if me | Du bist nun Administrator der Gruppe
+                                 if-me.org | Du bist nun Administrator der Gruppe
                                  "%{group}"
       add_group_leader_subject: >-
-                             if me | %{user} ist nun Administrator der Gruppe
+                             if-me.org | %{user} ist nun Administrator der Gruppe
                              "%{group}"
       add_remove_group_leader_body: >-
                                  <p>Um die Gruppe "%{group}" zu sehen, %{link}!
                                  </p>
       remove_group_leader_you_subject: >-
-                                    if me | Du bist nicht mehr Administrator
+                                    if-me.org | Du bist nicht mehr Administrator
                                     der Gruppe "%{group}"'
       remove_group_leader_subject: >-
-                                if me | %{user} ist nicht mehr Administrator
+                                if-me.org | %{user} ist nicht mehr Administrator
                                 der Gruppe "%{group}"'
       update_meeting_subject: >-
-                           if me | %{user} hat das Meeting "%{meeting}" der
+                           if-me.org | %{user} hat das Meeting "%{meeting}" der
                            Gruppe "%{group}" aktualisiert
       new_meeting_subject: >-
-                        if me | %{user} hat ein neues Meeting "%{meeting}" für
+                        if-me.org | %{user} hat ein neues Meeting "%{meeting}" für
                         die Gruppe "%{group}" erstellt
       meeting_body: >-
                  <p>%{subject}</p><p><i>%{description}</i></p><p><strong>Ort:
@@ -488,25 +488,25 @@ de:
       new_meeting_link: '<p>Um mehr zu erfahren oder beizutreten, %{link}!</p>'
       update_meeting_link: '<p>Um mehr zu erfahren, %{link}!</p>'
       remove_meeting_subject: >-
-                           if me | %{user} hat das Meeting "%{meeting}" der
+                           if-me.org | %{user} hat das Meeting "%{meeting}" der
                            Gruppe "%{group}" abgesagt
       join_meeting_subject: >-
-                         if me | %{user} ist dem Meeting "%{meeting}" der Gruppe
+                         if-me.org | %{user} ist dem Meeting "%{meeting}" der Gruppe
                          "%{group}" beigetreten
       join_meeting_body: '<p>Um das Meeting "%{meeting}" zu sehen, %{link}!</p>'
-      reported_user_subject: 'if me | Du hast einen Benutzer gemeldet'
+      reported_user_subject: 'if-me.org | Du hast einen Benutzer gemeldet'
       reported_user_body: >-
                        Du hast %{reported_name} gemeldet. Dies wird von einem
                        Administrator überprüft.
-      reportee_user_subject: 'if me | Du wurdest gemeldet'
+      reportee_user_subject: 'if-me.org | Du wurdest gemeldet'
       reportee_user_body: >-
                        Du wurdest gemeldet. Dies wird von einem Administrator
                        überprüft.
-      add_ban_subject: 'if me | Du wurdest blockiert'
+      add_ban_subject: 'if-me.org | Du wurdest blockiert'
       add_ban_body: >-
                  Du wurdest wegen Verletzung unserer %{code_of_conduct_link}
                  gesperrt.
-      remove_ban_subject: 'if me | Du bist nicht mehr blockiert'
+      remove_ban_subject: 'if-me.org | Du bist nicht mehr blockiert'
       remove_ban_body: >-
                     Du bist zuvor wegen Verletzung unserer
                     %{code_of_conduct_link} blockiert worden. Du bist nicht
@@ -537,11 +537,7 @@ de:
                      Therapeut. Die Menschen, mit denen wir interagieren,
                      beeinflussen unser Verhalten und unsere Emotionen.
                      Gemeinsam mit diesen Menschen zu arbeiten ist der beste
-                     Weg zur erfolgreichen psychischen Genesung.</p>
-                     <p class="subtitle">"Es spielt sich nicht nur in deinem
-                     Kopf ab, sondern betrifft auch das Umfeld um dich herum.
-                     Gemeinsam können wir diesen Heilungsprozess angehen."</p>
-                     <p>Psychische Gesundheit ist individuell und von Person zu
+                     Weg zur erfolgreichen psychischen Genesung.</p><p>Psychische Gesundheit ist individuell und von Person zu
                      Person unterschiedlich. Jeder Mensch tickt anders! Daher
                      braucht es die Hilfe jedes einzelnen. Das ist auch der
                      Grund, warum dieses ein Open-Source-Projekt ist.</p>
@@ -564,7 +560,7 @@ de:
     contribute:
       contributor_avatar_alt: 'Mitwirkende Biographie für %{name}'
       main_message_one: >-
-                     if me wird von Freiwilligen mit unterschiedlichen
+                     if-me.org wird von Freiwilligen mit unterschiedlichen
                      Kenntnissen und Werdegängen entwickelt und gepflegt.
       message_text_one: >-
                      Wir sind immer auf der Suche nach und offen für neuen
@@ -1089,12 +1085,12 @@ de:
                    nachvollziehen zu können
   mailers:
     accepted_ally_request:
-      subject: 'if me | %{ally_name} hat deine Helferanfrage angenommen!'
+      subject: 'if-me.org | %{ally_name} hat deine Helferanfrage angenommen!'
       message: >-
             <p>Glückwunsch! Du kannst nun Momente, Strategien und mehr mit
             %{ally_name} teilen.</p>
     new_ally_request:
-      subject: 'if me | %{ally_name} hat eine Helferanfrage gesendet!'
+      subject: 'if-me.org | %{ally_name} hat eine Helferanfrage gesendet!'
       message: >-
             <p>Bitte <a href="%{allies_url}">melde dich an</a>, um diese
             Anfrage anzunehmen oder abzulehnen!</p>
@@ -1160,7 +1156,7 @@ de:
           profile_picture: Profilbild
           remove_picture: 'Bild entfernen'
           about: 'Über mich'
-          password_for: 'Passwort für dein <strong>if me</strong>Konto'
+          password_for: 'Passwort für dein <strong>if-me.org</strong>Konto'
           update: Aktualisieren
         placeholders:
           optional: Optional
@@ -1169,7 +1165,7 @@ de:
               Bitte beachte, dass andere Benutzer diese Information sehen können
           required: Erforderlich
         delete:
-          text: 'Ist <strong>if me</strong>nicht das richtige für dich?'
+          text: 'Ist <strong>if-me.org</strong>nicht das richtige für dich?'
           button: 'Mein Konto für immer löschen'
           confirm: >-
                 Bist du sicher? Du verlierst dadurch alle deine Daten. Du

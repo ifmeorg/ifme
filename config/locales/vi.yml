@@ -1,5 +1,5 @@
 vi:
-  app_name: 'if me'
+  app_name: 'if-me.org'
   app_description: 'Cộng đồng sức khỏe tâm thần'
   email: join.ifme@gmail.com
   created: 'Tạo %{created_at}'
@@ -381,11 +381,11 @@ vi:
       "%{group_name}"'
       join_meeting: '%{name} đã tham gia "%{meeting_name}" cho "%{group_name}'
     mailer:
-      comment_on_moment_subject: 'if me | % {user} đã nhận xét về thời điểm của
+      comment_on_moment_subject: 'if-me.org | % {user} đã nhận xét về thời điểm của
       bạn "%{moment}"'
-      comment_on_strategy_subject: 'if me | %{user} đã nhận xét về chiến lược
+      comment_on_strategy_subject: 'if-me.org | %{user} đã nhận xét về chiến lược
       của bạn "%{strategy}"'
-      comment_on_meeting_subject: 'if me | %{user} đã nhận xét về cuộc
+      comment_on_meeting_subject: 'if-me.org | %{user} đã nhận xét về cuộc
       họp"%{meeting} "trong nhóm"%{group}"'
       comment_on_private_body: '<p>Đồng minh của bạn <strong>%{user}</strong>
       đã nhận xét riêng:</p>'
@@ -394,45 +394,45 @@ vi:
       comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>Để đọc nó,% {link}!</p>'
-      new_group_subject: 'if me | %{user} đã tạo một nhóm "%{group}"'
+      new_group_subject: 'if-me.org | %{user} đã tạo một nhóm "%{group}"'
       new_group_body: '<p>%{user} đã tạo một nhóm "%{group}":</p><p><i>
       %{description}</i></p><p>Để tìm hiểu thêm và tham gia, %{link}!</p><p>Hãy
       làm theo %{code_of_conduct_link}!</p>'
-      new_group_member_subject: 'if me | %{user} đã tham gia nhóm của bạn
+      new_group_member_subject: 'if-me.org | %{user} đã tham gia nhóm của bạn
       "%{group}"'
-      add_group_leader_you_subject: 'if me | Bạn trở thành người lãnh đạo của
+      add_group_leader_you_subject: 'if-me.org | Bạn trở thành người lãnh đạo của
       "%{group}"'
-      add_group_leader_subject: 'if me | %{user} trở thành lãnh đạo của
+      add_group_leader_subject: 'if-me.org | %{user} trở thành lãnh đạo của
       "%{group}"'
       add_remove_group_leader_body: '<p>Để xem "%{group}", % {link}!</p>'
-      remove_group_leader_you_subject: 'if me | Bạn không còn là người lãnh đạo
+      remove_group_leader_you_subject: 'if-me.org | Bạn không còn là người lãnh đạo
       của "%{group}"'
-      remove_group_leader_subject: 'if me | %{user} không còn là người lãnh đạo
+      remove_group_leader_subject: 'if-me.org | %{user} không còn là người lãnh đạo
       của "%{group}"'
-      update_meeting_subject: 'if me | %{user} đã cập nhật cuộc họp "%{meeting}"
+      update_meeting_subject: 'if-me.org | %{user} đã cập nhật cuộc họp "%{meeting}"
       cho "%{group}"'
-      new_meeting_subject: 'if me | %{user} đã tạo một cuộc họp mới "%{meeting}"
+      new_meeting_subject: 'if-me.org | %{user} đã tạo một cuộc họp mới "%{meeting}"
       cho "%{group}"'
       meeting_body: '<p>%{subject}</p><p><i>%{description}</i></p><p><strong>Vị
       trí:</strong> %{location}</p><p><strong>Ngày:</strong> %{date}</p><p>
       <strong>Thời gian:</strong> %{time}</p>'
       new_meeting_link: '<p>Để tìm hiểu thêm và tham dự, %{link}!</p>'
       update_meeting_link: '<p>Để tìm hiểu thêm, %{link}!</p>'
-      remove_meeting_subject: 'if me | %{user} đã hủy "% {meeting}" cho
+      remove_meeting_subject: 'if-me.org | %{user} đã hủy "% {meeting}" cho
       "%{group}"'
-      join_meeting_subject: 'if me | %{user} đã tham gia "% {meeting}" cho
+      join_meeting_subject: 'if-me.org | %{user} đã tham gia "% {meeting}" cho
       "%{group}"'
       join_meeting_body: '<p>Để xem "%{meeting}", %{link}!</p>'
-      reported_user_subject: 'if me | Bạn đã báo cáo một người dùng'
+      reported_user_subject: 'if-me.org | Bạn đã báo cáo một người dùng'
       reported_user_body: 'Bạn đã báo cáo %{reported_name}. Điều này sẽ được
       quản trị viên xem xét.'
-      reportee_user_subject: 'if me | Bạn đã được báo cáo'
+      reportee_user_subject: 'if-me.org | Bạn đã được báo cáo'
       reportee_user_body: 'Bạn đã được báo cáo. Điều này sẽ được quản trị
       viên xem xét.'
-      add_ban_subject: 'if me | Bạn đã bị cấm'
+      add_ban_subject: 'if-me.org | Bạn đã bị cấm'
       add_ban_body: 'Bạn đã bị cấm vì vi phạm %{code_of_conduct_link} của
       chúng tôi.'
-      remove_ban_subject: 'if me | Bạn không còn bị cấm'
+      remove_ban_subject: 'if-me.org | Bạn không còn bị cấm'
       remove_ban_body: 'Trước đây bạn đã bị cấm vì vi phạm
       %{code_of_conduct_link} của chúng tôi. Bạn không còn bị cấm nữa.'
   omniauth:
@@ -455,9 +455,7 @@ vi:
       liệu. Những người có liên hệ với cuộc sống chúng ta mỗi ngày chính la
       những người làm nên cảm xúc và cách cư xử của chúng ta. Mời gọi họ tham
       gia vào các phương pháp trị liệu sức khỏe tâm thần sẽ là chìa khóa giúp
-      ta hồi phục.</p><p class="subtitle">"Không phải chỉ là trong suy nghĩcủa
-      bạn không thôi, mà là tất cả những gì xung quanh bạn. Chúng ta cùng điều
-      trị cho nhau."</p><p>Sức khỏe tâm thần là những kinh nghiệm của từng các
+      ta hồi phục.</p><p>Sức khỏe tâm thần là những kinh nghiệm của từng các
       nhân riêng việt. Không có hai cái não giống nhau, giải quyết các vấn đề
       đòi hỏi từ tất cả mọi người và đó là lý do tại sao dự án có mã nguồn mở.
       </p>'
@@ -474,7 +472,7 @@ vi:
       chúng tôi biết về %{email}! Chúng tôi hoan nghênh quá trình gửi ẩn danh.'
     contribute:
       contributor_avatar_alt: 'Tiểu sử cộng tác viên cho %{name}'
-      main_message_one: 'if me được xây dựng và duy trì bởi nhiều tình nguyện
+      main_message_one: 'if-me.org được xây dựng và duy trì bởi nhiều tình nguyện
       viên khác nhau với kiến thức và kinh nghiệm khác nhau.'
       message_text_one: 'Chúng tôi tìm kiếm những ý tưởng từ tất cả mọi người,
       bao gồm: <strong>các nhà tư vấn tâm lý</strong>, <strong>chuyên gia sức
@@ -883,11 +881,11 @@ vi:
     đề một cách chiết tiết hơn'
   mailers:
     accepted_ally_request:
-      subject: 'if me | %{ally_name} chấp nhận yêu cầu của đồng minh!'
+      subject: 'if-me.org | %{ally_name} chấp nhận yêu cầu của đồng minh!'
       message: '<p>Chúc mừng! Giờ đây, bạn có thể chia sẻ khoảnh khắc, chiến
       lược và hơn thế nữa với %{ally_name}.</p>'
     new_ally_request:
-      subject: 'if me | %{ally_name} đã gửi một yêu cầu của đồng minh!'
+      subject: 'if-me.org | %{ally_name} đã gửi một yêu cầu của đồng minh!'
       message: '<p>Vui lòng <a href="%{allies_url}">đăng nhập</a> để chấp nhận
       hoặc từ chối yêu cầu!</p>'
   devise:
@@ -945,7 +943,7 @@ vi:
           profile_picture: 'Hình ảnh đại diện'
           remove_picture: 'Gỡ bỏ hình ảnh đại diện'
           about: Về
-          password_for: 'Mật khẩu cho tài khoản <strong>if me</strong>'
+          password_for: 'Mật khẩu cho tài khoản <strong>if-me.org</strong>'
           update: 'Cập nhật'
         placeholders:
           optional: 'Chọn lựa'
@@ -954,7 +952,7 @@ vi:
           dùng tìm kiếm bạn'
           required: 'Yêu cầu'
         delete:
-          text: 'Đây có phải là trang <strong>if me</strong> không giúp bạn?'
+          text: 'Đây có phải là trang <strong>if-me.org</strong> không giúp bạn?'
           button: 'Xóa tài khoản của tôi vĩnh viễn'
           confirm: 'Bạn có chắc chắn không? Bạn sẽ mất tất cả dữ liệu của bạn,
           tuy nhiên bạn có thể đăng ký bất cứ lúc nào!'

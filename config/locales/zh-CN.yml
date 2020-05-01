@@ -1,5 +1,5 @@
 zh-CN:
-  app_name: 'if me'
+  app_name: 'if-me.org'
   app_description: '心理健康社区'
   email: join.ifme@gmail.com
   created: '创建时间%{created_at}'
@@ -363,33 +363,33 @@ zh-CN:
       comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>阅读链接: %{link}!</p>'
-      new_group_subject: 'if me 用户 %{user} 建立了一个小组 "%{group}"'
-      new_group_body: '<p>if me 用户 %{user} 建立了一个小组 "%{group}":</p><p><i>
+      new_group_subject: 'if-me.org 用户 %{user} 建立了一个小组 "%{group}"'
+      new_group_body: '<p>if-me.org 用户 %{user} 建立了一个小组 "%{group}":</p><p><i>
       %{description}</i></p><p>要了解更多加入信息, %{link}!</p><p>请我们的遵循准则
       %{code_of_conduct_link}!</p>'
-      new_group_member_subject: 'if me | 用户 %{user} 加入了你的小组 "%{group}"'
-      add_group_leader_you_subject: 'if me | 你成为 "%{group}" 的组长'
-      add_group_leader_subject: 'if me | 用户 %{user} 成为 " %{group}" 的组长'
+      new_group_member_subject: 'if-me.org | 用户 %{user} 加入了你的小组 "%{group}"'
+      add_group_leader_you_subject: 'if-me.org | 你成为 "%{group}" 的组长'
+      add_group_leader_subject: 'if-me.org | 用户 %{user} 成为 " %{group}" 的组长'
       add_remove_group_leader_body: '<p>查看小组 "%{group}": %{link}!</p>'
-      remove_group_leader_you_subject: 'if me | 你不再是 "%{group}" 的组长'
-      remove_group_leader_subject: 'if me | 用户 %{user} 不再是 "%{group}" 的组长'
-      update_meeting_subject: 'if me | 用户 %{user} 更新了小组 "%{group}" 的会面 "%{meeting}" '
-      new_meeting_subject: 'if me | 用户 %{user} 创建了一个小组 "%{group}" 的新会面 "%{meeting}"'
+      remove_group_leader_you_subject: 'if-me.org | 你不再是 "%{group}" 的组长'
+      remove_group_leader_subject: 'if-me.org | 用户 %{user} 不再是 "%{group}" 的组长'
+      update_meeting_subject: 'if-me.org | 用户 %{user} 更新了小组 "%{group}" 的会面 "%{meeting}" '
+      new_meeting_subject: 'if-me.org | 用户 %{user} 创建了一个小组 "%{group}" 的新会面 "%{meeting}"'
       meeting_body: '<p>%{subject}</p><p><i>%{description}</i></p><p><strong>
       地点: </strong> %{location}</p><p><strong>日期: </strong> %{date}</p><p>
       <strong>时间: </strong> %{time}</p>'
       new_meeting_link: '<p>要了解参加信息，点击链接 %{link}</p>'
       update_meeting_link: '<p>了解更多， %{link}!</p>'
-      remove_meeting_subject: 'if me | 用户 %{user} 已取消小组 "%{group}" 的会面: "%{meeting}"'
-      join_meeting_subject: 'if me | 用户 %{user} 已经加入小组 "%{group}" 的会面: "%{meeting}"'
+      remove_meeting_subject: 'if-me.org | 用户 %{user} 已取消小组 "%{group}" 的会面: "%{meeting}"'
+      join_meeting_subject: 'if-me.org | 用户 %{user} 已经加入小组 "%{group}" 的会面: "%{meeting}"'
       join_meeting_body: '<p>查看更多 "%{meeting}", %{link}!</p>'
-      reported_user_subject: 'if me | 你已投诉用户'
+      reported_user_subject: 'if-me.org | 你已投诉用户'
       reported_user_body: '你已投诉 %{reported_name}。将由管理员进行审查。'
-      reportee_user_subject: 'if me | 你已被投诉'
+      reportee_user_subject: 'if-me.org | 你已被投诉'
       reportee_user_body: '你被投诉了。管理员将进行审查。'
-      add_ban_subject: 'if me | 你已经被封号'
+      add_ban_subject: 'if-me.org | 你已经被封号'
       add_ban_body: '你因违反我们的规定 %{code_of_conduct_link} 而被封号。'
-      remove_ban_subject: 'if me | 你不再被封号'
+      remove_ban_subject: 'if-me.org | 你不再被封号'
       remove_ban_body: '你先前因违反我们的规定而被禁止 %{code_of_conduct_link}。你已经被解封。'
   omniauth:
     google: 谷歌
@@ -404,9 +404,7 @@ zh-CN:
       main_message_two: '处理心理健康的问题是我们生活的很重要的一部分。但是对于我们许多人来说，
       开口分享心理健康的问题是很困难的。'
       message_text_two: '<p>并非每个人都是精神健康顾问或心理学专家。
-      我们每天相处的人会影响我们的情感和行为。鼓励他人参与心理健康治疗与活动是很重要的。</p>
-      <p class="subtitle">为人处世,你的情感不仅在你的心理，也是影响你的周围。让我们一起健康吧。</p>
-      <p>心理健康是一种个人成长的经历。没有两个人是一样的！解决心理问题需要所有人出力，
+      我们每天相处的人会影响我们的情感和行为。鼓励他人参与心理健康治疗与活动是很重要的。</p><p>心理健康是一种个人成长的经历。没有两个人是一样的！解决心理问题需要所有人出力，
       这是该项目是开源的原因。</p>'
       main_message_three: '想资助我们吗？'
       message_text_three: '我们的应用是 <u>百分百</u> 的开源项目。
@@ -755,10 +753,10 @@ zh-CN:
     yes_description: '写一个说明可以帮助你和其他人更好地理解'
   mailers:
     accepted_ally_request:
-      subject: 'if me | %{ally_name}接受了你的好友请求！'
+      subject: 'if-me.org | %{ally_name}接受了你的好友请求！'
       message: ' <p>恭喜！你现在可以与%{ally_name}共享日记，健康规划等。</p>'
     new_ally_request:
-      subject: 'if me | %{ally_name}发送了一个好友请求！'
+      subject: 'if-me.org | %{ally_name}发送了一个好友请求！'
       message: ' <p>请<a href="%{allies_url}">登录</a>以接受或拒绝该请求！</p>'
   devise:
     password: 密码
@@ -806,14 +804,14 @@ zh-CN:
           profile_picture: '个人资料图片'
           remove_picture: '删除图片'
           about: 关于
-          password_for: ' <strong>if me</strong>帐户的密码'
+          password_for: ' <strong>if-me.org</strong>帐户的密码'
           update: 更新
         placeholders:
           optional: 可选填
           about: '自我介绍！你为什么在这里呢，你希望实现什么？请注意，当用户搜索你会看到自我介绍的'
           required: 必填
         delete:
-          text: '请问 <strong>if me</strong>对你的服务不周到吗？'
+          text: '请问 <strong>if-me.org</strong>对你的服务不周到吗？'
           button: '永久删除我的帐户'
           confirm: '你确定吗？你将丢失所有数据。但是你可以随时再次注册！'
       new:

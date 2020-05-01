@@ -1,5 +1,5 @@
 it:
-  app_name: 'if me'
+  app_name: 'if-me.org'
   app_description: 'Una community per la condivisione di esperienze relative
   alla salute mentale'
   email: join.ifme@gmail.com
@@ -386,11 +386,11 @@ it:
       "%{group_name}"'
       join_meeting: '%{name} si è unito a "%{meeting_name}" per "%{group_name}"'
     mailer:
-      comment_on_moment_subject: 'if me | %{user} ha commentato il tuo momento
+      comment_on_moment_subject: 'if-me.org | %{user} ha commentato il tuo momento
       "%{moment}"'
-      comment_on_strategy_subject: 'if me | %{user} ha commentato la tua
+      comment_on_strategy_subject: 'if-me.org | %{user} ha commentato la tua
       strategia "%{strategy}"'
-      comment_on_meeting_subject: 'if me | %{user} ha commentato il raduno
+      comment_on_meeting_subject: 'if-me.org | %{user} ha commentato il raduno
       "%{meeting}" nel gruppo "%{group}"'
       comment_on_private_body: '<p>Il tuo alleato <strong>%{user}</strong> ha
       aggiunto un commento privato:</p>'
@@ -399,45 +399,45 @@ it:
       comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>Per leggerlo, %{link}!</p>'
-      new_group_subject: 'if me | %{user} ha creato il gruppo "%{group}"'
+      new_group_subject: 'if-me.org | %{user} ha creato il gruppo "%{group}"'
       new_group_body: '<p>%{user} ha creato il gruppo "%{group}":</p><p><i>
       %{description}</i></p><p>Per saperne di più ed unirti, %{link}!</p><p>Per
       favore, segui il nostro %{code_of_conduct_link}!</p>'
-      new_group_member_subject: 'if me | %{user} si è unito al tuo gruppo
+      new_group_member_subject: 'if-me.org | %{user} si è unito al tuo gruppo
       "%{group}"'
-      add_group_leader_you_subject: 'if me | Sei diventato un leader di
+      add_group_leader_you_subject: 'if-me.org | Sei diventato un leader di
       "%{group}"'
-      add_group_leader_subject: 'if me | %{user} é diventato un leader di
+      add_group_leader_subject: 'if-me.org | %{user} é diventato un leader di
       " %{group}"'
       add_remove_group_leader_body: '<p>Per vedere "%{group}", %{link}!</p>'
-      remove_group_leader_you_subject: 'if me | Non sei più un leader di
+      remove_group_leader_you_subject: 'if-me.org | Non sei più un leader di
       "%{group}"'
-      remove_group_leader_subject: 'if me | %{user} non è più un leader di
+      remove_group_leader_subject: 'if-me.org | %{user} non è più un leader di
       "%{group}"'
-      update_meeting_subject: 'if me | %{user} ha aggiornato il raduno
+      update_meeting_subject: 'if-me.org | %{user} ha aggiornato il raduno
       "%{meeting}" per "%{group}"'
-      new_meeting_subject: 'if me | %{user} ha creato il nuovo raduno
+      new_meeting_subject: 'if-me.org | %{user} ha creato il nuovo raduno
       "%{meeting}" per "%{group}"'
       meeting_body: '<p>%{subject}</p><p><i>%{description}</i></p><p><strong>
       Luogo:</strong> %{location}</p><p><strong>Data:</strong> %{date}</p><p>
       <strong>Ora:</strong> %{time}</p>'
       new_meeting_link: '<p>Per saperne di più ed unirti, %{link}!</p>'
       update_meeting_link: '<p>Per saperne di più, %{link}!</p>'
-      remove_meeting_subject: 'if me | %{user} ha eliminato "%{meeting}" per
+      remove_meeting_subject: 'if-me.org | %{user} ha eliminato "%{meeting}" per
       "%{group}"'
-      join_meeting_subject: 'if me | %{user} si è unito a "%{meeting}" per
+      join_meeting_subject: 'if-me.org | %{user} si è unito a "%{meeting}" per
       "%{group}"'
       join_meeting_body: '<p>Per vedere "%{meeting}", %{link}!</p>'
-      reported_user_subject: 'if me | Hai segnalato un utente'
+      reported_user_subject: 'if-me.org | Hai segnalato un utente'
       reported_user_body: 'Lei ha riferito %{reported_name}. Questo sarà
       esaminato da un amministratore.'
-      reportee_user_subject: 'if me | Sei stato segnalato'
+      reportee_user_subject: 'if-me.org | Sei stato segnalato'
       reportee_user_body: 'Sei stato segnalato. Questo sarà esaminato da un
       amministratore.'
-      add_ban_subject: 'if me | Sei stato escluso'
+      add_ban_subject: 'if-me.org | Sei stato escluso'
       add_ban_body: 'Sei stato bannato per aver violato la nostra
       %{code_of_conduct_link}.'
-      remove_ban_subject: 'if me | Non sei più bannato'
+      remove_ban_subject: 'if-me.org | Non sei più bannato'
       remove_ban_body: 'In precedenza sei stato bannato per aver violato la
       nostra %{code_of_conduct_link}. Non sei più bannato.'
   omniauth:
@@ -459,8 +459,7 @@ it:
       message_text_two: '<p>Non tutti sono terapeuti. Le persone con cui abbiamo
       a che fare ogni giorno danno forma alle nostre emozioni e comportamenti.
       Renderli partecipi nel trattamento della salute mentale è la chiave per
-      la cura.</p><p class="subtitle">"Non è solo nella tua testa, ma tutto
-      attorno a te. Possiamo raggiungere una soluzione, insieme."</p><p>La
+      la cura.</p><p>La
       salute mentale è un''esperienza individuale ed unica. Al mondo non
       esistono due menti uguali! Affrontare il problema richiede l''aiuto di
       tutti, motivo per cui il progetto è open source.</p>'
@@ -476,7 +475,7 @@ it:
       il benvenuto anche a contribuzioni anonime.'
     contribute:
       contributor_avatar_alt: 'Biografia del collaboratore per %{name}'
-      main_message_one: 'if me è costruito e mantenuto da volontari con
+      main_message_one: 'if-me.org è costruito e mantenuto da volontari con
       differenti storie e abilità.'
       message_text_one: 'Siamo sempre in cerca di nuove idee da chiunque,
       includendo <strong>appassionati</strong>, <strong>professionisti</strong>,
@@ -885,11 +884,11 @@ it:
     in dettaglio'
   mailers:
     accepted_ally_request:
-      subject: 'if me | %{ally_name} ha accettato la tua richiesta di alleanza!'
+      subject: 'if-me.org | %{ally_name} ha accettato la tua richiesta di alleanza!'
       message: '<p>Congratulazioni! Puoi ora condividere Momenti, Strategie e
       molto altro con %{ally_name}.</p>'
     new_ally_request:
-      subject: 'if me | %{ally_name} ti ha inviato una richiesta di alleanza!'
+      subject: 'if-me.org | %{ally_name} ti ha inviato una richiesta di alleanza!'
       message: '<p>Per favore <a href="%{allies_url}">logga</a> per accettarla
       o rifiutarla!</p>'
   devise:
@@ -946,7 +945,7 @@ it:
           profile_picture: 'Immagine del profilo'
           remove_picture: 'Rimuovi immagine'
           about: 'Riguardo a me'
-          password_for: 'Password del tuo account <strong>if me</strong>'
+          password_for: 'Password del tuo account <strong>if-me.org</strong>'
           update: Modifica
         placeholders:
           optional: Opzionale
@@ -954,7 +953,7 @@ it:
           conto che la tua introduzione sarà visibile agli utenti che ti cercano'
           required: Obbligatorio
         delete:
-          text: '<strong>if me</strong> non sta funzionando?'
+          text: '<strong>if-me.org</strong> non sta funzionando?'
           button: 'Elimina permanentemente il mio account'
           confirm: 'Sei sicuro? Perderai tutti i tuoi dati. Ma puoi sempre
           registrarti di nuovo!'
