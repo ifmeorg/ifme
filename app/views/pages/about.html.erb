@@ -1,13 +1,18 @@
 <% title t('navigation.about') %>
 
 <div class="messageMain">
-  <%= raw t('pages.about.main_message_one', {
-    app_name: t('app_name')
-  }) %>
+  <div class="messageMainLogo">
+    <%= react_component('Logo', props: { lg: true }) %>
+  </div>
 </div>
 
 <div class="messageBody">
-  <%= t('pages.about.message_text_one') %>
+  <%= raw t('pages.about.main_message_one', {
+    app_name: t('app_name')
+  }) %>
+  <p>
+    <%= t('pages.about.message_text_one') %>
+  </p>
 </div>
 
 <div class="largeMarginTop largeMarginBottom center">

@@ -8,7 +8,7 @@ Readme en [Anglais](https://github.com/ifmeorg/ifme/blob/master/README.md), [Por
 
 # if-me.org
 
-[if-me.org](https://www.if-me.org/) est une communautée  sur les expériences sur la santé mentale qui encourage les gens a partager leur histoire personnel avec des personnes de confiance les gens de confiance sont ceux avec qui on parle toues les jours , les membres de la famille, les amis, les professeurs,et ceux qui travaille pour les expériences sur la santé.
+[if-me.org](https://www.if-me.org/) est une communautée  sur les expériences sur la santé mentale qui encourage les gens a partager leur histoire personnel avec des personnes de confiance les gens de confiance sont ceux avec qui on parle toues les jours , les membres de la famille, les amis, les professeurs, et ceux qui travaille pour les expériences sur la santé.
 
 Traiter avec la santé mentale c'est ce qui fait de nous des humains. Mais pour beaucoup de nous, c'est un combat d'être ouvert à ce sujet. Pas tout le monde est un  conseiller ou un thérapeute les personnes avec lesquelles nous interagissons quotidiennement façonnent nos émotions et notre comportement. Les impliquer dans des traitements de santé mentale est la clé du rétablissement.
 

@@ -42,23 +42,6 @@ describe PagesController, type: :controller do
     end
   end
 
-  describe '#contribute' do
-    it 'respond to request' do
-      get :contribute
-      expect(response).to be_successful
-    end
-
-    it 'read external JSON file' do
-      data = []
-      blurbs_file = File.read('doc/pages/blurbs.json')
-      contributors_file = File.read('doc/pages/contributors.json')
-      expect(JSON).to receive(:parse).with(blurbs_file)
-      expect(JSON).to receive(:parse).with(contributors_file).and_return(data)
-      expect(data).to receive(:sort_by!)
-      get :contribute
-    end
-  end
-
   describe '#home_data' do
     let!(:moment) { create(:moment, user: user) }
     context 'when the user is logged in' do
@@ -98,6 +81,16 @@ describe PagesController, type: :controller do
     it 'respond to request' do
       get :about
       expect(response).to be_successful
+    end
+
+    it 'read external JSON file' do
+      data = []
+      blurbs_file = File.read('doc/pages/blurbs.json')
+      contributors_file = File.read('doc/pages/contributors.json')
+      expect(JSON).to receive(:parse).with(blurbs_file)
+      expect(JSON).to receive(:parse).with(contributors_file).and_return(data)
+      expect(data).to receive(:sort_by!)
+      get :about
     end
   end
 
