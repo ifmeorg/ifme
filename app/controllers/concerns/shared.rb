@@ -14,7 +14,8 @@ module Shared
       model_class.create(
         user_id: current_user.id,
         name: I18n.t("#{key}_name"),
-        description: I18n.t("#{key}_description")
+        description: I18n.t("#{key}_description"),
+        visible: true
       )
     end
   end

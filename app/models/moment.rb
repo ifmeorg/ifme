@@ -16,6 +16,7 @@
 #  secret_share_identifier :uuid
 #  secret_share_expires_at :datetime
 #  published_at            :datetime
+#  bookmarked              :boolean
 #
 
 class Moment < ApplicationRecord
@@ -42,6 +43,7 @@ class Moment < ApplicationRecord
   has_many :strategies, through: :moments_strategies
 
   validates :comment, inclusion: [true, false]
+  validates :bookmarked, inclusion: [true, false]
   validates :user_id, :name, :why, presence: true
   validates :why, length: { minimum: 1 }
   validates :secret_share_expires_at,

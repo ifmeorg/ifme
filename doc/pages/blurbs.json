@@ -2,11 +2,11 @@
   {
     "name": "Julia Nguyen",
     "image": "/assets/contributors/julia_nguyen.jpg",
-    "profile": "Being open and honest about my journey with obsessive-compulsive disorder, anxiety, and depression helps me to accept myself and reach out for support. My hope is to encourage others to feel more comfortable about sharing their experiences. Growing up as a daughter of Vietnamese refugee parents, it was difficult to talk about mental illness openly. I created if me as a tool to engage loved ones in mental health conversations. Working on the project openly has helped me to further explore my own mental health.",
+    "profile": "Being open and honest about my journey with obsessive-compulsive disorder, anxiety, and depression helps me to accept myself and reach out for support. My hope is to encourage others to feel more comfortable about sharing their experiences. Growing up as a daughter of Vietnamese refugee parents, it was difficult to talk about mental illness openly. I created if-me.org as a tool to engage loved ones in mental health conversations. Working on the project openly has helped me to further explore my own mental health.",
     "location": "Toronto, Canada",
     "link_name": "julianguyen",
-    "link": "http://github.com/julianguyen",
-    "social": "github"
+    "link": "https://julianguyen.org",
+    "social": "globe"
   },
   {
     "name": "Jennifer Shen",
@@ -371,7 +371,7 @@
   {
     "name": "Karolina Benitez",
     "image": "/assets/contributors/karolina_benitez.jpg",
-    "profile": "I spent 5+ years working at grassroots non-profit organizations providing services to women and girls who have been impacted by domestic violence, sexual assault, and/or commercial sexual exploitation. I saw first hand how difficult, taboo, and inaccessible mental health services are for most people. I am in the process of transitioning into a career in tech and feel passionate about continuing to contribute however I can to support others in growing, healing, and building community. I am excited to find if-me and to have the opportunity to share my skills in such an important and much needed project.",
+    "profile": "I spent 5+ years working at grassroots non-profit organizations providing services to women and girls who have been impacted by domestic violence, sexual assault, and/or commercial sexual exploitation. I saw first hand how difficult, taboo, and inaccessible mental health services are for most people. I am in the process of transitioning into a career in tech and feel passionate about continuing to contribute however I can to support others in growing, healing, and building community. I am excited to find if-me.org and to have the opportunity to share my skills in such an important and much needed project.",
     "location": "Oakland, CA",
     "link_name": "@karolina2o9",
     "link": "https://twitter.com/karolina2o9",
@@ -380,7 +380,7 @@
   {
     "name": "Kelly Sousa",
     "image": "/assets/contributors/kelly_sousa.png",
-    "profile": "I spent years running away from the things that were bothering me in hopes that distractions would make them disappear. As a person who would normally not accept or express the need for help, I realized by not mourning the lives and relationships of those no longer in my life, I had eventually pent up so much negative energy that my life began to quickly unravel.  Soon after, I was diagnosed with dysthymia and I started going to therapy and figuring out what medications I would need to slowly start getting my shit together. I am not over the hump and understand that this could be lifelong. I’ve had to take a break from therapy for financial reasons but I know I owe it to myself to go back and continue to grow. I’m thrilled to be able to contribute to if-me and help normalize the discussion of mental health. I really believe it’s critical to have open-source communities and share and learn from each others’ experiences",
+    "profile": "I spent years running away from the things that were bothering me in hopes that distractions would make them disappear. As a person who would normally not accept or express the need for help, I realized by not mourning the lives and relationships of those no longer in my life, I had eventually pent up so much negative energy that my life began to quickly unravel.  Soon after, I was diagnosed with dysthymia and I started going to therapy and figuring out what medications I would need to slowly start getting my shit together. I am not over the hump and understand that this could be lifelong. I’ve had to take a break from therapy for financial reasons but I know I owe it to myself to go back and continue to grow. I’m thrilled to be able to contribute to if-me.org and help normalize the discussion of mental health. I really believe it’s critical to have open-source communities and share and learn from each others’ experiences",
     "location": "San Francisco, CA",
     "link_name": "Kell_Stack",
     "link": "https://twitter.com/kell_stack",
@@ -416,7 +416,7 @@
   {
     "name": "Dena Burd",
     "image": "/assets/contributors/dena_burd.png",
-    "profile": "Contributing to if-me is my first open source experince. YAY! Issues related to mental health, especially helping people find resources and coping strategies is very imoprtant to me.",
+    "profile": "Contributing to if-me.org is my first open source experince. YAY! Issues related to mental health, especially helping people find resources and coping strategies is very imoprtant to me.",
     "location": "Berkeley, CA",
     "link_name": "gitburd",
     "link": "https://github.com/gitburd",
@@ -443,7 +443,7 @@
   {
     "name": "Varshini Ananta",
     "image": "/assets/contributors/varshini_ananta.jpg",
-    "profile": "I'm an incoming Software Engineer at Amazon and interned there last summer too. I want to get more involved in the open-source community and also address issues I am passionate on solving. Mental health is extremely important when it comes to forming relationships to performing our jobs, and I say this through personal experience by overcoming many obstacles myself. I hope I can make valuable contributions as a developer to if-me that will help others who are going through tough times and just need a shoulder to lean on.",
+    "profile": "I'm an incoming Software Engineer at Amazon and interned there last summer too. I want to get more involved in the open-source community and also address issues I am passionate on solving. Mental health is extremely important when it comes to forming relationships to performing our jobs, and I say this through personal experience by overcoming many obstacles myself. I hope I can make valuable contributions as a developer to if-me.org that will help others who are going through tough times and just need a shoulder to lean on.",
     "location": "Bay Area, CA",
     "link_name": "sananta",
     "link": "https://github.com/sananta",
@@ -533,7 +533,7 @@
   {
     "name": "Sonu Toor",
     "image": "/assets/contributors/sonu_toor.jpg",
-    "profile": "I'm a web developer based in Toronto. I contributed to this project because life can be tough, we all go through rough patches, some worse than others. If if-me helps even one person dealing with their tough times, the hours I (that all the contributors) spent working on it for me are completely vindicated. Life can be hard, let's all help one another when we can.",
+    "profile": "I'm a web developer based in Toronto. I contributed to this project because life can be tough, we all go through rough patches, some worse than others. If if-me.org helps even one person dealing with their tough times, the hours I (that all the contributors) spent working on it for me are completely vindicated. Life can be hard, let's all help one another when we can.",
     "location": "Toronto, Canada",
     "link_name": "SonuToor",
     "link": "https://github.com/SonuToor",
@@ -556,5 +556,15 @@
     "link_name": "leeacto",
     "link": "https://github.com/leeacto",
     "social": "github"
+  },
+  {
+    "name": "Stephanie Warmenhoven",
+    "image": "/assets/contributors/stephanie_warmenhoven.jpg",
+    "profile": "I'm a Web Developer and travel enthusiast who is curious by nature and loves to learn. If Me is one of the first open source projects I am contributing to, and I'm excited to be a part of a project with a purpose that is near to my heart.  Mental health is something that I struggle with myself, and I see the value of maintaining and growing an application like if-me.org.",
+    "location": "Vancouver, Canada",
+    "link_name": "s-warmenhoven",
+    "link": "https://github.com/s-warmenhoven",
+    "social": "github"
   }
+
 ]

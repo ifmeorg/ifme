@@ -56,7 +56,8 @@ module CategoriesHelper
   def category_form_inputs
     [
       category_name(@category&.name),
-      category_description(@category&.description)
+      category_description(@category&.description),
+      category_visible(@category&.visible)
     ]
   end
 
@@ -81,6 +82,19 @@ module CategoriesHelper
       label: t('common.form.description'),
       value: description || nil,
       dark: true
+    }
+  end
+
+  def category_visible(visible)
+    {
+      id: 'category_visible',
+      type: 'switch',
+      label: t('shared.stats.visible_in_stats'),
+      dark: true,
+      name: 'category[visible]',
+      value: true,
+      uncheckedValue: false,
+      checked: visible
     }
   end
 end

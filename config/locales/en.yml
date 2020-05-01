@@ -327,6 +327,7 @@ en:
     edit_moment: 'Edit Moment'
     tagged_moments: 'Tagged Moments'
     new: 'New Moment'
+    bookmark: 'Bookmark this moment?'
     secret_share:
       singular: 'Secret Share'
       expires_at: 'Expire at'
@@ -353,6 +354,7 @@ en:
       example_category: Career
     show:
       strategies: 'What strategies would help?'
+      resources: 'What resources could help?'
   moods:
     singular: Mood
     plural: Moods
@@ -533,7 +535,7 @@ en:
                      We're always looking for ideas from everyone,
                      including <strong>mental health advocates</strong>,
                      <strong>health professionals</strong>, <strong>software
-                     developers</strong>,<strong>translators</strong>, and
+                     developers</strong>, <strong>translators</strong>, and
                      <strong>user experience designers</strong>!
                      <p class="noMarginBottom">Please %{email_link} and
                      we'll connect with you! You will be invited to
@@ -628,8 +630,8 @@ en:
         message_three: 'Document your moods, medications, and self-care'
         main_message_two: 'We are open source because mental health should be open.'
         message_text_two: >-
-                       'We are <strong>always</strong> looking for your
-                       %{help} and %{feedback}!'
+                       We are <strong>always</strong> looking for your
+                       %{help} and %{feedback}!
         help: help
       signed_in_empty:
         main_message_one: 'Hello %{name}!'
@@ -899,6 +901,7 @@ en:
     stats:
       you_are_focusing: 'You are focusing the most on'
       user_is_focusing: '%{name} is focusing the most on'
+      visible_in_stats: 'Visible in stats?'
     viewers:
       plural: Viewers
       you: 'Only you'
@@ -924,6 +927,7 @@ en:
     edit_strategy: 'Edit Strategy'
     tagged_strategies: 'Tagged Strategies'
     new: 'New Strategy'
+    bookmark: 'Bookmark this strategy?'
     form:
       describe: 'Describe the strategy.'
       strategies_label: 'What strategies would help achieve these thoughts?'

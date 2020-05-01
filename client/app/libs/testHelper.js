@@ -5,8 +5,35 @@ import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
-window.alert = () => {};
-window.location.reload = () => {};
-window.document.execCommand = () => {};
+
+Object.defineProperty(window, 'alert', {
+  value: () => {},
+  writable: true,
+});
+
+Object.defineProperty(window.document, 'execCommand', {
+  value: () => {},
+  writable: true,
+});
+
+Object.defineProperty(window, 'scrollTo', {
+  value: () => {},
+  writable: true,
+});
+
+Object.defineProperty(window, 'location', {
+  writable: true,
+  value: () => {},
+});
+
+Object.defineProperty(window.location, 'reload', {
+  writable: true,
+  value: () => {},
+});
+
+Object.defineProperty(window.location, 'origin', {
+  writable: true,
+  value: 'https://if-me.org',
+});
 
 export { React, TestUtils };

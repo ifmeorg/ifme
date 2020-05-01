@@ -10,6 +10,7 @@
 #  updated_at  :datetime
 #  user_id     :integer
 #  slug        :string
+#  visible     :boolean
 #
 
 class Category < ApplicationRecord
@@ -21,4 +22,5 @@ class Category < ApplicationRecord
 
   has_many :moments_categories, dependent: :destroy
   has_many :strategies_categories, dependent: :destroy
+  validates :visible, inclusion: [true, false]
 end

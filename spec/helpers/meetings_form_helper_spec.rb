@@ -74,7 +74,8 @@ describe MeetingsFormHelper do
             id: 'submit',
             type: 'submit',
             value: 'Submit',
-            dark: true
+            dark: true,
+            name: 'commit'
           }
         ],
         action: '/meetings'
@@ -159,7 +160,8 @@ describe MeetingsFormHelper do
             id: 'submit',
             type: 'submit',
             value: 'Submit',
-            dark: true
+            dark: true,
+            name: 'commit'
           }
         ],
         action: "/meetings/#{meeting.slug}"

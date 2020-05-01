@@ -40,7 +40,20 @@ module MoodsHelper
     }
   end
 
+  def mood_visible
+    {
+      id: 'mood_visible',
+      type: 'switch',
+      label: t('shared.stats.visible_in_stats'),
+      dark: true,
+      name: 'mood[visible]',
+      value: true,
+      uncheckedValue: false,
+      checked: @mood.visible
+    }
+  end
+
   def mood_form_inputs
-    [mood_name, mood_description]
+    [mood_name, mood_description, mood_visible]
   end
 end
