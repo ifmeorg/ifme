@@ -417,7 +417,6 @@ hi:
   omniauth:
     google: 'गूगल'
     access_denied: 'पहुंच अस्वीकृत'
-    facebook: 'फेसबुक'
   pages:
     about:
       send_us: 'हमें'
