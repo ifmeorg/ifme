@@ -1,5 +1,5 @@
 en:
-  app_name: 'if me'
+  app_name: 'if-me.org'
   app_description: 'A community for mental health experiences'
   email: join.ifme@gmail.com
   created: 'Created %{created_at}'
@@ -419,13 +419,13 @@ en:
                  "%{group_name}"
     mailer:
       comment_on_moment_subject: >-
-                              if me | %{user} commented on your moment
+                              if-me.org | %{user} commented on your moment
                               "%{moment}"
       comment_on_strategy_subject: >-
-                                if me | %{user} commented on your strategy
+                                if-me.org | %{user} commented on your strategy
                                 "%{strategy}"
       comment_on_meeting_subject: >-
-                               if me | %{user} commented on the meeting
+                               if-me.org | %{user} commented on the meeting
                                "%{meeting}" in the group "%{group}"
       comment_on_private_body: >-
                             <p>Your ally <strong>%{user}</strong>
@@ -434,24 +434,24 @@ en:
       comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>To read it, %{link}!</p>'
-      new_group_subject: 'if me | %{user} created a group "%{group}"'
+      new_group_subject: 'if-me.org | %{user} created a group "%{group}"'
       new_group_body: >-
                    <p>%{user} created a group "%{group}":</p><p><i>%{description}</i></p><p>To learn more and join, %{link}!</p><p>Please follow our %{code_of_conduct_link}!</p>
-      new_group_member_subject: 'if me | %{user} joined your group "%{group}"'
-      add_group_leader_you_subject: 'if me | You became a leader of "%{group}"'
-      add_group_leader_subject: 'if me | %{user} became a leader of " %{group}"'
+      new_group_member_subject: 'if-me.org | %{user} joined your group "%{group}"'
+      add_group_leader_you_subject: 'if-me.org | You became a leader of "%{group}"'
+      add_group_leader_subject: 'if-me.org | %{user} became a leader of " %{group}"'
       add_remove_group_leader_body: '<p>To see "%{group}", %{link}!</p>'
       remove_group_leader_you_subject: >-
-                                    if me | You are no longer a leader of
+                                    if-me.org | You are no longer a leader of
                                     "%{group}"
       remove_group_leader_subject: >-
-                                if me | %{user} is no longer a leader of
+                                if-me.org | %{user} is no longer a leader of
                                 "%{group}"
       update_meeting_subject: >-
-                           if me | %{user} has updated the meeting
+                           if-me.org | %{user} has updated the meeting
                            "%{meeting}" for "%{group}"
       new_meeting_subject: >-
-                        if me | %{user} has created a new meeting
+                        if-me.org | %{user} has created a new meeting
                         "%{meeting}" for "%{group}"
       meeting_body: >-
                  <p>%{subject}</p><p><i>%{description}</i></p>
@@ -461,25 +461,25 @@ en:
       new_meeting_link: '<p>To learn more and attend, %{link}!</p>'
       update_meeting_link: '<p>To learn more, %{link}!</p>'
       remove_meeting_subject: >-
-                           if me | %{user} has cancelled "%{meeting}"
+                           if-me.org | %{user} has cancelled "%{meeting}"
                            for "%{group}"
       join_meeting_subject: >-
-                         if me | %{user} has joined "%{meeting}" for
+                         if-me.org | %{user} has joined "%{meeting}" for
                          "%{group}"
       join_meeting_body: '<p>To see "%{meeting}", %{link}!</p>'
-      reported_user_subject: 'if me | You have reported a user'
+      reported_user_subject: 'if-me.org | You have reported a user'
       reported_user_body: >-
                        You have reported %{reported_name}. This will be
                        reviewed by an admin.
-      reportee_user_subject: 'if me | You have been reported'
+      reportee_user_subject: 'if-me.org | You have been reported'
       reportee_user_body: >-
                        You have been reported. This will be reviewed
                        by an admin.
-      add_ban_subject: 'if me | You have been banned'
+      add_ban_subject: 'if-me.org | You have been banned'
       add_ban_body: >-
                  You have been banned for violating our
                  %{code_of_conduct_link}.
-      remove_ban_subject: 'if me | You are no longer banned'
+      remove_ban_subject: 'if-me.org | You are no longer banned'
       remove_ban_body: >-
                     You were previously banned for violating our
                     %{code_of_conduct_link}. You are no longer banned.
@@ -506,9 +506,7 @@ en:
                      <p>Not everyone is a counsellor or therapist. The
                      people who we interact with everyday shape our emotions
                      and behaviour. Getting them involved in mental health
-                     treatment is the key to recovery.</p><p class="subtitle">
-                     "It's not just all in your head, it's all around you.
-                     We can heal together."</p><p>Mental health is such an
+                     treatment is the key to recovery.</p><p>Mental health is such an
                      individual and unique experience. No two brains are
                      alike! Tackling the problem requires ideas from
                      everyone, which is why the project is open source.</p>
@@ -528,7 +526,7 @@ en:
     contribute:
       contributor_avatar_alt: 'Contributor biography for %{name}'
       main_message_one: >-
-                     if me is built and maintained by volunteers of many
+                     if-me.org is built and maintained by volunteers of many
                      different backgrounds and skill sets.
       message_text_one: >-
                      We're always looking for ideas from everyone,
@@ -1014,12 +1012,12 @@ en:
                   in detail
   mailers:
     accepted_ally_request:
-      subject: 'if me | %{ally_name} accepted your ally request!'
+      subject: 'if-me.org | %{ally_name} accepted your ally request!'
       message: >-
             <p>Congrats! You can now share Moments, Strategies, and more
             with %{ally_name}.</p>
     new_ally_request:
-      subject: 'if me | %{ally_name} sent an ally request!'
+      subject: 'if-me.org | %{ally_name} sent an ally request!'
       message: >-
             <p>Please <a href="%{allies_url}">sign in</a> to accept or
             reject the request!</p>
@@ -1083,7 +1081,7 @@ en:
           profile_picture: 'Profile picture'
           remove_picture: 'Remove picture'
           about: About
-          password_for: 'Password for <strong>if me</strong> account'
+          password_for: 'Password for <strong>if-me.org</strong> account'
           update: Update
         placeholders:
           optional: Optional
@@ -1093,7 +1091,7 @@ en:
               for you
           required: Required
         delete:
-          text: 'Is <strong>if me</strong> not working out for you?'
+          text: 'Is <strong>if-me.org</strong> not working out for you?'
           button: 'Permanently delete my account'
           confirm: >-
                 Are you sure? You'll lose all of your data. But you can

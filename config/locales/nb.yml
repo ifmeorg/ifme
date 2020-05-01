@@ -1,5 +1,5 @@
 nb:
-  app_name: 'if me'
+  app_name: 'if-me.org'
   app_description: 'Et samfunn for mental helse opplevelser'
   email: join.ifme@gmail.com
   created: 'Opprettet %{created_at}'
@@ -383,11 +383,11 @@ nb:
       "%{group_name}"'
       join_meeting: '%{name} has blitt med "%{meeting_name}" i "%{group_name}"'
     mailer:
-      comment_on_moment_subject: 'if me | %{user} kommenterte på ditt øyeblikk
+      comment_on_moment_subject: 'if-me.org | %{user} kommenterte på ditt øyeblikk
       "%{moment}"'
-      comment_on_strategy_subject: 'if me | %{user} kommenterte på din strategi
+      comment_on_strategy_subject: 'if-me.org | %{user} kommenterte på din strategi
       "%{strategy}"'
-      comment_on_meeting_subject: 'if me | %{user} kommenterte på møtet
+      comment_on_meeting_subject: 'if-me.org | %{user} kommenterte på møtet
       "%{meeting}" i gruppen "%{group}"'
       comment_on_private_body: '<p>Din allierte <strong>%{user}</strong>
       kommenterte privat:</p>'
@@ -396,44 +396,44 @@ nb:
       comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>For å lese det, %{link}!</p>'
-      new_group_subject: 'if me | %{user} lagde en gruppe "%{group}"'
+      new_group_subject: 'if-me.org | %{user} lagde en gruppe "%{group}"'
       new_group_body: '<p>%{user} lagde en gruppe "%{group}":</p><p><i>
       %{description}</i></p><p>For å lære mer og bli med, %{link}!</p><p>
       Vennligst følg vår %{code_of_conduct_link}!</p>'
-      new_group_member_subject: 'if me | %{user} ble med i gruppe "%{group}"'
-      add_group_leader_you_subject: 'if me | Du ble leder for gruppen
+      new_group_member_subject: 'if-me.org | %{user} ble med i gruppe "%{group}"'
+      add_group_leader_you_subject: 'if-me.org | Du ble leder for gruppen
       "%{group}"'
-      add_group_leader_subject: 'if me | %{user} ble en leder for gruppen
+      add_group_leader_subject: 'if-me.org | %{user} ble en leder for gruppen
       " %{group}"'
       add_remove_group_leader_body: '<p>For å se "%{group}", %{link}!</p>'
-      remove_group_leader_you_subject: 'if me | Du er ikke lenger en leder for
+      remove_group_leader_you_subject: 'if-me.org | Du er ikke lenger en leder for
       "%{group}"'
-      remove_group_leader_subject: 'if me | %{user} er ikke lenger en leder for
+      remove_group_leader_subject: 'if-me.org | %{user} er ikke lenger en leder for
       gruppen "%{group}"'
-      update_meeting_subject: 'if me | %{user} har oppdatert møtet "%{meeting}"
+      update_meeting_subject: 'if-me.org | %{user} har oppdatert møtet "%{meeting}"
       i "%{group}"'
-      new_meeting_subject: 'if me | %{user} har laget ett nytt møte "%{meeting}"
+      new_meeting_subject: 'if-me.org | %{user} har laget ett nytt møte "%{meeting}"
       i "%{group}"'
       meeting_body: '<p>%{subject}</p><p><i>%{description}</i></p><p><strong>
       Plassering:</strong> %{location}</p><p><strong>Dato:</strong> %{date}</p>
       <p><strong>Tid:</strong> %{time}</p>'
       new_meeting_link: '<p>For å lære mer og bli med, %{link}!</p>'
       update_meeting_link: '<p>For å lære mer, %{link}!</p>'
-      remove_meeting_subject: 'if me | %{user} har kansellert "%{meeting}" i
+      remove_meeting_subject: 'if-me.org | %{user} har kansellert "%{meeting}" i
       "%{group}"'
-      join_meeting_subject: 'if me | %{user} har blitt med i "%{meeting}" i
+      join_meeting_subject: 'if-me.org | %{user} har blitt med i "%{meeting}" i
       "%{group}"'
       join_meeting_body: '<p>For å se "%{meeting}", %{link}!</p>'
-      reported_user_subject: 'if me | Du har rapportert en bruker'
+      reported_user_subject: 'if-me.org | Du har rapportert en bruker'
       reported_user_body: 'Du har rapportert %{reported_name}. Dette blir
       vurdert av en administrator.'
-      reportee_user_subject: 'if me | Du har blitt rapportert'
+      reportee_user_subject: 'if-me.org | Du har blitt rapportert'
       reportee_user_body: 'Du har blitt rapportert. Dette blir vurdert av en
       administrator.'
-      add_ban_subject: 'if me | Du har blitt bannlyst'
+      add_ban_subject: 'if-me.org | Du har blitt bannlyst'
       add_ban_body: 'Du har blitt utestengt for å krenke vår
       %{code_of_conduct_link}.'
-      remove_ban_subject: 'if me | Du er ikke lenger utestengt'
+      remove_ban_subject: 'if-me.org | Du er ikke lenger utestengt'
       remove_ban_body: 'Du ble tidligere forbudt for å krenke vår
       %{code_of_conduct_link}. Du er ikke lenger utestengt.'
   omniauth:
@@ -454,8 +454,7 @@ nb:
       message_text_two: '<p>Ikke alle har en psykolog eller terapeut. Menneskene
       vi samhandler med på en daglig basis former våre følelser og handlinger.
       Å få dem involvert i mental helse behandling er nøkkelen til forbedring.
-      </p><p class="subtitle">"Det er ikke bare alt i hodet ditt, det er rundt
-      deg. Vi kan helbredes sammen."</p><p>Mental helse er virkelig en
+      </p><p>Mental helse er virkelig en
       individuell og unik opplevelse. Ingen to hjerner er like! Å takle
       problemet krever ideer fra alle, det er derfor dette prosjektet har
       åpen kildekode.</p>'
@@ -472,7 +471,7 @@ nb:
       %{email}! Vi tar også imot anonyme innleveringer.'
     contribute:
       contributor_avatar_alt: 'Bidragsyter biografi for %{name}'
-      main_message_one: 'if me er bygget og vedlikeholdt av frivillige fra
+      main_message_one: 'if-me.org er bygget og vedlikeholdt av frivillige fra
       mange ulike bakgrunner og ferdighetssett.'
       message_text_one: 'Vi er alltid på utkikk etter ideer fra alle, inkludert
       <strong>mental helse forkjempere</strong>, <strong>helsearbeidere
@@ -878,11 +877,11 @@ nb:
     yes_description: 'A skrive en kan hjelpe deg og andre bedre forstå i detalj'
   mailers:
     accepted_ally_request:
-      subject: 'if me | %{ally_name} aksepterte din allianseforesporsel!'
+      subject: 'if-me.org | %{ally_name} aksepterte din allianseforesporsel!'
       message: '<p>Gratulerer! Du kan nå dele øyeblikk, strategier og mer med
       %{ally_name}.</p>'
     new_ally_request:
-      subject: 'if me | %{ally_name} sendte en allianseforespørsel!'
+      subject: 'if-me.org | %{ally_name} sendte en allianseforespørsel!'
       message: '<p>Vennligst <a href="%{allies_url}">logg inn</a> for å
       akseptere eller avvise forespørselen!</p>'
   devise:
@@ -938,7 +937,7 @@ nb:
           profile_picture: Profilbilde
           remove_picture: 'Fjern bilde'
           about: Om
-          password_for: 'Passord for <strong>if me</strong> konto'
+          password_for: 'Passord for <strong>if-me.org</strong> konto'
           update: Oppdater
         placeholders:
           optional: Valgfritt
@@ -947,7 +946,7 @@ nb:
           som søker etter deg'
           required: Krevet
         delete:
-          text: 'Hvis <strong>if me</strong> ikke fungerer for deg?'
+          text: 'Hvis <strong>if-me.org</strong> ikke fungerer for deg?'
           button: 'Slett kontoen min permanent'
           confirm: 'Er du sikker? Du kommer til å miste all informasjonen din.
           Men du kan alltids registrere deg på nytt!'

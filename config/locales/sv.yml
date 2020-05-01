@@ -1,5 +1,5 @@
 sv:
-  app_name: 'if me'
+  app_name: 'if-me.org'
   app_description: 'En gemenskap för mentala hälsoupplevelser'
   draft: Utkast
   email: join.ifme@gmail.com
@@ -382,11 +382,11 @@ sv:
       join_meeting: '%{name} anslöt sig "%{meeting_name}" till
       "%{group_name}"'
     mailer:
-      comment_on_moment_subject: 'if me | %{user} kommenterade ditt ögonblick
+      comment_on_moment_subject: 'if-me.org | %{user} kommenterade ditt ögonblick
       "%{moment}"'
-      comment_on_strategy_subject: 'if me | %{user} kommenterade din strategi
+      comment_on_strategy_subject: 'if-me.org | %{user} kommenterade din strategi
       "%{strategy}"'
-      comment_on_meeting_subject: 'if me | %{user} kommenterade mötet
+      comment_on_meeting_subject: 'if-me.org | %{user} kommenterade mötet
       "%{meeting}" i gruppen "%{group}"'
       comment_on_private_body: '<p>Din allierade <strong>%{user}</strong>
       kommenterade privat:</p>'
@@ -395,42 +395,42 @@ sv:
       comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>För att läsa den, %{link}!</p>'
-      new_group_subject: 'if me | %{user} skapade en grupp "%{group}"'
+      new_group_subject: 'if-me.org | %{user} skapade en grupp "%{group}"'
       new_group_body: '<p>%{user} skapade en grupp "%{group}":</p><p><i>
       %{description}</i></p><p>För att lära sig mer och gå med, %{link}!</p>
       <p>Vänligen följ vår %{code_of_conduct_link}!</p>'
-      new_group_member_subject: 'if me | %{user} gick med i din grupp "%{group}"'
-      add_group_leader_you_subject: 'if me | Du blev ledare för "%{group}"'
-      add_group_leader_subject: 'if me | %{user} blev ledare för " %{group}"'
+      new_group_member_subject: 'if-me.org | %{user} gick med i din grupp "%{group}"'
+      add_group_leader_you_subject: 'if-me.org | Du blev ledare för "%{group}"'
+      add_group_leader_subject: 'if-me.org | %{user} blev ledare för " %{group}"'
       add_remove_group_leader_body: '<p>Att se "%{group}", %{link}!</p>'
-      remove_group_leader_you_subject: 'if me | Du är inte längre ledare för
+      remove_group_leader_you_subject: 'if-me.org | Du är inte längre ledare för
       "%{group}"'
-      remove_group_leader_subject: 'if me | %{user} är inte längre ledare för
+      remove_group_leader_subject: 'if-me.org | %{user} är inte längre ledare för
       "%{group}"'
-      update_meeting_subject: 'if me | %{user} har uppdaterat mötet
+      update_meeting_subject: 'if-me.org | %{user} har uppdaterat mötet
       "%{meeting}" för "%{group}"'
-      new_meeting_subject: 'if me | %{user} har skapat ett nytt möte
+      new_meeting_subject: 'if-me.org | %{user} har skapat ett nytt möte
       "%{meeting}" för "%{group}"'
       meeting_body: '<p>%{subject}</p><p><i>%{description}</i></p><p><strong>
       Plats:</strong> %{location}</p><p><strong>Datum:</strong> %{date}</p><p>
       <strong>Tid:</strong> %{time}</p>'
       new_meeting_link: '<p>För att lära sig mer och delta, %{link}!</p>'
       update_meeting_link: '<p>För att lära sig mer, %{link}!</p>'
-      remove_meeting_subject: 'if me | %{user} har avbrutit "%{meeting}" för
+      remove_meeting_subject: 'if-me.org | %{user} har avbrutit "%{meeting}" för
       "%{group}"'
-      join_meeting_subject: 'if me | %{user} anslöt sig "%{meeting}" för
+      join_meeting_subject: 'if-me.org | %{user} anslöt sig "%{meeting}" för
       "%{group}"'
       join_meeting_body: '<p>För att se "%{meeting}", %{link}!</p>'
-      reported_user_subject: 'if me | Du har rapporterat en användare'
+      reported_user_subject: 'if-me.org | Du har rapporterat en användare'
       reported_user_body: 'Du har rapporterat %{reported_name}. Detta kommer
       att granskas av en admin.'
-      reportee_user_subject: 'if me | Du har rapporterats'
+      reportee_user_subject: 'if-me.org | Du har rapporterats'
       reportee_user_body: 'Du har rapporterats. Detta kommer att granskas av en
       admin.'
-      add_ban_subject: 'if me | Du har förbjudits'
+      add_ban_subject: 'if-me.org | Du har förbjudits'
       add_ban_body: 'Du har blivit bannad för att bryta mot vår
       %{code_of_conduct_link}.'
-      remove_ban_subject: 'if me | Du är inte längre förbjuden'
+      remove_ban_subject: 'if-me.org | Du är inte längre förbjuden'
       remove_ban_body: 'Du var tidigare förbjuden att bryta mot vår
       %{code_of_conduct_link}. Du är inte längre förbjuden.'
   omniauth:
@@ -451,8 +451,7 @@ sv:
       message_text_two: '<p>Inte alla är en rådgivare eller terapeut. De
       människor som vi interagerar med varje dag formar våra känslor och
       beteende. Att få dem att delta i mentalvård är nyckeln till återhämtning.
-      </p><p class="subtitle">"Det är inte bara allt i ditt huvud, det är runt
-      dig. Vi kan läka tillsammans."</p><p>Mental hälsa är en sådan individ och
+      </p><p>Mental hälsa är en sådan individ och
       unik upplevelse. Inga två hjärnor är lika! Att hantera problemet kräver
       idéer från alla, varför projektet är öppen källkod.</p>'
       main_message_three: 'Vill du hjälpa till att finansiera oss?'
@@ -467,7 +466,7 @@ sv:
       %{email}! Vi välkomnar anonyma inlägg också.'
     contribute:
       contributor_avatar_alt: 'Bidragsgivare biografi för %{name}'
-      main_message_one: 'if me är byggs och underhålls av volontärer med många
+      main_message_one: 'if-me.org är byggs och underhålls av volontärer med många
       olika bakgrunder och kunskaper.'
       message_text_one: 'Vi letar alltid efter idéer från alla, inklusive
       <strong>mental hälsa-förespråkare</strong>, <strong>hälsoproffs</strong>,
@@ -873,12 +872,12 @@ sv:
     detalj'
   mailers:
     accepted_ally_request:
-      subject: 'if me | %{ally_name} accepterade din förfrågan att bli en
+      subject: 'if-me.org | %{ally_name} accepterade din förfrågan att bli en
       allierad!'
       message: '<p>Grattis! Du kan nu dela Ögonblick, Strategier och annat med
       %{ally_name}.</p>'
     new_ally_request:
-      subject: 'if me | %{ally_name} skickade en begäran att få bli en allierad!'
+      subject: 'if-me.org | %{ally_name} skickade en begäran att få bli en allierad!'
       message: '<p>Vänligen <a href="%{allies_url}">logga in</a> för att
       acceptera eller avslå begäran!</p>'
   devise:
@@ -933,7 +932,7 @@ sv:
           profile_picture: Profilbild
           remove_picture: 'Ta bort bilden'
           about: Om
-          password_for: 'Lösenord för <strong>if me</strong>-konto'
+          password_for: 'Lösenord för <strong>if-me.org</strong>-konto'
           update: Uppdatering
         placeholders:
           optional: Frivillig
@@ -941,7 +940,7 @@ sv:
           Observera att detta kommer att ses när användare söker efter dig'
           required: Nödvändig
         delete:
-          text: 'Fungerar inte <strong>if me</strong> för dig?'
+          text: 'Fungerar inte <strong>if-me.org</strong> för dig?'
           button: 'Ta bort mitt konto permanent'
           confirm: 'Är du säker? Du kommer att förlora alla dina data. Men du
           kan alltid registrera dig igen!'

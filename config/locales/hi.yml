@@ -1,5 +1,5 @@
 hi:
-  app_name: 'if me'
+  app_name: 'if-me.org'
   app_description: 'मानसिक स्वास्थ्य अनुभवों के लिए एक समुदाय'
   email: join.ifme@gmail.com
   created: 'बनाया गया %{created_at}'
@@ -368,10 +368,10 @@ hi:
       join_meeting: '%{name} "%{group_name}" के लिए "%{meeting_name}" में शामिल हो
       गया है'
     mailer:
-      comment_on_moment_subject: 'if me | %{user} ने आपके पल "%{moment}" पर टिप्पणी की'
-      comment_on_strategy_subject: 'if me | %{user} ने आपकी रणनीति "%{strategy}"
+      comment_on_moment_subject: 'if-me.org | %{user} ने आपके पल "%{moment}" पर टिप्पणी की'
+      comment_on_strategy_subject: 'if-me.org | %{user} ने आपकी रणनीति "%{strategy}"
       पर टिप्पणी की'
-      comment_on_meeting_subject: 'if me | %{user} ने समूह "%{group}" में मीटिंग
+      comment_on_meeting_subject: 'if-me.org | %{user} ने समूह "%{group}" में मीटिंग
       "%{meeting}" पर टिप्पणी की'
       comment_on_body: '<p>आपके सहयोगी <strong>%{user}</strong> ने टिप्पणी की:</p>'
       comment_on_private_body: '<p>आपका सहयोगी <strong>%{user}</strong> ने निजी तौर
@@ -379,39 +379,39 @@ hi:
       comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>इसे पढ़ने के लिए, %{link}!</p>'
-      new_group_subject: 'if me | %{user} ने एक समूह "%{group}" बनाया'
+      new_group_subject: 'if-me.org | %{user} ने एक समूह "%{group}" बनाया'
       new_group_body: '<p>%{user} ने एक समूह "%{group}" बनाया:</p><p><i>
       %{description}</i></p><p> अधिक जानने और शामिल होने के लिए, %{link}!</p><p>कृपया
       हमारे %{code_of_conduct_link} का अनुसरण करें!</p>'
-      new_group_member_subject: 'if me | %{user} आपके समूह "%{group}" में शामिल हो गया'
-      add_group_leader_you_subject: 'if me | आप "%{group}" के नेता बन गए'
-      add_group_leader_subject: 'if me | %{user} "%{group}" का नेता बन गया'
+      new_group_member_subject: 'if-me.org | %{user} आपके समूह "%{group}" में शामिल हो गया'
+      add_group_leader_you_subject: 'if-me.org | आप "%{group}" के नेता बन गए'
+      add_group_leader_subject: 'if-me.org | %{user} "%{group}" का नेता बन गया'
       add_remove_group_leader_body: '<p>"%{group}", %{link} देखने के लिए!</p>'
-      remove_group_leader_you_subject: 'if me | अब आप "%{group}" के नेता नहीं हैं'
-      remove_group_leader_subject: 'if me | %{user} अब "%{group}" का नेता नहीं है'
-      update_meeting_subject: 'if me | %{user} ने मीटिंग को "%{group}" के लिए
+      remove_group_leader_you_subject: 'if-me.org | अब आप "%{group}" के नेता नहीं हैं'
+      remove_group_leader_subject: 'if-me.org | %{user} अब "%{group}" का नेता नहीं है'
+      update_meeting_subject: 'if-me.org | %{user} ने मीटिंग को "%{group}" के लिए
       "%{meeting}" अपडेट किया है'
-      new_meeting_subject: 'if me | %{user} ने "%{group}" के लिए एक नई मीटिंग
+      new_meeting_subject: 'if-me.org | %{user} ने "%{group}" के लिए एक नई मीटिंग
       "%{meeting}" बनाई है'
       meeting_body: '<p>%{subject}</p><p><i>%{description}</i></p><p>
       <strong>स्थान:</strong> %{location}</p><p><strong>दिनांक:</strong> %{date}</p>
       <p><strong>समय:</strong> %{time}</p></p>'
       new_meeting_link: '<p>अधिक जानने और उपस्थित होने के लिए, %{link}!</p>'
       update_meeting_link: '<p>अधिक जानने के लिए, %{link}!</p>'
-      remove_meeting_subject: 'if me | %{user} ने "%{group}" के लिए "%{meeting}"
+      remove_meeting_subject: 'if-me.org | %{user} ने "%{group}" के लिए "%{meeting}"
       रद्द कर दिया है'
-      join_meeting_subject: 'if me | %{user} "%{group}" के लिए "%{meeting}" में
+      join_meeting_subject: 'if-me.org | %{user} "%{group}" के लिए "%{meeting}" में
       शामिल हो गया है'
       join_meeting_body: '<p>"%{meeting}" देखने के लिए, %{link}!</p>'
-      reported_user_subject: 'if me | आपने एक उपयोगकर्ता की रिपोर्ट की है'
+      reported_user_subject: 'if-me.org | आपने एक उपयोगकर्ता की रिपोर्ट की है'
       reported_user_body: 'आपने %{reported_name} की सूचना दी है। इसकी समीक्षा एक व्यवस्थापक
       द्वारा की जाएगी।'
-      reportee_user_subject: 'if me | आपको सूचना दी गई है'
+      reportee_user_subject: 'if-me.org | आपको सूचना दी गई है'
       reportee_user_body: 'आपको सूचना दी गई है। इसकी समीक्षा एक व्यवस्थापक द्वारा की जाएगी।'
-      add_ban_subject: 'if me | आप पर प्रतिबंध लगा दिया गया है'
+      add_ban_subject: 'if-me.org | आप पर प्रतिबंध लगा दिया गया है'
       add_ban_body: 'आपको हमारे %{code_of_conduct_link} के उल्लंघन के लिए प्रतिबंधित किया
       गया है।'
-      remove_ban_subject: 'if me | अब आप प्रतिबंधित नहीं हैं'
+      remove_ban_subject: 'if-me.org | अब आप प्रतिबंधित नहीं हैं'
       remove_ban_body: 'आपको पहले हमारे %{code_of_conduct_link} के उल्लंघन के लिए प्रतिबंधित
       किया गया था। अब आप प्रतिबंधित नहीं हैं'
   omniauth:
@@ -429,8 +429,7 @@ hi:
       इस बारे में खुल कर बात करना एक संघर्ष है।'
       message_text_two: '<p>हर कोई एक काउंसलर या चिकित्सक नहीं है। जिन लोगों से हम रोजाना
       बातचीत करते हैं वे हमारी भावनाओं और व्यवहार को आकार देते हैं। उन्हें मानसिक स्वास्थ्य उपचार में शामिल करना
-      रिकवरी की कुंजी है।</p><p class="subtitle">"यह सिर्फ आपके सिर में नहीं है, यह आपके चारों ओर
-      है। हम एक साथ ठीक कर सकते हैं।"</p><p>मानसिक स्वास्थ्य एक ऐसा व्यक्तिगत और अनूठा अनुभव है।
+      रिकवरी की कुंजी है।</p><p>मानसिक स्वास्थ्य एक ऐसा व्यक्तिगत और अनूठा अनुभव है।
       कोई दो दिमाग एक जैसे नहीं हैं! समस्या से निपटने के लिए सभी से विचारों की आवश्यकता होती है, यही वजह
       है कि परियोजना खुला स्रोत है।</p>'
       main_message_three: 'हमें मदद करना चाहते हैं?'
@@ -815,11 +814,11 @@ hi:
     yes_description: 'एक लिखना आपको और दूसरों को बेहतर तरीके से समझने में मदद कर सकता है'
   mailers:
     accepted_ally_request:
-      subject: 'if me | %{ally_name} ने आपके सहयोगी अनुरोध को स्वीकार कर लिया!'
+      subject: 'if-me.org | %{ally_name} ने आपके सहयोगी अनुरोध को स्वीकार कर लिया!'
       message: '<p> बधाई! अब आप %{ally_name} </p> के साथ क्षण, रणनीतियाँ और अधिक साझा
       कर सकते हैं'
     new_ally_request:
-      subject: 'if me | %{ally_name} ने एक सहयोगी अनुरोध भेजा!'
+      subject: 'if-me.org | %{ally_name} ने एक सहयोगी अनुरोध भेजा!'
       message: 'अनुरोध स्वीकार करने या अस्वीकार करने के लिए <p> कृपया <a href="%{allies_url}"
       </a> साइन इन</a> करें!'
   devise:
@@ -871,7 +870,7 @@ hi:
           profile_picture: 'प्रोफ़ाइल फोटो'
           remove_picture: 'चित्र हटाओ'
           about: 'बारे में'
-          password_for: 'पासवर्ड <strong>if me</strong> खाते के लिए'
+          password_for: 'पासवर्ड <strong>if-me.org</strong> खाते के लिए'
           update: 'अद्यतन करें'
         placeholders:
           optional: 'ऐच्छिक'
@@ -879,7 +878,7 @@ hi:
           यह तब देखा जाएगा जब उपयोगकर्ता आपके लिए खोज करेंगे'
           required: 'अपेक्षित'
         delete:
-          text: 'क्या <strong>if me</strong> आपके लिए काम नहीं कर रहा है?'
+          text: 'क्या <strong>if-me.org</strong> आपके लिए काम नहीं कर रहा है?'
           button: 'मेरे खाते को स्थायी रूप से हटा दें'
           confirm: 'क्या आपको यकीन है? आप अपना सारा डेटा खो देंगे। लेकिन आप हमेशा फिर से साइन अप
           कर सकते हैं!'
