@@ -439,7 +439,6 @@ nb:
   omniauth:
     google: Google
     access_denied: 'Adgang avvist'
-    facebook: Facebook
   pages:
     about:
       send_us: oss
