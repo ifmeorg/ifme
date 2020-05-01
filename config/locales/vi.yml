@@ -438,7 +438,6 @@ vi:
   omniauth:
     google: Google
     access_denied: 'Truy nhập từ chối'
-    facebook: Facebook
   pages:
     about:
       send_us: 'chúng tôi'
