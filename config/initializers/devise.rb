@@ -310,7 +310,7 @@ Devise.setup do |config|
 
   require 'omniauth-google-oauth2'
   config.omniauth(
-    :auth_method('google'),
+    :google_oauth2,
     ENV['GOOGLE_CLIENT_ID'],
     ENV['GOOGLE_CLIENT_SECRET'],
     access_type: 'offline',
@@ -320,7 +320,7 @@ Devise.setup do |config|
 
   require 'omniauth-facebook'
   config.omniauth(
-    :auth_method('facebook'),
+    :facebook,
     ENV['FACEBOOK_APP_ID'],
     ENV['FACEBOOK_APP_SECRET'],
     scope: 'public_profile,email',
