@@ -55,7 +55,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :uid,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
-         omniauth_providers: %i[google_oauth2 facebook]
+         omniauth_providers: %i[auth_method('google') auth_method('facebook')]
 
   mount_uploader :avatar, AvatarUploader
 

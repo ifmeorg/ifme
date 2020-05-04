@@ -1,25 +1,15 @@
 # frozen_string_literal: true
 
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  def google_oauth2
+
+  def auth_method(method)
     if user.present?
       user.accept_invitation! if invitation_token
       upload_avatar(omniauth_avatar)
+      kind = (method=='google') ? t('omniauth.google') : t('navigation.facebook')
 
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success',
-                              kind: t('omniauth.google'))
-      sign_in_and_redirect @user, event: :authentication
-    else
-      redirect_to new_user_session_path, notice: t('omniauth.access_denied')
-    end
-  end
-
-  def facebook
-    if user.present?
-      user.accept_invitation! if invitation_token
-      upload_avatar(omniauth_avatar)
-      flash[:notice] = I18n.t('devise.omniauth_callbacks.success',
-                              kind: 'Facebook')
+                              kind: kind)
       sign_in_and_redirect @user, event: :authentication
     else
       redirect_to new_user_session_path, notice: t('omniauth.access_denied')

@@ -7,7 +7,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
       expect(response).to redirect_to('/')
     end
 
-    it 'should create authentication with google_oauth2' do
+    it 'should create authentication with auth_method('google')' do
       expect(user.reload.oauth_enabled?).to eq true
     end
 
@@ -16,41 +16,41 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
     end
   end
 
-  describe 'GET #google_oauth2' do
+  describe 'GET #auth_method('google')' do
     before { stub_env_for_omniauth }
     let(:oauth_email) { request.env['omniauth.auth']['info']['email'] }
     let(:oauth_user) { User.find_by(email: oauth_email) }
 
-    context 'when google_oauth2 email doesnt exist in the system' do
+    context 'when auth_method('google') email doesnt exist in the system' do
       let(:user) { oauth_user }
 
-      before { get :google_oauth2 }
+      before { get :auth_method('google') }
 
-      it 'creates user with info in google_oauth2' do
+      it 'creates user with info in auth_method('google')' do
         expect(user.name).to eq 'Test User'
       end
 
       include_examples 'successful sign in with oauth details'
     end
 
-    context 'when google_oauth2 email already exist in the system' do
+    context 'when auth_method('google') email already exist in the system' do
       let!(:user) { create(:user, email: 'example@xyze.it') }
 
-      before { get :google_oauth2 }
+      before { get :auth_method('google') }
 
-      it 'updates the user with google_oauth2 credentials' do
+      it 'updates the user with auth_method('google') credentials' do
         expect(user.reload.token).to eq 'abcdefg12345'
       end
 
       include_examples 'successful sign in with oauth details'
     end
 
-    context 'when google_oauth2 enabling fails' do
+    context 'when auth_method('google') enabling fails' do
       before do
         stub_env_for_omniauth
         allow(User).to receive(:find_for_oauth)
           .with(request.env['omniauth.auth']).and_return(nil)
-        get :google_oauth2
+        get :auth_method('google')
       end
 
       it 'redirects to sign in path' do
@@ -65,7 +65,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
 
       before do
         request.env['omniauth.params'] = { 'invitation_token' => invitee.invitation_token }
-        get :google_oauth2
+        get :auth_method('google')
       end
 
       context 'when the user logs in with the same email as the invitation' do
@@ -90,13 +90,13 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
       let(:oauth_email) { request.env['omniauth.auth']['info']['email'] }
       let(:oauth_user) { User.find_by(email: oauth_email) }
       let(:user) { oauth_user }
-      before { get :google_oauth2 }
+      before { get :auth_method('google') }
 
       context 'when third party avatar is not nil' do
         it 'uploads avatar when third_party_avatar has changed' do
           new_avatar = 'http://example.com/images/different_profile.jpeg'
           request.env['omniauth.auth']['info']['image'] = new_avatar
-          get :google_oauth2
+          get :auth_method('google')
 
           expect(user.third_party_avatar).to eq(new_avatar)
         end
@@ -128,7 +128,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
     context 'when facebook email doesnt exist in the system' do
       let(:user) { oauth_user }
 
-      before { get :facebook }
+      before { get :auth_method('facebook') }
 
       it 'creates user with info in facebook' do
         expect(user.name).to eq 'Test User'
@@ -140,7 +140,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
     context 'when facebook email already exist in the system' do
       let!(:user) { create(:user, email: 'example@xyze.it') }
 
-      before { get :facebook }
+      before { get :auth_method('facebook') }
 
       it 'updates the user with facebook credentials' do
         expect(user.reload.token).to eq 'abcdefg12345'
@@ -154,7 +154,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
         stub_env_for_omniauth_fb
         allow(User).to receive(:find_for_oauth)
           .with(request.env['omniauth.auth']).and_return(nil)
-        get :facebook
+        get :auth_method('facebook')
       end
 
       it 'redirects to sign in path' do
@@ -169,7 +169,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
 
       before do
         request.env['omniauth.params'] = { 'invitation_token' => invitee.invitation_token }
-        get :facebook
+        get :auth_method('facebook')
       end
 
       context 'when the user logs in with the same email as the invitation' do
@@ -194,13 +194,13 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
       let(:oauth_email) { request.env['omniauth.auth']['info']['email'] }
       let(:oauth_user) { User.find_by(email: oauth_email) }
       let(:user) { oauth_user }
-      before { get :facebook }
-      
+      before { get :auth_method('facebook') }
+
       context 'when third party avatar exists' do
         it 'uploads avatar when third_party_avatar has changed' do
           new_avatar = 'http://example.com/images/different_profile.jpeg'
           request.env['omniauth.auth']['info']['image'] = new_avatar
-          get :facebook
+          get :auth_method('facebook')
 
           expect(user.third_party_avatar).to eq(new_avatar)
         end
