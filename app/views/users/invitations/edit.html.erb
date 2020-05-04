@@ -52,7 +52,7 @@
 
 <div class="smallMarginTop">
   <%= button_to t('devise.shared.sign_up_google'),
-    omniauth_authorize_path(resource_name, :auth_method('google'), invitation_token: resource.invitation_token),
+    omniauth_authorize_path(resource_name, :google_oauth2, invitation_token: resource.invitation_token),
     method: :post,
     class: 'buttonGhostM'
   %>
