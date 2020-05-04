@@ -7,7 +7,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
       expect(response).to redirect_to('/')
     end
 
-    it 'should create authentication with auth_method('google')' do
+    it 'should create authentication with google_oauth2' do
       expect(user.reload.oauth_enabled?).to eq true
     end
 
@@ -16,36 +16,36 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
     end
   end
 
-  describe 'GET #auth_method('google')' do
+  describe 'GET #google_oauth2' do
     before { stub_env_for_omniauth }
     let(:oauth_email) { request.env['omniauth.auth']['info']['email'] }
     let(:oauth_user) { User.find_by(email: oauth_email) }
 
-    context 'when auth_method('google') email doesnt exist in the system' do
+    context 'when google_oauth2 email doesnt exist in the system' do
       let(:user) { oauth_user }
 
       before { get :auth_method('google') }
 
-      it 'creates user with info in auth_method('google')' do
+      it 'creates user with info in google_oauth2' do
         expect(user.name).to eq 'Test User'
       end
 
       include_examples 'successful sign in with oauth details'
     end
 
-    context 'when auth_method('google') email already exist in the system' do
+    context 'when google_oauth2 email already exist in the system' do
       let!(:user) { create(:user, email: 'example@xyze.it') }
 
       before { get :auth_method('google') }
 
-      it 'updates the user with auth_method('google') credentials' do
+      it 'updates the user with google_oauth2 credentials' do
         expect(user.reload.token).to eq 'abcdefg12345'
       end
 
       include_examples 'successful sign in with oauth details'
     end
 
-    context 'when auth_method('google') enabling fails' do
+    context 'when google_oauth2 enabling fails' do
       before do
         stub_env_for_omniauth
         allow(User).to receive(:find_for_oauth)
