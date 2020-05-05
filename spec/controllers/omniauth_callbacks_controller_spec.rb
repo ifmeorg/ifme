@@ -24,7 +24,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
     context 'when google_oauth2 email doesnt exist in the system' do
       let(:user) { oauth_user }
 
-      before { get :auth_method('google') }
+      before { get :google_oauth2 }
 
       it 'creates user with info in google_oauth2' do
         expect(user.name).to eq 'Test User'
@@ -36,7 +36,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
     context 'when google_oauth2 email already exist in the system' do
       let!(:user) { create(:user, email: 'example@xyze.it') }
 
-      before { get :auth_method('google') }
+      before { get :google_oauth2 }
 
       it 'updates the user with google_oauth2 credentials' do
         expect(user.reload.token).to eq 'abcdefg12345'
@@ -50,7 +50,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
         stub_env_for_omniauth
         allow(User).to receive(:find_for_oauth)
           .with(request.env['omniauth.auth']).and_return(nil)
-        get :auth_method('google')
+        get :google_oauth2
       end
 
       it 'redirects to sign in path' do
@@ -65,7 +65,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
 
       before do
         request.env['omniauth.params'] = { 'invitation_token' => invitee.invitation_token }
-        get :auth_method('google')
+        get :google_oauth2
       end
 
       context 'when the user logs in with the same email as the invitation' do
@@ -90,13 +90,13 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
       let(:oauth_email) { request.env['omniauth.auth']['info']['email'] }
       let(:oauth_user) { User.find_by(email: oauth_email) }
       let(:user) { oauth_user }
-      before { get :auth_method('google') }
+      before { get :google_oauth2 }
 
       context 'when third party avatar is not nil' do
         it 'uploads avatar when third_party_avatar has changed' do
           new_avatar = 'http://example.com/images/different_profile.jpeg'
           request.env['omniauth.auth']['info']['image'] = new_avatar
-          get :auth_method('google')
+          get :google_oauth2
 
           expect(user.third_party_avatar).to eq(new_avatar)
         end
@@ -128,7 +128,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
     context 'when facebook email doesnt exist in the system' do
       let(:user) { oauth_user }
 
-      before { get :auth_method('facebook') }
+      before { get :facebook }
 
       it 'creates user with info in facebook' do
         expect(user.name).to eq 'Test User'
@@ -140,7 +140,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
     context 'when facebook email already exist in the system' do
       let!(:user) { create(:user, email: 'example@xyze.it') }
 
-      before { get :auth_method('facebook') }
+      before { get :facebook }
 
       it 'updates the user with facebook credentials' do
         expect(user.reload.token).to eq 'abcdefg12345'
@@ -154,7 +154,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
         stub_env_for_omniauth_fb
         allow(User).to receive(:find_for_oauth)
           .with(request.env['omniauth.auth']).and_return(nil)
-        get :auth_method('facebook')
+        get :facebook
       end
 
       it 'redirects to sign in path' do
@@ -169,7 +169,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
 
       before do
         request.env['omniauth.params'] = { 'invitation_token' => invitee.invitation_token }
-        get :auth_method('facebook')
+        get :facebook
       end
 
       context 'when the user logs in with the same email as the invitation' do
@@ -194,13 +194,13 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
       let(:oauth_email) { request.env['omniauth.auth']['info']['email'] }
       let(:oauth_user) { User.find_by(email: oauth_email) }
       let(:user) { oauth_user }
-      before { get :auth_method('facebook') }
+      before { get :facebook }
 
       context 'when third party avatar exists' do
         it 'uploads avatar when third_party_avatar has changed' do
           new_avatar = 'http://example.com/images/different_profile.jpeg'
           request.env['omniauth.auth']['info']['image'] = new_avatar
-          get :auth_method('facebook')
+          get :facebook
 
           expect(user.third_party_avatar).to eq(new_avatar)
         end
