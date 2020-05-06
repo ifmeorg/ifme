@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_19_063936) do
+ActiveRecord::Schema.define(version: 2020_05_06_222107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -145,6 +145,7 @@ ActiveRecord::Schema.define(version: 2020_04_19_063936) do
     t.datetime "secret_share_expires_at"
     t.datetime "published_at"
     t.boolean "bookmarked", default: false
+    t.boolean "resource_recommendations"
     t.index ["secret_share_identifier"], name: "index_moments_on_secret_share_identifier", unique: true
     t.index ["slug"], name: "index_moments_on_slug", unique: true
   end
