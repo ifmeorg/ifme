@@ -17,6 +17,7 @@
 #  secret_share_expires_at :datetime
 #  published_at            :datetime
 #  bookmarked              :boolean
+#  resource_recommendations :boolean
 #
 
 class Moment < ApplicationRecord
@@ -48,6 +49,7 @@ class Moment < ApplicationRecord
   validates :why, length: { minimum: 1 }
   validates :secret_share_expires_at,
             presence: true, if: :secret_share_identifier?
+  validates :resource_recommendations, inclusion: [true, false]
 
   scope :published, -> { where.not(published_at: nil) }
   scope :recent, -> { order('created_at DESC') }

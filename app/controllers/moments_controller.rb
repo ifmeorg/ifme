@@ -27,6 +27,7 @@ class MomentsController < ApplicationController
     show_with_comments(@moment)
     @resources = ResourceRecommendations.new(@moment).call
     @resources_tags = resources_url_tags(@moment)
+    @moment.resource_recommendations?
   end
 
   # GET /moments/new
@@ -99,7 +100,7 @@ class MomentsController < ApplicationController
 
   def moment_params
     params.require(:moment).permit(:name, :why, :fix, :comment, :draft,
-                                   :bookmarked,
+                                   :bookmarked, :resource_recommendations,
                                    category: [], mood: [], viewers: [],
                                    strategy: [])
   end
