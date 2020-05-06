@@ -88,10 +88,10 @@ module MomentsFormHelper
   end
 
   def moment_display_resources
-    moment_input_props('comment', 'switch', 'comment.allow_comments')
+    moment_input_props('resource_recommendations', 'switch', 'moments.resource_recommendations')
       .merge(value: true,
-             uncheckedValue: false, checked: @moment.comment,
-             info: t('comment.hint'), dark: true)
+             uncheckedValue: false, checked: @moment.resource_recommendations,
+             dark: true)
   end
 
   def moment_form_inputs
