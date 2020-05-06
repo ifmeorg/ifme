@@ -12,10 +12,13 @@ function SkipToContent(props: Props) {
   const { id } = props;
   // SkipToContent.removeEventHandler("Props", scrollTo);
 
+  window.addEventListener('Props', () => {
+    window.scrollTo(0, 0)});
+
   return (
-    <Link className={css.skipToContent} to={`#${id}`}>
+    <a className={css.skipToContent} href={`#${id}`}>
       {I18n.t('navigation.skip_to_main_content')}
-    </Link>
+    </a>
   );
 }
 
