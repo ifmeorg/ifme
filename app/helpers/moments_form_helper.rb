@@ -87,6 +87,13 @@ module MomentsFormHelper
       )
   end
 
+  def moment_display_resources
+    moment_input_props('comment', 'switch', 'comment.allow_comments')
+      .merge(value: true,
+             uncheckedValue: false, checked: @moment.comment,
+             info: t('comment.hint'), dark: true)
+  end
+
   def moment_form_inputs
     [
       moment_name, moment_why, moment_fix, moment_category, moment_mood,
@@ -94,7 +101,8 @@ module MomentsFormHelper
         @viewers, 'moment', 'moments', @moment
       ),
       moment_comment, moment_publishing,
-      Rails.env.development? ? moment_bookmarked : {}
+      Rails.env.development? ? moment_bookmarked : {},
+      moment_display_resources
     ]
   end
 
