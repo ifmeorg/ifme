@@ -337,6 +337,7 @@ fr:
     tagged_moments: 'Moments étiquetés'
     new: 'Nouveau moment'
     bookmark: 'Signet'
+    resource_recommendations: ''
     secret_share:
       singular: 'Partage de secret'
       expires_at: 'Expire le'
@@ -956,6 +957,7 @@ fr:
     tagged_strategies: 'Stratégies étiquetées'
     new: 'Nouvelle stratégie'
     bookmark: 'Signet'
+    resource_recommendations: 'Voulez-vous afficher la recommandation de ressource?'
     form:
       describe: 'Décrire la stratégie.'
       strategies_label: >-
