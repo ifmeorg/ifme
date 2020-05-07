@@ -42,6 +42,7 @@ nb:
     opencollective: 'Open Collective'
     instagram: Instagram
     rss: RSS
+    google: Google    
     twitter: Twitter
     facebook: Facebook
     feedback: tilbakemelding
@@ -438,7 +439,6 @@ nb:
       remove_ban_body: 'Du ble tidligere forbudt for å krenke vår
       %{code_of_conduct_link}. Du er ikke lenger utestengt.'
   omniauth:
-    google: Google
     access_denied: 'Adgang avvist'
   pages:
     about:

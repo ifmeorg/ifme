@@ -42,6 +42,7 @@ vi:
     opencollective: 'Open Collective'
     instagram: Instagram
     rss: RSS
+    google: Google    
     twitter: Twitter
     facebook: Facebook
     feedback: 'Phản hồi'
@@ -437,7 +438,6 @@ vi:
       remove_ban_body: 'Trước đây bạn đã bị cấm vì vi phạm
       %{code_of_conduct_link} của chúng tôi. Bạn không còn bị cấm nữa.'
   omniauth:
-    google: Google
     access_denied: 'Truy nhập từ chối'
   pages:
     about:

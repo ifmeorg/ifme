@@ -42,6 +42,7 @@ nl:
     opencollective: 'Open Collective'
     instagram: Instagram
     rss: RSS
+    google: Google
     twitter: Twitter
     facebook: Facebook
     feedback: feedback
@@ -449,7 +450,6 @@ nl:
       remove_ban_body: 'Je was eerder verbannen omdat je onze
       %{code_of_conduct_link} schond. Je bent niet langer verbannen.'
   omniauth:
-    google: Google
     access_denied: 'Toegang geweigerd'
   pages:
     about:
