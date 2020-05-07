@@ -310,6 +310,7 @@ it:
     tagged_moments: 'Momenti taggati'
     new: 'Nuovo Momento'
     bookmark: 'Segnalibro'
+    resource_recommendations: 'Mostra raccomandazione sulle risorse?'
     secret_share:
       singular: 'Condivisione Segreta'
       expires_at: Scadenza
