@@ -306,6 +306,7 @@ es:
     tagged_moments: 'Etiquetar Momento'
     new: 'Nuevo Momento'
     bookmark: 'Marcador'
+    resource_recommendations: '¿Mostrar recomendación de recursos?'
     secret_share:
       singular: 'Compartir en Secreto'
       expires_at: 'Caduca en'
