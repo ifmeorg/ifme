@@ -2,7 +2,8 @@
 
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def omniauth_login(provider)
-    redirect_to new_user_session_path, notice: t('omniauth.access_denied') unless user.present?
+    redirect_to new_user_session_path, 
+    notice: t('omniauth.access_denied') if user.blank?
     user.accept_invitation! if invitation_token
     upload_avatar(omniauth_avatar)
     flash[:notice] = I18n.t('devise.omniauth_callbacks.success',
