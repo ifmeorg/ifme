@@ -31,6 +31,7 @@ es:
     zh-CN: 中文
   navigation:
     main_menu: 'Menú del sitio principal'
+    google: Google
     user_menu: 'Menú del Usuario'
     about: 'Acerca de '
     blog: Blog
@@ -436,7 +437,6 @@ es:
       remove_ban_body: 'Anteriormente fuiste baneado/a por violar nuestro
       %{code_of_conduct_link}. Ya no estás baneado/a.'
   omniauth:
-    google: Google
     access_denied: 'Acceso Denegado'
   pages:
     about:
