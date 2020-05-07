@@ -1,11 +1,19 @@
 # frozen_string_literal: true
 
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  def auth_method(method)
+  def find_auth_translation(provider)
+    if provider == 'google'
+      return t('omniauth.google')
+    else if provider == 'facebook'
+      return t('navigation.facebook')
+    end
+  end
+
+  def omniauth_login(provider)
     if user.present?
       user.accept_invitation! if invitation_token
       upload_avatar(omniauth_avatar)
-      kind = method == 'google' ? t('omniauth.google') : t('navigation.facebook')
+      kind = find_auth_translation(provider)
 
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success',
                               kind: kind)
