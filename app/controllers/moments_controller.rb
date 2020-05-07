@@ -27,7 +27,6 @@ class MomentsController < ApplicationController
     show_with_comments(@moment)
     @resources = ResourceRecommendations.new(@moment).call
     @resources_tags = resources_url_tags(@moment)
-    @moment.resource_recommendations?
   end
 
   # GET /moments/new
