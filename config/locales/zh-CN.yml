@@ -42,6 +42,7 @@ zh-CN:
     opencollective: 'OpenCollective'
     instagram: Instagram
     rss: RSS
+    google: 谷歌    
     twitter: Twitter
     facebook: Facebook
     feedback: 反馈
@@ -393,7 +394,6 @@ zh-CN:
       remove_ban_subject: 'if-me.org | 你不再被封号'
       remove_ban_body: '你先前因违反我们的规定而被禁止 %{code_of_conduct_link}。你已经被解封。'
   omniauth:
-    google: 谷歌
     access_denied: '服务器拒绝访问'
   pages:
     about:
