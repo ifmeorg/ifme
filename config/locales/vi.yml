@@ -305,6 +305,7 @@ vi:
     tagged_moments: 'Những khoản khắc đã được ghi'
     new: 'Khoản khắc mới'
     bookmark: 'Đánh dấu trang'
+    resource_recommendations: 'Hiển thị tài nguyên được đề xuất?'
     secret_share:
       singular: 'Chia sẻ bí mật'
       expires_at: 'Hết hạn lúc'
