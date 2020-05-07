@@ -11,10 +11,6 @@ module MomentsConcern
     params[:publishing] == '1'
   end
 
-  def display?
-    params[:display] == true
-  end
-
   def saving_as_draft?
     !publishing?
   end
