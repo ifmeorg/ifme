@@ -314,6 +314,7 @@ pt-BR:
     tagged_moments: 'Momentos com tags'
     new: 'Novo momento'
     bookmark: 'Marca páginas'
+    resource_recommendations: 'Mostrar recomendação de recursos?'
     secret_share:
       singular: 'Compartilhar segredo'
       expires_at: 'Expirar em'
