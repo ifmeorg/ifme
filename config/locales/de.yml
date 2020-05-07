@@ -30,6 +30,7 @@ de:
     hi: 'हिंदी'
     zh-CN: 中文
   navigation:
+    google: Google
     main_menu: 'Hauptmenü der Site'
     user_menu: 'Benutzermenü'
     about: 'Über uns'
@@ -513,7 +514,6 @@ de:
                     %{code_of_conduct_link} blockiert worden. Du bist nicht
                     mehr blockiert.
   omniauth:
-    google: Google
     access_denied: 'Zutritt verweigert'
   pages:
     about:
