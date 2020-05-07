@@ -294,6 +294,7 @@ hi:
     tagged_moments: 'टैग किए गए लम्हें'
     new: 'नया पल'
     bookmark: 'बुकमार्क'
+    resource_recommendations: 'अनुशंसित संसाधन प्रदर्शित करें?'
     secret_share:
       singular: 'गुप्त हिस्सा'
       expires_at: 'पर समाप्त'

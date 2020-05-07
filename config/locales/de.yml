@@ -340,6 +340,7 @@ de:
     tagged_moments: 'Getaggte Momente'
     new: 'Neuer Moment'
     bookmark: 'Lesezeichen'
+    resource_recommendations: 'Empfohlene Ressourcen anzeigen?'
     secret_share:
       singular: 'Geheimnis teilen'
       expires_at: 'Läuft ab am'

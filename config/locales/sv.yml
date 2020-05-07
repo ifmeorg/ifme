@@ -306,6 +306,7 @@ sv:
     tagged_moments: 'Taggade Ögonblick'
     new: 'Nya Ögonblick'
     bookmark: 'Bokmärke'
+    resource_recommendations: 'Visa rekommenderade resurser?'
     secret_share:
       singular: 'Hemlig Andel'
       expires_at: 'Förfaller vid'

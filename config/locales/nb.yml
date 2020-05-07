@@ -307,6 +307,7 @@ nb:
     tagged_moments: 'tag øyeblikk'
     new: 'Nytt øyeblikk'
     bookmark: 'Bookmark'
+    resource_recommendations: 'Vise anbefalte ressurser?'
     secret_share:
       singular: 'Hemmelig deling'
       expires_at: Utløper
