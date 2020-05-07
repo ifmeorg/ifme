@@ -11,14 +11,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   private
-  
-  def find_auth_translation(provider)
-    if provider == 'google'
-      return t('omniauth.google')
-    else if provider == 'facebook'
-      return t('navigation.facebook')
-    end
-  end
 
   def user
     @user ||= User.find_for_oauth(request.env['omniauth.auth'])
