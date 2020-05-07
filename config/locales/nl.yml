@@ -310,6 +310,7 @@ nl:
     tagged_moments: 'Getagde Momenten'
     new: 'Nieuw Moment'
     bookmark: 'Bladwijzer'
+    resource_recommendations: 'Aanbevolen bronnen weergeven?'
     secret_share:
       singular: 'Geheim Delen'
       expires_at: 'Verloopt op'
