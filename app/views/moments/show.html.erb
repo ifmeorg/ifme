@@ -43,8 +43,7 @@
   </div>
 <% end %>
 
-<% if @moment.resource_recommendations? %>
-  <% if @resources.any? %>
+<% if @moment.resource_recommendations? && @resources.any? %>
   <div class="smallMarginTop">
     <div class="label"><%= label_tag t('moments.show.resources') %></div>
     <ul>
@@ -54,7 +53,6 @@
       <li><%= link_to  "#{t('load_more')}...", "/resources?#{@resources_tags}" %></li>
     </ul>
   </div>
-  <% end %>
 <% end %>
 
 <% if @moment.owned_by?(current_user) && @moment.shared? %>
