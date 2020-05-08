@@ -21,15 +21,11 @@ export const BaseContainer = (props: Props) => {
   const { container } = props;
   const [state, setState] = useState<State>({
     page: 1,
-    lastPage: !!lastPage,
-    data,
   });
-
   const onClick = () => {
-    const { page, data } = state;
     const { fetchUrl } = props;
     let url = new URL(`${window.location.origin + fetchUrl}`);
-    url = `${url.origin}${url.pathname}.json?page=${page + 1}${
+    url = `${url.origin}${url.pathname}.json?page=${state.page + 1}${
       url.search ? `&${url.search.substring(1)}` : ''
     }`;
     axios.get(url).then((response: any) => {
@@ -42,7 +38,6 @@ export const BaseContainer = (props: Props) => {
       }
     });
   };
-
   return (
     <>
       <StoryContainer data={state.data} />
