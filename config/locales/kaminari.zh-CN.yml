@@ -15,5 +15,5 @@ zh-CN:
      other: '显示<b>所有%{count}</b>%{entry_name}'
    more_pages:
     display_entries: >-
-		  总共显示 %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b>
-                  总共 <b>%{total}</b>
+		总共显示 %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b>=
+		总共 <b>%{total}</b>
