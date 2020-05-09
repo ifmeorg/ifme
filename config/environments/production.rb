@@ -121,12 +121,12 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-    # Start of SSL required Settings
-    config.force_ssl = true
-    # This is required or the host server will send headers telling us its from the *.herokuapp.com domain
-    # subsequently, this will cause the SSL certs registered for our private DNS address to fail.
-    config.action_controller.default_url_options = { host: primary_domain }
-    config.action_controller.asset_host = primary_domain
+  # Start of SSL required Settings
+  config.force_ssl = true
+  # This is required or the host server will send headers telling us its from the *.herokuapp.com domain
+  # subsequently, this will cause the SSL certs registered for our private DNS address to fail.
+  config.action_controller.default_url_options = { host: primary_domain }
+  config.action_controller.asset_host = primary_domain
     
   Raven.configure do |config|
     config.dsn = ENV['SENTRY_DSN']
