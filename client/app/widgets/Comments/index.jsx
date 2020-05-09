@@ -35,8 +35,8 @@ export type Props = {
   formProps: FormProps,
 };
 
-const Comments = (props: Props) => {
-  const [comments, setComments] = useState<(Comment | any)[]>(props.comments || []);
+const Comments = ({ comments, formProps }: Props) => {
+  const [commentsState, setCommentsState] = useState<(Comment | any)[]>(comments || []);
   const [key, setKey] = useState<string>('');
 
   const onDeleteClick = (e: SyntheticEvent<HTMLInputElement>, action: string) => {
@@ -44,10 +44,10 @@ const Comments = (props: Props) => {
     axios.delete(action).then((response: CommentResponse) => {
       const { data } = response;
       if (data && data.id) {
-        const newComments = comments.filter(
+        const newComments = commentsState.filter(
           (comment: Comment) => comment.id !== parseInt(data.id, 10),
         );
-        setComments(newComments);
+        setCommentsState(newComments);
       }
     });
   };
@@ -113,26 +113,28 @@ const Comments = (props: Props) => {
   const onCreate = (response: CommentResponse) => {
     const { data } = response;
     if (data && data.comment) {
-      setComments([data.comment].concat(comments));
+      setCommentsState([data.comment].concat(commentsState));
       setKey(Utils.randomString());
     }
   };
 
   const displayComments = () => {
-    if (comments.length === 0) return null;
+    if (commentsState.length === 0) return null;
     return (
       <section className={css.comments} aria-label={I18n.t('comment.plural')}>
-        {comments.map((comment: Comment) => displayComment(comment))}
+        {commentsState.map((comment: Comment) => displayComment(comment))}
       </section>
     );
   };
 
   return (
     <div id="comments">
-      <DynamicForm formProps={props.formProps} onCreate={onCreate} key={key} />
+      <DynamicForm formProps={formProps} onCreate={onCreate} key={key} />
       {displayComments()}
     </div>
   );
 };
 
-export default (props: Props) => <Comments {...props} />;
+export default ({ comments, formProps }: Props) => (
+  <Comments comments={comments} formProps={formProps} />
+);
