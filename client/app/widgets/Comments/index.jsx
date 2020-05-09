@@ -36,7 +36,7 @@ export type Props = {
 };
 
 const Comments = (props: Props) => {
-  const [comments, setComments] = useState<Comment[]>(props.comments || []);
+  const [comments, setComments] = useState<(Comment | any)[]>(props.comments || []);
   const [key, setKey] = useState<string>('');
 
   const onDeleteClick = (e: SyntheticEvent<HTMLInputElement>, action: string) => {
