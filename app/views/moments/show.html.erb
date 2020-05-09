@@ -43,7 +43,7 @@
   </div>
 <% end %>
 
-<% if @resources.any? %>
+<% if @resources.present? %>
 <div class="smallMarginTop">
   <div class="label"><%= label_tag t('moments.show.resources') %></div>
   <ul>
