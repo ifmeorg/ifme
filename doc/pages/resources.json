@@ -850,5 +850,11 @@
     "link": "https://www.tenpercent.com/",
     "tags": ["meditation", "paid", "android", "ios", "podcast"],
     "languages": ["en"]
+  },
+  {
+    "name": "Huddle.care",
+    "link": "https://www.huddle.care/",
+    "tags": ["ocd", "anxiety", "therapy", "counseling", "paid", "support_groups", "communities"],
+    "languages": ["en"]
   }
 ]
