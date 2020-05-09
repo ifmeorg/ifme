@@ -268,8 +268,8 @@ describe User do
         Net::HTTP.stub(:post_form).with(URI.parse(User::OAUTH_TOKEN_URL), request) { double(body: response) }
       end
 
-      it 'returns a new access token' do
-        expect { user.update_access_token }.to raise_error(NoMethodError)
+      it 'raises a TypeError Exception' do
+        expect { user.update_access_token }.to raise_error(TypeError)
       end
     end
   end
