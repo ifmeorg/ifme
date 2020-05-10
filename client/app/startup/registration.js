@@ -18,7 +18,7 @@ import { Logo } from '../components/Logo';
 import { Modal } from '../components/Modal';
 import { Notifications } from '../widgets/Notifications';
 import { Resource } from '../components/Resource';
-import { Resources } from '../widgets/Resources';
+import Resources from '../widgets/Resources';
 import { Story } from '../components/Story';
 import { StoryDraft } from '../components/Story/StoryDraft';
 import { StoryActions } from '../components/Story/StoryActions';
