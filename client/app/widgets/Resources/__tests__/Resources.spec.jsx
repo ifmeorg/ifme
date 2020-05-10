@@ -2,7 +2,7 @@
 import { mount } from 'enzyme';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { Resources } from '../index';
+import Resources from '../index';
 
 // eslint-disable-next-line react/prop-types
 const getComponent = ({ history } = {}) => (
@@ -181,28 +181,26 @@ describe('Resources', () => {
       it('sends the selected tags to the URL', () => {
         const wrapper = mount(getComponent({ history }));
 
-        wrapper.setState({
-          checkboxes: [
-            { checked: true, value: 'alfredo', label: 'Alfredo' },
-            { checked: true, value: 'batman', label: 'Batman' },
-            { checked: false, value: 'vitor', label: 'Vitor' },
-          ],
-        });
+        wrapper
+          .find('.tag')
+          .at(8)
+          .simulate('click');
+
+        wrapper
+          .find('.tag')
+          .at(2)
+          .simulate('click');
 
         expect(historyMock).toHaveBeenCalledWith({
           pathname: '/resources',
-          search: '?filter[]=alfredo&filter[]=batman',
+          search: '?filter[]=ios&filter[]=therapy',
         });
       });
     });
 
     describe('and there is no filters selected', () => {
       it('resets the search query parameter', () => {
-        const wrapper = mount(getComponent({ history }));
-
-        wrapper.setState({
-          checkboxes: [],
-        });
+        mount(getComponent({ history }));
 
         expect(historyMock).toHaveBeenCalledWith({
           pathname: '/resources',
