@@ -328,6 +328,7 @@ en:
     tagged_moments: 'Tagged Moments'
     new: 'New Moment'
     bookmark: 'Bookmark this moment?'
+    resource_recommendations: 'Display Resource Recommendations?'
     secret_share:
       singular: 'Secret Share'
       expires_at: 'Expire at'

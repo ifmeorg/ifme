@@ -13,8 +13,8 @@
 #  name         :string
 #  slug         :string
 #  published_at :datetime
-#  visible     :boolean
-#  bookmarked   :boolean
+#  visible      :boolean          default(TRUE)
+#  bookmarked   :boolean          default(FALSE)
 #
 
 class Strategy < ApplicationRecord

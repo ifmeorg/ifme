@@ -131,8 +131,8 @@ describe MomentsController do
   end
 
   describe '#update' do
-    let!(:moment) { create(:moment, user: user) }
-    let(:valid_moment_params)   { { why: 'updated why' } }
+    let!(:moment) { create(:moment, user: user, resource_recommendations: true) }
+    let(:valid_moment_params)   { { why: 'updated why', resource_recommendations: false } }
     let(:invalid_moment_params) { { why: nil } }
 
     context 'when the user is logged in' do
@@ -145,6 +145,10 @@ describe MomentsController do
 
         it 'updates the moment record' do
           expect(moment.reload.why).to eq('updated why')
+        end
+
+        it 'updates the resource_recommendations toggle' do
+          expect(moment.reload.resource_recommendations).to eq(false)
         end
 
         it 'redirects to the show page' do

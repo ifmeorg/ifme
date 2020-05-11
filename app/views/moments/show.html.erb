@@ -43,16 +43,16 @@
   </div>
 <% end %>
 
-<% if @resources.present? %>
-<div class="smallMarginTop">
-  <div class="label"><%= label_tag t('moments.show.resources') %></div>
-  <ul>
-    <% @resources.take(3).each do |item|  %>
-      <li><%= link_to item['name'], item['link'] %></li>
-    <%end %>
-    <li><%= link_to  "#{t('load_more')}...", "/resources?#{@resources_tags}" %></li>
-  </ul>
-</div>
+<% if @moment.resource_recommendations? && @resources.any? %>
+  <div class="smallMarginTop">
+    <div class="label"><%= label_tag t('moments.show.resources') %></div>
+    <ul>
+      <% @resources.take(3).each do |item|  %>
+        <li><%= link_to item['name'], item['link'] %></li>
+      <%end %>
+      <li><%= link_to  "#{t('load_more')}...", "/resources?#{@resources_tags}" %></li>
+    </ul>
+  </div>
 <% end %>
 
 <% if @moment.owned_by?(current_user) && @moment.shared? %>

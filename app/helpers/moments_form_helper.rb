@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 module MomentsFormHelper
   include MoodsHelper
   include CategoriesHelper
@@ -17,8 +16,7 @@ module MomentsFormHelper
   private
 
   def moment_input_props(field, type, label, group = false)
-    { id: "moment_#{field}",
-      type: type,
+    { id: "moment_#{field}", type: type,
       name: "moment[#{field}]#{group ? '[]' : ''}",
       label: t(label) }
   end
@@ -46,8 +44,7 @@ module MomentsFormHelper
       model_name, 'quickCreate', "#{model_name.pluralize}.plural", true
     )
       .merge(placeholder: t('common.form.search_by_keywords'),
-             checkboxes: checkboxes_for(model_relation),
-             formProps: form_props)
+             checkboxes: checkboxes_for(model_relation), formProps: form_props)
   end
 
   def moment_category
@@ -64,27 +61,29 @@ module MomentsFormHelper
 
   def moment_comment
     moment_input_props('comment', 'switch', 'comment.allow_comments')
-      .merge(value: true,
-             uncheckedValue: false, checked: @moment.comment,
+      .merge(value: true, uncheckedValue: false, checked: @moment.comment,
              info: t('comment.hint'), dark: true)
   end
 
   def moment_publishing
     { id: 'moment_publishing', type: 'switch',
-      label: t('moments.form.draft_question'),
-      dark: true, name: 'publishing',
-      value: '0', uncheckedValue: '1',
-      checked: !@moment.published? }
+      label: t('moments.form.draft_question'), dark: true, name: 'publishing',
+      value: '0', uncheckedValue: '1', checked: !@moment.published? }
   end
 
   def moment_bookmarked
     moment_input_props('bookmarked', 'switch', 'moments.bookmark')
       .merge(
-        value: true,
-        uncheckedValue: false,
-        checked: @moment.bookmarked,
-        dark: true
+        value: true, uncheckedValue: false,
+        checked: @moment.bookmarked, dark: true
       )
+  end
+
+  def moment_display_resources
+    moment_input_props('resource_recommendations', 'switch',
+                       'moments.resource_recommendations')
+      .merge(value: true, uncheckedValue: false,
+             checked: @moment.resource_recommendations, dark: true)
   end
 
   def moment_form_inputs
@@ -94,7 +93,8 @@ module MomentsFormHelper
         @viewers, 'moment', 'moments', @moment
       ),
       moment_comment, moment_publishing,
-      Rails.env.development? ? moment_bookmarked : {}
+      Rails.env.development? ? moment_bookmarked : {},
+      moment_display_resources
     ]
   end
 

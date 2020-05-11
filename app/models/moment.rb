@@ -3,20 +3,21 @@
 #
 # Table name: moments
 #
-#  id                      :bigint           not null, primary key
-#  name                    :string
-#  why                     :text
-#  fix                     :text
-#  created_at              :datetime
-#  updated_at              :datetime
-#  user_id                 :integer
-#  viewers                 :text
-#  comment                 :boolean
-#  slug                    :string
-#  secret_share_identifier :uuid
-#  secret_share_expires_at :datetime
-#  published_at            :datetime
-#  bookmarked              :boolean
+#  id                       :bigint           not null, primary key
+#  name                     :string
+#  why                      :text
+#  fix                      :text
+#  created_at               :datetime
+#  updated_at               :datetime
+#  user_id                  :integer
+#  viewers                  :text
+#  comment                  :boolean
+#  slug                     :string
+#  secret_share_identifier  :uuid
+#  secret_share_expires_at  :datetime
+#  published_at             :datetime
+#  bookmarked               :boolean          default(FALSE)
+#  resource_recommendations :boolean          default(TRUE)
 #
 
 class Moment < ApplicationRecord
@@ -48,6 +49,7 @@ class Moment < ApplicationRecord
   validates :why, length: { minimum: 1 }
   validates :secret_share_expires_at,
             presence: true, if: :secret_share_identifier?
+  validates :resource_recommendations, inclusion: [true, false]
 
   scope :published, -> { where.not(published_at: nil) }
   scope :recent, -> { order('created_at DESC') }

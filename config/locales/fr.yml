@@ -337,6 +337,7 @@ fr:
     tagged_moments: 'Moments étiquetés'
     new: 'Nouveau moment'
     bookmark: 'Signet'
+    resource_recommendations: 'Voulez-vous afficher la recommandation de ressource?'
     secret_share:
       singular: 'Partage de secret'
       expires_at: 'Expire le'

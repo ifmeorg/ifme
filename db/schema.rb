@@ -145,6 +145,7 @@ ActiveRecord::Schema.define(version: 2020_05_09_110917) do
     t.datetime "secret_share_expires_at"
     t.datetime "published_at"
     t.boolean "bookmarked", default: false
+    t.boolean "resource_recommendations", default: true
     t.index ["secret_share_identifier"], name: "index_moments_on_secret_share_identifier", unique: true
     t.index ["slug"], name: "index_moments_on_slug", unique: true
   end
