@@ -194,7 +194,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
       let(:oauth_email) { request.env['omniauth.auth']['info']['email'] }
       let(:oauth_user) { User.find_by(email: oauth_email) }
       let(:user) { oauth_user }
-      before { get :omniauth_login('facebook') }
+      before { get :facebook }
 
       context 'when third party avatar exists' do
         it 'uploads avatar when third_party_avatar has changed' do
