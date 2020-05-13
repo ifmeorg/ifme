@@ -6,9 +6,9 @@
 
 Readme en [Anglais](https://github.com/ifmeorg/ifme/blob/master/README.md), [Portugais](https://github.com/ifmeorg/ifme/blob/master/README-PT.md), [Espagnol](https://github.com/ifmeorg/ifme/blob/master/README-ES.md)
 
-# if me
+# if-me.org
 
-[if me](https://www.if-me.org/) est une communautée  sur les expériences sur la santé mentale qui encourage les gens a partager leur histoire personnel avec des personnes de confiance les gens de confiance sont ceux avec qui on parle toues les jours , les membres de la famille, les amis, les professeurs,et ceux qui travaille pour les expériences sur la santé.
+[if-me.org](https://www.if-me.org/) est une communautée  sur les expériences sur la santé mentale qui encourage les gens a partager leur histoire personnel avec des personnes de confiance les gens de confiance sont ceux avec qui on parle toues les jours , les membres de la famille, les amis, les professeurs, et ceux qui travaille pour les expériences sur la santé.
 
 Traiter avec la santé mentale c'est ce qui fait de nous des humains. Mais pour beaucoup de nous, c'est un combat d'être ouvert à ce sujet. Pas tout le monde est un  conseiller ou un thérapeute les personnes avec lesquelles nous interagissons quotidiennement façonnent nos émotions et notre comportement. Les impliquer dans des traitements de santé mentale est la clé du rétablissement.
 
@@ -62,7 +62,7 @@ Merci de demander a votre societé de supporter ce projet open source en [devena
   <a href="https://opencollective.com/ifme/sponsor/8/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/8/avatar.svg"></a>
   <a href="https://opencollective.com/ifme/sponsor/9/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/9/avatar.svg"></a>
 </section>
-                                                                                                                                           
+
 ## License
 
 Le code source est sous licence GNU AGPLv3. Pour plus d'informations allez voir http://www.gnu.org/licenses/agpl-3.0.txt ou [LICENSE.txt](https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt).

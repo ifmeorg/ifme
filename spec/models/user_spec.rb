@@ -120,7 +120,7 @@ describe User do
     end
   end
 
-  describe '#find_for_google_oauth2' do
+  describe '#find_for_oauth' do
     let(:access_token) do
       double(
         info: double(email: 'some@user.com', name: 'some name'),
@@ -136,7 +136,7 @@ describe User do
       let!(:user) { User.create(name: 'some name', email: 'some@user.com', password: 'asdfaS1!df') }
 
       it 'updates token information' do
-        User.find_for_google_oauth2(access_token)
+        User.find_for_oauth(access_token)
         user.reload
         expect(user.provider).to eq('asdf')
         expect(user.token).to eq('some token')
@@ -146,19 +146,19 @@ describe User do
       end
 
       it 'returns a user' do
-        expect(User.find_for_google_oauth2(access_token)).to eq(user.reload)
+        expect(User.find_for_oauth(access_token)).to eq(user.reload)
       end
     end
 
     context 'a new user' do
       it 'creates a new user' do
         expect(User.where(email: 'some@user.com').first).to be_nil
-        User.find_for_google_oauth2(access_token)
+        User.find_for_oauth(access_token)
         expect(User.where(email: 'some@user.com').first).to be_a_kind_of(User)
       end
 
       it 'returns a user' do
-        expect(User.find_for_google_oauth2(access_token)).to be_a_kind_of(User)
+        expect(User.find_for_oauth(access_token)).to be_a_kind_of(User)
       end
     end
   end
@@ -179,7 +179,7 @@ describe User do
         user.access_expires_at = nil
 
         expect_any_instance_of(User).to receive(:update_access_token)
-        user.google_access_token
+        user.access_token
       end
     end
 
@@ -193,7 +193,7 @@ describe User do
           'some new token'
         end
         expect_any_instance_of(User).to receive(:update_access_token)
-        user.google_access_token
+        user.access_token
       end
     end
 
@@ -204,7 +204,7 @@ describe User do
 
       it 'returns the current token' do
         expect_any_instance_of(User).not_to receive(:update_access_token)
-        expect(user.google_access_token).to eq('some token')
+        expect(user.access_token).to eq('some token')
       end
     end
   end
@@ -268,8 +268,8 @@ describe User do
         Net::HTTP.stub(:post_form).with(URI.parse(User::OAUTH_TOKEN_URL), request) { double(body: response) }
       end
 
-      it 'returns a new access token' do
-        expect { user.update_access_token }.to raise_error(NoMethodError)
+      it 'raises a TypeError Exception' do
+        expect { user.update_access_token }.to raise_error(TypeError)
       end
     end
   end

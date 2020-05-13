@@ -22,8 +22,8 @@ fr:
         submit_button: 'Définir mon mot de passe'
     mailer:
       invitation_instructions:
-        subject: '%{name} vous a invité à rejoindre if me!'
-        subject_nameless: 'Quelqu''un vous a invité à rejoindre if me!'
+        subject: '%{name} vous a invité à rejoindre if-me.org!'
+        subject_nameless: 'Quelqu''un vous a invité à rejoindre if-me.org!'
         hello: 'Salut %{email}!'
         someone_invited_you: >-
                           %{name} vous a invité à rejoindre

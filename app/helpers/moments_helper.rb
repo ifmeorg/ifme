@@ -61,6 +61,14 @@ module MomentsHelper
       storyType: present_object[:story_type] }
   end
 
+  def resources_url_tags(moment)
+    matched_tags = ResourceRecommendations.new(moment).matched_tags
+    filter_tags = matched_tags.uniq.map do |t|
+      "filter[]=#{t}&"
+    end
+    filter_tags.join
+  end
+
   private
 
   def moment_or_strategy_actions(element, present_object)

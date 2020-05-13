@@ -35,6 +35,7 @@ module StrategiesHelper
      build_strategy_comment(strategy), build_strategy_publishing(strategy),
      build_strategy_visible(strategy),
      build_strategy_finished(strategy),
+     Rails.env.development? ? build_strategy_bookmarked(strategy) : {},
      build_strategy_reminder(strategy).merge(type: 'checkbox'),
      build_strategy_reminder_attributes(strategy)]
   end

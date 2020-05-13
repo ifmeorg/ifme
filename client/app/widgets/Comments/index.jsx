@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import renderHTML from 'react-render-html';
 import { StoryBy } from '../../components/Story/StoryBy';
@@ -35,39 +35,29 @@ export type Props = {
   formProps: FormProps,
 };
 
-export type State = {
-  comments: (Comment | any)[],
-  key?: string,
-};
+const Comments = ({ comments, formProps }: Props) => {
+  const [commentsState, setCommentsState] = useState<(Comment | any)[]>(comments || []);
+  const [key, setKey] = useState<string>('');
 
-export class Comments extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = { comments: props.comments || [] };
-  }
-
-  onDeleteClick = (e: SyntheticEvent<HTMLInputElement>, action: string) => {
+  const onDeleteClick = (e: SyntheticEvent<HTMLInputElement>, action: string) => {
     e.preventDefault();
     axios.delete(action).then((response: CommentResponse) => {
       const { data } = response;
       if (data && data.id) {
-        this.setState((prevState: State) => {
-          const { comments } = prevState;
-          const newComments = comments.filter(
-            (comment: Comment) => comment.id !== parseInt(data.id, 10),
-          );
-          return { comments: newComments };
-        });
+        const newComments = commentsState.filter(
+          (comment: Comment) => comment.id !== parseInt(data.id, 10),
+        );
+        setCommentsState(newComments);
       }
     });
   };
 
-  reportAction = (uid: string, id: number) => ({
+  const reportAction = (uid: string, id: number) => ({
     name: I18n.t('common.actions.report'),
     link: `/reports/new?uid=${uid}&comment_id=${id}`,
   });
 
-  getActions = (
+  const getActions = (
     viewers: ?string,
     deleteAction: ?string,
     currentUserUid: number,
@@ -76,7 +66,7 @@ export class Comments extends React.Component<Props, State> {
   ) => {
     const actions = {};
     if (currentUserUid !== uid) {
-      actions.report = this.reportAction(uid, id);
+      actions.report = reportAction(uid, id);
     }
     if (viewers) {
       actions.viewers = viewers;
@@ -86,13 +76,13 @@ export class Comments extends React.Component<Props, State> {
         name: I18n.t('common.actions.delete'),
         link: deleteAction,
         dataConfirm: I18n.t('common.actions.confirm'),
-        onClick: this.onDeleteClick,
+        onClick: onDeleteClick,
       };
     }
     return actions;
   };
 
-  displayComment = (myComment: Comment) => {
+  const displayComment = (myComment: Comment) => {
     const {
       id,
       currentUserUid,
@@ -112,13 +102,7 @@ export class Comments extends React.Component<Props, State> {
         <div className={css.commentInfo}>
           <StoryBy avatar={commentByAvatar} author={author} />
           <StoryActions
-            actions={this.getActions(
-              viewers,
-              deleteAction,
-              currentUserUid,
-              commentByUid,
-              id,
-            )}
+            actions={getActions(viewers, deleteAction, currentUserUid, commentByUid, id)}
             hasStory
           />
         </div>
@@ -126,37 +110,31 @@ export class Comments extends React.Component<Props, State> {
     );
   };
 
-  onCreate = (response: CommentResponse) => {
+  const onCreate = (response: CommentResponse) => {
     const { data } = response;
     if (data && data.comment) {
-      this.setState((prevState: State) => {
-        const { comments } = prevState;
-        return {
-          comments: [data.comment].concat(comments),
-          key: Utils.randomString(),
-        };
-      });
+      setCommentsState([data.comment].concat(commentsState));
+      setKey(Utils.randomString());
     }
   };
 
-  displayComments = () => {
-    const { comments } = this.state;
-    if (comments.length === 0) return null;
+  const displayComments = () => {
+    if (commentsState.length === 0) return null;
     return (
       <section className={css.comments} aria-label={I18n.t('comment.plural')}>
-        {comments.map((comment: Comment) => this.displayComment(comment))}
+        {commentsState.map((comment: Comment) => displayComment(comment))}
       </section>
     );
   };
 
-  render() {
-    const { formProps } = this.props;
-    const { key } = this.state;
-    return (
-      <div id="comments">
-        <DynamicForm formProps={formProps} onCreate={this.onCreate} key={key} />
-        {this.displayComments()}
-      </div>
-    );
-  }
-}
+  return (
+    <div id="comments">
+      <DynamicForm formProps={formProps} onCreate={onCreate} key={key} />
+      {displayComments()}
+    </div>
+  );
+};
+
+export default ({ comments, formProps }: Props) => (
+  <Comments comments={comments} formProps={formProps} />
+);

@@ -20,6 +20,6 @@ describe AllyNotifications::NewAllyRequest do
   subject(:notification) { described_class.new(recipient, data) }
 
   it { expect(notification.to).to eq(recipient.email) }
-  it { expect(notification.subject).to eq("if me | #{ally.name} sent an ally request!") }
+  it { expect(notification.subject).to eq("if-me.org | #{ally.name} sent an ally request!") }
   it { expect(notification.message).to eq('<p>Please <a href="http://localhost:3000/allies">sign in</a> to accept or reject the request!</p>') }
 end

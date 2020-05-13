@@ -3,19 +3,21 @@
 #
 # Table name: moments
 #
-#  id                      :bigint           not null, primary key
-#  name                    :string
-#  why                     :text
-#  fix                     :text
-#  created_at              :datetime
-#  updated_at              :datetime
-#  user_id                 :integer
-#  viewers                 :text
-#  comment                 :boolean
-#  slug                    :string
-#  secret_share_identifier :uuid
-#  secret_share_expires_at :datetime
-#  published_at            :datetime
+#  id                       :bigint           not null, primary key
+#  name                     :string
+#  why                      :text
+#  fix                      :text
+#  created_at               :datetime
+#  updated_at               :datetime
+#  user_id                  :integer
+#  viewers                  :text
+#  comment                  :boolean
+#  slug                     :string
+#  secret_share_identifier  :uuid
+#  secret_share_expires_at  :datetime
+#  published_at             :datetime
+#  bookmarked               :boolean          default(FALSE)
+#  resource_recommendations :boolean          default(TRUE)
 #
 
 describe Moment do

@@ -237,6 +237,16 @@ describe MomentsFormHelper do
             value: '0'
           },
           {
+            id: 'moment_resource_recommendations',
+            type: 'switch',
+            name: 'moment[resource_recommendations]',
+            label: 'Display Resource Recommendations?',
+            value: true,
+            uncheckedValue: false,
+            checked: true,
+            dark: true 
+          },
+          {
             dark: true,
             id: 'submit',
             type: 'submit',
@@ -249,7 +259,7 @@ describe MomentsFormHelper do
   end
 
   describe '#edit_moment_props' do
-    let(:moment) { FactoryBot.create(:moment, user: user, category: [category.id], mood: [mood.id], strategy: [strategy.id]) }
+    let(:moment) { FactoryBot.create(:moment, user: user, category: [category.id], mood: [mood.id], strategy: [strategy.id], resource_recommendations: false) }
 
     before do
       @category = category
@@ -492,6 +502,16 @@ describe MomentsFormHelper do
             value: '0',
             uncheckedValue: '1',
             checked: true
+          },
+          {
+            id: 'moment_resource_recommendations',
+            type: 'switch',
+            name: 'moment[resource_recommendations]',
+            label: 'Display Resource Recommendations?',
+            value: true,
+            uncheckedValue: false,
+            checked: false,
+            dark: true 
           },
           {
             id: '_method',

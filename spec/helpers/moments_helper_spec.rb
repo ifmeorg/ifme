@@ -45,4 +45,14 @@ describe MomentsHelper, type: :controller do
       end
     end
   end
+
+  describe '#resources_url_tags' do
+    let(:user) { create(:user1) }
+    let(:moment) { create(:moment, name: 'tech industry', user: user) }
+    output = 'filter[]=tech industry&'
+    subject { controller.resources_url_tags(moment) }
+    it 'returns a filtered tag of matched resources' do
+      expect(subject).to eq(output)
+    end
+  end
 end

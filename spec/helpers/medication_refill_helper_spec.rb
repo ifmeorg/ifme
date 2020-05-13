@@ -16,13 +16,13 @@ RSpec.describe MedicationRefillHelper, type: :helper do
     before do
       allow_any_instance_of(helper.class).to receive(:return_to_sign_in).and_return(client_error_exception_text)
       allow_any_instance_of(helper.class).to receive(:redirect_to_medication).and_return(server_error_exception_text)
-      allow_any_instance_of(User).to receive(:google_access_token).and_return('token')
+      allow_any_instance_of(User).to receive(:access_token).and_return('token')
       sign_in user
     end
 
     context 'when the user has the google oauth2 enabled and they need a new refill reminder' do
       before do
-        allow_any_instance_of(User).to receive(:google_oauth2_enabled?).and_return(true)
+        allow_any_instance_of(User).to receive(:oauth_enabled?).and_return(true)
         allow_any_instance_of(helper.class).to receive(:new_cal_refill_reminder_needed?).and_return(true)
       end
 

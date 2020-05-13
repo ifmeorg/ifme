@@ -20,8 +20,8 @@ en:
         submit_button: 'Set my password'
     mailer:
       invitation_instructions:
-        subject: '%{name} invited you to join if me!'
-        subject_nameless: 'Someone invited you to join if me!'
+        subject: '%{name} invited you to join if-me.org!'
+        subject_nameless: 'Someone invited you to join if-me.org!'
         hello: 'Hey %{email}!'
         someone_invited_you: >-
                           %{name} has invited you to join http://www.if-me.org,

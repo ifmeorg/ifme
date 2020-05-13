@@ -20,7 +20,6 @@
 #  add_to_google_cal :boolean          default(FALSE)
 #  weekly_dosage     :integer
 #   default(["0", "1", "2", "3", "4", "5", "6"]), is an Array
-#
 
 class Medication < ApplicationRecord
   # dosage: amount of medication taken at one time

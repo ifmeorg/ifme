@@ -1,5 +1,5 @@
 pt-BR:
-  app_name: 'if me'
+  app_name: 'if-me.org'
   app_description: 'Uma comunidade para o compartilhamento de experiências
   sobre saúde mental'
   draft: Rascunho
@@ -315,6 +315,8 @@ pt-BR:
     edit_moment: 'Editar momento'
     tagged_moments: 'Momentos com tags'
     new: 'Novo momento'
+    bookmark: 'Marca páginas'
+    resource_recommendations: 'Mostrar recomendação de recursos?'
     secret_share:
       singular: 'Compartilhar segredo'
       expires_at: 'Expirar em'
@@ -340,6 +342,7 @@ pt-BR:
       example_category: Carreira
     show:
       strategies: 'Quais estratégias poderiam ajudar nesse momento?'
+      resources: 'Quais recursos poderiam ajudar?'
   moods:
     singular: Humor
     plural: Humores
@@ -393,11 +396,11 @@ pt-BR:
       join_meeting: '%{name} se juntou a reunião "%{meeting_name}" do grupo
       "%{group_name}"'
     mailer:
-      comment_on_moment_subject: 'if me | %{user} comentou no seu momento
+      comment_on_moment_subject: 'if-me.org | %{user} comentou no seu momento
       "%{moment}"'
-      comment_on_strategy_subject: 'if me | %{user} comentou na sua estratégia
+      comment_on_strategy_subject: 'if-me.org | %{user} comentou na sua estratégia
       "%{strategy}"'
-      comment_on_meeting_subject: 'if me | %{user} comentou na reunião
+      comment_on_meeting_subject: 'if-me.org | %{user} comentou na reunião
       "%{meeting}" no grupo "%{group}"'
       comment_on_private_body: '<p>Seu aliado <strong>%{user}</strong> lhe
       enviou uma mensagem privada:</p>'
@@ -405,45 +408,45 @@ pt-BR:
       comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>Veja o comentário, %{link}!</p>'
-      new_group_subject: 'if me | %{user} criou um grupo chamado "%{group}"'
+      new_group_subject: 'if-me.org | %{user} criou um grupo chamado "%{group}"'
       new_group_body: '<p>%{user} criou um grupo chamado "%{group}":</p><p><i>
       %{description}</i></p><p>Aprenda mais e faça parte, %{link}!</p><p>Por
       favor, siga o nosso %{code_of_conduct_link}!</p>'
-      new_group_member_subject: 'if me | %{user} se juntou ao seu grupo
+      new_group_member_subject: 'if-me.org | %{user} se juntou ao seu grupo
       "%{group}"'
-      add_group_leader_you_subject: 'if me | Você se tornou lider do grupo
+      add_group_leader_you_subject: 'if-me.org | Você se tornou lider do grupo
       "%{group}"'
-      add_group_leader_subject: 'if me | %{user} se tornou líder do grupo
+      add_group_leader_subject: 'if-me.org | %{user} se tornou líder do grupo
       " %{group}"'
       add_remove_group_leader_body: '<p>Link do grupo "%{group}", %{link}!</p>'
-      remove_group_leader_you_subject: 'if me | Você não é mais líder do grupo
+      remove_group_leader_you_subject: 'if-me.org | Você não é mais líder do grupo
       "%{group}"'
-      remove_group_leader_subject: 'if me | %{user} não é mais líder do grupo
+      remove_group_leader_subject: 'if-me.org | %{user} não é mais líder do grupo
       "%{group}"'
-      update_meeting_subject: 'if me | %{user} atualizou a reunião "%{meeting}"
+      update_meeting_subject: 'if-me.org | %{user} atualizou a reunião "%{meeting}"
       for "%{group}"'
-      new_meeting_subject: 'if me | %{user} criou uma nova reunião "%{meeting}"
+      new_meeting_subject: 'if-me.org | %{user} criou uma nova reunião "%{meeting}"
       for "%{group}"'
       meeting_body: '<p>%{subject}</p><p><i>%{description}</i></p><p><strong>
       Endereço:</strong> %{location}</p><p><strong>Data:</strong> %{date}</p>
       <p><strong>Hora:</strong> %{time}</p>'
       new_meeting_link: '<p>Clique aqui para saber mais, %{link}!</p>'
       update_meeting_link: '<p>Para saber mais, %{link}!</p>'
-      remove_meeting_subject: 'if me | %{user} A reunião "%{meeting}" foi
+      remove_meeting_subject: 'if-me.org | %{user} A reunião "%{meeting}" foi
       cancelada para o grupo "%{group}"'
-      join_meeting_subject: 'if me | %{user} Se juntou a reunião "%{meeting}"
+      join_meeting_subject: 'if-me.org | %{user} Se juntou a reunião "%{meeting}"
       para o grupo "%{group}"'
       join_meeting_body: '<p>Para ver detalhes da reunião "%{meeting}", clique
       aqui %{link}!</p>'
-      reported_user_subject: 'if me | Você denunciou um usuário'
+      reported_user_subject: 'if-me.org | Você denunciou um usuário'
       reported_user_body: 'Você relatou %{reported_name}. Isto será revisado
       por um administrador.'
-      reportee_user_subject: 'if me | Você foi denunciado'
+      reportee_user_subject: 'if-me.org | Você foi denunciado'
       reportee_user_body: 'Você foi denunciado. Isto será revisado por um
       administrador.'
-      add_ban_subject: 'if me | Você foi banido'
+      add_ban_subject: 'if-me.org | Você foi banido'
       add_ban_body: 'Você foi banido por violar nossa %{code_of_conduct_link}.'
-      remove_ban_subject: 'if me | Você não está mais banido'
+      remove_ban_subject: 'if-me.org | Você não está mais banido'
       remove_ban_body: 'Você foi banido anteriormente por violar nossa
       %{code_of_conduct_link}. Você não está mais banido.'
   omniauth:
@@ -451,8 +454,6 @@ pt-BR:
     access_denied: 'Acesso negado'
   pages:
     about:
-      send_us: 'por e-mail'
-      email_us: 'Sinta-se a vontade para entrar em contato conosco %{email_link}!'
       main_message_one: '%{app_name} é uma comunidade para experiências
       relacionadas a saúde mental que encoraja as pessoas a compartilharem suas
       histórias pessoais com aliados de confiança.'
@@ -462,29 +463,18 @@ pt-BR:
       main_message_two: 'Lidar com a saúde mental é o que nos faz humanos. Mas
       para muitos de nós é um problema lidar com saúde mental de uma forma
       aberta.'
-      message_text_two: '<p>Nem todas as pessoas são terapeutas ou psicólogas.
+      message_text_two: 'Nem todas as pessoas são terapeutas ou psicólogas.
       As pessoas com as quais interagimos diariamente formam nossa emoções e
       comportamentos. Envolvê-las no cuidado da sáude mental é a chave para a
-      recuperação.</p><p class="subtitle">"As questões relacionadas à saúde
-      mental não estão apenas na sua mente, mas ao seu redor. E juntos, nós
-      podemos resolvê-las."</p><p>Saúde mental é uma experiência pessoal e
-      única. Não existem duas mentes iguais! Identificar o problema necessita
-      de novas idéias de diversas pessoas, e por isso o projeto é open source.
-      </p>'
-      main_message_three: 'Quer patrocinar o projeto?'
-      message_text_three: ' Nosso aplicativo é <u>completamente</u> open source
-      (Código aberto). É construido e mantido por voluntários com diferentes
-      experiências e habilidades.</p><p>Em 2016, recebemos o apoio de Linebreak.
-      Em 2017, recebemos financiamento de %{fund_club_link}.</p>Você pode nos
-      dar suporte através do %{patreon_link}.</p>'
+      recuperação.'
+      message_text_three: '<strong>Quer patrocinar o projeto?</strong> Em 2016, recebemos o apoio de Linebreak. Em 2017, recebemos financiamento de %{fund_club_link}.
+      Você pode nos dar suporte através do %{open_collective_link}.'
       fund_club: 'Fund Club'
     blog:
       description: 'Se você estiver interessado em escrever para nosso blog,
       envie um e-mail para %{email}! Aceitaremos contribuições anônimas também.'
     contribute:
       contributor_avatar_alt: 'Biografia de contribuinte para %{name}'
-      main_message_one: 'if me é desenvolvido e mantido por voluntários com
-      diferentes experiências e habilidades.'
       message_text_one: 'Estamos sempre procurando por novas idéias de diversas
       pessoas, incluindo <strong>defensores da saúde mental</strong>, <strong>
       profissionais da sáude</strong>, <strong>desenvolvedores de software
@@ -850,6 +840,7 @@ pt-BR:
     edit_strategy: 'Editar Estratégia'
     tagged_strategies: 'Estratégias marcadas'
     new: 'Nova Estratégia'
+    bookmark: 'Marca páginas'
     form:
       describe: 'Descreva a estratégia'
       strategies_label: 'Quais estratégias poderiam te ajudar a alcançar suas
@@ -920,11 +911,11 @@ pt-BR:
     pessoas a entender sobre o tópico em questão'
   mailers:
     accepted_ally_request:
-      subject: 'if me | %{ally_name} aceitou seu pedido para se torna aliado!'
+      subject: 'if-me.org | %{ally_name} aceitou seu pedido para se torna aliado!'
       message: '<p>Parabéns! Você pode compartilhar Momentos, Estratégias, e
       muito mais com seu aliado %{ally_name}.</p>'
     new_ally_request:
-      subject: 'if me | %{ally_name} emviou um pedido para se tornar um aliado!'
+      subject: 'if-me.org | %{ally_name} emviou um pedido para se tornar um aliado!'
       message: '<p>Por favor <a href="%{allies_url}">faça login</a> para
       aceitar ou rejeitar o pedido!</p>'
   devise:
@@ -980,7 +971,7 @@ pt-BR:
           profile_picture: 'Foto de perfil'
           remove_picture: 'Remover foto'
           about: Sobre
-          password_for: 'Senha para a conta do<strong>if me</strong>'
+          password_for: 'Senha para a conta do<strong>if-me.org</strong>'
           update: Atualização
         placeholders:
           optional: Opcional
@@ -989,7 +980,7 @@ pt-BR:
           usuários buscarem por você'
           required: 'Campo Obrigatório'
         delete:
-          text: '<strong>if me</strong> não está funcionando para você?'
+          text: '<strong>if-me.org</strong> não está funcionando para você?'
           button: 'Excluir minha conta permanentemente'
           confirm: 'Você tem certeza? Você perderá todos os seus dados. Mas
           você sempre poderá se cadastrar novamente!'
@@ -1003,6 +994,8 @@ pt-BR:
     shared:
       sign_in_google: 'Entrar com sua conta Google'
       sign_up_google: 'Cadastre-se com sua conta Google'
+      sign_in_facebook: 'Entrar com sua conta Facebook'
+      sign_up_facebook: 'Cadastre-se com sua conta Facebook'
       confirmation: 'Não recebeu as instruções de confirmação?'
       unlock: 'Não recebeu as instruções de desbloqueio?'
     unlock:

@@ -1,5 +1,5 @@
 nl:
-  app_name: 'if me'
+  app_name: 'if-me.org'
   app_description: 'Een gemeenschap voor geestelijke gezondheidservaringen'
   email: join.ifme@gmail.com
   created: '%{created_at} aangemaakt'
@@ -311,6 +311,8 @@ nl:
     edit_moment: 'Bewerk Moment'
     tagged_moments: 'Getagde Momenten'
     new: 'Nieuw Moment'
+    bookmark: 'Bladwijzer'
+    resource_recommendations: 'Aanbevolen bronnen weergeven?'
     secret_share:
       singular: 'Geheim Delen'
       expires_at: 'Verloopt op'
@@ -334,6 +336,7 @@ nl:
       example_category: Carrière
     show:
       strategies: 'Welke strategieën zouden helpen?'
+      resources: 'Welke middelen zouden kunnen helpen?'
   moods:
     singular: Stemming
     plural: Stemmingen
@@ -391,11 +394,11 @@ nl:
       join_meeting: '%{name} heeft zich aangesloten bij de samenkomst
       "%{meeting_name}" voor de groep "%{group_name}"'
     mailer:
-      comment_on_moment_subject: 'if me | %{user} heeft commentaar geplaatst op
+      comment_on_moment_subject: 'if-me.org | %{user} heeft commentaar geplaatst op
       je moment "%{moment}"'
-      comment_on_strategy_subject: 'if me | %{user} heeft commentaar geplaatst
+      comment_on_strategy_subject: 'if-me.org | %{user} heeft commentaar geplaatst
       op je strategie "%{strategy}"'
-      comment_on_meeting_subject: 'if me | %{user} heeft commentaar geplaatst
+      comment_on_meeting_subject: 'if-me.org | %{user} heeft commentaar geplaatst
       op de samenkomst "%{meeting}" van de groep "%{group}"'
       comment_on_private_body: '<p>Je bondgenoot <strong>%{user}</strong> heeft
       privé commentaar geplaatst:</p>'
@@ -404,25 +407,25 @@ nl:
       comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>Om het te lezen, %{link}!</p>'
-      new_group_subject: 'if me | %{user} heeft de groep "%{group}" gemaakt'
+      new_group_subject: 'if-me.org | %{user} heeft de groep "%{group}" gemaakt'
       new_group_body: '<p>%{user} maakte de groep "%{group}":</p><p><i>
       %{description}</i></p><p>Om meer te leren en lid te worden, %{link}!</p>
       <p>Volg alstublieft onze %{code_of_conduct_link}!</p>'
-      new_group_member_subject: 'if me | %{user} is lid geworden van je groep
+      new_group_member_subject: 'if-me.org | %{user} is lid geworden van je groep
       "%{group}"'
-      add_group_leader_you_subject: 'if me | Je bent een leider geworden in de
+      add_group_leader_you_subject: 'if-me.org | Je bent een leider geworden in de
       groep "%{group}"'
-      add_group_leader_subject: 'if me | %{user} is een leider geworden van de
+      add_group_leader_subject: 'if-me.org | %{user} is een leider geworden van de
       groep " %{group}"'
       add_remove_group_leader_body: '<p>Om de groep "%{group}" te bekijken,
       %{link}!</p>'
-      remove_group_leader_you_subject: 'if me | Je bent niet langer een leider
+      remove_group_leader_you_subject: 'if-me.org | Je bent niet langer een leider
       in de groep "%{group}"'
-      remove_group_leader_subject: 'if me | %{user} is niet langer een leider
+      remove_group_leader_subject: 'if-me.org | %{user} is niet langer een leider
       in de groep "%{group}"'
-      update_meeting_subject: 'if me | %{user} heeft de samenkomst "%{meeting}"
+      update_meeting_subject: 'if-me.org | %{user} heeft de samenkomst "%{meeting}"
       bijgewerkt voor de groep "%{group}"'
-      new_meeting_subject: 'if me | %{user} heeft een nieuwe samenkomst
+      new_meeting_subject: 'if-me.org | %{user} heeft een nieuwe samenkomst
       "%{meeting}" gemaakt voor de groep "%{group}"'
       meeting_body: '<p>%{subject}</p><p><i>%{description}</i></p><p><strong>
       Locatie:</strong> %{location}</p><p><strong>Datum:</strong> %{date}</p>
@@ -430,21 +433,21 @@ nl:
       new_meeting_link: '<p>Om meer te weten te komen en ook te komen,
       %{link}!</p>'
       update_meeting_link: '<p>Om meer te weten te komen, %{link}!</p>'
-      remove_meeting_subject: 'if me | %{user} heeft de samenkomst "%{meeting}"
+      remove_meeting_subject: 'if-me.org | %{user} heeft de samenkomst "%{meeting}"
       geannuleerd voor de groep "%{group}"'
-      join_meeting_subject: 'if me | %{user} heeft zich aangesloten bij de
+      join_meeting_subject: 'if-me.org | %{user} heeft zich aangesloten bij de
       samenkomst "%{meeting}" voor de groep "%{group}"'
       join_meeting_body: '<p>Om "%{meeting}" te bekijken, %{link}!</p>'
-      reported_user_subject: 'if me | U heeft een gebruiker gemeld'
+      reported_user_subject: 'if-me.org | U heeft een gebruiker gemeld'
       reported_user_body: 'Je hebt gemeld %{reported_name}. Dit wordt
       beoordeeld door een beheerder.'
-      reportee_user_subject: 'if me | U bent gemeld'
+      reportee_user_subject: 'if-me.org | U bent gemeld'
       reportee_user_body: 'U bent gemeld. Dit wordt beoordeeld door een
       beheerder.'
-      add_ban_subject: 'if me | Je bent verbannen'
+      add_ban_subject: 'if-me.org | Je bent verbannen'
       add_ban_body: 'Je bent verbannen omdat je onze %{code_of_conduct_link}
       hebt geschonden.'
-      remove_ban_subject: 'if me | Je bent niet langer verbannen'
+      remove_ban_subject: 'if-me.org | Je bent niet langer verbannen'
       remove_ban_body: 'Je was eerder verbannen omdat je onze
       %{code_of_conduct_link} schond. Je bent niet langer verbannen.'
   omniauth:
@@ -452,8 +455,6 @@ nl:
     access_denied: 'Toegang geweigerd'
   pages:
     about:
-      send_us: ons
-      email_us: 'Voel je vrij om een e-mail te sturen naar %{email_link}!'
       main_message_one: '%{app_name} is een gemeenschap voor geestelijke
       gezondheidservaringen dat mensen aanspoort om hun persoonlijke verhalen
       te delen met hun vertrouwde bondgenoten.'
@@ -462,28 +463,18 @@ nl:
       leraren en GGZ-medewerkers.'
       main_message_two: 'Omgaan met geestelijke gezondheid is wat ons menselijk
       maakt. Maar voor velen van ons is het moeilijk om er open over te zijn.'
-      message_text_two: '<p>Niet iedereen is een mentor of een therapeut. De
+      message_text_two: 'Niet iedereen is een mentor of een therapeut. De
       mensen met wie we dagelijks omgaan geven vorm aan onze emoties en ons
-      gedrag. Hun betrokkenheid is de sleutel tot herstel.</p>
-      <p class="subtitle">"Het zit niet allemaal tussen je oren, het is overal
-      om je heen. Samen kunnen we herstellen."</p><p>Geestelijke gezondheid is
-      een individueel en unieke beleving. Er zijn niet twee hersenen hetzelfde!
-      Het probleem tackelen behoeft ideeën van iedereen, dat is waarom dit
-      project open source is.</p>'
-      main_message_three: 'Wil je ons financieel helpen?'
-      message_text_three: 'Onze applicatie is een <u>compleet</u> open source
-      project. Het wordt ontwikkeld en onderhouden door vrijwilligers uit
-      verschillende achtergronden en met verschillende vaardigheden.</p><p>In
+      gedrag. Hun betrokkenheid is de sleutel tot herstel.'
+      message_text_three: '<strong>Wil je ons financieel helpen?</strong> In
       2016, hebben wij een community grant ontvangen van Linebreak. In 2017,
-      ontvingen wij geld van %{fund_club_link}.</p>Jij kunt ons ondersteunen
-      door te doneren via onze %{patreon_link}.</p>'
+      ontvingen wij geld van %{fund_club_link}. Jij kunt ons ondersteunen
+      door te doneren via onze %{open_collective_link}.'
       fund_club: 'Fund Club'
     blog:
       description: 'Als je voor ons wil schrijven, stuur ons een e-mail op
       %{email}! We staan open voor anonieme bijdragen.'
     contribute:
-      main_message_one: 'if me is ontwikkeld en onderhouden door vrijwilligers
-      van verschillende achtergronden met verschillende vaardigheden.'
       contributor_avatar_alt: "Bijdrage biografie voor %{name}"
       message_text_one: 'We zijn altijd op zoek naar nieuwe ideeën van iedereen,
       inclusief <strong>vooraanstaanden in de geestelijke gezondheidswereld
@@ -828,6 +819,7 @@ nl:
     edit_strategy: 'Bewerk Strategie'
     tagged_strategies: 'Getagde Strategieën'
     new: 'Nieuwe Strategie'
+    bookmark: 'Bladwijzer'
     form:
       describe: 'Omschrijf de Strategie.'
       strategies_label: 'Welke Strategieën zouden helpen deze gedachten te
@@ -894,11 +886,11 @@ nl:
     begrijpen'
   mailers:
     accepted_ally_request:
-      subject: 'if me | %{ally_name} heeft je bondgenotenverzoek geaccepteerd!'
+      subject: 'if-me.org | %{ally_name} heeft je bondgenotenverzoek geaccepteerd!'
       message: '<p>Gefeliciteerd! Je kunt nu Momenten, Strategieën en meer
       delen met  %{ally_name}.</p>'
     new_ally_request:
-      subject: 'if me | %{ally_name} heeft je een bondgenotenverzoek gestuurd!'
+      subject: 'if-me.org | %{ally_name} heeft je een bondgenotenverzoek gestuurd!'
       message: '<p>Alsjeblieft <a href="%{allies_url}">log in</a> om het
       verzoek te accepteren of te negeren!</p>'
   devise:
@@ -957,7 +949,7 @@ nl:
           profile_picture: 'Profielfoto'
           remove_picture: 'Verwijder afbeelding'
           about: Over
-          password_for: 'Wachtwoord voor <strong>if me</strong> account'
+          password_for: 'Wachtwoord voor <strong>if-me.org</strong> account'
           update: Updaten
         placeholders:
           optional: Optioneel
@@ -966,7 +958,7 @@ nl:
           je zoeken.'
           required: Verplicht
         delete:
-          text: 'Is <strong>if me</strong> niet wat je zoekt?'
+          text: 'Is <strong>if-me.org</strong> niet wat je zoekt?'
           button: 'Verwijder mijn account permanent'
           confirm: 'Weet je het zeker? Al je data zal gewist worden. Je kunt
           wel altijd weer lid worden!'
@@ -979,6 +971,8 @@ nl:
     shared:
       sign_in_google: 'Log in met Google'
       sign_up_google: 'Registreren met Google'
+      sign_in_facebook: 'Log in met Facebook'
+      sign_up_facebook: 'Registreren met Facebook'
       confirmation: 'Bevestiginginstructies niet ontvangen?'
       unlock: 'Ontgrendelingsinstructies niet ontvangen?'
     unlock:

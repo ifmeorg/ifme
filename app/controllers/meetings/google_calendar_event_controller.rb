@@ -46,14 +46,14 @@ module Meetings
     end
 
     def create_event
-      uploader = CalendarUploader.new(current_user.google_access_token)
+      uploader = CalendarUploader.new(current_user.access_token)
       rescue_google_calendar_ex do
         uploader.upload_event(@meeting.name, @meeting.date_time)
       end
     end
 
     def destroy_event
-      uploader = CalendarUploader.new(current_user.google_access_token)
+      uploader = CalendarUploader.new(current_user.access_token)
       rescue_google_calendar_ex do
         uploader.delete_event(@meeting_member.google_cal_event_id)
       end
