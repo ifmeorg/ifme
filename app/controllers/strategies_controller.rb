@@ -42,7 +42,7 @@ class StrategiesController < ApplicationController
     @viewers = current_user.allies_by_status(:accepted)
     @strategy = Strategy.new
     @categories = current_user.categories.order('created_at DESC')
-    @category = Category.new 
+    @category = Category.new
     @strategy.build_perform_strategy_reminder
   end
 
@@ -86,7 +86,7 @@ class StrategiesController < ApplicationController
     task = Task.find(strategy.id)
     if task
       task.finished = strategy.finished
-      task.title = strategy.name 
+      task.title = strategy.name
       task.save
     end
   end
