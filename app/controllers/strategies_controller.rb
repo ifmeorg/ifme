@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# rubocop:disable ClassLength
 class StrategiesController < ApplicationController
   include CollectionPageSetupConcern
   include ReminderHelper
@@ -84,11 +84,10 @@ class StrategiesController < ApplicationController
 
   def create_task(strategy)
     task = Task.find(strategy.id)
-    if task
-      task.finished = strategy.finished
-      task.title = strategy.name
-      task.save
-    end
+    return unless task
+    task.finished = strategy.finished
+    task.title = strategy.name
+    task.save
   end
 
   # PATCH/PUT /strategies/1
@@ -138,3 +137,4 @@ class StrategiesController < ApplicationController
       category: params[:strategy][:category], name: params[:strategy][:name] }
   end
 end
+# rubocop:enable ClassLength
