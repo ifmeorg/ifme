@@ -627,6 +627,19 @@ sv:
       inkluderar samhällen, pedagogiska verktyg, hotlines och tjänster.'
       emergency: 'Om du eller någon som du känner upplever en kris i psykisk
       hälsa, räcka ut hjälp så snart som möjligt.'
+      crisis_prevention:
+        title: 'Hur mår du?'
+        description: 'Du är älskad oavsett vad'
+        die: dö
+        dead: död-
+        died: dog
+        dying: döende
+        death: död
+        passed_away: avled
+        kill_myself: 'döda mig själv'
+        hurt_myself: 'skada mig själv'
+        suicide: självmord
+        suicidal: självmords
       tags:
         communities: gemenskaperna
         education: utbildning

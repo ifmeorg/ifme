@@ -639,6 +639,19 @@ it:
       mentale, che include comunità, strumenti educativi, hotline e servizi.'
       emergency: 'Se tu o qualcuno che conosci state vivendo un''emergenza per
       la salute mentale, contattate il più presto possibile.'
+      crisis_prevention:
+        title: 'Come te la passi?'
+        description: 'Sei amato, non importa quale'
+        die: morire
+        dead: morto
+        died: morto
+        dying: 'sta morendo'
+        death: morte
+        passed_away: deceduto
+        kill_myself: uccidermi
+        hurt_myself: ferirmi
+        suicide: suicidio
+        suicidal: suicida
       tags:
         communities: community
         education: educazione

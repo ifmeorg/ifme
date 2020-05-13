@@ -646,6 +646,19 @@ es:
       servicios.'
       emergency: 'Si usted o alguien que conoce está experimentando una
       emergencia de salud mental, busque ayuda lo antes posible.'
+      crisis_prevention:
+        title: '¿Cómo estás?'
+        description: 'Eres amado pase lo que pase'
+        die: muere
+        dead: muerto
+        died: murió
+        dying: muriendo
+        death: muerte
+        passed_away: falleció
+        kill_myself: suicídate
+        hurt_myself: 'herirme a mí mismo'
+        suicide: suicidio
+        suicidal: suicida
       tags:
         communities: comunidades
         education: educación

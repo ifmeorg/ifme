@@ -740,6 +740,19 @@ en:
       emergency: >-
               If you or someone you know is experiencing a mental health
               emergency, reach out for help as soon as possible.
+      crisis_prevention:
+        title: 'How are you doing?'
+        description: 'You are loved no matter what'
+        die: die
+        dead: dead
+        died: died
+        dying: dying
+        death: death
+        passed_away: 'passed away'
+        kill_myself: 'kill myself'
+        hurt_myself: 'hurt myself'
+        suicide: suicide
+        suicidal: suicidal
       tags:
         communities: communities
         education: education

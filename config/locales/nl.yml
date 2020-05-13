@@ -647,6 +647,19 @@ nl:
       hotlines en services.'
       emergency: 'Als u of iemand die u kent een psychische noodsituatie heeft,
       neem dan zo snel mogelijk contact op met hulp.'
+      crisis_prevention:
+        title: 'Hoe gaat het?'
+        description: 'Je bent hoe dan ook geliefd'
+        die: 'dood gaan'
+        dead: dood
+        died: 'ging dood'
+        dying: stervende
+        death: dood
+        passed_away: overleden
+        kill_myself: 'dood mezelf'
+        hurt_myself: 'mezelf pijn doen'
+        suicide: zelfmoord
+        suicidal: suïcidaal
       tags:
         communities: gemeenschappen
         education: educatie

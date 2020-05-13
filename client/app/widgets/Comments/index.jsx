@@ -36,10 +36,14 @@ export type Props = {
 };
 
 const Comments = ({ comments, formProps }: Props) => {
-  const [commentsState, setCommentsState] = useState<(Comment | any)[]>(comments || []);
+  const [commentsState, setCommentsState] = useState<(Comment | any)[]>(
+    comments || []);
   const [key, setKey] = useState<string>('');
 
-  const onDeleteClick = (e: SyntheticEvent<HTMLInputElement>, action: string) => {
+  const onDeleteClick = (
+    e: SyntheticEvent<HTMLInputElement>,
+    action: string,
+  ) => {
     e.preventDefault();
     axios.delete(action).then((response: CommentResponse) => {
       const { data } = response;
@@ -102,7 +106,13 @@ const Comments = ({ comments, formProps }: Props) => {
         <div className={css.commentInfo}>
           <StoryBy avatar={commentByAvatar} author={author} />
           <StoryActions
-            actions={getActions(viewers, deleteAction, currentUserUid, commentByUid, id)}
+            actions={getActions(
+              viewers,
+              deleteAction,
+              currentUserUid,
+              commentByUid,
+              id,
+            )}
             hasStory
           />
         </div>

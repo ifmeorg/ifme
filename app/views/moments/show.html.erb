@@ -55,6 +55,10 @@
   </div>
 <% end %>
 
+<% if @show_crisis_prevention && !@moment.shared? %>
+  <%= react_component('CrisisPrevention') %>
+<% end %>
+
 <% if @moment.owned_by?(current_user) && @moment.shared? %>
   <div class="smallMarginTop">
     <%= react_component('Form', props: secret_share_props(@moment)) %>

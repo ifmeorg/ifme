@@ -25,8 +25,10 @@ class MomentsController < ApplicationController
   # GET /moments/1.json
   def show
     show_with_comments(@moment)
+    resources_data = get_resources_data(@moment)
     @resources = ResourceRecommendations.new(@moment).call
-    @resources_tags = resources_url_tags(@moment)
+    @show_crisis_prevention = resources_data[:show_crisis_prevention]
+    @resources_tags = resources_data[:tags]
   end
 
   # GET /moments/new

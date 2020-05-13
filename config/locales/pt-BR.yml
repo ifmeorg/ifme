@@ -668,6 +668,19 @@ pt-BR:
       comunidades, ferramentas educacionais, linhas diretas e serviços.'
       emergency: 'Se você ou alguém que você conhece estiver passando por uma
       emergência de saúde mental, procure ajuda o mais rápido possível.'
+      crisis_prevention:
+        title: 'Como vai você?'
+        description: 'Você é amado, não importa o que'
+        die: morrer
+        dead: morto
+        died: morreu
+        dying: morrendo
+        death: morte
+        passed_away: 'faleceu'
+        kill_myself: 'me matar'
+        hurt_myself: 'me machucar'
+        suicide: suicídio
+        suicidal: suicida
       tags:
         communities: 'grupos comunitários'
         education: escolas

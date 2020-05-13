@@ -632,6 +632,19 @@ nb:
       som inkluderer lokalsamfunn, pedagogiske verktøy, hotlines og tjenester.'
       emergency: 'Hvis du eller noen du kjenner opplever en krise i psykisk
       helse, må du kontakte hjelp så snart som mulig.'
+      crisis_prevention:
+        title: 'Hvordan går det?'
+        description: 'Du er elsket uansett hva'
+        die: dø
+        dead: død
+        died: døde
+        dying: døende
+        death: død
+        passed_away: 'gått bort'
+        kill_myself: 'drepe meg selv'
+        hurt_myself: 'skadet meg selv'
+        suicide: selvmord
+        suicidal: suicidal
       tags:
         communities: samfunn
         education: utdanning

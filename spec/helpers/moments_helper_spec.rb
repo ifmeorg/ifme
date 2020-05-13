@@ -46,13 +46,49 @@ describe MomentsHelper, type: :controller do
     end
   end
 
-  describe '#resources_url_tags' do
-    let(:user) { create(:user1) }
-    let(:moment) { create(:moment, name: 'tech industry', user: user) }
-    output = 'filter[]=tech industry&'
-    subject { controller.resources_url_tags(moment) }
-    it 'returns a filtered tag of matched resources' do
-      expect(subject).to eq(output)
+  describe '#get_resources_data' do
+    context 'when no crisis prevention modal is necessary and there is a tagged resource' do
+      let(:moment) { create(:moment, name: 'tech industry', user: user) }
+      subject { controller.get_resources_data(moment) }
+      it 'returns a filtered tag of matched resources' do
+        expect(subject).to eq({
+          show_crisis_prevention: false,
+          tags: 'filter[]=tech industry&'
+        })
+      end
+    end
+
+    context 'when no crisis prevention modal is necessary and there is no tagged resource' do
+      let(:moment) { create(:moment, name: 'dog', user: user) }
+      subject { controller.get_resources_data(moment) }
+      it 'returns a filtered tag of matched resources' do
+        expect(subject).to eq({
+          show_crisis_prevention: false,
+          tags: ''
+        })
+      end
+    end
+
+    context 'when a crisis prevention modal is necessary and there is a tagged resource' do
+      let(:moment) { create(:moment, name: "I'm struggling a lot and want to hurt myself. My anxiety is really bad.", user: user) }
+      subject { controller.get_resources_data(moment) }
+      it 'returns a filtered tag of matched resources' do
+        expect(subject).to eq({
+          show_crisis_prevention: true,
+          tags: 'filter[]=anxiety&'
+        })
+      end
+    end
+
+    context 'when a crisis prevention modal is necessary and there is no tagged resource' do
+      let(:moment) { create(:moment, name: "I'm struggling a lot and want to hurt myself.", user: user) }
+      subject { controller.get_resources_data(moment) }
+      it 'returns a filtered tag of matched resources' do
+        expect(subject).to eq({
+          show_crisis_prevention: true,
+          tags: ''
+        })
+      end
     end
   end
 end

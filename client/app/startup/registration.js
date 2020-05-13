@@ -30,6 +30,7 @@ import { Tooltip } from '../components/Tooltip';
 import { ToggleLocale } from '../widgets/ToggleLocale';
 import Comments from '../widgets/Comments';
 import Input from '../components/Input';
+import CrisisPrevention from '../widgets/CrisisPrevention';
 
 scrollToTop();
 
@@ -59,4 +60,5 @@ ReactOnRails.register({
   Tag,
   ToggleLocale,
   Tooltip,
+  CrisisPrevention,
 });
