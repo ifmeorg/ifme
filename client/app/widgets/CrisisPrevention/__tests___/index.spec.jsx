@@ -1,4 +1,3 @@
-// @flow
 import { render } from 'enzyme';
 import React from 'react';
 import CrisisPrevention from '../index';
