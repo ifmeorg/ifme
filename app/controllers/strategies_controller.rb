@@ -85,6 +85,7 @@ class StrategiesController < ApplicationController
   def create_task(strategy)
     task = Task.find(strategy.id)
     return unless task
+
     task.finished = strategy.finished
     task.title = strategy.name
     task.save
