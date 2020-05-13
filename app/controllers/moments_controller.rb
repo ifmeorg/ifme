@@ -27,7 +27,9 @@ class MomentsController < ApplicationController
     show_with_comments(@moment)
     resources_data = get_resources_data(@moment)
     @resources = ResourceRecommendations.new(@moment).call
-    @show_crisis_prevention = resources_data[:show_crisis_prevention]
+    if @moment.user_id == current_user.id
+      @show_crisis_prevention = resources_data[:show_crisis_prevention]
+    end
     @resources_tags = resources_data[:tags]
   end
 
