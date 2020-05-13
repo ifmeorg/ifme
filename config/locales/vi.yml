@@ -641,6 +641,19 @@ vi:
       tôi, bao gồm các cộng đồng, công cụ giáo dục, đường dây nóng và dịch vụ.'
       emergency: 'Nếu bạn hoặc ai đó bạn biết đang gặp phải tình trạng khẩn cấp
       về sức khỏe tâm thần, hãy liên hệ để được giúp đỡ càng sớm càng tốt.'
+      crisis_prevention:
+        title: 'Bạn đang làm gì?'
+        description: 'Bạn được yêu bất kể điều gì'
+        die: chết
+        dead: 'đã chết'
+        died: chết
+        dying: chết
+        death: 'tử vong'
+        passed_away: 'đã qua đời'
+        kill_myself: 'tự sát'
+        hurt_myself: 'làm tổn thương chính minh'
+        suicide: 'tự sát'
+        suicidal: 'tự tử'
       tags:
         communities: 'cộng đồng'
         education: 'giáo dục'

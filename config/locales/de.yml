@@ -806,6 +806,19 @@ de:
               Wenn du oder jemand, den du kennst sich in einem psychischen
               Notfall befindet, wende dich so bald wie möglich an deinen
               Ansprechpartner.
+      crisis_prevention:
+        title: 'Wie geht es dir?'
+        description: 'Du wirst geliebt, egal was'
+        die: stirb
+        dead: tot
+        died: gestorben
+        dying: sterben
+        death: tod
+        passed_away: verstorben
+        kill_myself: 'mich umbringen'
+        hurt_myself: 'verletze mich selbst'
+        suicide: selbstmord
+        suicidal: selbstmord
       tags:
         communities: communities
         education: bildungsträger

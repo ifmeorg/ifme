@@ -783,6 +783,19 @@ fr:
       emergency: >-
               Si vous ou une personne de votre entourage êtes confrontée à une
               urgence en santé mentale, demandez de l'aide dès que possible.
+      crisis_prevention:
+        title: 'Comment ça va?'
+        description: 'Vous êtes aimé quoi qu''il arrive'
+        die: meurs
+        dead: mort
+        died: mort
+        dying: mourant
+        death: mort
+        passed_away: 'est décédé'
+        kill_myself: 'tue-moi'
+        hurt_myself: 'me faire du mal'
+        suicide: suicide
+        suicidal: suicidaire
       tags:
         communities: communauté
         education: éducation

@@ -61,12 +61,13 @@ module MomentsHelper
       storyType: present_object[:story_type] }
   end
 
-  def resources_url_tags(moment)
-    matched_tags = ResourceRecommendations.new(moment).matched_tags
-    filter_tags = matched_tags.uniq.map do |t|
+  def get_resources_data(moment)
+    recommendations = ResourceRecommendations.new(moment)
+    tags = recommendations.matched_tags.uniq.map do |t|
       "filter[]=#{t}&"
     end
-    filter_tags.join
+    { tags: tags.join,
+      show_crisis_prevention: recommendations.show_crisis_prevention }
   end
 
   private
