@@ -43,7 +43,7 @@
   </div>
 <% end %>
 
-<% if @moment.resource_recommendations? && @resources.present? %>
+<% if @moment.resource_recommendations? && @resources_tags.present? %>
   <div class="smallMarginTop">
     <div class="label"><%= label_tag t('moments.show.resources') %></div>
     <ul>
@@ -55,7 +55,7 @@
   </div>
 <% end %>
 
-<% if @show_crisis_prevention && !@moment.shared? %>
+<% if @show_crisis_prevention %>
   <%= react_component('CrisisPrevention') %>
 <% end %>
 
