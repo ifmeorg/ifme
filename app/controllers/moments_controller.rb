@@ -25,11 +25,11 @@ class MomentsController < ApplicationController
   # GET /moments/1.json
   def show
     show_with_comments(@moment)
-    resources_data = get_resources_data(@moment)
-    @resources = ResourceRecommendations.new(@moment).call
-    if @moment.user_id == current_user.id
-      @show_crisis_prevention = resources_data[:show_crisis_prevention]
-    end
+    resources_data = get_resources_data(@moment, current_user)
+    @resources = ResourceRecommendations.new(
+      moment: @moment, current_user: current_user
+    ).call
+    @show_crisis_prevention = resources_data[:show_crisis_prevention]
     @resources_tags = resources_data[:tags]
   end
 

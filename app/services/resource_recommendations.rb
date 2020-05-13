@@ -5,9 +5,10 @@ CRISIS_PREVENTION_TAGS = %w[
 ].freeze
 
 class ResourceRecommendations
-  def initialize(moment)
+  def initialize(moment:, current_user:)
     @moment = moment
     @moment_keywords = []
+    @current_user = current_user
   end
 
   def call
@@ -30,8 +31,9 @@ class ResourceRecommendations
   end
 
   def show_crisis_prevention
-    if @moment.created_at.to_date == Date.current ||
-       @moment.updated_at.to_date == Date.current
+    if @moment.user_id == @current_user.id &&
+       (@moment.created_at.to_date == Date.current ||
+       @moment.updated_at.to_date == Date.current)
       @moment_keywords = MomentKeywords.new(@moment).call
       CRISIS_PREVENTION_TAGS.each do |tag|
         return true if @moment_keywords.match?(get_crisis_preventation_tag(tag))
