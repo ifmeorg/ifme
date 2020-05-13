@@ -10,13 +10,17 @@ export type Props = {
 
 function SkipToContent(props: Props) {
   const { id } = props;
-  // SkipToContent.removeEventHandler("Props", scrollTo);
-
-  window.addEventListener('Props', () => {
-    window.scrollTo(0, 0)});
+  const [scroll, setScroll] = useState(false);
+  const aToScroll = document.getElementById(id).useCallback(() => {
+    setIsFocused(true);
+  }, []);
 
   return (
-    <a className={css.skipToContent} href={`#${id}`}>
+    <a
+      className={css.skipToContent}
+      onClick={aToScroll}
+      href={`#${id}`}
+      >
       {I18n.t('navigation.skip_to_main_content')}
     </a>
   );
