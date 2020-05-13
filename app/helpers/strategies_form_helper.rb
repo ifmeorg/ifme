@@ -18,13 +18,10 @@ module StrategiesFormHelper
 
   def build_strategy_description(strategy)
     {
-      id: 'strategy_description',
-      type: 'textarea',
+      id: 'strategy_description', type: 'textarea',
       name: 'strategy[description]',
       label: t('strategies.form.describe'),
-      value: strategy.description || nil,
-      required: true,
-      dark: true
+      value: strategy.description || nil, required: true, dark: true
     }
   end
 
@@ -100,11 +97,9 @@ module StrategiesFormHelper
 
   def build_switch_input(value, checked, unchecked_value)
     {
-      type: 'switch',
-      value: value,
+      type: 'switch', value: value,
       uncheckedValue: unchecked_value,
-      checked: checked,
-      dark: true
+      checked: checked, dark: true
     }
   end
 
@@ -112,8 +107,7 @@ module StrategiesFormHelper
     checkboxes = []
     @categories.each do |item|
       checkboxes.push(
-        id: item.slug,
-        label: item.name,
+        id: item.slug, label: item.name,
         value: item.id,
         checked: @strategy.categories.include?(item)
       )
