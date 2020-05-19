@@ -97,6 +97,12 @@ Rails.application.routes.draw do
       get 'signed_in'
     end
   end
+  
+  resources :omniauth_callbacks do
+    collection do
+      get 'omniauth_login'
+    end
+  end
 
   get 'pages/home'
   match 'about', to: 'pages#about', via: :get
