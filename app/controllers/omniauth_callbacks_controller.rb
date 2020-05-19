@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  def omniauth_login(provider)
+  def omniauth_login
     redirect_to new_user_session_path, notice:
       t('omniauth.access_denied') if user.blank?
     user.accept_invitation! if invitation_token
     upload_avatar(omniauth_avatar)
     flash[:notice] = I18n.t('devise.omniauth_callbacks.success',
-                            kind: t("navigation.#{provider}"))
+                            kind: t("navigation.#{params[:provider]}"))
     sign_in_and_redirect @user, event: :authentication
   end
 
