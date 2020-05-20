@@ -140,7 +140,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
     context 'when facebook email already exist in the system' do
       let!(:user) { create(:user, email: 'example@xyze.it') }
 
-      before { get :omniauth_login, params: { id: 1, provider: 'facebook' } }
+      before { get :omniauth_login, params: { provider: 'facebook' } }
 
       it 'updates the user with facebook credentials' do
         expect(user.reload.token).to eq 'abcdefg12345'
