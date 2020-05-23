@@ -35,7 +35,6 @@ const Modal = (props: Props) => {
     title,
     openListener,
     open: openProps,
-    modalKey
   } = props;
 
   const [open, setOpen] = useState(!!openProps);
@@ -176,7 +175,7 @@ export default ({
   openListener,
   open,
   body,
-  modalKey
+  modalKey,
 }: Props) => (
   <Modal
     element={element}
