@@ -14,4 +14,6 @@ fr:
           one: 'Afficher <b>1</b> %{entry_name}'
           other: 'Afficher <b>tout%{count}</b> %{entry_name}'
       more_pages:
-        display_entries: 'Afficher %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> au total'
+        display_entries: >-
+                      Afficher %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}
+                      </b> de <b>%{total}</b> au total

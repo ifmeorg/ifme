@@ -4,8 +4,8 @@ shared_examples :most_focus do |data_type|
   let(:user2) { create(:user2) }
   let(:profile) { user1 }
   let(:data_length) { 2 }
-  let(:datum) { create(data_type, user_id: profile.id) }
-  let(:data) { create_list(data_type, data_length, user_id: profile.id) }
+  let(:datum) { create(data_type, user_id: profile.id, visible: true) }
+  let(:data) { create_list(data_type, data_length, user_id: profile.id, visible: true) }
   let(:data_ids) { data.map(&:id) }
 
   if data_type == :mood

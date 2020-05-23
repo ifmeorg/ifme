@@ -41,7 +41,7 @@ describe HeaderHelper do
         let(:active) { false }
         it 'returns correct props' do
           expect(subject).to eq(
-            home: { name: 'if me', url: '/' },
+            home: { name: 'if-me.org', url: '/' },
             links: [
               { name: 'About', url: '/about', active: false },
               { name: 'Blog', url: 'https://medium.com/ifme' },
@@ -58,7 +58,7 @@ describe HeaderHelper do
         let(:active) { true }
         it 'returns correct props' do
           expect(subject).to eq(
-            home: { name: 'if me', url: '/' },
+            home: { name: 'if-me.org', url: '/' },
             links: [
               { name: 'About', url: '/about', active: false },
               { name: 'Blog', url: 'https://medium.com/ifme' },
@@ -81,7 +81,7 @@ describe HeaderHelper do
         let(:active) { false }
         it 'returns correct props' do
           expect(subject).to eq(
-            home: { name: 'if me', url: '/' },
+            home: { name: 'if-me.org', url: '/' },
             links: [
               { name: 'About', url: '/about', active: false },
               { name: 'Blog', url: 'https://medium.com/ifme' },
@@ -99,7 +99,7 @@ describe HeaderHelper do
         let(:active) { true }
         it 'returns correct props' do
           expect(subject).to eq(
-            home: { name: 'if me', url: '/' },
+            home: { name: 'if-me.org', url: '/' },
             links: [
               { name: 'About', url: '/about', active: false },
               { name: 'Blog', url: 'https://medium.com/ifme' },

@@ -38,4 +38,12 @@ module StrategiesConcern
       comment: false
     )
   end
+
+  def strategy_params
+    params.require(:strategy).permit(
+      :name, :description, :published_at, :draft, :comment,
+      { category: [] }, { viewers: [] }, :visible, :bookmarked,
+      perform_strategy_reminder_attributes: %i[active id]
+    )
+  end
 end

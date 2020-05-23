@@ -14,4 +14,6 @@ nl:
      one: 'Weergeven van <b>1</b> %{entry_name}'
      other: 'Weergeven van <b>alle %{count}</b> %{entry_name}'
    more_pages:
-    display_entries: 'Weergeven van %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> van <b>%{total}</b> in totaal'
+    display_entries: >-
+                  Weergeven van %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}
+                  </b> van <b>%{total}</b> in totaal

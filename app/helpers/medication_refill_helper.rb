@@ -17,13 +17,13 @@ module MedicationRefillHelper
   private
 
   def upload_to_calendar(medication)
-    return unless current_user.google_oauth2_enabled? &&
+    return unless current_user.oauth_enabled? &&
                   new_cal_refill_reminder_needed?(medication)
 
     summary = t('medications.event_summary', name: medication.name)
 
     CalendarUploader
-      .new(current_user.google_access_token)
+      .new(current_user.access_token)
       .upload_event(summary, medication.refill)
   end
 end

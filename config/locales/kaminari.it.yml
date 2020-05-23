@@ -14,4 +14,6 @@ it:
      one: 'Mostrando <b>1</b> %{entry_name}'
      other: 'Mostrando <b>tutti i %{count}</b> %{entry_name}'
    more_pages:
-    display_entries: 'Mostrando %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> di <b>%{total}</b> in totale'
+    display_entries: >-
+                  Mostrando %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b>
+                  di <b>%{total}</b> in totale

@@ -14,6 +14,10 @@ type Props = {
   updateTagFilter?: Function,
 };
 
+const scrollUp = () => {
+  window.scrollTo(0, 0);
+};
+
 const taggedResources = (
   tagged: ?boolean,
   tags: ?(string[]),
@@ -31,6 +35,7 @@ const taggedResources = (
               updateTagFilter
                 ? (tagLabel) => {
                   updateTagFilter(tagLabel);
+                  scrollUp();
                 }
                 : null
             }

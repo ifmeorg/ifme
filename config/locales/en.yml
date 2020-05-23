@@ -1,5 +1,5 @@
 en:
-  app_name: 'if me'
+  app_name: 'if-me.org'
   app_description: 'A community for mental health experiences'
   email: join.ifme@gmail.com
   created: 'Created %{created_at}'
@@ -327,6 +327,8 @@ en:
     edit_moment: 'Edit Moment'
     tagged_moments: 'Tagged Moments'
     new: 'New Moment'
+    bookmark: 'Bookmark this moment?'
+    resource_recommendations: 'Display Resource Recommendations?'
     secret_share:
       singular: 'Secret Share'
       expires_at: 'Expire at'
@@ -353,6 +355,7 @@ en:
       example_category: Career
     show:
       strategies: 'What strategies would help?'
+      resources: 'What resources could help?'
   moods:
     singular: Mood
     plural: Moods
@@ -417,13 +420,13 @@ en:
                  "%{group_name}"
     mailer:
       comment_on_moment_subject: >-
-                              if me | %{user} commented on your moment
+                              if-me.org | %{user} commented on your moment
                               "%{moment}"
       comment_on_strategy_subject: >-
-                                if me | %{user} commented on your strategy
+                                if-me.org | %{user} commented on your strategy
                                 "%{strategy}"
       comment_on_meeting_subject: >-
-                               if me | %{user} commented on the meeting
+                               if-me.org | %{user} commented on the meeting
                                "%{meeting}" in the group "%{group}"
       comment_on_private_body: >-
                             <p>Your ally <strong>%{user}</strong>
@@ -432,24 +435,24 @@ en:
       comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>To read it, %{link}!</p>'
-      new_group_subject: 'if me | %{user} created a group "%{group}"'
+      new_group_subject: 'if-me.org | %{user} created a group "%{group}"'
       new_group_body: >-
                    <p>%{user} created a group "%{group}":</p><p><i>%{description}</i></p><p>To learn more and join, %{link}!</p><p>Please follow our %{code_of_conduct_link}!</p>
-      new_group_member_subject: 'if me | %{user} joined your group "%{group}"'
-      add_group_leader_you_subject: 'if me | You became a leader of "%{group}"'
-      add_group_leader_subject: 'if me | %{user} became a leader of " %{group}"'
+      new_group_member_subject: 'if-me.org | %{user} joined your group "%{group}"'
+      add_group_leader_you_subject: 'if-me.org | You became a leader of "%{group}"'
+      add_group_leader_subject: 'if-me.org | %{user} became a leader of " %{group}"'
       add_remove_group_leader_body: '<p>To see "%{group}", %{link}!</p>'
       remove_group_leader_you_subject: >-
-                                    if me | You are no longer a leader of
+                                    if-me.org | You are no longer a leader of
                                     "%{group}"
       remove_group_leader_subject: >-
-                                if me | %{user} is no longer a leader of
+                                if-me.org | %{user} is no longer a leader of
                                 "%{group}"
       update_meeting_subject: >-
-                           if me | %{user} has updated the meeting
+                           if-me.org | %{user} has updated the meeting
                            "%{meeting}" for "%{group}"
       new_meeting_subject: >-
-                        if me | %{user} has created a new meeting
+                        if-me.org | %{user} has created a new meeting
                         "%{meeting}" for "%{group}"
       meeting_body: >-
                  <p>%{subject}</p><p><i>%{description}</i></p>
@@ -459,25 +462,25 @@ en:
       new_meeting_link: '<p>To learn more and attend, %{link}!</p>'
       update_meeting_link: '<p>To learn more, %{link}!</p>'
       remove_meeting_subject: >-
-                           if me | %{user} has cancelled "%{meeting}"
+                           if-me.org | %{user} has cancelled "%{meeting}"
                            for "%{group}"
       join_meeting_subject: >-
-                         if me | %{user} has joined "%{meeting}" for
+                         if-me.org | %{user} has joined "%{meeting}" for
                          "%{group}"
       join_meeting_body: '<p>To see "%{meeting}", %{link}!</p>'
-      reported_user_subject: 'if me | You have reported a user'
+      reported_user_subject: 'if-me.org | You have reported a user'
       reported_user_body: >-
                        You have reported %{reported_name}. This will be
                        reviewed by an admin.
-      reportee_user_subject: 'if me | You have been reported'
+      reportee_user_subject: 'if-me.org | You have been reported'
       reportee_user_body: >-
                        You have been reported. This will be reviewed
                        by an admin.
-      add_ban_subject: 'if me | You have been banned'
+      add_ban_subject: 'if-me.org | You have been banned'
       add_ban_body: >-
                  You have been banned for violating our
                  %{code_of_conduct_link}.
-      remove_ban_subject: 'if me | You are no longer banned'
+      remove_ban_subject: 'if-me.org | You are no longer banned'
       remove_ban_body: >-
                     You were previously banned for violating our
                     %{code_of_conduct_link}. You are no longer banned.
@@ -486,8 +489,6 @@ en:
     access_denied: 'Access Denied'
   pages:
     about:
-      send_us: us
-      email_us: 'Feel free to email %{email_link}!'
       main_message_one: >-
                      %{app_name} is a community for mental health
                      experiences that encourages people to share their
@@ -501,23 +502,14 @@ en:
                      But for a lot of us, it's a struggle to be open about
                      it.
       message_text_two: >-
-                     <p>Not everyone is a counsellor or therapist. The
+                     Not everyone is a counsellor or therapist. The
                      people who we interact with everyday shape our emotions
                      and behaviour. Getting them involved in mental health
-                     treatment is the key to recovery.</p><p class="subtitle">
-                     "It's not just all in your head, it's all around you.
-                     We can heal together."</p><p>Mental health is such an
-                     individual and unique experience. No two brains are
-                     alike! Tackling the problem requires ideas from
-                     everyone, which is why the project is open source.</p>
-      main_message_three: 'Wanna help fund us?'
+                     treatment is the key to recovery.
       message_text_three: >-
-                       Our app is a <u>completely</u> open source project.
-                       It's built and maintained by volunteers of many
-                       different backgrounds and skill sets.</p><p>In 2016,
+                       <strong>Wanna help fund us?</strong> In 2016,
                        we received a community grant from Linebreak. In 2017,
-                       we received funding from %{fund_club_link}.</p>You
-                       can support us by donating to our %{patreon_link}.</p>
+                       we received funding from %{fund_club_link}. You can support us by donating to our %{open_collective_link}.
       fund_club: 'Fund Club'
     blog:
       description: >-
@@ -525,14 +517,11 @@ en:
                 %{email}! We welcome anonymous submissions too.
     contribute:
       contributor_avatar_alt: 'Contributor biography for %{name}'
-      main_message_one: >-
-                     if me is built and maintained by volunteers of many
-                     different backgrounds and skill sets.
       message_text_one: >-
                      We're always looking for ideas from everyone,
                      including <strong>mental health advocates</strong>,
                      <strong>health professionals</strong>, <strong>software
-                     developers</strong>,<strong>translators</strong>, and
+                     developers</strong>, <strong>translators</strong>, and
                      <strong>user experience designers</strong>!
                      <p class="noMarginBottom">Please %{email_link} and
                      we'll connect with you! You will be invited to
@@ -627,8 +616,8 @@ en:
         message_three: 'Document your moods, medications, and self-care'
         main_message_two: 'We are open source because mental health should be open.'
         message_text_two: >-
-                       'We are <strong>always</strong> looking for your
-                       %{help} and %{feedback}!'
+                       We are <strong>always</strong> looking for your
+                       %{help} and %{feedback}!
         help: help
       signed_in_empty:
         main_message_one: 'Hello %{name}!'
@@ -751,6 +740,19 @@ en:
       emergency: >-
               If you or someone you know is experiencing a mental health
               emergency, reach out for help as soon as possible.
+      crisis_prevention:
+        title: 'How are you doing?'
+        description: 'You are loved no matter what'
+        die: die
+        dead: dead
+        died: died
+        dying: dying
+        death: death
+        passed_away: 'passed away'
+        kill_myself: 'kill myself'
+        hurt_myself: 'hurt myself'
+        suicide: suicide
+        suicidal: suicidal
       tags:
         communities: communities
         education: education
@@ -898,6 +900,7 @@ en:
     stats:
       you_are_focusing: 'You are focusing the most on'
       user_is_focusing: '%{name} is focusing the most on'
+      visible_in_stats: 'Visible in stats?'
     viewers:
       plural: Viewers
       you: 'Only you'
@@ -923,6 +926,7 @@ en:
     edit_strategy: 'Edit Strategy'
     tagged_strategies: 'Tagged Strategies'
     new: 'New Strategy'
+    bookmark: 'Bookmark this strategy?'
     form:
       describe: 'Describe the strategy.'
       strategies_label: 'What strategies would help achieve these thoughts?'
@@ -1010,12 +1014,12 @@ en:
                   in detail
   mailers:
     accepted_ally_request:
-      subject: 'if me | %{ally_name} accepted your ally request!'
+      subject: 'if-me.org | %{ally_name} accepted your ally request!'
       message: >-
             <p>Congrats! You can now share Moments, Strategies, and more
             with %{ally_name}.</p>
     new_ally_request:
-      subject: 'if me | %{ally_name} sent an ally request!'
+      subject: 'if-me.org | %{ally_name} sent an ally request!'
       message: >-
             <p>Please <a href="%{allies_url}">sign in</a> to accept or
             reject the request!</p>
@@ -1079,7 +1083,7 @@ en:
           profile_picture: 'Profile picture'
           remove_picture: 'Remove picture'
           about: About
-          password_for: 'Password for <strong>if me</strong> account'
+          password_for: 'Password for <strong>if-me.org</strong> account'
           update: Update
         placeholders:
           optional: Optional
@@ -1089,7 +1093,7 @@ en:
               for you
           required: Required
         delete:
-          text: 'Is <strong>if me</strong> not working out for you?'
+          text: 'Is <strong>if-me.org</strong> not working out for you?'
           button: 'Permanently delete my account'
           confirm: >-
                 Are you sure? You'll lose all of your data. But you can
@@ -1106,6 +1110,8 @@ en:
     shared:
       sign_in_google: 'Sign in with Google'
       sign_up_google: 'Sign up with Google'
+      sign_in_facebook: 'Sign in with Facebook'
+      sign_up_facebook: 'Sign up with Facebook'
       confirmation: 'Didn''t receive confirmation instructions?'
       unlock: 'Didn''t receive unlock instructions?'
     unlock:

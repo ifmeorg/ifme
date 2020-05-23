@@ -5,7 +5,6 @@
 #
 #  id           :bigint           not null, primary key
 #  user_id      :integer
-#  category     :text
 #  description  :text
 #  viewers      :text
 #  comment      :boolean
@@ -14,6 +13,8 @@
 #  name         :string
 #  slug         :string
 #  published_at :datetime
+#  visible      :boolean          default(TRUE)
+#  bookmarked   :boolean          default(FALSE)
 #
 
 describe Strategy do

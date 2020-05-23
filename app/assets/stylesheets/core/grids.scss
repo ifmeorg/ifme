@@ -35,6 +35,14 @@
   }
 }
 
+@mixin gridThreeItemAlways() {
+  @include gridThreeItem();
+  @media screen and (max-width: $medium) {
+    width: calc(33% - 20px);
+  	padding: 0;
+  }
+}
+
 @mixin gridItemBox() {
   @include setMargin($size-0, $size-0, $size-40, $size-0);
   box-sizing: border-box;
@@ -115,6 +123,26 @@
     @include grid();
     &Item {
       @include gridThreeItem();
+      &BoxLight {
+        @include gridThreeItem();
+        @include gridItemBoxLight();
+      }
+      &BoxDark {
+        @include gridThreeItem();
+        @include gridItemBoxDark();
+      }
+      &BoxGhost {
+        @include gridThreeItem();
+        @include gridItemBoxGhost();
+      }
+    }
+  }
+
+  &ThreeAlways {
+    @include grid();
+    align-items: center;
+    &Item {
+      @include gridThreeItemAlways();
       &BoxLight {
         @include gridThreeItem();
         @include gridItemBoxLight();

@@ -10,6 +10,7 @@
 #  updated_at  :datetime
 #  user_id     :integer
 #  slug        :string
+#  visible     :boolean          default(TRUE)
 #
 
 describe Mood do

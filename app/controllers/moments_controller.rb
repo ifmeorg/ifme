@@ -25,6 +25,12 @@ class MomentsController < ApplicationController
   # GET /moments/1.json
   def show
     show_with_comments(@moment)
+    resources_data = get_resources_data(@moment, current_user)
+    @resources = ResourceRecommendations.new(
+      moment: @moment, current_user: current_user
+    ).call
+    @show_crisis_prevention = resources_data[:show_crisis_prevention]
+    @resources_tags = resources_data[:tags]
   end
 
   # GET /moments/new
@@ -97,6 +103,7 @@ class MomentsController < ApplicationController
 
   def moment_params
     params.require(:moment).permit(:name, :why, :fix, :comment, :draft,
+                                   :bookmarked, :resource_recommendations,
                                    category: [], mood: [], viewers: [],
                                    strategy: [])
   end

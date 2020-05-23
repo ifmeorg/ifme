@@ -7,9 +7,9 @@
 
 README in: [Spanish](https://github.com/ifmeorg/ifme/blob/master/README-ES.md), [Portuguese](https://github.com/ifmeorg/ifme/blob/master/README-PT.md), [French](https://github.com/ifmeorg/ifme/blob/master/README-FR.md)
 
-# if me
+# if-me.org
 
-[if me](https://www.if-me.org/) is a community for mental health experiences
+[if-me.org](https://www.if-me.org/) is a community for mental health experiences
 that encourages people to share their personal stories with trusted allies.
 Trusted allies are the people we interact with on a daily basis, including
 friends, family members, co-workers, teachers, and mental health workers.

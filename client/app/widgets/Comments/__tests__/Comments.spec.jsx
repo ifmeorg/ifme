@@ -3,7 +3,7 @@ import React from 'react';
 import axios from 'axios';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import { Comments } from '../index';
+import Comments from '../index';
 
 let axiosPostSpy;
 let axiosDeleteSpy;

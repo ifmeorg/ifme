@@ -13,7 +13,7 @@ module MeetingsHelper
   end
 
   def google_cal_actions(meeting)
-    return {} unless current_user.google_oauth2_enabled?
+    return {} unless current_user.oauth_enabled?
 
     generate_google_cal_actions_hash(meeting)
   end

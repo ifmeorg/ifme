@@ -43,6 +43,22 @@
   </div>
 <% end %>
 
+<% if @moment.resource_recommendations? && @resources_tags.present? %>
+  <div class="smallMarginTop">
+    <div class="label"><%= label_tag t('moments.show.resources') %></div>
+    <ul>
+      <% @resources.take(3).each do |item|  %>
+        <li><%= link_to item['name'], item['link'] %></li>
+      <%end %>
+      <li><%= link_to  "#{t('load_more')}...", "/resources?#{@resources_tags}" %></li>
+    </ul>
+  </div>
+<% end %>
+
+<% if @show_crisis_prevention %>
+  <%= react_component('CrisisPrevention') %>
+<% end %>
+
 <% if @moment.owned_by?(current_user) && @moment.shared? %>
   <div class="smallMarginTop">
     <%= react_component('Form', props: secret_share_props(@moment)) %>

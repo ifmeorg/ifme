@@ -53,7 +53,7 @@ describe('BaseContainer', () => {
           wrapper.find('.loadMore').simulate('click');
           await axiosGetSpy();
           expect(axiosGetSpy).toBeCalledWith(
-            'http://localhost/some-fetch-url.json?page=2',
+            'https://if-me.org/some-fetch-url.json?page=2',
           );
           wrapper.update();
           expect(wrapper.find('.loadMore').length).toEqual(0);
@@ -88,7 +88,7 @@ describe('BaseContainer', () => {
           wrapper.find('.loadMore').simulate('click');
           await axiosGetSpy();
           expect(axiosGetSpy).toBeCalledWith(
-            'http://localhost/some-fetch-url.json?page=2&uid=some-uid',
+            'https://if-me.org/some-fetch-url.json?page=2&uid=some-uid',
           );
           wrapper.update();
           expect(wrapper.find('.loadMore').length).toEqual(0);
