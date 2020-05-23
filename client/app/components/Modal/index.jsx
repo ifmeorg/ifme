@@ -19,7 +19,10 @@ export type Props = {
   title?: string,
   openListener?: Function,
   open?: boolean,
-  modalKey?: string
+};
+
+type ModalPropsExtended = Props & {
+  modalKey?: string,
 };
 
 export type State = {
@@ -176,7 +179,7 @@ export default ({
   open,
   body,
   modalKey,
-}: Props) => (
+}: ModalPropsExtended) => (
   <Modal
     element={element}
     elementId={elementId}
