@@ -2,9 +2,19 @@
   <%- if devise_mapping.omniauthable? and request.base_url != 'http://0.0.0.0:3000' %>
     <%- resource_class.omniauth_providers.each do |provider| %>
       <% if provider.to_s == "google_oauth2" && (current_page?(new_user_session_path) || current_page?(new_user_password_path)) %>
-        <%= button_to t('devise.shared.sign_in_google'), omniauth_authorize_path(resource_name, provider), method: :post, class: 'buttonGhostM' %>
+        <%= button_to t('devise.shared.sign_in_google'), omniauth_authorize_path(resource_name,
+          provider), method: :post, class: 'buttonGhostM' %>
       <% elsif provider.to_s == "google_oauth2" %>
-        <%= button_to t('devise.shared.sign_up_google'), omniauth_authorize_path(resource_name, provider), method: :post, class: 'buttonGhostM' %>
+        <%= button_to t('devise.shared.sign_up_google'), omniauth_authorize_path(resource_name,
+          provider), method: :post, class: 'buttonGhostM' %>
+      <% end -%>
+
+      <% if provider.to_s == "facebook" && (current_page?(new_user_session_path) || current_page?(new_user_password_path)) %>
+        <%= button_to t('devise.shared.sign_in_facebook'), omniauth_authorize_path(resource_name, provider),
+        method: :post, class: 'buttonGhostM smallMarginTop' %>
+      <% elsif provider.to_s == "facebook" %>
+        <%= button_to t('devise.shared.sign_up_facebook'), omniauth_authorize_path(resource_name, provider),
+        method: :post, class: 'buttonGhostM smallMarginTop' %>
       <% end -%>
     <% end -%>
   <% end -%>

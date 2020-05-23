@@ -14,4 +14,8 @@ class RegistrationsController < Devise::RegistrationsController
       resource.update_with_password(params)
     end
   end
+
+  def oauth_provider?(provider)
+    %w[google_oauth2 facebook].include? provider
+  end
 end

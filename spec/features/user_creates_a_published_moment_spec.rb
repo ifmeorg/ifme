@@ -141,11 +141,16 @@ describe 'UserCreatesAPublishedMoment', js: true do
         find('.accordion').click
       end
 
-      moment_why_text = 'I am changing my moment why'
+      moment_why_text = 'I am changing my moment why. I am struggling a lot and sometimes think about dying.'
       fill_in_textarea(moment_why_text, '#moment_why')
       find('#submit').click
 
       # VIEWING AFTER EDITING
+      within('.modal') do
+        expect(page).to have_content 'How are you doing?'
+        find('.modalClose').click
+      end
+
       expect(find('.pageTitle')).to have_content 'My New Moment'
       expect(page).to have_content moment_why_text
     end

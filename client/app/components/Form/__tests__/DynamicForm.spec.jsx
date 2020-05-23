@@ -7,7 +7,7 @@ import { InputMocks } from '../../../mocks/InputMocks';
 
 // TODO (julianguyen): Include InputTextarea after writing stubs for pell editor
 
-const mockInputs = [
+const defaultMockInputs = [
   { ...InputMocks.inputTextProps, required: true },
   InputMocks.inputSelectProps,
   { ...InputMocks.inputCheckboxGroupProps, required: true },
@@ -16,18 +16,26 @@ const mockInputs = [
   InputMocks.inputSubmitProps,
 ];
 
-const getComponent = (options = {}) => {
-  if (options.nameValue) {
-    mockInputs.unshift({
-      id: 'name-id',
-      type: 'text',
-      name: 'name',
-      label: 'Name',
-      placeholder: 'Some Name Placeholder',
-      info: 'Some Name Info',
-      required: true,
-    });
+const getMockInputs = (nameValue) => {
+  if (nameValue) {
+    return [
+      {
+        id: 'name-id',
+        type: 'text',
+        name: 'name',
+        label: 'Name',
+        placeholder: 'Some Name Placeholder',
+        info: 'Some Name Info',
+        required: true,
+      },
+      ...defaultMockInputs,
+    ];
   }
+  return defaultMockInputs;
+};
+
+const getComponent = (options = {}) => {
+  const mockInputs = getMockInputs(options.nameValue);
   return (
     <DynamicForm
       nameValue={options.nameValue}

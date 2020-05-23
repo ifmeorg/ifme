@@ -12,7 +12,8 @@ describe CommentsFormHelper, type: :controller do
         id: 'submit',
         type: 'submit',
         value: 'Submit',
-        dark: true
+        dark: true,
+        name: 'commit'
       }
     end
 

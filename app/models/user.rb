@@ -55,7 +55,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :uid,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
-         omniauth_providers: [:google_oauth2]
+         omniauth_providers: %i[google_oauth2 facebook]
 
   mount_uploader :avatar, AvatarUploader
 
@@ -81,25 +81,32 @@ class User < ApplicationRecord
   validates :locale, inclusion: {
     in: Rails.application.config.i18n.available_locales.map(&:to_s).push(nil)
   }
-  validate :password_complexity
+  validate :password_complexity, unless: :oauth_provided?
 
   def active_for_authentication?
     super && !banned
   end
 
-  def self.find_for_google_oauth2(access_token)
-    user = find_or_initialize_by(email: access_token.info.email)
-    user.name ||= access_token.info.name
+  def self.find_for_oauth(auth)
+    user = find_or_initialize_by(email: auth.info.email)
+    user.name ||= auth.info.name
     user.password ||= Devise.friendly_token[0, 20]
-    update_access_token_fields(user: user, access_token: access_token)
+    update_access_token_fields(user: user, access_token: auth)
     user
   end
 
-  def google_access_token
-    google_access_token_expired? ? update_access_token : token
+  def self.from_omniauth(auth)
+    where(provider: auth.provider,
+          uid: auth.provider + auth.uid).first_or_create do |user|
+      UserBuilder::Builder.build(user: user, auth: auth)
+    end
   end
 
-  def google_oauth2_enabled?
+  def access_token
+    access_token_expired? ? update_access_token : token
+  end
+
+  def oauth_enabled?
     token.present?
   end
 
@@ -140,7 +147,11 @@ class User < ApplicationRecord
 
   private
 
-  def google_access_token_expired?
+  def oauth_provided?
+    provider.present? || token.present?
+  end
+
+  def access_token_expired?
     !access_expires_at || Time.zone.now > access_expires_at
   end
 end

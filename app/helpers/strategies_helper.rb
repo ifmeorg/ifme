@@ -29,16 +29,14 @@ module StrategiesHelper
   private
 
   def strategy_form_inputs(strategy, viewers)
-    [
-      build_strategy_name(strategy),
-      build_strategy_description(strategy),
-      build_strategy_category,
-      get_viewers_input(viewers, 'strategy', 'strategies', strategy),
-      build_strategy_comment(strategy),
-      build_strategy_publishing(strategy),
-      build_strategy_reminder(strategy).merge(type: 'checkbox'),
-      build_strategy_reminder_attributes(strategy)
-    ]
+    [build_strategy_name(strategy), build_strategy_description(strategy),
+     build_strategy_category,
+     get_viewers_input(viewers, 'strategy', 'strategies', strategy),
+     build_strategy_comment(strategy), build_strategy_publishing(strategy),
+     build_strategy_visible(strategy),
+     Rails.env.development? ? build_strategy_bookmarked(strategy) : {},
+     build_strategy_reminder(strategy).merge(type: 'checkbox'),
+     build_strategy_reminder_attributes(strategy)]
   end
 
   def quick_create_strategy_form_inputs

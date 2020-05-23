@@ -8,7 +8,7 @@ RSpec.describe ::Meetings::GoogleCalendarEventController, type: :controller do
   let!(:calendar_event) { double(id: 'someid') }
   let!(:exception_message) { 'Exception message' }
   before do
-    expect(CalendarUploader).to receive(:new).with(user.google_access_token).and_return(calendar_uploader)
+    expect(CalendarUploader).to receive(:new).with(user.access_token).and_return(calendar_uploader)
   end
 
   describe '#create' do

@@ -5,7 +5,7 @@ ruby '~> 2.6.0'
 
 gem 'puma'
 gem 'rack-rewrite'
-gem 'rails', '~> 5.2.4'
+gem 'rails', '~> 6.0.3'
 
 gem 'activerecord-import'
 gem 'bcrypt', '3.1.13'
@@ -30,11 +30,12 @@ gem 'cloudinary', '~> 1.11.1'
 gem 'figaro', '1.1.1'
 gem 'google-api-client', '~> 0.30.2'
 gem 'kaminari', '1.1.1'
+gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2', '~> 0.7.0'
 gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
 gem 'premailer-rails'
 gem 'pusher', '1.3.2'
-gem 'rails-i18n', '~> 5.1.3'
+gem 'rails-i18n', '~> 6.0.0'
 
 gem 'friendly_id', '~> 5.2.5'
 gem 'sdoc', '1.0.0', group: :doc
@@ -70,7 +71,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rspec-collection_matchers', '~> 1.1.3'
   gem 'rspec-html-matchers', '~> 0.9.0'
-  gem 'rspec-rails', '~> 3.8.2'
+  gem 'rspec-rails', '~> 4.0.0'
 
   gem 'letter_opener'
   gem 'rspec_junit_formatter'

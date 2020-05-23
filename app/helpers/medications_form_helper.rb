@@ -19,7 +19,7 @@ module MedicationsFormHelper
   private
 
   def medication_form_inputs
-    current_user.google_oauth2_enabled? ? google_fields : common_fields
+    current_user.oauth_enabled? ? google_fields : common_fields
   end
 
   def medication_basic_props(field)

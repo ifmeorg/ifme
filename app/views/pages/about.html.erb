@@ -1,13 +1,18 @@
 <% title t('navigation.about') %>
 
 <div class="messageMain">
-  <%= raw t('pages.about.main_message_one', {
-    app_name: t('app_name')
-  }) %>
+  <div class="messageMainLogo">
+    <%= react_component('Logo', props: { lg: true }) %>
+  </div>
 </div>
 
 <div class="messageBody">
-  <%= t('pages.about.message_text_one') %>
+  <%= raw t('pages.about.main_message_one', {
+    app_name: t('app_name')
+  }) %>
+  <p>
+    <%= t('pages.about.message_text_one') %>
+  </p>
 </div>
 
 <div class="largeMarginTop largeMarginBottom center">
@@ -26,28 +31,38 @@
   <%= t('pages.home.not_signed_in.main_message_two') %>
 </div>
 
-<div class="messageBody largeMarginBottom">
-  <%= raw t('pages.home.not_signed_in.message_text_two', {
-    help: link_to(t('pages.home.not_signed_in.help'), contribute_path),
-    feedback: link_to(t('navigation.feedback'), 'http://goo.gl/forms/8EqoJDDiXY', target: 'blank')
-  }) %>
+<div class="messageBody">
+  <%= raw t('pages.contribute.message_text_one', {
+    email_link: link_to(t('common.write_to_us'), "https://github.com/ifmeorg/ifme/wiki/Join-Our-Slack"),
+    slack_link: link_to(t('pages.contribute.slack'), 'https://ifme.slack.com', target: 'blank'),
+    github_link: link_to(t('navigation.github'), 'https://github.com/ifmeorg/ifme', target: 'blank')
+    })
+  %>
+  <p>
+    <%= raw t('pages.about.message_text_three', {
+      fund_club_link: link_to(t('pages.about.fund_club'), 'http://joinfundclub.com', target: 'blank'),
+      open_collective_link: link_to(t('navigation.opencollective'), 'https://opencollective.com/ifme', target: 'blank')
+    }) %>
+  </p>
 </div>
 
+<div class="messageBody gridMany marginTop">
+  <% @blurbs.each do |blurb| %>
+    <%= render partial: 'contributor_blurb', locals: { blurb: blurb } %>
+  <% end %>
+</div>
 
-<div class="messageMain">
-  <%= t('pages.about.main_message_three') %>
+<div class="messageMain marginTop">
+  <%= t('pages.contribute.more_contributors') %>
 </div>
 
 <div class="messageBody">
-  <%= raw t('pages.about.message_text_three', {
-    fund_club_link: link_to(t('pages.about.fund_club'), 'http://joinfundclub.com', target: 'blank'),
-    patreon_link: link_to(t('navigation.patreon'), 'http://patreon.com/ifme', target: 'blank'),
-    opencollective_link: link_to(t('navigation.opencollective'), 'https://opencollective.com/ifme', target: 'blank')
-  }) %>
-
-  <p class="noMarginBottom">
-    <%= raw t('pages.about.email_us', {
-      email_link: link_to(t('pages.about.send_us'), "mailto:#{t('email')}")
-    }) %>
-  </p>
+  <%= t('pages.contribute.thanks') %>
+  <div class="gridThreeAlways marginTop">
+    <% @contributors.each do |c| %>
+      <div class="gridThreeAlwaysItem">
+        <%= link_to c['name'], c['link'], target: 'blank' %>
+      </div>
+    <% end %>
+  </div>
 </div>

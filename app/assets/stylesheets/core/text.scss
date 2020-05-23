@@ -15,3 +15,9 @@
 p {
   word-wrap: break-word;
 }
+
+.purpleYay {
+  @include setFontSize($size-30);
+  color: $purple-yay;
+  text-shadow: $size-0 $size-0 $size-4 $purple-yay;
+}

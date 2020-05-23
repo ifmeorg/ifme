@@ -61,17 +61,27 @@ module MomentsHelper
       storyType: present_object[:story_type] }
   end
 
+  def get_resources_data(moment, current_user)
+    unless moment.shared?
+      r = ResourceRecommendations.new(
+        moment: moment, current_user: current_user
+      )
+      tags = r.matched_tags.uniq.map do |t|
+        "filter[]=#{t}&"
+      end
+    end
+    { tags: tags ? tags.join : '',
+      show_crisis_prevention: r.nil? ? false : r.show_crisis_prevention }
+  end
+
   private
 
   def moment_or_strategy_actions(element, present_object)
     actions = user_actions(element,
                            present_object,
                            element.user_id == current_user&.id)
-    {
-      edit: actions[:edit],
-      delete: actions[:delete],
-      viewers: actions[:viewers]
-    }
+    { edit: actions[:edit], delete: actions[:delete],
+      viewers: actions[:viewers] }
   end
 
   def story_by(element)
@@ -80,9 +90,7 @@ module MomentsHelper
         element.user.name,
         profile_index_path(uid: element.user.uid)
       ),
-      avatar: ProfilePicture.normalize_url(
-        element.user.avatar.url
-      )
+      avatar: ProfilePicture.normalize_url(element.user.avatar.url)
     }
   end
 

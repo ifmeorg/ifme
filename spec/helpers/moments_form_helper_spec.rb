@@ -77,10 +77,21 @@ describe MomentsFormHelper do
                   value: nil
                 },
                 {
+                  id: 'category_visible',
+                  type: 'switch',
+                  label: t('shared.stats.visible_in_stats'),
+                  dark: true,
+                  name: 'category[visible]',
+                  value: true,
+                  uncheckedValue: false,
+                  checked: true,
+                },
+                {
                   dark: true,
                   id: 'submit',
                   type: 'submit',
-                  value: 'Submit'
+                  value: 'Submit',
+                  name: 'commit'
                 }
               ]
             },
@@ -114,9 +125,20 @@ describe MomentsFormHelper do
                 },
                 {
                   dark: true,
+                  id: 'mood_visible',
+                  label: t('shared.stats.visible_in_stats'),
+                  name: 'mood[visible]',
+                  type: 'switch',
+                  value: true,
+                  uncheckedValue: false,
+                  checked: true
+                },
+                {
+                  dark: true,
                   id: 'submit',
                   type: 'submit',
-                  value: 'Submit'
+                  value: 'Submit',
+                  name: 'commit'
                 }
               ]
             },
@@ -154,7 +176,8 @@ describe MomentsFormHelper do
                   dark: true,
                   id: 'submit',
                   type: 'submit',
-                  value: 'Submit'
+                  value: 'Submit',
+                  name: 'commit'
                 }
               ]
             },
@@ -214,10 +237,21 @@ describe MomentsFormHelper do
             value: '0'
           },
           {
+            id: 'moment_resource_recommendations',
+            type: 'switch',
+            name: 'moment[resource_recommendations]',
+            label: 'Display Resource Recommendations?',
+            value: true,
+            uncheckedValue: false,
+            checked: true,
+            dark: true 
+          },
+          {
             dark: true,
             id: 'submit',
             type: 'submit',
-            value: 'Submit'
+            value: 'Submit',
+            name: 'commit'
           }
         ]
       )
@@ -225,7 +259,7 @@ describe MomentsFormHelper do
   end
 
   describe '#edit_moment_props' do
-    let(:moment) { FactoryBot.create(:moment, user: user, category: [category.id], mood: [mood.id], strategy: [strategy.id]) }
+    let(:moment) { FactoryBot.create(:moment, user: user, category: [category.id], mood: [mood.id], strategy: [strategy.id], resource_recommendations: false) }
 
     before do
       @category = category
@@ -298,10 +332,21 @@ describe MomentsFormHelper do
                   dark: true
                 },
                 {
+                  id: 'category_visible',
+                  type: 'switch',
+                  label: t('shared.stats.visible_in_stats'),
+                  dark: true,
+                  name: 'category[visible]',
+                  value: true,
+                  uncheckedValue: false,
+                  checked: true,
+                },
+                {
                   id: 'submit',
                   type: 'submit',
                   value: 'Submit',
-                  dark: true
+                  dark: true,
+                  name: 'commit'
                 }
               ],
               action: '/categories/quick_create'
@@ -341,10 +386,21 @@ describe MomentsFormHelper do
                   dark: true
                 },
                 {
+                  dark: true,
+                  id: 'mood_visible',
+                  label: t('shared.stats.visible_in_stats'),
+                  name: 'mood[visible]',
+                  type: 'switch',
+                  value: true,
+                  uncheckedValue: false,
+                  checked: true
+                },
+                {
                   id: 'submit',
                   type: 'submit',
                   value: 'Submit',
-                  dark: true
+                  dark: true,
+                  name: 'commit'
                 }
               ],
               action: '/moods/quick_create'
@@ -390,7 +446,8 @@ describe MomentsFormHelper do
                   id: 'submit',
                   type: 'submit',
                   value: 'Submit',
-                  dark: true
+                  dark: true,
+                  name: 'commit'
                 }
               ],
               action: '/strategies/quick_create'
@@ -447,6 +504,16 @@ describe MomentsFormHelper do
             checked: true
           },
           {
+            id: 'moment_resource_recommendations',
+            type: 'switch',
+            name: 'moment[resource_recommendations]',
+            label: 'Display Resource Recommendations?',
+            value: true,
+            uncheckedValue: false,
+            checked: false,
+            dark: true 
+          },
+          {
             id: '_method',
             name: '_method',
             type: 'hidden',
@@ -456,7 +523,8 @@ describe MomentsFormHelper do
             id: 'submit',
             type: 'submit',
             value: 'Submit',
-            dark: true
+            dark: true,
+            name: 'commit'
           }
         ],
         action: '/moments/test-moment'

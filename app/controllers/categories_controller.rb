@@ -3,7 +3,7 @@
 class CategoriesController < ApplicationController
   include CollectionPageSetupConcern
   include CategoriesHelper
-  include Shared
+  include SharedBasicConcern
   include TagsHelper
   before_action :set_category, only: %i[show edit update destroy]
   respond_to :json, only: [:index]
@@ -69,12 +69,7 @@ class CategoriesController < ApplicationController
   end
 
   def quick_create
-    category = Category.new(
-      user_id: current_user.id,
-      name: params[:category][:name],
-      description: params[:category][:description]
-    )
-    shared_quick_create(category)
+    shared_quick_create_basic(Category, params)
   end
 
   private
@@ -87,6 +82,6 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit(:name, :description)
+    params.require(:category).permit(:name, :description, :visible)
   end
 end
