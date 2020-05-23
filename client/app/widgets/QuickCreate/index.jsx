@@ -149,7 +149,7 @@ export class QuickCreate extends React.Component<Props, State> {
       <div>
         {this.displayInputTag()}
         <div className={css.modal}>
-          <Modal body={body} title={label} open={open} key={modalKey} />
+          <Modal body={body} title={label} open={open} modalKey={modalKey} />
         </div>
       </div>
     );

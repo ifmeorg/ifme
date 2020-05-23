@@ -127,7 +127,7 @@ export class Notifications extends React.Component<Props, State> {
         }
         openListener={this.fetchNotifications}
         open={open}
-        key={modalKey}
+        modalKey={modalKey}
       />
     );
   }

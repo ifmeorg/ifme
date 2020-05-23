@@ -19,6 +19,7 @@ export type Props = {
   title?: string,
   openListener?: Function,
   open?: boolean,
+  modalKey?: string
 };
 
 export type State = {
@@ -34,6 +35,7 @@ const Modal = (props: Props) => {
     title,
     openListener,
     open: openProps,
+    modalKey
   } = props;
 
   const [open, setOpen] = useState(!!openProps);
@@ -174,6 +176,7 @@ export default ({
   openListener,
   open,
   body,
+  modalKey
 }: Props) => (
   <Modal
     element={element}
@@ -182,5 +185,6 @@ export default ({
     openListener={openListener}
     body={body}
     open={open}
+    key={modalKey}
   />
 );
