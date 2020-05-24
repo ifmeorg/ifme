@@ -2,7 +2,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { Modal } from '../../components/Modal';
+import Modal from '../../components/Modal';
 import { I18n } from '../../libs/i18n';
 import css from './CrisisPrevention.scss';
 
