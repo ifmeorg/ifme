@@ -752,6 +752,7 @@ nb:
         social_media_break: 'sosiale mediebrudd'
         quiz: quiz
         attachment: feste
+        eating_disorders: spiseforstyrrelser
   profile:
     index:
       title: Profil

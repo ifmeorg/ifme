@@ -903,6 +903,7 @@ fr:
         social_media_break: 'pause sur les réseaux sociaux'
         quiz: quiz
         attachment: attachement
+        eating_disorders: 'troubles de l''alimentation'
   profile:
     index:
       title: Profile

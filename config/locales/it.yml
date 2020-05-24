@@ -759,6 +759,7 @@ it:
         social_media_break: 'pausa dai social media'
         quiz: quiz
         attachment: attaccamento
+        eating_disorders: 'problemi alimentari'
   profile:
     index:
       title: Profilo
