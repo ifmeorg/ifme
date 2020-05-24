@@ -31,6 +31,7 @@ fr:
     zh-CN: 中文
   navigation:
     main_menu: 'Menu du site principal'
+    google: Google
     user_menu: 'Menu utilisateur'
     about: 'À propos'
     blog: Blog
@@ -493,7 +494,6 @@ fr:
                     Vous avez déjà été banni pour avoir violé notre
                     %{code_of_conduct_link}.
   omniauth:
-    google: Google
     access_denied: 'Accès refusé'
   pages:
     about:

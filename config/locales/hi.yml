@@ -31,6 +31,7 @@ hi:
     zh-CN: 中文
   navigation:
     main_menu: 'मुख्य साइट मेनू'
+    google: 'गूगल'
     user_menu: 'उपयोगकर्ता विकल्प सूची'
     about: 'बारे में'
     blog: 'ब्लॉग'
@@ -416,7 +417,6 @@ hi:
       remove_ban_body: 'आपको पहले हमारे %{code_of_conduct_link} के उल्लंघन के लिए प्रतिबंधित
       किया गया था। अब आप प्रतिबंधित नहीं हैं'
   omniauth:
-    google: 'गूगल'
     access_denied: 'पहुंच अस्वीकृत'
   pages:
     about:

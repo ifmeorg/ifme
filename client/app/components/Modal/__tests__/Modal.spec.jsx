@@ -1,7 +1,7 @@
 // @flow
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import React from 'react';
-import { Modal } from '../index';
+import Modal from '../index';
 
 const title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
 
@@ -43,7 +43,7 @@ describe('Modal', () => {
     describe('has text values for element and body', () => {
       const component = <Modal element="Hello" body={bodyText} title={title} />;
       it('toggles correctly', () => {
-        const wrapper = shallow(component);
+        const wrapper = mount(component);
         expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
         expect(wrapper.find('.modal').exists()).toEqual(false);
         wrapper.find('.modalElement').simulate('click');
@@ -65,7 +65,7 @@ describe('Modal', () => {
             openListener={openListener}
           />
         );
-        const wrapper = shallow(component);
+        const wrapper = mount(component);
         expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
         expect(wrapper.find('.modal').exists()).toEqual(false);
         wrapper.find('.modalElement').simulate('click');
@@ -88,7 +88,7 @@ describe('Modal', () => {
             title={title}
           />
         );
-        const wrapper = shallow(component);
+        const wrapper = mount(component);
         expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
         expect(wrapper.find('.modal').exists()).toEqual(false);
         wrapper.find('.modalElement').simulate('click');
@@ -110,7 +110,7 @@ describe('Modal', () => {
             openListener={openListener}
           />
         );
-        const wrapper = shallow(component);
+        const wrapper = mount(component);
         expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
         expect(wrapper.find('.modal').exists()).toEqual(false);
         wrapper.find('.modalElement').simulate('click');
@@ -135,7 +135,7 @@ describe('Modal', () => {
         />
       );
       it('toggles correctly', () => {
-        const wrapper = shallow(component);
+        const wrapper = mount(component);
         expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
         expect(wrapper.find('.modal').exists()).toEqual(false);
         wrapper.find('.modalElement').simulate('click');
@@ -160,7 +160,7 @@ describe('Modal', () => {
         />
       );
       it('toggles correctly', () => {
-        const wrapper = shallow(component);
+        const wrapper = mount(component);
         expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
         expect(wrapper.find('.modal').exists()).toEqual(false);
         wrapper.find('.modalElement').simulate('click');
@@ -188,7 +188,7 @@ describe('Modal', () => {
         />
       );
       it('toggles correctly', () => {
-        const wrapper = shallow(component);
+        const wrapper = mount(component);
         expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
         expect(wrapper.find('.modal').exists()).toEqual(false);
         wrapper.find('.modalElement').simulate('click');
@@ -209,7 +209,7 @@ describe('Modal', () => {
         <Modal element="Hello" body={bodyText} title={title} open />
       );
       it('toggles correctly', () => {
-        const wrapper = shallow(component);
+        const wrapper = mount(component);
         expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
         expect(wrapper.find('.modal').exists()).toEqual(true);
         wrapper.find('.modalClose').simulate('click');
@@ -232,7 +232,7 @@ describe('Modal', () => {
             open
           />
         );
-        const wrapper = shallow(component);
+        const wrapper = mount(component);
         expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
         expect(wrapper.find('.modal').exists()).toEqual(true);
         wrapper.find('.modalClose').simulate('click');
@@ -255,7 +255,7 @@ describe('Modal', () => {
             open
           />
         );
-        const wrapper = shallow(component);
+        const wrapper = mount(component);
         expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
         expect(wrapper.find('.modal').exists()).toEqual(true);
         wrapper.find('.modalClose').simulate('click');
@@ -278,7 +278,7 @@ describe('Modal', () => {
             open
           />
         );
-        const wrapper = shallow(component);
+        const wrapper = mount(component);
         expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
         expect(wrapper.find('.modal').exists()).toEqual(true);
         wrapper.find('.modalClose').simulate('click');
@@ -324,7 +324,7 @@ describe('Modal', () => {
         />
       );
       it('toggles correctly', () => {
-        const wrapper = shallow(component);
+        const wrapper = mount(component);
         expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
         expect(wrapper.find('.modal').exists()).toEqual(true);
         wrapper.find('.modalBackdrop').simulate('keydown', { key: 'Escape' });
@@ -348,7 +348,7 @@ describe('Modal', () => {
         />
       );
       it('toggles correctly', () => {
-        const wrapper = shallow(component);
+        const wrapper = mount(component);
         expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
         expect(wrapper.find('.modal').exists()).toEqual(true);
         wrapper.find('.modal').simulate('mouseleave');
@@ -373,7 +373,7 @@ describe('Modal', () => {
         />
       );
       it('toggles correctly', () => {
-        const wrapper = shallow(component);
+        const wrapper = mount(component);
         expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
         expect(wrapper.find('.modal').exists()).toEqual(true);
         wrapper.find('.modal').simulate('mouseover');
