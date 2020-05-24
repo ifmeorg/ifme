@@ -30,6 +30,7 @@ en:
     hi: 'हिंदी'
     zh-CN: 中文
   navigation:
+    google: Google
     main_menu: 'Main menu'
     user_menu: 'User menu'
     about: About
@@ -485,7 +486,6 @@ en:
                     You were previously banned for violating our
                     %{code_of_conduct_link}. You are no longer banned.
   omniauth:
-    google: Google
     access_denied: 'Access Denied'
   pages:
     about:

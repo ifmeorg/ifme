@@ -43,6 +43,7 @@ it:
     opencollective: 'Open Collective'
     instagram: Instagram
     rss: RSS
+    google: Google
     twitter: Twitter
     facebook: Facebook
     feedback: feedback
@@ -442,7 +443,6 @@ it:
       remove_ban_body: 'In precedenza sei stato bannato per aver violato la
       nostra %{code_of_conduct_link}. Non sei più bannato.'
   omniauth:
-    google: Google
     access_denied: 'Accesso Negato'
   pages:
     about:

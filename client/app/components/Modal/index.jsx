@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useState, type Element } from 'react';
 import renderHTML from 'react-render-html';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -7,13 +7,22 @@ import css from './Modal.scss';
 import { I18n } from '../../libs/i18n';
 import { Avatar } from '../Avatar';
 
+type CustomElement = {
+  component: string,
+  props: Object,
+};
+
 export type Props = {
-  element?: any,
+  element?: CustomElement | Element<any>,
   elementId?: string,
-  body: any,
+  body: string | Element<any> | any,
   title?: string,
   openListener?: Function,
   open?: boolean,
+};
+
+type ModalPropsExtended = Props & {
+  modalKey?: string,
 };
 
 export type State = {
@@ -21,60 +30,84 @@ export type State = {
   modalHasFocus: boolean,
 };
 
-export class Modal extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = { open: !!props.open, modalHasFocus: true };
-  }
+const Modal = (props: Props) => {
+  const {
+    element,
+    elementId,
+    body,
+    title,
+    openListener,
+    open: openProps,
+  } = props;
 
-  displayContent = (content: any) => {
+  const [open, setOpen] = useState(!!openProps);
+  const [modalHasFocus, setModalHasFocus] = useState(true);
+
+  const displayContent = (content: string | any) => {
     if (typeof content === 'string') {
       return renderHTML(content);
     }
     return content;
   };
 
-  displayModalHeader = () => {
-    const { title } = this.props;
-    return (
-      <div className={css.modalBoxHeader}>
-        {title && (
-          <div
-            id="modalTitle"
-            className={css.modalBoxHeaderTitle}
-            aria-label={title}
-          >
-            {title}
-          </div>
-        )}
+  const toggleOpen = () => {
+    const documentBody = ((document.body: any): HTMLBodyElement);
+    if (!open) {
+      documentBody.classList.add('bodyModalOpen');
+    } else {
+      documentBody.classList.remove('bodyModalOpen');
+    }
+    if (!open && openListener) {
+      openListener();
+    }
+    setOpen(!open);
+  };
+
+  const displayModalHeader = () => (
+    <div className={css.modalBoxHeader}>
+      {title && (
         <div
-          className={`modalClose ${css.modalBoxHeaderClose}`}
-          onClick={this.toggleOpen}
-          onKeyDown={this.toggleOpen}
-          role="button"
-          tabIndex={0}
-          aria-label={I18n.t('close')}
+          id="modalTitle"
+          className={css.modalBoxHeaderTitle}
+          aria-label={title}
         >
-          <FontAwesomeIcon icon={faTimes} color="#6D0839" />
+          {title}
         </div>
+      )}
+      <div
+        className={`modalClose ${css.modalBoxHeaderClose}`}
+        onClick={toggleOpen}
+        onKeyDown={toggleOpen}
+        role="button"
+        tabIndex={0}
+        aria-label={I18n.t('close')}
+      >
+        <FontAwesomeIcon icon={faTimes} color="#6D0839" />
       </div>
-    );
+    </div>
+  );
+
+  const displayModalBody = () => (
+    <div id="modalDesc" className={css.modalBoxBody}>
+      {displayContent(body)}
+    </div>
+  );
+
+  const handleKeyPress = (event: SyntheticKeyboardEvent<HTMLDivElement>) => {
+    if (event.key !== 'Escape') return;
+    toggleOpen();
   };
 
-  displayModalBody = () => {
-    const { body } = this.props;
-    return (
-      <div id="modalDesc" className={css.modalBoxBody}>
-        {this.displayContent(body)}
-      </div>
-    );
+  const handleClick = () => {
+    if (modalHasFocus) return;
+    toggleOpen();
   };
 
-  displayModalBox = () => (
+  const displayModalBox = () => (
     <div
       className={`modalBackdrop ${css.modalBackdrop}`}
-      onClick={this.handleClick}
-      onKeyDown={this.handleKeyPress}
+      onClick={handleClick}
+      onKeyDown={handleKeyPress}
       tabIndex="0"
       role="button"
     >
@@ -83,74 +116,18 @@ export class Modal extends React.Component<Props, State> {
         role="dialog"
         aria-labelledby="modalTitle"
         aria-describedby="modalDesc"
-        onMouseOver={() => this.setModalHasFocus(true)}
-        onMouseLeave={() => this.setModalHasFocus(false)}
-        onFocus={() => this.setModalHasFocus(true)}
-        onBlur={() => this.setModalHasFocus(false)}
+        onMouseOver={() => setModalHasFocus(true)}
+        onMouseLeave={() => setModalHasFocus(false)}
+        onFocus={() => setModalHasFocus(true)}
+        onBlur={() => setModalHasFocus(false)}
       >
-        {this.displayModalHeader()}
-        {this.displayModalBody()}
+        {displayModalHeader()}
+        {displayModalBody()}
       </div>
     </div>
   );
 
-  handleClick = () => {
-    const { modalHasFocus } = this.state;
-    if (modalHasFocus) return;
-    this.toggleOpen();
-  };
-
-  handleKeyPress = (event: SyntheticKeyboardEvent<HTMLDivElement>) => {
-    if (event.key !== 'Escape') return;
-    this.toggleOpen();
-  };
-
-  setModalHasFocus = (modalHasFocus: boolean) => {
-    this.setState({ modalHasFocus });
-  };
-
-  toggleOpen = () => {
-    const { open } = this.state;
-    const { openListener } = this.props;
-    const body = ((document.body: any): HTMLBodyElement);
-    if (!open) {
-      body.classList.add('bodyModalOpen');
-    } else {
-      body.classList.remove('bodyModalOpen');
-    }
-    if (!open && openListener) {
-      openListener();
-    }
-    this.setState({ open: !open });
-  };
-
-  resolveElement = () => {
-    const { element, elementId } = this.props;
-    let renderComponent;
-    if (element && element.component) {
-      const { component, props } = element;
-      renderComponent = React.createElement(this.resolveComponent(component), {
-        ...props,
-      });
-    }
-    if (element) {
-      return (
-        <div
-          id={elementId}
-          className={`modalElement ${css.modalElement}`}
-          onClick={this.toggleOpen}
-          onKeyDown={this.toggleOpen}
-          role="button"
-          tabIndex={0}
-        >
-          {renderComponent || this.displayContent(element)}
-        </div>
-      );
-    }
-    return null;
-  };
-
-  resolveComponent = (component: string) => {
+  const resolveComponent = (component: string) => {
     /** Really only returns Avatar right now but more could be added if needed */
     switch (component) {
       case 'Avatar':
@@ -159,14 +136,57 @@ export class Modal extends React.Component<Props, State> {
     }
   };
 
-  render() {
-    const { open } = this.state;
-    const renderElement = this.resolveElement();
-    return (
-      <div>
-        {renderElement}
-        {open ? this.displayModalBox() : null}
-      </div>
-    );
-  }
-}
+  const resolveElement = () => {
+    let renderComponent;
+    if (element && element.component) {
+      const { component, props: elementProps } = element;
+      renderComponent = React.createElement(resolveComponent(component), {
+        ...elementProps,
+      });
+    }
+    if (element) {
+      return (
+        <div
+          id={elementId}
+          className={`modalElement ${css.modalElement}`}
+          onClick={toggleOpen}
+          onKeyDown={toggleOpen}
+          role="button"
+          tabIndex={0}
+        >
+          {renderComponent || displayContent(element)}
+        </div>
+      );
+    }
+    return null;
+  };
+
+  return (
+    <>
+      {resolveElement()}
+      {open ? displayModalBox() : null}
+    </>
+  );
+};
+
+// There's a [bug](https://github.com/shakacode/react_on_rails/issues/1198) with React on Rails,
+// so we'll need to do this in order to render multiple components with hooks on the same page.
+export default ({
+  element,
+  elementId,
+  title,
+  openListener,
+  open,
+  body,
+  modalKey,
+}: ModalPropsExtended) => (
+  <Modal
+    element={element}
+    elementId={elementId}
+    title={title}
+    openListener={openListener}
+    body={body}
+    open={open}
+    key={modalKey}
+  />
+);

@@ -2,7 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 import renderHTML from 'react-render-html';
-import { Modal } from '../../components/Modal';
+import Modal from '../../components/Modal';
 import { Utils } from '../../utils';
 import { I18n } from '../../libs/i18n/index';
 
@@ -127,7 +127,7 @@ export class Notifications extends React.Component<Props, State> {
         }
         openListener={this.fetchNotifications}
         open={open}
-        key={modalKey}
+        modalKey={modalKey}
       />
     );
   }
