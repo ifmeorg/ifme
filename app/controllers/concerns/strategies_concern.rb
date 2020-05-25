@@ -38,7 +38,7 @@ module StrategiesConcern
       comment: false
     )
   end
-  
+
   def create_task(strategy)
     task = Task.find(strategy.id)
     return unless task
