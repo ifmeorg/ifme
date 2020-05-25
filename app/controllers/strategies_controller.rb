@@ -128,4 +128,3 @@ class StrategiesController < ApplicationController
       category: params[:strategy][:category], name: params[:strategy][:name] }
   end
 end
-# rubocop:enable ClassLength
