@@ -38,6 +38,15 @@ module StrategiesConcern
       comment: false
     )
   end
+  
+  def create_task(strategy)
+    task = Task.find(strategy.id)
+    return unless task
+
+    task.finished = strategy.finished
+    task.title = strategy.name
+    task.save
+  end
 
   def strategy_params
     params.require(:strategy).permit(
