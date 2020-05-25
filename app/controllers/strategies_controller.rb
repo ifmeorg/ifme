@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-# rubocop:disable ClassLength
 class StrategiesController < ApplicationController
   include CollectionPageSetupConcern
   include ReminderHelper
@@ -80,15 +79,6 @@ class StrategiesController < ApplicationController
       end
       format.html { redirect_to strategies_path }
     end
-  end
-
-  def create_task(strategy)
-    task = Task.find(strategy.id)
-    return unless task
-
-    task.finished = strategy.finished
-    task.title = strategy.name
-    task.save
   end
 
   # PATCH/PUT /strategies/1
