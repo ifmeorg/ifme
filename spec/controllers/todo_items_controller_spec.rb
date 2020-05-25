@@ -10,9 +10,5 @@ describe TodoItemsController do
     context 'when the user is logged in' do
       include_context :logged_in_user
     end
-
-    context 'when the user is not logged in' do
-      include_context :with_no_logged_in_user
-    end
   end
 end
