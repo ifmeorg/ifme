@@ -1,23 +1,56 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { Accordion } from '../components/Accordion';
+import { mulberry } from '../../.storybook/backgrounds';
 
 const title = 'Accordions have pianos';
-const children = <strong>Hello</strong>;
+const children = 'Hello';
 
-storiesOf('Accordion', module).add('Accordion', () => (
-  <div>
-    <Accordion id="some_id" title={title}>
-      {children}
-    </Accordion>
-    <Accordion id="some_id" title={title} large>
-      {children}
-    </Accordion>
-    <Accordion id="some_id" title={title} dark>
-      {children}
-    </Accordion>
-    <Accordion id="some_id" title={title} dark large>
-      <strong>Hello</strong>
-    </Accordion>
-  </div>
-));
+export default {
+  title: 'Components/Accordion',
+};
+
+export const Default = () => (
+  <Accordion id="some_id" title={title}>
+    {children}
+  </Accordion>
+);
+
+Default.story = {
+  name: 'Default size and style',
+  parameters: {
+    backgrounds: [{ ...mulberry, default: true }],
+  },
+};
+
+export const DefaultLarge = () => (
+  <Accordion id="some_id" title={title} large>
+    {children}
+  </Accordion>
+);
+
+DefaultLarge.story = {
+  name: 'Default style and large size',
+  parameters: {
+    backgrounds: [{ ...mulberry, default: true }],
+  },
+};
+
+export const DefaultDark = () => (
+  <Accordion id="some_id" title={title} dark>
+    {children}
+  </Accordion>
+);
+
+DefaultDark.story = {
+  name: 'Default size and dark style',
+};
+
+export const LargeDark = () => (
+  <Accordion id="some_id" title={title} large dark>
+    {children}
+  </Accordion>
+);
+
+LargeDark.story = {
+  name: 'Large size and dark style',
+};

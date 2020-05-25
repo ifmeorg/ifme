@@ -53,7 +53,7 @@ const getParams = (inputs: MyInputProps[], myRefs: Object) => {
 
 export const hasErrors = (errors: Errors) => Object.values(errors).filter((key) => key).length;
 
-const DynamicForm = ({ nameValue, formProps, onCreate }: Props) => {
+export const DynamicForm = ({ nameValue, formProps, onCreate }: Props) => {
   const [inputs, setInputs] = useState<MyInputProps[]>(
     getInputsInitialState(formProps, nameValue),
   );
