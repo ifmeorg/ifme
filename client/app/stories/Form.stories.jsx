@@ -1,9 +1,16 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Form from '../components/Form';
+import { Form } from '../components/Form';
 import { InputMocks } from '../mocks/InputMocks';
+import { mulberry } from '../../.storybook/backgrounds';
 
-storiesOf('Form', module).add('Form', () => (
+export default {
+  title: 'Components/Form',
+  parameters: {
+    backgrounds: [{ ...mulberry, default: true }],
+  },
+};
+
+export const Default = () => (
   <Form
     action="/post-wont-work"
     inputs={[
@@ -20,4 +27,4 @@ storiesOf('Form', module).add('Form', () => (
       InputMocks.inputSubmitProps,
     ]}
   />
-));
+);

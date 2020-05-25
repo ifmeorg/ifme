@@ -8,6 +8,8 @@
   },
   "root": true,
   "rules": {
+    // When this [bug](https://github.com/shakacode/react_on_rails/issues/1198) is resolved we can remove the next line and enforce default exports
+    "import/no-named-as-default": ["off"],
     "import/prefer-default-export": ["off"],
     "react/require-default-props": ["off"],
     "jsx-a11y/label-has-for": ["off"],

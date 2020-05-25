@@ -17,7 +17,7 @@ export const hasErrors = (errors: Errors) => Object.values(errors).filter((key) 
 
 const getInputsInitialState = (inputs: MyInputProps[]) => inputs.filter((input) => input !== {});
 
-const Form = ({ action, inputs: inputsProps }: Props) => {
+export const Form = ({ action, inputs: inputsProps }: Props) => {
   const [inputs, setInputs] = useState<MyInputProps[]>(
     getInputsInitialState(inputsProps),
   );
