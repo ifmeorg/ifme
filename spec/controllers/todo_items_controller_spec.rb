@@ -12,8 +12,7 @@ describe TodoItemsController do
     end
 
     context 'when the user is not logged in' do
-      before { get :index }
-      it_behaves_like :with_no_logged_in_user
+      include_context :with_no_logged_in_user
     end
   end
 end
