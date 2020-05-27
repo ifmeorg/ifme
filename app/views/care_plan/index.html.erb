@@ -1,2 +1,15 @@
 <% title t('care_plan.index.title') %>
 
+<% if @bookmarked_strategies.any? %>
+  <h2><%= t('strategies.plural') %></h2>
+  <div class="gridTwo marginTop">
+    <% @bookmarked_strategies.each do |strategy| %>
+      <div class="gridTwoItemBoxLight">
+        <%= react_component('Story', html_options: html_options, props: {
+          name: strategy.name,
+          link: strategy_path(strategy)
+        }) %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
