@@ -11,6 +11,15 @@ describe CarePlanController do
         get :index
         expect(response).to render_template(:index)
       end
+
+      context 'when there are bookmared strategies' do
+        let(:strategy) { create(:strategy, user: user, bookmarked: true) }
+
+        it 'assigns @bookmarked_strategies' do
+          get :index
+          expect(assigns(:bookmarked_strategies)).to eq([strategy])
+        end
+      end
     end
 
     context 'when user is not signed in' do
