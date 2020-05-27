@@ -1,8 +1,11 @@
+# frozen_string_literal: true
 class CarePlanContactsController < ApplicationController
   include CarePlanContactsConcern
 
   def create
-    care_plan_contact = CarePlanContact.new(care_plan_contact_params.merge(user_id: current_user.id))
+    care_plan_contact = CarePlanContact.new(
+      care_plan_contact_params.merge(user_id: current_user.id)
+    )
     render json: create_response_object(care_plan_contact)
   end
 
@@ -13,9 +16,7 @@ class CarePlanContactsController < ApplicationController
 
   def destroy
     care_plan_contact = CarePlanContact.find_by(id: params[:id])
-    if care_plan_contact
-      care_plan_contact.destroy
-    end
+    care_plan_contact&.destroy
     redirect_to_path(care_plan_path)
   end
 

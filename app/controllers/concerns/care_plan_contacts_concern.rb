@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module CarePlanContactsConcern
   extend ActiveSupport::Concern
 
@@ -9,7 +10,9 @@ module CarePlanContactsConcern
   end
 
   def update_response_object(care_plan_contact)
-    return { success: false } unless care_plan_contact.update(care_plan_contact_params)
+    unless care_plan_contact.update(care_plan_contact_params)
+      return { success: false }
+    end
 
     { success: true, id: care_plan_contact.id,
       name: care_plan_contact.name, phone: care_plan_contact.phone }
