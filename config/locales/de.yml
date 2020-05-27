@@ -1096,3 +1096,6 @@ de:
       unlock: Keine Anweisungen zur Freischaltung erhalten?
     unlock:
       resend: Anweisungen zur Freischaltung versenden
+  care_plan:
+    index:
+      title: 'Care Plan'

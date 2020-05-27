@@ -1012,3 +1012,6 @@ vi:
       unlock: Không nhận được hứng dẫn mở khóa?
     unlock:
       resend: Gửi lại hướng dẫn mở khóa
+  care_plan:
+    index:
+      title: 'Care Plan'

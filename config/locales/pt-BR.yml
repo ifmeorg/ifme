@@ -1053,3 +1053,6 @@ pt-BR:
       unlock: Não recebeu as instruções de desbloqueio?
     unlock:
       resend: Reenviar instruções de liberação de senha
+  care_plan:
+    index:
+      title: 'Care Plan'

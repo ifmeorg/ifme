@@ -1059,3 +1059,6 @@ fr:
       unlock: Vous n'avez pas reçu vos informations pour débloquer votre compte ?
     unlock:
       resend: Renvoyer les informations pour débloquer le compte
+  care_plan:
+    index:
+      title: 'Care Plan'

@@ -1033,3 +1033,6 @@ es:
       unlock: ¿No recibiste instrucciones para desbloquear?
     unlock:
       resend: Reenviar instrucciones para desbloquear
+  care_plan:
+    index:
+      title: 'Care Plan'

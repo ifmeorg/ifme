@@ -1023,3 +1023,6 @@ nl:
       unlock: Ontgrendelingsinstructies niet ontvangen?
     unlock:
       resend: Ontgrendelingsinstructies opnieuw versturen
+  care_plan:
+    index:
+      title: 'Care Plan'

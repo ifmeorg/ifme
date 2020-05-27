@@ -999,3 +999,6 @@ hi:
       unlock: क्या अनलॉक निर्देश प्राप्त नहीं होंगे?
     unlock:
       resend: अनलॉक निर्देश पुनः भेजें
+  care_plan:
+    index:
+      title: 'Care Plan'
