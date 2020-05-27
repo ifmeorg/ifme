@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  match 'care_plan', to: 'care_plan#index', via: :get
   get 'errors/not_found'
   get 'errors/internal_server_error'
 
@@ -97,7 +98,7 @@ Rails.application.routes.draw do
       get 'signed_in'
     end
   end
-  
+
   resources :omniauth_callbacks do
     collection do
       get 'omniauth_login'

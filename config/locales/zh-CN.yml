@@ -814,3 +814,6 @@ zh-CN:
       unlock: 没有收到解锁指令吗？
     unlock:
       resend: 重新发送解锁说明
+  care_plan:
+    index:
+      title: 'Care Plan'
