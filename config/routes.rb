@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  match 'care_plan', to: 'care_plan#index', via: :get
   get 'errors/not_found'
   get 'errors/internal_server_error'
 
@@ -70,6 +69,10 @@ Rails.application.routes.draw do
     end
     resource :google_calendar_event, controller: 'meetings/google_calendar_event', only: %i[create destroy]
   end
+
+  match 'care_plan', to: 'care_plan#index', via: :get
+
+  resources :care_plan_contacts, only: %i[create update destroy]
 
   resources :profile, only: :index do
     collection do
