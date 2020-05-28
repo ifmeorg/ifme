@@ -187,18 +187,18 @@ GEM
       thor (>= 0.14, < 2.0)
     json (2.3.0)
     jwt (2.2.1)
-    kaminari (1.1.1)
+    kaminari (1.2.1)
       activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.1.1)
-      kaminari-activerecord (= 1.1.1)
-      kaminari-core (= 1.1.1)
-    kaminari-actionview (1.1.1)
+      kaminari-actionview (= 1.2.1)
+      kaminari-activerecord (= 1.2.1)
+      kaminari-core (= 1.2.1)
+    kaminari-actionview (1.2.1)
       actionview
-      kaminari-core (= 1.1.1)
-    kaminari-activerecord (1.1.1)
+      kaminari-core (= 1.2.1)
+    kaminari-activerecord (1.2.1)
       activerecord
-      kaminari-core (= 1.1.1)
-    kaminari-core (1.1.1)
+      kaminari-core (= 1.2.1)
+    kaminari-core (1.2.1)
     launchy (2.5.0)
       addressable (~> 2.7)
     letter_opener (1.7.0)
@@ -539,7 +539,7 @@ DEPENDENCIES
   inline_svg
   jbuilder (~> 2.9.1)
   jquery-rails (= 4.3.5)
-  kaminari (= 1.1.1)
+  kaminari (= 1.2.1)
   letter_opener
   omniauth-facebook
   omniauth-google-oauth2 (~> 0.7.0)
