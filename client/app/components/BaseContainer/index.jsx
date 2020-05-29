@@ -17,39 +17,56 @@ export type State = {
   data: any,
 };
 
-export function BaseContainer(props: Props){
+const BaseContainerComponent = ({
+  container: containerProps,
+  data: dataProps,
+  fetchUrl: fetchUrlProps,
+  lastPage: lastPageProps,
+}: Props) => {
+  const [page, setpage] = useState(1);
+  const [lastPage, setlastPage] = useState(!!lastPageProps);
+  const [data, setdata] = useState(dataProps);
 
-  const BaseContainerComponent = (props: Props) => {
-    const [page, setpage] = useState(1);
-    const [lastPage, setlastPage] = useState(!!props.lastPage)
-    const [data, setdata] = useState(props.data)
+  const onClick = () => {
+    const fetchUrl = fetchUrlProps;
+    let url = new URL(`${window.location.origin + fetchUrl}`);
+    url = `${url.origin}${url.pathname}.json?page=${page + 1}${
+      url.search ? `&${url.search.substring(1)}` : ''
+    }`;
+    axios.get(url).then((response: any) => {
+      if (response.data) {
+        setlastPage(response.data.lastPage);
+        setpage(page + 1);
+        setdata(data.concat(response.data.data));
+      }
+    });
+  };
 
-    const onClick = () => {
-      const { fetchUrl } = props;
-      let url = new URL(`${window.location.origin + fetchUrl}`);
-      url = `${url.origin}${url.pathname}.json?page=${page + 1}${
-        url.search ? `&${url.search.substring(1)}` : ''
-      }`;
-      axios.get(url).then((response: any) => {
-        if (response.data) {
-          setlastPage(response.data.lastPage);
-          setpage(page+1);
-          setdata(data.concat(response.data.data));
-        }
-      });
-    };
-
-    const { container } = props;
-    switch (container) {
-      case 'StoryContainer':
-      default:
-        return (
-          <>
-            <StoryContainer data={data} />
-            {!lastPage && <LoadMoreButton onClick={onClick} />}
-          </>
-        );
-    }
+  const container = containerProps;
+  switch (container) {
+    case 'StoryContainer':
+    default:
+      return (
+        <>
+          <StoryContainer data={data} />
+          {!lastPage && <LoadMoreButton onClick={onClick} />}
+        </>
+      );
   }
-  return <BaseContainerComponent {...props}/>;
+};
+
+export function BaseContainer({
+  container,
+  data,
+  fetchUrl,
+  lastPage,
+}: Props) {
+  return (
+    <BaseContainerComponent
+      container={container}
+      data={data}
+      fetchUrl={fetchUrl}
+      lastPage={lastPage}
+    />
+  );
 }
