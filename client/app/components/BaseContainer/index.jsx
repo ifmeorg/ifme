@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { StoryContainer } from './StoryContainer';
 import { LoadMoreButton } from '../LoadMoreButton';
@@ -17,47 +17,39 @@ export type State = {
   data: any,
 };
 
-export class BaseContainer extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    const { data, lastPage } = props;
-    this.state = {
-      page: 1,
-      lastPage: !!lastPage,
-      data,
+export function BaseContainer(props: Props){
+
+  const BaseContainerComponent = (props) => {
+    const [page, setpage] = useState(1);
+    const [lastPage, setlastPage] = useState(!!props.lastPage)
+    const [data, setdata] = useState(props.data)
+
+    const onClick = () => {
+      const { fetchUrl } = props;
+      let url = new URL(`${window.location.origin + fetchUrl}`);
+      url = `${url.origin}${url.pathname}.json?page=${page + 1}${
+        url.search ? `&${url.search.substring(1)}` : ''
+      }`;
+      axios.get(url).then((response: any) => {
+        if (response.data) {
+          setlastPage(response.data.lastPage);
+          setpage(page+1);
+          setdata(data.concat(response.data.data));
+        }
+      });
     };
-  }
 
-  onClick = () => {
-    const { page, data } = this.state;
-    const { fetchUrl } = this.props;
-    let url = new URL(`${window.location.origin + fetchUrl}`);
-    url = `${url.origin}${url.pathname}.json?page=${page + 1}${
-      url.search ? `&${url.search.substring(1)}` : ''
-    }`;
-    axios.get(url).then((response: any) => {
-      if (response.data) {
-        this.setState({
-          lastPage: response.data.lastPage,
-          page: page + 1,
-          data: data.concat(response.data.data),
-        });
-      }
-    });
-  };
-
-  render() {
-    const { data, lastPage } = this.state;
-    const { container } = this.props;
+    const { container } = props;
     switch (container) {
       case 'StoryContainer':
       default:
         return (
           <>
             <StoryContainer data={data} />
-            {!lastPage && <LoadMoreButton onClick={this.onClick} />}
+            {!lastPage && <LoadMoreButton onClick={onClick} />}
           </>
         );
     }
   }
+  return <BaseContainerComponent {...props}/>;
 }
