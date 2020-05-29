@@ -19,7 +19,7 @@ export type State = {
 
 export function BaseContainer(props: Props){
 
-  const BaseContainerComponent = (props) => {
+  const BaseContainerComponent = (props: Props) => {
     const [page, setpage] = useState(1);
     const [lastPage, setlastPage] = useState(!!props.lastPage)
     const [data, setdata] = useState(props.data)
