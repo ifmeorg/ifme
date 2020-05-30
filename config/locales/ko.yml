@@ -238,8 +238,7 @@ ko:
       refill_reminder_hint: >-
 	                      약을 재구매하야 하는 날의 일주일 전에 미리 알림 메일을 
                         보냅니다. 
-      daily_reminder_hint: >-
-                        이 약을 먹으라는 알림 메일을 보냅니다. 
+      daily_reminder_hint: '이 약을 먹으라는 알림 메일을 보냅니다.'
       total: 총
     new: '새로운 의약품'
     units:

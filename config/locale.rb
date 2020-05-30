@@ -6,6 +6,6 @@ module Locale
     # generated from this array.  If adding a new locale, be sure to refer to
     # any failures when running rspec spec/compare_locales_support_spec.rb
     # to see what keys and files are missing that need to be added.
-    ['en', 'es', 'de', 'it', 'nb', 'nl', 'pt-BR', 'sv', 'vi', 'fr', 'hi', 'zh-CN']
+    ['en', 'es', 'de', 'it', 'nb', 'nl', 'pt-BR', 'sv', 'vi', 'fr', 'hi', 'zh-CN', 'ko']
   end
 end
