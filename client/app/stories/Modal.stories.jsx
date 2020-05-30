@@ -1,6 +1,5 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Modal from '../components/Modal';
+import { Modal } from '../components/Modal';
 import photoTara from '../../../app/assets/images/contributors/tara_swenson.jpg';
 
 const title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
@@ -20,41 +19,73 @@ const openListener = () => {
   window.alert("Hey look it's listening");
 };
 
-storiesOf('Modal', module)
-  .add('Text values for element and body', () => (
-    <Modal element="Hello" body={bodyText} title={title} />
-  ))
-  .add('Long text value forcing body to scroll', () => (
-    <Modal element="Hello" body={longBodyText} title={title} />
-  ))
-  .add('Text values for element and body with openListener', () => (
-    <Modal
-      element="Hello"
-      body={bodyText}
-      title={title}
-      openListener={openListener}
-    />
-  ))
-  .add('HTML values for element and body', () => (
-    <Modal
-      element={<button type="button">Hello</button>}
-      body={bodyHTML}
-      title={title}
-    />
-  ))
-  .add('HTML values for element and body with openListener', () => (
-    <Modal
-      element={<button type="button">Hello</button>}
-      body={bodyHTML}
-      title={title}
-      openListener={openListener}
-    />
-  ))
-  .add('Avatar component as the element', () => (
-    <Modal
-      element={{ component: 'Avatar', props: { src: photoTara, small: true } }}
-      body={bodyHTML}
-      title={title}
-      openListener={openListener}
-    />
-  ));
+export default {
+  title: 'Components/Modal',
+};
+
+export const TextValuesForElementAndBody = () => (
+  <Modal element="Hello" body={bodyText} title={title} />
+);
+
+TextValuesForElementAndBody.story = {
+  name: 'Text values for element and body',
+};
+
+export const LongTextValueForcingBodyToScroll = () => (
+  <Modal element="Hello" body={longBodyText} title={title} />
+);
+
+LongTextValueForcingBodyToScroll.story = {
+  name: 'Long text value forcing body to scroll',
+};
+
+export const TextValuesForElementAndBodyWithOpenListener = () => (
+  <Modal
+    element="Hello"
+    body={bodyText}
+    title={title}
+    openListener={openListener}
+  />
+);
+
+TextValuesForElementAndBodyWithOpenListener.story = {
+  name: 'Text values for element and body with openListener',
+};
+
+export const HtmlValuesForElementAndBody = () => (
+  <Modal
+    element={<button type="button">Hello</button>}
+    body={bodyHTML}
+    title={title}
+  />
+);
+
+HtmlValuesForElementAndBody.story = {
+  name: 'HTML values for element and body',
+};
+
+export const HtmlValuesForElementAndBodyWithOpenListener = () => (
+  <Modal
+    element={<button type="button">Hello</button>}
+    body={bodyHTML}
+    title={title}
+    openListener={openListener}
+  />
+);
+
+HtmlValuesForElementAndBodyWithOpenListener.story = {
+  name: 'HTML values for element and body with openListener',
+};
+
+export const AvatarComponentAsTheElement = () => (
+  <Modal
+    element={{ component: 'Avatar', props: { src: photoTara, small: true } }}
+    body={bodyHTML}
+    title={title}
+    openListener={openListener}
+  />
+);
+
+AvatarComponentAsTheElement.story = {
+  name: 'Avatar component as the element',
+};

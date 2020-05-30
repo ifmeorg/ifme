@@ -17,7 +17,7 @@ import css from './Input.scss';
 import { TYPES, REQUIRES_LABEL, REQUIRED_POSSIBLE } from './utils';
 import type { Props } from './utils';
 
-const Input = ({
+export const Input = ({
   id,
   type,
   name,
@@ -291,6 +291,8 @@ const Input = ({
   );
 };
 
+// There's a [bug](https://github.com/shakacode/react_on_rails/issues/1198) with React on Rails,
+// so we'll need to do this in order to render multiple components with hooks on the same page.
 export default ({
   id,
   type,

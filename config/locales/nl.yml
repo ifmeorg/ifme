@@ -767,6 +767,7 @@ nl:
         social_media_break: 'sociale media breken'
         quiz: quiz
         attachment: hechting
+        eating_disorders: 'eet stoornissen'
   profile:
     index:
       title: Profiel

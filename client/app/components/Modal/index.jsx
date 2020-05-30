@@ -30,7 +30,7 @@ export type State = {
   modalHasFocus: boolean,
 };
 
-const Modal = (props: Props) => {
+export const Modal = (props: Props) => {
   const {
     element,
     elementId,

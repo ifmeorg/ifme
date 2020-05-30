@@ -766,6 +766,7 @@ es:
         social_media_break: 'descanso de las redes sociales'
         quiz: examen
         attachment: 'adjunto archivo'
+        eating_disorders: 'trastornos de la alimentación'
   profile:
     index:
       title: Perfil

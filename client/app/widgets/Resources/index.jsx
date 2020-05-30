@@ -91,7 +91,11 @@ const filterList = (
   });
 };
 
-const Resources = ({ resources, keywords, history = HistoryLib }: Props) => {
+export const Resources = ({
+  resources,
+  keywords,
+  history = HistoryLib,
+}: Props) => {
   const [checkboxes, setCheckboxes] = useState<Checkbox[]>(
     createCheckboxes(resources, keywords),
   );
@@ -198,6 +202,8 @@ const Resources = ({ resources, keywords, history = HistoryLib }: Props) => {
   );
 };
 
+// There's a [bug](https://github.com/shakacode/react_on_rails/issues/1198) with React on Rails,
+// so we'll need to do this in order to render multiple components with hooks on the same page.
 export default ({ resources, keywords, history }: Props) => (
   <Resources resources={resources} keywords={keywords} history={history} />
 );
