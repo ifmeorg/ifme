@@ -234,9 +234,11 @@ de:
     event_summary: 'Nachfüllen von %{name}.'
     form:
       strength: Stärke
+      strength_unit: 'Stärkeeinheit'
       strength_placeholder: z.B. 100
       total_placeholder: z.B. 30
       dosage: Dosis
+      dosage_unit: 'Dosierungseinheit'
       dosage_placeholder: z.B. 2
       refill: Auffüllen
       comments_hint: 'Füge hier weitere Details hinzu, wie z.B. deine Symptome'
@@ -256,6 +258,7 @@ de:
         Wir senden dir eine tägliche Erinnerungsmail zum Einnehmen dieses
         Arzneimittels
       total: Gesamt
+      total_unit: 'Gesamteinheit'
     new: Neues Arzneimittel
     units:
       display: '%{count} %{unit}'

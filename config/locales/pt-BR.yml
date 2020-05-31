@@ -223,9 +223,11 @@ pt-BR:
     event_summary: 'Recarregar por %{name}.'
     form:
       strength: Dosagem
+      strength_unit: 'Unidade de força'
       strength_placeholder: 'ex.: 100mg'
       total_placeholder: 'ex.: 30mg'
       dosage: dosagem
+      dosage_unit: 'Unidade de dosagem'
       dosage_placeholder: 'ex.: 2mg'
       refill: refil
       comments_hint: >-
@@ -247,6 +249,7 @@ pt-BR:
         prazo para atualizar os estoques do seu medicamento.
       daily_reminder_hint: Enviaremos um lembrete diário para tomar essa medicação.
       total: Total
+      total_unit: 'Unidade total'
     new: Nova medicação
     units:
       display: '%{count} %{unit}'

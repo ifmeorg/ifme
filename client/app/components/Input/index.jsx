@@ -8,6 +8,7 @@ import { InputCheckbox } from './InputCheckbox';
 import { InputCheckboxGroup } from './InputCheckboxGroup';
 import { InputPassword } from './InputPassword';
 import { InputSelect } from './InputSelect';
+import { InputRadioGroup } from './InputRadioGroup';
 import { InputTag } from './InputTag';
 import { InputSwitch } from './InputSwitch';
 import { InputLocation } from './InputLocation';
@@ -167,6 +168,20 @@ export const Input = ({
     return null;
   };
 
+  const displayRadio = () => {
+    if (type === 'radio' && options) {
+      return (
+        <InputRadioGroup
+          name={name}
+          id={id}
+          value={value}
+          options={options}
+        />
+      );
+    }
+    return null;
+  };
+
   const displayTag = () => {
     if (type === 'tag' && checkboxes && name) {
       return (
@@ -265,6 +280,7 @@ export const Input = ({
       {displayCheckboxGroup()}
       {displayPassword()}
       {displaySelect()}
+      {displayRadio()}
       {displayTextarea()}
       {displayTag()}
       {displaySwitch()}

@@ -221,9 +221,11 @@ sv:
     event_summary: 'Fyll på för %{name}.'
     form:
       strength: Styrka
+      strength_unit: 'Styrkaenhet'
       strength_placeholder: t.ex. 100
       total_placeholder: t.ex. 30
       dosage: dosering
+      dosage_unit: 'Doseringsenhet'
       dosage_placeholder: t.ex. 2
       refill: påfyllning
       comments_hint: 'Lägg till några ytterligare kommentarer här, t.ex. loggar dina symptom'
@@ -243,6 +245,7 @@ sv:
         Vi skickar e-post till dig med en daglig påminnelse för att ta detta
         läkemedel
       total: Total
+      total_unit: 'Total enhet'
     new: Ny Medicinering
     units:
       display: '%{count} %{unit}'

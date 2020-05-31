@@ -219,10 +219,9 @@ en:
     event_summary: 'Refill for %{name}.'
     form:
       strength: Strength
-      strength_placeholder: e.g. 100
-      total_placeholder: e.g. 30
+      strength_unit: 'Strength Unit'
       dosage: dosage
-      dosage_placeholder: e.g. 2
+      dosage_unit: 'Dosage Unit'
       refill: refill
       comments_hint: 'Add any additional comments here, e.g. logging your symptoms'
       add_to_google_cal: Google Calendar reminder
@@ -237,6 +236,7 @@ en:
         refilled.
       daily_reminder_hint: We'll email you a daily reminder to take this medication
       total: Total
+      total_unit: 'Total Unit'
     new: New Medication
     units:
       display: '%{count} %{unit}'

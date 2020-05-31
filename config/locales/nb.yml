@@ -225,9 +225,11 @@ nb:
     event_summary: 'Påfyll på %{name}.'
     form:
       strength: Styrke
+      strength_unit: 'Styrkeenhet'
       strength_placeholder: f.eks. 100
       total_placeholder: f.eks. 30
       dosage: dose
+      dosage_unit: 'Doseringsenhet'
       dosage_placeholder: f.eks. 2
       refill: påfyll
       comments_hint: Legg til ytterlige kommentarer her f.eks. loggføring av symptomer
@@ -241,6 +243,7 @@ nb:
       refill_reminder_hint: Vi sender deg en påminnelse uken for medisinen må fylles på.
       daily_reminder_hint: Vi sender deg en daglig påminnelse om å ta denne medisinen
       total: Totalt
+      total_unit: 'Total enhet'
     new: Ny medisin
     units:
       display: '%{count} %{unit}'
