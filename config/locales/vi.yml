@@ -225,9 +225,11 @@ vi:
     event_summary: 'Nạp lại cho %{name}.'
     form:
       strength: Sức khỏe
+      strength_unit: 'Đơn vị sức mạnh'
       strength_placeholder: e.g. 100
       total_placeholder: e.g. 30
       dosage: liều dùng
+      dosage_unit: 'Đơn vị liều dùng'
       dosage_placeholder: e.g. 2
       refill: bổ sung
       comments_hint: 'Thêm bình luận vào đây, ví dụ: trạng thái của bạn'
@@ -245,6 +247,7 @@ vi:
         sung thuốc mới
       daily_reminder_hint: Chúng tôi sẽ gửi nhắc nhở hàng ngày khi nào bạn cần uống thuốc
       total: Tổng cộng
+      total_unit: 'Tổng số đơn vị'
     new: Thuốc mới
     units:
       display: '%{count} %{unit}'

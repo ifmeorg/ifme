@@ -224,9 +224,11 @@ it:
     event_summary: 'Ricarica per %{name}.'
     form:
       strength: peso
+      strength_unit: 'Unità di peso'
       strength_placeholder: es. 100
       total_placeholder: es. 30
       dosage: dosaggio
+      dosage_unit: 'Unità di dosaggio'
       dosage_placeholder: es. 2
       refill: riempimento
       comments_hint: 'Aggiungi qualsiasi commento aggiuntivo qui, esempio: sintomi'
@@ -244,6 +246,7 @@ it:
         Ti invieremo una EMail giornaliera ricordandoti di prendere la
         medicazione
       total: Totale
+      total_unit: 'Unità totale'
     new: Nuova Medicazione
     units:
       display: '%{count} %{unit}'

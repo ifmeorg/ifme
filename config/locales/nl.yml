@@ -221,9 +221,11 @@ nl:
     event_summary: 'Vullen voor %{name}.'
     form:
       strength: Sterkte
+      strength_unit: 'Krachteenheid'
       strength_placeholder: b.v. 100
       total_placeholder: b.v. 30
       dosage: dosis
+      dosage_unit: 'Doseringseenheid'
       dosage_placeholder: b.v. 2
       refill: bijvullen
       comments_hint: 'Voeg hier extra opmerkingen toe, bijvoorbeeld je symptomen'
@@ -239,6 +241,7 @@ nl:
         moet worden.
       daily_reminder_hint: We mailen je dagelijks een herinnering om je medicatie in te nemen
       total: Totaal
+      total_unit: 'Totale eenheid'
     new: Nieuwe Medicatie
     units:
       display: '%{count} %{unit}'

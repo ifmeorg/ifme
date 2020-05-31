@@ -219,9 +219,11 @@ hi:
     event_summary: '%{name} के लिए फिर से भरें।'
     form:
       strength: शक्ति
+      strength_unit: 'शक्ति इकाई'
       strength_placeholder: जैसे 100
       total_placeholder: जैसे 30
       dosage: मात्रा बनाने की विधि
+      dosage_unit: 'खुराक इकाई'
       dosage_placeholder: जैसे 2
       refill: फिर से भरना
       comments_hint: 'कोई अतिरिक्त टिप्पणी यहां जोड़ें, उदा। अपने लक्षण लॉगिंग'
@@ -237,6 +239,7 @@ hi:
       refill_reminder_hint: आपकी दवा रिफिल होने से पहले सप्ताह में हम आपको एक अनुस्मारक भेजेंगे।
       daily_reminder_hint: हम आपको इस दवा को लेने के लिए एक दैनिक अनुस्मारक ईमेल करेंगे
       total: संपूर्ण
+      total_unit: 'कुल इकाई'
     new: नई दवा
     units:
       display: '%{count} %{unit}'

@@ -211,9 +211,11 @@ zh-CN:
     event_summary: '补充 %{name}。'
     form:
       strength: 强度
+      strength_unit: '力量单位'
       strength_placeholder: '例如: 100'
       total_placeholder: '例如: 30'
       dosage: 剂量
+      dosage_unit: '剂量单位'
       dosage_placeholder: '例如: 2'
       refill: 补药
       comments_hint: 在此处添加任何其他评论， 例如记录你的症状
@@ -227,6 +229,7 @@ zh-CN:
       refill_reminder_hint: 我们将在需要补充药物的一周前通过电子邮件提醒你。
       daily_reminder_hint: 我们会每天通过电子邮件提醒你服用这种药物
       total: 总量
+      total_unit: '总单位'
     new: 新药
     units:
       display: '%{count} %{unit}'

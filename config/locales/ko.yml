@@ -213,9 +213,11 @@ ko:
     event_summary: '%{name} 재구매하기'
     form:
       strength: 용량
+      strength_unit: '강도 단위'
       strength_placeholder: '예: 100'
       total_placeholder: '예: 30'
       dosage: 복용량
+      dosage_unit: '복용량 단위'
       dosage_placeholder: '예: 2'
       refill: 재구매
       comments_hint: 증상 기록과 같은 추가 설명을 여기에 추가하십시오.
@@ -229,6 +231,7 @@ ko:
       refill_reminder_hint: 약을 재구매하야 하는 날의 일주일 전에 미리 알림 메일을 보냅니다.
       daily_reminder_hint: 이 약을 먹으라는 알림 메일을 보냅니다.
       total: 총
+      total_unit: '총 단위'
     new: 새로운 의약품
     units:
       display: '%{count} %{unit}'

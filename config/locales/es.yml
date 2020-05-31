@@ -221,9 +221,11 @@ es:
     event_summary: 'Rellenar para %{name}.'
     form:
       strength: Concentración
+      strength_unit: 'Unidad de concentración'
       strength_placeholder: e.g. 100
       total_placeholder: e.g. 30
       dosage: dosis
+      dosage_unit: 'Unidad de dosis'
       dosage_placeholder: e.g. 2
       refill: resurtir
       comments_hint: 'Agrega más comentarios aquí, por ejemplo, tus síntomas.'
@@ -245,6 +247,7 @@ es:
         Te enviaremos un recordatorio diario para que ingenieras este
         medicamento.
       total: Total
+      total_unit: 'Unidad total'
     new: Nuevo Medicamento
     units:
       display: '%{count} %{unit}'
