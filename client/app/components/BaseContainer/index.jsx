@@ -17,7 +17,7 @@ export type State = {
   data: any,
 };
 
-const BaseContainerComponent = ({
+export const BaseContainerComponent = ({
   container: containerProps,
   data: dataProps,
   fetchUrl: fetchUrlProps,
@@ -55,18 +55,15 @@ const BaseContainerComponent = ({
   }
 };
 
-export function BaseContainer({
-  container,
-  data,
-  fetchUrl,
-  lastPage,
-}: Props) {
-  return (
-    <BaseContainerComponent
-      container={container}
-      data={data}
-      fetchUrl={fetchUrl}
-      lastPage={lastPage}
-    />
-  );
-}
+// There's a [bug](https://github.com/shakacode/react_on_rails/issues/1198) with React on Rails,
+// so we'll need to do this in order to render multiple components with hooks on the same page.
+export default ({
+  container, data, fetchUrl, lastPage,
+}: Props) => (
+  <BaseContainerComponent
+    container={container}
+    data={data}
+    fetchUrl={fetchUrl}
+    lastPage={lastPage}
+  />
+);

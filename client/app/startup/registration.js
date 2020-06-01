@@ -8,7 +8,7 @@ import { scrollToTop } from './scrollToTop';
 import '../styles/_global.scss';
 import { Accordion } from '../components/Accordion';
 import { Avatar } from '../components/Avatar';
-import { BaseContainer } from '../components/BaseContainer';
+import BaseContainer from '../components/BaseContainer';
 import { Chart } from '../components/Chart';
 import { ChartControl } from '../components/Chart/ChartControl';
 import Header from '../components/Header';
