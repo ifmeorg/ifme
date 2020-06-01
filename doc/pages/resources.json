@@ -898,5 +898,23 @@
     "link": "https://www.nationaleatingdisorders.org/",
     "tags": ["eating_disorders", "support_groups", "directory", "communities"],
     "languages": ["en", "es"]
+  },
+  {
+    "name": "The Safe Place (US)",
+    "link": "https://apps.apple.com/us/app/the-safe-place/id1349460763",
+    "tags": ["black_people", "directory", "communities", "ios", "free"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Sista Afya (US)",
+    "link": "https://www.sistaafya.com/",
+    "tags": ["black_women", "therapy", "counseling", "directory"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Ethel's Club",
+    "link": "https://www.ethelsclub.com/",
+    "tags": ["black_people", "latinx", "people_of_colour", "communities", "social_justice"],
+    "languages": ["en"]
   }
 ]
