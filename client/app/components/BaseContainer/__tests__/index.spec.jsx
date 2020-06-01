@@ -2,7 +2,7 @@
 import { mount } from 'enzyme';
 import React from 'react';
 import axios from 'axios';
-import { BaseContainer } from '../index';
+import BaseContainer from '../index';
 
 const response = {
   data: {
