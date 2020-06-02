@@ -30,6 +30,7 @@ it:
     fr: Français
     hi: 'हिंदी'
     zh-CN: 中文
+    ko: 한국어
   navigation:
     main_menu: 'Menu del sito principale'
     user_menu: 'Menu utente'
