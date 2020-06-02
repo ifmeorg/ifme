@@ -1,0 +1,64 @@
+ko:
+  devise:
+    confirmations:
+      confirmed: 이메일 주소가 성공적으로 확인되었습니다.
+      send_instructions: 입력하신 메일주소로 인증 절차가 담긴 메일이 발송되었습니다.
+      send_paranoid_instructions: 입력하신 메일주소가 저희의 데이터베이스에 있을 경우 인증절차가 담긴 메일이 몇 분내로 발송됩니다.
+    failure:
+      already_authenticated: 이미 가입되어 있는 계정입니다.
+      inactive: 아직 활성화되지 않은 계정입니다.
+      invalid: '잘못된 %{authentication_keys} 이거나 비밀번호 입니다.'
+      locked: 잠긴 계정입니다.
+      last_attempt: 1회 더 로그인에 실패 할시 계정이 잠깁니다.
+      not_found_in_database: '잘못된 %{authentication_keys} 이거나 비밀번호입니다.'
+      timeout: 세션이 만료되었습니다. 계속하시려면 다시 로그인해주세요.
+      unauthenticated: 계속 진행하시려면 로그인이나 회원가입이 필요합니다.
+      unconfirmed: 계속 진행하시려면 계정의 이메일 인증이 필요합니다.
+    mailer:
+      confirmation_instructions:
+        subject: 인증 지침
+      reset_password_instructions:
+        subject: 비밀번호 재설정 지침
+      unlock_instructions:
+        subject: 잠금 해제 지침
+      password_change:
+        subject: 비밀번호 변경
+    omniauth_callbacks:
+      failure: '다음과 같은 이유로 %{kind} 계정의 인증에 실패하였습니다. "%{reason}".'
+      success: '%{kind} 계정의 인증에 성공하였습니다.'
+    passwords:
+      no_token: >-
+        비밀번호 초기화 메일로부터 외의 경로로는 해당 페이지에 접속하실 수  없습니다. 만약에 비밀번호 초기화메일로부터 접속하셨다면,
+        적혀있는  전체 URL로 접속했는지 확인해주세요.
+      send_instructions: 비밀번호 재설정을 위한 메일이 발송되었습니다.
+      send_paranoid_instructions: 입력하신 메일주소가 저희의 데이터베이스에 있을 경우 비밀번호 재설정을 위한 메일이 몇 분내로 발송됩니다.
+      updated: 비밀번호가 성공적으로 변경되었습니다. 로그인 되었습니다.
+      updated_not_active: 비밀번호가 성공적으로 변경되었습니다.
+    registrations:
+      destroyed: 당신의 계정이 성공적으로 탈퇴되었습니다. 다시 볼 수 있기를 희망합니다!
+      signed_up: 환영합니다! 성공적으로 가입되었습니다.
+      signed_up_but_inactive: '성공적으로 가입되었습니다. 하지만 아직 계정이 비활성화 이므로 로그인이 불가능합니다. '
+      signed_up_but_locked: '성공적으로 가입되었습니다. 하지만 아직 계정이 잠겨있어  로그인이 불가능합니다. '
+      signed_up_but_unconfirmed: 인증 절차가 담긴 메일이 적어주신 메일 주소로 발송되었습니다. 메일에 있는 링크를 클릭하여 계정을 활성화하십시오.
+      update_needs_confirmation: >-
+        계정 업데이트에 성공하였습니다. 하지만 새 이메일  주소 확인이 필요합니다. 이메일을 확인하시고 링크를  클릭하여 새 이메일
+        주소를 인증하십시오.
+      updated: 계정 업데이트에 성공하였습니다.
+    sessions:
+      signed_in: 성공적으로 로그인되었습니다.
+      signed_out: 성공적으로 로그아웃되었습니다.
+      already_signed_out: 성공적으로 로그아웃되었습니다.
+    unlocks:
+      send_instructions: 계정의 잠김을 풀기 위함 메일을 등록된 이메일주소로 발송되었습니다.
+      send_paranoid_instructions: '당신의 계정이 존재한다면, 계정의 잠금을 풀 수 있는 메일이 몇 분내로 발송됩니다.'
+      unlocked: 계정이 성공적으로 잠금 해제되었습니다. 계속하시려면 로그인해주세요.
+  errors:
+    messages:
+      already_confirmed: 이미 확인되었습니다. 다시 로그인해주세요.
+      confirmation_period_expired: '%{period} 내에 인증해야 합니다, 새로 인증을 요청하십시오.'
+      expired: '만료되었습니다, 새로 인증을 요청하십시오.'
+      not_found: 찾을 수 없음
+      not_locked: 잠겨있지 않음
+      not_saved:
+        one: '1 오류로 인해 이 %{resource} 를 저장하지 못하였습니다:'
+        other: '%{count} 오류로 인해 이 %{resource} 를 저장하지 못하였습니다:'

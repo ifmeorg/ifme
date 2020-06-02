@@ -1,0 +1,31 @@
+ko:
+  devise:
+    failure:
+      invited: '대기중인 초대가 있습니다, 수락하여 계정 생성을 완료하십시오.'
+    invitations:
+      send_instructions: '초대 메일이 %{email}으로 전송되었습니다.'
+      failed_send: '에러가 발생했습니다. %{email} 을 초대할 수 없습니다.'
+      invitation_token_invalid: 유효한 초대 토큰이 아닙니다.
+      updated: 비밀번호 설정이 성공적으로 완료되었습니다. 로그인 되었습니다.
+      updated_not_active: 비밀번호 설정이 성공적으로 완료되었습니다.
+      no_invitations_remaining: 남은 초대가 없습니다.
+      invitation_removed: 초대가 삭제되었습니다.
+      new:
+        header: 동료에게 초대장 보내기
+        submit_button: 초대장 보내기
+      edit:
+        header: 비밀번호를 설정하십시오
+        submit_button: 내 비밀번호 설정
+    mailer:
+      invitation_instructions:
+        subject: '%{name} 이(가) if me에 당신을 초대했습니다!'
+        subject_nameless: 누군가 if me에 당신을 초대했습니다!
+        hello: 'Hey %{email}!'
+        someone_invited_you: >-
+          %{name} 이(가) 당신을 사랑하는 사람들과 정신건강 경험을 공유하고 기분, 감성, 그리고 자기관리 등을 기록 할 수 있는
+          커뮤니티인 http://www.if-me.org 에 당신을 초대하였습니다. 이 링크를 통해 수락을 할 수 있습니다.
+        accept: 초대 수락!
+        accept_until: '이 초대는 %{due_date}까지 유효합니다.'
+        ignore: >-
+          만약에 초대를 원치 않으신다면, 이 이메일을 무시해주세요.<br/> 이 링크를  클릭하여 비밀번호를 설정하지 않는다면 계정은
+          생성되지 않습니다.
