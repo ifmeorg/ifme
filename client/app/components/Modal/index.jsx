@@ -19,6 +19,7 @@ export type Props = {
   title?: string,
   openListener?: Function,
   open?: boolean,
+  className?: Object,
 };
 
 type ModalPropsExtended = Props & {
@@ -38,6 +39,7 @@ export const Modal = (props: Props) => {
     title,
     openListener,
     open: openProps,
+    className,
   } = props;
 
   const [open, setOpen] = useState(!!openProps);
@@ -148,7 +150,7 @@ export const Modal = (props: Props) => {
       return (
         <div
           id={elementId}
-          className={`modalElement ${css.modalElement}`}
+          className={`modalElement ${css.modalElement} ${className}`}
           onClick={toggleOpen}
           onKeyDown={toggleOpen}
           role="button"
@@ -179,6 +181,7 @@ export default ({
   open,
   body,
   modalKey,
+  className,
 }: ModalPropsExtended) => (
   <Modal
     element={element}
@@ -188,5 +191,6 @@ export default ({
     body={body}
     open={open}
     key={modalKey}
+    className={className}
   />
 );
