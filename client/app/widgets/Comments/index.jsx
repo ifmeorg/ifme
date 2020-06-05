@@ -120,7 +120,7 @@ export const Comments = ({ comments, formProps }: Props) => {
     );
   };
 
-  const onCreate = (response: CommentResponse) => {
+  const onSubmit = (response: CommentResponse) => {
     const { data } = response;
     if (data && data.comment) {
       setCommentsState([data.comment].concat(commentsState));
@@ -139,7 +139,7 @@ export const Comments = ({ comments, formProps }: Props) => {
 
   return (
     <div id="comments">
-      <DynamicForm formProps={formProps} onCreate={onCreate} key={key} />
+      <DynamicForm formProps={formProps} onSubmit={onSubmit} key={key} />
       {displayComments()}
     </div>
   );

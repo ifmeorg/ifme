@@ -10,7 +10,8 @@ import type { Errors, MyInputProps, FormProps } from './utils';
 export type Props = {
   nameValue?: string, // This is just for QuickCreate
   formProps: FormProps,
-  onCreate: Function,
+  onSubmit: Function,
+  type?: 'post' | 'patch',
 };
 
 export type State = {
@@ -53,7 +54,12 @@ const getParams = (inputs: MyInputProps[], myRefs: Object) => {
 
 export const hasErrors = (errors: Errors) => Object.values(errors).filter((key) => key).length;
 
-export const DynamicForm = ({ nameValue, formProps, onCreate }: Props) => {
+export const DynamicForm = ({
+  nameValue,
+  formProps,
+  onSubmit,
+  type,
+}: Props) => {
   const [inputs, setInputs] = useState<MyInputProps[]>(
     getInputsInitialState(formProps, nameValue),
   );
@@ -67,7 +73,7 @@ export const DynamicForm = ({ nameValue, formProps, onCreate }: Props) => {
     setErrors(newErrors);
   };
 
-  const onSubmit = (e: SyntheticEvent<HTMLInputElement>) => {
+  const onHandleSubmit = (e: SyntheticEvent<HTMLInputElement>) => {
     e.preventDefault();
     // Get errors from inputs that were never focused
     const { inputs: newInputs, errors: newErrors } = getNewInputs({
@@ -79,13 +85,13 @@ export const DynamicForm = ({ nameValue, formProps, onCreate }: Props) => {
       setInputs(newInputs);
       setErrors(newErrors);
     } else {
-      axios
-        .post(formProps.action, getParams(inputs, myRefs))
-        .then((response: Object) => {
-          if (onCreate) {
-            onCreate(response);
+      axios[type || 'post'](formProps.action, getParams(inputs, myRefs)).then(
+        (response: Object) => {
+          if (onSubmit) {
+            onSubmit(response);
           }
-        });
+        },
+      );
       // TODO: Actually handle errors through catch()
     }
   };
@@ -115,7 +121,7 @@ export const DynamicForm = ({ nameValue, formProps, onCreate }: Props) => {
         options={input.options}
         checkboxes={input.checkboxes}
         accordion={input.accordion}
-        onClick={input.type === 'submit' ? onSubmit : undefined}
+        onClick={input.type === 'submit' ? onHandleSubmit : undefined}
         onError={input.type !== 'submit' ? handleError : undefined}
         myRef={(element) => {
           myRefs[input.id] = element;
@@ -137,10 +143,13 @@ export const DynamicForm = ({ nameValue, formProps, onCreate }: Props) => {
 
 // There's a [bug](https://github.com/shakacode/react_on_rails/issues/1198) with React on Rails,
 // so we'll need to do this in order to render multiple components with hooks on the same page.
-export default ({ nameValue, formProps, onCreate }: Props) => (
+export default ({
+  nameValue, formProps, onSubmit, type,
+}: Props) => (
   <DynamicForm
     nameValue={nameValue}
     formProps={formProps}
-    onCreate={onCreate}
+    onSubmit={onSubmit}
+    type={type}
   />
 );
