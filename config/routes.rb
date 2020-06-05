@@ -72,7 +72,9 @@ Rails.application.routes.draw do
 
   match 'care_plan', to: 'care_plan#index', via: :get
 
-  resources :care_plan_contacts, only: %i[create update destroy]
+  match 'care_plan_contacts/create', to: 'care_plan_contacts#create', via: :post
+  match 'care_plan_contacts/update', to: 'care_plan_contacts#update', via: :patch
+  match 'care_plan_contacts/destroy', to: 'care_plan_contacts#destroy', via: :delete
 
   resources :profile, only: :index do
     collection do
