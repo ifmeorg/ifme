@@ -40,7 +40,7 @@ pt-BR:
     privacy: Política de Privacidade
     github: GitHub
     patreon: Patreon
-    opencollective: Open Collective
+    open_collective: Open Collective
     instagram: Instagram
     rss: RSS
     google: Google
@@ -317,8 +317,6 @@ pt-BR:
     edit_moment: Editar momento
     tagged_moments: Momentos com tags
     new: Novo momento
-    bookmark: Marca páginas
-    resource_recommendations: Mostrar recomendação de recursos?
     secret_share:
       singular: Compartilhar segredo
       expires_at: Expirar em
@@ -330,6 +328,8 @@ pt-BR:
       what_happened: O que acontece?
       viewers_hint: 'Aliados que podem ver esse seu momento:'
       draft_question: Você quer salvar seu momento com um rascunho?
+      bookmarked_question: Marcar este momento como favorito?
+      resource_recommendations_question: Mostrar recomendação de recursos?
     index:
       subtitle: >-
         Mergulhe profundamente nos seus momentos - Momentos e situações que
@@ -873,7 +873,6 @@ pt-BR:
     edit_strategy: Editar Estratégia
     tagged_strategies: Estratégias marcadas
     new: Nova Estratégia
-    bookmark: Marca páginas
     form:
       describe: Descreva a estratégia
       strategies_label: Quais estratégias poderiam te ajudar a alcançar suas metas?
@@ -887,6 +886,8 @@ pt-BR:
         Enviaremos para seu e-mail  um lembrete diário para utilizar sua
         estratégia para alcançar suas metas.
       draft_question: Você quer salvar sua estratégia como um rascunho?
+      bookmarked_question: Marcar esta estratégia como favorita?
+      bookmarked_info: Estratégias marcadas aparecem no seu plano de assistência
     label:
       one: Estratégia
       other: Estratégias
@@ -1055,4 +1056,5 @@ pt-BR:
       resend: Reenviar instruções de liberação de senha
   care_plan:
     index:
-      title: 'Care Plan'
+      title: Plano de cuidados
+      subtitle: Elabore um plano para passar por momentos difíceis

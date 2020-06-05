@@ -41,7 +41,7 @@ de:
     privacy: Datenschutzrichtlinie
     github: GitHub
     patreon: Patreon
-    opencollective: Open Collective
+    open_collective: Open Collective
     instagram: Instagram
     rss: RSS
     twitter: Twitter
@@ -331,8 +331,6 @@ de:
     edit_moment: Moment bearbeiten
     tagged_moments: Getaggte Momente
     new: Neuer Moment
-    bookmark: Lesezeichen
-    resource_recommendations: Empfohlene Ressourcen anzeigen?
     secret_share:
       singular: Geheimnis teilen
       expires_at: Läuft ab am
@@ -344,6 +342,8 @@ de:
       what_happened: Was ist passiert?
       viewers_hint: 'Helfer, die deinen Moment sehen können'
       draft_question: Möchtest du deinen Moment als Entwurf speichern?
+      bookmarked_question: Lesezeichen für diesen Moment?
+      resource_recommendations_question: Empfohlene Ressourcen anzeigen?
     index:
       subtitle: >-
         Setze dich intensiv mit Ereignissen auseinander, die deinen Geist und
@@ -918,7 +918,6 @@ de:
     edit_strategy: Strategie bearbeiten
     tagged_strategies: Gekennzeichnete Strategien
     new: Neue Strategie
-    bookmark: Lesezeichen
     form:
       describe: Beschreibe deine Strategie.
       strategies_label: 'Welche Strategien helfen dir, auf diese Gedanken zu kommen?'
@@ -930,6 +929,8 @@ de:
         verknüpfen können
       daily_reminder_hint: 'Wir senden dir eine tägliche Erinnerung, um diese Strategie anzuwenden'
       draft_question: Möchtest du deine Strategie als Entwurf speichern?
+      bookmarked_question: Lesezeichen für diesen Strategie?
+      bookmarked_info: Mit Lesezeichen versehene Strategien werden in Ihrem Pflegeplan angezeigt
     label:
       one: 'Strategie:'
       other: 'Strategien:'
@@ -1098,4 +1099,5 @@ de:
       resend: Anweisungen zur Freischaltung versenden
   care_plan:
     index:
-      title: 'Care Plan'
+      title: Pflegeplan
+      subtitle: Stellen Sie einen Plan für schwierige Zeiten zusammen

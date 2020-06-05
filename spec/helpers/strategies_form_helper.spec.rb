@@ -25,10 +25,21 @@ describe StrategiesFormHelper do
           dark: true
         },
         {
+          id: 'category_visible',
+          type: 'switch',
+          label: t('shared.stats.visible_in_stats'),
+          dark: true,
+          name: 'category[visible]',
+          value: true,
+          uncheckedValue: false,
+          checked: true
+        },
+        {
           id: 'submit',
           type: 'submit',
           value: t('common.actions.submit'),
-          dark: true
+          dark: true,
+          :name=>'commit'
         }
       ],
       action: '/categories/quick_create'
@@ -103,6 +114,14 @@ describe StrategiesFormHelper do
       label: t('strategies.form.draft_question')
     )
   end
+  let(:build_strategy_bookmarked_res) do
+    build_switch_input_strategy_bookmarked_res.merge(
+      id: 'strategy_bookmarked',
+      name: 'strategy[bookmarked]',
+      label: t('strategies.form.bookmarked_question'),
+      info: t('strategies.form.bookmarked_info')
+    )
+  end
   let(:build_switch_input_strategy_comment_res) do
     {
       type: 'switch',
@@ -121,13 +140,22 @@ describe StrategiesFormHelper do
       dark: true
     }
   end
+  let(:build_switch_input_strategy_bookmarked_res) do
+    {
+      type: 'switch',
+      value: true,
+      uncheckedValue: false,
+      checked: strategy.bookmarked,
+      dark: true
+    }
+  end
   let(:category_checkboxes_res) do
     [
       {
         id: @category.slug,
         label: @category.name,
         value: @category.id,
-        checked: @strategy.category.include?(@category.id)
+        checked: @strategy.categories.include?(@category.id)
       }
     ]
   end
@@ -140,7 +168,7 @@ describe StrategiesFormHelper do
   describe '#build_strategy_name' do
     subject { build_strategy_name(strategy) }
 
-    it 'builds correct strategy name' do
+    it 'builds correct object' do
       expect(subject).to eq(build_strategy_name_res)
     end
   end
@@ -164,7 +192,7 @@ describe StrategiesFormHelper do
   describe '#build_strategy_reminder' do
     subject { build_strategy_reminder(strategy) }
 
-    it 'builds correct strategy name' do
+    it 'builds correct object' do
       expect(subject).to eq(build_strategy_reminder_res)
     end
   end
@@ -172,7 +200,7 @@ describe StrategiesFormHelper do
   describe '#build_strategy_reminder_attributes' do
     subject { build_strategy_reminder_attributes(strategy) }
 
-    it 'builds correct strategy name' do
+    it 'builds correct object' do
       expect(subject).to eq(build_strategy_reminder_attributes_res)
     end
   end
@@ -180,7 +208,7 @@ describe StrategiesFormHelper do
   describe '#build_strategy_comment' do
     subject { build_strategy_comment(strategy) }
 
-    it 'builds correct strategy name' do
+    it 'builds correct object' do
       expect(subject).to eq(build_strategy_comment_res)
     end
   end
@@ -188,8 +216,34 @@ describe StrategiesFormHelper do
   describe '#build_strategy_publishing' do
     subject { build_strategy_publishing(strategy) }
 
-    it 'builds correct strategy name' do
-      expect(subject).to eq(build_strategy_publishing_res)
+    context 'when there are no custom URL params' do
+      it 'builds correct object' do
+        expect(subject).to eq(build_strategy_publishing_res)
+      end
+    end
+
+    context 'when there are custom URL params' do
+      it 'builds correct object' do
+        params[:bookmarked] = true
+        expect(subject).to eq(build_strategy_publishing_res.merge(checked: false))
+      end
+    end
+  end
+
+  describe '#build_strategy_bookmarked' do
+    subject { build_strategy_bookmarked(strategy) }
+
+    context 'when there are no custom URL params' do
+      it 'builds correct object' do
+        expect(subject).to eq(build_strategy_bookmarked_res)
+      end
+    end
+
+    context 'when there are custom URL params' do
+      it 'builds correct object' do
+        params[:bookmarked] = true
+        expect(subject).to eq(build_strategy_bookmarked_res.merge(checked: true))
+      end
     end
   end
 
@@ -211,8 +265,11 @@ describe StrategiesFormHelper do
     end
 
     context 'does have categories' do
-      before { @categories.push(@category) }
-      before { @strategy = strategy }
+      before do
+        @categories.push(@category)
+        @strategy = strategy
+      end
+
       it 'returns correct checkboxes' do
         expect(subject).to eq(category_checkboxes_res)
       end

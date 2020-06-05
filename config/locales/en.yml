@@ -41,7 +41,7 @@ en:
     privacy: Privacy Policy
     github: GitHub
     patreon: Patreon
-    opencollective: Open Collective
+    open_collective: Open Collective
     instagram: Instagram
     rss: RSS
     twitter: Twitter
@@ -305,8 +305,6 @@ en:
     edit_moment: Edit Moment
     tagged_moments: Tagged Moments
     new: New Moment
-    bookmark: Bookmark this moment?
-    resource_recommendations: Display Resource Recommendations?
     secret_share:
       singular: Secret Share
       expires_at: Expire at
@@ -318,6 +316,8 @@ en:
       what_happened: What happened?
       viewers_hint: Allies who can view your moment
       draft_question: Do you want to save your moment as draft?
+      bookmarked_question: Bookmark this moment?
+      resource_recommendations_question: Display Resource Recommendations?
     index:
       subtitle: >-
         Delve deep into your moments - events and situations that affect your
@@ -817,7 +817,6 @@ en:
     edit_strategy: Edit Strategy
     tagged_strategies: Tagged Strategies
     new: New Strategy
-    bookmark: Bookmark this strategy?
     form:
       describe: Describe the strategy.
       strategies_label: What strategies would help achieve these thoughts?
@@ -825,6 +824,8 @@ en:
       viewers_hint: Allies who can view your strategy and tag their own moments with it
       daily_reminder_hint: We'll email you a daily reminder to perform this strategy
       draft_question: Do you want to save your strategy as draft?
+      bookmarked_question: Bookmark this strategy?
+      bookmarked_info: Bookmarked strategies appear in your Care Plan
     label:
       one: 'Strategy:'
       other: 'Strategies:'
@@ -980,4 +981,5 @@ en:
       resend: Resend unlock instructions
   care_plan:
     index:
-      title: 'Care Plan'
+      title: Care Plan
+      subtitle: Put together a plan for getting through difficult times

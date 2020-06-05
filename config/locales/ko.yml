@@ -34,14 +34,14 @@ ko:
     google: Google
     main_menu: 메인 메뉴
     user_menu: 사용자 메뉴
-    about: about
+    about: 약
     blog: Blog
     contribute: 기여
     partners: 파트너
     privacy: 개인정보 보호 정책
     github: GitHub
     patreon: Patreon
-    opencollective: Open Collective
+    open_collective: Open Collective
     instagram: Instagram
     rss: RSS
     twitter: Twitter
@@ -49,7 +49,7 @@ ko:
     feedback: 피드백
     give_feedback: 피드백을 주세요
     press: 보도 자료
-    faq: FAQ
+    faq: 자주 묻는 질문
     resources: 각종 자료들
     code_of_conduct: 행동강령
   common:
@@ -93,13 +93,13 @@ ko:
     remove_ban: 정지 해제
     ban_user: 사용자 정지
     report_sent: '%{name}에 대한 신고가 접수되었습니다'
-    report_error: 'Could not send report for %{name}'
+    report_error: '에 대한 보고서를 보낼 수 없습니다 %{name}'
     reportee: 피신고자
     reporter: 신고자
     user_banned: '%{name} 이(가) 정지되었습니다'
     ban_removed: '%{name} 의 정지가 해제되었습니다.'
-    user_banned_error: 'Could not ban %{name}'
-    ban_removed_error: 'Could not remove ban on %{name}'
+    user_banned_error: '금지 할 수 없습니다 %{name}'
+    ban_removed_error: '에 대한 금지를 제거 할 수 없습니다 %{name}'
   comment:
     singular: 댓글
     plural: 댓글들
@@ -292,8 +292,6 @@ ko:
     edit_moment: 순간 편집
     tagged_moments: 태그된 순간들
     new: 새로운 순간
-    bookmark: 이 순간을 북마크 하시겠습니까?
-    resource_recommendations: 리소스 권장사항 표시
     secret_share:
       singular: 비밀 공유
       expires_at: 만료 날짜
@@ -305,6 +303,8 @@ ko:
       what_happened: 무슨 일이 있었나요?
       viewers_hint: 당신의 순간들을 볼 수 있는 공유자
       draft_question: 초안대로 이 순간을 저장하시겠습니까?
+      bookmarked_question: 이 순간을 북마크 하시겠습니까?
+      resource_recommendations_question: 리소스 권장사항 표시
     index:
       subtitle: '여러분의 정신 건강에 영향을 미치는 사건들과 상황들, 순간들을 깊이 파고드세요.'
       instructions: >-
@@ -738,14 +738,15 @@ ko:
     edit_strategy: 계획 수정하기
     tagged_strategies: 테그된 계획
     new: 새 계획
-    bookmark: 이 계획을 북마크하시겠습니까?
     form:
       describe: 계획을 설명하세요
       strategies_label: 어떤 계획이 이 생각들을 달성하는데 도움이 될까?
       name_hint: '당신을 도울 수 있는 모든 활동, 생각의 훈련, 또는 형태나 자기관리'
       viewers_hint: 여러분의 계획을 보고 자신의 순간을 태그할 수 있는 동료들
       daily_reminder_hint: 이 계획을 수행하기 위해 매일 알림을 메일로 보내드립니다.
-      draft_question: Do you want to save your strategy as draft?
+      draft_question: 전략을 초안으로 저장 하시겠습니까?
+      bookmarked_question: 이 계획을 북마크하시겠습니까?
+      bookmarked_info: 북마크 된 전략이 케어 플랜에 나타납니다
     label:
       one: '계획:'
       other: '계획들:'
@@ -863,3 +864,7 @@ ko:
       unlock: 잠금 해제메일을 아직 받지 못하셨나요?
     unlock:
       resend: 잠금 해제메일 다시 전송하기
+  care_plan:
+    index:
+      title: 간병 계획
+      subtitle: 어려운시기를 극복하기위한 계획을 세우십시오

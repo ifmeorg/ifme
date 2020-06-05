@@ -41,7 +41,7 @@ es:
     privacy: Política de Privacidad
     github: GitHub
     patreon: Patreon
-    opencollective: Open Collective
+    open_collective: Open Collective
     instagram: Instagram
     rss: RSS
     twitter: Twitter
@@ -315,8 +315,6 @@ es:
     edit_moment: Editar Momento
     tagged_moments: Etiquetar Momento
     new: Nuevo Momento
-    bookmark: Marcador
-    resource_recommendations: ¿Mostrar recomendación de recursos?
     secret_share:
       singular: Compartir en Secreto
       expires_at: Caduca en
@@ -328,6 +326,8 @@ es:
       what_happened: ¿Qué ocurrió?
       viewers_hint: 'Aliados que pueden ver tu momento:'
       draft_question: ¿Quieres guardar tu momento como borrador?
+      bookmarked_question: Marcar este momento?
+      resource_recommendations_question: ¿Mostrar recomendación de recursos?
     index:
       subtitle: >-
         Profundiza en tus Momentos - eventos y situaciones que afectan tu salud
@@ -859,7 +859,6 @@ es:
     edit_strategy: Editar estrategia
     tagged_strategies: Estrategias etiquetadas
     new: Nueva estrategia
-    bookmark: Marcador
     form:
       describe: Describir estrategia
       strategies_label: ¿Qué estrategias ayudarían a conseguir estos pensamientos?
@@ -873,6 +872,8 @@ es:
         Diariamente te enviaremos un correo electrónico para llevar a cabo esta
         estrategia
       draft_question: ¿Quieres guardar tu estrategia como borrador?
+      bookmarked_question: Marcar esta estrategia?
+      bookmarked_info: Las estrategias marcadas aparecen en su Plan de atención
     label:
       one: 'Estrategia:'
       other: 'Estrategias:'
@@ -1035,4 +1036,5 @@ es:
       resend: Reenviar instrucciones para desbloquear
   care_plan:
     index:
-      title: 'Care Plan'
+      title: Plan de cuidado
+      subtitle: Elaborar un plan para superar los momentos difíciles.

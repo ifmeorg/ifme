@@ -40,7 +40,7 @@ nl:
     privacy: Privacy Policy
     github: GitHub
     patreon: Patreon
-    opencollective: Open Collective
+    open_collective: Open Collective
     instagram: Instagram
     rss: RSS
     google: Google
@@ -310,8 +310,6 @@ nl:
     edit_moment: Bewerk Moment
     tagged_moments: Getagde Momenten
     new: Nieuw Moment
-    bookmark: Bladwijzer
-    resource_recommendations: Aanbevolen bronnen weergeven?
     secret_share:
       singular: Geheim Delen
       expires_at: Verloopt op
@@ -323,6 +321,8 @@ nl:
       what_happened: Wat is er gebeurd?
       viewers_hint: Bondgenoten die je moment kunnen bekijken
       draft_question: Wil je je moment als concept opslaan?
+      bookmarked_question: Bookmark dit moment?
+      resource_recommendations_question: Aanbevolen bronnen weergeven?
     index:
       subtitle: >-
         Duik diep in je momenten - gebeurtenissen en situaties die invloed
@@ -859,7 +859,6 @@ nl:
     edit_strategy: Bewerk Strategie
     tagged_strategies: Getagde Strategieën
     new: Nieuwe Strategie
-    bookmark: Bladwijzer
     form:
       describe: Omschrijf de Strategie.
       strategies_label: Welke Strategieën zouden helpen deze gedachten te vervullen?
@@ -869,6 +868,8 @@ nl:
         kunnen taggen
       daily_reminder_hint: We zullen je dagelijks e-mailen om deze strategie uit te voeren
       draft_question: Wil je je strategie als concept opslaan?
+      bookmarked_question: Bookmark deze strategie?
+      bookmarked_info: Strategieën met bladwijzers verschijnen in uw Zorgplan
     label:
       one: 'Strategie:'
       other: 'Strategieën:'
@@ -1025,4 +1026,5 @@ nl:
       resend: Ontgrendelingsinstructies opnieuw versturen
   care_plan:
     index:
-      title: 'Care Plan'
+      title: Zorgplan
+      subtitle: Stel een plan op om moeilijke tijden door te komen

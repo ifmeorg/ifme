@@ -40,7 +40,7 @@ vi:
     privacy: Chính sách bảo mật
     github: GitHub
     patreon: Patreon
-    opencollective: Open Collective
+    open_collective: Open Collective
     instagram: Instagram
     rss: RSS
     google: Google
@@ -314,8 +314,6 @@ vi:
     edit_moment: Hiệu chỉnh khoản khắc
     tagged_moments: Những khoản khắc đã được ghi
     new: Khoản khắc mới
-    bookmark: Đánh dấu trang
-    resource_recommendations: Hiển thị tài nguyên được đề xuất?
     secret_share:
       singular: Chia sẻ bí mật
       expires_at: Hết hạn lúc
@@ -327,6 +325,8 @@ vi:
       what_happened: Điều gì đã xảy ra?
       viewers_hint: Những đồng minh có thể xem bình luận của bạn
       draft_question: Bạn có muốn lưu lại khoản khắc này như một bản nháp không?
+      bookmarked_question: Đánh dấu thời điểm này?
+      resource_recommendations_question: Hiển thị tài nguyên được đề xuất?
     index:
       subtitle: >-
         Đào sâu vào khoản khắc của bạn – sự kiện tình huống đã ảnh hưởng đến sức
@@ -845,7 +845,6 @@ vi:
     edit_strategy: 'Chỉnh sửa chiến lược '
     tagged_strategies: Gắn nhãn cho chiến lược
     new: Chiến lược mới
-    bookmark: Đánh dấu trang
     form:
       describe: Miêu tả chiến lược.
       strategies_label: Chiến lược nào sẽ giúp ban đạt được suy nghĩ này?
@@ -857,6 +856,8 @@ vi:
         chiến lược đó
       daily_reminder_hint: Chúng tôi sẽ gửi email nhắc nhở để bạn thực hiện chiến lược đó
       draft_question: Bạn có muốn lưu chiến lược đó như bản nháp không?
+      bookmarked_question: Đánh dấu chiến lược này?
+      bookmarked_info: Các chiến lược được đánh dấu xuất hiện trong Kế hoạch chăm sóc của bạn
     label:
       one: 'Chiến lược:'
       other: 'Chiến lược:'
@@ -1014,4 +1015,5 @@ vi:
       resend: Gửi lại hướng dẫn mở khóa
   care_plan:
     index:
-      title: 'Care Plan'
+      title: Kế hoạch chăm sóc
+      subtitle: Lập kế hoạch để vượt qua thời điểm khó khăn
