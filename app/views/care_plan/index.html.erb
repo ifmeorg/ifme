@@ -7,6 +7,10 @@
   <%= link_to(t('pages.resources.emergency'), "/resources?filter[]=#{t('pages.resources.tags.suicide_prevention')}") %>
 </div>
 
+<%= react_component('CarePlanContacts', html_options: {}, props: {
+  contacts: @contacts
+}) %>
+
 <div class="pageSubtitle">
   <h2><%= t('strategies.plural') %></h2>
   <div class="pageSubtitleRight">
