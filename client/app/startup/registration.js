@@ -31,6 +31,7 @@ import { ToggleLocale } from '../widgets/ToggleLocale';
 import Comments from '../widgets/Comments';
 import Input from '../components/Input';
 import CrisisPrevention from '../widgets/CrisisPrevention';
+import CarePlanContacts from '../widgets/CarePlanContacts';
 
 scrollToTop();
 
@@ -61,4 +62,5 @@ ReactOnRails.register({
   ToggleLocale,
   Tooltip,
   CrisisPrevention,
+  CarePlanContacts,
 });
