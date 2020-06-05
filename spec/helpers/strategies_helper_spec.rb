@@ -111,6 +111,16 @@ describe StrategiesHelper do
         checked: strategy.visible
       },
       {
+        checked: false,
+        dark: true,
+        id: 'strategy_bookmarked',
+        info: 'Bookmarked strategies appear in your Care Plan', label: 'Bookmark this strategy?',
+        name: 'strategy[bookmarked]',
+        type: 'switch',
+        uncheckedValue: false,
+        value: true
+      },
+      {
         id: 'strategy_perform_strategy_reminder',
         type: 'checkbox',
         name: 'strategy[perform_strategy_reminder_attributes][active]',

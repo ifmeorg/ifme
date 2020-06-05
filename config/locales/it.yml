@@ -40,7 +40,7 @@ it:
     privacy: Privacy Policy
     github: GitHub
     patreon: Patreon
-    opencollective: Open Collective
+    open_collective: Open Collective
     instagram: Instagram
     rss: RSS
     google: Google
@@ -313,8 +313,6 @@ it:
     edit_moment: Modifica Momento
     tagged_moments: Momenti taggati
     new: Nuovo Momento
-    bookmark: Segnalibro
-    resource_recommendations: Mostra raccomandazione sulle risorse?
     secret_share:
       singular: Condivisione Segreta
       expires_at: Scadenza
@@ -326,6 +324,8 @@ it:
       what_happened: Cos’è successo?
       viewers_hint: Alleati che possono vedere il tuo momento
       draft_question: Vuoi salvare il tuo momento come una bozza?
+      bookmarked_question: Aggiungi questo momento ai segnalibri?
+      resource_recommendations_question: Mostra raccomandazione sulle risorse?
     index:
       subtitle: >-
         Immergiti nei tuoi momenti - eventi e situazioni che hanno effetto sul
@@ -844,7 +844,6 @@ it:
     edit_strategy: Modifica Strategia
     tagged_strategies: Strategie Taggate
     new: Nuova Strategia
-    bookmark: Segnalibro
     form:
       describe: Descrivi la Strategia.
       strategies_label: Quali strategie ti aiuterebbero a porti in questo modo?
@@ -854,6 +853,8 @@ it:
         momenti
       daily_reminder_hint: Ti ricorderemo via EMail ogni giorno di utilizzare questa strategia.
       draft_question: Vuoi salvare la tua strategia come bozza?
+      bookmarked_question: Aggiungi questa strategia ai segnalibri?
+      bookmarked_info: Le strategie contrassegnate vengono visualizzate nel piano di assistenza
     label:
       one: 'Strategia:'
       other: 'Strategie:'
@@ -1017,4 +1018,5 @@ it:
       resend: Reinvia istruzioni di sblocco
   care_plan:
     index:
-      title: 'Care Plan'
+      title: Piano di cura
+      subtitle: Metti insieme un piano per superare i momenti difficili

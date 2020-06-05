@@ -63,17 +63,22 @@ module StrategiesFormHelper
   end
 
   def build_strategy_publishing(strategy)
-    build_switch_input('0', !strategy.published?, '1').merge(
-      id: 'strategy_publishing', name: 'publishing',
-      label: t('strategies.form.draft_question')
-    )
+    build_switch_input('0',
+                       params[:bookmarked] ? false : !strategy.published?, '1')
+      .merge(
+        id: 'strategy_publishing', name: 'publishing',
+        label: t('strategies.form.draft_question')
+      )
   end
 
   def build_strategy_bookmarked(strategy)
-    build_switch_input(true, strategy.bookmarked, false)
+    build_switch_input(
+      true, params[:bookmarked] ? true : strategy.bookmarked, false
+    )
       .merge(
         id: 'strategy_bookmarked', name: 'strategy[bookmarked]',
-        label: t('strategies.bookmark')
+        label: t('strategies.form.bookmarked_question'),
+        info: t('strategies.form.bookmarked_info')
       )
   end
 

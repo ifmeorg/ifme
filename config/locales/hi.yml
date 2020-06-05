@@ -41,7 +41,7 @@ hi:
     privacy: गोपनीयता नीति
     github: GitHub
     patreon: Patreon
-    opencollective: सामूहिक खोलें
+    open_collective: Open Collective
     instagram: इंस्टाग्राम
     rss: आरएसएस
     twitter: ट्विटर
@@ -306,8 +306,6 @@ hi:
     edit_moment: क्षण संपादित करें
     tagged_moments: टैग किए गए लम्हें
     new: नया पल
-    bookmark: बुकमार्क
-    resource_recommendations: अनुशंसित संसाधन प्रदर्शित करें?
     secret_share:
       singular: गुप्त हिस्सा
       expires_at: पर समाप्त
@@ -319,6 +317,8 @@ hi:
       what_happened: क्या हुआ?
       viewers_hint: सहयोगी जो आपके पल को देख सकते हैं
       draft_question: क्या आप अपने पल को ड्राफ्ट के रूप में सहेजना चाहते हैं?
+      bookmarked_question: इस पल को बुकमार्क करें?
+      resource_recommendations_question: अनुशंसित संसाधन प्रदर्शित करें?
     index:
       subtitle: >-
         अपने क्षणों में गहराई से उतरें - ऐसी घटनाएं और परिस्थितियाँ जो आपके
@@ -836,7 +836,6 @@ hi:
     edit_strategy: रणनीति संपादित करें
     tagged_strategies: टैग की गईं रणनीतियाँ
     new: नई रणनीति
-    bookmark: बुकमार्क
     form:
       describe: रणनीति का वर्णन करें।
       strategies_label: क्या रणनीति इन विचारों को प्राप्त करने में मदद करेगी?
@@ -848,6 +847,8 @@ hi:
         टैग कर सकते हैं
       daily_reminder_hint: हम आपको इस रणनीति को पूरा करने के लिए एक दैनिक अनुस्मारक ईमेल करेंगे
       draft_question: क्या आप अपनी रणनीति को ड्राफ्ट के रूप में सहेजना चाहते हैं?
+      bookmarked_question: इस रणनीति को बुकमार्क करें?
+      bookmarked_info: बुकमार्क की गई रणनीतियाँ आपकी देखभाल योजना में दिखाई देती हैं
     label:
       one: 'रणनीति:'
       other: 'रणनीतियाँ:'
@@ -1001,4 +1002,5 @@ hi:
       resend: अनलॉक निर्देश पुनः भेजें
   care_plan:
     index:
-      title: 'Care Plan'
+      title: देखभाल की योजना
+      subtitle: कठिन समय से गुजरने के लिए एक योजना बनाएं

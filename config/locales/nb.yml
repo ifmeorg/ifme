@@ -40,7 +40,7 @@ nb:
     privacy: Personvernerklæring
     github: GitHub
     patreon: Patreon
-    opencollective: Open Collective
+    open_collective: Open Collective
     instagram: Instagram
     rss: RSS
     google: Google
@@ -306,8 +306,6 @@ nb:
     edit_moment: Rediger øyeblikk
     tagged_moments: tag øyeblikk
     new: Nytt øyeblikk
-    bookmark: Bookmark
-    resource_recommendations: Vise anbefalte ressurser?
     secret_share:
       singular: Hemmelig deling
       expires_at: Utløper
@@ -319,6 +317,8 @@ nb:
       what_happened: Hva skjedde?
       viewers_hint: Allierte som kan se øyeblikket ditt
       draft_question: Vil du lagre øyeblikket ditt som ett utkast?
+      bookmarked_question: Bokmerke dette øyeblikket?
+      resource_recommendations_question: Vise anbefalte ressurser?
     index:
       subtitle: >-
         Dykk dypt inn i øyeblikkene dine - hendelser og situasjoner som påvirker
@@ -826,7 +826,6 @@ nb:
     edit_strategy: Rediger strategi
     tagged_strategies: Taggede strategier
     new: Ny strategi
-    bookmark: Bookmark
     form:
       describe: Beskriv strategien.
       strategies_label: Hvilke strategier kan hjelpe deg oppnå disse tankene?
@@ -836,6 +835,8 @@ nb:
       viewers_hint: Allierte som kan se din strategi og tagge deres egne øyeblikk med det
       daily_reminder_hint: Vi sender deg en daglig påminnelse om å utføre denne strategien
       draft_question: Vil du lagre din strategi som ett utkast?
+      bookmarked_question: Bokmerke denne strategien?
+      bookmarked_info: Bokmerkede strategier vises i din omsorgsplan
     label:
       one: 'Strategi:'
       other: 'Strategier:'
@@ -998,4 +999,5 @@ nb:
       resend: Send opplåsningsinstruksjoner på nytt
   care_plan:
     index:
-      title: 'Care Plan'
+      title: Omsorgsplan
+      subtitle: Sett sammen en plan for å komme gjennom vanskelige tider

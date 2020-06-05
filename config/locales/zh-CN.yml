@@ -40,7 +40,7 @@ zh-CN:
     privacy: 隐私条款
     github: GitHub
     patreon: Patreon
-    opencollective: OpenCollective
+    open_collective: Open Collective
     instagram: Instagram
     rss: RSS
     google: 谷歌
@@ -288,8 +288,6 @@ zh-CN:
     edit_moment: 编辑日记
     tagged_moments: 标记的日记
     new: 新日记分享
-    bookmark: 将日记加上个书签?
-    resource_recommendations: 显示资源推荐？
     secret_share:
       singular: 秘密分享
       expires_at: 到期
@@ -301,6 +299,8 @@ zh-CN:
       what_happened: 发生了什么？
       viewers_hint: 可以看到你日记的好友
       draft_question: 你想将自己的日记分享保存为草稿吗？
+      bookmarked_question: 将日记加上个书签?
+      resource_recommendations_question: 显示资源推荐？
     index:
       subtitle: 深入分析影响你心理健康的事件和情况。
       instructions: >-
@@ -699,7 +699,6 @@ zh-CN:
     plural: 健康规划
     edit_strategy: 修改健康规划
     tagged_strategies: 标记健康规划
-    bookmark: 将健康规划加上个书签?
     new: 新健康规划
     form:
       describe: 描述健康规划。
@@ -708,6 +707,8 @@ zh-CN:
       viewers_hint: 可以查看你的健康规划并标记自己的日记的好友
       daily_reminder_hint: 我们会通过电子邮件每天提醒你执行此健康规划
       draft_question: 你要将健康规划另存为草稿吗？
+      bookmarked_question: 将健康规划加上个书签?
+      bookmarked_info: 已标记为策略的策略会出现在您的护理计划中
     label:
       one: '健康规划: '
       other: '健康规划: '
@@ -816,4 +817,5 @@ zh-CN:
       resend: 重新发送解锁说明
   care_plan:
     index:
-      title: 'Care Plan'
+      title: 护理计划
+      subtitle: 制定应对困难时期的计划

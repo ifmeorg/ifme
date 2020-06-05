@@ -40,7 +40,7 @@ sv:
     privacy: Integritetspolicy
     github: GitHub
     patreon: Patreon
-    opencollective: Open Collective
+    open_collective: Open Collective
     instagram: Instagram
     rss: RSS
     google: Google
@@ -312,8 +312,6 @@ sv:
     edit_moment: Redigera Ögonblick
     tagged_moments: Taggade Ögonblick
     new: Nya Ögonblick
-    bookmark: Bokmärke
-    resource_recommendations: Visa rekommenderade resurser?
     secret_share:
       singular: Hemlig Andel
       expires_at: Förfaller vid
@@ -325,6 +323,8 @@ sv:
       what_happened: Vad hände?
       viewers_hint: Allierade som kan se ditt ögonblick
       draft_question: Vill du spara ditt ögonblick som ett utkast?
+      bookmarked_question: Bokmärk det här ögonblicket?
+      resource_recommendations_question: Visa rekommenderade resurser?
     index:
       subtitle: >-
         Fördjupa dig djupt i dina ögonblick - händelser och situationer som
@@ -828,7 +828,6 @@ sv:
     edit_strategy: Redigera Strategi
     tagged_strategies: Taggade Strategier
     new: Ny Strategi
-    bookmark: Bokmärke
     form:
       describe: Beskriv strategin.
       strategies_label: Vilka strategier skulle hjälpa till att uppnå dessa tankar?
@@ -840,6 +839,8 @@ sv:
         Vi skickar e-post till dig med en daglig påminnelse för att utföra denna
         strategi
       draft_question: Vill du spara din strategi som utkast?
+      bookmarked_question: Bokmärk den här strategin?
+      bookmarked_info: Bokmärkta strategier visas i din vårdplan
     label:
       one: 'Strategi:'
       other: 'Strategier:'
@@ -998,4 +999,5 @@ sv:
       resend: Skicka upplåsningsinstruktionerna igen
   care_plan:
     index:
-      title: 'Care Plan'
+      title: Vårdplan
+      subtitle: Sätt ihop en plan för att komma igenom svåra tider
