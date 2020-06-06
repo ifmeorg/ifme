@@ -1004,3 +1004,8 @@ hi:
     index:
       title: देखभाल की योजना
       subtitle: कठिन समय से गुजरने के लिए एक योजना बनाएं
+      contacts: संपर्क
+      new_contact: नया कॉन्ट्रैक्ट
+      edit_contact: संपादित संपर्क
+      phone_number: फ़ोन नंबर
+      contacts_info: प्रियजनों से आपको बात करनी चाहिए

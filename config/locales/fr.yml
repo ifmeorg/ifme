@@ -1064,3 +1064,8 @@ fr:
     index:
       title: Plan de santé
       subtitle: Élaborez un plan pour traverser les moments difficiles
+      contacts: Contacts
+      new_contact: Nouveau contact
+      edit_contact: Modifier le contact
+      phone_number: Numéro de téléphone
+      contacts_info: Les êtres chers auxquels vous devriez parler

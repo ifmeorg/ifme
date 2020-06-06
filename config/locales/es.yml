@@ -1038,3 +1038,8 @@ es:
     index:
       title: Plan de cuidado
       subtitle: Elaborar un plan para superar los momentos difíciles.
+      contacts: Contactos
+      new_contact: Nuevo contacto
+      edit_contact: Editar contacto
+      phone_number: Número de teléfono
+      contacts_info: Amados con los que deberías hablar

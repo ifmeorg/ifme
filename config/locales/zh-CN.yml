@@ -819,3 +819,8 @@ zh-CN:
     index:
       title: 护理计划
       subtitle: 制定应对困难时期的计划
+      contacts: 联络人
+      new_contact: 新联系人
+      edit_contact: 更改联系资料
+      phone_number: 电话号码
+      contacts_info: 你应该和亲人谈谈

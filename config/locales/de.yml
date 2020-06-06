@@ -1101,3 +1101,8 @@ de:
     index:
       title: Pflegeplan
       subtitle: Stellen Sie einen Plan für schwierige Zeiten zusammen
+      contacts: Kontakte
+      new_contact: Neuer Kontakt
+      edit_contact: Kontakt bearbeiten
+      phone_number: Telefonnummer
+      contacts_info: Lieben, mit denen Sie sprechen sollten
