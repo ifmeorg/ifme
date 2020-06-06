@@ -3,6 +3,15 @@ import React from 'react';
 import { I18n } from '../../libs/i18n';
 import DynamicForm from '../../components/Form/DynamicForm';
 
+type Response = {
+  data: {
+    id: string,
+    name: string,
+    phone: String,
+    success: boolean,
+  },
+};
+
 type Contact = {
   id: number,
   name: string,
@@ -18,8 +27,11 @@ export const CarePlanContactsForm = ({ contact }: Props) => {
     contact ? `update?id=${contact.id}` : 'create'
   }`;
 
-  const onSubmit = () => {
-    window.location.reload();
+  const onSubmit = ({ data }: Response) => {
+    const { success } = data;
+    if (success) {
+      window.location.reload();
+    }
     // TODO: handle errors using e: SyntheticEvent<HTMLInputElement>
   };
 

@@ -19,7 +19,7 @@ export type Props = {
   title?: string,
   openListener?: Function,
   open?: boolean,
-  className?: Object,
+  className?: string,
 };
 
 type ModalPropsExtended = Props & {
