@@ -81,6 +81,7 @@ export const DynamicForm = ({
       errors,
       refs: myRefs,
     });
+
     if (hasErrors(newErrors) > 0) {
       setInputs(newInputs);
       setErrors(newErrors);
@@ -91,8 +92,11 @@ export const DynamicForm = ({
             onSubmit(response);
           }
         },
-      );
-      // TODO: Actually handle errors through catch()
+      ).catch((e) => {
+        if (onSubmit) {
+          onSubmit({ error: e.toString() });
+        }
+      });
     }
   };
 
