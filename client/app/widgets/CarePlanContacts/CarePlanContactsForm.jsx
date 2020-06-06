@@ -5,16 +5,7 @@ import DynamicForm from '../../components/Form/DynamicForm';
 import css from './CarePlanContacts.scss';
 
 type Response = {
-  data: {
-    id: string,
-    name: string,
-    phone: String,
-    success: boolean,
-  },
-};
-
-type Error = {
-  error: string,
+  error?: string,
 };
 
 type Contact = {
@@ -33,9 +24,8 @@ export const CarePlanContactsForm = ({ contact }: Props) => {
     contact ? `update?id=${contact.id}` : 'create'
   }`;
 
-  const onSubmit = (response: Response | Error) => {
-    const { data, error } = response;
-    if (error) {
+  const onSubmit = (response: Response) => {
+    if (response.error) {
       setError(error);
     } else {
       window.location.reload();
@@ -78,10 +68,7 @@ export const CarePlanContactsForm = ({ contact }: Props) => {
         onSubmit={onSubmit}
       />
       {error && (
-        <div
-          className={`${css.errorField} ${css.smallMarginTop}`}
-          role="alert"
-        >
+        <div className={`${css.errorField} ${css.smallMarginTop}`} role="alert">
           {error}
         </div>
       )}

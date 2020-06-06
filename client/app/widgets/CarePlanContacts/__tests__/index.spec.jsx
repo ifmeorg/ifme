@@ -12,8 +12,8 @@ const contacts = [
   {
     id: 2,
     name: 'Test2 Lastname',
-    phone: '4161234567'
-  }
+    phone: '4161234567',
+  },
 ];
 
 const component = <CarePlanContacts contacts={contacts} />;
@@ -45,29 +45,41 @@ describe('CarePlanContacts', () => {
       }));
       const windowLocationReloadSpy = jest.spyOn(window.location, 'reload');
       const wrapper = mount(component);
-      wrapper.find('a[aria-label="Edit"]').at(0).simulate('click');
-      expect(wrapper.text()).toContain('Edit Contact');
-      expect(wrapper.find('input[aria-label="Name"]').props().defaultValue).toEqual('Test1 Lastname');
-      expect(wrapper.find('input[aria-label="Phone number"]').props().defaultValue).toEqual(undefined);
       wrapper
-        .find('input[aria-label="Phone number"]')
-        .instance().value = '4160000000';
+        .find('a[aria-label="Edit"]')
+        .at(0)
+        .simulate('click');
+      expect(wrapper.text()).toContain('Edit Contact');
+      expect(
+        wrapper.find('input[aria-label="Name"]').props().defaultValue,
+      ).toEqual('Test1 Lastname');
+      expect(
+        wrapper.find('input[aria-label="Phone number"]').props().defaultValue,
+      ).toEqual(undefined);
+      wrapper.find('input[aria-label="Phone number"]').instance().value = '4160000000';
       await wrapper.find('input[type="submit"]').simulate('click');
       axiosPatchSpy();
       expect(windowLocationReloadSpy).toBeCalled();
     });
 
     it('opens a modal and does not submit the form successfully', async () => {
-      const axiosPatchSpy = jest.spyOn(axios, 'patch').mockImplementation(() => Promise.reject(error));
+      const axiosPatchSpy = jest
+        .spyOn(axios, 'patch')
+        .mockImplementation(() => Promise.reject(error));
       const windowLocationReloadSpy = jest.spyOn(window.location, 'reload');
       const wrapper = mount(component);
-      wrapper.find('a[aria-label="Edit"]').at(0).simulate('click');
-      expect(wrapper.text()).toContain('Edit Contact');
-      expect(wrapper.find('input[aria-label="Name"]').props().defaultValue).toEqual('Test1 Lastname');
-      expect(wrapper.find('input[aria-label="Phone number"]').props().defaultValue).toEqual(undefined);
       wrapper
-        .find('input[aria-label="Phone number"]')
-        .instance().value = '4160000000';
+        .find('a[aria-label="Edit"]')
+        .at(0)
+        .simulate('click');
+      expect(wrapper.text()).toContain('Edit Contact');
+      expect(
+        wrapper.find('input[aria-label="Name"]').props().defaultValue,
+      ).toEqual('Test1 Lastname');
+      expect(
+        wrapper.find('input[aria-label="Phone number"]').props().defaultValue,
+      ).toEqual(undefined);
+      wrapper.find('input[aria-label="Phone number"]').instance().value = '4160000000';
       await act(async () => {
         await wrapper.find('input[type="submit"]').simulate('click');
       });
@@ -90,29 +102,23 @@ describe('CarePlanContacts', () => {
       const wrapper = mount(<CarePlanContacts />);
       wrapper.find('button[children="New Contact"]').simulate('click');
       expect(wrapper.text()).toContain('New Contact');
-      wrapper
-        .find('input[aria-label="Name"]')
-        .instance().value = 'Test3 Lastname';
-      wrapper
-        .find('input[aria-label="Phone number"]')
-        .instance().value = '4160000000';
+      wrapper.find('input[aria-label="Name"]').instance().value = 'Test3 Lastname';
+      wrapper.find('input[aria-label="Phone number"]').instance().value = '4160000000';
       await wrapper.find('input[type="submit"]').simulate('click');
       axiosPostSpy();
       expect(windowLocationReloadSpy).toBeCalled();
     });
 
     it('opens a modal and does not submit the form successfully', async () => {
-      const axiosPostSpy = jest.spyOn(axios, 'post').mockImplementation(() => Promise.reject(error));
+      const axiosPostSpy = jest
+        .spyOn(axios, 'post')
+        .mockImplementation(() => Promise.reject(error));
       const windowLocationReloadSpy = jest.spyOn(window.location, 'reload');
       const wrapper = mount(<CarePlanContacts />);
       wrapper.find('button[children="New Contact"]').simulate('click');
       expect(wrapper.text()).toContain('New Contact');
-      wrapper
-        .find('input[aria-label="Name"]')
-        .instance().value = 'Test3 Lastname';
-      wrapper
-        .find('input[aria-label="Phone number"]')
-        .instance().value = '4160000000';
+      wrapper.find('input[aria-label="Name"]').instance().value = 'Test3 Lastname';
+      wrapper.find('input[aria-label="Phone number"]').instance().value = '4160000000';
       await act(async () => {
         await wrapper.find('input[type="submit"]').simulate('click');
       });
