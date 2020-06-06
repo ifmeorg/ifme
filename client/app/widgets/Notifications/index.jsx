@@ -24,7 +24,9 @@ export const Notifications = ({
   notifications, alreadyMounted, open, modalKey, signedInKey,
 }: State) => {
   // error handle : notifications, alreadyMounted, open not defined
-  let { newnotifications, newalreadyMounted, newopen } = { notifications, alreadyMounted, open };
+  let newnotifications = notifications;
+  let newalreadyMounted = alreadyMounted;
+  let newopen = open;
   if (!newnotifications) newnotifications = '';
   if (!newalreadyMounted) newalreadyMounted = false;
   if (!newopen) newopen = false;
