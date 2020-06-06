@@ -7,9 +7,11 @@ describe 'UserDeletesACarePlanContact', js: true do
     login_as user
     visit care_plan_path
     expect(page).to have_content('Lovely Person')
+
     within '.story' do
       find('a[aria-label="Delete"]').click
     end
+
     page.driver.browser.switch_to.alert.accept
     expect(page).to_not have_content('Lovely Person')
   end
