@@ -983,3 +983,8 @@ en:
     index:
       title: Care Plan
       subtitle: Put together a plan for getting through difficult times
+      contacts: Contacts
+      new_contact: New Contact
+      edit_contact: Edit Contact
+      phone_number: Phone number
+      contacts_info: Loved ones you should talk to

@@ -1001,3 +1001,8 @@ sv:
     index:
       title: Vårdplan
       subtitle: Sätt ihop en plan för att komma igenom svåra tider
+      contacts: Kontakter
+      new_contact: Ny kontakt
+      edit_contact: Redigera kontakt
+      phone_number: Telefonnummer
+      contacts_info: Älskade du bör prata med

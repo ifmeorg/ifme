@@ -1001,3 +1001,8 @@ nb:
     index:
       title: Omsorgsplan
       subtitle: Sett sammen en plan for å komme gjennom vanskelige tider
+      contacts: Kontakt
+      new_contact: Ny kontakt
+      edit_contact: Rediger kontakt
+      phone_number: Telefonnummer
+      contacts_info: Kjære du bør snakke med
