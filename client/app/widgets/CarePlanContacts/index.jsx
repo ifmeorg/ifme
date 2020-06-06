@@ -47,7 +47,7 @@ export const CarePlanContacts = ({ contacts }: Props) => {
       </div>
       {I18n.t('care_plan.index.contacts_info')}
       <div className="gridTwo marginTop">
-        {contacts.map((contact) => {
+        {contacts && contacts.map((contact) => {
           const { name, phone, id } = contact;
           return (
             <div className="gridTwoItemBoxLight" key={id}>

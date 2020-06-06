@@ -15,7 +15,6 @@ describe CarePlanContactsController do
           expect { post :create, params: { care_plan_contact: valid_params } }
             .to change(CarePlanContact, :count).by 1
           expect(response.body).to eq({
-            success: true,
             id: CarePlanContact.last.id,
             name: CarePlanContact.last.name,
             phone: CarePlanContact.last.phone
@@ -24,9 +23,10 @@ describe CarePlanContactsController do
       end
 
       context 'when invalid params are supplied' do
-        it 'responds with an error in json format' do
-          post :create, params: { care_plan_contact: invalid_params }
-          expect(response.body).to eq({ success: false }.to_json)
+        it 'raises an error' do
+          expect {
+            post :create, params: { care_plan_contact: invalid_params }
+          }.to raise_error
         end
       end
     end
@@ -49,7 +49,6 @@ describe CarePlanContactsController do
         it 'updates the care plan contact' do
           patch :update, params: { id: care_plan_contact.id, care_plan_contact: valid_params }
           expect(response.body).to eq({
-            success: true,
             id: care_plan_contact.id,
             name: 'Great Person',
             phone: care_plan_contact.phone
@@ -58,9 +57,10 @@ describe CarePlanContactsController do
       end
 
       context 'when invalid params are supplied' do
-        it 'responds with an error in json format' do
-          post :create, params: { care_plan_contact: invalid_params }
-          expect(response.body).to eq({ success: false }.to_json)
+        it 'raises an error' do
+          expect {
+            post :create, params: { care_plan_contact: invalid_params }
+          }.to raise_error
         end
       end
     end
