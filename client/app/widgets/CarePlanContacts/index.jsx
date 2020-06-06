@@ -38,7 +38,9 @@ export const CarePlanContacts = ({ contacts }: Props) => {
                 {I18n.t('care_plan.index.new_contact')}
               </button>
             )}
-            title={I18n.t(`care_plan.index.${editableContact ? 'edit' : 'new'}_contact`)}
+            title={I18n.t(
+              `care_plan.index.${editableContact ? 'edit' : 'new'}_contact`,
+            )}
             body={<CarePlanContactsForm contact={editableContact} />}
             open={!!editableContact}
             modalKey={modalKey}
@@ -47,29 +49,30 @@ export const CarePlanContacts = ({ contacts }: Props) => {
       </div>
       {I18n.t('care_plan.index.contacts_info')}
       <div className="gridTwo marginTop">
-        {contacts && contacts.map((contact) => {
-          const { name, phone, id } = contact;
-          return (
-            <div className="gridTwoItemBoxLight" key={id}>
-              <Story
-                name={name}
-                body={phone}
-                actions={{
-                  delete: {
-                    name: I18n.t('common.actions.delete'),
-                    link: `/care_plan_contacts/destroy?id=${id}`,
-                    dataConfirm: I18n.t('common.actions.confirm'),
-                    dataMethod: 'delete',
-                  },
-                  edit: {
-                    name: I18n.t('common.actions.edit'),
-                    onClick: () => editContact(contact),
-                  },
-                }}
-              />
-            </div>
-          );
-        })}
+        {contacts
+          && contacts.map((contact) => {
+            const { name, phone, id } = contact;
+            return (
+              <div className="gridTwoItemBoxLight" key={id}>
+                <Story
+                  name={name}
+                  body={phone}
+                  actions={{
+                    delete: {
+                      name: I18n.t('common.actions.delete'),
+                      link: `/care_plan_contacts/destroy?id=${id}`,
+                      dataConfirm: I18n.t('common.actions.confirm'),
+                      dataMethod: 'delete',
+                    },
+                    edit: {
+                      name: I18n.t('common.actions.edit'),
+                      onClick: () => editContact(contact),
+                    },
+                  }}
+                />
+              </div>
+            );
+          })}
       </div>
     </>
   );

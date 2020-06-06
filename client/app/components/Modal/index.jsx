@@ -150,7 +150,7 @@ export const Modal = (props: Props) => {
       return (
         <div
           id={elementId}
-          className={`modalElement ${css.modalElement} ${className}`}
+          className={`modalElement ${css.modalElement} ${className || ''}`}
           onClick={toggleOpen}
           onKeyDown={toggleOpen}
           role="button"

@@ -86,17 +86,17 @@ export const DynamicForm = ({
       setInputs(newInputs);
       setErrors(newErrors);
     } else {
-      axios[type || 'post'](formProps.action, getParams(inputs, myRefs)).then(
-        (response: Object) => {
+      axios[type || 'post'](formProps.action, getParams(inputs, myRefs))
+        .then((response: Object) => {
           if (onSubmit) {
             onSubmit(response);
           }
-        },
-      ).catch((e) => {
-        if (onSubmit) {
-          onSubmit({ error: e.toString() });
-        }
-      });
+        })
+        .catch((error) => {
+          if (onSubmit) {
+            onSubmit({ error: error.toString() });
+          }
+        });
     }
   };
 
