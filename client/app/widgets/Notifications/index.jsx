@@ -21,17 +21,18 @@ export type State = {
 export const Notifications = ({
   element: propsElement,
 }: Props, {
-  notifications: propsNotification,
-  alreadyMounted: propsAlreadyNounted,
-  open: propsOpen,
-  modalKey: propsModelKey,
-  signedInKey: propsSignedInKey,
+  notifications, alreadyMounted, open, modalKey, signedInKey,
 }: State) => {
-  const [notifications, setnotifications] = useState('');
-  const [alreadyMounted, setalreadyMounted] = useState(false);
-  const [open, setopen] = useState(false);
-  const [signedInKey, setsignedInKey] = useState(propsSignedInKey);
-  const [modalKey, setmodalKey] = useState(propsModelKey);
+  // error handle : notifications, alreadyMounted, open not defined
+  let { newnotifications, newalreadyMounted, newopen } = { notifications, alreadyMounted, open };
+  if (!newnotifications) newnotifications = '';
+  if (!newalreadyMounted) newalreadyMounted = false;
+  if (!newopen) newopen = false;
+  const [notificationsState, setnotificationsState] = useState(newnotifications);
+  const [alreadyMountedState, setalreadyMountedState] = useState(newalreadyMounted);
+  const [openState, setopenState] = useState(newopen);
+  const [signedInKeySate, setsignedInKeySate] = useState(signedInKey);
+  const [modalKeyState, setmodalKeyState] = useState(modalKey);
 
   const changeTitle = (count: number) => {
     let { title } = window.document;
@@ -45,11 +46,14 @@ export const Notifications = ({
     paramsNotifications.forEach((item: string) => {
       updatedNotifications += `<div>${item}</div>`;
     });
-    setnotifications(updatedNotifications);
+    setnotificationsState(updatedNotifications);
   };
 
+  // eslint no-use-before-define: error
+  let fetchNotifications;
+
   const getPusherKey = (paramSignedInKey: number) => {
-    setsignedInKey(signedInKey);
+    setsignedInKeySate(signedInKeySate);
     const metaPusherKey = Array.from(
       window.document.getElementsByTagName('meta'),
     ).filter((item) => item.getAttribute('name') === 'pusher-key')[0];
@@ -64,10 +68,10 @@ export const Notifications = ({
   };
 
 
-  const fetchNotifications = () => axios.get('/notifications/signed_in')
+  fetchNotifications = () => axios.get('/notifications/signed_in')
     .then((response: any) => {
       if (response && response.data && response.data.signed_in !== -1) {
-        if (response.data.signed_in !== signedInKey) {
+        if (response.data.signed_in !== signedInKeySate) {
           getPusherKey(response.data.signed_in);
         }
         return axios.get('/notifications/fetch_notifications');
@@ -78,10 +82,10 @@ export const Notifications = ({
       if (response && response.data && response.data.fetch_notifications) {
         changeTitle(response.data.fetch_notifications.length);
         setBody(response.data.fetch_notifications);
-        if (!alreadyMounted && response.data.fetch_notifications.length > 0) {
-          setalreadyMounted(true);
-          setopen(true);
-          setmodalKey(Utils.randomString());
+        if (!alreadyMountedState && response.data.fetch_notifications.length > 0) {
+          setalreadyMountedState(true);
+          setopenState(true);
+          setmodalKeyState(Utils.randomString());
         }
       }
     });
@@ -90,8 +94,8 @@ export const Notifications = ({
     axios.delete('/notifications/clear').then((response: any) => {
       if (response) {
         changeTitle(0);
-        setopen(false);
-        setmodalKey(Utils.randomString());
+        setopenState(false);
+        setmodalKeyState(Utils.randomString());
         fetchNotifications();
       }
     });
@@ -99,7 +103,7 @@ export const Notifications = ({
 
   const displayNotifications = () => (
     <div aria-live="polite">
-      {renderHTML(notifications)}
+      {renderHTML(notificationsState)}
       <button
         type="button"
         className="buttonDarkS smallMarginTop"
@@ -120,13 +124,13 @@ export const Notifications = ({
       elementId="notificationsElement"
       title={I18n.t('notifications.plural')}
       body={
-        notifications.length
+        notificationsState.length
           ? displayNotifications()
           : I18n.t('notifications.none')
       }
       openListener={fetchNotifications}
-      open={open}
-      modalKey={modalKey}
+      open={openState}
+      modalKey={modalKeyState}
     />
   );
 };
