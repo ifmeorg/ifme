@@ -1,17 +1,20 @@
 // @flow
 import React, { useState } from 'react';
 import { I18n } from '../../libs/i18n';
+import { Utils } from '../../utils';
+import ContactsContext from './CarePlanContactsContext';
 import DynamicForm from '../../components/Form/DynamicForm';
 import css from './CarePlanContacts.scss';
 
-type Response = {
-  error?: string,
-};
-
-type Contact = {
+export type Contact = {
   id: number,
   name: string,
   phone?: string,
+};
+
+type Response = {
+  error?: string,
+  data?: Contact,
 };
 
 export type Props = {
@@ -24,55 +27,77 @@ export const CarePlanContactsForm = ({ contact }: Props) => {
     contact ? `update?id=${contact.id}` : 'create'
   }`;
 
-  const onSubmit = (response: Response) => {
+  const onSubmit = (response: Response, context: Object) => {
+    const {
+      contacts,
+      setContacts,
+      setEditableContact,
+      setOpenModal,
+      setModalKey,
+    } = context;
     if (response.error) {
-      setError(error);
+      setError(response.error);
     } else {
-      window.location.reload();
+      let newContacts = [...contacts];
+      if (contact) {
+        newContacts = newContacts.filter((c) => c.id !== contact.id);
+      }
+      newContacts.push(response.data);
+      setContacts(newContacts.sort((a, b) => a.name.localeCompare(b.name)));
+      setOpenModal(false);
+      setModalKey(Utils.randomString());
+      setEditableContact(null);
     }
   };
 
   return (
-    <>
-      <DynamicForm
-        type={contact ? 'patch' : 'post'}
-        formProps={{
-          action,
-          inputs: [
-            {
-              id: 'care_plan_contact_name',
-              name: 'care_plan_contact[name]',
-              type: 'text',
-              label: I18n.t('common.name'),
-              dark: true,
-              required: true,
-              value: contact && contact.name,
-            },
-            {
-              id: 'care_plan_contact_phone',
-              name: 'care_plan_contact[phone]',
-              type: 'tel',
-              label: I18n.t('care_plan.index.phone_number'),
-              dark: true,
-              value: contact && contact.phone,
-            },
-            {
-              dark: true,
-              id: 'submit',
-              name: 'commit',
-              type: 'submit',
-              value: I18n.t('common.actions.submit'),
-            },
-          ],
-        }}
-        onSubmit={onSubmit}
-      />
-      {error && (
-        <div className={`${css.errorField} ${css.smallMarginTop}`} role="alert">
-          {error}
-        </div>
+    <ContactsContext.Consumer>
+      {(context) => (
+        <>
+          <DynamicForm
+            type={contact ? 'patch' : 'post'}
+            formProps={{
+              action,
+              inputs: [
+                {
+                  id: 'care_plan_contact_name',
+                  name: 'care_plan_contact[name]',
+                  type: 'text',
+                  label: I18n.t('common.name'),
+                  dark: true,
+                  required: true,
+                  value: contact && contact.name,
+                },
+                {
+                  id: 'care_plan_contact_phone',
+                  name: 'care_plan_contact[phone]',
+                  type: 'tel',
+                  label: I18n.t('care_plan.index.phone_number'),
+                  dark: true,
+                  value: contact && contact.phone,
+                },
+                {
+                  dark: true,
+                  id: 'submit',
+                  name: 'commit',
+                  type: 'submit',
+                  value: I18n.t('common.actions.submit'),
+                },
+              ],
+            }}
+            onSubmit={(response) => onSubmit(response, context)}
+          />
+          {error && (
+            <div
+              className={`${css.errorField} ${css.smallMarginTop}`}
+              role="alert"
+            >
+              {error}
+            </div>
+          )}
+        </>
       )}
-    </>
+    </ContactsContext.Consumer>
   );
 };
 

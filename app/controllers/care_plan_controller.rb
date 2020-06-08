@@ -2,6 +2,6 @@
 class CarePlanController < ApplicationController
   def index
     @bookmarked_strategies = current_user.strategies.where(bookmarked: true)
-    @contacts = current_user.care_plan_contacts.order(name: :desc)
+    @contacts = current_user.care_plan_contacts.order('LOWER(name)')
   end
 end
