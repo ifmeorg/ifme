@@ -5,29 +5,36 @@ import { Story } from '../../components/Story';
 import Modal from '../../components/Modal';
 import { Utils } from '../../utils';
 import CarePlanContactsForm from './CarePlanContactsForm';
+import type { Contact } from './CarePlanContactsForm';
+import ContactsContext from './CarePlanContactsContext';
 import css from './CarePlanContacts.scss';
 
-type Contact = {
-  id: number,
-  name: string,
-  phone?: string,
-};
-
-export type Props = {
+type Props = {
   contacts: Contact[],
 };
 
-export const CarePlanContacts = ({ contacts }: Props) => {
+export const CarePlanContacts = ({ contacts: contactsProp }: Props) => {
   const [editableContact, setEditableContact] = useState();
   const [modalKey, setModalKey] = useState();
+  const [contacts, setContacts] = useState(contactsProp || []);
+  const [openModal, setOpenModal] = useState(false);
 
   const editContact = (contact) => {
     setEditableContact(contact);
+    setOpenModal(true);
     setModalKey(Utils.randomString());
   };
 
   return (
-    <>
+    <ContactsContext.Provider
+      value={{
+        contacts,
+        setContacts,
+        setEditableContact,
+        setOpenModal,
+        setModalKey,
+      }}
+    >
       <div className="pageSubtitle">
         <h2>{I18n.t('care_plan.index.contacts')}</h2>
         <div className="pageSubtitleRight">
@@ -42,7 +49,7 @@ export const CarePlanContacts = ({ contacts }: Props) => {
               `care_plan.index.${editableContact ? 'edit' : 'new'}_contact`,
             )}
             body={<CarePlanContactsForm contact={editableContact} />}
-            open={!!editableContact}
+            open={openModal}
             modalKey={modalKey}
           />
         </div>
@@ -74,7 +81,7 @@ export const CarePlanContacts = ({ contacts }: Props) => {
             );
           })}
       </div>
-    </>
+    </ContactsContext.Provider>
   );
 };
 
