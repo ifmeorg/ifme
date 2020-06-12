@@ -420,7 +420,7 @@ ko:
         %{open_collective_link} 에 후원해주심으로써 저희를 지원하실 수 있습니다.
       fund_club: 펀드 클럽
     blog:
-      description: '만약 당신이 저희를 위해 글을 쓰는데 관심이 있다면, %{email}로 보내주세요! 저희는 익명 제출도 환영한답니다.'
+      description: '만약 당신이 저희를 위해 글을 쓰는데 관심이 있다면, %{email}로 보내주세요! 저희는 익명 제출도 환영합니다.'
     contribute:
       contributor_avatar_alt: '%{name}의 기부자 전기'
       message_text_one: >-
@@ -428,7 +428,7 @@ ko:
         전문가들</strong>, <strong>소프트웨어 개발자들</strong>, <strong>번역가들</strong>, 그리고
         <strong>UX 디자이너들</strong>을 포함해서요! <p
         class="noMarginBottom">%{email_link}해주시면 저희가 당신에게 접촉할 것입니다! 당신은 저희의
-        슬랙인 %{slack_link} 과, 저희의 주요 커뮤니케이션 메신저에 초대받아서 참여할실 수 있습니다.
+        %{slack_link} 과, 저희의 주요 커뮤니케이션 메신저에 초대받아서 참여하실 수 있습니다.
         %{github_link}에 있는 저장소를 포크해주세요!</p>
       more_contributors: 더많은 멋진 기여자분들!
       thanks: 감사를 표합니다
@@ -486,10 +486,10 @@ ko:
       not_signed_in:
         main_message_one: 사랑하는 사람들과의 소통이 좋아질수록 정신건강 또한 좋아집니다.
         message_text_one: 부정적인 감정을 없애기 위해서는 서로간의 도움이 필요합니다.
-        message_one: 사랑하는 사람들과 이야기를 나누고 그에 걸맞은 도움을 받으십시오.
-        message_two: 비밀이나 사적인 것에 얽매이지 말고 당신 그 자체가 되세요.
+        message_one: 사랑하는 사람들과 이야기를 나누고 그에 알맞는 도움을 받으십시오.
+        message_two: 비밀이나 사적인 것에 얽매이지 말고 자신 스스로를 떠올리세요.
         message_three: '기분, 의약품 및 자가 관리를 기록하세요.'
-        main_message_two: 정신건강으로의 길은 열려있어야하기에 저희는 오픈소스로 운영됩니다.
+        main_message_two: 정신건강으로의 길은 모두에게 열려있어야 하기에 저희는 오픈소스로 운영됩니다.
         message_text_two: '저희는 <strong>항상</strong> 여러분의 %{help}과 %{feedback}을 받고 있습니다!'
         help: 도움
       signed_in_empty:
