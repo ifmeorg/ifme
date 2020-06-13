@@ -565,6 +565,14 @@
     "link_name": "s-warmenhoven",
     "link": "https://github.com/s-warmenhoven",
     "social": "github"
+  },
+  {
+    "name": "Pierre Monier",
+    "image": "/assets/contributors/pierre_monier.jpg",
+    "profile": "I'm a student in computer science enthusiast about web/mobile developement. If Me is the first open source projects I am contributing to. This project looks really interresting. I think it can contribute to make a more open mind world, where people aren't affraid of what they are ",
+    "location": "Grenoble, France",
+    "link_name": "Pierre-Monier",
+    "link": "https://github.com/Pierre-Monier",
+    "social": "github"
   }
-
 ]

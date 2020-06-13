@@ -192,9 +192,9 @@
     "languages": ["en"]
   },
   {
-    "name": "The Icarus Project",
-    "link": "http://theicarusproject.net",
-    "tags": ["social_justice", "books", "education"],
+    "name": "Fireweed Collective",
+    "link": "https://fireweedcollective.org",
+    "tags": ["social_justice", "books", "education", "communities"],
     "languages": ["en"]
   },
   {
@@ -422,7 +422,7 @@
   {
     "name": "Center on Addiction (US)",
     "link": "https://www.centeronaddiction.org/addiction",
-    "tags": ["addiction", "learning", "directory", "education"],
+    "tags": ["addiction", "blog", "directory", "education"],
     "languages": ["en"]
   },
   {
@@ -855,6 +855,66 @@
     "name": "Huddle.care",
     "link": "https://www.huddle.care/",
     "tags": ["ocd", "anxiety", "therapy", "counseling", "paid", "support_groups", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Addiction Group",
+    "link": "https://www.addictiongroup.org/",
+    "tags": ["addiction", "education", "blog"],
+    "languages": ["en"]
+  },
+  {
+    "name": "noOK",
+    "link": "https://www.notokapp.com/",
+    "tags": ["android", "ios", "free", "suicide_prevention", "crisis_prevention"],
+    "languages": ["en"]
+  },
+  {
+    "name": "MindShift CBT",
+    "link": "https://www.anxietycanada.com/resources/mindshift-cbt/",
+    "tags": ["android", "ios", "free", "cbt", "anxiety"],
+    "languages": ["en"]
+  },
+  {
+    "name": "eMoods",
+    "link": "https://emoodtracker.com/",
+    "tags": ["android", "ios", "free", "paid", "anxiety", "bipolar", "ptsd", "depression"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Recovery Record",
+    "link": "https://www.recoveryrecord.com/",
+    "tags": ["android", "ios", "free", "eating_disorders", "mood_tracking"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Recovery Warriors",
+    "link": "https://www.recoverywarriors.com/app/",
+    "tags": ["android", "ios", "free", "eating_disorders", "mood_tracking"],
+    "languages": ["en"]
+  },
+  {
+    "name": "National Eating Disorders Association (US)",
+    "link": "https://www.nationaleatingdisorders.org/",
+    "tags": ["eating_disorders", "support_groups", "directory", "communities"],
+    "languages": ["en", "es"]
+  },
+  {
+    "name": "The Safe Place (US)",
+    "link": "https://apps.apple.com/us/app/the-safe-place/id1349460763",
+    "tags": ["black_people", "directory", "communities", "ios", "free"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Sista Afya (US)",
+    "link": "https://www.sistaafya.com/",
+    "tags": ["black_women", "therapy", "counseling", "directory"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Ethel's Club",
+    "link": "https://www.ethelsclub.com/",
+    "tags": ["black_people", "latinx", "people_of_colour", "communities", "social_justice"],
     "languages": ["en"]
   }
 ]

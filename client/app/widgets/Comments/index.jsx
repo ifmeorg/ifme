@@ -35,7 +35,7 @@ export type Props = {
   formProps: FormProps,
 };
 
-const Comments = ({ comments, formProps }: Props) => {
+export const Comments = ({ comments, formProps }: Props) => {
   const [commentsState, setCommentsState] = useState<(Comment | any)[]>(
     comments || []);
   const [key, setKey] = useState<string>('');
@@ -120,7 +120,7 @@ const Comments = ({ comments, formProps }: Props) => {
     );
   };
 
-  const onCreate = (response: CommentResponse) => {
+  const onSubmit = (response: CommentResponse) => {
     const { data } = response;
     if (data && data.comment) {
       setCommentsState([data.comment].concat(commentsState));
@@ -139,12 +139,14 @@ const Comments = ({ comments, formProps }: Props) => {
 
   return (
     <div id="comments">
-      <DynamicForm formProps={formProps} onCreate={onCreate} key={key} />
+      <DynamicForm formProps={formProps} onSubmit={onSubmit} key={key} />
       {displayComments()}
     </div>
   );
 };
 
+// There's a [bug](https://github.com/shakacode/react_on_rails/issues/1198) with React on Rails,
+// so we'll need to do this in order to render multiple components with hooks on the same page.
 export default ({ comments, formProps }: Props) => (
   <Comments comments={comments} formProps={formProps} />
 );

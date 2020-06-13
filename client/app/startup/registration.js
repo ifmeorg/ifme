@@ -8,7 +8,7 @@ import { scrollToTop } from './scrollToTop';
 import '../styles/_global.scss';
 import { Accordion } from '../components/Accordion';
 import { Avatar } from '../components/Avatar';
-import { BaseContainer } from '../components/BaseContainer';
+import BaseContainer from '../components/BaseContainer';
 import { Chart } from '../components/Chart';
 import { ChartControl } from '../components/Chart/ChartControl';
 import Header from '../components/Header';
@@ -31,6 +31,7 @@ import { ToggleLocale } from '../widgets/ToggleLocale';
 import Comments from '../widgets/Comments';
 import Input from '../components/Input';
 import CrisisPrevention from '../widgets/CrisisPrevention';
+import CarePlanContacts from '../widgets/CarePlanContacts';
 
 scrollToTop();
 
@@ -61,4 +62,5 @@ ReactOnRails.register({
   ToggleLocale,
   Tooltip,
   CrisisPrevention,
+  CarePlanContacts,
 });

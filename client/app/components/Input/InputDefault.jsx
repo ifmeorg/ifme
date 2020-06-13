@@ -10,8 +10,16 @@ export const REQUIRES_DEFAULT = [
   'hidden',
   'email',
   'search',
+  'tel',
 ];
-export const DEFAULT_WITH_LABEL = ['text', 'number', 'time', 'date', 'email'];
+export const DEFAULT_WITH_LABEL = [
+  'text',
+  'number',
+  'time',
+  'date',
+  'email',
+  'tel',
+];
 
 export type Props = {
   id: string,

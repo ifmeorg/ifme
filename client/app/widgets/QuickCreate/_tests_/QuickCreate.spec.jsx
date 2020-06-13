@@ -73,7 +73,7 @@ describe('QuickCreate', () => {
 
   describe('when the form is submitted', () => {
     function submitForm(data) {
-      wrapper.find('DynamicForm').prop('onCreate')({
+      wrapper.find('DynamicForm').prop('onSubmit')({
         data: data || {
           success: true,
           name: 'new_label',

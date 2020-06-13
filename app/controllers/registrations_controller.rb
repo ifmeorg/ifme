@@ -16,6 +16,6 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def oauth_provider?(provider)
-    %w[omniauth_login('google') omniauth_login('facebook')].include? provider
+    %w[google_oauth2 facebook].include? provider
   end
 end

@@ -16,7 +16,7 @@ import { Tooltip } from '../Tooltip';
 
 export type Action = {
   name: string,
-  link: string,
+  link?: string,
   dataMethod?: string,
   dataConfirm?: string,
   onClick?: Function,
