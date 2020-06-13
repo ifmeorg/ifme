@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { StoryContainer } from './StoryContainer';
 import { LoadMoreButton } from '../LoadMoreButton';
@@ -17,47 +17,53 @@ export type State = {
   data: any,
 };
 
-export class BaseContainer extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    const { data, lastPage } = props;
-    this.state = {
-      page: 1,
-      lastPage: !!lastPage,
-      data,
-    };
-  }
+export const BaseContainerComponent = ({
+  container: containerProps,
+  data: dataProps,
+  fetchUrl: fetchUrlProps,
+  lastPage: lastPageProps,
+}: Props) => {
+  const [page, setpage] = useState(1);
+  const [lastPage, setlastPage] = useState(!!lastPageProps);
+  const [data, setdata] = useState(dataProps);
 
-  onClick = () => {
-    const { page, data } = this.state;
-    const { fetchUrl } = this.props;
+  const onClick = () => {
+    const fetchUrl = fetchUrlProps;
     let url = new URL(`${window.location.origin + fetchUrl}`);
     url = `${url.origin}${url.pathname}.json?page=${page + 1}${
       url.search ? `&${url.search.substring(1)}` : ''
     }`;
     axios.get(url).then((response: any) => {
       if (response.data) {
-        this.setState({
-          lastPage: response.data.lastPage,
-          page: page + 1,
-          data: data.concat(response.data.data),
-        });
+        setlastPage(response.data.lastPage);
+        setpage(page + 1);
+        setdata(data.concat(response.data.data));
       }
     });
   };
 
-  render() {
-    const { data, lastPage } = this.state;
-    const { container } = this.props;
-    switch (container) {
-      case 'StoryContainer':
-      default:
-        return (
-          <>
-            <StoryContainer data={data} />
-            {!lastPage && <LoadMoreButton onClick={this.onClick} />}
-          </>
-        );
-    }
+  const container = containerProps;
+  switch (container) {
+    case 'StoryContainer':
+    default:
+      return (
+        <>
+          <StoryContainer data={data} />
+          {!lastPage && <LoadMoreButton onClick={onClick} />}
+        </>
+      );
   }
-}
+};
+
+// There's a [bug](https://github.com/shakacode/react_on_rails/issues/1198) with React on Rails,
+// so we'll need to do this in order to render multiple components with hooks on the same page.
+export default ({
+  container, data, fetchUrl, lastPage,
+}: Props) => (
+  <BaseContainerComponent
+    container={container}
+    data={data}
+    fetchUrl={fetchUrl}
+    lastPage={lastPage}
+  />
+);

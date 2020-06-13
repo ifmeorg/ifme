@@ -43,7 +43,7 @@ const getComponent = (options = {}) => {
         action: '/fake-action',
         inputs: mockInputs,
       }}
-      onCreate={() => {}}
+      onSubmit={() => {}}
     />
   );
 };

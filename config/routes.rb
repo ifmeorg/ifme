@@ -70,6 +70,12 @@ Rails.application.routes.draw do
     resource :google_calendar_event, controller: 'meetings/google_calendar_event', only: %i[create destroy]
   end
 
+  match 'care_plan', to: 'care_plan#index', via: :get
+
+  match 'care_plan_contacts/create', to: 'care_plan_contacts#create', via: :post
+  match 'care_plan_contacts/update', to: 'care_plan_contacts#update', via: :patch
+  match 'care_plan_contacts/destroy', to: 'care_plan_contacts#destroy', via: :delete
+
   resources :profile, only: :index do
     collection do
       post 'add_ban'
@@ -97,7 +103,7 @@ Rails.application.routes.draw do
       get 'signed_in'
     end
   end
-  
+
   resources :omniauth_callbacks do
     collection do
       get 'omniauth_login'
