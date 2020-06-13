@@ -31,7 +31,7 @@ describe('Avatar', () => {
     });
 
     it('renders correctly with name prop', () => {
-      const { container } = render(<Avatar />);
+      const { container, queryByText } = render(<Avatar name={name} />);
       const nameSection = container.querySelector('.name');
       expect(container.firstChild).not.toBeNull();
       expect(nameSection).toBeInTheDocument();
