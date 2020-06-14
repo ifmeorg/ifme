@@ -11,30 +11,21 @@ export type Props = {
 };
 
 export type State = {
-  notifications?: string,
-  alreadyMounted?: boolean,
-  open?: boolean,
+  notifications: string,
+  alreadyMounted: boolean,
+  open: boolean,
   modalKey?: string,
   signedInKey?: number,
 };
 
 export const Notifications = ({
-  element: propsElement,
-}: Props, {
-  notifications, alreadyMounted, open, modalKey, signedInKey,
-}: State) => {
-  // error handle : notifications, alreadyMounted, open not defined
-  let newnotifications = notifications;
-  let newalreadyMounted = alreadyMounted;
-  let newopen = open;
-  if (!newnotifications) newnotifications = '';
-  if (!newalreadyMounted) newalreadyMounted = false;
-  if (!newopen) newopen = false;
-  const [notificationsState, setnotificationsState] = useState(newnotifications);
-  const [alreadyMountedState, setalreadyMountedState] = useState(newalreadyMounted);
-  const [openState, setopenState] = useState(newopen);
-  const [signedInKeySate, setsignedInKeySate] = useState(signedInKey);
-  const [modalKeyState, setmodalKeyState] = useState(modalKey);
+  element,
+}: Props) => {
+  const [notifications, setnotifications] = useState('');
+  const [alreadyMounted, setalreadyMounted] = useState(false);
+  const [open, setopen] = useState(false);
+  const [signedInKey, setsignedInKey] = useState(0);
+  const [modalKey, setmodalKey] = useState('');
 
   const changeTitle = (count: number) => {
     let { title } = window.document;
@@ -48,14 +39,14 @@ export const Notifications = ({
     paramsNotifications.forEach((item: string) => {
       updatedNotifications += `<div>${item}</div>`;
     });
-    setnotificationsState(updatedNotifications);
+    setnotifications(updatedNotifications);
   };
 
   // eslint no-use-before-define: error
   let fetchNotifications;
 
   const getPusherKey = (paramSignedInKey: number) => {
-    setsignedInKeySate(signedInKeySate);
+    setsignedInKey(signedInKey);
     const metaPusherKey = Array.from(
       window.document.getElementsByTagName('meta'),
     ).filter((item) => item.getAttribute('name') === 'pusher-key')[0];
@@ -73,7 +64,7 @@ export const Notifications = ({
   fetchNotifications = () => axios.get('/notifications/signed_in')
     .then((response: any) => {
       if (response && response.data && response.data.signed_in !== -1) {
-        if (response.data.signed_in !== signedInKeySate) {
+        if (response.data.signed_in !== signedInKey) {
           getPusherKey(response.data.signed_in);
         }
         return axios.get('/notifications/fetch_notifications');
@@ -84,10 +75,10 @@ export const Notifications = ({
       if (response && response.data && response.data.fetch_notifications) {
         changeTitle(response.data.fetch_notifications.length);
         setBody(response.data.fetch_notifications);
-        if (!alreadyMountedState && response.data.fetch_notifications.length > 0) {
-          setalreadyMountedState(true);
-          setopenState(true);
-          setmodalKeyState(Utils.randomString());
+        if (!alreadyMounted && response.data.fetch_notifications.length > 0) {
+          setalreadyMounted(true);
+          setopen(true);
+          setmodalKey(Utils.randomString());
         }
       }
     });
@@ -96,8 +87,8 @@ export const Notifications = ({
     axios.delete('/notifications/clear').then((response: any) => {
       if (response) {
         changeTitle(0);
-        setopenState(false);
-        setmodalKeyState(Utils.randomString());
+        setopen(false);
+        setmodalKey(Utils.randomString());
         fetchNotifications();
       }
     });
@@ -105,7 +96,7 @@ export const Notifications = ({
 
   const displayNotifications = () => (
     <div aria-live="polite">
-      {renderHTML(notificationsState)}
+      {renderHTML(notifications)}
       <button
         type="button"
         className="buttonDarkS smallMarginTop"
@@ -122,17 +113,27 @@ export const Notifications = ({
 
   return (
     <Modal
-      element={propsElement}
+      element={element}
       elementId="notificationsElement"
       title={I18n.t('notifications.plural')}
       body={
-        notificationsState.length
+        notifications.length
           ? displayNotifications()
           : I18n.t('notifications.none')
       }
       openListener={fetchNotifications}
-      open={openState}
-      modalKey={modalKeyState}
+      open={open}
+      modalKey={modalKey}
     />
   );
 };
+
+// There's a [bug](https://github.com/shakacode/react_on_rails/issues/1198) with React on Rails,
+// so we'll need to do this in order to render multiple components with hooks on the same page.
+export default ({
+  element,
+}: Props) => (
+  <Notifications
+    element={element}
+  />
+);
