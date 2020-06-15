@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
+import { render, fireEvent } from '@testing-library/react';
 import { Accordion } from '../index';
-import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 const id = 'some-id';
@@ -14,7 +14,7 @@ describe('Accordion', () => {
       const { getByRole } = render(
         <Accordion id={id} title={title}>
           {children}
-        </Accordion>
+        </Accordion>,
       );
 
       const accordionContent = getByRole('list');
@@ -33,7 +33,7 @@ describe('Accordion', () => {
       const { getByRole } = render(
         <Accordion id={id} title={title} open>
           {children}
-        </Accordion>
+        </Accordion>,
       );
 
       const accordionContent = getByRole('list');
