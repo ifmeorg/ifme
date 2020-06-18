@@ -2,7 +2,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { Accordion } from '../index';
-import '@testing-library/jest-dom/extend-expect';
 
 const id = 'some-id';
 const title = 'Accordions have pianos';
@@ -17,7 +16,7 @@ describe('Accordion', () => {
         </Accordion>,
       );
 
-      const accordionContent = getByRole('list');
+      const accordionContent = getByRole('region');
       const accordionBtn = getByRole('button');
 
       expect(accordionContent).toHaveClass('accordionClose');
@@ -36,7 +35,7 @@ describe('Accordion', () => {
         </Accordion>,
       );
 
-      const accordionContent = getByRole('list');
+      const accordionContent = getByRole('region');
       const accordionBtn = getByRole('button');
 
       expect(accordionContent).toHaveClass('accordionContent');
