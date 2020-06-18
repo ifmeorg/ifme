@@ -114,6 +114,9 @@
     "setupFiles": [
       "./app/libs/testHelper.js"
     ],
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-dom/extend-expect"
+    ],
     "testRegex": "./app/.*.spec\\.jsx?$",
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
