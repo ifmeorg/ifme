@@ -32,7 +32,7 @@ export const Accordion = ({
   const displayContent = () => (
     <div
       className={`${open ? 'accordionContent' : css.accordionClose}`}
-      role="list"
+      role="region"
     >
       {typeof children === 'string' ? renderHTML(children) : children}
     </div>
