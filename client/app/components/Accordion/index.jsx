@@ -30,7 +30,10 @@ export const Accordion = ({
   const [open, setOpen] = useState(!!openProp);
 
   const displayContent = () => (
-    <div className={`${open ? 'accordionContent' : css.accordionClose}`}>
+    <div
+      className={`${open ? 'accordionContent' : css.accordionClose}`}
+      role="region"
+    >
       {typeof children === 'string' ? renderHTML(children) : children}
     </div>
   );

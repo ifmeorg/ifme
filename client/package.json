@@ -66,6 +66,8 @@
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addons": "^5.3.19",
     "@storybook/react": "^5.3.19",
+    "@testing-library/react": "^10.0.6",
+    "@testing-library/jest-dom": "^5.10.0",
     "babel-cli": "^6.24.1",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^25.2.6",
@@ -111,6 +113,9 @@
     },
     "setupFiles": [
       "./app/libs/testHelper.js"
+    ],
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-dom/extend-expect"
     ],
     "testRegex": "./app/.*.spec\\.jsx?$",
     "transform": {
