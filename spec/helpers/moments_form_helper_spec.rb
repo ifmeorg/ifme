@@ -244,7 +244,7 @@ describe MomentsFormHelper do
             value: true,
             uncheckedValue: false,
             checked: true,
-            dark: true 
+            dark: true
           },
           {
             dark: true,
@@ -511,7 +511,7 @@ describe MomentsFormHelper do
             value: true,
             uncheckedValue: false,
             checked: false,
-            dark: true 
+            dark: true
           },
           {
             id: '_method',

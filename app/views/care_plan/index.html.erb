@@ -1,0 +1,34 @@
+<% title t('care_plan.index.title') %>
+<div class="subtitle">
+  <%= t('care_plan.index.subtitle') %>
+</div>
+
+<div class="smallMarginBottom">
+  <%= link_to(t('pages.resources.emergency'), "/resources?filter[]=#{t('pages.resources.tags.suicide_prevention')}") %>
+</div>
+
+<%= react_component('CarePlanContacts', html_options: {}, props: {
+  contacts: @contacts
+}) %>
+
+<div class="pageSubtitle">
+  <h2><%= t('strategies.plural') %></h2>
+  <div class="pageSubtitleRight">
+    <%= link_to(t('strategies.new'), new_strategy_path(bookmarked: true), class: 'buttonS') %>
+  </div>
+</div>
+
+<%= t('strategies.form.bookmarked_info') %>
+
+<% if @bookmarked_strategies.any? %>
+  <div class="gridTwo marginTop">
+    <% @bookmarked_strategies.each do |strategy| %>
+      <div class="gridTwoItemBoxLight">
+        <%= react_component('Story', html_options: html_options, props: {
+          name: strategy.name,
+          link: strategy_path(strategy)
+        }) %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

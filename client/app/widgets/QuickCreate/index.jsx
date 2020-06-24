@@ -84,7 +84,7 @@ export class QuickCreate extends React.Component<Props, State> {
     return sortAlpha(newCheckboxes);
   };
 
-  onCreate = (response: any) => {
+  onSubmit = (response: any) => {
     const { data } = response;
     if (data && data.success) {
       this.setState({
@@ -103,7 +103,7 @@ export class QuickCreate extends React.Component<Props, State> {
       <DynamicForm
         nameValue={nameValue}
         formProps={formProps}
-        onCreate={this.onCreate}
+        onSubmit={this.onSubmit}
       />
     );
   };

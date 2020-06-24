@@ -1,8 +1,7 @@
 // @flow
 import React from 'react';
+import { render, fireEvent } from '@testing-library/react';
 import { Accordion } from '../index';
-import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
 
 const id = 'some-id';
 const title = 'Accordions have pianos';
@@ -14,10 +13,10 @@ describe('Accordion', () => {
       const { getByRole } = render(
         <Accordion id={id} title={title}>
           {children}
-        </Accordion>
+        </Accordion>,
       );
 
-      const accordionContent = getByRole('list');
+      const accordionContent = getByRole('region');
       const accordionBtn = getByRole('button');
 
       expect(accordionContent).toHaveClass('accordionClose');
@@ -33,10 +32,10 @@ describe('Accordion', () => {
       const { getByRole } = render(
         <Accordion id={id} title={title} open>
           {children}
-        </Accordion>
+        </Accordion>,
       );
 
-      const accordionContent = getByRole('list');
+      const accordionContent = getByRole('region');
       const accordionBtn = getByRole('button');
 
       expect(accordionContent).toHaveClass('accordionContent');

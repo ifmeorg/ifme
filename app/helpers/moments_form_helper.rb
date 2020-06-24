@@ -72,7 +72,9 @@ module MomentsFormHelper
   end
 
   def moment_bookmarked
-    moment_input_props('bookmarked', 'switch', 'moments.bookmark')
+    moment_input_props(
+      'bookmarked', 'switch', 'moments.form.bookmarked_question'
+    )
       .merge(
         value: true, uncheckedValue: false,
         checked: @moment.bookmarked, dark: true
@@ -81,7 +83,7 @@ module MomentsFormHelper
 
   def moment_display_resources
     moment_input_props('resource_recommendations', 'switch',
-                       'moments.resource_recommendations')
+                       'moments.form.resource_recommendations_question')
       .merge(value: true, uncheckedValue: false,
              checked: @moment.resource_recommendations, dark: true)
   end
@@ -93,16 +95,14 @@ module MomentsFormHelper
         @viewers, 'moment', 'moments', @moment
       ),
       moment_comment, moment_publishing,
-      Rails.env.development? ? moment_bookmarked : {},
-      moment_display_resources
+      Rails.env.development? ? moment_bookmarked : {}, moment_display_resources
     ]
   end
 
   def checkboxes_for(data)
     checkboxes = []
     data.each do |item|
-      checkboxes.push(id: item.slug,
-                      label: item.name,
+      checkboxes.push(id: item.slug, label: item.name,
                       value: item.id,
                       checked: data_for(item)&.include?(item.id))
     end

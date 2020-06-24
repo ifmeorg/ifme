@@ -1,9 +1,8 @@
 // @flow
 import React from 'react';
 import axios from 'axios';
-import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
-import { BaseContainer } from '../index';
+import { render, fireEvent } from '@testing-library/react';
+import BaseContainer from '../index';
 
 const response = {
   data: {
@@ -57,7 +56,7 @@ describe('BaseContainer', () => {
           fireEvent.click(loadMoreButton);
           await axiosGetSpy();
           expect(axiosGetSpy).toBeCalledWith(
-            'https://if-me.org/some-fetch-url.json?page=2'
+            'https://if-me.org/some-fetch-url.json?page=2',
           );
           const stories = container.querySelectorAll('.story');
           expect(loadMoreButton).not.toBeInTheDocument();
@@ -67,7 +66,9 @@ describe('BaseContainer', () => {
 
       describe('when lastPage prop is true', () => {
         it('does not render the "Load more" button', () => {
-          const { container, queryByRole} = render(getComponent({ fetchUrl, lastPage: true }));
+          const { container, queryByRole } = render(
+            getComponent({ fetchUrl, lastPage: true }),
+          );
           const loadMoreButton = queryByRole('button');
           const stories = container.querySelectorAll('.story');
           expect(loadMoreButton).not.toBeInTheDocument();
@@ -81,7 +82,7 @@ describe('BaseContainer', () => {
 
       describe('when lastPage prop is false', () => {
         it('renders the "Load more" button', () => {
-          const { container, queryByRole} = render(getComponent({ fetchUrl }));
+          const { container, queryByRole } = render(getComponent({ fetchUrl }));
           const loadMoreButton = queryByRole('button');
           const stories = container.querySelectorAll('.story');
           expect(loadMoreButton).toBeInTheDocument();
@@ -92,13 +93,13 @@ describe('BaseContainer', () => {
           const axiosGetSpy = jest
             .spyOn(axios, 'get')
             .mockImplementation(() => Promise.resolve(response));
-          const { container, queryByRole} = render(getComponent({ fetchUrl }));
+          const { container, queryByRole } = render(getComponent({ fetchUrl }));
           const loadMoreButton = queryByRole('button');
-          fireEvent.click(loadMoreButton)
+          fireEvent.click(loadMoreButton);
           await axiosGetSpy();
           const stories = container.querySelectorAll('.story');
           expect(axiosGetSpy).toBeCalledWith(
-            'https://if-me.org/some-fetch-url.json?page=2&uid=some-uid'
+            'https://if-me.org/some-fetch-url.json?page=2&uid=some-uid',
           );
           expect(loadMoreButton).not.toBeInTheDocument();
           expect(stories.length).toEqual(2);
@@ -107,7 +108,9 @@ describe('BaseContainer', () => {
 
       describe('when lastPage prop is true', () => {
         it('does not render the "Load more" button', () => {
-          const { container, queryByRole} = render(getComponent({ fetchUrl, lastPage: true }));
+          const { container, queryByRole } = render(
+            getComponent({ fetchUrl, lastPage: true }),
+          );
           const loadMoreButton = queryByRole('button');
           const stories = container.querySelectorAll('.story');
           expect(loadMoreButton).not.toBeInTheDocument();
