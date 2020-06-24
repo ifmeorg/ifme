@@ -974,6 +974,13 @@ it:
         Avendo effettuato l’autenticazione tramite Google, non devi inserire la
         password.<br>Se non vuoi che sia così, per favore specifica una nuova
         EMail e password.
+      facebook_auth1: >-
+        Se non vuoi più effettuare l’autenticazione tramite Facebook,
+        per favore inserisci una nuova EMail e password.
+      facebook_auth2: >-
+        Avendo effettuato l’autenticazione tramite Facebook, non devi
+        inserire la password.<br>Se non vuoi che sia così, per favore specifica
+        una nuova EMail e password.
       password_errors:
         format: >-
           dovrebbe contenere da 8 a 128 caratteri, inclusi 1 maiuscolo, 1
