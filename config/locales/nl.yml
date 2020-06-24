@@ -982,6 +982,13 @@ nl:
       google_auth2: >-
         Omdat je via Google inlogt, hoef je geen wachtwoord op te geven.<br>Als
         je deze wilt wijzigen, geef dan een nieuw e-mailadres en wachtwoord op.
+      facebook_auth1: >-
+        Als je niet langer via Facebook wilt inloggen, geef dan een
+        nieuw e-mailadres en wachtwoord op.
+      facebook_auth2: >-
+        Omdat je via Facebook inlogt, hoef je geen wachtwoord op te
+        geven.<br>Als je deze wilt wijzigen, geef dan een nieuw e-mailadres en
+        wachtwoord op.
       password_errors:
         format: >-
           moet 8 tot 128 tekens bevatten, inclusief 1 hoofdletter, 1 kleine

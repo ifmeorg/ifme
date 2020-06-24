@@ -1012,9 +1012,16 @@ fr:
         Si vous ne voulez plus vous identifiez avec Google, merci de fournir une
         adresse email et un nouveau mot de passe.
       google_auth2: >-
-        Comme vous vous êtes identifié via Google, vous n''avez pas besoin de
-        mot de passe.<br>Si vous voulez changer cela, merci de fournir une
-        adresse email et un nouveau mot de passe.
+        Comme vous vous êtes identifié via Google, vous n''avez pas
+        besoin de mot de passe.<br>Si vous voulez changer cela, merci
+        de fournir une adresse email et un nouveau mot de passe.
+      facebook_auth1: >-
+        Si vous ne voulez plus vous identifiez avec Facebook, merci de
+        fournir une adresse email et un nouveau mot de passe.
+      facebook_auth2: >-
+        Comme vous vous êtes identifié via Facebook, vous n''avez pas
+        besoin de mot de passe.<br>Si vous voulez changer cela, merci
+        de fournir une adresse email et un nouveau mot de passe.
       password_errors:
         format: >-
           doit contenir de 8 à 128 caractères, dont 1 majuscule, 1 minuscule, 1

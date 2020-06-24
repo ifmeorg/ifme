@@ -954,6 +954,13 @@ nb:
         Siden du ikke er autorisert med Google trenger du ikke å taste inn
         passordet ditt.<br>Hvis du ønsker å forandre dette, vennligst fyll inn
         e-post og passord på nytt.
+      facebook_auth1: >-
+        Hvis du ikke lenger ønsker å bli autorisert med Facebook,
+        vennligst fyll inn en ny e-post og passord.
+      facebook_auth2: >-
+        Siden du ikke er autorisert med Facebook trenger du ikke å
+        taste inn passordet ditt.<br>Hvis du ønsker å forandre dette, vennligst
+        fyll inn e-post og passord på nytt.
       password_errors:
         format: >-
           bør inneholde 8 til 128 tegn, inkludert 1 stor, 1 liten, 1 siffer og 1

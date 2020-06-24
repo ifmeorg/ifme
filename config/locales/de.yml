@@ -1053,8 +1053,15 @@ de:
         Passwort und eine neue E-Mail Adresse ein.
       google_auth2: >-
         Da du mit Google angemeldet bist, brauchst du kein Passwort
-        einzugeben.<br>Wenn du dies ändern möchtest, gib bitte eine E-Mail und
-        ein Passwort ein.
+        einzugeben.<br>Wenn du dies ändern möchtest, gib bitte eine
+        E-Mail und ein Passwort ein.
+      facebook_auth1: >-
+        Wenn du nicht mehr mit Facebook angemeldet sein willst, gib ein
+        neues Passwort und eine neue E-Mail Adresse ein.
+      facebook_auth2: >-
+        Da du mit Facebook angemeldet bist, brauchst du kein Passwort
+        einzugeben.<br>Wenn du dies ändern möchtest, gib bitte eine
+        E-Mail und ein Passwort ein.
       password_errors:
         format: >-
           sollte 8 bis 128 Zeichen enthalten, einschließlich 1 Großbuchstabe, 1

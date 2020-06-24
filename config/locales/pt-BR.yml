@@ -1011,6 +1011,13 @@ pt-BR:
       google_auth2: >-
         Com a sua conta Google você não precisa digitar sua senha. <br> Caso
         queira mudar isso, por favor cadastre-se com um novo e-mail e senha.
+      facebook_auth1: >-
+        Caso você não queira mais fazer login com sua conta Facebook,
+        por favor digite um novo e-mail e uma nova senha.
+      facebook_auth2: >-
+        Com a sua conta Facebook você não precisa digitar sua senha.
+        <br> Caso queira mudar isso, por favor cadastre-se com um novo e-mail e
+        senha.
       password_errors:
         format: >-
           deve conter de 8 a 128 caracteres, incluindo um maiúsculo, um
