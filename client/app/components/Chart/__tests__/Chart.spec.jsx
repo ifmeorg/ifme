@@ -1,10 +1,10 @@
 // @flow
-import { shallow } from 'enzyme';
 import React from 'react';
+import { render } from '@testing-library/react';
 import { Chart } from '../index';
 
 function getComponent(options) {
-  return shallow(
+  return render(
     <Chart
       xtitle="foo"
       ytitle="bar"
@@ -19,12 +19,12 @@ function getComponent(options) {
 
 describe('Chart', () => {
   it('renders an AreaChart', () => {
-    const wrapper = getComponent({ chartType: 'Area' });
-    expect(wrapper.length).toEqual(1);
+    const { container } = getComponent({ chartType: 'Area' });
+    expect(container.firstChild).not.toBeNull();
   });
 
   it('renders a LineChart', () => {
-    const wrapper = getComponent({ chartType: 'Line' });
-    expect(wrapper.length).toEqual(1);
+    const { container } = getComponent({ chartType: 'Line' });
+    expect(container.firstChild).not.toBeNull();
   });
 });
