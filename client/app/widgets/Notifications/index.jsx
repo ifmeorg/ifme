@@ -20,7 +20,7 @@ export type State = {
 
 export const Notifications = ({
   element,
- }: Props) => {
+}: Props) => {
   const [notifications, setnotifications] = useState('');
   const [alreadyMounted, setalreadyMounted] = useState(false);
   const [open, setopen] = useState(false);
@@ -62,26 +62,26 @@ export const Notifications = ({
 
 
   fetchNotifications = () => axios.get('/notifications/signed_in')
-      .then((response: any) => {
-        if (response && response.data && response.data.signed_in !== -1) {
-          if (response.data.signed_in !== signedInKey) {
-            getPusherKey(response.data.signed_in);
-          }
-          return axios.get('/notifications/fetch_notifications');
+    .then((response: any) => {
+      if (response && response.data && response.data.signed_in !== -1) {
+        if (response.data.signed_in !== signedInKey) {
+          getPusherKey(response.data.signed_in);
         }
-        return -1;
-      })
-      .then((response: any) => {
-        if (response && response.data && response.data.fetch_notifications) {
-          changeTitle(response.data.fetch_notifications.length);
-          setBody(response.data.fetch_notifications);
-          if (!alreadyMounted && response.data.fetch_notifications.length > 0) {
-            setalreadyMounted(true);
-            setopen(true);
-            setmodalKey(Utils.randomString());
-          }
+        return axios.get('/notifications/fetch_notifications');
+      }
+      return -1;
+    })
+    .then((response: any) => {
+      if (response && response.data && response.data.fetch_notifications) {
+        changeTitle(response.data.fetch_notifications.length);
+        setBody(response.data.fetch_notifications);
+        if (!alreadyMounted && response.data.fetch_notifications.length > 0) {
+          setalreadyMounted(true);
+          setopen(true);
+          setmodalKey(Utils.randomString());
         }
-      });
+      }
+    });
 
   const clearNotifications = () => {
     axios.delete('/notifications/clear').then((response: any) => {
@@ -130,10 +130,10 @@ export const Notifications = ({
 
 // There's a [bug](https://github.com/shakacode/react_on_rails/issues/1198) with React on Rails,
 // so we'll need to do this in order to render multiple components with hooks on the same page.
-export default ({ 
+export default ({
   element,
- }: Props) => (
- <Notifications
-  element={element}
-   />
- );
+}: Props) => (
+  <Notifications
+    element={element}
+  />
+);
