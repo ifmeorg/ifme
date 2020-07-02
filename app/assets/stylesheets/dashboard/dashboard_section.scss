@@ -108,6 +108,7 @@
   background: $white-80;
   border-radius: $size-0 15px 15px $size-0;
   padding: $size-44;
+  scroll-behavior: smooth; 
   @media screen and (max-width: $medium) {
     border-radius: 0;
     padding: 15px 20px;
