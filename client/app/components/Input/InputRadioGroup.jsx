@@ -1,5 +1,5 @@
 // @flow
-import React, { useState } from 'react';
+import React from 'react';
 import css from './InputRadioGroup.scss';
 import type { Option } from './utils';
 
@@ -7,13 +7,9 @@ export type Props = {
   name?: string,
   options: Option[],
   value?: any,
-}
+};
 
-export function InputRadioGroup({
-  name,
-  options,
-  value: propValue,
-}: Props) {
+export function InputRadioGroup({ name, options, value: propValue }: Props) {
   return (
     <div role="radiogroup" className={css.wrapper}>
       {options.map((option: Option) => (
@@ -25,7 +21,7 @@ export function InputRadioGroup({
               id={option.id}
               name={name}
               value={option.value}
-              defaultChecked={option.value == propValue}
+              defaultChecked={option.value === propValue}
             />
           </label>
         </div>

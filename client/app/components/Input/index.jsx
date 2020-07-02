@@ -171,12 +171,7 @@ export const Input = ({
   const displayRadio = () => {
     if (type === 'radio' && options) {
       return (
-        <InputRadioGroup
-          name={name}
-          id={id}
-          value={value}
-          options={options}
-        />
+        <InputRadioGroup name={name} id={id} value={value} options={options} />
       );
     }
     return null;

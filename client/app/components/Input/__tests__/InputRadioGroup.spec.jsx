@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
-import { shallow} from 'enzyme';
-import { act } from 'react-dom/test-utils';
+import { shallow } from 'enzyme';
 import { InputRadioGroup } from '../InputRadioGroup';
 import { InputMocks } from '../../../mocks/InputMocks';
 
@@ -16,15 +15,11 @@ describe('InputRadioGroup', () => {
 
   it('sets default radio button to first option', () => {
     const wrapper = shallow(
-      <InputRadioGroup
-        name={name}
-        id={id}
-        value={value}
-        options={options}
-      />,
+      <InputRadioGroup name={name} id={id} value={value} options={options} />,
     );
     expect(
-      wrapper.find('input[id="some-option-one-id"][type="radio"]').props().defaultChecked,
+      wrapper.find('input[id="some-option-one-id"][type="radio"]').props()
+        .defaultChecked,
     ).toBe(true);
   });
 });
