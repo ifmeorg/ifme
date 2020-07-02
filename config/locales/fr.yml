@@ -230,7 +230,7 @@ fr:
     event_summary: 'Recharge pour %{name}.'
     form:
       strength: Concentration
-      stregth_unit: 'Unité de concentration'
+      strength_unit: 'Unité de concentration'
       strength_placeholder: ex. 100
       total_placeholder: ex. 30
       dosage: dosage
