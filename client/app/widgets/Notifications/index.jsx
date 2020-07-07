@@ -24,8 +24,8 @@ export const Notifications = ({
   const [notifications, setnotifications] = useState('');
   const [alreadyMounted, setalreadyMounted] = useState(false);
   const [open, setopen] = useState(false);
-  const [signedInKey, setsignedInKey] = useState(undefined);
-  const [modalKey, setmodalKey] = useState(undefined);
+  const [signedInKey, setsignedInKey] = useState();
+  const [modalKey, setmodalKey] = useState();
 
   const setBody = (paramsNotifications: string[]) => {
     let updatedNotifications = '';
@@ -42,17 +42,16 @@ export const Notifications = ({
     window.document.title = count === 0 ? title : `(${count}) ${title}`;
   };
 
-  // eslint no-use-before-define: error
   let fetchNotifications;
 
   const getPusherKey = (paramSignedInKey: number) => {
-    setsignedInKey(signedInKey);
+    setsignedInKey(paramSignedInKey);
     const metaPusherKey = Array.from(
       window.document.getElementsByTagName('meta'),
     ).filter((item) => item.getAttribute('name') === 'pusher-key')[0];
     const pusherKey = metaPusherKey.getAttribute('content');
     const pusher = new window.Pusher(pusherKey, { encrypted: true });
-    const channel = pusher.subscribe(`private-${paramSignedInKey}`);
+    const channel = pusher.subscribe(`private-${signedInKey}`);
     channel.bind('new_notification', (response: any) => {
       if (response && response.data) {
         fetchNotifications();
