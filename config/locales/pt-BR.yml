@@ -31,6 +31,7 @@ pt-BR:
     zh-CN: 中文
     ko: 한국어
   navigation:
+    skip_to_main_content: Pular para o conteúdo principal
     main_menu: Menu do site principal
     user_menu: Menu do usuário
     about: Sobre
@@ -223,9 +224,11 @@ pt-BR:
     event_summary: 'Recarregar por %{name}.'
     form:
       strength: Dosagem
+      strength_unit: 'Unidade de força'
       strength_placeholder: 'ex.: 100mg'
       total_placeholder: 'ex.: 30mg'
       dosage: dosagem
+      dosage_unit: 'Unidade de dosagem'
       dosage_placeholder: 'ex.: 2mg'
       refill: refil
       comments_hint: >-
@@ -247,6 +250,7 @@ pt-BR:
         prazo para atualizar os estoques do seu medicamento.
       daily_reminder_hint: Enviaremos um lembrete diário para tomar essa medicação.
       total: Total
+      total_unit: 'Unidade total'
     new: Nova medicação
     units:
       display: '%{count} %{unit}'
@@ -1011,6 +1015,13 @@ pt-BR:
       google_auth2: >-
         Com a sua conta Google você não precisa digitar sua senha. <br> Caso
         queira mudar isso, por favor cadastre-se com um novo e-mail e senha.
+      facebook_auth1: >-
+        Caso você não queira mais fazer login com sua conta Facebook,
+        por favor digite um novo e-mail e uma nova senha.
+      facebook_auth2: >-
+        Com a sua conta Facebook você não precisa digitar sua senha.
+        <br> Caso queira mudar isso, por favor cadastre-se com um novo e-mail e
+        senha.
       password_errors:
         format: >-
           deve conter de 8 a 128 caracteres, incluindo um maiúsculo, um

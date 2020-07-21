@@ -46,15 +46,9 @@ describe('Resources', () => {
     expect(wrapper.find('.resource').length).toEqual(3);
     expect(wrapper.find('.tags').exists()).toEqual(true);
     expect(wrapper.text()).toContain('3 of 3');
-    let id = wrapper
-      .find('.tag')
-      .at(2)
-      .text();
+    let id = wrapper.find('.tag').at(2).text();
     expect(id).toEqual('therapy');
-    wrapper
-      .find('.tag')
-      .at(2)
-      .simulate('click');
+    wrapper.find('.tag').at(2).simulate('click');
     expect(wrapper.find('.checkboxLabel').text()).toEqual(id);
     expect(wrapper.find('.resource').length).toEqual(1);
     expect(wrapper.text()).toContain('1 of 1');
@@ -64,21 +58,10 @@ describe('Resources', () => {
         .findWhere((t) => t.text() === id)
         .exists(),
     ).toEqual(true);
-    id = wrapper
-      .find('.tag')
-      .at(8)
-      .text();
+    id = wrapper.find('.tag').at(8).text();
     expect(id).toEqual('ios');
-    wrapper
-      .find('.tag')
-      .at(8)
-      .simulate('click');
-    expect(
-      wrapper
-        .find('.checkboxLabel')
-        .at(0)
-        .text(),
-    ).toEqual(id);
+    wrapper.find('.tag').at(8).simulate('click');
+    expect(wrapper.find('.checkboxLabel').at(0).text()).toEqual(id);
     expect(wrapper.find('.resource').length).toEqual(2);
     expect(wrapper.text()).toContain('2 of 2');
     expect(
@@ -95,15 +78,9 @@ describe('Resources', () => {
     expect(wrapper.text()).toContain('3 of 3');
     wrapper.find('.tagAutocomplete').simulate('focus');
     expect(wrapper.find('.tagMenu').exists()).toEqual(true);
-    let id = wrapper
-      .find('.tagLabel')
-      .at(0)
-      .text();
+    let id = wrapper.find('.tagLabel').at(0).text();
     expect(id).toEqual('android');
-    wrapper
-      .find('.tagLabel')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.tagLabel').at(0).simulate('click');
     expect(wrapper.find('.checkboxLabel').text()).toEqual(id);
     expect(wrapper.find('.resource').length).toEqual(1);
     expect(wrapper.text()).toContain('1 of 1');
@@ -114,21 +91,10 @@ describe('Resources', () => {
         .exists(),
     ).toEqual(true);
     wrapper.find('.tagAutocomplete').simulate('focus');
-    id = wrapper
-      .find('.tagLabel')
-      .at(1)
-      .text();
+    id = wrapper.find('.tagLabel').at(1).text();
     expect(id).toEqual('colouring');
-    wrapper
-      .find('.tagLabel')
-      .at(1)
-      .simulate('click');
-    expect(
-      wrapper
-        .find('.checkboxLabel')
-        .at(1)
-        .text(),
-    ).toEqual(id);
+    wrapper.find('.tagLabel').at(1).simulate('click');
+    expect(wrapper.find('.checkboxLabel').at(1).text()).toEqual(id);
     expect(wrapper.find('.resource').length).toEqual(2);
     expect(wrapper.text()).toContain('2 of 2');
     expect(
@@ -144,15 +110,9 @@ describe('Resources', () => {
     expect(wrapper.find('.resource').length).toEqual(3);
     expect(wrapper.text()).toContain('3 of 3');
     wrapper.find('.tagAutocomplete').simulate('focus');
-    const id = wrapper
-      .find('.tagLabel')
-      .at(0)
-      .text();
+    const id = wrapper.find('.tagLabel').at(0).text();
     expect(id).toEqual('android');
-    wrapper
-      .find('.tagLabel')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.tagLabel').at(0).simulate('click');
     expect(wrapper.find('.resource').length).toEqual(1);
     expect(wrapper.text()).toContain('1 of 1');
     act(() => {
@@ -181,15 +141,9 @@ describe('Resources', () => {
       it('sends the selected tags to the URL', () => {
         const wrapper = mount(getComponent({ history }));
 
-        wrapper
-          .find('.tag')
-          .at(8)
-          .simulate('click');
+        wrapper.find('.tag').at(8).simulate('click');
 
-        wrapper
-          .find('.tag')
-          .at(2)
-          .simulate('click');
+        wrapper.find('.tag').at(2).simulate('click');
 
         expect(historyMock).toHaveBeenCalledWith({
           pathname: '/resources',

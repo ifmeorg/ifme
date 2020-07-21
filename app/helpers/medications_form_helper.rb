@@ -121,7 +121,8 @@ module MedicationsFormHelper
 
   def medication_strength_unit
     {
-      type: 'select',
+      type: 'radio',
+      label: t('medications.form.strength_unit'),
       value: @medication.strength_unit || t('medications.units.mg'),
       options: [
         medication_type_unit_mg('strength'),
@@ -198,16 +199,21 @@ module MedicationsFormHelper
     }
   end
 
+  def medication_unit_options(type)
+    [
+      medication_type_unit_tablets(type),
+      medication_type_unit_mg(type),
+      medication_type_unit_ml(type)
+    ]
+  end
+
   def medication_unit_field(type)
     {
-      type: 'select',
+      type: 'radio',
+      label: t("medications.form.#{type}_unit"),
       value: @medication["#{type}_unit"] ||
         t('medications.units.tablets.other'),
-      options: [
-        medication_type_unit_tablets(type),
-        medication_type_unit_mg(type),
-        medication_type_unit_ml(type)
-      ]
+      options: medication_unit_options(type)
     }.merge(medication_basic_props("#{type}_unit"))
   end
 
@@ -217,7 +223,6 @@ module MedicationsFormHelper
       label: t("medications.form.#{type}"),
       value: @medication[type.to_s] || nil,
       info: t("medications.form.#{type}_hint"),
-      placeholder: t("medications.form.#{type}_placeholder"),
       required: true
     }.merge(medication_basic_props(type))
   end
