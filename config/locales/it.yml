@@ -31,6 +31,7 @@ it:
     zh-CN: 中文
     ko: 한국어
   navigation:
+    skip_to_main_content: Salta al contenuto principale
     main_menu: Menu del sito principale
     user_menu: Menu utente
     about: Riguardo a noi
@@ -224,9 +225,11 @@ it:
     event_summary: 'Ricarica per %{name}.'
     form:
       strength: peso
+      strength_unit: 'Unità di peso'
       strength_placeholder: es. 100
       total_placeholder: es. 30
       dosage: dosaggio
+      dosage_unit: 'Unità di dosaggio'
       dosage_placeholder: es. 2
       refill: riempimento
       comments_hint: 'Aggiungi qualsiasi commento aggiuntivo qui, esempio: sintomi'
@@ -244,6 +247,7 @@ it:
         Ti invieremo una EMail giornaliera ricordandoti di prendere la
         medicazione
       total: Totale
+      total_unit: 'Unità totale'
     new: Nuova Medicazione
     units:
       display: '%{count} %{unit}'
@@ -974,6 +978,13 @@ it:
         Avendo effettuato l’autenticazione tramite Google, non devi inserire la
         password.<br>Se non vuoi che sia così, per favore specifica una nuova
         EMail e password.
+      facebook_auth1: >-
+        Se non vuoi più effettuare l’autenticazione tramite Facebook,
+        per favore inserisci una nuova EMail e password.
+      facebook_auth2: >-
+        Avendo effettuato l’autenticazione tramite Facebook, non devi
+        inserire la password.<br>Se non vuoi che sia così, per favore specifica
+        una nuova EMail e password.
       password_errors:
         format: >-
           dovrebbe contenere da 8 a 128 caratteri, inclusi 1 maiuscolo, 1

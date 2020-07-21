@@ -53,6 +53,15 @@ const inputSelectProps = {
   options,
 };
 
+const inputRadioProps = {
+  id: 'some-radio-id',
+  type: 'radio',
+  name: 'some-radio-name',
+  label: 'Some Radio Label',
+  value: 1,
+  options,
+};
+
 const inputPasswordProps = {
   id: 'some-password-id',
   type: 'password',
@@ -116,6 +125,7 @@ export const InputMocks = {
   inputTextProps,
   inputTextareaProps,
   inputSelectProps,
+  inputRadioProps,
   inputCheckboxProps,
   inputCheckboxGroupProps,
   inputSubmitProps,

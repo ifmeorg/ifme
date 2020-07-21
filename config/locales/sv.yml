@@ -31,6 +31,7 @@ sv:
     zh-CN: 中文
     ko: 한국어
   navigation:
+    skip_to_main_content: Hoppa till huvudinnehåll
     main_menu: Huvudsidan meny
     user_menu: Användarmeny
     about: Om
@@ -221,9 +222,11 @@ sv:
     event_summary: 'Fyll på för %{name}.'
     form:
       strength: Styrka
+      strength_unit: 'Styrkaenhet'
       strength_placeholder: t.ex. 100
       total_placeholder: t.ex. 30
       dosage: dosering
+      dosage_unit: 'Doseringsenhet'
       dosage_placeholder: t.ex. 2
       refill: påfyllning
       comments_hint: 'Lägg till några ytterligare kommentarer här, t.ex. loggar dina symptom'
@@ -243,6 +246,7 @@ sv:
         Vi skickar e-post till dig med en daglig påminnelse för att ta detta
         läkemedel
       total: Total
+      total_unit: 'Total enhet'
     new: Ny Medicinering
     units:
       display: '%{count} %{unit}'
@@ -955,6 +959,13 @@ sv:
         Eftersom du är autentiserad med Google behöver du inte ange ditt
         lösenord. <br> Om du vill ändra detta anger du en ny e-postadress och
         lösenord.
+      facebook_auth1: >-
+        Om du inte längre vill verifieras med Facebook anger du ett
+        nytt e-post och lösenord.
+      facebook_auth2: >-
+        Eftersom du är autentiserad med Facebook behöver du inte ange
+        ditt lösenord. <br> Om du vill ändra detta anger du en ny e-postadress
+        och lösenord.
       password_errors:
         format: >-
           bör innehålla 8 till 128 tecken, inklusive 1 versal, 1 små bokstav, 1

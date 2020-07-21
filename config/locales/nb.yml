@@ -31,6 +31,7 @@ nb:
     zh-CN: 中文
     ko: 한국어
   navigation:
+    skip_to_main_content: 'Hopp til hovedinnhold'
     main_menu: Hovedstedmeny
     user_menu: Brukermeny
     about: Om
@@ -225,9 +226,11 @@ nb:
     event_summary: 'Påfyll på %{name}.'
     form:
       strength: Styrke
+      strength_unit: 'Styrkeenhet'
       strength_placeholder: f.eks. 100
       total_placeholder: f.eks. 30
       dosage: dose
+      dosage_unit: 'Doseringsenhet'
       dosage_placeholder: f.eks. 2
       refill: påfyll
       comments_hint: Legg til ytterlige kommentarer her f.eks. loggføring av symptomer
@@ -241,6 +244,7 @@ nb:
       refill_reminder_hint: Vi sender deg en påminnelse uken for medisinen må fylles på.
       daily_reminder_hint: Vi sender deg en daglig påminnelse om å ta denne medisinen
       total: Totalt
+      total_unit: 'Total enhet'
     new: Ny medisin
     units:
       display: '%{count} %{unit}'
@@ -954,6 +958,13 @@ nb:
         Siden du ikke er autorisert med Google trenger du ikke å taste inn
         passordet ditt.<br>Hvis du ønsker å forandre dette, vennligst fyll inn
         e-post og passord på nytt.
+      facebook_auth1: >-
+        Hvis du ikke lenger ønsker å bli autorisert med Facebook,
+        vennligst fyll inn en ny e-post og passord.
+      facebook_auth2: >-
+        Siden du ikke er autorisert med Facebook trenger du ikke å
+        taste inn passordet ditt.<br>Hvis du ønsker å forandre dette, vennligst
+        fyll inn e-post og passord på nytt.
       password_errors:
         format: >-
           bør inneholde 8 til 128 tegn, inkludert 1 stor, 1 liten, 1 siffer og 1

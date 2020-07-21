@@ -5,6 +5,7 @@ export const TYPES: string[] = REQUIRES_DEFAULT.concat([
   'textarea',
   'submit',
   'checkbox',
+  'radio',
   'select',
   'checkboxGroup',
   'tag',
@@ -17,6 +18,7 @@ export const REQUIRES_LABEL: string[] = DEFAULT_WITH_LABEL.concat([
   'textarea',
   'select',
   'checkboxGroup',
+  'radio',
   'tag',
   'switch',
   'password',
@@ -25,6 +27,7 @@ export const REQUIRES_LABEL: string[] = DEFAULT_WITH_LABEL.concat([
 
 export const REQUIRED_POSSIBLE: string[] = DEFAULT_WITH_LABEL.concat([
   'textarea',
+  'radio',
   'checkboxGroup',
   'password',
   'location',
@@ -53,6 +56,7 @@ export type Props = {
     | 'textarea'
     | 'submit'
     | 'checkbox'
+    | 'radio'
     | 'number'
     | 'time'
     | 'date'
