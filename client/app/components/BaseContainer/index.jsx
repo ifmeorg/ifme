@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { StoryContainer } from './StoryContainer';
 import { LoadMoreButton } from '../LoadMoreButton';
+import { Utils } from '../../utils';
 
 export type Props = {
   container: string,
@@ -33,6 +34,7 @@ export const BaseContainerComponent = ({
     url = `${url.origin}${url.pathname}.json?page=${page + 1}${
       url.search ? `&${url.search.substring(1)}` : ''
     }`;
+    Utils.setCsrfToken();
     axios.get(url).then((response: any) => {
       if (response.data) {
         setlastPage(response.data.lastPage);
