@@ -31,6 +31,7 @@ es:
     zh-CN: 中文
     ko: 한국어
   navigation:
+    skip_to_main_content: Saltar al contenido principal
     main_menu: Menú del sitio principal
     google: Google
     user_menu: Menú del Usuario
@@ -221,9 +222,11 @@ es:
     event_summary: 'Rellenar para %{name}.'
     form:
       strength: Concentración
+      strength_unit: 'Unidad de concentración'
       strength_placeholder: e.g. 100
       total_placeholder: e.g. 30
       dosage: dosis
+      dosage_unit: 'Unidad de dosis'
       dosage_placeholder: e.g. 2
       refill: resurtir
       comments_hint: 'Agrega más comentarios aquí, por ejemplo, tus síntomas.'
@@ -245,6 +248,7 @@ es:
         Te enviaremos un recordatorio diario para que ingenieras este
         medicamento.
       total: Total
+      total_unit: 'Unidad total'
     new: Nuevo Medicamento
     units:
       display: '%{count} %{unit}'
@@ -991,6 +995,13 @@ es:
         Debido a que tu identidad ha sido confirmada a través de Google, no
         necesitas ingresar tu contraseña.<br>Si deseas modificar esto, por favor
         ingresa un nuevo correo electrónico y contraseña.
+      facebook_auth1: >-
+        Si ya no deseas verificar tu identidad a través de Facebook,
+        por favor ingresa un nuevo correo electrónico y contraseña.
+      facebook_auth2: >-
+        Debido a que tu identidad ha sido confirmada a través de
+        Facebook, no necesitas ingresar tu contraseña.<br>Si deseas modificar esto,
+        por favor ingresa un nuevo correo electrónico y contraseña.
       password_errors:
         format: >-
           debe contener de 8 a 128 caracteres, incluyendo 1 mayúscula, 1

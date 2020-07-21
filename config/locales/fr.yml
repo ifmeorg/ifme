@@ -31,6 +31,7 @@ fr:
     zh-CN: 中文
     ko: 한국어
   navigation:
+    skip_to_main_content: Passer au contenu principal
     main_menu: Menu du site principal
     google: Google
     user_menu: Menu utilisateur
@@ -230,9 +231,11 @@ fr:
     event_summary: 'Recharge pour %{name}.'
     form:
       strength: Concentration
+      strength_unit: 'Unité de concentration'
       strength_placeholder: ex. 100
       total_placeholder: ex. 30
       dosage: dosage
+      dosage_unit: 'Unité de dosage'
       dosage_placeholder: ex. 2
       refill: renouvellement
       comments_hint: >-
@@ -254,6 +257,7 @@ fr:
         Nous vous enverrons un email de rappel journalier pour la prise de ce
         médicament.
       total: Total
+      total_unit: 'Unité totale'
     new: Nouvelle médication
     units:
       display: '%{count} %{unit}'
@@ -1012,9 +1016,16 @@ fr:
         Si vous ne voulez plus vous identifiez avec Google, merci de fournir une
         adresse email et un nouveau mot de passe.
       google_auth2: >-
-        Comme vous vous êtes identifié via Google, vous n''avez pas besoin de
-        mot de passe.<br>Si vous voulez changer cela, merci de fournir une
-        adresse email et un nouveau mot de passe.
+        Comme vous vous êtes identifié via Google, vous n''avez pas
+        besoin de mot de passe.<br>Si vous voulez changer cela, merci
+        de fournir une adresse email et un nouveau mot de passe.
+      facebook_auth1: >-
+        Si vous ne voulez plus vous identifiez avec Facebook, merci de
+        fournir une adresse email et un nouveau mot de passe.
+      facebook_auth2: >-
+        Comme vous vous êtes identifié via Facebook, vous n''avez pas
+        besoin de mot de passe.<br>Si vous voulez changer cela, merci
+        de fournir une adresse email et un nouveau mot de passe.
       password_errors:
         format: >-
           doit contenir de 8 à 128 caractères, dont 1 majuscule, 1 minuscule, 1

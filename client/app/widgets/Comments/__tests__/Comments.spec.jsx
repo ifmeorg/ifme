@@ -115,10 +115,7 @@ describe('Comments', () => {
     await axiosPostSpy();
     wrapper.update();
     expect(wrapper.find('.comment').exists()).toEqual(true);
-    wrapper
-      .find('.storyActionsDelete')
-      .find('a')
-      .simulate('click');
+    wrapper.find('.storyActionsDelete').find('a').simulate('click');
     await axiosDeleteSpy();
     wrapper.update();
     expect(wrapper.find('.comment').exists()).toEqual(false);

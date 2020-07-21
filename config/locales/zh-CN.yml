@@ -31,6 +31,7 @@ zh-CN:
     zh-CN: 中文
     ko: 한국어
   navigation:
+    skip_to_main_content: 跳至主要内容
     main_menu: 主菜单
     user_menu: 用户菜单
     about: 关于
@@ -211,9 +212,11 @@ zh-CN:
     event_summary: '补充 %{name}。'
     form:
       strength: 强度
+      strength_unit: '力量单位'
       strength_placeholder: '例如: 100'
       total_placeholder: '例如: 30'
       dosage: 剂量
+      dosage_unit: '剂量单位'
       dosage_placeholder: '例如: 2'
       refill: 补药
       comments_hint: 在此处添加任何其他评论， 例如记录你的症状
@@ -227,6 +230,7 @@ zh-CN:
       refill_reminder_hint: 我们将在需要补充药物的一周前通过电子邮件提醒你。
       daily_reminder_hint: 我们会每天通过电子邮件提醒你服用这种药物
       total: 总量
+      total_unit: '总单位'
     new: 新药
     units:
       display: '%{count} %{unit}'
@@ -781,6 +785,10 @@ zh-CN:
       meeting_notify_text: 会面更新
       google_auth1: 如果你不想再通过谷歌进行身份验证，请输入新的电子邮件和密码。
       google_auth2: 由于你已通过谷歌身份验证，因此无需输入密码。<br>如果要更改此密码， 请输入新的电子邮件和密码。
+      facebook_auth1: 如果您不再想通过Facebook进行身份验证，请输入新的电子邮件和密码。
+      facebook_auth2: >-
+        由于您已通过Facebook验证，因此无需输入密码。 <br>如果您想更改此密码，
+        请输入新的电子邮件和密码。
       password_errors:
         format: 应包含8到128个字符，包括1个大写字母，1个小写字母，1个数字和1个特殊字符。
         used: 必须与以前用的三个密码不同。

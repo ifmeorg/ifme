@@ -31,6 +31,7 @@ de:
     zh-CN: 中文
     ko: 한국어
   navigation:
+    skip_to_main_content: Zum Hauptinhalt überspringen
     google: Google
     main_menu: Hauptmenü der Site
     user_menu: Benutzermenü
@@ -234,9 +235,11 @@ de:
     event_summary: 'Nachfüllen von %{name}.'
     form:
       strength: Stärke
+      strength_unit: 'Stärkeeinheit'
       strength_placeholder: z.B. 100
       total_placeholder: z.B. 30
       dosage: Dosis
+      dosage_unit: 'Dosierungseinheit'
       dosage_placeholder: z.B. 2
       refill: Auffüllen
       comments_hint: 'Füge hier weitere Details hinzu, wie z.B. deine Symptome'
@@ -256,6 +259,7 @@ de:
         Wir senden dir eine tägliche Erinnerungsmail zum Einnehmen dieses
         Arzneimittels
       total: Gesamt
+      total_unit: 'Gesamteinheit'
     new: Neues Arzneimittel
     units:
       display: '%{count} %{unit}'
@@ -1053,8 +1057,15 @@ de:
         Passwort und eine neue E-Mail Adresse ein.
       google_auth2: >-
         Da du mit Google angemeldet bist, brauchst du kein Passwort
-        einzugeben.<br>Wenn du dies ändern möchtest, gib bitte eine E-Mail und
-        ein Passwort ein.
+        einzugeben.<br>Wenn du dies ändern möchtest, gib bitte eine
+        E-Mail und ein Passwort ein.
+      facebook_auth1: >-
+        Wenn du nicht mehr mit Facebook angemeldet sein willst, gib ein
+        neues Passwort und eine neue E-Mail Adresse ein.
+      facebook_auth2: >-
+        Da du mit Facebook angemeldet bist, brauchst du kein Passwort
+        einzugeben.<br>Wenn du dies ändern möchtest, gib bitte eine
+        E-Mail und ein Passwort ein.
       password_errors:
         format: >-
           sollte 8 bis 128 Zeichen enthalten, einschließlich 1 Großbuchstabe, 1
