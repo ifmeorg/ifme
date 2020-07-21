@@ -113,6 +113,21 @@ export const Form = ({ action, inputs: inputsProps }: Props) => {
   }
 
   const { form } = css;
+
+  let csrfInput = '';
+  const csrfParam = document.querySelector('meta[name="csrf-param"]');
+  const csrfToken = document.querySelector('meta[name="csrf-token"]');
+
+  if (csrfParam != null && csrfToken != null) {
+    csrfInput = (
+      <input
+        type="hidden"
+        value={csrfToken.getAttribute('content')}
+        name={csrfParam.getAttribute('content')}
+      />
+    );
+  }
+
   return (
     <form
       onSubmit={onSubmit}
@@ -121,6 +136,7 @@ export const Form = ({ action, inputs: inputsProps }: Props) => {
       method="post"
       action={action}
     >
+      {csrfInput}
       {displayInputs()}
     </form>
   );
