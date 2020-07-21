@@ -45,6 +45,7 @@ export const Comments = ({ comments, formProps }: Props) => {
     action: string,
   ) => {
     e.preventDefault();
+    Utils.setCsrfToken();
     axios.delete(action).then((response: CommentResponse) => {
       const { data } = response;
       if (data && data.id) {

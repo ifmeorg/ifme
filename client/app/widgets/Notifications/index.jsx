@@ -60,6 +60,7 @@ export class Notifications extends React.Component<Props, State> {
 
   fetchNotifications = () => {
     const { alreadyMounted, signedInKey } = this.state;
+    Utils.setCsrfToken();
     return axios
       .get('/notifications/signed_in')
       .then((response: any) => {
