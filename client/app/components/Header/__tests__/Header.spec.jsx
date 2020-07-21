@@ -1,20 +1,21 @@
 // @flow
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import React from 'react';
 import Header from '../index';
 
-const getComponent = () => 
-  render(<Header
+const getComponent = () => render(
+  <Header
     home={{ name: 'Home', url: '/some-path' }}
     links={[
       { name: 'Link 1', url: '/some-path-one', active: true },
       { name: 'Link 2', url: '/some-path-two', dataMethod: 'delete' },
     ]}
-  />);
+  />,
+);
 
 describe('Header', () => {
   it('renders correctly', () => {
-    const { container, getByLabelText } = getComponent();
+    const { container } = getComponent();
     expect(container.firstChild).not.toBeNull();
   });
 
@@ -28,8 +29,8 @@ describe('Header', () => {
   });
 
   it('displays links correctly', () => {
-    const { container, getByLabelText } = getComponent();
-    expect(container.querySelectorAll('.headerLink').length).toEqual(2)
-    expect(container.querySelectorAll('.headerActiveLink').length).toEqual(1)
+    const { container } = getComponent();
+    expect(container.querySelectorAll('.headerLink').length).toEqual(2);
+    expect(container.querySelectorAll('.headerActiveLink').length).toEqual(1);
   });
 });
