@@ -9,8 +9,7 @@ class ApplicationController < ActionController::Base
   include TagsHelper
   include MostFocusHelper
 
-  protect_from_forgery with: :null_session,
-                       if: proc { |c| c.request.format == 'application/json' }
+  protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :if_not_signed_in, unless: :devise_controller?
   before_action :set_raven_context, if: proc { Rails.env.production? }
