@@ -32,6 +32,7 @@ export const Avatar = (props: Props) => {
   const height = getHeight(small, large);
   return (
     <div
+      role="img"
       className={`avatar ${css.avatar} ${large ? css.large : ''} ${
         small ? css.small : ''
       }`}
