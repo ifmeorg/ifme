@@ -1,0 +1,19 @@
+en:
+  views:
+    pagination:
+      first: '&laquo; 처음'
+      last: 마지막 &raquo;
+      previous: '&lsaquo; 이전'
+      next: 다음 &rsaquo;
+      truncate: '&hellip;'
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: '%{entry_name} 을(를) 찾지 못하였습니다'
+          one: '<b>1</b> %{entry_name} 찾음'
+          other: '<b>총 %{count}</b> %{entry_name} 찾음'
+      more_pages:
+        display_entries: >-
+          총 <b>%{total}</b> 중 <b>%{first}&nbsp;-&nbsp;%{last}</b> 에서
+          %{entry_name} 찾음

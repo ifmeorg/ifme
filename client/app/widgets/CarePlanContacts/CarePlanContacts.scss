@@ -1,0 +1,14 @@
+@import '../../styles/_global.scss';
+
+.newContact {
+  @media screen and (max-width: $small) {
+    width: 100%;
+  }
+
+  button {
+    font-weight: bold;
+    @media screen and (max-width: $small) {
+      width: inherit;
+    }
+  }
+}

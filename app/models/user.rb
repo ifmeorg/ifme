@@ -70,6 +70,7 @@ class User < ApplicationRecord
   has_many :moods
   has_many :moments
   has_many :categories
+  has_many :care_plan_contacts
   has_many :password_histories, dependent: :destroy
   belongs_to :invited_by, class_name: 'User'
 

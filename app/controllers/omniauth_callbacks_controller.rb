@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  def google_oauth2
+    omniauth_login
+  end
+
+  def facebook
+    omniauth_login
+  end
+
   def omniauth_login
     if user.blank?
       redirect_to(new_user_session_path, notice:

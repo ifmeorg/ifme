@@ -29,6 +29,12 @@
       <%= raw t('devise.registrations.google_auth1') %>
     </div>
   <% end %>
+  
+  <% if current_user.provider == 'facebook' %>
+    <div class="smallMarginTop">
+      <%= raw t('devise.registrations.facebook_auth1') %>
+    </div>
+  <% end %>
 
   <div class="smallMarginTop">
     <%= react_component 'Input', props: {
@@ -143,8 +149,14 @@
       <%= raw t('devise.registrations.google_auth2') %>
     </div>
   <% end %>
+  
+  <% if current_user.provider == 'facebook' %>
+    <div>
+      <%= raw t('devise.registrations.facebook_auth2') %>
+    </div>
+  <% end %>
 
-  <% if current_user.provider != 'google_oauth2' %>
+  <% unless %w[google_oauth2 facebook].include? current_user.provider  %>
     <div class="smallMarginTop">
       <%= react_component 'Input', props: {
         type: 'password',
@@ -176,7 +188,7 @@
     } %>
   </div>
 
-  <%= f.submit t('devise.registrations.edit.labels.update'), class: 'buttonDarkM marginTop' %>
+  <%= f.submit t('devise.registrations.edit.labels.update'), class: 'buttonDarkM marginTop', id: 'submit' %>
 <% end %>
 
 <div class="label marginTop"><%= raw t('devise.registrations.edit.delete.text') %></div>

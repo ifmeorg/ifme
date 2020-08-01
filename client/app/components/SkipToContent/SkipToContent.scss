@@ -1,0 +1,28 @@
+@import "../../styles/_global.scss";
+
+.skipToContent {
+  // accessibility hidden element
+  height: 1px;
+  left: -10000px;
+  overflow: hidden;
+  position: absolute;
+  top: auto;
+  width: 1px;
+  // styling
+  align-items: center;
+  background: $cornflower;
+  color: $carmine;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  line-height: 3.5;
+  margin-top: $size-4;
+
+  &:focus {
+    height: auto;
+    width: auto;
+    position: static;
+  }
+}
+ 

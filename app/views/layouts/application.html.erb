@@ -48,6 +48,7 @@
   </head>
 
   <body>
+    <%= react_component('SkipToContent', props: { id: 'mainContent' })%>
     <div class="content <%= (user_signed_in? && !static_page?) || secret_share_path? ? 'dashboard' : 'static' %>" role="main">
       <%= react_component('Header', props: header_props) %>
       <%= render partial: 'shared/alerts' %>
@@ -58,7 +59,7 @@
             <%= render partial: "shared/dashboard_nav_links" %>
             <%= render partial: "shared/dashboard_nav_actions" %>
           </div>
-          <div class="dashboardSection">
+          <div class="dashboardSection" id="mainContent">
             <%= render partial: "shared/page_title" %>
             <%= yield %>
           </div>
@@ -69,7 +70,7 @@
           <%= yield %>
         </div>
       <% else %>
-        <div class="staticContent">
+        <div class="staticContent" id="mainContent">
           <%= render partial: "shared/page_title" %>
           <%= yield %>
         </div>

@@ -59,14 +59,18 @@ export const Notifications = ({
     });
   };
 
-
-  fetchNotifications = () => axios.get('/notifications/signed_in')
-    .then((response: any) => {
-      if (response && response.data && response.data.signed_in !== -1) {
-        if (response.data.signed_in !== signedInKey) {
-          getPusherKey(response.data.signed_in);
+  fetchNotifications = () => {
+    const { alreadyMounted, signedInKey } = this.state;
+    Utils.setCsrfToken();
+    return axios
+      .get('/notifications/signed_in')
+      .then((response: any) => {
+        if (response && response.data && response.data.signed_in !== -1) {
+          if (response.data.signed_in !== signedInKey) {
+            this.getPusherKey(response.data.signed_in);
+          }
+          return axios.get('/notifications/fetch_notifications');
         }
-        return axios.get('/notifications/fetch_notifications');
       }
       return -1;
     })

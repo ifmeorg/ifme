@@ -2,9 +2,9 @@ pt-BR:
   views:
     pagination:
       first: '&laquo; Primeira página'
-      last: 'Última página &raquo;'
+      last: Última página &raquo;
       previous: '&lsaquo; Anterior'
-      next: 'Pŕoxima &rsaquo;'
+      next: Pŕoxima &rsaquo;
       truncate: '&hellip;'
   helpers:
     page_entries_info:
@@ -15,5 +15,5 @@ pt-BR:
           other: 'Exibindo <b>todos %{count}</b> %{entry_name}'
       more_pages:
         display_entries: >-
-                      Exibindo %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}
-                      </b> de <b>%{total}</b> registros
+          Exibindo %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last} </b> de
+          <b>%{total}</b> registros

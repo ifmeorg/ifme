@@ -2,9 +2,9 @@ fr:
   views:
     pagination:
       first: '&laquo; premiere'
-      last: 'Dernier ast &raquo;'
+      last: Dernier ast &raquo;
       previous: '&lsaquo; Prev'
-      next: 'Suivant &rsaquo;'
+      next: Suivant &rsaquo;
       truncate: '&hellip;'
   helpers:
     page_entries_info:
@@ -15,5 +15,5 @@ fr:
           other: 'Afficher <b>tout%{count}</b> %{entry_name}'
       more_pages:
         display_entries: >-
-                      Afficher %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}
-                      </b> de <b>%{total}</b> au total
+          Afficher %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last} </b> de
+          <b>%{total}</b> au total
