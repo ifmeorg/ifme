@@ -44,6 +44,7 @@
       <link rel="preconnect" href=<%= pusher_url %>>
       <%= javascript_include_tag pusher_url, async: true %>
       <%= tag :meta, name: 'pusher-key', content: ENV['PUSHER_KEY'] %>
+      <%= tag :meta, name: 'pusher-cluster', content: ENV['PUSHER_CLUSTER'] %>
     <% end %>
   </head>
 

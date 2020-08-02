@@ -17,8 +17,11 @@ const getPusher = () => {
     const metaPusherKey = Array.from(
       window.document.getElementsByTagName('meta'),
     ).filter((item) => item.getAttribute('name') === 'pusher-key')[0];
+    const metaPusherCluster = Array.from(
+      window.document.getElementsByTagName('meta'),
+    ).filter((item) => item.getAttribute('name') === 'pusher-cluster')[0];
     return new window.Pusher(metaPusherKey.getAttribute('content'), {
-      cluster: 'us3',
+      cluster: metaPusherCluster.getAttribute('content'),
     });
   }
   return null;
