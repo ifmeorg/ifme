@@ -12,6 +12,8 @@ default: &default
   # Important to set this to false if not using the webpacker webpack setup
   compile: false
 
+  extract_css: true
+
 development:
   <<: *default
 

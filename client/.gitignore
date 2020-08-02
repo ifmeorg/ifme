@@ -6,3 +6,4 @@ default.js
 /storybook-static
 /.out*/*
 /.public*/*
+/app/libs/i18n/*.json

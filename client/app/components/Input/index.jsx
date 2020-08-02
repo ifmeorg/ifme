@@ -302,8 +302,6 @@ export const Input = ({
   );
 };
 
-// There's a [bug](https://github.com/shakacode/react_on_rails/issues/1198) with React on Rails,
-// so we'll need to do this in order to render multiple components with hooks on the same page.
 export default ({
   id,
   type,
