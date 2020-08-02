@@ -21,7 +21,7 @@ type ResourceProp = {
 export type Props = {
   resources: ResourceProp[],
   keywords: string[],
-  history: {
+  history?: {
     replace: (args: {}) => void,
   },
 };
