@@ -12,7 +12,20 @@ const setCsrfToken = () => {
   }
 };
 
+const getPusher = () => {
+  if (window.Pusher) {
+    const metaPusherKey = Array.from(
+      window.document.getElementsByTagName('meta'),
+    ).filter((item) => item.getAttribute('name') === 'pusher-key')[0];
+    return new window.Pusher(metaPusherKey.getAttribute('content'), {
+      cluster: 'us3',
+    });
+  }
+  return null;
+};
+
 export const Utils = {
   randomString,
   setCsrfToken,
+  getPusher,
 };

@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { Avatar } from '../index';
 
 const name = 'Julia Nguyen';
@@ -9,8 +9,8 @@ const src = '/some-img-url';
 describe('Avatar', () => {
   describe('has src prop', () => {
     it('renders correctly', () => {
-      const { container } = render(<Avatar src={src} />);
-      expect(container.firstChild).not.toBeNull();
+      render(<Avatar src={src} />);
+      expect(screen).not.toBeNull();
     });
 
     it('renders correctly with name prop', () => {

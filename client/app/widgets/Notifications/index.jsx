@@ -8,6 +8,7 @@ import { I18n } from '../../libs/i18n/index';
 
 export type Props = {
   element: any,
+  pusher?: Object,
 };
 
 export type State = {
@@ -15,24 +16,20 @@ export type State = {
   alreadyMounted: boolean,
   open: boolean,
   modalKey?: string,
-  signedInKey?: number,
 };
 
-export const Notifications = ({
-  element,
-}: Props) => {
-  const [notifications, setnotifications] = useState('');
-  const [alreadyMounted, setalreadyMounted] = useState(false);
-  const [open, setopen] = useState(false);
-  const [signedInKey, setsignedInKey] = useState();
-  const [modalKey, setmodalKey] = useState();
+export const Notifications = ({ element, pusher }: Props) => {
+  const [notifications, setNotifications] = useState('');
+  const [alreadyMounted, setAlreadyMounted] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [modalKey, setModalKey] = useState();
 
   const setBody = (paramsNotifications: string[]) => {
     let updatedNotifications = '';
     paramsNotifications.forEach((item: string) => {
       updatedNotifications += `<div>${item}</div>`;
     });
-    setnotifications(updatedNotifications);
+    setNotifications(updatedNotifications);
   };
 
   const changeTitle = (count: number) => {
@@ -42,56 +39,41 @@ export const Notifications = ({
     window.document.title = count === 0 ? title : `(${count}) ${title}`;
   };
 
-  let fetchNotifications;
+  const fetchNotifications = () => axios.get('/notifications/fetch_notifications').then((response: any) => {
+    if (response && response.data && response.data.fetch_notifications) {
+      changeTitle(response.data.fetch_notifications.length);
+      setBody(response.data.fetch_notifications);
+      if (!alreadyMounted && response.data.fetch_notifications.length > 0) {
+        setAlreadyMounted(true);
+        setOpen(true);
+        setModalKey(Utils.randomString());
+      }
+    }
+  });
 
-  const getPusherKey = (paramSignedInKey: number) => {
-    setsignedInKey(paramSignedInKey);
-    const metaPusherKey = Array.from(
-      window.document.getElementsByTagName('meta'),
-    ).filter((item) => item.getAttribute('name') === 'pusher-key')[0];
-    const pusherKey = metaPusherKey.getAttribute('content');
-    const pusher = new window.Pusher(pusherKey, { encrypted: true });
-    const channel = pusher.subscribe(`private-${signedInKey}`);
-    channel.bind('new_notification', (response: any) => {
-      if (response && response.data) {
+  const fetchData = () => {
+    Utils.setCsrfToken();
+    return axios.get('/notifications/signed_in').then((response: any) => {
+      if (response && response.data && !!response.data.signed_in) {
+        if (pusher) {
+          const channel = pusher.subscribe(
+            `private-${response.data.signed_in}`,
+          );
+          channel.bind('new_notification', () => {
+            fetchNotifications();
+          });
+        }
         fetchNotifications();
       }
     });
   };
 
-  fetchNotifications = () => {
-    const { alreadyMounted, signedInKey } = this.state;
-    Utils.setCsrfToken();
-    return axios
-      .get('/notifications/signed_in')
-      .then((response: any) => {
-        if (response && response.data && response.data.signed_in !== -1) {
-          if (response.data.signed_in !== signedInKey) {
-            this.getPusherKey(response.data.signed_in);
-          }
-          return axios.get('/notifications/fetch_notifications');
-        }
-      }
-      return -1;
-    })
-    .then((response: any) => {
-      if (response && response.data && response.data.fetch_notifications) {
-        changeTitle(response.data.fetch_notifications.length);
-        setBody(response.data.fetch_notifications);
-        if (!alreadyMounted && response.data.fetch_notifications.length > 0) {
-          setalreadyMounted(true);
-          setopen(true);
-          setmodalKey(Utils.randomString());
-        }
-      }
-    });
-
   const clearNotifications = () => {
     axios.delete('/notifications/clear').then((response: any) => {
       if (response) {
         changeTitle(0);
-        setopen(false);
-        setmodalKey(Utils.randomString());
+        setOpen(false);
+        setModalKey(Utils.randomString());
         fetchNotifications();
       }
     });
@@ -111,7 +93,7 @@ export const Notifications = ({
   );
 
   useEffect(() => {
-    fetchNotifications();
+    fetchData();
   }, []);
 
   return (
@@ -135,8 +117,10 @@ export const Notifications = ({
 // so we'll need to do this in order to render multiple components with hooks on the same page.
 export default ({
   element,
+  pusher,
 }: Props) => (
   <Notifications
     element={element}
+    pusher={pusher}
   />
 );

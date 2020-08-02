@@ -20,7 +20,7 @@ type CommentResponse = {
 
 type Comment = {
   id: number,
-  currentUserUid: number,
+  currentUserUid: string,
   commentByUid: string,
   commentByName: string,
   commentByAvatar?: string,
@@ -65,7 +65,7 @@ export const Comments = ({ comments, formProps }: Props) => {
   const getActions = (
     viewers: ?string,
     deleteAction: ?string,
-    currentUserUid: number,
+    currentUserUid: string,
     uid: string,
     id: number,
   ) => {

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
 import type { Profile } from './types';
 import { Notifications } from '../../widgets/Notifications';
+import { Utils } from '../../utils';
 import { Avatar } from '../Avatar';
 import css from './HeaderProfile.scss';
 import globalCSS from '../../styles/_global.scss';
@@ -33,7 +34,10 @@ const displayInfoLinks = (headerProfile: Profile) => {
         </a>
       </div>
       <div>
-        <Notifications element={notificationsElement(notifications.plural)} />
+        <Notifications
+          element={notificationsElement(notifications.plural)}
+          pusher={Utils.getPusher()}
+        />
       </div>
     </div>
   );
