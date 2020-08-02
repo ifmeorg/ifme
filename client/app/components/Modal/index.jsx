@@ -15,7 +15,7 @@ type CustomElement = {
 export type Props = {
   element?: CustomElement | Element<any>,
   elementId?: string,
-  body: string | Element<any> | any,
+  body?: string | Element<any> | any,
   title?: string,
   openListener?: Function,
   open?: boolean,
