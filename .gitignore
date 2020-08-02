@@ -45,3 +45,5 @@ node_modules
 
 # Uploads
 /public/uploads
+
+/public/assets
