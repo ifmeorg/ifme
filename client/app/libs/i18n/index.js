@@ -1,6 +1,6 @@
 // @flow
 import Cookies from 'js-cookie';
-import { translations } from './translations';
+import translations from './translations.json';
 
 type Options = {
   [key: string]: string,
