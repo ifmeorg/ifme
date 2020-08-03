@@ -42,7 +42,10 @@ describe('CarePlanContacts', () => {
         },
       }));
       const wrapper = mount(component);
-      wrapper.find('a[aria-label="Edit"]').at(0).simulate('click');
+      wrapper
+        .find('a[aria-label="Edit"]')
+        .at(0)
+        .simulate('click');
       expect(wrapper.text()).toContain('Edit Contact');
       expect(
         wrapper.find('input[aria-label="Name"]').props().defaultValue,
@@ -63,7 +66,10 @@ describe('CarePlanContacts', () => {
         .spyOn(axios, 'patch')
         .mockImplementation(() => Promise.reject(error));
       const wrapper = mount(component);
-      wrapper.find('a[aria-label="Edit"]').at(0).simulate('click');
+      wrapper
+        .find('a[aria-label="Edit"]')
+        .at(0)
+        .simulate('click');
       expect(wrapper.text()).toContain('Edit Contact');
       expect(
         wrapper.find('input[aria-label="Name"]').props().defaultValue,

@@ -12,15 +12,24 @@ describe('Input', () => {
           }),
         );
         expect(
-          wrapper.find('.accordionContent').find('input').exists(),
+          wrapper
+            .find('.accordionContent')
+            .find('input')
+            .exists(),
         ).toEqual(false);
         wrapper.find('.accordion').simulate('click');
         expect(
-          wrapper.find('.accordionContent').find('input').exists(),
+          wrapper
+            .find('.accordionContent')
+            .find('input')
+            .exists(),
         ).toEqual(true);
         wrapper.find('.accordion').simulate('click');
         expect(
-          wrapper.find('.accordionContent').find('input').exists(),
+          wrapper
+            .find('.accordionContent')
+            .find('input')
+            .exists(),
         ).toEqual(false);
       });
     });
@@ -35,15 +44,24 @@ describe('Input', () => {
           }),
         );
         expect(
-          wrapper.find('.accordionContent').find('input').exists(),
+          wrapper
+            .find('.accordionContent')
+            .find('input')
+            .exists(),
         ).toEqual(false);
         wrapper.find('.accordion').simulate('click');
         expect(
-          wrapper.find('.accordionContent').find('input').exists(),
+          wrapper
+            .find('.accordionContent')
+            .find('input')
+            .exists(),
         ).toEqual(true);
         wrapper.find('.accordion').simulate('click');
         expect(
-          wrapper.find('.accordionContent').find('input').exists(),
+          wrapper
+            .find('.accordionContent')
+            .find('input')
+            .exists(),
         ).toEqual(false);
       });
     });
@@ -58,15 +76,24 @@ describe('Input', () => {
           }),
         );
         expect(
-          wrapper.find('.accordionContent').find('select').exists(),
+          wrapper
+            .find('.accordionContent')
+            .find('select')
+            .exists(),
         ).toEqual(false);
         wrapper.find('.accordion').simulate('click');
         expect(
-          wrapper.find('.accordionContent').find('select').exists(),
+          wrapper
+            .find('.accordionContent')
+            .find('select')
+            .exists(),
         ).toEqual(true);
         wrapper.find('.accordion').simulate('click');
         expect(
-          wrapper.find('.accordionContent').find('select').exists(),
+          wrapper
+            .find('.accordionContent')
+            .find('select')
+            .exists(),
         ).toEqual(false);
       });
     });
@@ -81,15 +108,24 @@ describe('Input', () => {
           }),
         );
         expect(
-          wrapper.find('.accordionContent').find('input').exists(),
+          wrapper
+            .find('.accordionContent')
+            .find('input')
+            .exists(),
         ).toEqual(false);
         wrapper.find('.accordion').simulate('click');
         expect(
-          wrapper.find('.accordionContent').find('input').exists(),
+          wrapper
+            .find('.accordionContent')
+            .find('input')
+            .exists(),
         ).toEqual(true);
         wrapper.find('.accordion').simulate('click');
         expect(
-          wrapper.find('.accordionContent').find('input').exists(),
+          wrapper
+            .find('.accordionContent')
+            .find('input')
+            .exists(),
         ).toEqual(false);
       });
     });
@@ -104,15 +140,24 @@ describe('Input', () => {
           }),
         );
         expect(
-          wrapper.find('.accordionContent').find('.switch').exists(),
+          wrapper
+            .find('.accordionContent')
+            .find('.switch')
+            .exists(),
         ).toEqual(false);
         wrapper.find('.accordion').simulate('click');
         expect(
-          wrapper.find('.accordionContent').find('.switch').exists(),
+          wrapper
+            .find('.accordionContent')
+            .find('.switch')
+            .exists(),
         ).toEqual(true);
         wrapper.find('.accordion').simulate('click');
         expect(
-          wrapper.find('.accordionContent').find('.switch').exists(),
+          wrapper
+            .find('.accordionContent')
+            .find('.switch')
+            .exists(),
         ).toEqual(false);
       });
     });
