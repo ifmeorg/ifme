@@ -4,7 +4,7 @@ RUN apt-get update -qq && \
     apt-get install -y build-essential cmake git tzdata libpq-dev  ruby-dev curl
 
 # Install nodejs
-RUN curl -sL https://deb.nodesource.com/setup_13.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
   apt-get install -y nodejs
 
 # yarn
