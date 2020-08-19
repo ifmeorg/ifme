@@ -1,13 +1,13 @@
-import { render } from 'enzyme';
 import React from 'react';
+import { render } from '@testing-library/react';
 import CrisisPrevention from '../index';
 
 describe('CrisisPrevention', () => {
   it('renders the component', () => {
-    let wrapper;
+    let container;
     expect(() => {
-      wrapper = render(<CrisisPrevention />);
+      container = render(<CrisisPrevention />);
     }).not.toThrow();
-    expect(wrapper).not.toBeNull();
+    expect(container).not.toBeNull();
   });
 });
