@@ -45,7 +45,6 @@ export function InputSelect({
         aria-label={label || ariaLabel}
         value={value}
         onChange={toggleValue}
-        data-testid="inputSelect"
       >
         {options.map((option: Option) => (
           <option id={option.id} value={option.value} key={option.value}>

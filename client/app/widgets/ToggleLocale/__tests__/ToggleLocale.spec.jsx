@@ -33,7 +33,6 @@ describe('ToggleLocale', () => {
         currentTarget: { value: 'es' },
       });
     });
-
     expect(Cookies.set).toHaveBeenCalledWith('locale', 'es');
     expect(axios.post).toHaveBeenCalledWith('/toggle_locale', { locale: 'es' });
   });

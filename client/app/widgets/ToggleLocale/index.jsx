@@ -1,4 +1,6 @@
 // @flow
+/* eslint-disable */
+
 import React from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
@@ -11,7 +13,7 @@ export type Props = {
   locales: string[],
 };
 
-const options = locales => {
+const options = (locales) => {
   const result = [];
   locales.forEach((locale: string) => {
     result.push({
