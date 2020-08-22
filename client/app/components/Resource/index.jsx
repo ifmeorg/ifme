@@ -25,7 +25,7 @@ const taggedResources = (
 ) => {
   if (tagged && tags) {
     return (
-      <div className="tags" data-testid="tags-div">
+      <div className="tags">
         {tags.map((tag) => (
           <Tag
             normal
@@ -49,11 +49,7 @@ const taggedResources = (
 
 const authorRes = (external: ?boolean, author: ?string) => {
   if (!external) return null;
-  return (
-    <div className={`author ${css.author}`} data-testid="author-div">
-      {author}
-    </div>
-  );
+  return <div className={`author ${css.author}`}>{author}</div>;
 };
 
 export const Resource = (props: Props) => {
@@ -67,7 +63,7 @@ export const Resource = (props: Props) => {
     updateTagFilter,
   } = props;
   return (
-    <div className={`resource ${css.resource}`} data-testid="resource-div">
+    <div className={`resource ${css.resource}`}>
       <a
         className={css.link}
         href={link}
