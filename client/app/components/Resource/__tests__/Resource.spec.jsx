@@ -17,65 +17,43 @@ const AUTHOR = 'Desi Rottman';
 const URL = 'http://www.lifesigns.org.uk/';
 
 describe('Resource', () => {
-  const {
-    getByRole, getByText, getByTestId, queryByTestId,
-  } = screen;
+  const { getByRole, getByText } = screen;
   test('it renders with neither tags nor author', () => {
     render(<Resource title={TITLE} link={URL} />);
-    expect(getByTestId('resource-div')).toBeInTheDocument();
-    expect(queryByTestId('author-div')).toBeNull();
-    expect(queryByTestId('tags-div')).toBeNull();
     expect(getByText(TITLE)).toBeInTheDocument();
     expect(getByRole('link')).toBeInTheDocument();
   });
-  test('it renders when given tags with no tagged prop', () => {
+  test('it renders with tags={TAGS} and no tagged prop', () => {
     render(<Resource title={TITLE} link={URL} tags={TAGS} />);
-    expect(getByTestId('resource-div')).toBeInTheDocument();
-    expect(queryByTestId('author-div')).toBeNull();
-    expect(queryByTestId('tags-div')).toBeNull();
     expect(getByText(TITLE)).toBeInTheDocument();
     expect(getByRole('link')).toBeInTheDocument();
   });
-  test('it renders with only tags={TAGS}', () => {
+  test('it renders with tagged and tags={TAGS}', () => {
     render(<Resource title={TITLE} link={URL} tagged tags={TAGS} />);
-    expect(getByTestId('resource-div')).toBeInTheDocument();
-    expect(getByTestId('tags-div')).toBeInTheDocument();
-    expect(getByTestId('tags-div')).toHaveTextContent(...TAGS);
+    expect(getByText(...TAGS));
     expect(getByText(TITLE)).toBeInTheDocument();
     expect(getByRole('link')).toBeInTheDocument();
   });
   test('it renders with tags={EMPTY_TAGS} and no author ', () => {
     render(<Resource title={TITLE} link={URL} tagged tags={EMPTY_TAGS} />);
-    expect(getByTestId('resource-div')).toBeInTheDocument();
-    expect(queryByTestId('tags-div')).toBeInTheDocument();
     expect(getByRole('link')).toBeInTheDocument();
     expect(getByText(TITLE)).toBeInTheDocument();
   });
   test('it renders with external and author={AUTHOR}', () => {
     render(<Resource title={TITLE} link={URL} external author={AUTHOR} />);
-    expect(getByTestId('resource-div')).toBeInTheDocument();
-    expect(getByTestId('author-div')).toBeInTheDocument();
-    expect(queryByTestId('tags-div')).toBeNull();
     expect(getByRole('link')).toBeInTheDocument();
-    expect(getByTestId('author-div')).toHaveTextContent(AUTHOR);
+    expect(getByText(AUTHOR)).toBeInTheDocument();
     expect(getByText(TITLE)).toBeInTheDocument();
   });
   test('it renders with external tagged', () => {
     render(<Resource title={TITLE} link={URL} external tagged />);
-    expect(getByTestId('resource-div')).toBeInTheDocument();
-    expect(getByTestId('tags-div')).toBeInTheDocument();
     expect(getByText(TITLE)).toBeInTheDocument();
     expect(getByRole('link')).toBeInTheDocument();
-    expect(getByTestId('author-div')).toHaveClass('author');
-    expect(getByTestId('author-div')).toHaveTextContent('');
   });
-  test('it renders with external, tagged and author={AUTHOR}', () => {
+  test('it renders with external, tagged, and author={AUTHOR}', () => {
     render(
       <Resource title={TITLE} link={URL} external author={AUTHOR} tagged />,
     );
-    expect(getByTestId('resource-div')).toBeInTheDocument();
-    expect(getByTestId('tags-div')).toHaveClass('tags');
-    expect(getByTestId('author-div')).toHaveClass('author');
     expect(getByRole('link')).toBeInTheDocument();
     expect(getByText(TITLE)).toBeInTheDocument();
     expect(getByText(AUTHOR)).toBeInTheDocument();
@@ -91,10 +69,7 @@ describe('Resource', () => {
         tags={TAGS}
       />,
     );
-    expect(getByTestId('resource-div')).toBeInTheDocument();
-    expect(getByTestId('tags-div')).toHaveClass('tags');
-    expect(getByTestId('tags-div')).toHaveTextContent(...TAGS);
-    expect(getByTestId('author-div')).toHaveClass('author');
+    expect(getByText(...TAGS)).toBeInTheDocument();
     expect(getByRole('link')).toBeInTheDocument();
     expect(getByText(TITLE)).toBeInTheDocument();
     expect(getByText(AUTHOR)).toBeInTheDocument();
@@ -110,21 +85,13 @@ describe('Resource', () => {
         tags={EMPTY_TAGS}
       />,
     );
-    expect(getByTestId('resource-div')).toBeInTheDocument();
-    expect(getByTestId('tags-div')).toHaveClass('tags');
-    expect(getByTestId('tags-div')).toHaveTextContent('');
-    expect(getByTestId('author-div')).toHaveClass('author');
     expect(getByRole('link')).toBeInTheDocument();
     expect(getByText(TITLE)).toBeInTheDocument();
     expect(getByText(AUTHOR)).toBeInTheDocument();
   });
   test('it renders with external, tagged, and tags={TAGS}', () => {
     render(<Resource title={TITLE} link={URL} external tagged tags={TAGS} />);
-    expect(getByTestId('resource-div')).toBeInTheDocument();
-    expect(getByTestId('tags-div')).toHaveClass('tags');
-    expect(getByTestId('tags-div')).toHaveTextContent(...TAGS);
-    expect(getByTestId('author-div')).toHaveClass('author');
-    expect(getByTestId('author-div')).toHaveTextContent('');
+    expect(getByText(...TAGS)).toBeInTheDocument();
     expect(getByRole('link')).toBeInTheDocument();
     expect(getByText(TITLE)).toBeInTheDocument();
   });
@@ -132,11 +99,6 @@ describe('Resource', () => {
     render(
       <Resource title={TITLE} link={URL} external tagged tags={EMPTY_TAGS} />,
     );
-    expect(getByTestId('resource-div')).toBeInTheDocument();
-    expect(getByTestId('tags-div')).toHaveClass('tags');
-    expect(getByTestId('tags-div')).toHaveTextContent('');
-    expect(getByTestId('author-div')).toHaveClass('author');
-    expect(getByTestId('author-div')).toHaveTextContent('');
     expect(getByRole('link')).toBeInTheDocument();
     expect(getByText(TITLE)).toBeInTheDocument();
   });
