@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { render, screen, getByTestId } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { Tag } from '../index';
 
 const TEST_LABEL = 'TEST_LABEL';
