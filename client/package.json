@@ -68,6 +68,7 @@
     "@storybook/addons": "^5.3.19",
     "@storybook/react": "^5.3.19",
     "@testing-library/jest-dom": "^5.10.0",
+    "@testing-library/react": "^10.0.6",
     "babel-cli": "^6.24.1",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^26.2.2",
