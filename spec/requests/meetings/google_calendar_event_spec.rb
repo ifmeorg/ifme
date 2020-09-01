@@ -17,13 +17,15 @@ RSpec.describe 'GoogleCalendarEvent', type: :request do
 
     context 'success' do
       it 'calls calendar_uploader#upload_event' do
+        # Assume
         expect(calendar_uploader).to receive(:upload_event).with(meeting.name, meeting.date_time)
                                                            .and_return(calendar_event)
 
+        # Act
         post meeting_google_calendar_event_path(meeting_id: meeting.id)
 
+        # Assert
         expect(meeting_member.reload.google_cal_event_id).to eq(calendar_event.id)
-
         expect(response).to redirect_to(group_path(meeting.group_id))
         expect(flash[:notice]).to eq(I18n.t('meetings.google_cal.create.success'))
       end
@@ -32,11 +34,14 @@ RSpec.describe 'GoogleCalendarEvent', type: :request do
     context 'error' do
       context 'raises client_error_exception' do
         it 'returns client_error_exception message' do
+          # Assume
           expect(calendar_uploader).to receive(:upload_event).with(meeting.name, meeting.date_time)
                                                              .and_raise(Google::Apis::ClientError.new(exception_message))
 
+          # Act
           post meeting_google_calendar_event_path(meeting_id: meeting.id)
 
+          # Assert
           expect(meeting_member.reload.google_cal_event_id).to eq(nil)
           expect(response).to redirect_to(group_path(meeting.group_id))
 
@@ -46,11 +51,14 @@ RSpec.describe 'GoogleCalendarEvent', type: :request do
       end
       context 'raises server_error_exception' do
         it 'returns server_error_exception message' do
+          # Assume
           expect(calendar_uploader).to receive(:upload_event).with(meeting.name, meeting.date_time)
                                                              .and_raise(Google::Apis::ServerError.new(exception_message))
 
+          # Act
           post meeting_google_calendar_event_path(meeting_id: meeting.id)
 
+          # Assert
           expect(meeting_member.reload.google_cal_event_id).to eq(nil)
           expect(response).to redirect_to(group_path(meeting.group_id))
 
@@ -66,11 +74,14 @@ RSpec.describe 'GoogleCalendarEvent', type: :request do
 
     context 'success' do
       it 'calls calendar_uploader#delete_event' do
+        # Assume
         expect(calendar_uploader).to receive(:delete_event).with(calendar_event.id)
                                                            .and_return('')
 
+        # Act
         delete meeting_google_calendar_event_path(meeting_id: meeting.id)
 
+        # Assert
         expect(meeting_member.reload.google_cal_event_id).to eq(nil)
         expect(response).to redirect_to(group_path(meeting.group_id))
 
@@ -81,11 +92,14 @@ RSpec.describe 'GoogleCalendarEvent', type: :request do
     context 'error' do
       context 'raises client_error_exception' do
         it 'calls returns client_error_exception message' do
+          # Assume
           expect(calendar_uploader).to receive(:delete_event).with(calendar_event.id)
                                                              .and_raise(Google::Apis::ClientError.new(exception_message))
 
+          # Act
           delete meeting_google_calendar_event_path(meeting_id: meeting.id)
 
+          # Assert
           expect(meeting_member.reload.google_cal_event_id).to eq(calendar_event.id)
           expect(response).to redirect_to(group_path(meeting.group_id))
 
@@ -95,11 +109,14 @@ RSpec.describe 'GoogleCalendarEvent', type: :request do
       end
       context 'raises server_error_exception' do
         it 'calls returns server_error_exception message' do
+          # Assume
           expect(calendar_uploader).to receive(:delete_event).with(calendar_event.id)
                                                              .and_raise(Google::Apis::ServerError.new(exception_message))
 
+          # Act
           delete meeting_google_calendar_event_path(meeting_id: meeting.id)
 
+          # Assert
           expect(meeting_member.reload.google_cal_event_id).to eq(calendar_event.id)
           expect(response).to redirect_to(group_path(meeting.group_id))
 
