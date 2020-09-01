@@ -4,8 +4,8 @@ RSpec.describe 'GoogleCalendarEvent', type: :request do
   let(:user) { create(:user_oauth) }
   let(:meeting) { create(:meeting) }
   let(:calendar_uploader) { double }
-  let!(:calendar_event) { double(id: 'someid') }
-  let!(:exception_message) { 'Exception message' }
+  let(:calendar_event) { double(id: 'someid') }
+  let(:exception_message) { 'Exception message' }
 
   before do
     sign_in user
@@ -63,7 +63,6 @@ RSpec.describe 'GoogleCalendarEvent', type: :request do
 
   describe '#destroy' do
     let!(:meeting_member) { create(:meeting_member, user_id: user.id, meeting_id: meeting.id, google_cal_event_id: calendar_event.id) }
-    let!(:remove_response) { double }
 
     context 'success' do
       it 'calls calendar_uploader#delete_event' do
