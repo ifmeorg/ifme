@@ -1,28 +1,41 @@
 // @flow
-import { shallow } from 'enzyme';
 import React from 'react';
+import { render, screen } from '@testing-library/react';
 import { Tag } from '../index';
-import css from '../Tag.scss';
 
-describe('Tag', () => {
-  describe('Class Names', () => {
-    it('supports dark class', () => {
-      const tag = shallow(<Tag dark />);
-      expect(tag.prop('className')).toEqual(expect.stringContaining(css.dark));
-    });
+const TEST_LABEL = 'TEST_LABEL';
+const TEST_URL = 'https://if-me.org';
 
-    it('supports normal class', () => {
-      const tag = shallow(<Tag normal />);
-      expect(tag.prop('className')).toEqual(
-        expect.stringContaining(css.normal),
-      );
-    });
-
-    it('supports secondary class', () => {
-      const tag = shallow(<Tag secondary />);
-      expect(tag.prop('className')).toEqual(
-        expect.stringContaining(css.secondary),
-      );
-    });
+describe('Tooltip', () => {
+  const { getByRole, getByText } = screen;
+  test('it renders anchor with normal and href', () => {
+    render(<Tag label={TEST_LABEL} normal href={TEST_URL} />);
+    expect(getByRole('link')).toBeInTheDocument();
+    expect(getByText(TEST_LABEL)).toBeInTheDocument();
+  });
+  test('it renders button with normal and onClick', () => {
+    render(<Tag label={TEST_LABEL} normal onClick />);
+    expect(getByRole('button')).toBeInTheDocument();
+    expect(getByText(TEST_LABEL)).toBeInTheDocument();
+  });
+  test('it renders anchor with dark and href', () => {
+    render(<Tag label={TEST_LABEL} dark href={TEST_URL} />);
+    expect(getByRole('link')).toBeInTheDocument();
+    expect(getByText(TEST_LABEL)).toBeInTheDocument();
+  });
+  test('it renders button with dark and onClick', () => {
+    render(<Tag label={TEST_LABEL} dark onClick />);
+    expect(getByRole('button')).toBeInTheDocument();
+    expect(getByText(TEST_LABEL)).toBeInTheDocument();
+  });
+  test('it renders anchor with secondary and href', () => {
+    render(<Tag label={TEST_LABEL} secondary href={TEST_URL} />);
+    expect(getByRole('link')).toBeInTheDocument();
+    expect(getByText(TEST_LABEL)).toBeInTheDocument();
+  });
+  test('it renders button with secondary and onClick', () => {
+    render(<Tag label={TEST_LABEL} secondary onClick />);
+    expect(getByRole('button')).toBeInTheDocument();
+    expect(getByText(TEST_LABEL)).toBeInTheDocument();
   });
 });

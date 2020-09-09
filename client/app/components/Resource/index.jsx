@@ -6,10 +6,8 @@ import { Tag } from '../Tag';
 
 type Props = {
   author?: string,
-  external?: boolean,
   link: string,
   tags?: string[],
-  tagged?: boolean,
   title: string,
   updateTagFilter?: Function,
 };
@@ -18,12 +16,8 @@ const scrollUp = () => {
   window.scrollTo(0, 0);
 };
 
-const taggedResources = (
-  tagged: ?boolean,
-  tags: ?(string[]),
-  updateTagFilter,
-) => {
-  if (tagged && tags) {
+const taggedResources = (tags: ?(string[]), updateTagFilter) => {
+  if (tags) {
     return (
       <div className="tags">
         {tags.map((tag) => (
@@ -47,20 +41,14 @@ const taggedResources = (
   return null;
 };
 
-const authorRes = (external: ?boolean, author: ?string) => {
-  if (!external) return null;
+const authorRes = (author: ?string) => {
+  if (!author) return null;
   return <div className={`author ${css.author}`}>{author}</div>;
 };
 
 export const Resource = (props: Props) => {
   const {
-    author,
-    external,
-    link,
-    tagged,
-    tags = [],
-    title,
-    updateTagFilter,
+    author, link, tags = [], title, updateTagFilter,
   } = props;
   return (
     <div className={`resource ${css.resource}`}>
@@ -72,8 +60,8 @@ export const Resource = (props: Props) => {
       >
         {title}
       </a>
-      {authorRes(external, author)}
-      {taggedResources(tagged, tags, updateTagFilter)}
+      {authorRes(author)}
+      {taggedResources(tags, updateTagFilter)}
     </div>
   );
 };

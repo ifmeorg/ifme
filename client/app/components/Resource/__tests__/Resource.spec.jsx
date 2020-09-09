@@ -11,95 +11,39 @@ const TAGS = [
   'podcast',
   'books',
 ];
-const EMPTY_TAGS = [];
 const TITLE = 'LifeSIGNS: Self Injury Guidance & Network Support (UK)';
 const AUTHOR = 'Desi Rottman';
 const URL = 'http://www.lifesigns.org.uk/';
 
 describe('Resource', () => {
   const { getByRole, getByText } = screen;
-  test('it renders with neither tags nor author', () => {
+  test('it renders with a title and link', () => {
     render(<Resource title={TITLE} link={URL} />);
     expect(getByText(TITLE)).toBeInTheDocument();
     expect(getByRole('link')).toBeInTheDocument();
   });
-  test('it renders with tags={TAGS} and no tagged prop', () => {
+  test('it renders with a title, link, and tags', () => {
     render(<Resource title={TITLE} link={URL} tags={TAGS} />);
-    expect(getByText(TITLE)).toBeInTheDocument();
-    expect(getByRole('link')).toBeInTheDocument();
-  });
-  test('it renders with tagged and tags={TAGS}', () => {
-    render(<Resource title={TITLE} link={URL} tagged tags={TAGS} />);
     expect(getByText(...TAGS));
     expect(getByText(TITLE)).toBeInTheDocument();
     expect(getByRole('link')).toBeInTheDocument();
   });
-  test('it renders with tags={EMPTY_TAGS} and no author ', () => {
-    render(<Resource title={TITLE} link={URL} tagged tags={EMPTY_TAGS} />);
+  test('it renders a title and link with tags={EMPTY_TAGS}', () => {
+    render(<Resource title={TITLE} link={URL} />);
     expect(getByRole('link')).toBeInTheDocument();
     expect(getByText(TITLE)).toBeInTheDocument();
   });
-  test('it renders with external and author={AUTHOR}', () => {
-    render(<Resource title={TITLE} link={URL} external author={AUTHOR} />);
+  test('it renders with a title, link, and author', () => {
+    render(<Resource title={TITLE} link={URL} author={AUTHOR} />);
     expect(getByRole('link')).toBeInTheDocument();
     expect(getByText(AUTHOR)).toBeInTheDocument();
     expect(getByText(TITLE)).toBeInTheDocument();
   });
-  test('it renders with external tagged', () => {
-    render(<Resource title={TITLE} link={URL} external tagged />);
+  test('it renders with a title, link tags and author', () => {
+    render(<Resource title={TITLE} link={URL} author={AUTHOR} tags={TAGS} />);
     expect(getByText(TITLE)).toBeInTheDocument();
     expect(getByRole('link')).toBeInTheDocument();
-  });
-  test('it renders with external, tagged, and author={AUTHOR}', () => {
-    render(
-      <Resource title={TITLE} link={URL} external author={AUTHOR} tagged />,
-    );
-    expect(getByRole('link')).toBeInTheDocument();
-    expect(getByText(TITLE)).toBeInTheDocument();
-    expect(getByText(AUTHOR)).toBeInTheDocument();
-  });
-  test('it renders with external, tags={TAGS}, tagged, and author={AUTHOR}', () => {
-    render(
-      <Resource
-        title={TITLE}
-        link={URL}
-        external
-        author={AUTHOR}
-        tagged
-        tags={TAGS}
-      />,
-    );
     expect(getByText(...TAGS)).toBeInTheDocument();
-    expect(getByRole('link')).toBeInTheDocument();
-    expect(getByText(TITLE)).toBeInTheDocument();
     expect(getByText(AUTHOR)).toBeInTheDocument();
-  });
-  test('it renders with external, tags={EMPTY_TAGS}, tagged and author={AUTHOR}', () => {
-    render(
-      <Resource
-        title={TITLE}
-        link={URL}
-        external
-        author={AUTHOR}
-        tagged
-        tags={EMPTY_TAGS}
-      />,
-    );
-    expect(getByRole('link')).toBeInTheDocument();
-    expect(getByText(TITLE)).toBeInTheDocument();
-    expect(getByText(AUTHOR)).toBeInTheDocument();
-  });
-  test('it renders with external, tagged, and tags={TAGS}', () => {
-    render(<Resource title={TITLE} link={URL} external tagged tags={TAGS} />);
-    expect(getByText(...TAGS)).toBeInTheDocument();
-    expect(getByRole('link')).toBeInTheDocument();
-    expect(getByText(TITLE)).toBeInTheDocument();
-  });
-  test('it renders with external, tagged, and tags={EMPTY_TAGS}', () => {
-    render(
-      <Resource title={TITLE} link={URL} external tagged tags={EMPTY_TAGS} />,
-    );
-    expect(getByRole('link')).toBeInTheDocument();
-    expect(getByText(TITLE)).toBeInTheDocument();
   });
 });
