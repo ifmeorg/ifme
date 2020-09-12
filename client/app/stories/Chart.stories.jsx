@@ -1,7 +1,6 @@
 import React from 'react';
 import { Chart } from '../components/Chart';
 import { ChartControl } from '../components/Chart/ChartControl';
-import { white } from '../../.storybook/backgrounds';
 
 const sampleChartData = {
   '2013-02-10 00:00:00 -0800': 11,
@@ -11,7 +10,7 @@ const sampleChartData = {
 export default {
   title: 'Components/Chart',
   parameters: {
-    backgrounds: [{ ...white, default: true }],
+    backgrounds: { default: 'white' },
   },
 };
 

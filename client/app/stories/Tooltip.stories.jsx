@@ -1,7 +1,6 @@
 import React from 'react';
 import { Tooltip } from '../components/Tooltip';
 import { Logo } from '../components/Logo';
-import { mulberry } from '../../.storybook/backgrounds';
 
 const longText = 'Heya this is a tooltip with a lot of fun text. Blah blah blah. Hover boards!';
 const shortText = 'Heya this is a tooltip.';
@@ -34,9 +33,10 @@ export const ElementIsHtml = () => (
 
 ElementIsHtml.story = {
   name: 'Element is HTML',
-  parameters: {
-    backgrounds: [{ ...mulberry, default: true }],
-  },
+};
+
+ElementIsHtml.parameters = {
+  backgrounds: { default: 'mulberry' },
 };
 
 export const ElementIsTextAndTooltipIsPositionedRight = () => (
@@ -63,9 +63,10 @@ export const ElementIsHtmlAndTooltipIsPositionedRight = () => (
 
 ElementIsHtmlAndTooltipIsPositionedRight.story = {
   name: 'Element is HTML and tooltip is positioned right',
-  parameters: {
-    backgrounds: [{ ...mulberry, default: true }],
-  },
+};
+
+ElementIsHtmlAndTooltipIsPositionedRight.parameters = {
+  backgrounds: { default: 'mulberry' },
 };
 
 export const ElementIsTextAndTooltipIsPositionedCenter = () => (
@@ -92,7 +93,8 @@ export const ElementIsHtmlAndTooltipIsPositionedCenter = () => (
 
 ElementIsHtmlAndTooltipIsPositionedCenter.story = {
   name: 'Element is HTML and tooltip is positioned center',
-  parameters: {
-    backgrounds: [{ ...mulberry, default: true }],
-  },
+};
+
+ElementIsHtmlAndTooltipIsPositionedCenter.parameters = {
+  backgrounds: { default: 'mulberry' },
 };

@@ -1,11 +1,10 @@
 import React from 'react';
 import { InputMocks } from '../mocks/InputMocks';
-import { grey } from '../../.storybook/backgrounds';
 
 export default {
   title: 'Components/Input',
   parameters: {
-    backgrounds: [{ ...grey, default: true }],
+    backgrounds: { default: 'grey' },
   },
 };
 
