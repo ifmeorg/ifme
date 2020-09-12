@@ -1,12 +1,11 @@
 import React from 'react';
 import { Form } from '../components/Form';
 import { InputMocks } from '../mocks/InputMocks';
-import { mulberry } from '../../.storybook/backgrounds';
 
 export default {
   title: 'Components/Form',
   parameters: {
-    backgrounds: [{ ...mulberry, default: true }],
+    backgrounds: { default: 'mulberry' },
   },
 };
 

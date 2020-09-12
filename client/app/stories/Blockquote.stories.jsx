@@ -1,11 +1,10 @@
 import React from 'react';
 import { Blockquote } from '../components/Blockquote';
-import { mulberry } from '../../.storybook/backgrounds';
 
 export default {
   title: 'Components/Blockquote',
   parameters: {
-    backgrounds: [{ ...mulberry, default: true }],
+    backgrounds: { default: 'mulberry' },
   },
 };
 

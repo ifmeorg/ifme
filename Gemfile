@@ -87,7 +87,7 @@ group :development, :test do
 
   gem 'webdrivers'
 
-  gem "actionview", ">= 6.0.3.3"
+  gem 'actionview', '>= 6.0.3.3'
 end
 
 group :test do

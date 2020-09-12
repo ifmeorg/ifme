@@ -1,6 +1,5 @@
 import React from 'react';
 import { Accordion } from '../components/Accordion';
-import { mulberry } from '../../.storybook/backgrounds';
 
 const title = 'Accordions have pianos';
 const children = 'Hello';
@@ -17,9 +16,10 @@ export const Default = () => (
 
 Default.story = {
   name: 'Default size and style',
-  parameters: {
-    backgrounds: [{ ...mulberry, default: true }],
-  },
+};
+
+Default.parameters = {
+  backgrounds: { default: 'mulberry' },
 };
 
 export const DefaultLarge = () => (
@@ -30,9 +30,10 @@ export const DefaultLarge = () => (
 
 DefaultLarge.story = {
   name: 'Default style and large size',
-  parameters: {
-    backgrounds: [{ ...mulberry, default: true }],
-  },
+};
+
+DefaultLarge.parameters = {
+  backgrounds: { default: 'mulberry' },
 };
 
 export const DefaultDark = () => (

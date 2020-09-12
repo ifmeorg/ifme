@@ -1,11 +1,10 @@
 import React from 'react';
 import { Header } from '../components/Header';
-import { mulberry } from '../../.storybook/backgrounds';
 
 export default {
   title: 'Components/Header',
   parameters: {
-    backgrounds: [{ ...mulberry, default: true }],
+    backgrounds: { default: 'mulberry' },
   },
 };
 

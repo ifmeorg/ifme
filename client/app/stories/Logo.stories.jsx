@@ -1,6 +1,5 @@
 import React from 'react';
 import { Logo, LogoSolid } from '../components/Logo';
-import { mulberry } from '../../.storybook/backgrounds';
 
 const link = 'http://if-me.org';
 
@@ -10,53 +9,50 @@ export default {
 
 export const Small = () => <Logo sm />;
 
-Small.story = {
-  parameters: {
-    backgrounds: [{ ...mulberry, default: true }],
-  },
+Small.parameters = {
+  backgrounds: { default: 'mulberry' },
 };
 
 export const SmallWithLink = () => <Logo sm link={link} />;
 
 SmallWithLink.story = {
   name: 'Small with link',
-  parameters: {
-    backgrounds: [{ ...mulberry, default: true }],
-  },
+};
+
+SmallWithLink.parameters = {
+  backgrounds: { default: 'mulberry' },
 };
 
 export const Regular = () => <Logo />;
 
-Regular.story = {
-  parameters: {
-    backgrounds: [{ ...mulberry, default: true }],
-  },
+Regular.parameters = {
+  backgrounds: { default: 'mulberry' },
 };
 
 export const RegularWithLink = () => <Logo link={link} />;
 
 RegularWithLink.story = {
   name: 'Regular with link',
-  parameters: {
-    backgrounds: [{ ...mulberry, default: true }],
-  },
+};
+
+RegularWithLink.parameters = {
+  backgrounds: { default: 'mulberry' },
 };
 
 export const Large = () => <Logo lg />;
 
-Large.story = {
-  parameters: {
-    backgrounds: [{ ...mulberry, default: true }],
-  },
+Large.parameters = {
+  backgrounds: { default: 'mulberry' },
 };
 
 export const LargeWithLink = () => <Logo lg link={link} />;
 
 LargeWithLink.story = {
   name: 'Large with link',
-  parameters: {
-    backgrounds: [{ ...mulberry, default: true }],
-  },
+};
+
+LargeWithLink.parameters = {
+  backgrounds: { default: 'mulberry' },
 };
 
 export const SolidSmall = () => <LogoSolid sm />;

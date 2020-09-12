@@ -1,6 +1,5 @@
 import React from 'react';
 import { Resource } from '../components/Resource';
-import { mulberry } from '../../.storybook/backgrounds';
 
 const tags = [
   'open_source',
@@ -14,7 +13,7 @@ const tags = [
 export default {
   title: 'Components/Resource',
   parameters: {
-    backgrounds: [{ ...mulberry, default: true }],
+    backgrounds: { default: 'mulberry' },
   },
 };
 
