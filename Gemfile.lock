@@ -515,6 +515,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionview (>= 6.0.3.3)
   activerecord-import
   annotate (~> 2.7)
   bcrypt (= 3.1.13)
