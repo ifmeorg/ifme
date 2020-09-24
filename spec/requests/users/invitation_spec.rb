@@ -4,10 +4,10 @@ RSpec.describe 'Invitation', type: :request do
   let(:user) { create(:user, name: 'Jane') }
   let(:invitee1) { 'invited_friend@gmail.com' }
   let(:invitee2) { 'other_friend@gmail.com' }
-  let(:invalid_email) { 'invalid_email.com' }
-  let(:invite_one_friend) { post user_invitation_path, params: { user: { email: invitee1 } } }
 
   describe '#create' do
+    let(:invalid_email) { 'invalid_email.com' }
+
     context 'when a user is not signed in' do
       before { post user_invitation_path }
       it_behaves_like :with_no_logged_in_user
@@ -17,19 +17,32 @@ RSpec.describe 'Invitation', type: :request do
       before { sign_in user }
 
       context 'when valid params are given' do
+        let(:invite_one_friend) { post user_invitation_path, params: { user: { email: invitee1 } } }
+
         it 'creates a new user if the user does not exist' do
+          # Arrange
           users_count = User.count
+
+          # Act
           invite_one_friend
+
+          # Assert
           expect(User.count).to eq(users_count + 1)
         end
 
         it 'sends an invitation email to the invitee' do
+          # Act
           invite_one_friend
+
+          # Assert
           expect(Devise.mailer.deliveries.count).to eq(1)
         end
 
         it 'redirects to invitations#new' do
+          # Act
           invite_one_friend
+
+          # Assert
           expect(response).to redirect_to new_user_invitation_path
         end
 
@@ -40,22 +53,33 @@ RSpec.describe 'Invitation', type: :request do
           end
 
           it 'creates a new user for each supplied email address' do
+            # Arrange
             newest_users = User.order(invitation_sent_at: :desc).last(2)
             emails = []
             newest_users.each { |u| emails << u.email }
+
+            # Assert
             expect(emails.sort).to eq(friends_array.sort)
           end
 
           it 'sends an invitation email to each valid address' do
+            # Arrange
             emails = []
+
+            # Act
             Devise.mailer.deliveries.each { |d| emails << d.to[0] }
+
+            # Assert
             expect(Devise.mailer.deliveries.count).to eq(2)
             expect(emails.sort).to eq(friends_array.sort)
           end
 
           it 'creates a unique token for each email' do
+            # Arrange
             friend1 = User.find_by(email: invitee1)
             friend2 = User.find_by(email: invitee2)
+
+            # Assert
             expect(friend1.invitation_token).not_to eq(friend2.invitation_token)
           end
         end
@@ -67,13 +91,21 @@ RSpec.describe 'Invitation', type: :request do
         }
 
         it 're-renders the invitation form' do
+          # Act
           invalid_invite
+
+          # Assert
           expect(response).to redirect_to new_user_invitation_path
         end
 
         it 'does not create a new user for an invalid email' do
+          # Arrange
           user_count = User.count
+
+          # Act
           invalid_invite
+
+          # Assert
           expect(User.count).to eq(user_count)
         end
       end
@@ -84,16 +116,26 @@ RSpec.describe 'Invitation', type: :request do
         end
 
         it 'only creates a new User for the valid email' do
+          # Arrange
           newest_users = User.order(invitation_sent_at: :desc).last(2)
           emails = []
+
+          # Act
           newest_users.each { |u| emails << u.email }
+
+          # Assert
           expect(emails.sort).to include(invitee1)
           expect(emails.sort).not_to include(invalid_email)
         end
 
         it 'only sends an invitation email to the valid email address' do
+          # Arrange
           emails = []
+
+          # Act
           Devise.mailer.deliveries.each { |d| emails << d.to[0] }
+
+          # Assert
           expect(Devise.mailer.deliveries.count).to eq(1)
           expect(emails.sort).to include(invitee1)
           expect(emails.sort).not_to include(invalid_email)
@@ -109,9 +151,14 @@ RSpec.describe 'Invitation', type: :request do
 
     context 'when valid params are given' do
       it 'creates allyship with pending_from_ally status when a user accepts an invitation' do
+        # Arrange
         update_params = { name: name, password: password, password_confirmation: password, invitation_token: invited_user.raw_invitation_token }
         allow_any_instance_of(::Users::InvitationsController).to receive(:update_resource_params).and_return(update_params)
+
+        # Act
         put user_invitation_path, params: update_params
+
+        # Assert
         expect(user.allies_by_status(:pending_from_ally).first).to eq(invited_user)
         expect(response).to have_http_status(302)
       end
@@ -119,8 +166,13 @@ RSpec.describe 'Invitation', type: :request do
 
     context 'when invalid params are given' do
       it 'does not create an allyship' do
+        # Arrange
         allow_any_instance_of(::Users::InvitationsController).to receive(:update_resource_params).and_return({})
+
+        # Act
         put user_invitation_path, params: {}
+
+        # Assert
         expect(user.allies_by_status(:pending_from_ally).length).to eq(0)
         expect(response).to have_http_status(200)
       end
@@ -128,9 +180,14 @@ RSpec.describe 'Invitation', type: :request do
 
     context 'when both valid and invalid params are given' do
       it 'does not create an allyship' do
+        # Arrange
         update_params = { password: password, password_confirmation: password, invitation_token: invited_user.raw_invitation_token }
         allow_any_instance_of(::Users::InvitationsController).to receive(:update_resource_params).and_return(update_params)
+
+        # Act
         put user_invitation_path, params: update_params
+
+        # Assert
         expect(user.allies_by_status(:pending_from_ally).length).to eq(0)
         expect(response).to have_http_status(200)
       end
