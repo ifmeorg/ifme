@@ -20,22 +20,11 @@ RSpec.describe 'Invitation', type: :request do
         let(:invite_one_friend) { post user_invitation_path, params: { user: { email: invitee1 } } }
 
         it 'creates a new user if the user does not exist' do
-          # Arrange
-          users_count = User.count
-
-          # Act
-          invite_one_friend
-
-          # Assert
-          expect(User.count).to eq(users_count + 1)
+          expect { invite_one_friend }.to change { User.count }.by(1)
         end
 
         it 'sends an invitation email to the invitee' do
-          # Act
-          invite_one_friend
-
-          # Assert
-          expect(Devise.mailer.deliveries.count).to eq(1)
+          expect { invite_one_friend }.to change { Devise.mailer.deliveries.count }.by(1)
         end
 
         it 'redirects to invitations#new' do
@@ -54,12 +43,10 @@ RSpec.describe 'Invitation', type: :request do
 
           it 'creates a new user for each supplied email address' do
             # Arrange
-            newest_users = User.order(invitation_sent_at: :desc).last(2)
-            emails = []
-            newest_users.each { |u| emails << u.email }
+            emails = User.order(invitation_sent_at: :desc).last(friends_array.count).pluck(:email)
 
             # Assert
-            expect(emails.sort).to eq(friends_array.sort)
+            expect(emails).to match_array(friends_array)
           end
 
           it 'sends an invitation email to each valid address' do
@@ -70,8 +57,8 @@ RSpec.describe 'Invitation', type: :request do
             Devise.mailer.deliveries.each { |d| emails << d.to[0] }
 
             # Assert
-            expect(Devise.mailer.deliveries.count).to eq(2)
-            expect(emails.sort).to eq(friends_array.sort)
+            expect(Devise.mailer.deliveries.count).to eq(friends_array.count)
+            expect(emails).to match_array(friends_array)
           end
 
           it 'creates a unique token for each email' do
@@ -99,33 +86,28 @@ RSpec.describe 'Invitation', type: :request do
         end
 
         it 'does not create a new user for an invalid email' do
-          # Arrange
-          user_count = User.count
-
-          # Act
-          invalid_invite
-
-          # Assert
-          expect(User.count).to eq(user_count)
+          expect { invalid_invite }.not_to change { User.count }
         end
       end
 
       context 'when both valid and invalid params are given' do
-        before(:each) do
+        let(:valid_and_invalid_invite) {
           post user_invitation_path, params: { user: { email: "#{invitee1}, #{invalid_email}" } }
-        end
+        }
 
         it 'only creates a new User for the valid email' do
-          # Arrange
-          newest_users = User.order(invitation_sent_at: :desc).last(2)
-          emails = []
+          # Assume
+          emails = User.pluck(:email)
+          expect(emails).not_to include(invitee1)
+          expect(emails).not_to include(invalid_email)
 
           # Act
-          newest_users.each { |u| emails << u.email }
+          valid_and_invalid_invite
 
           # Assert
-          expect(emails.sort).to include(invitee1)
-          expect(emails.sort).not_to include(invalid_email)
+          emails = User.pluck(:email)
+          expect(emails).to include(invitee1)
+          expect(emails).not_to include(invalid_email)
         end
 
         it 'only sends an invitation email to the valid email address' do
@@ -133,12 +115,12 @@ RSpec.describe 'Invitation', type: :request do
           emails = []
 
           # Act
-          Devise.mailer.deliveries.each { |d| emails << d.to[0] }
+          expect { valid_and_invalid_invite }.to change { Devise.mailer.deliveries.count }.by(1)
 
           # Assert
-          expect(Devise.mailer.deliveries.count).to eq(1)
-          expect(emails.sort).to include(invitee1)
-          expect(emails.sort).not_to include(invalid_email)
+          Devise.mailer.deliveries.each { |d| emails << d.to[0] }
+          expect(emails).to include(invitee1)
+          expect(emails).not_to include(invalid_email)
         end
       end
     end
@@ -155,10 +137,14 @@ RSpec.describe 'Invitation', type: :request do
         update_params = { name: name, password: password, password_confirmation: password, invitation_token: invited_user.raw_invitation_token }
         allow_any_instance_of(::Users::InvitationsController).to receive(:update_resource_params).and_return(update_params)
 
+        # Assume
+        expect(user.allies_by_status(:pending_from_ally)).to be_empty
+
         # Act
         put user_invitation_path, params: update_params
 
         # Assert
+        expect(user.allies_by_status(:pending_from_ally)).not_to be_empty
         expect(user.allies_by_status(:pending_from_ally).first).to eq(invited_user)
         expect(response).to have_http_status(302)
       end
@@ -169,11 +155,14 @@ RSpec.describe 'Invitation', type: :request do
         # Arrange
         allow_any_instance_of(::Users::InvitationsController).to receive(:update_resource_params).and_return({})
 
+        # Assume
+        expect(user.allies_by_status(:pending_from_ally)).to be_empty
+
         # Act
         put user_invitation_path, params: {}
 
         # Assert
-        expect(user.allies_by_status(:pending_from_ally).length).to eq(0)
+        expect(user.allies_by_status(:pending_from_ally)).to be_empty
         expect(response).to have_http_status(200)
       end
     end
@@ -184,11 +173,14 @@ RSpec.describe 'Invitation', type: :request do
         update_params = { password: password, password_confirmation: password, invitation_token: invited_user.raw_invitation_token }
         allow_any_instance_of(::Users::InvitationsController).to receive(:update_resource_params).and_return(update_params)
 
+        # Assume
+        expect(user.allies_by_status(:pending_from_ally)).to be_empty
+
         # Act
         put user_invitation_path, params: update_params
 
         # Assert
-        expect(user.allies_by_status(:pending_from_ally).length).to eq(0)
+        expect(user.allies_by_status(:pending_from_ally)).to be_empty
         expect(response).to have_http_status(200)
       end
     end
