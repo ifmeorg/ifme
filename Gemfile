@@ -5,7 +5,7 @@ ruby '~> 2.6.6'
 
 gem 'puma'
 gem 'rack-rewrite'
-gem 'rails', '~> 6.0.3'
+gem 'rails', '~> 6.0.3.3'
 
 gem 'activerecord-import'
 gem 'bcrypt', '3.1.13'
