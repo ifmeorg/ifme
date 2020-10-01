@@ -592,5 +592,14 @@
     "link_name": "bennpham",
     "link": "https://github.com/bennpham",
     "social": "github"
+  },
+  {
+    "name": "Tyler Welsh",
+    "image": "/assets/contributors/tyler_welsh.jpg",
+    "profile": "I'm a Ruby on Rails developer living in Japan. I'm originally from California but decided to move away after graduating University. Since I can remember, I've always struggled with anxiety, panic attacks, and this feeling that I'm not good enough to succeed (pretty strong in the programming world...). I came across this project through hacktober and am very excited to contribute. Mental health is important.",
+    "location": "Tokyo, Japan",
+    "link_name": "tyler-wel",
+    "link": "https://github.com/tyler-wel",
+    "social": "github"
   }
 ]
