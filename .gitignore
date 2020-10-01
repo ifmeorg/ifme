@@ -47,3 +47,6 @@ node_modules
 /public/uploads
 
 /public/assets
+
+# Ignore gems installed locally
+/vendor
