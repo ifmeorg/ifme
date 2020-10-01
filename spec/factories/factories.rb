@@ -99,11 +99,6 @@ FactoryBot.define do
     end
   end
 
-  factory :comment do
-    commentable_type { 'moment' }
-    comment { 'Test Comment' }
-  end
-
   factory :take_medication_reminder do
     active { true }
   end
