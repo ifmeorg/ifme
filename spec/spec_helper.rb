@@ -90,6 +90,7 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.before { ActionMailer::Base.deliveries.clear }
+  config.filter_run_when_matching :focus
 
   config.before(header: true) do
     config.include HiddenHeaderSupport
