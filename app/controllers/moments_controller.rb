@@ -41,9 +41,8 @@ class MomentsController < ApplicationController
 
   # GET /moments/1/edit
   def edit
-    unless @moment.user_id == current_user.id
-      redirect_to_path(moment_path(@moment))
-    end
+    redirect_to_path(moment_path(@moment)) unless @moment.user_id == current_user.id
+
     set_association_variables!
   end
 

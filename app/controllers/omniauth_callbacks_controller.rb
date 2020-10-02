@@ -14,6 +14,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to(new_user_session_path, notice:
         t('omniauth.access_denied')) && return
     end
+
     user.accept_invitation! if invitation_token
     upload_avatar(omniauth_avatar)
     flash[:notice] = I18n.t('devise.omniauth_callbacks.success',

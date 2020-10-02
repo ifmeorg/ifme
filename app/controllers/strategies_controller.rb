@@ -48,9 +48,8 @@ class StrategiesController < ApplicationController
 
   # GET /strategies/1/edit
   def edit
-    unless @strategy.user_id == current_user.id
-      redirect_to_path(strategy_path(@strategy))
-    end
+    redirect_to_path(strategy_path(@strategy)) unless @strategy.user_id == current_user.id
+
     @viewers = current_user.allies_by_status(:accepted)
     @categories = current_user.categories.order('created_at DESC')
     @category = Category.new
