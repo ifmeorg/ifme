@@ -1,10 +1,10 @@
-[![CircleCI](https://circleci.com/gh/ifmeorg/ifme/tree/master.svg?style=svg)](https://circleci.com/gh/ifmeorg/ifme/tree/master)
+[![CircleCI](https://circleci.com/gh/ifmeorg/ifme/tree/main.svg?style=svg)](https://circleci.com/gh/ifmeorg/ifme/tree/main)
 [![Code Climate](https://codeclimate.com/github/ifmeorg/ifme/badges/gpa.svg)](https://codeclimate.com/github/ifmeorg/ifme)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f9444a4d4116720518fe/test_coverage)](https://codeclimate.com/github/ifmeorg/ifme/test_coverage)
 [![Backers on Open Collective](https://opencollective.com/ifme/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 
-README en: [Inglês](https://github.com/ifmeorg/ifme/blob/master/README.md), [Espanhol](https://github.com/ifmeorg/ifme/blob/master/README-ES.md), [Francês](https://github.com/ifmeorg/ifme/blob/master/README-FR.md), [Coreano](https://github.com/ifmeorg/ifme/blob/master/README-KO.md)
+README en: [Inglês](https://github.com/ifmeorg/ifme/blob/main/README.md), [Espanhol](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [Francês](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [Coreano](https://github.com/ifmeorg/ifme/blob/main/README-KO.md)
 
 # if-me.org
 
@@ -14,10 +14,10 @@ Lidar com a saúde mental é o que nos torna humanos. Mas para muitos de nós, �
 
 Nosso site está hospedado em [if-me.org](https://www.if-me.org/). Os sistemas de design ao vivo podem ser encontrados [design.if-me.org](http://design.if-me.org/).
 
-Nos usamos o maravilhoso [Contrato de Contribuinte](http://contributor-covenant.org) para nosso código de conduta. Por favor, [leia-o](https://github.com/ifmeorg/ifme/blob/master/code_of_conduct.md)
+Nos usamos o maravilhoso [Contrato de Contribuinte](http://contributor-covenant.org) para nosso código de conduta. Por favor, [leia-o](https://github.com/ifmeorg/ifme/blob/main/code_of_conduct.md)
 antes de se juntar ao nosso projeto.
 
-**Leia sobre os objetivos do nosso projeto e como contribuir (não apenas como desenvolvedor(a)) [aqui](https://github.com/ifmeorg/ifme/blob/master/CONTRIBUTING.md).**
+**Leia sobre os objetivos do nosso projeto e como contribuir (não apenas como desenvolvedor(a)) [aqui](https://github.com/ifmeorg/ifme/blob/main/CONTRIBUTING.md).**
 
 ## Documentação
 
@@ -70,4 +70,4 @@ Obrigado a todos os nossos patrocinadores! (por favor, peça a sua empresa para 
 
 O código fonte está licenciado por GNU AGPLv3. Para mais informações, veja
 http://www.gnu.org/licenses/agpl-3.0.txt ou
-[LICENSE.txt](https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt).
+[LICENSE.txt](https://github.com/ifmeorg/ifme/blob/main/LICENSE.txt).

@@ -1,11 +1,11 @@
-[![CircleCI](https://circleci.com/gh/ifmeorg/ifme/tree/master.svg?style=svg)](https://circleci.com/gh/ifmeorg/ifme/tree/master)
+[![CircleCI](https://circleci.com/gh/ifmeorg/ifme/tree/main.svg?style=svg)](https://circleci.com/gh/ifmeorg/ifme/tree/main)
 [![Code Climate](https://codeclimate.com/github/ifmeorg/ifme/badges/gpa.svg)](https://codeclimate.com/github/ifmeorg/ifme)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f9444a4d4116720518fe/test_coverage)](https://codeclimate.com/github/ifmeorg/ifme/test_coverage)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](code-of-conduct.md)
 [![Backers on Open Collective](https://opencollective.com/ifme/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 
-README in: [Spanish](https://github.com/ifmeorg/ifme/blob/master/README-ES.md), [Portuguese](https://github.com/ifmeorg/ifme/blob/master/README-PT.md), [French](https://github.com/ifmeorg/ifme/blob/master/README-FR.md), [Korean](https://github.com/ifmeorg/ifme/blob/master/README-KO.md)
+README in: [Spanish](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [Portuguese](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [French](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [Korean](https://github.com/ifmeorg/ifme/blob/main/README-KO.md)
 
 # if-me.org
 
@@ -23,10 +23,10 @@ The live site can be found at [if-me.org](https://www.if-me.org/). The live desi
 
 We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for
 our code of conduct. Please
-[read it](https://github.com/ifmeorg/ifme/blob/master/code_of_conduct.md)
+[read it](https://github.com/ifmeorg/ifme/blob/main/code_of_conduct.md)
 before joining our project.
 
-**Read about our project goals and how to contribute (not just as a developer) [here](https://github.com/ifmeorg/ifme/blob/master/CONTRIBUTING.md).**
+**Read about our project goals and how to contribute (not just as a developer) [here](https://github.com/ifmeorg/ifme/blob/main/CONTRIBUTING.md).**
 
 ## Documentation
 
@@ -84,4 +84,4 @@ open source project by [becoming a sponsor](https://opencollective.com/ifme#spon
 
 The source code is licensed under GNU AGPLv3. For more information see
 http://www.gnu.org/licenses/agpl-3.0.txt or
-[LICENSE.txt](https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt).
+[LICENSE.txt](https://github.com/ifmeorg/ifme/blob/main/LICENSE.txt).

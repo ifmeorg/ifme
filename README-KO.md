@@ -1,11 +1,11 @@
-[![CircleCI](https://circleci.com/gh/ifmeorg/ifme/tree/master.svg?style=svg)](https://circleci.com/gh/ifmeorg/ifme/tree/master)
+[![CircleCI](https://circleci.com/gh/ifmeorg/ifme/tree/main.svg?style=svg)](https://circleci.com/gh/ifmeorg/ifme/tree/main)
 [![Code Climate](https://codeclimate.com/github/ifmeorg/ifme/badges/gpa.svg)](https://codeclimate.com/github/ifmeorg/ifme)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f9444a4d4116720518fe/test_coverage)](https://codeclimate.com/github/ifmeorg/ifme/test_coverage)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](code-of-conduct.md)
 [![Backers on Open Collective](https://opencollective.com/ifme/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 
-README in: [영어](https://github.com/ifmeorg/ifme/blob/master/README.md), [스페인어](https://github.com/ifmeorg/ifme/blob/master/README-ES.md), [포르투갈어](https://github.com/ifmeorg/ifme/blob/master/README-PT.md), [프랑스어](https://github.com/ifmeorg/ifme/blob/master/README-FR.md)
+README in: [영어](https://github.com/ifmeorg/ifme/blob/main/README.md), [스페인어](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [포르투갈어](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [프랑스어](https://github.com/ifmeorg/ifme/blob/main/README-FR.md)
 
 # if me
 
@@ -26,9 +26,9 @@ if me의 사이트는 [if-me.org](https://www.if-me.org/)에서 확인할 수 �
 
 우리의 행동 수칙은 [Contributor Covenant](http://contributor-covenant.org)에 나타나 있습니다.
 
-저희의 프로젝트에 참여하기 전에 [이 것](https://github.com/ifmeorg/ifme/blob/master/code_of_conduct.md)을 읽어주십시오.
+저희의 프로젝트에 참여하기 전에 [이 것](https://github.com/ifmeorg/ifme/blob/main/code_of_conduct.md)을 읽어주십시오.
 
-**저희 프로젝트의 목표와 프로젝트에 어떻게 기여할 것인가(개발자 외에도)에 대해서는 [여기서](https://github.com/ifmeorg/ifme/blob/master/CONTRIBUTING.md) 꼭 읽어보시길 바랍니다.**
+**저희 프로젝트의 목표와 프로젝트에 어떻게 기여할 것인가(개발자 외에도)에 대해서는 [여기서](https://github.com/ifmeorg/ifme/blob/main/CONTRIBUTING.md) 꼭 읽어보시길 바랍니다.**
 
 ## 문서
 
@@ -85,5 +85,5 @@ Patreon 후원자 [Rob Drimmie](https://www.patreon.com/user?u=3251857), [Joseph
 
 본 소스코드는 GNU AGPLv3 라이센스를 따릅니다.
 
-더 자세한 정보는 http://www.gnu.org/licenses/agpl-3.0.txt 혹은 [LICENSE.txt](https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt)에서 확인하실 수 있습니다.
+더 자세한 정보는 http://www.gnu.org/licenses/agpl-3.0.txt 혹은 [LICENSE.txt](https://github.com/ifmeorg/ifme/blob/main/LICENSE.txt)에서 확인하실 수 있습니다.
 
