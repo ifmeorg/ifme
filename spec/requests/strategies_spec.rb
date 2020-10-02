@@ -87,19 +87,20 @@ describe 'Strategy', type: :request do
 
       context 'when the request format is html' do
         it 'redirects to the strategies_path' do
-          post :premade
+          post premade_strategies_path
           expect(response).to redirect_to(strategies_path)
         end
 
         it 'returns status code 204 for json format' do
-          post :premade, as: :json
+          headers = { "ACCEPT" => "application/json" }
+          post premade_strategies_path, headers: headers
           expect(response).to have_http_status(204)
         end
       end
     end
 
     context 'when the user is not logged in' do
-      before { post :premade }
+      before { post premade_strategies_path }
       it_behaves_like :with_no_logged_in_user
     end
   end
