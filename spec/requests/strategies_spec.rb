@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe StrategiesController do
+describe 'Strategy', type: :request do
   let(:user) { create(:user) }
   let(:strategy) { create(:strategy, user: user) }
 
@@ -8,45 +8,47 @@ describe StrategiesController do
     let(:strategy) { create(:strategy, name: 'test', user: user) }
 
     context 'when the user is logged in' do
-      include_context :logged_in_user
+      before do
+        sign_in user
+      end
 
       context 'when search params are provided' do
-        before { get :index, params: { search: 'test' } }
-
         it 'assigns @strategies' do
+          get strategies_path, params: { search: 'test' }
           expect(assigns(:strategies)).to eq([strategy])
         end
 
         it 'renders the index template' do
+          get strategies_path
           expect(response).to render_template('index')
         end
       end
 
       context 'when no search params are provided' do
         it 'renders the index template' do
-          get :index
+          get strategies_path
           expect(response).to render_template('index')
         end
       end
 
       context 'when request type is JSON' do
-        before { get :index, params: { page: 1, id: strategy.id }, format: :json }
         it 'returns a response with the correct path' do
+          headers = { "ACCEPT" => "application/json" }
+          params = { page: 1, id: strategy.id }
+          get strategies_path, params: params, headers: headers
           expect(JSON.parse(response.body)['data'].first['link']).to eq strategy_path(strategy)
         end
       end
     end
 
     context 'when the user is not logged in' do
-      before { get :index }
+      before { get strategies_path }
       it_behaves_like :with_no_logged_in_user
     end
   end
 
-  describe '#show' do
+  describe '#show', :focus do
     context 'when the user is logged in' do
-      include_context :logged_in_user
-
       context 'when the strategy exists' do
         before { get :show, params: { id: strategy.id } }
 
@@ -82,8 +84,6 @@ describe StrategiesController do
 
   describe '#premade' do
     context 'when the user is logged in' do
-      include_context :logged_in_user
-
       context 'when the request format is html' do
         it 'redirects to the strategies_path' do
           post :premade
@@ -112,8 +112,6 @@ describe StrategiesController do
 
   describe '#new' do
     context 'when the user is logged in' do
-      include_context :logged_in_user
-
       it 'renders the new template' do
         get :new
         expect(response).to render_template('new')
@@ -132,8 +130,6 @@ describe StrategiesController do
     let!(:strategy2)   { create(:strategy, user: another_user) }
 
     context 'when the user is logged in' do
-      include_context :logged_in_user
-
       context 'when the strategy belongs to the current user' do
         it 'renders the edit template' do
           get :edit, params: { id: strategy1.id }
@@ -165,8 +161,6 @@ describe StrategiesController do
     let(:invalid_strategy_params) { valid_strategy_params.merge(name: nil) }
 
     context 'when the user is logged in' do
-      include_context :logged_in_user
-
       context 'when the params are valid' do
         let(:strategy_params) { { strategy: valid_strategy_params } }
 
@@ -230,8 +224,6 @@ describe StrategiesController do
     let(:invalid_strategy_params) { { description: nil } }
 
     context 'when the user is logged in' do
-      include_context :logged_in_user
-
       context 'when the params are valid' do
         before(:each) do
           patch :update, params: { id: strategy.id, strategy: valid_strategy_params }
@@ -275,8 +267,6 @@ describe StrategiesController do
       let!(:strategy) { create(:strategy, user: user) }
 
       context 'when the user is logged in' do
-        include_context :logged_in_user
-
         it 'destroys the strategy' do
           expect { delete :destroy, params: { id: strategy.id } }.to(
             change(Strategy, :count).by(-1)
@@ -307,7 +297,6 @@ describe StrategiesController do
       end
 
       context 'when the user is logged in' do
-        include_context :logged_in_user
 
         it 'destroys the strategy' do
           expect(PerformStrategyReminder.active.count).to eq(1)
@@ -370,7 +359,6 @@ describe StrategiesController do
     let!(:strategy) { create(:strategy, user_id: user.id, category: [category.id]) }
 
     context 'when the user is logged in' do
-      include_context :logged_in_user
       before do
         get :tagged, params: { page: 1, category_id: category.id }, format: :json
       end
