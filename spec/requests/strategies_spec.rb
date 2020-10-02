@@ -8,9 +8,7 @@ describe 'Strategy', type: :request do
     let(:strategy) { create(:strategy, name: 'test', user: user) }
 
     context 'when the user is logged in' do
-      before do
-        sign_in user
-      end
+      before { sign_in user}
 
       context 'when search params are provided' do
         it 'assigns @strategies' do
@@ -47,43 +45,46 @@ describe 'Strategy', type: :request do
     end
   end
 
-  describe '#show', :focus do
+  describe '#show' do
     context 'when the user is logged in' do
-      context 'when the strategy exists' do
-        before { get :show, params: { id: strategy.id } }
+      before { sign_in user }
 
+      context 'when the strategy exists' do
         it 'sets the strategy' do
+          get strategy_path(strategy)
           expect(assigns(:strategy)).to eq(strategy)
         end
 
         it 'renders the show template' do
+          get strategy_path(strategy)
           expect(response).to render_template('show')
         end
       end
 
       context 'when the strategy does not exist' do
-        let(:id) { strategy.id + 1 }
-
         it 'redirects an html request' do
-          get :show, params: { id: id }
+          get strategy_path(strategy.id + 1)
           expect(response).to redirect_to(strategies_path)
         end
 
         it 'renders no content for a json request' do
-          get :show, format: 'json', params: { id: id }
+          headers = { "ACCEPT" => "application/json" }
+          get strategy_path(strategy.id + 1), headers: headers
           expect(response.body).to be_empty
         end
       end
     end
 
     context 'when the user is not logged in' do
-      before { get :show, params: { id: strategy.id } }
+      before { get strategies_path, params: { id: strategy.id } }
       it_behaves_like :with_no_logged_in_user
     end
   end
 
-  describe '#premade' do
+  describe '#premade', :focus do
     context 'when the user is logged in' do
+      before { sign_in user }
+
       context 'when the request format is html' do
         it 'redirects to the strategies_path' do
           post :premade
