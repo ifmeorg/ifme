@@ -81,7 +81,7 @@ describe 'Strategy', type: :request do
     end
   end
 
-  describe '#premade', :focus do
+  describe '#premade' do
     context 'when the user is logged in' do
       before { sign_in user }
 
@@ -107,21 +107,22 @@ describe 'Strategy', type: :request do
 
   describe '#quick_create' do
     context 'when the user is not logged in' do
-      before { post :quick_create }
+      before { post quick_create_strategies_path }
       it_behaves_like :with_no_logged_in_user
     end
   end
 
   describe '#new' do
     context 'when the user is logged in' do
+      before { sign_in user }
       it 'renders the new template' do
-        get :new
+        get new_strategy_path
         expect(response).to render_template('new')
       end
     end
 
     context 'when the user is not logged in' do
-      before { get :new }
+      before { get new_strategy_path }
       it_behaves_like :with_no_logged_in_user
     end
   end
@@ -132,28 +133,32 @@ describe 'Strategy', type: :request do
     let!(:strategy2)   { create(:strategy, user: another_user) }
 
     context 'when the user is logged in' do
+      before { sign_in user }
+
       context 'when the strategy belongs to the current user' do
         it 'renders the edit template' do
-          get :edit, params: { id: strategy1.id }
+          get edit_strategy_path(strategy1), params: { id: strategy1.id }
           expect(response).to render_template('edit')
         end
       end
 
       context 'when the strategy does not belong to the current user' do
         it 'redirects html requests to the strategy_path' do
-          get :edit, params: { id: strategy2.id }
+          get edit_strategy_path(strategy2), params: { id: strategy2.id }
           expect(response).to redirect_to(strategy_path(strategy2))
         end
 
         it 'renders nothing for json requests' do
-          get :edit, format: 'json', params: { id: strategy2.id }
+          headers = { "ACCEPT" => "application/json" }
+          params = { id: strategy2.id }
+          get edit_strategy_path(strategy2),  params: params, headers: headers
           expect(response.body).to be_empty
         end
       end
     end
 
     context 'when the user is not logged in' do
-      before { get :edit, params: { id: strategy2.id } }
+      before { get new_strategy_path, params: { id: strategy2.id } }
       it_behaves_like :with_no_logged_in_user
     end
   end
@@ -163,17 +168,18 @@ describe 'Strategy', type: :request do
     let(:invalid_strategy_params) { valid_strategy_params.merge(name: nil) }
 
     context 'when the user is logged in' do
+      before { sign_in user }
       context 'when the params are valid' do
         let(:strategy_params) { { strategy: valid_strategy_params } }
 
         it 'creates a new strategy' do
           expect do
-            post :create, params: strategy_params
+            post strategies_path, params: strategy_params
           end.to change(Strategy, :count).by(1)
         end
 
         it 'redirects to the strategy show page for html requests' do
-          post :create, params: strategy_params
+          post strategies_path, params: strategy_params
           expect(response).to redirect_to(strategy_path(assigns(:strategy)))
         end
       end
@@ -182,18 +188,19 @@ describe 'Strategy', type: :request do
         let(:strategy_params) { { strategy: invalid_strategy_params } }
 
         it 'does not create a new strategy' do
-          expect { post :create, params: strategy_params }.to_not(
+          expect { post strategies_path, params: strategy_params }.to_not(
             change(Strategy, :count)
           )
         end
 
         it 'renders the new template for html requests' do
-          post :create, params: strategy_params
+          post strategies_path, params: strategy_params
           expect(response).to render_template('new')
         end
 
         it 'responds with a 422 status' do
-          post(:create, format: 'json', params: strategy_params)
+          headers = { "ACCEPT" => 'application/json'}
+          post strategies_path, params: strategy_params, headers: headers
           expect(response).to have_http_status(:unprocessable_entity)
         end
       end
@@ -206,7 +213,7 @@ describe 'Strategy', type: :request do
           # affect the owner of the created item
           hacked_strategy_params =
             valid_strategy_params.merge(user_id: another_user.id)
-          expect { post :create, params: { strategy: hacked_strategy_params } }
+          expect { post strategies_path, params: { strategy: hacked_strategy_params } }
             .to change(Strategy, :count).by(1)
           expect(Strategy.last.user_id).to eq(user.id)
         end
@@ -214,7 +221,7 @@ describe 'Strategy', type: :request do
     end
 
     context 'when the user is not logged in' do
-      before { post :create }
+      before { post strategies_path }
 
       it_behaves_like :with_no_logged_in_user
     end
@@ -226,40 +233,35 @@ describe 'Strategy', type: :request do
     let(:invalid_strategy_params) { { description: nil } }
 
     context 'when the user is logged in' do
-      context 'when the params are valid' do
-        before(:each) do
-          patch :update, params: { id: strategy.id, strategy: valid_strategy_params }
-        end
+      before { sign_in user }
 
+      context 'when the params are valid' do
         it 'updates the strategy record' do
+          put strategy_path(strategy), params: { strategy_id: strategy.id, strategy: valid_strategy_params }
           expect(strategy.reload.description).to eq('updated description')
         end
 
         it 'redirects to the show page' do
+          put strategy_path(strategy), params: { strategy_id: strategy.id, strategy: valid_strategy_params }
           expect(response).to redirect_to(strategy_path(strategy))
         end
       end
 
       context 'when the params are invalid' do
-        before(:each) do
-          patch :update, params: { id: strategy.id, strategy: invalid_strategy_params }
-        end
-
         it 'does not update the record' do
+          put strategy_path(strategy), params: { strategy_id: strategy.id, strategy: invalid_strategy_params }
           expect(strategy.reload.description).to eq('Test Description')
         end
 
         it 'renders the edit view' do
+          put strategy_path(strategy), params: { strategy_id: strategy.id, strategy: invalid_strategy_params }
           expect(response).to render_template('edit')
         end
       end
     end
 
     context 'when the user is not logged in' do
-      before do
-        patch :update, params: { id: strategy.id }
-      end
-
+      before { put strategy_path(strategy) }
       it_behaves_like :with_no_logged_in_user
     end
   end
@@ -269,25 +271,28 @@ describe 'Strategy', type: :request do
       let!(:strategy) { create(:strategy, user: user) }
 
       context 'when the user is logged in' do
+        before { sign_in user }
+
         it 'destroys the strategy' do
-          expect { delete :destroy, params: { id: strategy.id } }.to(
+          expect { delete strategy_path(strategy), params: { id: strategy.id } }.to(
             change(Strategy, :count).by(-1)
           )
         end
 
         it 'redirects to the strategies path for html requests' do
-          delete :destroy, params: { id: strategy.id }
+          delete strategy_path(strategy), params: { id: strategy.id }
           expect(response).to redirect_to(strategies_path)
         end
 
         it 'responds with no content to json requests' do
-          delete :destroy, format: 'json', params: { id: strategy.id }
+          headers = { "ACCEPT" => 'application/json'}
+          delete strategy_path(strategy), params: { id: strategy.id }, headers: headers
           expect(response.body).to be_empty
         end
       end
 
       context 'when the user is not logged in' do
-        before { delete :destroy, params: { id: strategy.id } }
+        before { delete strategy_path(strategy), params: { id: strategy.id } }
 
         it_behaves_like :with_no_logged_in_user
       end
@@ -299,30 +304,56 @@ describe 'Strategy', type: :request do
       end
 
       context 'when the user is logged in' do
+        before { sign_in user}
 
         it 'destroys the strategy' do
           expect(PerformStrategyReminder.active.count).to eq(1)
-          expect { delete :destroy, params: { id: strategy.id } }.to(
+          expect { delete strategy_path(strategy), params: { id: strategy.id } }.to(
             change(Strategy, :count).by(-1)
           )
           expect(PerformStrategyReminder.active.count).to eq(0)
         end
 
         it 'redirects to the strategies path for html requests' do
-          delete :destroy, params: { id: strategy.id }
+          delete strategy_path(strategy), params: { id: strategy.id }
           expect(response).to redirect_to(strategies_path)
         end
 
         it 'responds with no content to json requests' do
-          delete :destroy, format: 'json', params: { id: strategy.id }
+          headers = { "ACCEPT" => 'application/json'}
+          delete strategy_path(strategy), params: { id: strategy.id }, headers: headers
           expect(response.body).to be_empty
         end
       end
 
       context 'when the user is not logged in' do
-        before { delete :destroy, params: { id: strategy.id } }
+        before { delete strategy_path(strategy), params: { id: strategy.id } }
 
         it_behaves_like :with_no_logged_in_user
+      end
+    end
+  end
+
+
+
+  describe '#tagged' do
+    let!(:category) { create(:category, user_id: user.id) }
+    let!(:strategy) { create(:strategy, user_id: user.id, category: [category.id]) }
+
+    context 'when the user is logged in' do
+      it 'returns a response with the correct path' do
+        sign_in user
+        headers = { "ACCEPT" => 'application/json'}
+        get tagged_strategies_path, params: { page: 1, category_id: category.id }, headers: headers
+        expect(JSON.parse(response.body)['data'].first['link']).to eq strategy_path(strategy)
+      end
+    end
+
+    context 'when the user is not logged in' do
+      it 'returns a no_content status' do
+        headers = { "ACCEPT" => 'application/json'}
+        get tagged_strategies_path, params: { page: 1, category_id: category.id }, headers: headers
+        expect(response).to have_http_status(:no_content)
       end
     end
   end
@@ -352,31 +383,6 @@ describe 'Strategy', type: :request do
             'Daily reminder email</div>'
           )
         )
-      end
-    end
-  end
-
-  describe '#tagged' do
-    let!(:category) { create(:category, user_id: user.id) }
-    let!(:strategy) { create(:strategy, user_id: user.id, category: [category.id]) }
-
-    context 'when the user is logged in' do
-      before do
-        get :tagged, params: { page: 1, category_id: category.id }, format: :json
-      end
-
-      it 'returns a response with the correct path' do
-        expect(JSON.parse(response.body)['data'].first['link']).to eq strategy_path(strategy)
-      end
-    end
-
-    context 'when the user is not logged in' do
-      before do
-        get :tagged, params: { page: 1, category_id: category.id }, format: :json
-      end
-
-      it 'returns a no_content status' do
-        expect(response).to have_http_status(:no_content)
       end
     end
   end
