@@ -19,10 +19,7 @@ class CommentViewersService
     commentable = get_commentable(comment)
     @comment = comment
     @owner = commentable[:user_id] && User.find(commentable[:user_id])
-    @commentable_viewers =
-      unless commentable.nil?
-        commentable[:viewers] || commentable.members&.pluck(:id)
-      end
+    @commentable_viewers = commentable[:viewers] || commentable.members&.pluck(:id) unless commentable.nil?
     @current_user = current_user
   end
 

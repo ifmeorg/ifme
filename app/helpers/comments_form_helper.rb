@@ -17,9 +17,9 @@ module CommentsFormHelper
 
   def basic_props_overrides(props, input_type)
     props = props.merge(dark: true) if input_type != 'hidden'
-    if input_type == 'textarea'
-      props = props.merge(required: true, label: t('comment.singular'))
-    end
+
+    props = props.merge(required: true, label: t('comment.singular')) if input_type == 'textarea'
+
     props
   end
 

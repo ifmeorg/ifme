@@ -33,9 +33,9 @@ module MostFocusHelper
 
   def get_data(data_type, user)
     data = get_data_type(user.moments.published, data_type)
-    if data_type == 'category'
-      data.concat(get_data_type(user.strategies.published, data_type))
-    end
+
+    data.concat(get_data_type(user.strategies.published, data_type)) if data_type == 'category'
+
     data
   end
 

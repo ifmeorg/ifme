@@ -15,9 +15,8 @@ module ViewersHelper
     result = []
     if data && %w[categories moods strategies].include?(data_type)
       result += get_viewers(data, data_type, Moment)
-      if data_type == 'categories'
-        result += get_viewers(data, data_type, Strategy)
-      end
+
+      result += get_viewers(data, data_type, Strategy) if data_type == 'categories'
     end
     result.uniq
   end
