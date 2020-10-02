@@ -362,7 +362,7 @@ describe 'Strategy', type: :request do
     let(:user) { create(:user1) }
     let(:strategy) { create(:strategy, name: 'test', user: user) }
 
-    subject { controller.print_reminders(strategy) }
+    subject { StrategiesController.new.print_reminders(strategy) }
 
     describe 'when strategy has no reminders' do
       let(:strategy) { create(:strategy, user: user) }
