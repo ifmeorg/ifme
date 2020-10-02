@@ -44,7 +44,7 @@ jobs:
       - restore_cache:
           keys:
           - v1-dep-{{ .Branch }}-
-          - v1-dep-master-
+          - v1-dep-main-
           - v1-dep-
       - run:
           name: Update to Node v14.8.0
@@ -120,9 +120,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Deploy Master to Heroku
+          name: Deploy Main to Heroku
           command: |
-            GIT_CURL_VERBOSE=1 GIT_TRACE=1 git push https://heroku:$HEROKU_API_KEY@git.heroku.com/ifme.git master
+            GIT_CURL_VERBOSE=1 GIT_TRACE=1 git push https://heroku:$HEROKU_API_KEY@git.heroku.com/ifme.git main
   deploy-storybook:
     <<: *defaults
     steps:
@@ -132,7 +132,7 @@ jobs:
       - restore_cache:
           keys:
           - v1-dep-{{ .Branch }}-
-          - v1-dep-master-
+          - v1-dep-main-
           - v1-dep-
       - run:
           name: Update to Node v14.8.0

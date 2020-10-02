@@ -1,7 +1,7 @@
 # Contributing
 
 We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for
-our Code of Conduct. Please [read it](https://github.com/ifmeorg/ifme/blob/master/code_of_conduct.md)
+our Code of Conduct. Please [read it](https://github.com/ifmeorg/ifme/blob/main/code_of_conduct.md)
 before joining our project.
 
 Please check out our [Wiki](https://github.com/ifmeorg/ifme/wiki) for full documentation.

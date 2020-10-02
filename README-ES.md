@@ -1,10 +1,10 @@
-[![CircleCI](https://circleci.com/gh/ifmeorg/ifme/tree/master.svg?style=svg)](https://circleci.com/gh/ifmeorg/ifme/tree/master)
+[![CircleCI](https://circleci.com/gh/ifmeorg/ifme/tree/main.svg?style=svg)](https://circleci.com/gh/ifmeorg/ifme/tree/main)
 [![Code Climate](https://codeclimate.com/github/ifmeorg/ifme/badges/gpa.svg)](https://codeclimate.com/github/ifmeorg/ifme)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f9444a4d4116720518fe/test_coverage)](https://codeclimate.com/github/ifmeorg/ifme/test_coverage)
 [![Backers on Open Collective](https://opencollective.com/ifme/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 
-README en: [Ingles](https://github.com/ifmeorg/ifme/blob/master/README.md), [Portugués](https://github.com/ifmeorg/ifme/blob/master/README-PT.md), [Francés](https://github.com/ifmeorg/ifme/blob/master/README-FR.md), [Coreano](https://github.com/ifmeorg/ifme/blob/master/README-KO.md)
+README en: [Ingles](https://github.com/ifmeorg/ifme/blob/main/README.md), [Portugués](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [Francés](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [Coreano](https://github.com/ifmeorg/ifme/blob/main/README-KO.md)
 
 # if-me.org
 
@@ -16,10 +16,10 @@ El sitio en vivo se puede encontrar en [if-me.org](https://www.if-me.org/). Los 
 
 Usamos el maravilloso [Pacto de Colaboradores](http://contributor-covenant.org) for
 opara nuestro código de conducta. Por favor
-[léelo](https://github.com/ifmeorg/ifme/blob/master/code_of_conduct.md)
+[léelo](https://github.com/ifmeorg/ifme/blob/main/code_of_conduct.md)
 antes de unirte a nuestro proyecto.
 
-**Lea sobre nuestros objetivos de proyecto y cómo contribuir (no solo como desarrollador) [aquí](https://github.com/ifmeorg/ifme/blob/master/CONTRIBUTING.md).**
+**Lea sobre nuestros objetivos de proyecto y cómo contribuir (no solo como desarrollador) [aquí](https://github.com/ifmeorg/ifme/blob/main/CONTRIBUTING.md).**
 
 ## Documentación
 
@@ -71,4 +71,4 @@ También tenemos una página de [Patreon](https://www.patreon.com/ifme) donde pu
 
 ## Licencia
 
-El código fuente está licenciado bajo GNU AGPLv3. Para obtener más información, consulte http://www.gnu.org/licenses/agpl-3.0.txt or [LICENSE.txt](https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt).
+El código fuente está licenciado bajo GNU AGPLv3. Para obtener más información, consulte http://www.gnu.org/licenses/agpl-3.0.txt or [LICENSE.txt](https://github.com/ifmeorg/ifme/blob/main/LICENSE.txt).
