@@ -35,6 +35,7 @@ export const ChartControl = ({
   const onSelectType = (value: string) => () => {
     setType(value);
   };
+
   return (
     <div className={css.chartControl} role="presentation">
       <div>
