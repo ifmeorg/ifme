@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from 'components/Modal';
 import Input from 'components/Input';
 import type { Checkbox } from 'components/Input/utils';
@@ -39,18 +39,24 @@ const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
   // eslint-disable-next-line implicit-arrow-linebreak
   checkboxes.sort((a: Checkbox, b: Checkbox) => alpha(a.label, b.label));
 
-export class QuickCreate extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      checkboxes: sortAlpha(props.checkboxes),
-      open: false,
-      accordionOpen: props.checkboxes.some((cb) => cb.checked),
-    };
-  }
+export const QuickCreate = ({
+  placeholder,
+  name,
+  id,
+  label,
+  checkboxes: checkboxProps,
+  formProps,
+}: Props) => {
+  const [checkboxes, setCheckboxes] = useState(checkboxProps);
+  const [open, setOpen] = useState(false);
+  const [accordionOpen, setAccordionOpen] = useState(
+    checkboxes.some((cb) => cb.checked)
+  );
+  const [tagKey, setTagKey] = useState();
+  const [modalKey, setModalKey] = useState();
+  const [body, setBody] = useState();
 
-  getCheckboxes = () => {
-    const { checkboxes } = this.state;
+  const getCheckboxes = () => {
     const checkboxesProp = [];
     checkboxes.forEach((checkbox: Checkbox) => {
       const checkboxProp = {
@@ -64,94 +70,83 @@ export class QuickCreate extends React.Component<Props, State> {
     return checkboxesProp;
   };
 
-  labelExists = (label: string) => {
-    const { checkboxes } = this.state;
-    return checkboxes.filter(
-      (checkbox: Checkbox) => checkbox.label.toLowerCase() === label.toLowerCase(),
+  const labelExists = (compareLabel: string) =>
+    checkboxes.filter(
+      (checkbox: Checkbox) =>
+        checkbox.label.toLowerCase() === compareLabel.toLowerCase()
     ).length;
-  };
 
-  addToCheckboxes = (data: { name: string, id: string, slug: string }) => {
-    const { checkboxes } = this.state;
-    const { name, id, slug } = data;
+  const addToCheckboxes = ({
+    name: newName,
+    id: newId,
+    slug: newSlug,
+  }: {
+    name: string,
+    id: string,
+    slug: string,
+  }) => {
     const newCheckboxes = checkboxes.slice(0);
     newCheckboxes.push({
-      id: slug,
-      label: name,
-      value: id,
+      id: newSlug,
+      label: newName,
+      value: newId,
       checked: true,
     });
     return sortAlpha(newCheckboxes);
   };
 
-  onSubmit = (response: any) => {
+  const onSubmit = (response: any) => {
     const { data } = response;
     if (data && data.success) {
-      this.setState({
-        open: false,
-        accordionOpen: true,
-        modalKey: Utils.randomString(),
-        tagKey: Utils.randomString(),
-        checkboxes: this.addToCheckboxes(data),
-      });
+      setOpen(false);
+      setAccordionOpen(true);
+      setTagKey(Utils.randomString());
+      setModalKey(Utils.randomString);
+      setCheckboxes(addToCheckboxes(data));
     }
   };
 
-  displayQuickCreateForm = (nameValue: string) => {
-    const { formProps } = this.props;
-    return (
-      <DynamicForm
-        nameValue={nameValue}
-        formProps={formProps}
-        onSubmit={this.onSubmit}
-      />
-    );
-  };
+  const displayQuickCreateForm = (nameValue: string) => (
+    <DynamicForm
+      nameValue={nameValue}
+      formProps={formProps}
+      onSubmit={onSubmit}
+    />
+  );
 
-  onChange = (data: { label: string, checkboxes: Checkbox[] }) => {
-    const { label, checkboxes } = data;
-    if (!this.labelExists(label)) {
-      this.setState({
-        open: true,
-        modalKey: Utils.randomString(),
-        body: this.displayQuickCreateForm(label),
-        checkboxes: sortAlpha(checkboxes),
-      });
+  const onChange = ({
+    label: onChangeLabel,
+    checkboxes: changeCheckboxes,
+  }: {
+    label: string,
+    checkboxes: Checkbox[],
+  }) => {
+    if (!labelExists(onChangeLabel)) {
+      setOpen(true);
+      setModalKey(Utils.randomString());
+      setBody(displayQuickCreateForm(onChangeLabel));
+      setCheckboxes(sortAlpha(changeCheckboxes));
     }
   };
 
-  displayInputTag = () => {
-    const {
-      placeholder, name, id, label,
-    } = this.props;
-    const { tagKey, accordionOpen } = this.state;
-    return (
+  return (
+    <div>
       <Input
         id={id}
         type="tag"
         name={name}
         label={label}
-        checkboxes={this.getCheckboxes()}
+        checkboxes={getCheckboxes()}
         placeholder={placeholder}
-        onChange={this.onChange}
-        key={tagKey}
         accordionOpen={accordionOpen}
+        onChange={onChange}
+        key={tagKey}
         accordion
         dark
       />
-    );
-  };
-
-  render() {
-    const { label } = this.props;
-    const { open, modalKey, body } = this.state;
-    return (
-      <div>
-        {this.displayInputTag()}
-        <div className={css.modal}>
-          <Modal body={body} title={label} open={open} modalKey={modalKey} />
-        </div>
+      <div className={css.modal}>
+        <Modal body={body} title={label} open={open} modalKey={modalKey} />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
