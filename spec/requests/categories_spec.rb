@@ -105,5 +105,60 @@ RSpec.describe 'Categories', type: :request do
     end
   end
 
+  describe '#create' do
+    context 'when the user is logged in' do
+      let(:valid_category_params) do
+        attributes_for(:category).merge(user_id: user.id)
+      end
+      before { sign_in user }
+
+      context 'when valid params are supplied' do
+        before do
+          post categories_path, params: { category: valid_category_params }
+        end
+
+        it 'creates a new category' do
+          expect {
+            post categories_path, params: { category: valid_category_params }
+          }.to change(Category, :count).by 1
+        end
+
+        it 'redirects to the category page' do
+          expect(response).to redirect_to category_path(
+                        Category.last.name.gsub(' ', '-').downcase
+                      )
+        end
+      end
+
+      context 'when invalid params are supplied' do
+        let(:invalid_category_params) { { name: nil, description: nil } }
+        before do
+          post categories_path, params: { category: invalid_category_params }
+        end
+        it 're-renders the creation form' do
+          expect(response).to render_template('new')
+        end
+      end
+
+      context 'when the user_id is hacked' do
+        it 'creates a new category, ignoring the user_id parameter' do
+          # passing a user_id isn't an error, but it shouldn't
+          # affect the owner of the created item
+          another_user = create(:user2)
+          hacked_category_params =
+            valid_category_params.merge(user_id: another_user.id)
+          expect {
+            post categories_path, params: { category: hacked_category_params }
+          }.to change(Category, :count).by(1)
+          expect(Category.last.user_id).to eq(user.id)
+        end
+      end
+    end
+
+    context 'when the user is not logged in' do
+      before { post categories_path }
+
+      it_behaves_like :with_no_logged_in_user
+    end
   end
 end
