@@ -15,6 +15,7 @@ module.exports = {
       ...config,
       module: { ...config.module, rules: custom.module.rules },
       plugins: [ ...config.plugins, ...custom.plugins ],
+      resolve: { ...config.resolve, ...custom.resolve },
     };
   },
 };
