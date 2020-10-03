@@ -161,4 +161,27 @@ RSpec.describe 'Categories', type: :request do
       it_behaves_like :with_no_logged_in_user
     end
   end
+
+  describe '#premade' do
+    context 'when the user is logged in' do
+      before do
+        sign_in user
+        post premade_categories_path
+      end
+
+      it 'creates 4 premade categories' do
+        expect { post premade_categories_path }.to change(Category, :count).by 4
+      end
+
+      it 'redirects to the category index page' do
+        expect(response).to redirect_to categories_path
+      end
+    end
+
+    context 'when the user is not logged in' do
+      before { post premade_categories_path }
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
+
 end
