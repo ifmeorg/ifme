@@ -41,19 +41,15 @@ Kami juga menerima kontrubusi finansial secara transparan pada [Open Collective]
 Kami juga memiliki halaman [Patreon](https://www.patreon.com/ifme) yang dimana kamu bisa memberikan donasi bulanan.
 
 ### Pendukung
-Terima Kasih untuk semua pendukng kami yaitu [Rob Drimmie](https://www.patreon.com/user?u=3251857),
-[Joseph D. Marhee](https://www.patreon.com/user?u=2899171), dan
-[Carol Willing](https://www.patreon.com/user?u=202458)!
+Terima Kasih untuk semua pendukng kami yaitu [Rob Drimmie](https://www.patreon.com/user?u=3251857), [Joseph D. Marhee](https://www.patreon.com/user?u=2899171), dan [Carol Willing](https://www.patreon.com/user?u=202458)!
 
-Terima kasih untuk semua pendukung Open Collective!
-[Menjadi pendukung!](https://opencollective.com/ifme#backer)
+Terima kasih untuk semua pendukung Open Collective! [Menjadi pendukung!](https://opencollective.com/ifme#backer)
 
 <a href="https://opencollective.com/ifme#backers" target="_blank"><img src="https://opencollective.com/ifme/backers.svg?width=890"></a>
 
 ### Sponsor
 
-Terima kasih untuk semua sponsor kami! (tolong 
- tanyakan pada perusahaan kamu untuk mendukung proyek open source ini juga dengan cara [menjadi sponsor](https://opencollective.com/ifme#sponsor))
+Terima kasih untuk semua sponsor kami! (tolong tanyakan pada perusahaan kamu untuk mendukung proyek open source ini juga dengan cara [menjadi sponsor](https://opencollective.com/ifme#sponsor))
 
 <section role="presentation">
   <a href="https://opencollective.com/ifme/sponsor/0/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/0/avatar.svg"></a>
@@ -70,5 +66,4 @@ Terima kasih untuk semua sponsor kami! (tolong
 
 ## Lisensi
 
-Kode sumber terlisensikan dibawah GNU AGPLv3. untuk informasi lebih lanjut bisa mengakses http://www.gnu.org/licenses/agpl-3.0.txt or
-[LICENSE.txt](https://github.com/ifmeorg/ifme/blob/main/LICENSE.txt).
+Kode sumber terlisensikan dibawah GNU AGPLv3. untuk informasi lebih lanjut bisa mengakses http://www.gnu.org/licenses/agpl-3.0.txt atau [LICENSE.txt](https://github.com/ifmeorg/ifme/blob/main/LICENSE.txt).
