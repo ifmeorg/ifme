@@ -11,9 +11,9 @@ describe 'Strategy', type: :request do
       before { sign_in user}
 
       context 'when search params are provided' do
-        it 'assigns @strategies' do
+        it 'displays the correct strategies' do
           get strategies_path, params: { search: 'test' }
-          expect(assigns(:strategies)).to eq([strategy])
+          expect(response.body).to include(strategy.name)
         end
 
         it 'renders the index template' do
@@ -52,7 +52,7 @@ describe 'Strategy', type: :request do
       context 'when the strategy exists' do
         it 'sets the strategy' do
           get strategy_path(strategy)
-          expect(assigns(:strategy)).to eq(strategy)
+          expect(response.body).to include(strategy.name)
         end
 
         it 'renders the show template' do
@@ -180,7 +180,7 @@ describe 'Strategy', type: :request do
 
         it 'redirects to the strategy show page for html requests' do
           post strategies_path, params: strategy_params
-          expect(response).to redirect_to(strategy_path(assigns(:strategy)))
+          expect(response).to redirect_to(strategy_path(Strategy.last))
         end
       end
 
