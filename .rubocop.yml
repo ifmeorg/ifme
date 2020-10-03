@@ -63,3 +63,7 @@ Style/HashTransformKeys:
 
 Style/HashTransformValues:
   Enabled: true
+
+Metrics/MethodLength:
+  Enabled: true
+  Max: 25

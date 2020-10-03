@@ -17,7 +17,6 @@ module Users
     end
 
     # PUT /resource/invitation
-    # rubocop:disable Metrics/MethodLength
     def update
       raw_invitation_token = update_resource_params[:invitation_token]
       self.resource = accept_resource
@@ -44,7 +43,6 @@ module Users
         respond_with_navigational(resource) { render :edit }
       end
     end
-    # rubocop:enable Metrics/MethodLength
 
     private
 
