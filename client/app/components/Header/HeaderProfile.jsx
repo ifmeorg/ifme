@@ -2,12 +2,12 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
-import type { Profile } from './types';
-import { Notifications } from '../../widgets/Notifications';
 import { Utils } from 'utils';
-import { Avatar } from '../Avatar';
-import css from './HeaderProfile.scss';
 import globalCSS from 'styles/_global.scss';
+import { Notifications } from 'widgets/Notifications';
+import { Avatar } from 'components/Avatar';
+import type { Profile } from './types';
+import css from './HeaderProfile.scss';
 
 export type Props = {
   profile: Profile,

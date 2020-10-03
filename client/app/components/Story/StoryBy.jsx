@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
 import renderHTML from 'react-render-html';
+import { Avatar } from 'components/Avatar';
 import css from './Story.scss';
-import { Avatar } from '../Avatar';
 
 export type Props = {
   avatar?: string,

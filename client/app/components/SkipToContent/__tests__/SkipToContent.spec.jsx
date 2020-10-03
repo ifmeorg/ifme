@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { render } from '@testing-library/react';
-import SkipToContent from '../index';
+import SkipToContent from 'components/SkipToContent';
 
 describe('SkipToContent', () => {
   it('renders correctly', () => {

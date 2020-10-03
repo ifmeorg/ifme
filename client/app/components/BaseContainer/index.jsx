@@ -1,9 +1,9 @@
 // @flow
 import React, { useState } from 'react';
 import axios from 'axios';
-import { StoryContainer } from './StoryContainer';
-import { LoadMoreButton } from '../LoadMoreButton';
 import { Utils } from 'utils';
+import { StoryContainer } from 'components/BaseContainer/StoryContainer';
+import { LoadMoreButton } from 'components/LoadMoreButton';
 
 export type Props = {
   container: string,

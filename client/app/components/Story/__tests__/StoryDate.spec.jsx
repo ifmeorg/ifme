@@ -1,7 +1,7 @@
 // @flow
 import { render } from 'enzyme';
 import React from 'react';
-import { StoryDate } from '../StoryDate';
+import { StoryDate } from 'components/Story/StoryDate';
 
 describe('StoryDate', () => {
   it('renders correctly', () => {

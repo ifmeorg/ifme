@@ -1,5 +1,5 @@
-@import "./_legacy.scss";
-@import "./_global_font.scss";
+@import "~styles/_legacy.scss";
+@import "~styles/_global_font.scss";
 
 body, html {
   @include setFontSize($size-20);

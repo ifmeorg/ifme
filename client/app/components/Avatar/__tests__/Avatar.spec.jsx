@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Avatar } from '../index';
+import { Avatar } from 'components/Avatar';
 
 const name = 'Julia Nguyen';
 const src = '/some-img-url';

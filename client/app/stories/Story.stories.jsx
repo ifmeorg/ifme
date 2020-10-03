@@ -1,7 +1,7 @@
 import 'font-awesome/scss/font-awesome.scss';
 import React from 'react';
 import { Story } from 'components/Story';
-import css from '../styles/_global.scss';
+import css from 'styles/_global.scss';
 
 export default {
   title: 'Components/Story',

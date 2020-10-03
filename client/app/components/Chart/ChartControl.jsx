@@ -1,8 +1,8 @@
 // @flow
 import React, { useState } from 'react';
 import { I18n } from 'libs/i18n';
-import { Chart } from './index';
 import globalCss from 'styles/_global.scss';
+import { Chart } from 'components/Chart';
 import css from './ChartControl.scss';
 
 type chartControlProps = {

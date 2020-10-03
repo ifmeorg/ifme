@@ -1,8 +1,8 @@
 // @flow
 import { shallow } from 'enzyme';
 import React from 'react';
-import { InputDefault } from '../InputDefault';
 import { InputMocks } from 'mocks/InputMocks';
+import { InputDefault } from 'components/Input/InputDefault';
 
 const { id } = InputMocks.inputTextProps;
 const { name } = InputMocks.inputTextProps;

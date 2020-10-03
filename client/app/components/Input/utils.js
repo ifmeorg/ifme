@@ -1,5 +1,8 @@
 // @flow
-import { REQUIRES_DEFAULT, DEFAULT_WITH_LABEL } from './InputDefault';
+import {
+  REQUIRES_DEFAULT,
+  DEFAULT_WITH_LABEL,
+} from 'components/Input/InputDefault';
 
 export const TYPES: string[] = REQUIRES_DEFAULT.concat([
   'textarea',

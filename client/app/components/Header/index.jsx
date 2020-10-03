@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import ReactHtmlParser from 'react-html-parser';
 import { I18n } from 'libs/i18n';
-import { Logo } from '../Logo';
-import { HeaderProfile } from './HeaderProfile';
+import { Logo } from 'components/Logo';
+import { HeaderProfile } from 'components/Header/HeaderProfile';
 import type { Profile, Link } from './types';
 import css from './Header.scss';
 

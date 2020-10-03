@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
 import { Utils } from 'utils';
+import { Tag } from 'components/Tag';
 import css from './Resource.scss';
-import { Tag } from '../Tag';
 
 type Props = {
   author?: string,

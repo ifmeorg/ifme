@@ -7,9 +7,9 @@ import { StoryBy } from 'components/Story/StoryBy';
 import { StoryDate } from 'components/Story/StoryDate';
 import { StoryActions } from 'components/Story/StoryActions';
 import DynamicForm from 'components/Form/DynamicForm';
-import css from './Comments.scss';
 import { Utils } from 'utils';
 import type { FormProps } from 'components/Form/utils';
+import css from './Comments.scss';
 
 type CommentResponse = {
   data: {

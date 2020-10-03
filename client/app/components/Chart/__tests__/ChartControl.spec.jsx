@@ -4,7 +4,7 @@
  */
 import { shallow } from 'enzyme';
 import React from 'react';
-import { ChartControl } from '../ChartControl';
+import { ChartControl } from 'components/Chart/ChartControl';
 
 describe('ChartControl', () => {
   it('renders', () => {

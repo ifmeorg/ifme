@@ -1,7 +1,7 @@
 // @flow
 import { render } from 'enzyme';
 import React from 'react';
-import { Logo, LogoSolid } from '../index';
+import { Logo, LogoSolid } from 'components/Logo';
 
 let wrapper = null;
 const link = '/some-path';

@@ -3,7 +3,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { faQuestion } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Tooltip } from '../index';
+import { Tooltip } from 'components/Tooltip';
 
 describe('Tooltip', () => {
   const { getByRole, getByText } = screen;

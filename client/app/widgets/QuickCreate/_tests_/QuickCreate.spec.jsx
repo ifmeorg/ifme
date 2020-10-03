@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { QuickCreate } from '../index';
+import { QuickCreate } from 'widgets/QuickCreate';
 
 const checkboxes = [
   { id: 'last', value: 'a_value', label: 'zoo_label' },

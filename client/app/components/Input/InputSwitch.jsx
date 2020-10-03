@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { I18n } from 'libs/i18n';
 import { Utils } from 'utils';
+import { InputCheckbox } from 'components/Input/InputCheckbox';
 import css from './InputSwitch.scss';
-import { InputCheckbox } from './InputCheckbox';
 
 export type Props = {
   id: string,

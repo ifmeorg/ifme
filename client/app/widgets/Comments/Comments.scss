@@ -1,4 +1,4 @@
-@import '../../styles/_global.scss';
+@import '~styles/_global.scss';
 
 .comments {
   @include setMargin($size-40, $size-0, $size-0, $size-0);

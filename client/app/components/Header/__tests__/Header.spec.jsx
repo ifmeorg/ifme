@@ -1,7 +1,7 @@
 // @flow
 import { mount } from 'enzyme';
 import React from 'react';
-import Header from '../index';
+import Header from 'components/Header';
 
 const getComponent = () => (
   <Header

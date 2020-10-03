@@ -1,7 +1,7 @@
 // @flow
 import { mount } from 'enzyme';
 import React from 'react';
-import Modal from '../index';
+import Modal from 'components/Modal';
 
 const title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
 

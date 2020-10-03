@@ -3,10 +3,10 @@ import React from 'react';
 import renderHTML from 'react-render-html';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestion } from '@fortawesome/free-solid-svg-icons';
-import css from './Input.scss';
 import globalCss from 'styles/_global.scss';
+import { Tooltip } from 'components/Tooltip';
+import css from './Input.scss';
 import type { Checkbox as Props } from './utils';
-import { Tooltip } from '../Tooltip';
 
 const displayUnchecked = (name: ?string, uncheckedValue: ?any) => (
   <input name={name} type="hidden" value={uncheckedValue} />
