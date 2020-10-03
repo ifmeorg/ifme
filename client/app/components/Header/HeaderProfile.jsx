@@ -7,7 +7,7 @@ import { Notifications } from '../../widgets/Notifications';
 import { Utils } from '../../utils';
 import { Avatar } from '../Avatar';
 import css from './HeaderProfile.scss';
-import globalCSS from '../../styles/_global.scss';
+import globalCSS from 'styles/_global.scss';
 
 export type Props = {
   profile: Profile,
