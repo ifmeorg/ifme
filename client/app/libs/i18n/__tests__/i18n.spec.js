@@ -1,6 +1,6 @@
 // @flow
 import Cookies from 'js-cookie';
-import { I18n } from '../index';
+import { I18n } from 'libs/i18n';
 
 const missingTranslation = '[missing "en.fake" translation]';
 

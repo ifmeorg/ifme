@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { I18n } from 'libs/i18n';
 import { Utils } from '../../utils';
 import css from './InputSwitch.scss';
-import { I18n } from '../../libs/i18n';
 import { InputCheckbox } from './InputCheckbox';
 
 export type Props = {

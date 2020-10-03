@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { I18n } from '../../libs/i18n';
+import { I18n } from 'libs/i18n';
 import css from './InputPassword.scss';
 import inputCss from './Input.scss';
 

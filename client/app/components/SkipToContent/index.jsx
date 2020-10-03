@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
 
+import { I18n } from 'libs/i18n';
 import css from './SkipToContent.scss';
-import { I18n } from '../../libs/i18n';
 
 export type Props = {
   id: string,

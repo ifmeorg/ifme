@@ -1,6 +1,6 @@
 // @flow
 import React, { useState } from 'react';
-import { I18n } from '../../libs/i18n';
+import { I18n } from 'libs/i18n';
 import { Story } from '../../components/Story';
 import Modal from '../../components/Modal';
 import { Utils } from '../../utils';
