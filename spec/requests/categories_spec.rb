@@ -70,5 +70,34 @@ RSpec.describe 'Categories', type: :request do
     end
   end
 
+  describe '#edit' do
+    context 'when the user is logged in' do
+      before { sign_in user }
+
+      context 'user is trying to edit a category they created' do
+        before { get edit_category_path(category.id) }
+
+        it 'renders the edit form' do
+          expect(response).to render_template('edit')
+        end
+      end
+
+      context 'user is trying to edit a category another user created' do
+        let(:other_category) { create(:category, user_id: user.id + 1) }
+        before { get edit_category_path(other_category.id) }
+
+        it 'redirects to the category path' do
+          expect(response).to redirect_to category_path(other_category)
+        end
+      end
+    end
+
+    context 'when the user is not logged in' do
+      before { get edit_category_path(category.id) }
+
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
+
   end
 end
