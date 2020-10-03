@@ -5,7 +5,7 @@
 [![Backers on Open Collective](https://opencollective.com/ifme/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 
-README dalam bahasa lainnya: [Spanyol](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [Portugis](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [Perancis](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [Korea](https://github.com/ifmeorg/ifme/blob/main/README-KO.md)
+README dalam bahasa lainnya: [Inggris](https://github.com/ifmeorg/ifme/blob/main/README.md), [Spanyol](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [Portugis](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [Perancis](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [Korea](https://github.com/ifmeorg/ifme/blob/main/README-KO.md)
 
 # if-me.org
 
@@ -41,9 +41,9 @@ Kami juga menerima kontrubusi finansial secara transparan pada [Open Collective]
 Kami juga memiliki halaman [Patreon](https://www.patreon.com/ifme) yang dimana kamu bisa memberikan donasi bulanan.
 
 ### Pendukung
-Terima Kasih untuk semua pendukng kami yaitu [Rob Drimmie](https://www.patreon.com/user?u=3251857), [Joseph D. Marhee](https://www.patreon.com/user?u=2899171), dan [Carol Willing](https://www.patreon.com/user?u=202458)!
+Terima Kasih untuk semua pendukung kami yaitu [Rob Drimmie](https://www.patreon.com/user?u=3251857), [Joseph D. Marhee](https://www.patreon.com/user?u=2899171), dan [Carol Willing](https://www.patreon.com/user?u=202458)!
 
-Terima kasih untuk semua pendukung Open Collective! [Menjadi pendukung!](https://opencollective.com/ifme#backer)
+Terima kasih untuk semua pendukung Open Collective kami! [Menjadi pendukung!](https://opencollective.com/ifme#backer)
 
 <a href="https://opencollective.com/ifme#backers" target="_blank"><img src="https://opencollective.com/ifme/backers.svg?width=890"></a>
 
