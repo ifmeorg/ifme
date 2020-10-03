@@ -75,6 +75,7 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-flow-react-proptypes": "^26.0.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "canvas": "^2.6.1",
     "compression-webpack-plugin": "^4.0.0",
     "css-loader": "^3.5.3",
     "enzyme": "^3.10.0",
