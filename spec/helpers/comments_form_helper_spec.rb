@@ -70,14 +70,14 @@ describe CommentsFormHelper, type: :controller do
                                                                                     value: 'all',
                                                                                     dark: true
                                                                                   ]).concat([submit_input]),
-        action: comment_index_path,
+        action: comments_path,
       }
     end
 
     def owner_has_no_viewers_inputs(commentable_type)
       {
         inputs: default_inputs(user1.id, commentable.id, commentable_type).concat([submit_input]),
-        action: comment_index_path
+        action: comments_path
       }
     end
 
@@ -102,7 +102,7 @@ describe CommentsFormHelper, type: :controller do
                                                                                     value: '',
                                                                                     dark: true
                                                                                   ]).concat([submit_input]),
-        action: comment_index_path
+        action: comments_path
       }
     end
 
