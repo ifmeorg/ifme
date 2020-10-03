@@ -3,13 +3,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import renderHTML from 'react-render-html';
 import { I18n } from 'libs/i18n';
-import { StoryBy } from '../../components/Story/StoryBy';
-import { StoryDate } from '../../components/Story/StoryDate';
-import { StoryActions } from '../../components/Story/StoryActions';
-import DynamicForm from '../../components/Form/DynamicForm';
+import { StoryBy } from 'components/Story/StoryBy';
+import { StoryDate } from 'components/Story/StoryDate';
+import { StoryActions } from 'components/Story/StoryActions';
+import DynamicForm from 'components/Form/DynamicForm';
 import css from './Comments.scss';
 import { Utils } from '../../utils';
-import type { FormProps } from '../../components/Form/utils';
+import type { FormProps } from 'components/Form/utils';
 
 type CommentResponse = {
   data: {

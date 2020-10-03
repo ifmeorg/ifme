@@ -1,6 +1,6 @@
 import React from 'react';
-import { Modal } from '../components/Modal';
-import photoTara from '../../../app/assets/images/contributors/tara_swenson.jpg';
+import { Modal } from 'components/Modal';
+import photoTara from 'app/assets/images/contributors/tara_swenson.jpg';
 
 const title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
 
