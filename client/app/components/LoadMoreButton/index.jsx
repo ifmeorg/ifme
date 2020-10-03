@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
+import { I18n } from 'libs/i18n';
 import css from './LoadMoreButton.scss';
-import { I18n } from '../../libs/i18n';
 
 export type Props = {
   onClick?: () => void,

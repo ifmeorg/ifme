@@ -2,7 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { I18n } from '../../libs/i18n';
+import { I18n } from 'libs/i18n';
 import Input from '../../components/Input';
 import { Utils } from '../../utils';
 

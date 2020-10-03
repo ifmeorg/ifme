@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import renderHTML from 'react-render-html';
+import { I18n } from 'libs/i18n';
 import Modal from '../../components/Modal';
 import { Utils } from '../../utils';
-import { I18n } from '../../libs/i18n/index';
 
 export type Props = {
   element: any,

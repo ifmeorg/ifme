@@ -3,8 +3,8 @@ import React, { useState, type Element } from 'react';
 import renderHTML from 'react-render-html';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { I18n } from 'libs/i18n';
 import css from './Modal.scss';
-import { I18n } from '../../libs/i18n';
 import { Avatar } from '../Avatar';
 
 type CustomElement = {

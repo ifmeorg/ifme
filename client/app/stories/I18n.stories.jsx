@@ -1,4 +1,4 @@
-import { I18n } from '../libs/i18n';
+import { I18n } from 'libs/i18n';
 
 export default {
   title: 'Libraries/I18n',

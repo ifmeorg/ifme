@@ -1,6 +1,6 @@
 // @flow
 import React, { type StatelessFunctionalComponent } from 'react';
-import { I18n } from '../../libs/i18n';
+import { I18n } from 'libs/i18n';
 import css from './Logo.scss';
 
 export type Props = {
