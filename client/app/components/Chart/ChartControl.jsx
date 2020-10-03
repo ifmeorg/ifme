@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Chart } from './index';
 import globalCss from '../../styles/_global.scss';
+import { I18n } from '../../libs/i18n/index';
 import css from './ChartControl.scss';
 
 type chartControlProps = {
@@ -49,7 +50,7 @@ export const ChartControl = ({
       </div>
       <Chart
         ytitle={`${type}`}
-        xtitle="Date"
+        xtitle={I18n.t('common.date')}
         data={data[type]}
         chartType="Area"
       />
