@@ -1,5 +1,5 @@
 import React from 'react';
-import { Blockquote } from '../components/Blockquote';
+import { Blockquote } from 'components/Blockquote';
 
 export default {
   title: 'Components/Blockquote',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Logo, LogoSolid } from '../components/Logo';
+import { Logo, LogoSolid } from 'components/Logo';
 
 const link = 'http://if-me.org';
 
