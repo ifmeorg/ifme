@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :comment, only: %i[create destroy] do
+  # ActionController::UrlGenerationError:
+  # No route matches {:action=>"destroy", :controller=>"comment"}, missing required keys: [:id]
+  resources :comments, only: %i[create delete] do
     collection do
       post 'create'
       delete 'delete'
