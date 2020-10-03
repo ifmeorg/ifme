@@ -11,7 +11,6 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
 const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
-const baseConfig = require('./webpack.config.base');
 
 const configPath = resolve('..', 'config');
 const devOrTestMode = process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test';
@@ -29,9 +28,23 @@ const cssLoaderWithModules = {
   },
 };
 
-const config = Object.assign(baseConfig, {
+const config = {
   mode: devOrTestMode ? 'development' : 'production',
   context: resolve(__dirname),
+
+  resolve: {
+    alias: {
+      app: resolve(__dirname, '../app'),
+      config: resolve(__dirname, '../config'),
+      libs: resolve(__dirname, 'app/libs'),
+      styles: resolve(__dirname, 'app/styles'),
+      components: resolve(__dirname, 'app/components'),
+      utils: resolve(__dirname, 'app/utils'),
+      mocks: resolve(__dirname, 'app/mocks'),
+      widgets: resolve(__dirname, 'app/widgets'),
+    },
+    extensions: ['.js', '.jsx', '.scss'],
+  },
 
   entry: {
     // Shims should be singletons, and webpack bundle is always loaded
@@ -200,7 +213,7 @@ const config = Object.assign(baseConfig, {
       },
     ],
   },
-});
+};
 
 module.exports = config;
 
