@@ -1,0 +1,26 @@
+RSpec.describe 'Categories', type: :request do
+  let(:user) { create(:user) }
+  let(:category) { create(:category, user_id: user.id) }
+  describe '#index' do
+    context 'when the user is logged in' do
+      before { sign_in user }
+
+      it 'sets the categories and page tooltip ivar' do
+        params = { page: 1, id: category.id }
+        headers = { "ACCEPT" => "application/json" }
+        get categories_path, headers: headers, params: params
+        expect(JSON.parse(response.body)['data'].first['name']).to eq(category.name)
+      end
+
+      it 'renders the page' do
+        get categories_path
+        expect(response).to render_template('index')
+      end
+    end
+
+    context 'when the user is not logged in' do
+      before { get categories_path }
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
+end
