@@ -8,6 +8,8 @@ module.exports = {
       libs: path.resolve(__dirname, 'app/libs'),
       styles: path.resolve(__dirname, 'app/styles'),
       components: path.resolve(__dirname, 'app/components'),
+      utils: path.resolve(__dirname, 'app/utils'),
+      mocks: path.resolve(__dirname, 'app/mocks'),
     },
     extensions: ['.js', '.jsx', '.scss'],
   },

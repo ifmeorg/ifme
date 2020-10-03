@@ -1,6 +1,6 @@
 // @flow
 import { mount } from 'enzyme';
-import { InputMocks } from '../../../mocks/InputMocks';
+import { InputMocks } from 'mocks/InputMocks';
 
 const component = InputMocks.createInput(InputMocks.inputSwitchProps);
 const input = `input#${InputMocks.inputSwitchProps.id}`;

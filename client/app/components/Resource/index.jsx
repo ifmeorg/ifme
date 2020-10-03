@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { Utils } from '../../utils';
+import { Utils } from 'utils';
 import css from './Resource.scss';
 import { Tag } from '../Tag';
 

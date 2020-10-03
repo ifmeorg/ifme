@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { I18n } from 'libs/i18n';
 import css from './Resources.scss';
 import { Resource } from 'components/Resource';
-import { Utils } from '../../utils';
+import { Utils } from 'utils';
 import type { Checkbox } from 'components/Input/utils';
 import { InputTag } from 'components/Input/InputTag';
 import HistoryLib from '../../libs/history';

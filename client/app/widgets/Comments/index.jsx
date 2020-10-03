@@ -8,7 +8,7 @@ import { StoryDate } from 'components/Story/StoryDate';
 import { StoryActions } from 'components/Story/StoryActions';
 import DynamicForm from 'components/Form/DynamicForm';
 import css from './Comments.scss';
-import { Utils } from '../../utils';
+import { Utils } from 'utils';
 import type { FormProps } from 'components/Form/utils';
 
 type CommentResponse = {

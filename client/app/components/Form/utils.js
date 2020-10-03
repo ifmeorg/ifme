@@ -1,6 +1,6 @@
 // @flow
 import { REQUIRES_DEFAULT } from '../Input/InputDefault';
-import { Utils } from '../../utils';
+import { Utils } from 'utils';
 import type { Props as InputProps } from '../Input/utils';
 
 type KeyProps = { myKey?: string };

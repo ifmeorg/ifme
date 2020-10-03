@@ -1,6 +1,6 @@
 // @flow
 import { mount } from 'enzyme';
-import { InputMocks } from '../../../mocks/InputMocks';
+import { InputMocks } from 'mocks/InputMocks';
 
 describe('Input', () => {
   describe('InputDefault', () => {

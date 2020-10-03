@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Autosuggest from 'react-autosuggest';
 import type { Checkbox } from './utils';
-import { Utils } from '../../utils';
+import { Utils } from 'utils';
 import { InputCheckbox } from './InputCheckbox';
 import inputCss from './Input.scss';
 import css from './InputTag.scss';

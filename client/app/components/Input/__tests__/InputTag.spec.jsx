@@ -1,7 +1,7 @@
 // @flow
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import { InputMocks } from '../../../mocks/InputMocks';
+import { InputMocks } from 'mocks/InputMocks';
 
 const component = InputMocks.createInput(InputMocks.inputTagProps);
 

@@ -3,7 +3,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { InputSelect } from '../InputSelect';
-import { InputMocks } from '../../../mocks/InputMocks';
+import { InputMocks } from 'mocks/InputMocks';
 
 const {
   id, name, ariaLabel, value, options,
