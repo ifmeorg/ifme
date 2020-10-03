@@ -2,7 +2,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 import { InputDefault } from '../InputDefault';
-import { InputMocks } from '../../../mocks/InputMocks';
+import { InputMocks } from 'mocks/InputMocks';
 
 const { id } = InputMocks.inputTextProps;
 const { name } = InputMocks.inputTextProps;

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { I18n } from 'libs/i18n';
 import { Story } from 'components/Story';
 import Modal from 'components/Modal';
-import { Utils } from '../../utils';
+import { Utils } from 'utils';
 import CarePlanContactsForm from './CarePlanContactsForm';
 import type { Contact } from './CarePlanContactsForm';
 import ContactsContext from './CarePlanContactsContext';

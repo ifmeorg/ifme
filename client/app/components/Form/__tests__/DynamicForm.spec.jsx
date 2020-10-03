@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import DynamicForm from '../DynamicForm';
-import { InputMocks } from '../../../mocks/InputMocks';
+import { InputMocks } from 'mocks/InputMocks';
 
 // TODO (julianguyen): Include InputTextarea after writing stubs for pell editor
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form } from 'components/Form';
-import { InputMocks } from '../mocks/InputMocks';
+import { InputMocks } from 'mocks/InputMocks';
 
 export default {
   title: 'Components/Form',

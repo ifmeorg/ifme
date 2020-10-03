@@ -4,7 +4,7 @@ import axios from 'axios';
 import renderHTML from 'react-render-html';
 import { I18n } from 'libs/i18n';
 import Modal from 'components/Modal';
-import { Utils } from '../../utils';
+import { Utils } from 'utils';
 
 export type Props = {
   element: any,
