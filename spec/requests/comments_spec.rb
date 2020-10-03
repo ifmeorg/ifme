@@ -16,10 +16,8 @@ describe 'Comments', type: :request do
 
       # Shared examples reduce repeated code
       shared_examples_for 'a comment is not created' do
-        it 'returns 400' do
-          subject
-          expect(response.status).to be(400)
-        end
+
+        it { is_expected.to eq 400 }
 
         it 'returns an empty comment' do
           subject
@@ -28,14 +26,10 @@ describe 'Comments', type: :request do
       end
 
       shared_examples_for 'a comment is succesfully created' do
-        it 'returns 200' do
-          subject
-          expect(response.status).to be(200)
-        end
 
-        it 'persists the comment to the db' do
-          expect { subject }.to change { Comment.count }.by(1)
-        end
+        it { is_expected.to eq 200 }
+
+        it { expect { subject }.to change { Comment.count }.by(1) }
 
         it 'returns the created comment' do
           subject
@@ -127,34 +121,26 @@ describe 'Comments', type: :request do
 
       # Shared examples reduce repeated code
       shared_examples_for 'a comment is not deleted' do
-        it 'returns 400' do
-          subject
-          expect(response.status).to eq(400)
-        end
+
+        it { is_expected.to eq 400 }
+
+        it { expect { subject }.to change { Comment.count }.by(0) }
 
         it 'returns an empty body' do
           subject
           expect(JSON.parse(response.body)).to eq({})
         end
-
-        it 'does not change the db' do
-          expect { subject }.to change { Comment.count }.by(0)
-        end
       end
 
       shared_examples_for 'a comment is succesfully deleted' do
-        it 'returns 200' do
-          subject
-          expect(response.status).to eq(200)
-        end
+
+        it { is_expected.to eq 200 }
+
+        it { expect { subject }.to change { Comment.count }.by(-1) }
 
         it 'returns the deleted comments id' do
           subject
           expect(JSON.parse(response.body)['id']).to eq(comment_id)
-        end
-
-        it 'destroys the comment' do
-          expect { subject }.to change { Comment.count }.by(-1)
         end
       end
 
