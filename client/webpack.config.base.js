@@ -6,7 +6,8 @@ module.exports = {
       app: path.resolve(__dirname, '../app'),
       config: path.resolve(__dirname, '../config'),
       libs: path.resolve(__dirname, 'app/libs'),
+      styles: path.resolve(__dirname, 'app/styles'),
     },
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.scss'],
   },
 };

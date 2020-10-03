@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import renderHTML from 'react-render-html';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
-import globalCss from '../../styles/_global.scss';
+import globalCss from 'styles/_global.scss';
 import css from '../Input/Input.scss';
 
 export type Props = {

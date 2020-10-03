@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import globalCss from '../../styles/_global.scss';
+import globalCss from 'styles/_global.scss';
 
 export type Props = {
   id: string,

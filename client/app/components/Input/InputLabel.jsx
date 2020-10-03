@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAsterisk, faQuestion } from '@fortawesome/free-solid-svg-icons';
 import { Tooltip } from '../Tooltip';
 import css from './Input.scss';
-import globalCss from '../../styles/_global.scss';
+import globalCss from 'styles/_global.scss';
 
 export type Props = {
   label: string,
