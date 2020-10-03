@@ -11,8 +11,8 @@ import {
   faCalendarPlus,
   faCalendarMinus,
 } from '@fortawesome/free-solid-svg-icons';
+import { Tooltip } from 'components/Tooltip';
 import css from './Story.scss';
-import { Tooltip } from '../Tooltip';
 
 export type Action = {
   name: string,

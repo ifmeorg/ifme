@@ -1,6 +1,6 @@
 import React from 'react';
-import photoTara from '../../../app/assets/images/contributors/tara_swenson.jpg';
 import { Avatar } from 'components/Avatar';
+import photoTara from 'app/assets/images/contributors/ingrid_garcia.jpg';
 
 const name = 'Tara';
 

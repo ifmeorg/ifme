@@ -2,8 +2,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import { InputSelect } from '../InputSelect';
 import { InputMocks } from 'mocks/InputMocks';
+import { InputSelect } from 'components/Input/InputSelect';
 
 const {
   id, name, ariaLabel, value, options,

@@ -1,19 +1,19 @@
 // @flow
 import React from 'react';
 import renderHTML from 'react-render-html';
-import { StoryName } from './StoryName';
-import { StoryDate } from './StoryDate';
-import { StoryDraft } from './StoryDraft';
-import { StoryActions } from './StoryActions';
-import type { Actions } from './StoryActions';
-import { StoryBy } from './StoryBy';
-import type { Props as StoryByProps } from './StoryBy';
-import { StoryCategories } from './StoryCategories';
-import type { Category } from './StoryCategories';
-import { StoryMoods } from './StoryMoods';
-import type { Mood } from './StoryMoods';
-import { StoryMedication } from './StoryMedication';
-import type { Props as Medication } from './StoryMedication';
+import { StoryName } from 'components/Story/StoryName';
+import { StoryDate } from 'components/Story/StoryDate';
+import { StoryDraft } from 'components/Story/StoryDraft';
+import { StoryActions } from 'components/Story/StoryActions';
+import type { Actions } from 'components/Story/StoryActions';
+import { StoryBy } from 'components/Story/StoryBy';
+import type { Props as StoryByProps } from 'components/Story/StoryBy';
+import { StoryCategories } from 'components/Story/StoryCategories';
+import type { Category } from 'components/Story/StoryCategories';
+import { StoryMoods } from 'components/Story/StoryMoods';
+import type { Mood } from 'components/Story/StoryMoods';
+import { StoryMedication } from 'components/Story/StoryMedication';
+import type { Props as Medication } from 'components/Story/StoryMedication';
 import css from './Story.scss';
 
 export type Props = {

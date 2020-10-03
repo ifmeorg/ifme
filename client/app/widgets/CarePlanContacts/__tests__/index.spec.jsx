@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { render, mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import CarePlanContacts from '../index';
+import CarePlanContacts from 'widgets/CarePlanContacts';
 
 const contacts = [
   {

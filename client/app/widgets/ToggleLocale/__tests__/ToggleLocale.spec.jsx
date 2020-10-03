@@ -4,7 +4,7 @@ import axios from 'axios';
 import { mount } from 'enzyme';
 import Cookies from 'js-cookie';
 import { act } from 'react-dom/test-utils';
-import { ToggleLocale } from '../index';
+import { ToggleLocale } from 'widgets/ToggleLocale';
 
 const locales = ['en', 'es', 'it', 'nb', 'nl', 'pt-BR', 'sv', 'vi'];
 const component = <ToggleLocale locale="en" locales={locales} />;

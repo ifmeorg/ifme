@@ -4,8 +4,8 @@ import { I18n } from 'libs/i18n';
 import { Story } from 'components/Story';
 import Modal from 'components/Modal';
 import { Utils } from 'utils';
-import CarePlanContactsForm from './CarePlanContactsForm';
-import type { Contact } from './CarePlanContactsForm';
+import CarePlanContactsForm from 'widgets/CarePlanContacts/CarePlanContactsForm';
+import type { Contact } from 'widgets/CarePlanContacts/CarePlanContactsForm';
 import ContactsContext from './CarePlanContactsContext';
 import css from './CarePlanContacts.scss';
 

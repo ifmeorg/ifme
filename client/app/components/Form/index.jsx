@@ -1,9 +1,9 @@
 // @flow
 import React, { useState, type Node } from 'react';
-import Input from '../Input';
-import { TYPES as INPUT_TYPES } from '../Input/utils';
-import { QuickCreate } from '../../widgets/QuickCreate';
-import type { Props as QuickCreateProps } from '../../widgets/QuickCreate';
+import Input from 'components/Input';
+import { TYPES as INPUT_TYPES } from 'components/Input/utils';
+import { QuickCreate } from 'widgets/QuickCreate';
+import type { Props as QuickCreateProps } from 'widgets/QuickCreate';
 import css from './Form.scss';
 import { getNewInputs } from './utils';
 import type { Errors, MyInputProps, FormProps as Props } from './utils';

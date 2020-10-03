@@ -1,7 +1,7 @@
 // @flow
 import { shallow } from 'enzyme';
 import React from 'react';
-import { Chart } from '../index';
+import { Chart } from 'components/Chart';
 
 function getComponent(options) {
   return shallow(

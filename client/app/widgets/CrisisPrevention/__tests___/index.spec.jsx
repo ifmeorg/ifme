@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import CrisisPrevention from '../index';
+import CrisisPrevention from 'widgets/CrisisPrevention';
 
 describe('CrisisPrevention', () => {
   it('renders the component', () => {

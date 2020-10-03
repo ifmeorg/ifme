@@ -1,5 +1,5 @@
 import React from 'react';
-import css from '../styles/_global.scss';
+import css from 'styles/_global.scss';
 
 export default {
   title: 'Style Guide/Errors',

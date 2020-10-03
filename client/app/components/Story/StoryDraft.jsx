@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { Tag } from '../Tag';
+import { Tag } from 'components/Tag';
 import css from './Story.scss';
 
 export type Props = {

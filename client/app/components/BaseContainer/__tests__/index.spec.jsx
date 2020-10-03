@@ -2,7 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 import { render, fireEvent } from '@testing-library/react';
-import BaseContainer from '../index';
+import BaseContainer from 'components/BaseContainer';
 
 const response = {
   data: {

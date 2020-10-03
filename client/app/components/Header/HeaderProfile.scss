@@ -1,8 +1,8 @@
-@import "../../styles/_global.scss";
+@import "~styles/_global.scss";
 
   .header {
     z-index: $z-index-front;
-  
+
     > div {
       display: flex;
       flex-direction: column;
@@ -41,5 +41,5 @@
           text-align: center;
           justify-content: center;
         }
-      } 
-    }    
+      }
+    }

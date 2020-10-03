@@ -1,7 +1,7 @@
 // @flow
 import { shallow } from 'enzyme';
 import React from 'react';
-import { InputError } from '../InputError';
+import { InputError } from 'components/Input/InputError';
 
 describe('InputError', () => {
   it('renders correctly when error does not exist', () => {

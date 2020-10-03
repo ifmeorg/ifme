@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
 import { shallow } from 'enzyme';
-import { InputRadioGroup } from '../InputRadioGroup';
 import { InputMocks } from 'mocks/InputMocks';
+import { InputRadioGroup } from 'components/Input/InputRadioGroup';
 
 const {
   id, name, value, options,

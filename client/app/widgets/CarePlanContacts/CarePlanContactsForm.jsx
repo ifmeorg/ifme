@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { I18n } from 'libs/i18n';
 import { Utils } from 'utils';
-import ContactsContext from './CarePlanContactsContext';
 import DynamicForm from 'components/Form/DynamicForm';
+import ContactsContext from './CarePlanContactsContext';
 import css from './CarePlanContacts.scss';
 
 export type Contact = {

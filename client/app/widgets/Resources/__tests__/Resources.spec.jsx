@@ -2,7 +2,7 @@
 import { mount } from 'enzyme';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import Resources from '../index';
+import Resources from 'widgets/Resources';
 
 // eslint-disable-next-line react/prop-types
 const getComponent = ({ history } = {}) => (

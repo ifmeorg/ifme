@@ -3,7 +3,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { InputMocks } from 'mocks/InputMocks';
-import { InputPassword } from '../InputPassword';
+import { InputPassword } from 'components/Input/InputPassword';
 
 const { id, name, label } = InputMocks.inputPasswordProps;
 

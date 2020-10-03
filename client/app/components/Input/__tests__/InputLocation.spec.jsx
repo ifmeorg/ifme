@@ -1,7 +1,7 @@
 // @flow
 import { shallow } from 'enzyme';
 import React from 'react';
-import { InputLocation } from '../InputLocation';
+import { InputLocation } from 'components/Input/InputLocation';
 
 describe('InputLocation', () => {
   describe('has no initialized value', () => {

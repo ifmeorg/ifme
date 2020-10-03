@@ -1,7 +1,7 @@
 // @flow
 import React, { useState } from 'react';
+import { InputCheckbox } from 'components/Input/InputCheckbox';
 import type { Checkbox } from './utils';
-import { InputCheckbox } from './InputCheckbox';
 
 export type Props = {
   checkboxes: Checkbox[],
