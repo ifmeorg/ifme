@@ -51,5 +51,24 @@ RSpec.describe 'Categories', type: :request do
     end
   end
 
+  describe '#new' do
+    context 'when the user is logged in' do
+      before {
+        sign_in user
+        get new_category_path 
+      }
+
+      it 'renders the page' do
+        expect(response).to render_template('new')
+      end
+    end
+
+    context 'when the user is not logged in' do
+      before { get new_category_path }
+
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
+
   end
 end
