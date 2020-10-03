@@ -10,16 +10,16 @@ README in: [Spanish](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [P
 # if-me.org
 
 [if-me.org] (https://www.if-me.org/) adalah komunitas untuk pengalaman kesehatan mental
-yang mendorong orang untuk berbagi cerita pribadinya dengan sekutu tepercaya.
-Sekutu tepercaya adalah orang-orang yang berinteraksi dengan kami setiap hari, termasuk
+yang mendorong orang untuk berbagi cerita pribadinya dengan pasangan tepercaya.
+Pasangan tepercaya adalah orang-orang yang berinteraksi dengan kami setiap hari, termasuk
 teman, anggota keluarga, rekan kerja, guru, dan pekerja kesehatan mental.
 
-Berurusan dengan kesehatan mental itulah yang menjadikan kita manusia. Tapi bagi banyak dari kita, ini a
-berjuang untuk terbuka tentang itu. Tidak semua orang adalah konselor atau terapis. Itu
-Orang-orang yang berinteraksi dengan kita sehari-hari membentuk emosi dan perilaku kita. Mendapatkan
+Berurusan dengan kesehatan mental itulah yang menjadikan kita manusia. Tapi banyak dari kita, ini yg
+berjuang untuk terbuka tentang itu. Tidak semua orang adalah konselor atau terapis.
+Orang-orang itu yang berinteraksi dengan kita sehari-hari membentuk emosi dan perilaku kita.
 mereka yang terlibat dalam perawatan kesehatan mental adalah kunci kesembuhan.
 
-Situs live dapat ditemukan di [if-me.org] (https://www.if-me.org/). Sistem desain langsung dapat ditemukan di [design.if-me.org] (http://design.if-me.org/).
+Situs siaran langsung dapat ditemukan di [if-me.org] (https://www.if-me.org/). Sistem desain langsung dapat ditemukan di [design.if-me.org] (http://design.if-me.org/).
 
 Kami menggunakan [Perjanjian Kontributor] (http://contributor-covenant.org) yang luar biasa untuk
 kode etik kita. Silahkan
