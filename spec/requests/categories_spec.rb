@@ -184,4 +184,46 @@ RSpec.describe 'Categories', type: :request do
     end
   end
 
+  describe '#update' do
+    let(:valid_update_params) { { name: 'updated name' } }
+
+    context 'when the user is logged in' do
+      before { sign_in user }
+
+      context 'when valid params are supplied' do
+        before do
+          patch category_path(category),
+                params: { id: category.id, category: valid_update_params }
+        end
+
+        it 'updates the category' do
+          expect(category.reload.name).to eq 'updated name'
+        end
+
+        it 'redirects to the category page' do
+          expect(response).to redirect_to category_path(
+                        Category.last.name.gsub(' ', '-').downcase
+                      )
+        end
+      end
+
+      context 'when invalid params are supplied' do
+        let(:invalid_update_params) { { name: nil } }
+
+        before do
+          patch category_path(category),
+                params: { id: category.id, category: invalid_update_params }
+        end
+
+        it 're-renders the edit form' do
+          expect(response).to render_template('edit')
+        end
+      end
+    end
+
+    context 'when the user is not logged in' do
+      before { patch category_path(category) }
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
 end
