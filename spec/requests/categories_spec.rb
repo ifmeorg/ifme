@@ -226,4 +226,50 @@ RSpec.describe 'Categories', type: :request do
       it_behaves_like :with_no_logged_in_user
     end
   end
+
+  describe '#destroy' do
+    let!(:moment) { create(:moment, user_id: user.id, category: [category.id]) }
+    let!(:strategy) do
+      create(
+        :strategy,
+        comment: false,
+        name: 'a',
+        description: 'b',
+        user_id: user.id,
+        category: [category.id]
+      )
+    end
+
+    context 'when the user is logged in' do
+      before { sign_in user }
+
+      it 'deletes the category' do
+        expect {
+          delete category_path(category), params: { id: category.id }
+        }.to change(Category, :count).by(-1)
+      end
+
+      context 'when the category is deleted' do
+        before { delete category_path(category), params: { id: category.id } }
+
+        it 'removes categories from existing moments' do
+          expect(moment.reload.categories).not_to include(category)
+        end
+
+        it 'removes categories from existing strategies' do
+          expect(strategy.reload.categories).not_to include(category.id)
+        end
+
+        it 'redirects to the category index page' do
+          expect(response).to redirect_to categories_path
+        end
+      end
+    end
+
+    context 'when the user is not logged in' do
+      before { delete category_path(category), params: { id: category.id } }
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
+
 end
