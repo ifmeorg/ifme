@@ -272,4 +272,54 @@ RSpec.describe 'Categories', type: :request do
     end
   end
 
+  describe '#quick_create' do
+    context 'when the user is logged in' do
+      before { sign_in user }
+
+      context 'when valid params are supplied' do
+        let(:valid_category_params) do
+          attributes_for(:category).merge(user_id: user.id)
+        end
+        before do
+          post quick_create_categories_path,
+               params: { category: valid_category_params }
+        end
+
+        it 'creates the category' do
+          expect {
+            post quick_create_categories_path,
+                 params: { category: valid_category_params }
+          }.to change(Category, :count).by 1
+        end
+
+        it 'responds with a checkbox in json format' do
+          expect(response.body).to eq(
+            {
+              success: true,
+              id: Category.last.id,
+              name: Category.last.name,
+              slug: Category.last.slug
+            }.to_json
+          )
+        end
+      end
+
+      context 'when invalid params are supplied' do
+        let(:invalid_category_params) { { name: nil, description: nil } }
+        before do
+          post quick_create_categories_path,
+               params: { category: invalid_category_params }
+        end
+
+        it 'responds with an error in json format' do
+          expect(response.body).to eq({ success: false }.to_json)
+        end
+      end
+    end
+
+    context 'when the user is not logged in' do
+      before { post quick_create_categories_path }
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
 end
