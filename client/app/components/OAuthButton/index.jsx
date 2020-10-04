@@ -15,7 +15,7 @@ type Props = {
 export const OAuthButton = ({
   signIn, type, action, token,
 }: Props) => {
-  const value = I18n.t(`devise.shared.sign_${signIn ? 'in' : 'up'}_${type}`);
+  const buttonText = I18n.t(`devise.shared.sign_${signIn ? 'in' : 'up'}_${type}`);
   const id = `${type}OAuthForm`;
 
   return (
@@ -29,10 +29,10 @@ export const OAuthButton = ({
           type === 'google' ? css.oAuthButtonGoogle : css.oAuthButtonFacebook
         }`}
         form={id}
-        value={value}
+        value={buttonText}
       >
         <img src={type === 'google' ? googleIcon : facebookIcon} alt="" />
-        {value}
+        {buttonText}
       </button>
     </>
   );
