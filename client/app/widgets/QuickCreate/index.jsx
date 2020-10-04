@@ -56,15 +56,17 @@ const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
   // eslint-disable-next-line implicit-arrow-linebreak
   checkboxes.sort((a: Checkbox, b: Checkbox) => alpha(a.label, b.label));
 
-const labelExists = (checkboxes: Checkbox[], compareLabel: string) =>
-  checkboxes.filter(
-    (checkbox: Checkbox) =>
-      checkbox.label.toLowerCase() === compareLabel.toLowerCase()
-  ).length;
+// Question: These functions are related to props/state but they don't impact them in anyway.
+// They are pure functions in that they take some input and give an output
+// there is no modification or dependency from props/state. That's why I hoisted these out
+// but it seems like other refactors kept similar methods inside the component.
+const labelExists = (checkboxes: Checkbox[], compareLabel: string) => checkboxes.filter(
+  (checkbox: Checkbox) => checkbox.label.toLowerCase() === compareLabel.toLowerCase(),
+).length;
 
 const addToCheckboxes = (
   { name, id, slug }: NewCheckbox,
-  checkboxes: Checkbox[]
+  checkboxes: Checkbox[],
 ) => {
   const newCheckboxes = checkboxes.slice(0);
   newCheckboxes.push({
@@ -95,6 +97,20 @@ type Action = OnChangeAction | OnSubmitAction;
 // reducer constants
 export const ON_CHANGE = 'ON_CHANGE';
 export const ON_SUBMIT = 'ON_SUBMIT';
+
+/* Question: Just want to confirm this is an ok use of useReducer
+ * Reason 1: consecutive setState() calls for different state
+ * (e.g. onChange -> setModalKey(newKey); setOpen(true); setBody(newBody);)
+ *
+ * Reason 2: Need to synchronize the state of checkboxes. I consistently saw checkbox state as
+ * the old state in onSubmit. I'm thinking when the onSubmit callback was defined in that render
+ * it closed over the previous state of the checkboxes,s o everytime it was invoked I saw the
+ * old state for the checkbox which gave me stale checkbox state.
+ * I first fixed this by setting a flag when onSubmit was invoked (so promised resolved)
+ * and then using an effect based off that flag. Seemed a little hacky.
+ * I realized I could synchronize the state by handling the update in a reducer.
+ * And again, the consecutive setState calls pushed me in this direction as well.
+ */
 const quickCreateReducer = (state: State, action: Action) => {
   switch (action.type) {
     case ON_CHANGE: {
@@ -131,7 +147,9 @@ export const QuickCreate = ({
   formProps,
 }: Props) => {
   const [
-    { checkboxes, accordionOpen, tagKey, body, open, modalKey },
+    {
+      checkboxes, accordionOpen, tagKey, body, open, modalKey,
+    },
     dispatch,
   ] = useReducer(quickCreateReducer, {
     checkboxes: checkboxesProp,
@@ -162,6 +180,9 @@ export const QuickCreate = ({
         payload: {
           label: onChangeLabel,
           checkboxes: changeCheckboxes,
+          // Question: Previously there were instance methods that were solely for unpacking
+          // related state, prop variables, and then returning jsx/component.
+          // this seems to be an unnecessary step IMO. Is it okay just to inline?
           body: (
             <DynamicForm
               nameValue={onChangeLabel}
@@ -176,6 +197,9 @@ export const QuickCreate = ({
 
   return (
     <div>
+      {/* Question: Again just inlining the input rather than invoking a method that returns jsx.
+      The logic is being able to just look at the output of the render method and understanding
+      what this component actually is vs tracing function/method calls */}
       <Input
         id={id}
         type="tag"
