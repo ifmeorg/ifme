@@ -601,5 +601,14 @@
     "link_name": "tyler-wel",
     "link": "https://github.com/tyler-wel",
     "social": "github"
+  },
+  {
+    "name": "Camila Campos",
+    "image": "/assets/contributors/camila_campos.png",
+    "profile": "I'm a developer who is not being currently paid to work with ruby anymore, but since I love it so much, I wanted to continue to do some ruby code, specially in such a meaningful project as this one.",
+    "location": "São Paulo, Brazil",
+    "link_name": "camila-campos",
+    "link": "https://twitter.com/camposmilaa",
+    "social": "twitter"
   }
 ]
