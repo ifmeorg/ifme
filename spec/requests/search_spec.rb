@@ -2,42 +2,38 @@
 
 describe 'Search', type: :request do
   let(:user) { create(:user) }
-  let!(:user2) do
-    create(:user, email: 'bar@email.com',
-                  name: 'user 2 name')
-  end
-  let!(:user3) do
-    create(:user, email: 'foo@email.com',
-                  banned: true,
-                  name: 'user 3 name')
-  end
 
   describe '#index' do
     context 'when user is logged in' do
       before { sign_in user }
 
       context 'when have passed email' do
-        it 'strip passed string' do
+        it 'renders page' do
           get search_index_path, params: { search: { email: 'bar@email.com' } }
           expect(response).to render_template(:index)
         end
 
         it 'filters by non-banned user email' do
-          get search_index_path, params: { search: { email: 'bar@email.com' } }
-          expect(response).to render_template(:index)
-          expect(response.body).to include(user2.name)
+          nonbanned_user = create(:user, email: 'bar@email.com',
+                                         name: 'user 2 name')
+          get(search_index_path,
+              params: { search: { email: nonbanned_user.email } })
+          expect(response.body).to include(nonbanned_user.name)
         end
 
         it 'does not filter banned user email' do
-          get search_index_path, params: { search: { email: 'foo@email.com' } }
-          expect(response.body).not_to include(user3.name)
-          expect(response).to render_template(:index)
+          banned_user = create(:user, email: 'foo@email.com',
+                                      banned: true,
+                                      name: 'user 3 name')
+          get(search_index_path,
+              params: { search: { email: banned_user.email } })
+          expect(response.body).not_to include(banned_user.name)
         end
 
         it 'keeps a reference to the email queried' do
-          get search_index_path, params: { search: { email: 'bar@email.com' } }
+          get(search_index_path,
+              params: { search: { email: 'bar@email.com' } })
           expect(response.body).to include(CGI.escape('bar@email.com'))
-          expect(response).to render_template(:index)
         end
       end
 
