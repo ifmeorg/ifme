@@ -110,7 +110,8 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.scss$": "identity-obj-proxy"
+      "\\.scss$": "identity-obj-proxy",
+      "^.+\\.svg$": "<rootDir>/jest/svgTransform.js"
     },
     "setupFiles": [
       "./app/libs/testHelper.js"
