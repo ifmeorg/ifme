@@ -33,7 +33,7 @@ describe 'Search', type: :request do
         it 'keeps a reference to the email queried' do
           get(search_index_path,
               params: { search: { email: 'bar@email.com' } })
-          expect(response.body).to include(CGI.escape('bar@email.com'))
+          expect(response.body).to include('bar@email.com')
         end
       end
 
