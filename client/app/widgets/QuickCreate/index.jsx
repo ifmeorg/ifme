@@ -1,10 +1,18 @@
 // @flow
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import Modal from 'components/Modal';
 import Input from 'components/Input';
 import type { Checkbox } from 'components/Input/utils';
 import { Utils } from 'utils';
 import DynamicForm from 'components/Form/DynamicForm';
+=======
+import React, { useState, useEffect } from 'react';
+import Modal from '../../components/Modal';
+import Input from '../../components/Input';
+import type { Checkbox } from '../../components/Input/utils';
+import { Utils } from '../../utils';
+>>>>>>> ceb5e73e... fixed race condition between onChange and onSubmit
 import css from './QuickCreate.scss';
 
 // value - e.g. category.id
@@ -39,23 +47,49 @@ const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
   // eslint-disable-next-line implicit-arrow-linebreak
   checkboxes.sort((a: Checkbox, b: Checkbox) => alpha(a.label, b.label));
 
+const labelExists = (checkboxes: Checkbox[], compareLabel: string) =>
+  checkboxes.filter(
+    (checkbox: Checkbox) =>
+      checkbox.label.toLowerCase() === compareLabel.toLowerCase()
+  ).length;
+
+const getCheckboxesProp = (checkboxes: Checkbox[]) => {
+  const checkboxesProp = [];
+  checkboxes.forEach((checkbox: Checkbox) => {
+    const checkboxProp = {
+      id: checkbox.id,
+      label: checkbox.label,
+      value: checkbox.value,
+      checked: checkbox.checked,
+    };
+    checkboxesProp.push(checkboxProp);
+  });
+  return checkboxesProp;
+};
+
 export const QuickCreate = ({
   placeholder,
   name,
   id,
   label,
-  checkboxes: checkboxProps,
+  checkboxes: checkboxProp,
   formProps,
 }: Props) => {
-  const [checkboxes, setCheckboxes] = useState(checkboxProps);
+  const [checkboxes, setCheckboxes] = useState(checkboxProp);
+  const [newCheckbox, setNewCheckbox] = useState();
   const [open, setOpen] = useState(false);
+<<<<<<< HEAD
   const [accordionOpen, setAccordionOpen] = useState(
+=======
+  const [accordionOpen, setAccordionOpen] = useState(() =>
+>>>>>>> ceb5e73e... fixed race condition between onChange and onSubmit
     checkboxes.some((cb) => cb.checked)
   );
   const [tagKey, setTagKey] = useState();
   const [modalKey, setModalKey] = useState();
   const [body, setBody] = useState();
 
+<<<<<<< HEAD
   const getCheckboxes = () => {
     const checkboxesProp = [];
     checkboxes.forEach((checkbox: Checkbox) => {
@@ -76,6 +110,8 @@ export const QuickCreate = ({
         checkbox.label.toLowerCase() === compareLabel.toLowerCase()
     ).length;
 
+=======
+>>>>>>> ceb5e73e... fixed race condition between onChange and onSubmit
   const addToCheckboxes = ({
     name: newName,
     id: newId,
@@ -95,14 +131,20 @@ export const QuickCreate = ({
     return sortAlpha(newCheckboxes);
   };
 
-  const onSubmit = (response: any) => {
-    const { data } = response;
-    if (data && data.success) {
+  useEffect(() => {
+    if (newCheckbox) {
       setOpen(false);
       setAccordionOpen(true);
       setTagKey(Utils.randomString());
       setModalKey(Utils.randomString);
-      setCheckboxes(addToCheckboxes(data));
+      setCheckboxes(addToCheckboxes(newCheckbox));
+    }
+  }, [newCheckbox]);
+
+  const onSubmit = (response: any) => {
+    const { data } = response;
+    if (data && data.success) {
+      setNewCheckbox(data);
     }
   };
 
@@ -121,7 +163,7 @@ export const QuickCreate = ({
     label: string,
     checkboxes: Checkbox[],
   }) => {
-    if (!labelExists(onChangeLabel)) {
+    if (!labelExists(checkboxes, onChangeLabel)) {
       setOpen(true);
       setModalKey(Utils.randomString());
       setBody(displayQuickCreateForm(onChangeLabel));
@@ -136,7 +178,7 @@ export const QuickCreate = ({
         type="tag"
         name={name}
         label={label}
-        checkboxes={getCheckboxes()}
+        checkboxes={getCheckboxesProp(checkboxes)}
         placeholder={placeholder}
         accordionOpen={accordionOpen}
         onChange={onChange}
