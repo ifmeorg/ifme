@@ -1,5 +1,5 @@
 @import "~styles/_global.scss";
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 .oAuthButton {
   display: flex;
@@ -7,17 +7,17 @@
   align-items: center;
   border: $size-1 solid transparent;
   padding: 0 $size-24 0 0;
-  height: $size-50;
+  height: $size-40;
   box-sizing: border-box;
-  font-size: $size-16;
+  font-size: $size-14;
   color: $white;
+  border-radius: $size-2;
 
   &Google {
     font-family: 'Roboto', sans-serif;
     background-color: #4285f4;
     letter-spacing: .21px;
     box-shadow: 0 $size-2 $size-4 0 rgba(0, 0, 0, .25);
-    font-weight: 500;
 
     &:hover {
       box-shadow: 0 0 3px 3px rgba(66, 133, 244, .3);
@@ -25,7 +25,7 @@
 
     > img {
       width: $size-18;
-      padding: 15px;
+      padding: $size-10;
       background-color: $white;
       border-radius: $size-1;
       margin-right: $size-24;
@@ -35,8 +35,11 @@
   &Facebook {
     background-color: #1877F2;
     font-weight: bold;
-    padding: 0 $size-24;
-    border-radius: $size-2;
+    padding: 0 $size-20;
+
+    &:hover {
+      opacity: 0.8;
+    }
 
     > img {
       margin-right: $size-10;
@@ -46,6 +49,5 @@
 
   @media screen and (max-width: $x-small) {
     height: auto;
-    line-height: 1.2;
   }
 }
