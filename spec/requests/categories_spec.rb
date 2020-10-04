@@ -19,7 +19,7 @@ RSpec.describe 'Categories', type: :request do
 
       it 'renders the page' do
         get categories_path
-        expect(response).to render_template('index')
+        expect(response).to be_successful
       end
     end
 
@@ -37,7 +37,7 @@ RSpec.describe 'Categories', type: :request do
         before { get category_path(category.id) }
 
         it 'renders the page' do
-          expect(response).to render_template('show')
+          expect(response).to be_successful
         end
       end
 
@@ -65,7 +65,7 @@ RSpec.describe 'Categories', type: :request do
       end
 
       it 'renders the page' do
-        expect(response).to render_template('new')
+        expect(response).to be_successful
       end
     end
 
@@ -84,7 +84,7 @@ RSpec.describe 'Categories', type: :request do
         before { get edit_category_path(category.id) }
 
         it 'renders the edit form' do
-          expect(response).to render_template('edit')
+          expect(response).to be_successful
         end
       end
 
@@ -136,7 +136,7 @@ RSpec.describe 'Categories', type: :request do
           post categories_path, params: { category: invalid_category_params }
         end
         it 're-renders the creation form' do
-          expect(response).to render_template('new')
+          expect(response).to be_successful
         end
       end
 
@@ -216,7 +216,7 @@ RSpec.describe 'Categories', type: :request do
         end
 
         it 're-renders the edit form' do
-          expect(response).to render_template('edit')
+          expect(response).to be_successful
         end
       end
     end
