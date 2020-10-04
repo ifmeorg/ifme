@@ -10,7 +10,7 @@ describe 'Search', type: :request do
       context 'when have passed email' do
         it 'renders page' do
           get search_index_path, params: { search: { email: 'bar@email.com' } }
-          expect(response).to render_template(:index)
+          expect(response).to be_successful
         end
 
         it 'filters by non-banned user email' do
