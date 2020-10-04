@@ -69,6 +69,7 @@
     "@storybook/react": "^6.0.21",
     "@testing-library/jest-dom": "^5.10.0",
     "@testing-library/react": "^11.0.2",
+    "@testing-library/user-event": "^12.1.7",
     "babel-cli": "^6.24.1",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^26.2.2",
