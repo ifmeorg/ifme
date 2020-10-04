@@ -1,49 +1,52 @@
 # frozen_string_literal: true
-describe SearchController, type: :controller do
+
+describe 'Search', type: :request do
   let(:user) { create(:user) }
-  let(:user2) {  create(:user, email: 'bar@email.com') }
-  let(:user3) {  create(:user, email: 'foo@email.com', banned: true) }
 
   describe '#index' do
     context 'when user is logged in' do
-      include_context :logged_in_user
+      before { sign_in user }
 
       context 'when have passed email' do
-        it 'strip passed string' do
-          expect_any_instance_of(String).to receive(:strip)
-          get :index, params: { search: { email: '  hi@email.com ' } }
-          expect(response).to render_template(:index)
+        it 'renders page' do
+          get search_index_path, params: { search: { email: 'bar@email.com' } }
+          expect(response).to be_successful
         end
 
         it 'filters by non-banned user email' do
-          get :index, params: { search: { email: 'bar@email.com' } }
-          expect(assigns(:matching_users)).to include(user2)
-          expect(response).to render_template(:index)
+          nonbanned_user = create(:user, email: 'bar@email.com',
+                                         name: 'user 2 name')
+          get(search_index_path,
+              params: { search: { email: nonbanned_user.email } })
+          expect(response.body).to include(nonbanned_user.name)
         end
 
         it 'does not filter banned user email' do
-          get :index, params: { search: { email: 'foo@email.com' } }
-          expect(assigns(:matching_users)).not_to include(user3)
-          expect(response).to render_template(:index)
+          banned_user = create(:user, email: 'foo@email.com',
+                                      banned: true,
+                                      name: 'user 3 name')
+          get(search_index_path,
+              params: { search: { email: banned_user.email } })
+          expect(response.body).not_to include(banned_user.name)
         end
 
         it 'keeps a reference to the email queried' do
-          get :index, params: { search: { email: 'bar@email.com' } }
-          expect(assigns(:email_query)).to include('bar@email.com')
-          expect(response).to render_template(:index)
+          get(search_index_path,
+              params: { search: { email: 'bar@email.com' } })
+          expect(response.body).to include('bar@email.com')
         end
       end
 
       context 'when have no passed email' do
         it 'sets the correct instance variables' do
-          get :index, params: { search: {} }
+          get search_index_path, params: { search: {} }
           expect(response).to redirect_to('/allies')
         end
       end
     end
 
     context 'when user is not logged in' do
-      before { get :index, params: { search: {} } }
+      before { get search_index_path, params: { search: {} } }
 
       it_behaves_like :with_no_logged_in_user
     end
@@ -51,14 +54,13 @@ describe SearchController, type: :controller do
 
   describe '#posts' do
     context 'when user is logged in' do
-      include_context :logged_in_user
+      before { sign_in user }
       let(:word) { 'passed-word' }
 
       context 'when there is a searched name' do
         before do
           get(
-            :posts,
-            format: :html,
+            posts_search_index_path,
             params: { search: { name: word, data_type: data_type } }
           )
         end
@@ -100,8 +102,7 @@ describe SearchController, type: :controller do
       context 'when there is not a searched name' do
         before do
           get(
-            :posts,
-            format: :html,
+            posts_search_index_path,
             params: { search: { name: '', data_type: data_type } }
           )
         end
@@ -134,7 +135,12 @@ describe SearchController, type: :controller do
     end
 
     context 'when user is not logged in' do
-      before { get :index, params: { search: {} } }
+      before do
+        get(
+          posts_search_index_path,
+          params: { search: { name: 'word', data_type: 'data_type' } }
+        )
+      end
 
       it_behaves_like :with_no_logged_in_user
     end
