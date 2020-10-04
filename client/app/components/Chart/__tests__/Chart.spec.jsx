@@ -16,13 +16,13 @@ const renderComponent = ({ chartType }) => render(
 );
 
 describe('Chart', () => {
-  it('renders Line chart', () => {
-    const { container } = renderComponent({ chartType: 'Area' });
+  it('renders a Line chart', () => {
+    const { container } = renderComponent({ chartType: 'Line' });
     expect(container.querySelector('canvas')).toBeInTheDocument();
   });
 
-  it('renders Area chart', () => {
-    const { container } = renderComponent({ chartType: 'Line' });
+  it('renders an Area chart', () => {
+    const { container } = renderComponent({ chartType: 'Area' });
     expect(container.querySelector('canvas')).toBeInTheDocument();
   });
 });
