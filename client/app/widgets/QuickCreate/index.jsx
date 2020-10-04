@@ -1,18 +1,10 @@
 // @flow
-<<<<<<< HEAD
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import Modal from 'components/Modal';
 import Input from 'components/Input';
 import type { Checkbox } from 'components/Input/utils';
 import { Utils } from 'utils';
 import DynamicForm from 'components/Form/DynamicForm';
-=======
-import React, { useState, useEffect } from 'react';
-import Modal from '../../components/Modal';
-import Input from '../../components/Input';
-import type { Checkbox } from '../../components/Input/utils';
-import { Utils } from '../../utils';
->>>>>>> ceb5e73e... fixed race condition between onChange and onSubmit
 import css from './QuickCreate.scss';
 
 // value - e.g. category.id
@@ -37,6 +29,23 @@ export type State = {
   accordionOpen: boolean,
 };
 
+type NewCheckbox = {
+  name: string,
+  id: string,
+  slug: string,
+  success?: boolean,
+};
+
+type OnSubmitResponse = {
+  data: NewCheckbox,
+  status: number,
+  statusText: string,
+  headers: Object,
+  request: Object,
+  config: Object,
+};
+
+// utils
 const alpha = (a: string, b: string) => {
   if (a.toLowerCase() > b.toLowerCase()) return 1;
   if (a.toLowerCase() < b.toLowerCase()) return -1;
@@ -53,18 +62,64 @@ const labelExists = (checkboxes: Checkbox[], compareLabel: string) =>
       checkbox.label.toLowerCase() === compareLabel.toLowerCase()
   ).length;
 
-const getCheckboxesProp = (checkboxes: Checkbox[]) => {
-  const checkboxesProp = [];
-  checkboxes.forEach((checkbox: Checkbox) => {
-    const checkboxProp = {
-      id: checkbox.id,
-      label: checkbox.label,
-      value: checkbox.value,
-      checked: checkbox.checked,
-    };
-    checkboxesProp.push(checkboxProp);
+const addToCheckboxes = (
+  { name, id, slug }: NewCheckbox,
+  checkboxes: Checkbox[]
+) => {
+  const newCheckboxes = checkboxes.slice(0);
+  newCheckboxes.push({
+    id: slug,
+    label: name,
+    value: id,
+    checked: true,
   });
-  return checkboxesProp;
+  return sortAlpha(newCheckboxes);
+};
+
+// reducer types
+type OnChangePayload = {
+  label: string,
+  checkboxes: Checkbox[],
+  body: any,
+};
+type CheckboxData = {
+  name: string,
+  id: string,
+  slug: string,
+  success?: boolean,
+};
+type OnSubmitPayload = CheckboxData;
+type OnChangeAction = { type: 'ON_CHANGE', payload: OnChangePayload };
+type OnSubmitAction = { type: 'ON_SUBMIT', payload: OnSubmitPayload };
+type Action = OnChangeAction | OnSubmitAction;
+// reducer constants
+export const ON_CHANGE = 'ON_CHANGE';
+export const ON_SUBMIT = 'ON_SUBMIT';
+const quickCreateReducer = (state: State, action: Action) => {
+  switch (action.type) {
+    case ON_CHANGE: {
+      return {
+        ...state,
+        checkboxes: action.payload.checkboxes,
+        label: action.payload.label,
+        open: true,
+        modalKey: Utils.randomString(),
+        body: action.payload.body,
+      };
+    }
+    case ON_SUBMIT: {
+      return {
+        ...state,
+        open: false,
+        accordionOpen: true,
+        tagKey: Utils.randomString(),
+        modalKey: Utils.randomString(),
+        checkboxes: addToCheckboxes(action.payload, state.checkboxes),
+      };
+    }
+    default:
+      throw new Error();
+  }
 };
 
 export const QuickCreate = ({
@@ -72,89 +127,27 @@ export const QuickCreate = ({
   name,
   id,
   label,
-  checkboxes: checkboxProp,
+  checkboxes: checkboxesProp,
   formProps,
 }: Props) => {
-  const [checkboxes, setCheckboxes] = useState(checkboxProp);
-  const [newCheckbox, setNewCheckbox] = useState();
-  const [open, setOpen] = useState(false);
-<<<<<<< HEAD
-  const [accordionOpen, setAccordionOpen] = useState(
-=======
-  const [accordionOpen, setAccordionOpen] = useState(() =>
->>>>>>> ceb5e73e... fixed race condition between onChange and onSubmit
-    checkboxes.some((cb) => cb.checked)
-  );
-  const [tagKey, setTagKey] = useState();
-  const [modalKey, setModalKey] = useState();
-  const [body, setBody] = useState();
+  const [
+    { checkboxes, accordionOpen, tagKey, body, open, modalKey },
+    dispatch,
+  ] = useReducer(quickCreateReducer, {
+    checkboxes: checkboxesProp,
+    open: false,
+    accordionOpen: checkboxesProp.some((cb) => cb.checked),
+    modalKey: undefined,
+    tagKey: undefined,
+    body: undefined,
+  });
 
-<<<<<<< HEAD
-  const getCheckboxes = () => {
-    const checkboxesProp = [];
-    checkboxes.forEach((checkbox: Checkbox) => {
-      const checkboxProp = {
-        id: checkbox.id,
-        label: checkbox.label,
-        value: checkbox.value,
-        checked: checkbox.checked,
-      };
-      checkboxesProp.push(checkboxProp);
-    });
-    return checkboxesProp;
-  };
-
-  const labelExists = (compareLabel: string) =>
-    checkboxes.filter(
-      (checkbox: Checkbox) =>
-        checkbox.label.toLowerCase() === compareLabel.toLowerCase()
-    ).length;
-
-=======
->>>>>>> ceb5e73e... fixed race condition between onChange and onSubmit
-  const addToCheckboxes = ({
-    name: newName,
-    id: newId,
-    slug: newSlug,
-  }: {
-    name: string,
-    id: string,
-    slug: string,
-  }) => {
-    const newCheckboxes = checkboxes.slice(0);
-    newCheckboxes.push({
-      id: newSlug,
-      label: newName,
-      value: newId,
-      checked: true,
-    });
-    return sortAlpha(newCheckboxes);
-  };
-
-  useEffect(() => {
-    if (newCheckbox) {
-      setOpen(false);
-      setAccordionOpen(true);
-      setTagKey(Utils.randomString());
-      setModalKey(Utils.randomString);
-      setCheckboxes(addToCheckboxes(newCheckbox));
-    }
-  }, [newCheckbox]);
-
-  const onSubmit = (response: any) => {
+  const onSubmit = (response: OnSubmitResponse) => {
     const { data } = response;
     if (data && data.success) {
-      setNewCheckbox(data);
+      dispatch({ type: ON_SUBMIT, payload: data });
     }
   };
-
-  const displayQuickCreateForm = (nameValue: string) => (
-    <DynamicForm
-      nameValue={nameValue}
-      formProps={formProps}
-      onSubmit={onSubmit}
-    />
-  );
 
   const onChange = ({
     label: onChangeLabel,
@@ -164,10 +157,20 @@ export const QuickCreate = ({
     checkboxes: Checkbox[],
   }) => {
     if (!labelExists(checkboxes, onChangeLabel)) {
-      setOpen(true);
-      setModalKey(Utils.randomString());
-      setBody(displayQuickCreateForm(onChangeLabel));
-      setCheckboxes(sortAlpha(changeCheckboxes));
+      dispatch({
+        type: ON_CHANGE,
+        payload: {
+          label: onChangeLabel,
+          checkboxes: changeCheckboxes,
+          body: (
+            <DynamicForm
+              nameValue={onChangeLabel}
+              formProps={formProps}
+              onSubmit={onSubmit}
+            />
+          ),
+        },
+      });
     }
   };
 
@@ -178,7 +181,7 @@ export const QuickCreate = ({
         type="tag"
         name={name}
         label={label}
-        checkboxes={getCheckboxesProp(checkboxes)}
+        checkboxes={checkboxes}
         placeholder={placeholder}
         accordionOpen={accordionOpen}
         onChange={onChange}
