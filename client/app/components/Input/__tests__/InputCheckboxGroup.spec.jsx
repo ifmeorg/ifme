@@ -2,7 +2,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import { InputCheckboxGroup } from '../InputCheckboxGroup';
+import { InputCheckboxGroup } from 'components/Input/InputCheckboxGroup';
 
 const id = 'some-id';
 const name = 'some-name';

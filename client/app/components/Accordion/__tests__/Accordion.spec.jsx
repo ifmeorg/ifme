@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { Accordion } from '../index';
+import { Accordion } from 'components/Accordion';
 
 const id = 'some-id';
 const title = 'Accordions have pianos';

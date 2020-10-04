@@ -1,7 +1,7 @@
 // @flow
 import { shallow } from 'enzyme';
 import React from 'react';
-import { InputCheckbox } from '../InputCheckbox';
+import { InputCheckbox } from 'components/Input/InputCheckbox';
 
 const id = 'some-id';
 const name = 'some-name';

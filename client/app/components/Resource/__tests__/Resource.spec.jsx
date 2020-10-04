@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Resource } from '../index';
+import { Resource } from 'components/Resource';
 
 const TAGS = [
   'open_source',

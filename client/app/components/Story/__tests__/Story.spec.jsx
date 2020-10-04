@@ -1,7 +1,7 @@
 // @flow
 import { render } from 'enzyme';
 import React from 'react';
-import { Story } from '../index';
+import { Story } from 'components/Story';
 
 describe('Story', () => {
   describe('has no options', () => {

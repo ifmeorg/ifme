@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputMocks } from '../mocks/InputMocks';
+import { InputMocks } from 'mocks/InputMocks';
 
 export default {
   title: 'Components/Input',

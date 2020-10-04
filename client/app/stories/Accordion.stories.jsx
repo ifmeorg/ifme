@@ -1,5 +1,5 @@
 import React from 'react';
-import { Accordion } from '../components/Accordion';
+import { Accordion } from 'components/Accordion';
 
 const title = 'Accordions have pianos';
 const children = 'Hello';

@@ -2,14 +2,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import renderHTML from 'react-render-html';
-import { StoryBy } from '../../components/Story/StoryBy';
-import { StoryDate } from '../../components/Story/StoryDate';
-import { StoryActions } from '../../components/Story/StoryActions';
-import DynamicForm from '../../components/Form/DynamicForm';
+import { I18n } from 'libs/i18n';
+import { StoryBy } from 'components/Story/StoryBy';
+import { StoryDate } from 'components/Story/StoryDate';
+import { StoryActions } from 'components/Story/StoryActions';
+import DynamicForm from 'components/Form/DynamicForm';
+import { Utils } from 'utils';
+import type { FormProps } from 'components/Form/utils';
 import css from './Comments.scss';
-import { I18n } from '../../libs/i18n';
-import { Utils } from '../../utils';
-import type { FormProps } from '../../components/Form/utils';
 
 type CommentResponse = {
   data: {

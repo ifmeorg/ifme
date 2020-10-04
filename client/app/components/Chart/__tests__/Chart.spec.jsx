@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Chart } from '../index';
+import { Chart } from 'components/Chart/index';
 
 const renderComponent = ({ chartType }) => render(
   <Chart

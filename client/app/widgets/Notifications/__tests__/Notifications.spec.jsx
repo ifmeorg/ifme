@@ -4,7 +4,7 @@ import axios from 'axios';
 import {
   render, screen, waitFor, fireEvent,
 } from '@testing-library/react';
-import { Notifications } from '../index';
+import { Notifications } from 'widgets/Notifications';
 
 const button = <button type="button">Notifications</button>;
 

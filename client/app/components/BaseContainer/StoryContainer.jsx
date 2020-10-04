@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
-import { Story } from '../Story';
-import type { Props as StoryProps } from '../Story';
+import { Story } from 'components/Story';
+import type { Props as StoryProps } from 'components/Story';
 
 export type Props = {
   data: StoryProps[],

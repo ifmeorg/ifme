@@ -1,4 +1,4 @@
-@import "../../styles/_global.scss";
+@import "~styles/_global.scss";
 
 @mixin paddingForSelectIcon($padding) {
   padding-right: $padding * 2 + $size-12;

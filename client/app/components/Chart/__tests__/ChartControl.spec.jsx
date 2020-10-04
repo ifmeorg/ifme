@@ -6,7 +6,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { AreaChart } from 'react-chartkick';
-import { ChartControl } from '../ChartControl';
+import { ChartControl } from 'components/Chart/ChartControl';
 
 /**
  * Canvas is tricky to test with 'react-testing-library', so this file mocks

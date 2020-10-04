@@ -1,5 +1,5 @@
 import React from 'react';
-import { Resource } from '../components/Resource';
+import { Resource } from 'components/Resource';
 
 const tags = [
   'open_source',

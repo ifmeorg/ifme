@@ -1,7 +1,7 @@
 // @flow
 import { render } from 'enzyme';
 import React from 'react';
-import { StoryDraft } from '../StoryDraft';
+import { StoryDraft } from 'components/Story/StoryDraft';
 
 describe('StoryDraft', () => {
   it('renders correctly', () => {

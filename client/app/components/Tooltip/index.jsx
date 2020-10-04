@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
 import renderHTML from 'react-render-html';
+import { Utils } from 'utils';
 import css from './Tooltip.scss';
-import { Utils } from '../../utils';
 
 export type Props = {
   element: any,

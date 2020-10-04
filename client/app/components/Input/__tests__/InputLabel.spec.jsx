@@ -1,7 +1,7 @@
 // @flow
 import { shallow } from 'enzyme';
 import React from 'react';
-import { InputLabel } from '../InputLabel';
+import { InputLabel } from 'components/Input/InputLabel';
 
 const label = 'Some Label';
 const info = 'Some Info';

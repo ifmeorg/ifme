@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Tag } from '../index';
+import { Tag } from 'components/Tag';
 
 const TEST_LABEL = 'TEST_LABEL';
 const TEST_URL = 'https://if-me.org';
