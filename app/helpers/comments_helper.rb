@@ -58,6 +58,6 @@ module CommentsHelper
   def delete_action(comment)
     return unless CommentViewersService.deletable?(comment, current_user)
 
-    delete_comment_index_path(comment_id: comment.id)
+    delete_comments_path(comment_id: comment.id)
   end
 end

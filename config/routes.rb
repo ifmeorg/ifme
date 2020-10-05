@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :comment, only: %i[create destroy] do
+  resources :comments, only: %i[create delete] do
     collection do
       post 'create'
       delete 'delete'

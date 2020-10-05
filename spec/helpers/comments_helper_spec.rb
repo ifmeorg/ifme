@@ -35,7 +35,7 @@ describe CommentsHelper, type: :controller do
                                                                                           comment: comment,
                                                                                           createdAt: created_at,
                                                                                           viewers: nil,
-                                                                                          deleteAction: delete_comment_index_path(comment_id: new_comment.id)
+                                                                                          deleteAction: delete_comments_path(comment_id: new_comment.id)
                                                                                         }])
         end
 
@@ -50,7 +50,7 @@ describe CommentsHelper, type: :controller do
                                                                                           comment: comment,
                                                                                           createdAt: created_at,
                                                                                           viewers: "Visible only between you and #{user2.name}",
-                                                                                          deleteAction: delete_comment_index_path(comment_id: new_comment.id)
+                                                                                          deleteAction: delete_comments_path(comment_id: new_comment.id)
                                                                                         }])
         end
       end
@@ -71,7 +71,7 @@ describe CommentsHelper, type: :controller do
                                                                                           comment: comment,
                                                                                           createdAt: created_at,
                                                                                           viewers: nil,
-                                                                                          deleteAction: delete_comment_index_path(comment_id: new_comment.id)
+                                                                                          deleteAction: delete_comments_path(comment_id: new_comment.id)
                                                                                         }])
         end
 
@@ -86,7 +86,7 @@ describe CommentsHelper, type: :controller do
                                                                                           comment: comment,
                                                                                           createdAt: created_at,
                                                                                           viewers: "Visible only between you and #{user1.name}",
-                                                                                          deleteAction: delete_comment_index_path(comment_id: new_comment.id)
+                                                                                          deleteAction: delete_comments_path(comment_id: new_comment.id)
                                                                                         }])
         end
       end
@@ -111,7 +111,7 @@ describe CommentsHelper, type: :controller do
                                                                                           comment: comment,
                                                                                           createdAt: created_at,
                                                                                           viewers: nil,
-                                                                                          deleteAction: delete_comment_index_path(comment_id: new_comment.id)
+                                                                                          deleteAction: delete_comments_path(comment_id: new_comment.id)
                                                                                         }])
         end
 
@@ -126,7 +126,7 @@ describe CommentsHelper, type: :controller do
                                                                                           comment: comment,
                                                                                           createdAt: created_at,
                                                                                           viewers: "Visible only between you and #{user2.name}",
-                                                                                          deleteAction: delete_comment_index_path(comment_id: new_comment.id)
+                                                                                          deleteAction: delete_comments_path(comment_id: new_comment.id)
                                                                                         }])
         end
       end
@@ -147,7 +147,7 @@ describe CommentsHelper, type: :controller do
                                                                                           comment: comment,
                                                                                           createdAt: created_at,
                                                                                           viewers: nil,
-                                                                                          deleteAction: delete_comment_index_path(comment_id: new_comment.id)
+                                                                                          deleteAction: delete_comments_path(comment_id: new_comment.id)
                                                                                         }])
         end
 
@@ -162,7 +162,7 @@ describe CommentsHelper, type: :controller do
                                                                                           comment: comment,
                                                                                           createdAt: created_at,
                                                                                           viewers: "Visible only between you and #{user1.name}",
-                                                                                          deleteAction: delete_comment_index_path(comment_id: new_comment.id)
+                                                                                          deleteAction: delete_comments_path(comment_id: new_comment.id)
                                                                                         }])
         end
       end
@@ -189,7 +189,7 @@ describe CommentsHelper, type: :controller do
                                                                                           comment: comment,
                                                                                           createdAt: created_at,
                                                                                           viewers: nil,
-                                                                                          deleteAction: delete_comment_index_path(comment_id: new_comment.id)
+                                                                                          deleteAction: delete_comments_path(comment_id: new_comment.id)
                                                                                         }])
         end
       end
@@ -207,7 +207,7 @@ describe CommentsHelper, type: :controller do
                                                                                           comment: comment,
                                                                                           createdAt: created_at,
                                                                                           viewers: nil,
-                                                                                          deleteAction: delete_comment_index_path(comment_id: new_comment.id)
+                                                                                          deleteAction: delete_comments_path(comment_id: new_comment.id)
                                                                                         }])
         end
       end
