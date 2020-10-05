@@ -610,5 +610,14 @@
     "link_name": "camila-campos",
     "link": "https://twitter.com/camposmilaa",
     "social": "twitter"
+  },
+  {
+    "name": "Udayan Shevade",
+    "image": "/assets/contributors/udayan_shevade.png",
+    "profile": "I came across if-me.org and loved everything about it: an open-source project to help people be more open in their lives. I've watched close ones struggle and I haven't always known how to help. I've been on the other side of that too. A collaborative approach to mental health, in which people can process their struggles on their own terms and connect with the people in their lives, is necessary. I'm happy to contribute in any way I can.",
+    "location": "San Diego, USA",
+    "link_name": "udayanshevade",
+    "link": "https://github.com/udayanshevade",
+    "social": "github"
   }
 ]
