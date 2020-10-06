@@ -1,5 +1,6 @@
 // @flow
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { InputMocks } from 'mocks/InputMocks';
 import { InputSubmit } from 'components/Input/InputSubmit';
@@ -13,13 +14,23 @@ describe('InputSubmit', () => {
     jest.spyOn(window, 'alert');
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('toggles clicking correctly', () => {
-    const wrapper = shallow(
-      <InputSubmit id={id} onClick={someEvent} value={value} />,
-    );
-    wrapper.find('input').simulate('click');
+    render(<InputSubmit id={id} onClick={someEvent} value={value} />);
+    const button = screen.getByRole('button', { name: value });
+    userEvent.click(button);
     expect(window.alert).toHaveBeenCalled();
-    wrapper.find('input').simulate('click');
+    userEvent.click(button);
     expect(window.alert).toHaveBeenCalled();
+  });
+
+  it('does not toggle if disabled', () => {
+    render(<InputSubmit id={id} onClick={someEvent} value={value} disabled />);
+    const button = screen.getByRole('button', { name: value });
+    userEvent.click(button);
+    expect(window.alert).not.toHaveBeenCalled();
   });
 });
