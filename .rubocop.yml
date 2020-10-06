@@ -11,6 +11,7 @@ AllCops:
     - 'spec/**/*'
     - 'client/node_modules/**/*'
     - 'vendor/**/*'
+    - 'Gemfile'
 
 Style/Documentation:
   Enabled: false
