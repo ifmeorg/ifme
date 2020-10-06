@@ -66,6 +66,7 @@ group :development, :test do
   gem 'byebug'
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'rack-mini-profiler'
 
   gem 'capybara', '~> 3.24.0'
   gem 'factory_bot_rails'
