@@ -1,5 +1,5 @@
 // @flow
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { InputLabel } from 'components/Input/InputLabel';
 
@@ -8,9 +8,9 @@ const info = 'Some Info';
 
 describe('InputLabel', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(
+    render(
       <InputLabel label={label} required info={info} error htmlFor="id" />,
     );
-    expect(wrapper.find('.labelText').exists()).toEqual(true);
+    expect(screen.getByText(label)).toBeInTheDocument();
   });
 });
