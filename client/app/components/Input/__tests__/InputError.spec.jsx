@@ -1,16 +1,16 @@
 // @flow
-import { shallow } from 'enzyme';
 import React from 'react';
+import { render, screen } from '@testing-library/react';
 import { InputError } from 'components/Input/InputError';
 
 describe('InputError', () => {
   it('renders correctly when error does not exist', () => {
-    const wrapper = shallow(<InputError />);
-    expect(wrapper.find('.labelError').exists()).toEqual(false);
+    render(<InputError />);
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
   });
 
   it('renders correctly when error exists', () => {
-    const wrapper = shallow(<InputError error="true" />);
-    expect(wrapper.find('.labelError').exists()).toEqual(true);
+    render(<InputError error="true" />);
+    expect(screen.getByRole('alert')).toBeInTheDocument();
   });
 });
