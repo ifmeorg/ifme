@@ -11,7 +11,6 @@ class GroupsController < ApplicationController
   # GET /groups.json
   def index
     @groups = current_user.groups
-                          .includes(:group_members)
                           .order('groups.created_at DESC')
     @page_new = t('groups.new')
     @available_groups = current_user.available_groups('groups.created_at DESC')
@@ -82,7 +81,7 @@ class GroupsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_group
-    @group = Group.friendly.find(params[:id])
+    @group = Group.includes(:leaders).friendly.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     redirect_to_path(groups_path)
   end
