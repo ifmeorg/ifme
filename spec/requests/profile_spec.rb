@@ -9,32 +9,34 @@ describe "Profile", type: :request do
 
     context "when user is logged in" do
       let(:user) { create(:user1) }
-      before { sign_in user1 }
-      it "renders index template" do
-        get profile_index_path, params: {uid: user1.uid}
-        expect(response).to render_template(:index)
+      before { sign_in user }
+      it "responds successfully" do
+        get profile_index_path, params: {uid: user.uid}
+        expect(response).to be_successful
       end
 
       context "when profile belongs to logged in user" do
-        it "assigns profile instance to be that of logged in user" do
-          get profile_index_path, params: {uid: user1.uid}
-          expect(assigns(:profile)).to eq(user1)
+        it "returns that users profile" do
+          get profile_index_path, params: {uid: user.uid}
+          expect(response.body).to include(user.name)
         end
 
         context "when user has no moments and strategies" do
-          it "assigns stories instance with an empty array" do
-            get profile_index_path, params: {uid: user1.uid}
-            expect(assigns(:stories)).to match_array([])
+          it "does not have the Stories section" do
+            get profile_index_path, params: {uid: user.uid}
+            expect(response.body).to_not include("Stories")
           end
         end
 
         context "when user has moments or strategies" do
-          it "assigns stories instance with user moments or strategies" do
-            stories = [build_stubbed(:moment), build_stubbed(:strategy)]
-            allow_any_instance_of(ProfileController)
-              .to receive(:get_stories).and_return(stories)
-            get profile_index_path, params: {uid: user1.uid}
-            expect(assigns(:stories)).to match_array(stories)
+          it "has the Stories section" do
+            moment = create(:moment, user: user)
+            strategy = create(:strategy, user: user)
+
+            get profile_index_path, params: {uid: user.uid}
+            expect(response.body).to include("Stories")
+            expect(response.body).to include(moment.name)
+            expect(response.body).to include(strategy.name)
           end
         end
       end
@@ -47,19 +49,19 @@ describe "Profile", type: :request do
           get profile_index_path, params: {uid: profile_owner.uid}
         end
 
-        it "does not assign stories" do
-          expect(assigns(:stories)).to be_nil
+        it "does not have the Stories section" do
+          expect(response.body).to_not include("Stories")
         end
 
-        it "assigns profile instance to profile owner" do
-          expect(assigns(:profile)).to eq(profile_owner)
+        it "returns the profile for the owner" do
+          expect(response.body).to include(profile_owner.name)
         end
       end
     end
   end
 
   describe "#data" do
-    let!(:user) { create(:user) }
+    let(:user) { create(:user) }
     let!(:moment) { create(:moment, user: user) }
 
     context "when the user is signed in" do
@@ -101,21 +103,21 @@ describe "Profile", type: :request do
 
       context "when user exists" do
         it "bans the user" do
-          sign_in user1
-          post add_ban_profile_index_path, params: {user_id: user2.id}
+          sign_in admin_user
+          expect { post add_ban_profile_index_path, params: {user_id: user2.id} }
+            .to change(Devise.mailer.deliveries, :count).by 1
           expect(response).to redirect_to(admin_dashboard_path)
           expect(flash[:notice]).to eq("#{user2.name} has been banned")
-          expect(Devise.mailer.deliveries.count).to eq(1)
         end
       end
 
       context "when user does not exist" do
         it "does not ban the user" do
-          sign_in user1
-          post add_ban_profile_index_path, params: {user_id: -1}
+          sign_in admin_user
+          expect { post add_ban_profile_index_path, params: {user_id: -1} }
+            .not_to change(Devise.mailer.deliveries, :count).from(0)
           expect(response).to redirect_to(admin_dashboard_path)
           expect(flash[:alert]).to eq("Could not ban -1")
-          expect(Devise.mailer.deliveries.count).to eq(0)
         end
       end
     end
@@ -130,10 +132,10 @@ describe "Profile", type: :request do
       let(:nonadmin_user) { create(:user1) }
 
       it "cannot ban user" do
-        sign_in user1
-        post remove_ban_profile_index_path, params: {user_id: user2.id}
-        expect(response.status).to eq(204)
-        expect(Devise.mailer.deliveries.count).to eq(0)
+        sign_in nonadmin_user
+        expect { post remove_ban_profile_index_path, params: {user_id: banned_user.id} }
+          .not_to change(Devise.mailer.deliveries, :count).from(0)
+        expect(response).to have_http_status(204)
       end
     end
 
@@ -142,21 +144,21 @@ describe "Profile", type: :request do
 
       context "when user exists" do
         it "removes ban" do
-          sign_in user1
-          post remove_ban_profile_index_path, params: {user_id: user2.id}
+          sign_in admin_user
+          expect { post remove_ban_profile_index_path, params: {user_id: banned_user.id} }
+            .to change(Devise.mailer.deliveries, :count).by(1)
           expect(response).to redirect_to(admin_dashboard_path)
-          expect(flash[:notice]).to eq("Ban removed on #{user2.name}")
-          expect(Devise.mailer.deliveries.count).to eq(1)
+          expect(flash[:notice]).to eq("Ban removed on #{banned_user.name}")
         end
       end
 
       context "when user does not exist" do
         it "does not remove ban" do
-          sign_in user1
-          post remove_ban_profile_index_path, params: {user_id: -1}
+          sign_in admin_user
+          expect { post remove_ban_profile_index_path, params: {user_id: -1} }
+            .not_to change(Devise.mailer.deliveries, :count).from(0)
           expect(response).to redirect_to(admin_dashboard_path)
           expect(flash[:alert]).to eq("Could not remove ban on -1")
-          expect(Devise.mailer.deliveries.count).to eq(0)
         end
       end
     end
