@@ -9,9 +9,7 @@ describe('InputSwitch', () => {
   it('renders correctly', () => {
     render(component);
     expect(screen.getByRole('switch')).toBeInTheDocument();
-    expect(
-      screen.getByRole('checkbox', { hidden: true }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole('checkbox', { hidden: true })).toBeInTheDocument();
   });
 
   describe('with mouse', () => {
@@ -36,6 +34,11 @@ describe('InputSwitch', () => {
 
       expect(screen.getByRole('checkbox')).not.toBeChecked();
 
+      /**
+       * TODO: Follow up on `userEvent.type(inputSwitch, '{enter}')` in v12.1.7.
+       * Temporarily including `fireEvent` from RTL, for which the switch must have focus first:
+       * https://github.com/testing-library/react-testing-library/issues/376#issuecomment-541242684
+       */
       fireEvent.focus(inputSwitch);
       fireEvent.keyDown(inputSwitch, { key: 'Enter' });
       expect(screen.getByRole('checkbox')).toBeChecked();

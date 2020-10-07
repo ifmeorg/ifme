@@ -128,7 +128,7 @@ export function InputTag({
 
   const shouldRenderSuggestions = () => true;
 
-  const onKeyPress = (e: SyntheticKeyboardEvent<HTMLInputElement>) => {
+  const onKeyDown = (e: SyntheticKeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && onChange) {
       e.preventDefault();
       onChange({ label: autocompleteLabel, checkboxes });
@@ -156,7 +156,7 @@ export function InputTag({
         onChange: onAutocompleteChange,
         value: autocompleteLabel || '',
         className: `tagAutocomplete ${inputCss.tagAutocomplete}`,
-        onKeyPress,
+        onKeyDown,
         placeholder,
       }}
     />
