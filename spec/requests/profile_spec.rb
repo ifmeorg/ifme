@@ -8,7 +8,7 @@ describe "Profile", type: :request do
     end
 
     context "when user is logged in" do
-      let(:user1) { create(:user1) }
+      let(:user) { create(:user1) }
       before { sign_in user1 }
       it "renders index template" do
         get profile_index_path, params: {uid: user1.uid}
