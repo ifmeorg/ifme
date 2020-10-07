@@ -91,13 +91,13 @@ describe "Profile", type: :request do
       it "cannot ban user" do
         sign_in user1
         post add_ban_profile_index_path, params: {user_id: user2.id}
-        expect(response.status).to eq(204)
+        expect(response).to have_http_status(204)
         expect(Devise.mailer.deliveries.count).to eq(0)
       end
     end
 
     context "when admin exists" do
-      let(:user1) { create(:user1, admin: true) }
+      let(:admin_user) { create(:user1, admin: true) }
 
       context "when user exists" do
         it "bans the user" do
@@ -122,12 +122,12 @@ describe "Profile", type: :request do
   end
 
   describe "#remove_ban" do
-    let(:user2) { create(:user2, banned: true) }
+    let(:banned_user) { create(:user2, banned: true) }
 
     before(:each) { Devise.mailer.deliveries.clear }
 
     context "when admin does not exist" do
-      let(:user1) { create(:user1) }
+      let(:nonadmin_user) { create(:user1) }
 
       it "cannot ban user" do
         sign_in user1
@@ -138,7 +138,7 @@ describe "Profile", type: :request do
     end
 
     context "when admin exists" do
-      let(:user1) { create(:user1, admin: true) }
+      let(:admin_user) { create(:user1, admin: true) }
 
       context "when user exists" do
         it "removes ban" do
