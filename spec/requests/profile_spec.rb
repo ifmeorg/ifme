@@ -104,10 +104,10 @@ describe "Profile", type: :request do
       context "when user exists" do
         it "bans the user" do
           sign_in admin_user
-          expect { post add_ban_profile_index_path, params: {user_id: user2.id} }
+          expect { post add_ban_profile_index_path, params: {user_id: user.id} }
             .to change(Devise.mailer.deliveries, :count).by 1
           expect(response).to redirect_to(admin_dashboard_path)
-          expect(flash[:notice]).to eq("#{user2.name} has been banned")
+          expect(flash[:notice]).to eq("#{user.name} has been banned")
         end
       end
 
