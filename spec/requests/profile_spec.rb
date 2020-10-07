@@ -83,16 +83,16 @@ describe "Profile", type: :request do
   end
 
   describe "#add_ban" do
-    let(:user2) { create(:user2) }
+    let(:user) { create(:user2) }
 
     before(:each) { Devise.mailer.deliveries.clear }
 
     context "when admin does not exist" do
-      let(:user1) { create(:user1) }
+      let(:non_admin_user) { create(:user1) }
 
       it "cannot ban user" do
-        sign_in user1
-        post add_ban_profile_index_path, params: {user_id: user2.id}
+        sign_in non_admin_user
+        post add_ban_profile_index_path, params: {user_id: user.id}
         expect(response).to have_http_status(204)
         expect(Devise.mailer.deliveries.count).to eq(0)
       end
