@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Utils } from 'utils';
-import { StoryContainer } from 'components/BaseContainer/StoryContainer';
+import StoryContainer from 'components/BaseContainer/StoryContainer';
 import { LoadMoreButton } from 'components/LoadMoreButton';
 
 export type Props = {
