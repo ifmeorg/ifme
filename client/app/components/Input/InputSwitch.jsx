@@ -37,7 +37,7 @@ export function InputSwitch({
     setKey(Utils.randomString());
   };
 
-  const onKeyPress = (e: SyntheticKeyboardEvent<HTMLInputElement>) => {
+  const onKeyDown = (e: SyntheticKeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       toggleChecked();
     }
@@ -48,7 +48,6 @@ export function InputSwitch({
       <InputCheckbox
         id={id}
         key={key}
-        type="checkbox"
         name={name}
         label={label}
         value={value}
@@ -70,7 +69,7 @@ export function InputSwitch({
       id={`${id}_switch`}
       className={`switchToggle ${css.switchToggle}`}
       onClick={toggleChecked}
-      onKeyPress={onKeyPress}
+      onKeyDown={onKeyDown}
       role="switch"
       aria-checked={checked}
       tabIndex={0}
