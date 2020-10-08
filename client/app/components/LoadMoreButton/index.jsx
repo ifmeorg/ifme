@@ -6,19 +6,17 @@ import css from './LoadMoreButton.scss';
 export type Props = {
   onClick?: () => void,
 };
-export class LoadMoreButton extends React.Component<Props> {
-  render() {
-    const { onClick } = this.props;
-    return (
-      <center>
-        <button
-          type="button"
-          className={`loadMore ${css.buttonDarkM}`}
-          onClick={onClick}
-        >
-          {I18n.t('load_more')}
-        </button>
-      </center>
-    );
-  }
-}
+
+const LoadMoreButton = ({ onClick }: Props) => (
+  <div className={css.container}>
+    <button
+      type="button"
+      className={`loadMore ${css.buttonDarkM}`}
+      onClick={onClick}
+    >
+      {I18n.t('load_more')}
+    </button>
+  </div>
+);
+
+export { LoadMoreButton };
