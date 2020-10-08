@@ -2,6 +2,7 @@
     "extends": "stylelint-config-standard",
     "ignoreFiles": ["../node_modules/**/*.scss", "./node_modules/**/*.scss"],
     "rules": {
-        "at-rule-no-unknown": null
+        "at-rule-no-unknown": null,
+        "no-descending-specificity": null
     }
 }
