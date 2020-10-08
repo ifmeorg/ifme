@@ -47,7 +47,7 @@ describe('InputSelect', () => {
         onChange={someEvent}
       />,
     );
-    // initial value
+    // toggle the first value
     const select = screen.getByRole('combobox', { name: ariaLabel });
     userEvent.selectOptions(
       select,
@@ -56,7 +56,7 @@ describe('InputSelect', () => {
     expect(window.alert).toHaveBeenCalled();
     expect(select.value).toEqual(`${options[0].value}`);
 
-    // update value
+    // update the value
     userEvent.selectOptions(
       select,
       screen.getByRole('option', { name: options[1].label }),

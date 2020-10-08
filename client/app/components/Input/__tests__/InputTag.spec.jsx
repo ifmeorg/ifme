@@ -21,15 +21,17 @@ describe('InputTag', () => {
     userEvent.type(input, 'Two');
     userEvent.click(input);
 
+    const queryOptions = { name: checkboxLabelTwo };
+    let checkbox = screen.queryByRole('checkbox', queryOptions);
     // at this point the checkbox for the option should still not be visible
-    expect(
-      screen.queryByRole('checkbox', { name: checkboxLabelTwo }),
-    ).not.toBeInTheDocument();
+    expect(checkbox).not.toBeInTheDocument();
+
     // but after selecting the option, its associated checkbox should exist
-    userEvent.click(screen.getByRole('option', { name: checkboxLabelTwo }));
-    expect(
-      screen.getByRole('checkbox', { name: checkboxLabelTwo }),
-    ).toBeInTheDocument();
+    const option = screen.getByRole('option', queryOptions);
+    userEvent.click(option);
+
+    checkbox = screen.getByRole('checkbox', queryOptions);
+    expect(checkbox).toBeInTheDocument();
   });
 
   it('un-check existing value and retype and select it', () => {
@@ -42,24 +44,23 @@ describe('InputTag', () => {
     expect(combobox).toBeInTheDocument();
     expect(input).toBeInTheDocument();
 
+    const queryOptions = { name: checkboxLabelOne };
     // toggle off the target option's checkbox, so we can test re-selecting it below
-    const checkbox = screen.getByRole('checkbox', { name: checkboxLabelOne });
+    let checkbox = screen.getByRole('checkbox', queryOptions);
     expect(checkbox).toBeInTheDocument();
     userEvent.click(checkbox);
     // after toggling it, the checkbox should disappear
-    expect(
-      screen.queryByRole('checkbox', { name: checkboxLabelOne }),
-    ).not.toBeInTheDocument();
+    checkbox = screen.queryByRole('checkbox', queryOptions);
+    expect(checkbox).not.toBeInTheDocument();
 
     // search for the option and re-select it
     userEvent.type(input, 'One');
     userEvent.click(input);
-    expect(
-      screen.queryByRole('checkbox', { name: checkboxLabelOne }),
-    ).not.toBeInTheDocument();
-    userEvent.click(screen.getByRole('option', { name: checkboxLabelOne }));
-    expect(
-      screen.getByRole('checkbox', { name: checkboxLabelOne }),
-    ).toBeInTheDocument();
+    checkbox = screen.queryByRole('checkbox', queryOptions);
+    expect(checkbox).not.toBeInTheDocument();
+    const option = screen.getByRole('option', queryOptions);
+    userEvent.click(option);
+    checkbox = screen.getByRole('checkbox', queryOptions);
+    expect(checkbox).toBeInTheDocument();
   });
 });

@@ -14,12 +14,13 @@ describe('InputPassword', () => {
 
     const input = screen.getByLabelText(label);
     expect(input).toBeInTheDocument();
-    expect(input.type).toEqual('password');
+    expect(input).toHaveAttribute('type', 'password');
 
     const button = screen.getByRole('button', { name: 'Show password' });
     expect(button).toBeInTheDocument();
+
     userEvent.click(button);
-    expect(input.type).toEqual('text');
+    expect(input).toHaveAttribute('type', 'text');
     expect(
       screen.getByRole('button', { name: 'Hide password' }),
     ).toBeInTheDocument();
@@ -48,7 +49,8 @@ describe('InputPassword', () => {
     describe('on input focus', () => {
       it('has no error', () => {
         render(component);
-        userEvent.click(screen.getByLabelText(label));
+        const input = screen.getByLabelText(label);
+        userEvent.click(input);
         expect(window.alert).not.toHaveBeenCalled();
       });
     });
@@ -100,7 +102,8 @@ describe('InputPassword', () => {
     describe('on input focus', () => {
       it('has no error', () => {
         render(component);
-        userEvent.click(screen.getByLabelText(label));
+        const input = screen.getByLabelText(label);
+        userEvent.click(input);
         expect(window.alert).toHaveBeenCalledWith(false);
       });
     });
@@ -112,7 +115,8 @@ describe('InputPassword', () => {
 
       it('has an error when there is no value', () => {
         render(component);
-        userEvent.clear(screen.getByLabelText(label));
+        const input = screen.getByLabelText(label);
+        userEvent.clear(input);
         userEvent.tab();
         expect(window.alert).toHaveBeenCalledWith(true);
       });

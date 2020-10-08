@@ -67,8 +67,15 @@ describe('InputDefault', () => {
   });
 
   describe('has valid copyOnClick prop', () => {
-    it('copies to clipboard when input is clicked', () => {
+    beforeEach(() => {
       jest.spyOn(window.document, 'execCommand');
+    });
+
+    afterEach(() => {
+      window.document.execCommand.mockRestore();
+    });
+
+    it('copies to clipboard when input is clicked', () => {
       const copyOnClick = 'Some message';
       render(
         <InputDefault

@@ -7,10 +7,10 @@ import css from '../Input.scss';
 /**
  * TODO: Follow up on an issue when using the matcher `.toBeVisible()` on the inputs directly.
  * The components behave correctly, but the computed styles don't seem to correspond.
- * Even if the accordion is closed, and uses the class 'accordionClosed', the actual style returns
+ * Even if the accordion is closed, and uses the class 'accordionClose', the actual style returns
  * a visible value for the 'display' property, as opposed to the expected value 'none'.
  * This is also seen with the helper `.toHaveStyle()` (in @testing-library/jest-dom@5.11.4).
- * For now, checking whether div["role='region'"] from Accordion has the class 'accordionClosed'.
+ * For now, checking whether div["role='region'"] from Accordion has the class 'accordionClose'.
  */
 
 describe('Input', () => {

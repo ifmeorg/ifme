@@ -65,7 +65,7 @@ describe('InputCheckbox', () => {
       // Since '@testing-library/react' does not get hidden inputs,
       // it can be queried directly from the container for this test.
       const hiddenInput = container.querySelector('input[type="hidden"]');
-      expect(hiddenInput.value).toEqual(uncheckedValue);
+      expect(hiddenInput).toHaveValue(uncheckedValue);
 
       // validates checkbox behavior
       const checkbox = screen.getByRole('checkbox', { name: label });

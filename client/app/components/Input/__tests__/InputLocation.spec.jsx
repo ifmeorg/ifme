@@ -13,7 +13,7 @@ describe('InputLocation', () => {
       const value = 'Test Location';
       const autocomplete = screen.getByRole('textbox');
       userEvent.type(autocomplete, value);
-      expect(autocomplete.value).toEqual(value);
+      expect(autocomplete).toHaveValue(value);
     });
   });
 
@@ -33,7 +33,7 @@ describe('InputLocation', () => {
       userEvent.clear(autocomplete);
       const value = 'Test Location';
       userEvent.type(autocomplete, value);
-      expect(autocomplete.value).toEqual(value);
+      expect(autocomplete).toHaveValue(value);
     });
   });
 });

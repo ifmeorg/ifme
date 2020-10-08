@@ -13,9 +13,10 @@ describe('InputRadioGroup', () => {
     render(
       <InputRadioGroup name={name} id={id} value={value} options={options} />,
     );
-    expect(screen.getByRole('radiogroup')).toBeInTheDocument();
+    const radioGroup = screen.getByRole('radiogroup');
+    expect(radioGroup).toBeInTheDocument();
     const defaultOption = screen.getByRole('radio', { name: `${value}` });
     expect(defaultOption).toBeInTheDocument();
-    expect(defaultOption.defaultChecked).toBe(true);
+    expect(defaultOption.defaultChecked).toEqual(true);
   });
 });
