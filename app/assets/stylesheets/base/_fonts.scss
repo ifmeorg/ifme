@@ -1,5 +1,6 @@
 @mixin setFontSize($font-size) {
   font-size: $font-size;
+
   @media screen and (max-width: $medium) {
     font-size: $font-size - $size-2;
   }

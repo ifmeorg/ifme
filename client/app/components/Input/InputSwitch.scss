@@ -2,6 +2,7 @@
 
 .switch {
   @include setFontSize($size-16);
+
   display: inline-block;
   width: 114px;
 
@@ -14,12 +15,14 @@
 
   &On {
     @include linearTransition(0.5s);
+
     background: $key-lime;
     justify-content: flex-end;
   }
 
   &Off {
     @include linearTransition(0.5s);
+
     background: $mulberry-70;
   }
 

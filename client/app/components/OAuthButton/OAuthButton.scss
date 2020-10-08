@@ -16,11 +16,11 @@
   &Google {
     font-family: 'Roboto', sans-serif;
     background-color: #4285f4;
-    letter-spacing: .21px;
-    box-shadow: 0 $size-2 $size-4 0 rgba(0, 0, 0, .25);
+    letter-spacing: 0.21px;
+    box-shadow: 0 $size-2 $size-4 0 rgba(0, 0, 0, 0.25);
 
     &:hover {
-      box-shadow: 0 0 3px 3px rgba(66, 133, 244, .3);
+      box-shadow: 0 0 3px 3px rgba(66, 133, 244, 0.3);
     }
 
     > img {
@@ -33,7 +33,7 @@
   }
 
   &Facebook {
-    background-color: #1877F2;
+    background-color: #1877f2;
     font-weight: bold;
     padding: 0 $size-20;
 
