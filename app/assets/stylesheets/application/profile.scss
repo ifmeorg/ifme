@@ -8,11 +8,14 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+
   &Info {
     margin-left: $size-20;
+
     > div {
       @include setMargin($size-0, $size-0, $size-10, $size-0);
     }
+
     > div:last-of-type {
       margin: $size-0;
     }

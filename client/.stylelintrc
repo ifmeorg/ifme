@@ -1,4 +1,8 @@
 {
     "extends": "stylelint-config-standard",
-    "ignoreFiles": ["../node_modules/**/*.scss", "./node_modules/**/*.scss"]
+    "ignoreFiles": ["../node_modules/**/*.scss", "./node_modules/**/*.scss", "./app/styles/_global_font.scss"],
+    "rules": {
+        "at-rule-no-unknown": null,
+        "no-descending-specificity": null
+    }
 }

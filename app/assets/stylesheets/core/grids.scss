@@ -17,8 +17,10 @@
 
 @mixin gridTwoItem() {
   @include setMargin($size-0, $size-0, $size-20, $size-0);
+
   box-sizing: border-box;
   width: calc(50% - 20px);
+
   @media screen and (max-width: $medium) {
     width: 100%;
     padding: $size-10;
@@ -27,8 +29,10 @@
 
 @mixin gridThreeItem() {
   @include setMargin($size-0, $size-0, $size-20, $size-0);
+
   box-sizing: border-box;
   width: calc(33% - 20px);
+
   @media screen and (max-width: $medium) {
     width: 100%;
     padding: $size-10;
@@ -37,18 +41,21 @@
 
 @mixin gridThreeItemAlways() {
   @include gridThreeItem();
+
   @media screen and (max-width: $medium) {
     width: calc(33% - 20px);
-  	padding: 0;
+    padding: 0;
   }
 }
 
 @mixin gridItemBox() {
   @include setMargin($size-0, $size-0, $size-40, $size-0);
+
   box-sizing: border-box;
   padding: $size-20;
   box-shadow: $size-0 $size-2 $size-10 $black-10;
   border-radius: $size-4;
+
   @media screen and (max-width: $medium) {
     padding: $size-10;
   }
@@ -56,33 +63,42 @@
 
 @mixin gridItemBoxLight() {
   @include gridItemBox();
+
   background: $white;
   color: $black;
+
   h1,
   h1 > a {
     @include gridH1();
+
     color: $mulberry;
   }
 }
 
 @mixin gridItemBoxDark() {
   @include gridItemBox();
+
   background: $mulberry;
   color: $white;
+
   h1,
   h1 > a {
     @include gridH1();
+
     color: $white;
   }
 }
 
 @mixin gridItemBoxGhost() {
   @include gridItemBox();
+
   background: $black-20;
   color: $white;
+
   h1,
   h1 > a {
     @include gridH1();
+
     color: $white;
   }
 }
@@ -92,9 +108,11 @@
     &BoxLight {
       @include gridItemBoxLight();
     }
+
     &BoxDark {
       @include gridItemBoxDark();
     }
+
     &BoxGhost {
       @include gridItemBoxGhost();
     }
@@ -102,16 +120,20 @@
 
   &Two {
     @include grid();
+
     &Item {
       @include gridTwoItem();
+
       &BoxLight {
         @include gridTwoItem();
         @include gridItemBoxLight();
       }
+
       &BoxDark {
         @include gridTwoItem();
         @include gridItemBoxDark();
       }
+
       &BoxGhost {
         @include gridTwoItem();
         @include gridItemBoxGhost();
@@ -121,16 +143,20 @@
 
   &Three {
     @include grid();
+
     &Item {
       @include gridThreeItem();
+
       &BoxLight {
         @include gridThreeItem();
         @include gridItemBoxLight();
       }
+
       &BoxDark {
         @include gridThreeItem();
         @include gridItemBoxDark();
       }
+
       &BoxGhost {
         @include gridThreeItem();
         @include gridItemBoxGhost();
@@ -140,17 +166,22 @@
 
   &ThreeAlways {
     @include grid();
+
     align-items: center;
+
     &Item {
       @include gridThreeItemAlways();
+
       &BoxLight {
         @include gridThreeItem();
         @include gridItemBoxLight();
       }
+
       &BoxDark {
         @include gridThreeItem();
         @include gridItemBoxDark();
       }
+
       &BoxGhost {
         @include gridThreeItem();
         @include gridItemBoxGhost();
@@ -162,6 +193,7 @@
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
+
     &Item {
       @include setMargin($size-10, $size-10, $size-10, $size-10);
     }
@@ -169,12 +201,15 @@
 
   &Row {
     @include gridRow();
+
     @media screen and (max-width: $small) {
       flex-direction: column;
       text-align: center;
     }
+
     &SpaceBetween {
       @include gridRow();
+
       flex-wrap: wrap;
       justify-content: space-between;
     }

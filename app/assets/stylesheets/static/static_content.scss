@@ -19,6 +19,7 @@
   .pageTitle {
     @include setFontSize($size-36);
     @include setMargin($size-0, $size-0, $size-50, $size-0);
+
     text-align: center;
     font-weight: $font-weight-300;
   }
@@ -26,12 +27,14 @@
   .subtitle {
     @include setFontSize($size-24);
     @include setMargin($size-40, $size-0, $size-40, $size-0);
+
     text-align: center;
   }
 
   h1 {
     @include setFontSize($size-26);
     @include setMargin($size-0, $size-0, $size-20, $size-0);
+
     font-weight: $font-weight-300;
   }
 
@@ -43,6 +46,7 @@
     &Main {
       @include setFontSize($size-32);
       @include setMargin(auto, auto, $size-60, auto);
+
       font-weight: $font-weight-300;
       width: 70%;
       text-align: center;
@@ -64,6 +68,7 @@
 
     &Body {
       @include setMargin(auto, auto, $size-50, auto);
+
       width: 70%;
       text-align: center;
 
@@ -114,6 +119,7 @@
         text-align: right;
       }
     }
+
     &Content {
       flex-grow: 1;
 
@@ -151,6 +157,7 @@
 
   .partner {
     @include setMargin($size-0, $size-0, $size-40, $size-0);
+
     text-align: center;
 
     img {

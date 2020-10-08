@@ -2,6 +2,7 @@
 
 .avatar {
   @include setFontSize($size-20);
+
   display: inline-block;
   text-align: center;
 }
@@ -18,6 +19,7 @@
 
 .large {
   @include setFontSize($size-22);
+
   .image {
     height: 150px;
     width: 150px;
@@ -26,6 +28,7 @@
 
 .small {
   @include setFontSize($size-18);
+
   .image {
     height: 50px;
     width: 50px;

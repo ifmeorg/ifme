@@ -3,6 +3,7 @@ label {
   @include setMargin($size-0, $size-0, $size-10, $size-0);
   @include setFontSize($size-16);
   @include linearTransition(0.25s);
+
   letter-spacing: 0.095em;
   text-transform: uppercase;
   font-weight: $font-weight-400;
@@ -10,6 +11,7 @@ label {
   width: auto;
 }
 
-.label i, .sidebar_label i {
+.label i,
+.sidebar_label i {
   opacity: 0.5;
 }
