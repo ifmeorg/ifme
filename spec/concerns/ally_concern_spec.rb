@@ -19,7 +19,7 @@ describe AllyConcern, type: :model do
       context 'ally is banned' do
         let(:banned) { true }
 
-        it 'returns true' do
+        it 'returns false' do
           expect(user1.ally?(user2)).to eq(false)
         end
       end

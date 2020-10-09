@@ -16,7 +16,7 @@ describe PasswordValidator, type: :model do
     context 'when Google auth is enabled' do
       let(:user) { build(:user_oauth) }
 
-      it "doesn't throw any errors even if the password strength is less" do
+      it "doesn't throw any errors even if the password strength is weak" do
         user.password = 'warsdasdf'
         user.token = 'access token'
         expect(user.valid?).to be true
@@ -40,8 +40,8 @@ describe PasswordValidator, type: :model do
       end
     end
 
-    context 'previous three password' do
-      it 'does saves on update and does not allows them as new password' do
+    context 'previous three passwords' do
+      it 'stores them in password_histories and forbids them as a new password' do
         password1 = 'Password@1'
         user.password = password1
         user.save
@@ -54,38 +54,38 @@ describe PasswordValidator, type: :model do
           user.password = password
           user.save
           expect(user.reload.password_histories.count).to eq(expected_histories + index),
-                                                          'Expected to create password history when password changes'
+                                                          'Expected to add to password history when password is changed'
         end
 
         password4 = 'Password@4'
         user.password = password4
         user.save
         expect(user.reload.password_histories.count).to eq(3),
-                                                        'Expected to delete the old password history when the count reaches 3'
+                                                        'Expected to only preserve in history the three previous passwords'
 
         (passwords_2_3 + [password4]).each do |password|
           user.password = password
           saved = user.valid?
           expect(user.valid?).to be(false),
-                                 'Expected user to be invalid if the password is one of the previous three password'
+                                 'Expected user to be invalid if password is one of the previous three'
           expect(user.errors[:password]).to include(I18n.t('devise.registrations.password_errors.used'))
         end
 
         user.password = password1
         expect(user.valid?).to be(true),
-                               'Expected user to be valid if the password is previous, but not from last three'
+                               'Expected user to be valid if password was used three or more passwords ago'
 
         new_password = 'Password@5'
         user.password = new_password
         expect(user.valid?).to be(true),
-                               'Expected user to be valid if the password is not previous password'
+                               'Expected user to be valid if the password was not previously used'
       end
     end
   end
 
-  context '#password_needs_update' do
-    # As password_histories feature was not present initially, all existing users will not have passoword_histories.
-    # User who are created after adding this feature will get a password history automatically, after creation.
+  context '#password_needs_update?' do
+    # As the password_histories feature was not present initially, not all existing users will have password_histories.
+    # Only users who were created after the addition of this feature will have password_histories.
     context 'without any histories' do
       before do
         allow_any_instance_of(User).to receive(:outdated_password?)
@@ -127,7 +127,7 @@ describe PasswordValidator, type: :model do
         expect(user.password_needs_update?).to be true
       end
 
-      it 'returns false when password updated less than 12 months ago' do
+      it 'returns false when password was updated less than 12 months ago' do
         allow_any_instance_of(PasswordHistory).to receive(:created_at)
           .and_return(
             Time.now.in_time_zone - (PasswordValidator::PASSWORD_VALIDITY_MONTHS.months - 10.minutes)
