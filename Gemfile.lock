@@ -240,10 +240,10 @@ GEM
       rack (>= 1.6.2, < 3)
     omniauth-facebook (7.0.0)
       omniauth-oauth2 (~> 1.2)
-    omniauth-google-oauth2 (0.7.0)
+    omniauth-google-oauth2 (0.8.0)
       jwt (>= 2.0)
       omniauth (>= 1.1.1)
-      omniauth-oauth2 (>= 1.5)
+      omniauth-oauth2 (>= 1.6)
     omniauth-oauth2 (1.7.0)
       oauth2 (~> 1.4)
       omniauth (~> 1.9)
@@ -548,7 +548,7 @@ DEPENDENCIES
   kaminari (= 1.2.1)
   letter_opener
   omniauth-facebook
-  omniauth-google-oauth2 (~> 0.7.0)
+  omniauth-google-oauth2 (~> 0.8.0)
   omniauth-rails_csrf_protection (~> 0.1.2)
   pg (= 1.1.4)
   premailer-rails
