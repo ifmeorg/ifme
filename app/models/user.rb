@@ -71,12 +71,10 @@ class User < ApplicationRecord
   has_many :moments
   has_many :categories
   has_many :care_plan_contacts
-  has_many :password_histories, dependent: :destroy
   belongs_to :invited_by, class_name: 'User'
 
   after_initialize :set_defaults, unless: :persisted?
   before_save :remove_leading_trailing_whitespace
-  after_save :create_password_history
 
   validates :name, presence: true
   validates :locale, inclusion: {
