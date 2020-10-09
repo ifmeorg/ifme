@@ -1028,9 +1028,7 @@ fr:
         de fournir une adresse email et un nouveau mot de passe.
       password_errors:
         format: >-
-          doit contenir de 8 à 128 caractères, dont 1 majuscule, 1 minuscule, 1
-          chiffre et 1 caractère spécial.
-        used: doit être différent des trois derniers mots de passe.
+          doit contenir de 8 à 128.
       placeholders:
         repeat_password: Répetez mot de passe
       edit:

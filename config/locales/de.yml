@@ -1068,9 +1068,7 @@ de:
         E-Mail und ein Passwort ein.
       password_errors:
         format: >-
-          sollte 8 bis 128 Zeichen enthalten, einschließlich 1 Großbuchstabe, 1
-          Kleinbuchstabe, 1 Ziffer und 1 Sonderzeichen.
-        used: muss sich von deinen letzten drei Passwörtern unterscheiden.
+          sollte 8 bis 128 Zeichen enthalten.
       placeholders:
         repeat_password: Passwort wiederholen
       edit:

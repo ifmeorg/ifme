@@ -790,8 +790,7 @@ zh-CN:
         由于您已通过Facebook验证，因此无需输入密码。 <br>如果您想更改此密码，
         请输入新的电子邮件和密码。
       password_errors:
-        format: 应包含8到128个字符，包括1个大写字母，1个小写字母，1个数字和1个特殊字符。
-        used: 必须与以前用的三个密码不同。
+        format: 应包含8到128个字符。
       placeholders:
         repeat_password: 再次输入新密码
       edit:

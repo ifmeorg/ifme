@@ -987,9 +987,7 @@ it:
         una nuova EMail e password.
       password_errors:
         format: >-
-          dovrebbe contenere da 8 a 128 caratteri, inclusi 1 maiuscolo, 1
-          minuscolo, 1 carattere e 1 carattere speciale.
-        used: deve essere diverso dalle ultime tre password.
+          dovrebbe contenere da 8 a 128 caratteri.
       placeholders:
         repeat_password: Ripeti la password
       edit:

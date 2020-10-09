@@ -967,9 +967,7 @@ nb:
         fyll inn e-post og passord på nytt.
       password_errors:
         format: >-
-          bør inneholde 8 til 128 tegn, inkludert 1 stor, 1 liten, 1 siffer og 1
-          spesialtegn.
-        used: må være forskjellig fra de tre siste passordene.
+          bør inneholde 8 til 128 tegn.
       placeholders:
         repeat_password: Gjenta passord
       edit:

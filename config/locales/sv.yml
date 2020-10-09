@@ -968,9 +968,7 @@ sv:
         och lösenord.
       password_errors:
         format: >-
-          bör innehålla 8 till 128 tecken, inklusive 1 versal, 1 små bokstav, 1
-          siffra och 1 specialtecken.
-        used: måste skilja sig från de senaste tre lösenorden.
+          bör innehålla 8 till 128 tecken.
       placeholders:
         repeat_password: Repetera lösenord
       edit:

@@ -995,9 +995,7 @@ nl:
         wachtwoord op.
       password_errors:
         format: >-
-          moet 8 tot 128 tekens bevatten, inclusief 1 hoofdletter, 1 kleine
-          letter, 1 cijfer en 1 speciaal teken.
-        used: moet anders zijn dan de laatste drie wachtwoorden.
+          moet 8 tot 128 tekens bevatten.
       placeholders:
         repeat_password: Herhaal Wachtwoord
       edit:

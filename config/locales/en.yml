@@ -947,9 +947,7 @@ en:
         please enter a new email and password.
       password_errors:
         format: >-
-          should contain 8 to 128 characters, including 1 uppercase, 1
-          lowercase, 1 digit, and 1 special character.
-        used: must be different from last three passwords.
+          should be 8 to 128 characters.
       placeholders:
         repeat_password: Repeat Password
       edit:
