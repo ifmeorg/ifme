@@ -8,14 +8,7 @@ describe('InputTextarea', () => {
   beforeAll(() => {
     // mocks obsolete method used internally in Pell
     document.queryCommandState = jest.fn();
-  });
-
-  beforeEach(() => {
     jest.spyOn(pell, 'init');
-  });
-
-  afterEach(() => {
-    jest.clearAllMocks();
   });
 
   it('renders correctly', () => {
@@ -166,8 +159,6 @@ describe('InputTextarea', () => {
         userEvent.click(button);
         expect(pell.exec).toHaveBeenCalledWith(...expectedArgs);
       });
-
-      jest.restoreAllMocks();
     });
   });
 });

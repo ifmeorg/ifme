@@ -50,8 +50,9 @@ describe('InputCheckboxGroup', () => {
 
       // toggle both checkboxes false
       userEvent.click(checkbox);
-      userEvent.dblClick(otherCheckbox);
 
+      expect(checkbox).not.toBeChecked();
+      expect(otherCheckbox).not.toBeChecked();
       expect(window.alert).not.toHaveBeenCalled();
     });
   });
@@ -70,8 +71,9 @@ describe('InputCheckboxGroup', () => {
 
       // toggle both checkboxes false
       userEvent.click(checkbox);
-      userEvent.dblClick(otherCheckbox);
 
+      expect(checkbox).not.toBeChecked();
+      expect(otherCheckbox).not.toBeChecked();
       expect(window.alert).toHaveBeenCalledWith('Error');
     });
   });

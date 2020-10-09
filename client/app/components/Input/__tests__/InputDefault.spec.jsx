@@ -20,7 +20,7 @@ describe('InputDefault', () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    window.alert.mockClear();
   });
 
   describe('has invalid type prop', () => {
