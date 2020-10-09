@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_27_035711) do
+ActiveRecord::Schema.define(version: 2020_10_09_185200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -195,13 +195,6 @@ ActiveRecord::Schema.define(version: 2020_05_27_035711) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "password_histories", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "encrypted_password"
-    t.datetime "created_at", null: false
-    t.index ["encrypted_password", "user_id"], name: "index_password_histories_on_encrypted_password_and_user_id", unique: true
-  end
-
   create_table "perform_strategy_reminders", id: :serial, force: :cascade do |t|
     t.integer "strategy_id", null: false
     t.boolean "active", null: false
@@ -315,7 +308,6 @@ ActiveRecord::Schema.define(version: 2020_05_27_035711) do
   add_foreign_key "moments_moods", "moods"
   add_foreign_key "moments_strategies", "moments"
   add_foreign_key "moments_strategies", "strategies"
-  add_foreign_key "password_histories", "users"
   add_foreign_key "strategies_categories", "categories"
   add_foreign_key "strategies_categories", "strategies"
 end
