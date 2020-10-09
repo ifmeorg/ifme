@@ -253,4 +253,21 @@ describe User do
       end
     end
   end
+
+  context 'for new users' do
+    it 'invalidates with blank password' do
+      user_with_blank_password = build(:user, password: '')
+      expect(user_with_blank_password.save).to be_falsey
+    end
+
+    it 'invalidates with passwords less than 8 characters' do
+      user_with_short_password = build(:user, password: 'foobar')
+      expect(user_with_short_password.save).to be_falsey
+    end
+
+    it 'validates with passwords containing 8 characters' do
+      user_with_valid_password = build(:user, password: 'validpas')
+      expect(user_with_valid_password.save).to be_truthy
+    end
+  end
 end
