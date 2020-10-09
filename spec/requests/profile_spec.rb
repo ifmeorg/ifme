@@ -87,7 +87,7 @@ describe "Profile", type: :request do
 
     before(:each) { Devise.mailer.deliveries.clear }
 
-    context "when admin does not exist" do
+    context "when signed in user is not an admin" do
       let(:non_admin_user) { create(:user1) }
 
       it "cannot ban user" do
@@ -98,7 +98,7 @@ describe "Profile", type: :request do
       end
     end
 
-    context "when admin exists" do
+    context "when signed in user is an admin" do
       let(:admin_user) { create(:user1, admin: true) }
 
       context "when user exists" do
@@ -128,7 +128,7 @@ describe "Profile", type: :request do
 
     before(:each) { Devise.mailer.deliveries.clear }
 
-    context "when admin does not exist" do
+    context "when signed in user is not an admin" do
       let(:nonadmin_user) { create(:user1) }
 
       it "cannot ban user" do
@@ -139,12 +139,12 @@ describe "Profile", type: :request do
       end
     end
 
-    context "when admin exists" do
+    context "when signed in user is an admin" do
       let(:admin_user) { create(:user1, admin: true) }
+      before { sign_in admin_user }
 
       context "when user exists" do
         it "removes ban" do
-          sign_in admin_user
           expect { post remove_ban_profile_index_path, params: {user_id: banned_user.id} }
             .to change(Devise.mailer.deliveries, :count).by(1)
           expect(response).to redirect_to(admin_dashboard_path)
@@ -154,7 +154,6 @@ describe "Profile", type: :request do
 
       context "when user does not exist" do
         it "does not remove ban" do
-          sign_in admin_user
           expect { post remove_ban_profile_index_path, params: {user_id: -1} }
             .not_to change(Devise.mailer.deliveries, :count).from(0)
           expect(response).to redirect_to(admin_dashboard_path)
