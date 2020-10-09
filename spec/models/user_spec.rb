@@ -69,7 +69,6 @@ describe User do
     it { is_expected.to have_many :moods }
     it { is_expected.to have_many :moments }
     it { is_expected.to have_many :categories }
-    it { is_expected.to have_many(:password_histories).dependent(:destroy) }
     it { is_expected.to belong_to :invited_by }
   end
 
