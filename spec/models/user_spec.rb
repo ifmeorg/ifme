@@ -47,7 +47,6 @@
 
 describe User do
   context 'with included modules' do
-    it { expect(described_class).to include PasswordValidator }
     it { expect(described_class).to include AllyConcern }
   end
 
@@ -79,24 +78,6 @@ describe User do
 
     it { is_expected.to validate_presence_of :name }
     it { is_expected.to validate_inclusion_of(:locale).in_array(inclusion_array) }
-
-    context '#password_complexity' do
-      context 'with a complex password' do
-        let(:user) do
-          User.create(name: 'some name', email: 'some@user.com', password: '!14Ma5tR0nGPwD?')
-        end
-
-        it { expect(user).to be_valid }
-      end
-
-      context 'with a easy password' do
-        let(:user) do
-          User.create(name: 'some name', email: 'some@user.com', password: 'abc123')
-        end
-
-        it { expect(user).to be_invalid }
-      end
-    end
   end
 
   let(:current_time) { Time.zone.now }

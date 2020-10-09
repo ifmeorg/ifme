@@ -46,7 +46,6 @@
 #
 
 class User < ApplicationRecord
-  include PasswordValidator
   include AllyConcern
 
   OAUTH_TOKEN_URL = 'https://accounts.google.com/o/oauth2/token'
@@ -80,7 +79,6 @@ class User < ApplicationRecord
   validates :locale, inclusion: {
     in: Rails.application.config.i18n.available_locales.map(&:to_s).push(nil)
   }
-  validate :password_complexity, unless: :oauth_provided?
 
   def active_for_authentication?
     super && !banned
