@@ -128,4 +128,23 @@ describe AlliesController do
     end
   end
 
+  describe 'DELETE #remove' do
+    let!(:allyship) { double(:allyship) }
+
+    context 'when user is logged in' do
+      before { sign_in user }
+
+      it 'deletes the allyship' do
+        allow(Allyship).to receive(:where).and_return(allyship)
+        expect(allyship).to receive(:destroy_all)
+        post remove_allies_path, params: { ally_id: ally.id }
+        expect(response).to redirect_to allies_path
+      end
+    end
+
+    context 'when user is not logged in' do
+      before { post remove_allies_path }
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
 end
