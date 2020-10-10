@@ -58,14 +58,15 @@ describe AlliesController do
       context 'with an existing ally request' do
         let!(:allyship) do
           Allyship.create(
-            user_id: user.id,
-            ally_id: ally.id,
-            status: :pending_from_ally
+            user_id: user.id, ally_id: ally.id, status: :pending_from_ally
           )
         end
 
         let!(:notification) do
-          create(:notification, uniqueid: "new_ally_request_#{ally.id}", user_id: user.id)
+          create(
+            :notification,
+            uniqueid: "new_ally_request_#{ally.id}", user_id: user.id
+          )
         end
 
         let(:notification_type) { 'accepted_ally_request' }
@@ -93,7 +94,10 @@ describe AlliesController do
             type: notification_type.to_s,
             uniqueid: "#{notification_type}_#{user.id}"
           }.to_json
-          allow(NotificationMailer).to receive(:notification_email).with(ally.id.to_s, data).and_return(notification)
+          allow(NotificationMailer).to receive(:notification_email).with(
+            ally.id.to_s,
+            data
+          ).and_return(notification)
           allow(notification).to receive(:deliver_now)
           subject
           expect(notification).to have_received(:deliver_now)
