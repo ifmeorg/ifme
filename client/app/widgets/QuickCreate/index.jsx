@@ -98,19 +98,6 @@ type Action = OnChangeAction | OnSubmitAction;
 export const ON_CHANGE = 'ON_CHANGE';
 export const ON_SUBMIT = 'ON_SUBMIT';
 
-/* Question: Just want to confirm this is an ok use of useReducer
- * Reason 1: consecutive setState() calls for different state
- * (e.g. onChange -> setModalKey(newKey); setOpen(true); setBody(newBody);)
- *
- * Reason 2: Need to synchronize the state of checkboxes. I consistently saw checkbox state as
- * the old state in onSubmit. I'm thinking when the onSubmit callback was defined in that render
- * it closed over the previous state of the checkboxes,s o everytime it was invoked I saw the
- * old state for the checkbox which gave me stale checkbox state.
- * I first fixed this by setting a flag when onSubmit was invoked (so promised resolved)
- * and then using an effect based off that flag. Seemed a little hacky.
- * I realized I could synchronize the state by handling the update in a reducer.
- * And again, the consecutive setState calls pushed me in this direction as well.
- */
 const quickCreateReducer = (state: State, action: Action) => {
   switch (action.type) {
     case ON_CHANGE: {
@@ -154,7 +141,9 @@ export const QuickCreate = ({
   ] = useReducer(quickCreateReducer, {
     checkboxes: checkboxesProp,
     open: false,
-    accordionOpen: checkboxesProp.some((cb) => cb.checked),
+    // Q: which component is responsible for sorting checkboes. There was a test about sorting
+    // for this component
+    accordionOpen: sortAlpha(checkboxesProp).some((cb) => cb.checked),
     modalKey: undefined,
     tagKey: undefined,
     body: undefined,

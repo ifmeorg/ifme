@@ -45,7 +45,11 @@ export const Accordion = ({
   const inputClassNames = () => `${dark ? css.dark : ''} ${large ? css.large : ''}`;
 
   return (
-    <div id={`${id}_accordion`} className={inputClassNames()}>
+    <div
+      id={`${id}_accordion`}
+      className={inputClassNames()}
+      data-testid={`accordion-${open ? 'open' : 'closed'}`}
+    >
       <div
         className={`accordion ${globalCss.gridRowSpaceBetween} ${css.accordion}`}
         onClick={toggleOpen}
