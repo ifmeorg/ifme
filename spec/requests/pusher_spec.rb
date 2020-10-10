@@ -23,7 +23,7 @@ describe 'Pusher', type: :request do
         post pusher_auth_path, params: { socket_id: '123.456' }
         json = JSON.parse(response.body)
 
-        expect(response.code).to eq("400")
+        expect(response).to have_http_status("400")
         expect(json['channel_name']).to eq([I18n.t('errors.empty_params')])
       end
 
@@ -31,7 +31,7 @@ describe 'Pusher', type: :request do
         post pusher_auth_path, params: { channel_name: 'channel_one' }
         json = JSON.parse(response.body)
 
-        expect(response.code).to eq("400")
+        expect(response).to have_http_status("400")
         expect(json['socket_id']).to eq([I18n.t('errors.empty_params')])
       end
 
@@ -39,7 +39,7 @@ describe 'Pusher', type: :request do
         post pusher_auth_path, params: { channel_name: '', socket_id: '' }
         json = JSON.parse(response.body)
 
-        expect(response.code).to eq("400")
+        expect(response).to have_http_status("400")
         expect(json['channel_name']).to eq([I18n.t('errors.empty_params')])
         expect(json['socket_id']).to eq([I18n.t('errors.empty_params')])
       end
@@ -50,7 +50,7 @@ describe 'Pusher', type: :request do
       it 'returns a login redirect' do
         post pusher_auth_path, params: { channel_name: 'channel_one', socket_id: '123.456' }
 
-        expect(response.status).to eq(302)
+        expect(response).to have_http_status(302)
       end
     end
 
