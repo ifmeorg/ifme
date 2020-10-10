@@ -1,0 +1,6 @@
+
+delete_stale_csv:
+  cron: "0 0 0 * * * *"
+  class: "DeleteStaleDataWorker"
+  queue: default
+

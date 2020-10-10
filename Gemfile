@@ -52,6 +52,14 @@ gem 'selenium-webdriver', '~> 3.142.3'
 
 gem 'rubyzip', '~> 1.3.0'
 
+gem 'sidekiq', '5.0.5'
+# Uniqueness in sidekiq jobs
+gem 'sidekiq-middleware'
+# Keep track of failed jobs in sidekiq
+gem 'sidekiq-failures'
+#corn job for sidekiq
+gem "sidekiq-cron", "~> 1.1"
+
 group :development, :test do
   gem 'bundler-audit'
   gem 'dotenv-rails', '~> 2.7.2'

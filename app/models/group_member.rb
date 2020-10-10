@@ -12,6 +12,15 @@
 #
 
 class GroupMember < ApplicationRecord
+
+  DISPLAY_ATTRIBUTES = %w{
+    id
+    group_id
+    leader
+    created_at
+    updated_at
+  }.map!(&:freeze).freeze
+
   after_destroy :destroy_meeting_memberships
 
   validates :group_id, :user_id, presence: true

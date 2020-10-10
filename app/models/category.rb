@@ -23,4 +23,15 @@ class Category < ApplicationRecord
   has_many :moments_categories, dependent: :destroy
   has_many :strategies_categories, dependent: :destroy
   validates :visible, inclusion: [true, false]
+
+  DISPLAY_ATTRIBUTES = %w{
+    id
+    name
+    description
+    created_at
+    updated_at
+    slug
+    visible
+  }.map!(&:freeze).freeze
+
 end

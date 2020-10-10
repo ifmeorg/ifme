@@ -13,6 +13,16 @@
 #
 
 class MeetingMember < ApplicationRecord
+
+  DISPLAY_ATTRIBUTES = %w{
+    id
+    meeting_id
+    leader
+    created_at
+    updated_at
+    google_cal_event_id
+  }.map!(&:freeze).freeze
+  
   validates :meeting_id, :user_id, presence: true
   validates :leader, inclusion: [true, false]
 
