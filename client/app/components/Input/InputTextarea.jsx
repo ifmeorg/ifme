@@ -1,5 +1,5 @@
 // @flow
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { init, exec } from 'pell';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -63,10 +63,6 @@ export type Props = {
   dark?: boolean,
 };
 
-export type State = {
-  value?: any,
-};
-
 export function InputTextarea({
   id,
   name,
@@ -76,8 +72,8 @@ export function InputTextarea({
   myRef,
   dark,
 }: Props) {
-  const [currentValue, setValue] = useState<State>(value || '');
-  let editorRef;
+  const [currentValue, setValue] = useState<string>(value || '');
+  const editorRef = useRef(null);
   let editor;
 
   const onChange = (updatedValue: string) => {
@@ -95,31 +91,21 @@ export function InputTextarea({
       hasError(false);
     }
     if (editorRef) {
-      editorRef.getElementsByClassName('editorContent')[0].focus();
+      editorRef.current.getElementsByClassName('editorContent')[0].focus();
     }
   };
 
-  const displayHidden = () => (
-    <input
-      type="hidden"
-      value={currentValue}
-      name={name}
-      required={required}
-      ref={myRef}
-    />
-  );
-
   useEffect(() => {
-    if (editorRef) {
+    if (editorRef.current) {
       editor = init({
-        element: editorRef.getElementsByClassName('editor')[0],
+        element: editorRef.current.getElementsByClassName('editor')[0],
         onChange,
         classes,
         actions,
       });
       editor.content.innerHTML = currentValue;
     }
-  });
+  }, []);
 
   return (
     <div
@@ -129,12 +115,16 @@ export function InputTextarea({
       onFocus={onFocus}
       tabIndex={0}
       role="textbox"
-      ref={(element) => {
-        editorRef = element;
-      }}
+      ref={editorRef}
     >
       <div className={`editor ${css.editor}`} />
-      {displayHidden()}
+      <input
+        type="hidden"
+        value={currentValue}
+        name={name}
+        required={required}
+        ref={myRef}
+      />
     </div>
   );
 }
