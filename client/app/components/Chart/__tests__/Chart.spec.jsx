@@ -1,30 +1,28 @@
 // @flow
-import { shallow } from 'enzyme';
 import React from 'react';
-import { Chart } from 'components/Chart';
+import { render } from '@testing-library/react';
+import { Chart } from 'components/Chart/index';
 
-function getComponent(options) {
-  return shallow(
-    <Chart
-      xtitle="foo"
-      ytitle="bar"
-      data={{
-        '2013-02-10 00:00:00 -0800': 11,
-        '2013-02-11 00:00:00 -0800': 6,
-      }}
-      chartType={options.chartType}
-    />,
-  );
-}
+const renderComponent = ({ chartType }) => render(
+  <Chart
+    xtitle="foo"
+    ytitle="bar"
+    data={{
+      '2013-02-10 00:00:00 -0800': 11,
+      '2013-02-11 00:00:00 -0800': 6,
+    }}
+    chartType={chartType}
+  />,
+);
 
 describe('Chart', () => {
-  it('renders an AreaChart', () => {
-    const wrapper = getComponent({ chartType: 'Area' });
-    expect(wrapper.length).toEqual(1);
+  it('renders a Line chart', () => {
+    const { container } = renderComponent({ chartType: 'Line' });
+    expect(container.querySelector('canvas')).toBeInTheDocument();
   });
 
-  it('renders a LineChart', () => {
-    const wrapper = getComponent({ chartType: 'Line' });
-    expect(wrapper.length).toEqual(1);
+  it('renders an Area chart', () => {
+    const { container } = renderComponent({ chartType: 'Area' });
+    expect(container.querySelector('canvas')).toBeInTheDocument();
   });
 });

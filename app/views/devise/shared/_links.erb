@@ -1,26 +1,48 @@
-<div class="smallMarginTop">
+<div class="oAuthLinks">
   <%- if devise_mapping.omniauthable? and request.base_url != 'http://0.0.0.0:3000' %>
     <%- resource_class.omniauth_providers.each do |provider| %>
       <% if provider.to_s == "google_oauth2" && (current_page?(new_user_session_path) || current_page?(new_user_password_path)) %>
-        <%= button_to t('devise.shared.sign_in_google'), omniauth_authorize_path(resource_name,
-          provider), method: :post, class: 'buttonGhostM' %>
+        <div class="smallMarginTop">
+          <%= react_component 'OAuthButton', props: {
+            type: 'google',
+            signIn: true,
+            action: omniauth_authorize_path(resource_name, provider),
+            token: form_authenticity_token
+          } %>
+        </div>
       <% elsif provider.to_s == "google_oauth2" %>
-        <%= button_to t('devise.shared.sign_up_google'), omniauth_authorize_path(resource_name,
-          provider), method: :post, class: 'buttonGhostM' %>
+        <div class="smallMarginTop">
+          <%= react_component 'OAuthButton', props: {
+            type: 'google',
+            signIn: false,
+            action: omniauth_authorize_path(resource_name, provider),
+            token: form_authenticity_token
+          } %>
+        </div>
       <% end -%>
 
       <% if provider.to_s == "facebook" && (current_page?(new_user_session_path) || current_page?(new_user_password_path)) %>
-        <%= button_to t('devise.shared.sign_in_facebook'), omniauth_authorize_path(resource_name, provider),
-        method: :post, class: 'buttonGhostM smallMarginTop' %>
+        <div class="smallMarginTop">
+          <%= react_component 'OAuthButton', props: {
+            type: 'facebook',
+            signIn: true,
+            action: omniauth_authorize_path(resource_name, provider),
+            token: form_authenticity_token
+          } %>
+        </div>
       <% elsif provider.to_s == "facebook" %>
-        <%= button_to t('devise.shared.sign_up_facebook'), omniauth_authorize_path(resource_name, provider),
-        method: :post, class: 'buttonGhostM smallMarginTop' %>
+        <div class="smallMarginTop">
+          <%= react_component 'OAuthButton', props: {
+            type: 'facebook',
+            signIn: false,
+            action: omniauth_authorize_path(resource_name, provider),
+            token: form_authenticity_token
+          } %>
+        </div>
       <% end -%>
     <% end -%>
   <% end -%>
-</div>
 
-<div class="links">
   <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
     <div class="smallMarginTop">
       <%= link_to t('account.forgot_password'), new_password_path(resource_name) %>

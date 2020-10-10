@@ -9,12 +9,14 @@
   &Text {
     @include setFontSize($size-30);
     @include setMargin($size-0, $size-0, $size-40, $size-0);
+
     color: $carmine;
     font-weight: $font-weight-300;
 
     h2 {
       @include setFontSize($size-30);
       @include setMargin($size-0, $size-0, $size-20, $size-0);
+
       font-weight: $font-weight-300;
       padding: 0;
       color: $mulberry;
@@ -22,6 +24,7 @@
 
     ul {
       @include setMargin($size-0, $size-0, $size-40, $size-0);
+
       padding-left: 0;
       list-style-position: inside;
     }
@@ -35,9 +38,11 @@
 /* Overrides for Rails Form Errors */
 #error_explanation {
   @include setMargin($size-0, $size-0, $size-20, $size-0);
+
   h2 {
     @include setFontSize($size-20);
   }
+
   ul {
     list-style: none;
     margin: 0;

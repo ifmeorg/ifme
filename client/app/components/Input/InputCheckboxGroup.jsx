@@ -6,7 +6,7 @@ import type { Checkbox } from './utils';
 export type Props = {
   checkboxes: Checkbox[],
   required?: boolean, // At least one checkbox must be checked
-  hasError?: Function,
+  hasError?: (errorPresent: boolean) => void,
 };
 
 export function InputCheckboxGroup({

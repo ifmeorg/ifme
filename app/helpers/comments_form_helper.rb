@@ -10,7 +10,7 @@ module CommentsFormHelper
       basic_props('commentable_id', 'hidden', commentable.id),
       basic_props('comment', 'textarea')
     ].concat(visibility_or_viewers_input(commentable, commentable_type))
-    quick_create_form_props(inputs, comment_index_path)
+    quick_create_form_props(inputs, comments_path)
   end
 
   private

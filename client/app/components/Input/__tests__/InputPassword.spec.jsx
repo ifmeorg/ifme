@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import { act } from 'react-dom/test-utils';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { InputMocks } from 'mocks/InputMocks';
 import { InputPassword } from 'components/Input/InputPassword';
 
@@ -10,16 +10,20 @@ const { id, name, label } = InputMocks.inputPasswordProps;
 describe('InputPassword', () => {
   it('toggles show password button correctly', () => {
     const component = InputMocks.createInput(InputMocks.inputPasswordProps);
-    const wrapper = mount(component);
-    expect(wrapper.find('input').props().type).toEqual('password');
-    expect(wrapper.find('button').props()['aria-label']).toEqual(
-      'Show password',
-    );
-    wrapper.find('button').simulate('click');
-    expect(wrapper.find('input').props().type).toEqual('text');
-    expect(wrapper.find('button').props()['aria-label']).toEqual(
-      'Hide password',
-    );
+    render(component);
+
+    const input = screen.getByLabelText(label);
+    expect(input).toBeInTheDocument();
+    expect(input).toHaveAttribute('type', 'password');
+
+    const button = screen.getByRole('button', { name: 'Show password' });
+    expect(button).toBeInTheDocument();
+
+    userEvent.click(button);
+    expect(input).toHaveAttribute('type', 'text');
+    expect(
+      screen.getByRole('button', { name: 'Hide password' }),
+    ).toBeInTheDocument();
   });
 
   describe('when input is not required', () => {
@@ -38,38 +42,37 @@ describe('InputPassword', () => {
       jest.spyOn(window, 'alert');
     });
 
+    afterEach(() => {
+      jest.clearAllMocks();
+    });
+
     describe('on input focus', () => {
       it('has no error', () => {
-        const wrapper = shallow(component);
-        act(() => {
-          wrapper.find('input').simulate('focus');
-        });
+        render(component);
+        const input = screen.getByLabelText(label);
+        userEvent.click(input);
         expect(window.alert).not.toHaveBeenCalled();
       });
     });
 
     describe('on input blur', () => {
+      afterEach(() => {
+        jest.clearAllMocks();
+      });
+
       it('has an error when there is no value', () => {
-        const wrapper = shallow(component);
-        act(() => {
-          wrapper.find('input').simulate('blur', {
-            currentTarget: {
-              value: null,
-            },
-          });
-        });
+        render(component);
+        const input = screen.getByLabelText(label);
+        userEvent.clear(input);
+        userEvent.tab();
         expect(window.alert).not.toHaveBeenCalled();
       });
 
       it('has no error when there is a value', () => {
-        const wrapper = shallow(component);
-        act(() => {
-          wrapper.find('input').simulate('blur', {
-            currentTarget: {
-              value: 'Some value',
-            },
-          });
-        });
+        render(component);
+        const input = screen.getByLabelText(label);
+        userEvent.type(input, 'Some value');
+        userEvent.tab();
         expect(window.alert).not.toHaveBeenCalled();
       });
     });
@@ -92,38 +95,37 @@ describe('InputPassword', () => {
       jest.spyOn(window, 'alert');
     });
 
+    afterEach(() => {
+      jest.clearAllMocks();
+    });
+
     describe('on input focus', () => {
       it('has no error', () => {
-        const wrapper = shallow(component);
-        act(() => {
-          wrapper.find('input').simulate('focus');
-        });
+        render(component);
+        const input = screen.getByLabelText(label);
+        userEvent.click(input);
         expect(window.alert).toHaveBeenCalledWith(false);
       });
     });
 
     describe('on input blur', () => {
+      afterEach(() => {
+        jest.clearAllMocks();
+      });
+
       it('has an error when there is no value', () => {
-        const wrapper = shallow(component);
-        act(() => {
-          wrapper.find('input').simulate('blur', {
-            currentTarget: {
-              value: null,
-            },
-          });
-        });
+        render(component);
+        const input = screen.getByLabelText(label);
+        userEvent.clear(input);
+        userEvent.tab();
         expect(window.alert).toHaveBeenCalledWith(true);
       });
 
       it('has no error when there is a value', () => {
-        const wrapper = shallow(component);
-        act(() => {
-          wrapper.find('input').simulate('blur', {
-            currentTarget: {
-              value: 'Some value',
-            },
-          });
-        });
+        render(component);
+        const input = screen.getByLabelText(label);
+        userEvent.type(input, 'Some value');
+        userEvent.tab();
         expect(window.alert).toHaveBeenCalledWith(false);
       });
     });

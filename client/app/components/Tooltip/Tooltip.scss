@@ -4,16 +4,10 @@
   position: relative;
   display: inline-block;
 
-  > div:first-of-type {
-    display: inline-block;
-    &:hover + div {
-      display: inline;
-    }
-  }
-
   > div:last-of-type {
     @include setFontSize($size-14);
     @include setPadding($size-10, $size-10, $size-10, $size-10);
+
     font-weight: $font-weight-400;
     text-transform: none;
     letter-spacing: normal;
@@ -28,6 +22,14 @@
     z-index: $z-index-front;
     top: calc(10px + 100%);
     text-align: center;
+  }
+
+  > div:first-of-type {
+    display: inline-block;
+
+    &:hover + div {
+      display: inline;
+    }
   }
 
   &Right {

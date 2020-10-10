@@ -26,6 +26,7 @@ import { StoryDate } from 'components/Story/StoryDate';
 import { Tag } from 'components/Tag';
 import { Tooltip } from 'components/Tooltip';
 import Input from 'components/Input';
+import OAuthButton from 'components/OAuthButton';
 import Comments from 'widgets/Comments';
 import { ToggleLocale } from 'widgets/ToggleLocale';
 import Resources from 'widgets/Resources';
@@ -65,4 +66,5 @@ ReactOnRails.register({
   Tooltip,
   CrisisPrevention,
   CarePlanContacts,
+  OAuthButton,
 });

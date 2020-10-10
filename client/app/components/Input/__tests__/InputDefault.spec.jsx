@@ -1,5 +1,6 @@
 // @flow
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { InputMocks } from 'mocks/InputMocks';
 import { InputDefault } from 'components/Input/InputDefault';
@@ -18,9 +19,13 @@ describe('InputDefault', () => {
     jest.spyOn(window, 'alert');
   });
 
+  afterEach(() => {
+    window.alert.mockClear();
+  });
+
   describe('has invalid type prop', () => {
     it('does not render', () => {
-      const wrapper = shallow(
+      render(
         <InputDefault
           id={id}
           type="invalid"
@@ -32,13 +37,13 @@ describe('InputDefault', () => {
           hasError={someEvent}
         />,
       );
-      expect(wrapper.find('input').exists()).toEqual(false);
+      expect(screen.queryByLabelText(label)).not.toBeInTheDocument();
     });
   });
 
   describe('has valid type prop', () => {
     it('calls hasError prop when value prop is empty', () => {
-      const wrapper = shallow(
+      render(
         <InputDefault
           id={id}
           type="text"
@@ -50,34 +55,40 @@ describe('InputDefault', () => {
           hasError={someEvent}
         />,
       );
-      wrapper
-        .find('input')
-        .simulate('blur', { currentTarget: { value: 'Some Value' } });
+      const textInput = screen.getByRole('textbox', { name: label });
+      expect(textInput).toBeInTheDocument();
+      userEvent.type(textInput, 'Some Value');
+      userEvent.tab();
       expect(window.alert).toHaveBeenCalledWith('Error is false');
-      wrapper.find('input').simulate('blur', { currentTarget: { value: '' } });
+      userEvent.clear(textInput);
+      userEvent.tab();
       expect(window.alert).toHaveBeenCalledWith('Error is true');
     });
   });
 
   describe('has valid copyOnClick prop', () => {
-    it('copies to clipboard when input is clicked', () => {
-      jest.spyOn(window, 'alert');
+    beforeEach(() => {
       jest.spyOn(window.document, 'execCommand');
+    });
+
+    afterEach(() => {
+      window.document.execCommand.mockRestore();
+    });
+
+    it('copies to clipboard when input is clicked', () => {
       const copyOnClick = 'Some message';
-      const wrapper = shallow(
+      render(
         <InputDefault
           id={id}
           type="text"
           name={name}
+          label={label}
           copyOnClick={copyOnClick}
         />,
       );
-      wrapper.find('input').simulate('click', {
-        currentTarget: {
-          value: 'test',
-          select: () => {},
-        },
-      });
+      const textInput = screen.getByRole('textbox', { name: label });
+      userEvent.type(textInput, 'test');
+      userEvent.click(textInput);
       expect(window.document.execCommand).toHaveBeenCalledWith('copy');
       expect(window.alert).toHaveBeenCalledWith(copyOnClick);
     });

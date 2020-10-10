@@ -21,10 +21,12 @@
 
     &Info {
       @include setFontSize($size-18);
+
       color: $white;
 
       &Links {
         @include setFontSize($size-0);
+
         margin-top: $size-4;
         line-height: 3.5;
         display: flex;

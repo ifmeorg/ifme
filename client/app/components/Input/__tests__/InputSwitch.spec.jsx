@@ -1,30 +1,50 @@
 // @flow
-import { mount } from 'enzyme';
+import { render, screen, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { InputMocks } from 'mocks/InputMocks';
 
 const component = InputMocks.createInput(InputMocks.inputSwitchProps);
-const input = `input#${InputMocks.inputSwitchProps.id}`;
 
 describe('InputSwitch', () => {
+  it('renders correctly', () => {
+    render(component);
+    expect(screen.getByRole('switch')).toBeInTheDocument();
+    expect(screen.getByRole('checkbox', { hidden: true })).toBeInTheDocument();
+  });
+
   describe('with mouse', () => {
     it('toggles correctly', () => {
-      const wrapper = mount(component);
-      expect(wrapper.find(input).props().defaultChecked).toEqual(false);
-      wrapper.find('.switchToggle').simulate('click');
-      expect(wrapper.find(input).props().defaultChecked).toEqual(true);
-      wrapper.find('.switchToggle').simulate('click');
-      expect(wrapper.find(input).props().defaultChecked).toEqual(false);
+      render(component);
+      const inputSwitch = screen.getByRole('switch');
+
+      expect(screen.getByRole('checkbox')).not.toBeChecked();
+
+      userEvent.click(inputSwitch);
+      expect(screen.getByRole('checkbox')).toBeChecked();
+
+      userEvent.click(inputSwitch);
+      expect(screen.getByRole('checkbox')).not.toBeChecked();
     });
   });
 
   describe('with keyboard', () => {
     it('toggles correctly', () => {
-      const wrapper = mount(component);
-      expect(wrapper.find(input).props().defaultChecked).toEqual(false);
-      wrapper.find('.switchToggle').simulate('keypress', { key: 'Enter' });
-      expect(wrapper.find(input).props().defaultChecked).toEqual(true);
-      wrapper.find('.switchToggle').simulate('keypress', { key: 'Enter' });
-      expect(wrapper.find(input).props().defaultChecked).toEqual(false);
+      render(component);
+      const inputSwitch = screen.getByRole('switch');
+
+      expect(screen.getByRole('checkbox')).not.toBeChecked();
+
+      /**
+       * TODO: Follow up on `userEvent.type(inputSwitch, '{enter}')` in v12.1.7.
+       * Temporarily including `fireEvent` from RTL, for which the switch must have focus first:
+       * https://github.com/testing-library/react-testing-library/issues/376#issuecomment-541242684
+       */
+      fireEvent.focus(inputSwitch);
+      fireEvent.keyDown(inputSwitch, { key: 'Enter' });
+      expect(screen.getByRole('checkbox')).toBeChecked();
+
+      fireEvent.keyDown(inputSwitch, { key: 'Enter' });
+      expect(screen.getByRole('checkbox')).not.toBeChecked();
     });
   });
 });

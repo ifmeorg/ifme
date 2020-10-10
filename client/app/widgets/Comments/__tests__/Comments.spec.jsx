@@ -60,7 +60,7 @@ const formProps = {
       dark: true,
     },
   ],
-  action: '/comment/create',
+  action: '/comments/create',
 };
 
 const value = 'Hey';
@@ -74,7 +74,7 @@ const comment = {
   commentByName: 'Kind Human',
   commentByUid: 'uid',
   createdAt: 'Created less than a minute ago',
-  deleteAction: '/comment/delete?comment_id=1',
+  deleteAction: '/comments/delete?comment_id=1',
   id,
   viewers: 'Visible only between you and Lane Kim',
 };

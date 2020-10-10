@@ -50,10 +50,22 @@
   <%= f.submit t("devise.invitations.edit.submit_button"), class: 'buttonGhostM marginTop' %>
 <% end %>
 
-<div class="smallMarginTop">
-  <%= button_to t('devise.shared.sign_up_google'),
-    omniauth_authorize_path(resource_name, :google_oauth2, invitation_token: resource.invitation_token),
-    method: :post,
-    class: 'buttonGhostM'
-  %>
+<div class="oAuthLinks">
+  <div class="smallMarginTop">
+    <%= react_component 'OAuthButton', props: {
+      type: 'google',
+      signIn: false,
+      action: omniauth_authorize_path(resource_name, :google_oauth2, invitation_token: resource.invitation_token),
+      token: form_authenticity_token
+    } %>
+  </div>
+
+  <div class="smallMarginTop">
+    <%= react_component 'OAuthButton', props: {
+      type: 'facebook',
+      signIn: false,
+      action: omniauth_authorize_path(resource_name, :facebook, invitation_token: resource.invitation_token),
+      token: form_authenticity_token
+    } %>
+  </div>
 </div>

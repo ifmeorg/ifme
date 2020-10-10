@@ -13,7 +13,6 @@ describe 'Report', type: :request do
     }
   end
 
-
   describe '#create' do
     context 'when a user is not signed in' do
       before { post reports_path }

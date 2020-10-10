@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class CommentController < ApplicationController
+class CommentsController < ApplicationController
   def create
     response = {
       comment: generate_comments(
@@ -32,8 +32,9 @@ class CommentController < ApplicationController
 
   def remove_meeting_notification(comment, meeting)
     my_comment = comment.present? && (comment.comment_by == current_user.id)
-    return unless (my_comment && meeting.member?(current_user)) ||
-                  meeting.led_by?(current_user)
+    raise RuntimeError unless (
+      my_comment && meeting.member?(current_user)
+    ) || meeting.led_by?(current_user)
 
     remove_meeting_notification!(comment.id)
   end
@@ -44,16 +45,21 @@ class CommentController < ApplicationController
     comment.id
   end
 
+  # rubocop:disable Metrics/MethodLength
   def handle_delete(comment)
     if %w[moment strategy].include?(comment.commentable_type)
-      CommentViewersService.deletable?(comment, current_user)
-      CommentNotificationsService.remove(comment_id: comment.id,
-                                         model_name:
-                                          comment.commentable_type)
+      raise RuntimeError unless CommentViewersService.deletable?(
+        comment, current_user
+      )
+
+      CommentNotificationsService.remove(
+        comment_id: comment.id,
+        model_name: comment.commentable_type
+      )
     elsif comment.commentable_type == 'meeting'
-      meeting_id = comment.commentable_id
-      meeting = Meeting.find_by(id: meeting_id)
+      meeting = Meeting.find(comment.commentable_id)
       remove_meeting_notification(comment, meeting)
     end
   end
+  # rubocop:enable Metrics/MethodLength
 end

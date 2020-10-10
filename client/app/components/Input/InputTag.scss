@@ -8,12 +8,14 @@
 
 .suggestion {
   @include setPadding($size-4, $size-4, $size-4, $size-4);
+
   text-transform: capitalize;
 }
 
-.suggestionsContainerOpen{
+.suggestionsContainerOpen {
   @include setPadding($size-6, $size-6, $size-6, $size-6);
   @include fadeIn(0.8s);
+
   font-weight: $font-weight-400;
   text-transform: none;
   letter-spacing: normal;

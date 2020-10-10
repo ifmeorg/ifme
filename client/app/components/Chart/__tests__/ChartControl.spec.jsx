@@ -2,34 +2,48 @@
  * @flow
  * Enzyme samples: https://gist.github.com/richardscarrott/d89b37aff55ccc504193335198e676d1
  */
-import { shallow } from 'enzyme';
 import React from 'react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { AreaChart } from 'react-chartkick';
 import { ChartControl } from 'components/Chart/ChartControl';
 
-describe('ChartControl', () => {
-  it('renders', () => {
-    let wrapper = null;
-    expect(() => {
-      // shallow render only lists the first level of components
-      wrapper = shallow(
-        <ChartControl
-          types={['Moments']}
-          initialParams={{
-            type: 'Moments',
-            data: {
-              Moments: {
-                '2013-02-10 00:00:00 -0800': 11,
-                '2013-02-11 00:00:00 -0800': 6,
-              },
-            },
-          }}
-        />,
-      );
-    }).not.toThrow();
+/**
+ * Canvas is tricky to test with 'react-testing-library', so this file mocks
+ * the external 'react-chartkick' dependency. The mock component can track what
+ * specific data gets passed down to the chart. A mix of shallow rendering plus
+ * the recommended integration approach seemed like a good compromise here.
+ */
+jest.mock('react-chartkick', () => {
+  const FakeAreaChart = jest.fn(() => <canvas />);
+  return { AreaChart: FakeAreaChart };
+});
 
-    expect(wrapper).not.toBeNull();
-    expect(wrapper.find('ChartControlButton').length).toEqual(1);
-    expect(wrapper.find('Chart').length).toEqual(1);
+describe('ChartControl', () => {
+  beforeEach(() => {
+    AreaChart.mockClear();
+  });
+
+  it('renders', () => {
+    const { container } = render(
+      <ChartControl
+        types={['Moments']}
+        initialParams={{
+          type: 'Moments',
+          data: {
+            Moments: {
+              '2013-02-10 00:00:00 -0800': 11,
+              '2013-02-11 00:00:00 -0800': 6,
+            },
+          },
+        }}
+      />,
+    );
+
+    const button = screen.getByRole('button', { name: 'Moments' });
+    expect(button).toBeInTheDocument();
+    // using querySelector as a last resort for canvas
+    expect(container.querySelector('canvas')).toBeInTheDocument();
   });
 
   it('passes down the expected data for the selected type', () => {
@@ -50,33 +64,30 @@ describe('ChartControl', () => {
       ],
     };
 
-    const initialType = 'Moments';
-    const wrapper = shallow(
+    render(
       <ChartControl
         types={['Moments', 'Categories']}
         initialParams={{
-          type: initialType,
+          type: 'Moments',
           data,
         }}
       />,
     );
 
-    // query child chart component to get current props
-    let chart = wrapper.find('Chart');
-    // test initial data passed down to the chart
-    expect(chart.prop('data')).toBe(data[initialType]);
+    // checks that the initial data is passed down to the mock chart component
+    expect(AreaChart).toHaveBeenCalledWith(
+      expect.objectContaining({ data: data.Moments }),
+      {}, // ignore: forwardRef argument
+    );
 
-    const targetType = 'Categories';
-    // simulate click on ChartControlButton for a specified type
-    const button = wrapper
-      .find('ChartControlButton')
-      .findWhere((n) => n.prop('type') === targetType);
-    button.simulate('click');
-    wrapper.update();
+    // simulates a button click for the specified type
+    const button = screen.getByRole('button', { name: 'Categories' });
+    userEvent.click(button);
 
-    // re-sample child chart component to get updated props
-    chart = wrapper.find('Chart');
-    // check if chart data gets updated
-    expect(chart.prop('data')).toBe(data[targetType]);
+    // checks that the correct data for the updated type is passed down
+    expect(AreaChart).toHaveBeenCalledWith(
+      expect.objectContaining({ data: data.Categories }),
+      {}, // ignore: forwardRef argument
+    );
   });
 });

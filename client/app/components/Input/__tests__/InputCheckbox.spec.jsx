@@ -1,5 +1,6 @@
 // @flow
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { InputCheckbox } from 'components/Input/InputCheckbox';
 
@@ -18,9 +19,13 @@ describe('InputCheckbox', () => {
     jest.spyOn(window, 'alert');
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   describe('has no uncheckedValue prop', () => {
     it('toggles checkbox correctly', () => {
-      const wrapper = shallow(
+      render(
         <InputCheckbox
           id={id}
           name={name}
@@ -31,21 +36,18 @@ describe('InputCheckbox', () => {
           onChange={someEvent}
         />,
       );
-      expect(wrapper.find('input').props().value).toEqual(value);
-      wrapper
-        .find('input')
-        .simulate('change', { currentTarget: { checked: false } });
+      const checkbox = screen.getByRole('checkbox', { name: label });
+      expect(checkbox).toBeChecked();
+      userEvent.click(checkbox);
       expect(window.alert).toHaveBeenCalledWith('Checkbox some-id is false');
-      wrapper
-        .find('input')
-        .simulate('change', { currentTarget: { checked: true } });
+      userEvent.click(checkbox);
       expect(window.alert).toHaveBeenCalledWith('Checkbox some-id is true');
     });
   });
 
   describe('has a uncheckedValue prop', () => {
     it('toggles checkbox correctly', () => {
-      const wrapper = shallow(
+      const { container } = render(
         <InputCheckbox
           id={id}
           name={name}
@@ -57,19 +59,20 @@ describe('InputCheckbox', () => {
           onChange={someEvent}
         />,
       );
-      expect(wrapper.find('input[type="hidden"]').props().value).toEqual(
-        uncheckedValue,
-      );
-      expect(wrapper.find('input[type="checkbox"]').props().value).toEqual(
-        value,
-      );
-      wrapper
-        .find('input[type="checkbox"]')
-        .simulate('change', { currentTarget: { checked: false } });
+
+      // ensures the input for the uncheckedValue is hidden
+      expect(screen.queryByRole('input')).not.toBeInTheDocument();
+      // Since '@testing-library/react' does not get hidden inputs,
+      // it can be queried directly from the container for this test.
+      const hiddenInput = container.querySelector('input[type="hidden"]');
+      expect(hiddenInput).toHaveValue(uncheckedValue);
+
+      // validates checkbox behavior
+      const checkbox = screen.getByRole('checkbox', { name: label });
+      expect(checkbox).toBeChecked();
+      userEvent.click(checkbox);
       expect(window.alert).toHaveBeenCalledWith('Checkbox some-id is false');
-      wrapper
-        .find('input[type="checkbox"]')
-        .simulate('change', { currentTarget: { checked: true } });
+      userEvent.click(checkbox);
       expect(window.alert).toHaveBeenCalledWith('Checkbox some-id is true');
     });
   });

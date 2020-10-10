@@ -8,16 +8,17 @@
   color: $eggplant;
 }
 
-.moment p {
-  margin : 0;
-}
-
 p {
   word-wrap: break-word;
 }
 
+.moment p {
+  margin: 0;
+}
+
 .purpleYay {
   @include setFontSize($size-30);
+
   color: $purple-yay;
   text-shadow: $size-0 $size-0 $size-4 $purple-yay;
 }

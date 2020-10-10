@@ -7,29 +7,26 @@ export type Props = {
   data: StoryProps[],
 };
 
-export class StoryContainer extends React.Component<Props> {
-  render() {
-    const { data } = this.props;
-    return (
-      <div className="gridTwo">
-        {data.map((props) => (
-          <div className="gridTwoItemBoxLight" key={props.link}>
-            <Story
-              date={props.date}
-              categories={props.categories}
-              moods={props.moods}
-              storyType={props.storyType}
-              storyBy={props.storyBy}
-              actions={props.actions}
-              draft={props.draft}
-              name={props.name}
-              link={props.link}
-              body={props.body}
-              medicationBody={props.medicationBody}
-            />
-          </div>
-        ))}
+const StoryContainer = ({ data }: Props) => (
+  <div className="gridTwo">
+    {data.map((storyProps) => (
+      <div className="gridTwoItemBoxLight" key={storyProps.link}>
+        <Story
+          date={storyProps.date}
+          categories={storyProps.categories}
+          moods={storyProps.moods}
+          storyType={storyProps.storyType}
+          storyBy={storyProps.storyBy}
+          actions={storyProps.actions}
+          draft={storyProps.draft}
+          name={storyProps.name}
+          link={storyProps.link}
+          body={storyProps.body}
+          medicationBody={storyProps.medicationBody}
+        />
       </div>
-    );
-  }
-}
+    ))}
+  </div>
+);
+
+export default StoryContainer;

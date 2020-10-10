@@ -314,7 +314,7 @@ Devise.setup do |config|
     ENV['GOOGLE_CLIENT_ID'],
     ENV['GOOGLE_CLIENT_SECRET'],
     access_type: 'offline',
-    approval_prompt: 'select_account consent force',
+    prompt: 'select_account consent',
     scope: 'userinfo.email,userinfo.profile,calendar'
   )
 

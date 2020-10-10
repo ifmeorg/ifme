@@ -7,6 +7,7 @@
 
   .me {
     color: $me-color;
+
     &::before {
       border-top: 0.15ex solid $me-color;
       border-bottom: 0.15ex solid $me-color;
@@ -19,13 +20,15 @@
   line-height: $font-size;
   height: 1.5 * $font-size;
 
-  .if, .me {
+  .if,
+  .me {
     height: $font-size;
   }
 
   .me {
     margin: 0 0 0 0.5ex;
     position: relative;
+
     &::before {
       content: ' ';
       position: absolute;
@@ -46,13 +49,16 @@
   border: none;
   cursor: pointer;
   width: min-content;
-  display: -ms-grid;
   -ms-grid-columns: min-content;
+
   @include standardTransition();
   @include setSize($size-30);
   @include setColor($white, $key-lime);
 
-  &:link, &:visited, &:hover, &:active {
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
     text-decoration: none;
     border: none;
   }

@@ -1,7 +1,7 @@
 // This file contains the base colors for the application.
 
 // Black
-$black: #000000;
+$black: #000;
 $black-90: rgba(0, 0, 0, 0.9);
 $black-80: rgba(0, 0, 0, 0.8);
 $black-70: rgba(0, 0, 0, 0.7);
@@ -12,10 +12,10 @@ $black-10: rgba(0, 0, 0, 0.1);
 
 // Grey
 $grey: #808080;
-$light-grey:#D3D3D3;
+$light-grey:#d3d3d3;
 
 // White
-$white: #FFFFFF;
+$white: #fff;
 $white-80: rgba(255, 255, 255, 0.8);
 $white-70: rgba(255, 255, 255, 0.7);
 $white-20: rgba(255, 255, 255, 0.2);
@@ -29,13 +29,13 @@ $mulberry-70: rgba(109, 8, 57, 0.7);
 $mulberry-50: rgba(109, 8, 57, 0.5);
 
 // Key Lime
-$key-lime: #D0E799;
+$key-lime: #d0e799;
 
 // Miscellaneous
 $eggplant: #704356;
 $limeade: #289900;
 $carmine: #990019;
 $mulberry-key-lime: linear-gradient(104.26deg, $mulberry 0%, $key-lime 175.81%);
-$purple-yay: #A157E8;
-$blumine: #175C6D;
-$cornflower: #91D7E8;
+$purple-yay: #a157e8;
+$blumine: #175c6d;
+$cornflower: #91d7e8;

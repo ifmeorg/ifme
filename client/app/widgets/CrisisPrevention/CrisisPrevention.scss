@@ -2,5 +2,6 @@
 
 .heart {
   @extend .purpleYay;
+
   @include setFontSize($size-20);
 }
