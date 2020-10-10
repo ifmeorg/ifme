@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { InputCheckboxGroup } from 'components/Input/InputCheckboxGroup';
 
 const id = 'some-id';
@@ -10,7 +10,8 @@ const label = 'Some Label';
 const idTwo = 'some-other-id';
 const nameTwo = 'some-other-name';
 const labelTwo = 'Some Other Label';
-const someEvent = () => {
+const someEvent = (hasError) => {
+  if (!hasError) return;
   window.alert('Error');
 };
 const checkboxes = [
@@ -35,44 +36,44 @@ describe('InputCheckboxGroup', () => {
     jest.spyOn(window, 'alert');
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   describe('has no required prop', () => {
     it('does not call hasError prop when all checkboxes are unchecked', () => {
-      const wrapper = mount(
+      render(
         <InputCheckboxGroup checkboxes={checkboxes} hasError={someEvent} />,
       );
-      act(() => {
-        wrapper
-          .find(`input[name="${name}"][type="checkbox"]`)
-          .prop('onChange')({ currentTarget: { checked: false } });
-      });
-      act(() => {
-        wrapper.find(`input[name="${nameTwo}"]`).prop('onChange')({
-          currentTarget: { checked: false },
-        });
-      });
+      const checkbox = screen.getByRole('checkbox', { name: label });
+      const otherCheckbox = screen.getByRole('checkbox', { name: labelTwo });
+
+      // toggle both checkboxes false
+      userEvent.click(checkbox);
+
+      expect(checkbox).not.toBeChecked();
+      expect(otherCheckbox).not.toBeChecked();
       expect(window.alert).not.toHaveBeenCalled();
     });
   });
 
   describe('has required prop', () => {
     it('does calls hasError prop when all checkboxes are unchecked', () => {
-      const wrapper = mount(
+      render(
         <InputCheckboxGroup
           checkboxes={checkboxes}
           hasError={someEvent}
           required
         />,
       );
-      act(() => {
-        wrapper
-          .find(`input[name="${name}"][type="checkbox"]`)
-          .prop('onChange')({ currentTarget: { checked: false } });
-      });
-      act(() => {
-        wrapper.find(`input[name="${nameTwo}"]`).prop('onChange')({
-          currentTarget: { checked: false },
-        });
-      });
+      const checkbox = screen.getByRole('checkbox', { name: label });
+      const otherCheckbox = screen.getByRole('checkbox', { name: labelTwo });
+
+      // toggle both checkboxes false
+      userEvent.click(checkbox);
+
+      expect(checkbox).not.toBeChecked();
+      expect(otherCheckbox).not.toBeChecked();
       expect(window.alert).toHaveBeenCalledWith('Error');
     });
   });

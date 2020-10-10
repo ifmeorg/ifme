@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import { InputMocks } from 'mocks/InputMocks';
 import { InputRadioGroup } from 'components/Input/InputRadioGroup';
 
@@ -9,17 +9,14 @@ const {
 } = InputMocks.inputRadioProps;
 
 describe('InputRadioGroup', () => {
-  beforeEach(() => {
-    jest.spyOn(window, 'alert');
-  });
-
   it('sets default radio button to first option', () => {
-    const wrapper = shallow(
+    render(
       <InputRadioGroup name={name} id={id} value={value} options={options} />,
     );
-    expect(
-      wrapper.find('input[id="some-option-one-id"][type="radio"]').props()
-        .defaultChecked,
-    ).toBe(true);
+    const radioGroup = screen.getByRole('radiogroup');
+    expect(radioGroup).toBeInTheDocument();
+    const defaultOption = screen.getByRole('radio', { name: `${value}` });
+    expect(defaultOption).toBeInTheDocument();
+    expect(defaultOption.defaultChecked).toEqual(true);
   });
 });
