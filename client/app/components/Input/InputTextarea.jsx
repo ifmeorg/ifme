@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { init, exec } from 'pell';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -67,84 +67,75 @@ export type State = {
   value?: any,
 };
 
-export class InputTextarea extends React.Component<Props, State> {
-  editor: any;
+export function InputTextarea({
+  id,
+  name,
+  value,
+  required,
+  hasError,
+  myRef,
+  dark,
+}: Props) {
+  const [currentValue, setValue] = useState<State>(value || '');
+  let editorRef;
+  let editor;
 
-  editorRef: any;
-
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      value: props.value || '',
-    };
-  }
-
-  componentDidMount() {
-    const { value } = this.state;
-    if (this.editorRef) {
-      this.editor = init({
-        element: this.editorRef.getElementsByClassName('editor')[0],
-        onChange: this.onChange,
-        classes,
-        actions,
-      });
-      this.editor.content.innerHTML = value;
-    }
-  }
-
-  onChange = (value: string) => {
-    this.setState({ value });
+  const onChange = (updatedValue: string) => {
+    setValue(updatedValue);
   };
 
-  onBlur = () => {
-    const { required, hasError } = this.props;
-    const { value } = this.state;
+  const onBlur = () => {
     if (required && hasError) {
-      hasError(!value || value === '<p><br></p>');
+      hasError(!currentValue || currentValue === '<p><br></p>');
     }
   };
 
-  onFocus = () => {
-    const { required, hasError } = this.props;
+  const onFocus = () => {
     if (required && hasError) {
       hasError(false);
     }
-    if (this.editorRef) {
-      this.editorRef.getElementsByClassName('editorContent')[0].focus();
+    if (editorRef) {
+      editorRef.getElementsByClassName('editorContent')[0].focus();
     }
   };
 
-  displayHidden = () => {
-    const { name, required, myRef } = this.props;
-    const { value } = this.state;
-    return (
-      <input
-        type="hidden"
-        value={value}
-        name={name}
-        required={required}
-        ref={myRef}
-      />
-    );
-  };
+  const displayHidden = () => (
+    <input
+      type="hidden"
+      value={currentValue}
+      name={name}
+      required={required}
+      ref={myRef}
+    />
+  );
 
-  render() {
-    const { id, dark } = this.props;
-    return (
-      <div
-        id={id}
-        className={`${inputCss.default} ${dark ? css.dark : ''}`}
-        onBlur={this.onBlur}
-        onFocus={this.onFocus}
-        tabIndex={0}
-        role="textbox"
-        ref={(element) => {
-          this.editorRef = element;
-        }}
-      >
-        <div className={`editor ${css.editor}`} />
-        {this.displayHidden()}
-      </div>
-    );
-  }
+  useEffect(() => {
+    if (editorRef) {
+      editor = init({
+        element: editorRef.getElementsByClassName('editor')[0],
+        onChange,
+        classes,
+        actions,
+      });
+      editor.content.innerHTML = currentValue;
+    }
+  });
+
+  return (
+    <div
+      id={id}
+      className={`${inputCss.default} ${dark ? css.dark : ''}`}
+      onBlur={onBlur}
+      onFocus={onFocus}
+      tabIndex={0}
+      role="textbox"
+      ref={(element) => {
+        editorRef = element;
+      }}
+    >
+      <div className={`editor ${css.editor}`} />
+      {displayHidden()}
+    </div>
+  );
 }
+
