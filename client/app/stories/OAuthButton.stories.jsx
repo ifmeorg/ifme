@@ -6,12 +6,7 @@ export default {
 };
 
 export const SignInWithGoogle = () => (
-  <OAuthButton
-    signIn
-    type="google"
-    token="token"
-    action="/fake-action"
-  />
+  <OAuthButton signIn type="google" token="token" action="/fake-action" />
 );
 
 SignInWithGoogle.story = {
@@ -27,12 +22,7 @@ SignUpWithGoogle.story = {
 };
 
 export const SignInWithFacebook = () => (
-  <OAuthButton
-    signIn
-    type="facebook"
-    token="token"
-    action="/fake-action"
-  />
+  <OAuthButton signIn type="facebook" token="token" action="/fake-action" />
 );
 
 SignInWithFacebook.story = {
