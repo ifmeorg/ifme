@@ -1,8 +1,18 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { render, screen, getNodeText } from '@testing-library/react';
+import axios from 'axios';
+import {
+  render,
+  screen,
+  getNodeText,
+  waitForElementToBeRemoved,
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { QuickCreate } from 'widgets/QuickCreate';
+import {
+  QuickCreate,
+  sortAlpha,
+  labelExists,
+  addToCheckboxes,
+} from 'widgets/QuickCreate';
 
 const checkboxes = [
   { id: 'last', value: 'a_value', label: 'zoo_label' },
@@ -15,7 +25,6 @@ const checkboxes = [
 // from rtl docs Most projects have a few use cases for fireEvent, but the majority of the time
 // you should probably use @testing-library/user-event.
 describe('QuickCreate', () => {
-  let wrapper;
   beforeEach(() => {
     render(
       <QuickCreate
@@ -23,65 +32,45 @@ describe('QuickCreate', () => {
         id="123"
         label="label"
         checkboxes={checkboxes}
-        formProps={{ inputs: [{}] }}
-      />
-    );
-    wrapper = mount(
-      <QuickCreate
-        name="name"
-        id="123"
-        label="label"
-        checkboxes={checkboxes}
-        formProps={{ inputs: [{}] }}
+        formProps={{
+          inputs: [
+            {
+              id: 'category_name',
+              label: 'Name',
+              name: 'category[name]',
+              required: true,
+              type: 'text',
+              value: '',
+            },
+            {
+              id: 'submit',
+              name: 'submit',
+              type: 'submit',
+              value: 'Submit',
+            },
+          ],
+          action: 'https://if-me.org/quick-create',
+        }}
       />
     );
   });
 
   afterEach(() => {
     jest.restoreAllMocks();
-    wrapper.unmount();
   });
   describe('When the component renders', () => {
     it('renders an input with a label with the accordion closed', () => {
-      expect(screen.getByTestId('accordion-closed')).toBeTruthy();
+      expect(screen.queryByTestId('accordion-closed')).toBeInTheDocument();
       expect(getNodeText(screen.getByText('label'))).toEqual('label');
-    });
-    it('renders checkboxes sorted by label when initially rendered with some checked checkbox props', () => {
-      const someCheckedCheckboxes = [
-        ...checkboxes,
-        {
-          id: 'zoo',
-          value: 'zoo',
-          label: 'zoos',
-          checked: true,
-        },
-        {
-          id: 'apple',
-          value: 'apple',
-          label: 'apple',
-          checked: true,
-        },
-      ];
-      render(
-        <QuickCreate
-          name="name"
-          id="123"
-          label="label"
-          checkboxes={someCheckedCheckboxes}
-          formProps={{ inputs: [{}] }}
-        />
-      );
-      const renderedCheckboxes = screen.getAllByRole('checkbox');
-      expect(renderedCheckboxes[0]).toHaveAttribute('value', 'apple');
-      expect(renderedCheckboxes[1]).toHaveAttribute('value', 'zoo');
     });
   });
   describe('when accordion is clicked', () => {
     it('it opens and the user can interact with the textbox', () => {
+      expect(screen.queryByTestId('accordion-closed')).toBeInTheDocument();
       // user clicks on the label to open accordion
       userEvent.click(screen.getByText('label'));
       // accordion reflects open state
-      screen.getByTestId('accordion-open'); // may not be necessary, if the textbox is visible the accordion is working
+      expect(screen.queryByTestId('accordion-open')).toBeInTheDocument();
       // initially the user sees the placeholder text
       const input = screen.getByRole('textbox');
 
@@ -99,103 +88,92 @@ describe('QuickCreate', () => {
     it('opens modal and displays quick create form if label does not exist', () => {
       // open accordion
       userEvent.click(screen.getByText('label'));
-      // type a value that doesn't exist as a checkbox
       const textbox = screen.getByRole('textbox');
-      const newCheckboxValue = 'new checkbox';
-      userEvent.type(textbox, `${newCheckboxValue}{enter}`);
-      screen.debug(screen.getByRole('dialog'));
-      screen.debug(screen.getAllByDisplayValue(newCheckboxValue));
+      // modal doesn't exist yet
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+      // user enters a checkbox value that does not exist
+      userEvent.type(textbox, 'new checkbox{enter}');
+      // modal appears
+      expect(screen.queryByRole('dialog')).toBeInTheDocument();
     });
-    it('does not open the modal if the label already exists', () => {});
-  });
-
-  it('opens modal and displays quick create form if label does not exist', () => {});
-
-  it('renders with the accordion initially closed', () => {
-    // const modal = wrapper.find('Modal');
-    // expect(modal).toHaveLength(1);
-    // expect(modal.prop('open')).toBe(false);
-  });
-
-  describe('when input is changed', () => {
-    // function changeInput(label) {
-    //   expect(wrapper.find('DynamicForm')).toHaveLength(0);
-    //   expect(wrapper.find('Modal').prop('open')).toBe(false);
-    //   wrapper.find('Input').prop('onChange')({
-    //     checkboxes,
-    //     label,
-    //   });
-    //   wrapper.update();
-    // }
-
-    it('opens modal and displays quick create form if label does not exist', () => {
-      // changeInput('new_label');
-      // expect(wrapper.find('Modal').prop('open')).toBe(true);
-      // expect(wrapper.find('DynamicForm')).toHaveLength(1);
-    });
-
     it('does not open the modal if the label already exists', () => {
-      // changeInput('alpha_label');
-      // expect(wrapper.find('Modal').prop('open')).toBe(false);
-      // expect(wrapper.find('DynamicForm')).toHaveLength(0);
+      // open accordion
+      userEvent.click(screen.getByText('label'));
+      const textbox = screen.getByRole('textbox');
+      // type a value that already exists
+      userEvent.type(textbox, `${checkboxes[0].label}{enter}`);
+      // modal should not be open
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     });
   });
 
   describe('when the form is submitted', () => {
-    // function submitForm(data) {
-    //   wrapper.find('DynamicForm').prop('onSubmit')({
-    //     data: data || {
-    //       success: true,
-    //       name: 'new_label',
-    //       id: 'new_value',
-    //       slug: 'new_id',
-    //     },
-    //   });
-    //   wrapper.update();
-    // }
-
-    beforeEach(() => {
-      // // make the DynamicForm render
-      // wrapper.find('Input').prop('onChange')({
-      //   checkboxes,
-      //   label: 'new_label',
-      // });
-      // wrapper.update();
+    it('adds checkboxes from data', async () => {
+      const response = {
+        data: {
+          success: true,
+          id: 1,
+          name: 'new checkbox',
+          slug: 'new-checkbox',
+        },
+      };
+      const axiosPostSpy = jest
+        .spyOn(axios, 'post')
+        .mockImplementation(() => Promise.resolve(response));
+      userEvent.click(screen.getByText('label'));
+      const textbox = screen.getByRole('textbox');
+      userEvent.type(textbox, 'new checkbox{enter}');
+      userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+      // when the dialog has been removed there was a successful submission
+      await waitForElementToBeRemoved(() => screen.getByRole('dialog'));
+      expect(axiosPostSpy).toBeCalledWith('https://if-me.org/quick-create', {
+        category: { name: 'new checkbox' },
+      });
+      // accordion is still open
+      expect(screen.queryByTestId('accordion-open')).toBeInTheDocument();
+      const newCheckbox = screen.getByRole('checkbox');
+      // the value matches the response slug id
+      expect(newCheckbox).toHaveAttribute('aria-label', 'new checkbox');
+      // the checbox is also checked
+      expect(newCheckbox).toBeChecked();
     });
 
-    it('adds checkboxes from data', () => {
-      // const spy = jest.spyOn(wrapper.instance(), 'addToCheckboxes');
-      // expect(wrapper.find('Input').prop('checkboxes')).toHaveLength(4);
-      // submitForm();
-      // expect(wrapper.find('Input').prop('checkboxes')).toHaveLength(5);
-      // expect(spy).toHaveBeenCalledTimes(1);
+    it('does not submit the form when response data is invalid', async () => {
+      const response = {
+        error: 'some error',
+      };
+      const axiosPostSpy = jest
+        .spyOn(axios, 'post')
+        .mockImplementation(() => Promise.resolve(response));
+      userEvent.click(screen.getByText('label'));
+      const textbox = screen.getByRole('textbox');
+      userEvent.type(textbox, 'new checkbox{enter}');
+      userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+      await axiosPostSpy();
+      // modal is still up when the request fails
+      expect(screen.queryByRole('dialog')).toBeInTheDocument();
     });
+  });
 
-    it('opens the accordion, closes the modal, and assigns the correct key to the modal and input field', () => {
-      // let input = wrapper.find('Input');
-      // let modal = wrapper.find('Modal');
-      // expect(input.prop('accordionOpen')).toBe(false);
-      // expect(modal.prop('open')).toBe(true);
-      // submitForm();
-      // input = wrapper.find('Input');
-      // modal = wrapper.find('Modal');
-      // expect(modal.prop('open')).toBe(false);
-      // expect(input.prop('accordionOpen')).toBe(true);
-      // expect(modal.key()).toBe(wrapper.state('modalKey'));
+  describe('QuickCreate utils', () => {
+    it('sortAlpha sorts checkboxes alphabetically (asc)', () => {
+      const result = sortAlpha([
+        ...checkboxes,
+        { label: 'a', id: 'a', value: 'a' },
+      ]);
+      expect(result[0].label).toEqual('a');
     });
-
-    it('does not submit the form when response data is invalid', () => {
-      // const spy = jest.spyOn(wrapper.instance(), 'addToCheckboxes');
-      // let input = wrapper.find('Input');
-      // let modal = wrapper.find('Modal');
-      // expect(input.prop('accordionOpen')).toBe(false);
-      // expect(modal.prop('open')).toBe(true);
-      // submitForm({ success: false });
-      // input = wrapper.find('Input');
-      // modal = wrapper.find('Modal');
-      // expect(modal.prop('open')).toBe(true);
-      // expect(input.prop('accordionOpen')).toBe(false);
-      // expect(spy).toHaveBeenCalledTimes(0);
+    it('labelExists returns if a specific label exists in an array of checkboxes', () => {
+      const result = labelExists(checkboxes, 'zoo_label');
+      expect(result).toBeTruthy();
+    });
+    it('addToCheckboxes shallow copies an array of checkboxes, pushes a new checkbox, and sorts them', () => {
+      const result = addToCheckboxes(
+        { name: 'a', id: 'a', slug: 'a' },
+        checkboxes
+      );
+      expect(result[0].label).toEqual('a');
+      expect(result[1]).toEqual(checkboxes[2]);
     });
   });
 });

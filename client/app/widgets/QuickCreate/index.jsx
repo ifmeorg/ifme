@@ -7,10 +7,6 @@ import { Utils } from 'utils';
 import DynamicForm from 'components/Form/DynamicForm';
 import css from './QuickCreate.scss';
 
-// value - e.g. category.id
-// label - e.g. category.name
-// checked - i.e. is category used in Moment?
-
 export type Props = {
   checkboxes: Checkbox[],
   placeholder?: string,
@@ -52,19 +48,15 @@ const alpha = (a: string, b: string) => {
   return 0;
 };
 
-const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
+export const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
   // eslint-disable-next-line implicit-arrow-linebreak
   checkboxes.sort((a: Checkbox, b: Checkbox) => alpha(a.label, b.label));
 
-// Question: These functions are related to props/state but they don't impact them in anyway.
-// They are pure functions in that they take some input and give an output
-// there is no modification or dependency from props/state. That's why I hoisted these out
-// but it seems like other refactors kept similar methods inside the component.
-const labelExists = (checkboxes: Checkbox[], compareLabel: string) => checkboxes.filter(
+export const labelExists = (checkboxes: Checkbox[], compareLabel: string) => checkboxes.filter(
   (checkbox: Checkbox) => checkbox.label.toLowerCase() === compareLabel.toLowerCase(),
 ).length;
 
-const addToCheckboxes = (
+export const addToCheckboxes = (
   { name, id, slug }: NewCheckbox,
   checkboxes: Checkbox[],
 ) => {
@@ -121,7 +113,7 @@ const quickCreateReducer = (state: State, action: Action) => {
       };
     }
     default:
-      throw new Error();
+      throw new Error(`Unhandled action type: ${action.type}`);
   }
 };
 
@@ -141,9 +133,7 @@ export const QuickCreate = ({
   ] = useReducer(quickCreateReducer, {
     checkboxes: checkboxesProp,
     open: false,
-    // Q: which component is responsible for sorting checkboes. There was a test about sorting
-    // for this component
-    accordionOpen: sortAlpha(checkboxesProp).some((cb) => cb.checked),
+    accordionOpen: checkboxesProp.some((cb) => cb.checked),
     modalKey: undefined,
     tagKey: undefined,
     body: undefined,
@@ -169,9 +159,6 @@ export const QuickCreate = ({
         payload: {
           label: onChangeLabel,
           checkboxes: changeCheckboxes,
-          // Question: Previously there were instance methods that were solely for unpacking
-          // related state, prop variables, and then returning jsx/component.
-          // this seems to be an unnecessary step IMO. Is it okay just to inline?
           body: (
             <DynamicForm
               nameValue={onChangeLabel}
@@ -186,9 +173,6 @@ export const QuickCreate = ({
 
   return (
     <div>
-      {/* Question: Again just inlining the input rather than invoking a method that returns jsx.
-      The logic is being able to just look at the output of the render method and understanding
-      what this component actually is vs tracing function/method calls */}
       <Input
         id={id}
         type="tag"
