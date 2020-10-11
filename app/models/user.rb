@@ -51,7 +51,7 @@ class User < ApplicationRecord
 
   OAUTH_TOKEN_URL = 'https://accounts.google.com/o/oauth2/token'
 
-  DISPLAY_ATTRIBUTES = %w{
+  DISPLAY_ATTRIBUTES = %w[
     id
     email
     sign_in_count
@@ -74,8 +74,8 @@ class User < ApplicationRecord
     meeting_notify
     locale
     banned
-    admin 
-  }.map!(&:freeze).freeze
+    admin
+  ].map!(&:freeze).freeze
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -98,7 +98,7 @@ class User < ApplicationRecord
   has_many :categories
   has_many :care_plan_contacts
   has_many :password_histories, dependent: :destroy
-  has_many :data_requests, class_name: "Users::DataRequest", foreign_key: :user_id
+  has_many :data_requests, class_name: 'Users::DataRequest', foreign_key: :user_id
   belongs_to :invited_by, class_name: 'User'
 
   after_initialize :set_defaults, unless: :persisted?
@@ -163,42 +163,50 @@ class User < ApplicationRecord
     new_access_token
   end
 
-  def build_csv_data()
-    user_data = [["user_info"]]
+  def build_csv_data
+    user_data = [['user_info']]
     user_data << DISPLAY_ATTRIBUTES
-    user_data << DISPLAY_ATTRIBUTES.map { |attribute| self.send(attribute.to_sym) }
-    user_data += Group.build_csv_rows(self.groups)
-    user_data += GroupMember.build_csv_rows(self.group_members)
-    user_data += Category.build_csv_rows(self.categories)
-    user_data += Medication.build_csv_rows(self.medications)
-    user_data += Strategy.build_csv_rows(self.strategies)
-    user_data += Moment.build_csv_rows(self.moments)
-    user_data += Notification.build_csv_rows(self.notifications)
-    user_data += Mood.build_csv_rows(self.moods)
-    user_data += CarePlanContact.build_csv_rows(self.care_plan_contacts)
-    user_data += Allyship.build_csv_rows(self.allyships)
-    user_data += MeetingMember.build_csv_rows(self.meeting_members)
-    return user_data
+    user_data << DISPLAY_ATTRIBUTES.map { |attribute| send(attribute.to_sym) }
+    user_data += Group.build_csv_rows(groups)
+    user_data += GroupMember.build_csv_rows(group_members)
+    user_data += Category.build_csv_rows(categories)
+    user_data += Medication.build_csv_rows(medications)
+    user_data += Strategy.build_csv_rows(strategies)
+    user_data += Moment.build_csv_rows(moments)
+    user_data += Notification.build_csv_rows(notifications)
+    user_data += Mood.build_csv_rows(moods)
+    user_data += CarePlanContact.build_csv_rows(care_plan_contacts)
+    user_data += Allyship.build_csv_rows(allyships)
+    user_data += MeetingMember.build_csv_rows(meeting_members)
+    user_data
   end
 
-  def generate_data_request()
+  def generate_data_request
     ActiveRecord::Base.transaction do
-      self.lock!
-      data_request = self.data_requests
-        .where(status_id: Users::DataRequest::STATUS[:enqueued])
-        .first_or_initialize
+      lock!
+      data_request = data_requests
+                     .where(status_id: Users::DataRequest::STATUS[:enqueued])
+                     .first_or_initialize
       return data_request.request_id if data_request.request_id.present?
+
       data_request.request_id = SecureRandom.uuid
       data_request.save!
       return data_request.request_id
     end
   end
 
-  def delete_stale_data_file()
-    successful_data_requests = self.data_requests.where(status_id: Users::DataRequest::STATUS[:success]).order("updated_at desc")
+  def delete_stale_data_file
+    successful_data_requests = data_requests
+                               .where(
+                                 status_id: Users::DataRequest::STATUS[:success]
+                               )
+                               .order('updated_at desc')
     return if successful_data_requests.count < 2
+
     ActiveRecord::Base.transaction do
-      stale_data_requests = successful_data_requests.where.not(id: successful_data_requests.first)
+      stale_data_requests = successful_data_requests.where.not(
+        id: successful_data_requests.first
+      )
       stale_data_requests.each do |dr|
         File.delete(dr.file_path) if File.exist?(dr.file_path)
         dr.update!(status_id: Users::DataRequest::STATUS[:deleted])

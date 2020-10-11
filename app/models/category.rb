@@ -24,7 +24,7 @@ class Category < ApplicationRecord
   has_many :strategies_categories, dependent: :destroy
   validates :visible, inclusion: [true, false]
 
-  DISPLAY_ATTRIBUTES = %w{
+  DISPLAY_ATTRIBUTES = %w[
     id
     name
     description
@@ -32,6 +32,5 @@ class Category < ApplicationRecord
     updated_at
     slug
     visible
-  }.map!(&:freeze).freeze
-
+  ].map!(&:freeze).freeze
 end

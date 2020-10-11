@@ -11,82 +11,86 @@
 #  updated_at :datetime         not null
 #
 
-class Users::DataRequest < ApplicationRecord
+module Users
+  class DataRequest < ApplicationRecord
+    STATUS = {
+      enqueued: 1,
+      success: 2,
+      failed: 3,
+      deleted: 4
+    }.freeze
 
-  STATUS = {
-    enqueued: 1,
-    success: 2,
-    failed: 3,
-    deleted: 4
-  }.freeze
+    ASSOCIATIONS_TO_EXPORT = %i[
+      allyships
+      group_members
+      groups
+      categories
+      medications
+      strategies
+      moments
+      notifications
+      moods
+      care_plan_contacts
+      meeting_members
+    ].freeze
 
-  ASSOCIATIONS_TO_EXPORT = %i{
-    allyships    
-    group_members
-    groups
-    categories
-    medications
-    strategies
-    moments
-    notifications
-    moods
-    care_plan_contacts
-    meeting_members
-  }
+    DEFAULT_FILE_PATH = Rails.root.join('tmp/csv_data/')
 
-  DEFAULT_FILE_PATH = "#{Rails.root}/tmp/csv_data/".freeze
+    belongs_to :user, class_name: '::User', foreign_key: 'user_id'
 
-  belongs_to :user, class_name: '::User', foreign_key: "user_id"
-  
-  after_commit :after_commit_tasks
+    after_commit :after_commit_tasks
 
-  validates_uniqueness_of :user_id, scope: [:status_id],
-    message: "There's already a request enqueued for this user.", if: -> {self.status_id == STATUS[:enqueued]}
-
-  validates_uniqueness_of :request_id,
-    message: "There's already a request with this request_id."
-  
-  validates :status_id,
-    inclusion: {
-      in: STATUS.values,
-      message: proc { |request| "'#{request.status_id}' is not valid."}
+    validates :user_id, uniqueness: {
+      scope: :status_id,
+      message: 'There is already a request enqueued for this user.'
     },
-    presence: true
+                        if: -> { status_id == STATUS[:enqueued] }
 
-  validates :request_id, presence: true
+    validates :request_id, uniqueness: {
+      message: 'There is already a request with this request_id.'
+    }
 
-  attr_accessor :file_path
+    validates :status_id, inclusion: {
+      in: STATUS.values,
+      message: proc { |request| "'#{request.status_id}' is not valid." }
+    },
+                          presence: true
 
-  def after_commit_tasks()
-    enqueue_download_request() if (self.saved_change_to_id? && self.status_id == STATUS[:enqueued]) 
-  end
+    validates :request_id, presence: true
 
-  def enqueue_download_request()
-    ProcessDataRequestWorker.perform_async(self.request_id)
-  end
+    def after_commit_tasks
+      return unless saved_change_to_id? && status_id == STATUS[:enqueued]
 
-  def create_csv()
-    Dir.mkdir(DEFAULT_FILE_PATH) unless File.exist?(DEFAULT_FILE_PATH)
-    user = User.includes(*ASSOCIATIONS_TO_EXPORT).find(self.user_id)
-    begin
-      require 'csv'
-      csv_rows = user.build_csv_data()
-      CSV.open("#{self.file_path}","wb") do |csv_row|
-        csv_rows.each do |row|
-          csv_row << row
-        end
-      end
-      self.status_id = STATUS[:success]
-      self.save!
-      user.delete_stale_data_file()
-    rescue => e
-      File.delete(self.file_path) if (self.file_path.present? && File.exist?(self.file_path))
-      self.status_id = STATUS[:failed]
-      self.save!
+      enqueue_download_request
     end
-  end
 
-  def file_path()
-    return "#{DEFAULT_FILE_PATH}#{self.request_id}.csv"
+    def enqueue_download_request
+      ProcessDataRequestWorker.perform_async(request_id)
+    end
+
+    def create_csv
+      Dir.mkdir(DEFAULT_FILE_PATH) unless File.exist?(DEFAULT_FILE_PATH)
+      user = User.includes(*ASSOCIATIONS_TO_EXPORT).find(user_id)
+      begin
+        require 'csv'
+        csv_rows = user.build_csv_data
+        CSV.open(file_path, 'wb') do |csv_row|
+          csv_rows.each do |row|
+            csv_row << row
+          end
+        end
+        self.status_id = STATUS[:success]
+        save!
+        user.delete_stale_data_file
+      rescue StandardError
+        File.delete(file_path) if file_path.present? && File.exist?(file_path)
+        self.status_id = STATUS[:failed]
+        save!
+      end
+    end
+
+    def file_path
+      "#{DEFAULT_FILE_PATH}#{request_id}.csv"
+    end
   end
 end

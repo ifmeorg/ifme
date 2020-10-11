@@ -45,7 +45,6 @@ class CommentsController < ApplicationController
     comment.id
   end
 
-  # rubocop:disable Metrics/MethodLength
   def handle_delete(comment)
     if %w[moment strategy].include?(comment.commentable_type)
       raise RuntimeError unless CommentViewersService.deletable?(
@@ -61,5 +60,4 @@ class CommentsController < ApplicationController
       remove_meeting_notification(comment, meeting)
     end
   end
-  # rubocop:enable Metrics/MethodLength
 end

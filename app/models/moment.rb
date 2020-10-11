@@ -25,7 +25,7 @@ class Moment < ApplicationRecord
   include CommonMethods
   extend FriendlyId
 
-  DISPLAY_ATTRIBUTES = %w{
+  DISPLAY_ATTRIBUTES = %w[
     id
     name
     why
@@ -40,7 +40,7 @@ class Moment < ApplicationRecord
     published_at
     bookmarked
     resource_recommendations
-  }.map!(&:freeze).freeze
+  ].map!(&:freeze).freeze
 
   friendly_id :name
   serialize :viewers, Array

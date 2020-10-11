@@ -23,14 +23,14 @@ class Group < ApplicationRecord
            through: :group_members, source: :user
   after_destroy :destroy_notifications
 
-  DISPLAY_ATTRIBUTES = %w{
+  DISPLAY_ATTRIBUTES = %w[
     id
     name
     created_at
     updated_at
     description
     slug
-  }.map!(&:freeze).freeze
+  ].map!(&:freeze).freeze
 
   def led_by?(user)
     leaders.include? user

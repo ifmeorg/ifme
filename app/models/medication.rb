@@ -26,7 +26,7 @@ class Medication < ApplicationRecord
   # total: total quantity of medication
   # strength: strength of medication
 
-  DISPLAY_ATTRIBUTES = %w{
+  DISPLAY_ATTRIBUTES = %w[
     id
     name
     dosage
@@ -43,7 +43,7 @@ class Medication < ApplicationRecord
     slug
     add_to_google_cal
     weekly_dosage
-  }.map!(&:freeze).freeze
+  ].map!(&:freeze).freeze
 
   extend FriendlyId
   friendly_id :name

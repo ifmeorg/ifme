@@ -12,15 +12,14 @@
 #
 
 class CarePlanContact < ApplicationRecord
-
-  DISPLAY_ATTRIBUTES = %w{
+  DISPLAY_ATTRIBUTES = %w[
     id
     name
     phone
     created_at
     updated_at
-  }.map!(&:freeze).freeze
-  
+  ].map!(&:freeze).freeze
+
   validates :user_id, :name, presence: true
   belongs_to :user
 end

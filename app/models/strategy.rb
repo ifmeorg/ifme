@@ -22,7 +22,7 @@ class Strategy < ApplicationRecord
   include CommonMethods
   extend FriendlyId
 
-  DISPLAY_ATTRIBUTES = %w{
+  DISPLAY_ATTRIBUTES = %w[
     id
     description
     viewers
@@ -34,8 +34,8 @@ class Strategy < ApplicationRecord
     published_at
     visible
     bookmarked
-  }.map!(&:freeze).freeze
-  
+  ].map!(&:freeze).freeze
+
   friendly_id :name
   serialize :viewers, Array
 

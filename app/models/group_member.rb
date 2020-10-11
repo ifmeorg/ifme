@@ -12,14 +12,13 @@
 #
 
 class GroupMember < ApplicationRecord
-
-  DISPLAY_ATTRIBUTES = %w{
+  DISPLAY_ATTRIBUTES = %w[
     id
     group_id
     leader
     created_at
     updated_at
-  }.map!(&:freeze).freeze
+  ].map!(&:freeze).freeze
 
   after_destroy :destroy_meeting_memberships
 

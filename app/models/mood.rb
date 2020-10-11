@@ -14,8 +14,7 @@
 #
 
 class Mood < ApplicationRecord
-
-  DISPLAY_ATTRIBUTES = %w{
+  DISPLAY_ATTRIBUTES = %w[
     id
     name
     description
@@ -23,8 +22,8 @@ class Mood < ApplicationRecord
     updated_at
     slug
     visible
-  }.map!(&:freeze).freeze
-  
+  ].map!(&:freeze).freeze
+
   extend FriendlyId
   friendly_id :name
   validates :user_id, :name, presence: true

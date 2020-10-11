@@ -12,14 +12,13 @@
 #
 
 class Allyship < ApplicationRecord
-  
-  DISPLAY_ATTRIBUTES = %w{
+  DISPLAY_ATTRIBUTES = %w[
     id
     created_at
     updated_at
     ally_id
     status
-  }.map!(&:freeze).freeze
+  ].map!(&:freeze).freeze
 
   enum status: { accepted: 0, pending_from_user: 1, pending_from_ally: 2 }
 
