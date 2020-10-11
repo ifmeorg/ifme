@@ -51,7 +51,7 @@ describe('QuickCreate', () => {
           ],
           action: 'https://if-me.org/quick-create',
         }}
-      />
+      />,
     );
   });
 
@@ -170,7 +170,7 @@ describe('QuickCreate', () => {
     it('addToCheckboxes shallow copies an array of checkboxes, pushes a new checkbox, and sorts them', () => {
       const result = addToCheckboxes(
         { name: 'a', id: 'a', slug: 'a' },
-        checkboxes
+        checkboxes,
       );
       expect(result[0].label).toEqual('a');
       expect(result[1]).toEqual(checkboxes[2]);
