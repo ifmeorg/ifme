@@ -74,7 +74,7 @@ export function InputTextarea({
 }: Props) {
   const [currentValue, setValue] = useState<string>(value || '');
   const editorRef = useRef(null);
-  let editor;
+  const editor = useRef(null);
 
   const onChange = (updatedValue: string) => {
     setValue(updatedValue);
@@ -90,20 +90,20 @@ export function InputTextarea({
     if (required && hasError) {
       hasError(false);
     }
-    if (editorRef) {
+    if (editorRef.current) {
       editorRef.current.getElementsByClassName('editorContent')[0].focus();
     }
   };
 
   useEffect(() => {
     if (editorRef.current) {
-      editor = init({
+      editor.current = init({
         element: editorRef.current.getElementsByClassName('editor')[0],
         onChange,
         classes,
         actions,
       });
-      editor.content.innerHTML = currentValue;
+      editor.current.content.innerHTML = currentValue;
     }
   }, []);
 
@@ -128,4 +128,3 @@ export function InputTextarea({
     </div>
   );
 }
-
