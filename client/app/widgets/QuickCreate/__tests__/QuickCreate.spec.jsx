@@ -51,7 +51,7 @@ describe('QuickCreate', () => {
           ],
           action: 'https://if-me.org/quick-create',
         }}
-      />,
+      />
     );
   });
 
@@ -67,48 +67,47 @@ describe('QuickCreate', () => {
   describe('when accordion is clicked', () => {
     it('it opens and the user can interact with the textbox', () => {
       expect(screen.queryByTestId('accordion-closed')).toBeInTheDocument();
+      const quickCreateLabel = screen.getByText('label');
       // user clicks on the label to open accordion
-      userEvent.click(screen.getByText('label'));
+      userEvent.click(quickCreateLabel);
       // accordion reflects open state
       expect(screen.queryByTestId('accordion-open')).toBeInTheDocument();
-      // initially the user sees the placeholder text
-      const input = screen.getByRole('textbox');
-
       const userInput = 'my input text';
       // User enters some text
-      userEvent.type(input, userInput);
+      userEvent.type(screen.getByRole('textbox'), userInput);
       // Closes the input
-      userEvent.click(screen.getByText('label'));
+      userEvent.click(quickCreateLabel);
       // Reopen
-      userEvent.click(screen.getByText('label'));
+      userEvent.click(quickCreateLabel);
       expect(screen.getByRole('textbox')).toHaveValue(userInput);
     });
   });
   describe('when input is changed', () => {
-    it('opens modal and displays quick create form if label does not exist', () => {
+    it('opens modal when the checkbox does not already exist', () => {
       // open accordion
       userEvent.click(screen.getByText('label'));
-      const textbox = screen.getByRole('textbox');
       // modal doesn't exist yet
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
       // user enters a checkbox value that does not exist
-      userEvent.type(textbox, 'new checkbox{enter}');
+      userEvent.type(screen.getByRole('textbox'), 'new checkbox{enter}');
       // modal appears
       expect(screen.queryByRole('dialog')).toBeInTheDocument();
     });
-    it('does not open the modal if the label already exists', () => {
+    it('does not open the modal if the checkbox already exists', () => {
       // open accordion
       userEvent.click(screen.getByText('label'));
-      const textbox = screen.getByRole('textbox');
       // type a value that already exists
-      userEvent.type(textbox, `${checkboxes[0].label}{enter}`);
+      userEvent.type(
+        screen.getByRole('textbox'),
+        `${checkboxes[0].label}{enter}`
+      );
       // modal should not be open
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     });
   });
 
-  describe('when the form is submitted', () => {
-    it('adds checkboxes from data', async () => {
+  describe('when the form', () => {
+    it('is submitted it adds checkboxes from data', async () => {
       const response = {
         data: {
           success: true,
@@ -120,9 +119,11 @@ describe('QuickCreate', () => {
       const axiosPostSpy = jest
         .spyOn(axios, 'post')
         .mockImplementation(() => Promise.resolve(response));
+      // open accordion
       userEvent.click(screen.getByText('label'));
-      const textbox = screen.getByRole('textbox');
-      userEvent.type(textbox, 'new checkbox{enter}');
+      // enter a value that doesnt exist
+      userEvent.type(screen.getByRole('textbox'), 'new checkbox{enter}');
+      // submit the form
       userEvent.click(screen.getByRole('button', { name: 'Submit' }));
       // when the dialog has been removed there was a successful submission
       await waitForElementToBeRemoved(() => screen.getByRole('dialog'));
@@ -138,7 +139,7 @@ describe('QuickCreate', () => {
       expect(newCheckbox).toBeChecked();
     });
 
-    it('does not submit the form when response data is invalid', async () => {
+    it('submission fails the modal stays open', async () => {
       const response = {
         error: 'some error',
       };
@@ -146,8 +147,7 @@ describe('QuickCreate', () => {
         .spyOn(axios, 'post')
         .mockImplementation(() => Promise.resolve(response));
       userEvent.click(screen.getByText('label'));
-      const textbox = screen.getByRole('textbox');
-      userEvent.type(textbox, 'new checkbox{enter}');
+      userEvent.type(screen.getByRole('textbox'), 'new checkbox{enter}');
       userEvent.click(screen.getByRole('button', { name: 'Submit' }));
       await axiosPostSpy();
       // modal is still up when the request fails
@@ -170,7 +170,7 @@ describe('QuickCreate', () => {
     it('addToCheckboxes shallow copies an array of checkboxes, pushes a new checkbox, and sorts them', () => {
       const result = addToCheckboxes(
         { name: 'a', id: 'a', slug: 'a' },
-        checkboxes,
+        checkboxes
       );
       expect(result[0].label).toEqual('a');
       expect(result[1]).toEqual(checkboxes[2]);
