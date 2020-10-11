@@ -66,13 +66,13 @@ export type Props = {
 export function InputTextarea({
   id,
   name,
-  value: propsValue,
+  value: propValue,
   required,
   hasError,
   myRef,
   dark,
 }: Props) {
-  const [value, setValue] = useState<string>(propsValue || '');
+  const [value, setValue] = useState<string>(propValue || '');
   const editorRef = useRef(null);
   const editor = useRef(null);
 
