@@ -66,13 +66,13 @@ export type Props = {
 export function InputTextarea({
   id,
   name,
-  value,
+  value: propsValue,
   required,
   hasError,
   myRef,
   dark,
 }: Props) {
-  const [currentValue, setValue] = useState<string>(value || '');
+  const [value, setValue] = useState<string>(propsValue || '');
   const editorRef = useRef(null);
   const editor = useRef(null);
 
@@ -82,7 +82,7 @@ export function InputTextarea({
 
   const onBlur = () => {
     if (required && hasError) {
-      hasError(!currentValue || currentValue === '<p><br></p>');
+      hasError(!value || value === '<p><br></p>');
     }
   };
 
@@ -103,7 +103,7 @@ export function InputTextarea({
         classes,
         actions,
       });
-      editor.current.content.innerHTML = currentValue;
+      editor.current.content.innerHTML = value;
     }
   }, []);
 
@@ -120,7 +120,7 @@ export function InputTextarea({
       <div className={`editor ${css.editor}`} />
       <input
         type="hidden"
-        value={currentValue}
+        value={value}
         name={name}
         required={required}
         ref={myRef}
