@@ -89,9 +89,9 @@ describe "Profile", type: :request do
 
     context "when signed in user is not an admin" do
       let(:non_admin_user) { create(:user1) }
+      before { sign_in non_admin_user }
 
       it "cannot ban user" do
-        sign_in non_admin_user
         post add_ban_profile_index_path, params: {user_id: user.id}
         expect(response).to have_http_status(204)
         expect(Devise.mailer.deliveries.count).to eq(0)
@@ -100,10 +100,10 @@ describe "Profile", type: :request do
 
     context "when signed in user is an admin" do
       let(:admin_user) { create(:user1, admin: true) }
+      before { sign_in admin_user }
 
       context "when user exists" do
         it "bans the user" do
-          sign_in admin_user
           expect { post add_ban_profile_index_path, params: {user_id: user.id} }
             .to change(Devise.mailer.deliveries, :count).by 1
           expect(response).to redirect_to(admin_dashboard_path)
@@ -113,7 +113,6 @@ describe "Profile", type: :request do
 
       context "when user does not exist" do
         it "does not ban the user" do
-          sign_in admin_user
           expect { post add_ban_profile_index_path, params: {user_id: -1} }
             .not_to change(Devise.mailer.deliveries, :count).from(0)
           expect(response).to redirect_to(admin_dashboard_path)
@@ -130,9 +129,9 @@ describe "Profile", type: :request do
 
     context "when signed in user is not an admin" do
       let(:nonadmin_user) { create(:user1) }
+      before { sign_in nonadmin_user }
 
       it "cannot ban user" do
-        sign_in nonadmin_user
         expect { post remove_ban_profile_index_path, params: {user_id: banned_user.id} }
           .not_to change(Devise.mailer.deliveries, :count).from(0)
         expect(response).to have_http_status(204)
