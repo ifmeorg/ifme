@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { init, exec } from 'pell';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -63,61 +63,56 @@ export type Props = {
   dark?: boolean,
 };
 
-export type State = {
-  value?: any,
-};
+export function InputTextarea(props: Props) {
+  const {
+    id, name, value: propValue, required, hasError, myRef, dark,
+  } = props;
+  const [value, setValue] = useState<string>(propValue || '');
+  const editorRef = useRef(null);
+  const editor = useRef(null);
 
-export class InputTextarea extends React.Component<Props, State> {
-  editor: any;
-
-  editorRef: any;
-
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      value: props.value || '',
-    };
-  }
-
-  componentDidMount() {
-    const { value } = this.state;
-    if (this.editorRef) {
-      this.editor = init({
-        element: this.editorRef.getElementsByClassName('editor')[0],
-        onChange: this.onChange,
-        classes,
-        actions,
-      });
-      this.editor.content.innerHTML = value;
-    }
-  }
-
-  onChange = (value: string) => {
-    this.setState({ value });
+  const onChange = (updatedValue: string) => {
+    setValue(updatedValue);
   };
 
-  onBlur = () => {
-    const { required, hasError } = this.props;
-    const { value } = this.state;
+  const onBlur = () => {
     if (required && hasError) {
       hasError(!value || value === '<p><br></p>');
     }
   };
 
-  onFocus = () => {
-    const { required, hasError } = this.props;
+  const onFocus = () => {
     if (required && hasError) {
       hasError(false);
     }
-    if (this.editorRef) {
-      this.editorRef.getElementsByClassName('editorContent')[0].focus();
+    if (editorRef.current) {
+      editorRef.current.getElementsByClassName('editorContent')[0].focus();
     }
   };
 
-  displayHidden = () => {
-    const { name, required, myRef } = this.props;
-    const { value } = this.state;
-    return (
+  useEffect(() => {
+    if (editorRef.current) {
+      editor.current = init({
+        element: editorRef.current.getElementsByClassName('editor')[0],
+        onChange,
+        classes,
+        actions,
+      });
+      editor.current.content.innerHTML = value;
+    }
+  }, []);
+
+  return (
+    <div
+      id={id}
+      className={`${inputCss.default} ${dark ? css.dark : ''}`}
+      onBlur={onBlur}
+      onFocus={onFocus}
+      tabIndex={0}
+      role="textbox"
+      ref={editorRef}
+    >
+      <div className={`editor ${css.editor}`} />
       <input
         type="hidden"
         value={value}
@@ -125,26 +120,6 @@ export class InputTextarea extends React.Component<Props, State> {
         required={required}
         ref={myRef}
       />
-    );
-  };
-
-  render() {
-    const { id, dark } = this.props;
-    return (
-      <div
-        id={id}
-        className={`${inputCss.default} ${dark ? css.dark : ''}`}
-        onBlur={this.onBlur}
-        onFocus={this.onFocus}
-        tabIndex={0}
-        role="textbox"
-        ref={(element) => {
-          this.editorRef = element;
-        }}
-      >
-        <div className={`editor ${css.editor}`} />
-        {this.displayHidden()}
-      </div>
-    );
-  }
+    </div>
+  );
 }
