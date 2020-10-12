@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe 'Notifications', type: :request do
+describe 'Notification', type: :request do
   describe '#destroy' do
     let(:user) { create(:user1) }
     let(:other_user) { create(:user2) }
@@ -8,11 +8,11 @@ describe 'Notifications', type: :request do
     let!(:notification) do
       create(:notification, user: notification_owner)
     end
+    let(:previous_page) { 'http://example.com/previous' }
+    let(:headers) { { 'HTTP_REFERER' => previous_page } }
 
     context 'when the user is signed in' do
-      let(:previous_page) { 'http://example.com/previous' }
       let(:notification_id) { notification.id }
-      let(:headers) { { 'HTTP_REFERER' => previous_page } }
 
       before do
         sign_in user
@@ -20,24 +20,24 @@ describe 'Notifications', type: :request do
         delete notification_path(id: notification_id), headers: headers
       end
 
-      context 'and the notification to be deleted exists' do
-        context 'and the notification belongs to the user' do
+      context 'when notification to be deleted exists' do
+        context 'when notification belongs to the user' do
           it 'deletes the notification' do
             expect(Notification.find_by(id: notification_id)).to be_nil
           end
 
-          context 'and the requested format is html' do
-            let(:headers) { { 'HTTP_REFERER' => previous_page } }
-
+          context 'when requested format is html' do
             it 'redirects the user back to where they were before' do
               expect(response).to redirect_to previous_page
             end
           end
 
-          context 'and the requested format is json' do
+          context 'when requested format is json' do
             let(:headers) do
-              { 'HTTP_REFERER' => previous_page,
-                'ACCEPT' => 'application/json' }
+              {
+                'HTTP_REFERER' => previous_page,
+                'ACCEPT' => 'application/json'
+              }
             end
 
             it 'renders a HEAD response with :no_content' do
@@ -46,25 +46,25 @@ describe 'Notifications', type: :request do
           end
         end
 
-        context 'and the notification does not belong to the user' do
+        context 'when notification does not belong to the user' do
           let(:notification_owner) { other_user }
 
           it 'does not delete the notification' do
             expect(Notification.find_by(id: notification_id)).to_not be_nil
           end
 
-          context 'and the requested format is html' do
-            let(:headers) { { 'HTTP_REFERER' => previous_page } }
-
+          context 'when requested format is html' do
             it 'redirects the user back to where they were before' do
               expect(response).to redirect_to previous_page
             end
           end
 
-          context 'and the requested format is json' do
+          context 'when requested format is json' do
             let(:headers) do
-              { 'HTTP_REFERER' => previous_page,
-                'ACCEPT' => 'application/json' }
+              {
+                'HTTP_REFERER' => previous_page,
+                'ACCEPT' => 'application/json'
+              }
             end
 
             it 'renders a HEAD response with :no_content' do
@@ -74,21 +74,21 @@ describe 'Notifications', type: :request do
         end
       end
 
-      context 'and the notification to be deleted does not exist' do
+      context 'when notification to be deleted does not exist' do
         let(:notification_id) { 'something-fake' }
 
-        context 'and the requested format is html' do
-          let(:headers) { { 'HTTP_REFERER' => previous_page } }
-
+        context 'when requested format is html' do
           it 'redirects the user back to where they were before' do
             expect(response).to redirect_to previous_page
           end
         end
 
-        context 'and the requested format is json' do
+        context 'when requested format is json' do
           let(:headers) do
-            { 'HTTP_REFERER' => previous_page,
-              'ACCEPT' => 'application/json' }
+            {
+              'HTTP_REFERER' => previous_page,
+              'ACCEPT' => 'application/json'
+            }
           end
 
           it 'renders a HEAD response with :no_content' do
@@ -105,15 +105,13 @@ describe 'Notifications', type: :request do
         delete notification_path(id: invalid_id), headers: headers
       end
 
-      context 'and the requested format is html' do
-        let(:headers) {}
-
+      context 'when requested format is html' do
         it 'redirects to the new_user_session_path' do
           expect(response).to redirect_to new_user_session_path
         end
       end
 
-      context 'and the requested format is json' do
+      context 'when requested format is json' do
         let(:headers) { { 'ACCEPT' => 'application/json' } }
 
         it 'renders a HEAD response with :no_content' do
@@ -131,9 +129,7 @@ describe 'Notifications', type: :request do
     end
 
     context 'when the user is signed in' do
-      before do
-        sign_in user
-      end
+      before { sign_in user }
 
       context 'when the user has notifications' do
         let!(:notification) do
@@ -182,13 +178,13 @@ describe 'Notifications', type: :request do
         delete clear_notifications_url, headers: headers
       end
 
-      context 'and the requested format is html' do
+      context 'when requested format is html' do
         it 'redirects to the new_user_session_path' do
           expect(response).to redirect_to new_user_session_path
         end
       end
 
-      context 'and the requested format is json' do
+      context 'when requested format is json' do
         let(:headers) { { 'ACCEPT' => 'application/json' } }
 
         it 'renders a HEAD response with :no_content' do
@@ -237,13 +233,13 @@ describe 'Notifications', type: :request do
         get fetch_notifications_notifications_url, headers: headers
       end
 
-      context 'and the requested format is html' do
+      context 'when requested format is html' do
         it 'redirects to the new_user_session_path' do
           expect(response).to redirect_to new_user_session_path
         end
       end
 
-      context 'and the requested format is json' do
+      context 'when requested format is json' do
         let(:headers) { { 'ACCEPT' => 'application/json' } }
 
         it 'renders a HEAD response with :no_content' do
@@ -272,13 +268,13 @@ describe 'Notifications', type: :request do
         get signed_in_notifications_url, headers: headers
       end
 
-      context 'and the requested format is html' do
+      context 'when requested format is html' do
         it 'redirects to the new_user_session_path' do
           expect(response).to redirect_to new_user_session_path
         end
       end
 
-      context 'and the requested format is json' do
+      context 'when requested format is json' do
         let(:headers) { { 'ACCEPT' => 'application/json' } }
 
         it 'renders a HEAD response with :no_content' do
