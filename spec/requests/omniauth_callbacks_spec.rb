@@ -6,8 +6,9 @@ describe 'OmniauthCallbacks', type: :request do
 
   def invite_user(email)
     inviter = create(:user)
-    invitee = User.invite!({ email: email }, inviter)
-    set_invitation_token_env(invitee)
+    User.invite!({ email: email }, inviter).tap do |invitee|
+      set_invitation_token_env(invitee)
+    end
   end
 
   describe 'GET #google_oauth2' do
@@ -38,27 +39,31 @@ describe 'OmniauthCallbacks', type: :request do
       end
     end
 
-    context 'when google_oauth2 email already exists in the system' do
-      let!(:user) { create(:user, email: oauth_email, token: nil) }
-
+    context 'when google_oauth2 email already exists in the system without token' do
       it 'updates the user with google_oauth2 credentials' do
+        user = create(:user, email: oauth_email, token: nil)
+
         get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
 
-        user = User.find_by(email: oauth_email)
-        expect(user.token).to eq oauth_token
+        expect(user.reload.token).to eq oauth_token
       end
 
       it 'signs in and redirects to root' do
+        create(:user, email: oauth_email, token: nil)
+
         get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
 
         expect(response).to redirect_to root_path
       end
 
       it 'enables oauth on user' do
-        get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
+        user = create(:user, email: oauth_email, token: nil)
 
-        user = User.find_by(email: oauth_email)
-        expect(user.oauth_enabled?).to eq true
+        expect {
+          get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
+        }.to change {
+          user.reload.oauth_enabled?
+        }.from(false).to(true)
       end
     end
 
@@ -75,12 +80,13 @@ describe 'OmniauthCallbacks', type: :request do
     context 'when an invitation_token is passed in' do
       context 'when the user logs in with the same email as the invitation' do
         it 'sets invitation accepted at on invitee' do
-          invite_user(oauth_email)
+          invitee = invite_user(oauth_email)
 
-          get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
-
-          invitee = User.find_by(email: oauth_email)
-          expect(invitee.invitation_accepted_at).to be_present
+          expect {
+            get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
+          }.to change {
+            invitee.reload.invitation_accepted_at
+          }.from(nil).to(ActiveSupport::TimeWithZone)
         end
 
         it 'signs in and redirects to root' do
@@ -92,12 +98,13 @@ describe 'OmniauthCallbacks', type: :request do
         end
 
         it 'enables oauth on user' do
-          invite_user(oauth_email)
+          invitee = invite_user(oauth_email)
 
-          get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
-
-          invitee = User.find_by(email: oauth_email)
-          expect(invitee.oauth_enabled?).to eq true
+          expect {
+            get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
+          }.to change {
+            invitee.reload.oauth_enabled?
+          }.from(false).to(true)
         end
       end
 
@@ -208,26 +215,31 @@ describe 'OmniauthCallbacks', type: :request do
       end
     end
 
-    context 'when facebook email already exists in the system' do
-      let!(:user) { create(:user, email: oauth_email, token: nil) }
-
+    context 'when facebook email already exists in the system and token is nil' do
       it 'updates the user with facebook credentials' do
+        user = create(:user, email: oauth_email, token: nil)
+
         get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
 
         expect(user.reload.token).to eq 'abcdefg12345'
       end
 
       it 'signs in and redirects to root' do
+        create(:user, email: oauth_email, token: nil)
+
         get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
 
         expect(response).to redirect_to root_path
       end
 
       it 'enables oauth on user' do
-        get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
+        user = create(:user, email: oauth_email, token: nil)
 
-        user = User.find_by(email: oauth_email)
-        expect(user.oauth_enabled?).to eq true
+        expect {
+          get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
+        }.to change {
+          user.reload.oauth_enabled?
+        }.from(false).to(true)
       end
     end
 
@@ -244,12 +256,13 @@ describe 'OmniauthCallbacks', type: :request do
     context 'when an invitation_token is passed in' do
       context 'when the user logs in with the same email as the invitation' do
         it 'sets invitation accepted at on invitee' do
-          invite_user(oauth_email)
+          invitee = invite_user(oauth_email)
 
-          get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
-
-          invitee = User.find_by(email: oauth_email)
-          expect(invitee.invitation_accepted_at).to be_present
+          expect {
+            get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
+          }.to change {
+            invitee.reload.invitation_accepted_at
+          }.from(nil).to(ActiveSupport::TimeWithZone)
         end
 
         it 'signs in and redirects to root' do
@@ -261,12 +274,13 @@ describe 'OmniauthCallbacks', type: :request do
         end
 
         it 'enables oauth on user' do
-          invite_user(oauth_email)
+          invitee = invite_user(oauth_email)
 
-          get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
-
-          invitee = User.find_by(email: oauth_email)
-          expect(invitee.oauth_enabled?).to eq true
+          expect {
+            get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
+          }.to change {
+            invitee.reload.oauth_enabled?
+          }.from(false).to(true)
         end
       end
 
