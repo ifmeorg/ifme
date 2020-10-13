@@ -4,37 +4,6 @@ describe 'OmniauthCallbacks', type: :request do
   let(:oauth_email) { 'example@xyze.it' }
   let(:oauth_token) { 'abcdefg12345' }
 
-  def set_omniauth_auth_env(provider:)
-    auth_hash = OmniAuth::AuthHash.new(
-      provider: provider,
-      uid: '1234',
-      info: {
-        email: oauth_email,
-        name: 'Test User',
-        image: 'http://example.com/image.jpg'
-      },
-      credentials: {
-        token: oauth_token,
-        refresh_token: '12345abcdefg',
-        expires_at: DateTime.now.in_time_zone
-      }
-    )
-
-    Rails.application.env_config['omniauth.auth'] = auth_hash
-  end
-
-  def set_devise_mapping_env
-    Rails.application.env_config['devise.mapping'] = Devise.mappings[:user]
-  end
-
-  def set_invitation_token_env(invitee)
-    Rails.application.env_config['omniauth.params'] = { 'invitation_token' => invitee.invitation_token }
-  end
-
-  def set_avatar_env(avatar_image_url)
-    Rails.application.env_config['omniauth.auth']['info']['image'] = avatar_image_url
-  end
-
   def invite_user(email)
     inviter = create(:user)
     invitee = User.invite!({ email: email }, inviter)
@@ -44,7 +13,7 @@ describe 'OmniauthCallbacks', type: :request do
   describe 'GET #google_oauth2' do
     before do
       set_devise_mapping_env
-      set_omniauth_auth_env(provider: 'google_oauth2')
+      set_omniauth_auth_env(provider: 'google_oauth2', email: oauth_email, token: oauth_token)
     end
 
     context 'when google_oauth2 email doesnt exist in the system' do
@@ -214,7 +183,7 @@ describe 'OmniauthCallbacks', type: :request do
   describe 'GET #facebook' do
     before do
       set_devise_mapping_env
-      set_omniauth_auth_env(provider: 'facebook')
+      set_omniauth_auth_env(provider: 'facebook', email: oauth_email, token: oauth_token)
     end
 
     context 'when facebook email doesnt exist in the system' do
