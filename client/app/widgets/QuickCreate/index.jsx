@@ -25,7 +25,7 @@ export type State = {
   accordionOpen: boolean,
 };
 
-type NewCheckbox = {
+type CheckboxData = {
   name: string,
   id: string,
   slug: string,
@@ -33,12 +33,7 @@ type NewCheckbox = {
 };
 
 type OnSubmitResponse = {
-  data: NewCheckbox,
-  status: number,
-  statusText: string,
-  headers: Object,
-  request: Object,
-  config: Object,
+  data: CheckboxData,
 };
 
 // utils
@@ -54,19 +49,21 @@ export const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
 
 export const labelExists = (checkboxes: Checkbox[], compareLabel: string) => checkboxes.filter(
   (checkbox: Checkbox) => checkbox.label.toLowerCase() === compareLabel.toLowerCase(),
-).length;
+).length === 1;
 
 export const addToCheckboxes = (
-  { name, id, slug }: NewCheckbox,
+  { name, id, slug }: CheckboxData,
   checkboxes: Checkbox[],
 ) => {
-  const newCheckboxes = checkboxes.slice(0);
-  newCheckboxes.push({
-    id: slug,
-    label: name,
-    value: id,
-    checked: true,
-  });
+  const newCheckboxes = [
+    ...checkboxes,
+    {
+      id: slug,
+      label: name,
+      value: id,
+      checked: true,
+    },
+  ];
   return sortAlpha(newCheckboxes);
 };
 
@@ -75,12 +72,6 @@ type OnChangePayload = {
   label: string,
   checkboxes: Checkbox[],
   body: any,
-};
-type CheckboxData = {
-  name: string,
-  id: string,
-  slug: string,
-  success?: boolean,
 };
 type OnSubmitPayload = CheckboxData;
 type OnChangeAction = { type: 'ON_CHANGE', payload: OnChangePayload };
