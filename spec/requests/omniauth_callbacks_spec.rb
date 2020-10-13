@@ -221,7 +221,7 @@ describe 'OmniauthCallbacks', type: :request do
 
         get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
 
-        expect(user.reload.token).to eq 'abcdefg12345'
+        expect(user.reload.token).to eq oauth_token
       end
 
       it 'signs in and redirects to root' do
