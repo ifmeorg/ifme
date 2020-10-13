@@ -16,7 +16,7 @@ describe 'OmniauthCallbacks', type: :request do
       set_omniauth_auth_env(provider: 'google_oauth2', email: oauth_email, token: oauth_token)
     end
 
-    context 'when google_oauth2 email doesnt exist in the system' do
+    context "when google_oauth2 email doesn't exist in the system" do
       it 'creates user with info in google_oauth2' do
         get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
 
@@ -24,7 +24,7 @@ describe 'OmniauthCallbacks', type: :request do
         expect(user).to be_present
       end
 
-      it 'signs in and redirect to root' do
+      it 'signs in and redirects to root' do
         get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
 
         expect(response).to redirect_to root_path
@@ -38,7 +38,7 @@ describe 'OmniauthCallbacks', type: :request do
       end
     end
 
-    context 'when google_oauth2 email already exist in the system' do
+    context 'when google_oauth2 email already exists in the system' do
       let!(:user) { create(:user, email: oauth_email, token: nil) }
 
       it 'updates the user with google_oauth2 credentials' do
@@ -48,7 +48,7 @@ describe 'OmniauthCallbacks', type: :request do
         expect(user.token).to eq oauth_token
       end
 
-      it 'signs in and redirect to root' do
+      it 'signs in and redirects to root' do
         get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
 
         expect(response).to redirect_to root_path
@@ -83,7 +83,7 @@ describe 'OmniauthCallbacks', type: :request do
           expect(invitee.invitation_accepted_at).to be_present
         end
 
-        it 'signs in and redirect to root' do
+        it 'signs in and redirects to root' do
           invite_user(oauth_email)
 
           get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
@@ -104,7 +104,7 @@ describe 'OmniauthCallbacks', type: :request do
       context 'when the user logs in with a different email from the invitation' do
         let(:other_invitee_email) { 'no-invite@xyze.it' }
 
-        it 'does not invitation accepted at on invitee' do
+        it 'does set not invitation accepted at on invitee' do
           invite_user(other_invitee_email)
 
           get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
@@ -113,7 +113,7 @@ describe 'OmniauthCallbacks', type: :request do
           expect(invitee.invitation_accepted_at).to be_blank
         end
 
-        it 'signs in and redirect to root' do
+        it 'signs in and redirects to root' do
           invite_user(other_invitee_email)
 
           get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
@@ -132,7 +132,7 @@ describe 'OmniauthCallbacks', type: :request do
       end
     end
 
-    context 'user avatar image uploads' do
+    context 'when user avatar image is uploaded' do
       context 'when third party avatar is not nil' do
         it 'uploads avatar when third_party_avatar has changed' do
           user = create(:user, email: oauth_email, third_party_avatar: 'http://example.com/images/some-image.jpeg')
@@ -186,7 +186,7 @@ describe 'OmniauthCallbacks', type: :request do
       set_omniauth_auth_env(provider: 'facebook', email: oauth_email, token: oauth_token)
     end
 
-    context 'when facebook email doesnt exist in the system' do
+    context "when facebook email doesn't exist in the system" do
       it 'creates user with info in facebook' do
         get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
 
@@ -194,7 +194,7 @@ describe 'OmniauthCallbacks', type: :request do
         expect(user).to be_present
       end
 
-      it 'signs in and redirect to root' do
+      it 'signs in and redirects to root' do
         get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
 
         expect(response).to redirect_to root_path
@@ -208,7 +208,7 @@ describe 'OmniauthCallbacks', type: :request do
       end
     end
 
-    context 'when facebook email already exist in the system' do
+    context 'when facebook email already exists in the system' do
       let!(:user) { create(:user, email: oauth_email, token: nil) }
 
       it 'updates the user with facebook credentials' do
@@ -217,7 +217,7 @@ describe 'OmniauthCallbacks', type: :request do
         expect(user.reload.token).to eq 'abcdefg12345'
       end
 
-      it 'signs in and redirect to root' do
+      it 'signs in and redirects to root' do
         get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
 
         expect(response).to redirect_to root_path
@@ -252,7 +252,7 @@ describe 'OmniauthCallbacks', type: :request do
           expect(invitee.invitation_accepted_at).to be_present
         end
 
-        it 'signs in and redirect to root' do
+        it 'signs in and redirects to root' do
           invite_user(oauth_email)
 
           get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
@@ -273,7 +273,7 @@ describe 'OmniauthCallbacks', type: :request do
       context 'when the user logs in with a different email from the invitation' do
         let(:other_invitee_email) { 'no-invite@xyze.it' }
 
-        it 'does not invitation accepted at on invitee' do
+        it 'does set not invitation accepted at on invitee' do
           invite_user(other_invitee_email)
 
           get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
@@ -282,7 +282,7 @@ describe 'OmniauthCallbacks', type: :request do
           expect(invitee.invitation_accepted_at).to be_blank
         end
 
-        it 'signs in and redirect to root' do
+        it 'signs in and redirects to root' do
           invite_user(other_invitee_email)
 
           get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
@@ -301,7 +301,7 @@ describe 'OmniauthCallbacks', type: :request do
       end
     end
 
-    context 'user avatar image uploads' do
+    context 'when user avatar image is uploaded' do
       context 'when third party avatar is not nil' do
         it 'uploads avatar when third_party_avatar has changed' do
           user = create(:user, email: oauth_email, third_party_avatar: 'http://example.com/images/some-image.jpeg')
