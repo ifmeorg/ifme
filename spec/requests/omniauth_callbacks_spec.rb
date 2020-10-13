@@ -1,0 +1,382 @@
+# frozen_string_literal: true
+
+describe 'OmniauthCallbacks', type: :request do
+  let(:oauth_email) { 'example@xyze.it' }
+  let(:oauth_token) { 'abcdefg12345' }
+
+  def set_omniauth_auth_env(provider:)
+    auth_hash = OmniAuth::AuthHash.new(
+      provider: provider,
+      uid: '1234',
+      info: {
+        email: oauth_email,
+        name: 'Test User',
+        image: 'http://example.com/image.jpg'
+      },
+      credentials: {
+        token: oauth_token,
+        refresh_token: '12345abcdefg',
+        expires_at: DateTime.now.in_time_zone
+      }
+    )
+
+    Rails.application.env_config['omniauth.auth'] = auth_hash
+  end
+
+  def set_devise_mapping_env
+    Rails.application.env_config['devise.mapping'] = Devise.mappings[:user]
+  end
+
+  def set_invitation_token_env(invitee)
+    Rails.application.env_config['omniauth.params'] = { 'invitation_token' => invitee.invitation_token }
+  end
+
+  def set_avatar_env(avatar_image_url)
+    Rails.application.env_config['omniauth.auth']['info']['image'] = avatar_image_url
+  end
+
+  def invite_user(email)
+    inviter = create(:user)
+    invitee = User.invite!({ email: email }, inviter)
+    set_invitation_token_env(invitee)
+  end
+
+  describe 'GET #google_oauth2' do
+    before do
+      set_devise_mapping_env
+      set_omniauth_auth_env(provider: 'google_oauth2')
+    end
+
+    context 'when google_oauth2 email doesnt exist in the system' do
+      it 'creates user with info in google_oauth2' do
+        get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
+
+        user = User.find_by(email: oauth_email)
+        expect(user).to be_present
+      end
+
+      it 'signs in and redirect to root' do
+        get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
+
+        expect(response).to redirect_to root_path
+      end
+
+      it 'enables oauth on user' do
+        get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
+
+        user = User.find_by(email: oauth_email)
+        expect(user.oauth_enabled?).to eq true
+      end
+    end
+
+    context 'when google_oauth2 email already exist in the system' do
+      let!(:user) { create(:user, email: oauth_email, token: nil) }
+
+      it 'updates the user with google_oauth2 credentials' do
+        get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
+
+        user = User.find_by(email: oauth_email)
+        expect(user.token).to eq oauth_token
+      end
+
+      it 'signs in and redirect to root' do
+        get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
+
+        expect(response).to redirect_to root_path
+      end
+
+      it 'enables oauth on user' do
+        get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
+
+        user = User.find_by(email: oauth_email)
+        expect(user.oauth_enabled?).to eq true
+      end
+    end
+
+    context 'when google_oauth2 enabling fails' do
+      it 'redirects to sign in path' do
+        allow(User).to receive(:find_for_oauth).and_return(nil)
+
+        get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
+
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+
+    context 'when an invitation_token is passed in' do
+      context 'when the user logs in with the same email as the invitation' do
+        it 'sets invitation accepted at on invitee' do
+          invite_user(oauth_email)
+
+          get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
+
+          invitee = User.find_by(email: oauth_email)
+          expect(invitee.invitation_accepted_at).to be_present
+        end
+
+        it 'signs in and redirect to root' do
+          invite_user(oauth_email)
+
+          get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
+
+          expect(response).to redirect_to root_path
+        end
+
+        it 'enables oauth on user' do
+          invite_user(oauth_email)
+
+          get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
+
+          invitee = User.find_by(email: oauth_email)
+          expect(invitee.oauth_enabled?).to eq true
+        end
+      end
+
+      context 'when the user logs in with a different email from the invitation' do
+        let(:other_invitee_email) { 'no-invite@xyze.it' }
+
+        it 'does not invitation accepted at on invitee' do
+          invite_user(other_invitee_email)
+
+          get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
+
+          invitee = User.find_by(email: oauth_email)
+          expect(invitee.invitation_accepted_at).to be_blank
+        end
+
+        it 'signs in and redirect to root' do
+          invite_user(other_invitee_email)
+
+          get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
+
+          expect(response).to redirect_to root_path
+        end
+
+        it 'enables oauth on user' do
+          invite_user(other_invitee_email)
+
+          get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
+
+          user = User.find_by(email: oauth_email)
+          expect(user.oauth_enabled?).to eq true
+        end
+      end
+    end
+
+    context 'user avatar image uploads' do
+      context 'when third party avatar is not nil' do
+        it 'uploads avatar when third_party_avatar has changed' do
+          user = create(:user, email: oauth_email, third_party_avatar: 'http://example.com/images/some-image.jpeg')
+          avatar_image_url = 'http://example.com/images/different_profile.jpeg'
+          set_avatar_env(avatar_image_url)
+
+          get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
+
+          expect(user.reload.third_party_avatar).to eq(avatar_image_url)
+        end
+
+        it 'uploads avatar when third_party_avatar is nil' do
+          user = create(:user, email: oauth_email, third_party_avatar: nil)
+          avatar_image_url = 'http://example.com/images/different_profile.jpeg'
+          set_avatar_env(avatar_image_url)
+
+          get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
+
+          expect(user.reload.third_party_avatar).to eq(avatar_image_url)
+        end
+
+        it 'does not upload third party avatar if current avatar is the same' do
+          avatar_image_url = 'http://example.com/images/profile.jpeg'
+          user = create(:user, email: oauth_email, third_party_avatar: avatar_image_url)
+          set_avatar_env(avatar_image_url)
+
+          expect {
+            get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
+          }.not_to change {
+            user.reload.third_party_avatar
+          }
+        end
+      end
+
+      context 'when third party avatar is nil' do
+        it 'does not set third_party_avatar' do
+          set_avatar_env(nil)
+
+          get omniauth_login_omniauth_callbacks_path, params: { provider: 'google' }
+
+          user = User.find_by(email: oauth_email)
+          expect(user.third_party_avatar).to be_nil
+        end
+      end
+    end
+  end
+
+  describe 'GET #facebook' do
+    before do
+      set_devise_mapping_env
+      set_omniauth_auth_env(provider: 'facebook')
+    end
+
+    context 'when facebook email doesnt exist in the system' do
+      it 'creates user with info in facebook' do
+        get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
+
+        user = User.find_by(email: oauth_email)
+        expect(user).to be_present
+      end
+
+      it 'signs in and redirect to root' do
+        get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
+
+        expect(response).to redirect_to root_path
+      end
+
+      it 'enables oauth on user' do
+        get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
+
+        user = User.find_by(email: oauth_email)
+        expect(user.oauth_enabled?).to eq true
+      end
+    end
+
+    context 'when facebook email already exist in the system' do
+      let!(:user) { create(:user, email: oauth_email, token: nil) }
+
+      it 'updates the user with facebook credentials' do
+        get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
+
+        expect(user.reload.token).to eq 'abcdefg12345'
+      end
+
+      it 'signs in and redirect to root' do
+        get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
+
+        expect(response).to redirect_to root_path
+      end
+
+      it 'enables oauth on user' do
+        get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
+
+        user = User.find_by(email: oauth_email)
+        expect(user.oauth_enabled?).to eq true
+      end
+    end
+
+    context 'when facebook enabling fails' do
+      it 'redirects to sign in path' do
+        allow(User).to receive(:find_for_oauth).and_return(nil)
+
+        get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
+
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+
+    context 'when an invitation_token is passed in' do
+      context 'when the user logs in with the same email as the invitation' do
+        it 'sets invitation accepted at on invitee' do
+          invite_user(oauth_email)
+
+          get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
+
+          invitee = User.find_by(email: oauth_email)
+          expect(invitee.invitation_accepted_at).to be_present
+        end
+
+        it 'signs in and redirect to root' do
+          invite_user(oauth_email)
+
+          get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
+
+          expect(response).to redirect_to root_path
+        end
+
+        it 'enables oauth on user' do
+          invite_user(oauth_email)
+
+          get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
+
+          invitee = User.find_by(email: oauth_email)
+          expect(invitee.oauth_enabled?).to eq true
+        end
+      end
+
+      context 'when the user logs in with a different email from the invitation' do
+        let(:other_invitee_email) { 'no-invite@xyze.it' }
+
+        it 'does not invitation accepted at on invitee' do
+          invite_user(other_invitee_email)
+
+          get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
+
+          invitee = User.find_by(email: oauth_email)
+          expect(invitee.invitation_accepted_at).to be_blank
+        end
+
+        it 'signs in and redirect to root' do
+          invite_user(other_invitee_email)
+
+          get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
+
+          expect(response).to redirect_to root_path
+        end
+
+        it 'enables oauth on user' do
+          invite_user(other_invitee_email)
+
+          get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
+
+          user = User.find_by(email: oauth_email)
+          expect(user.oauth_enabled?).to eq true
+        end
+      end
+    end
+
+    context 'user avatar image uploads' do
+      context 'when third party avatar is not nil' do
+        it 'uploads avatar when third_party_avatar has changed' do
+          user = create(:user, email: oauth_email, third_party_avatar: 'http://example.com/images/some-image.jpeg')
+          avatar_image_url = 'http://example.com/images/different_profile.jpeg'
+          set_avatar_env(avatar_image_url)
+
+          get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
+
+          expect(user.reload.third_party_avatar).to eq(avatar_image_url)
+        end
+
+        it 'uploads avatar when third_party_avatar is nil' do
+          user = create(:user, email: oauth_email, third_party_avatar: nil)
+          avatar_image_url = 'http://example.com/images/different_profile.jpeg'
+          set_avatar_env(avatar_image_url)
+
+          get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
+
+          expect(user.reload.third_party_avatar).to eq(avatar_image_url)
+        end
+
+        it 'does not upload third party avatar if current avatar is the same' do
+          avatar_image_url = 'http://example.com/images/profile.jpeg'
+          user = create(:user, email: oauth_email, third_party_avatar: avatar_image_url)
+          set_avatar_env(avatar_image_url)
+
+          expect {
+            get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
+          }.not_to change {
+            user.reload.third_party_avatar
+          }
+        end
+      end
+
+      context 'when third party avatar is nil' do
+        it 'does not set third_party_avatar' do
+          set_avatar_env(nil)
+
+          get omniauth_login_omniauth_callbacks_path, params: { provider: 'facebook' }
+
+          user = User.find_by(email: oauth_email)
+          expect(user.third_party_avatar).to be_nil
+        end
+      end
+    end
+  end
+end
