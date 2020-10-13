@@ -1,12 +1,9 @@
 // @flow
 import React from 'react';
 import axios from 'axios';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Comments from 'widgets/Comments';
-
-let axiosPostSpy;
-let axiosDeleteSpy;
 
 const formProps = {
   inputs: [
@@ -83,41 +80,34 @@ const component = <Comments formProps={formProps} />;
 
 describe('Comments', () => {
   beforeEach(() => {
-    axiosPostSpy = jest.spyOn(axios, 'post').mockImplementation(() => Promise.resolve({
+    jest.spyOn(axios, 'post').mockResolvedValue({
       data: { comment },
-    }));
-    axiosDeleteSpy = jest.spyOn(axios, 'delete').mockImplementation(() => Promise.resolve({
+    });
+    jest.spyOn(axios, 'delete').mockResolvedValue({
       data: { id },
-    }));
+    });
   });
 
   it('renders correctly', () => {
-    let wrapper = null;
-    expect(() => {
-      wrapper = mount(component);
-    }).not.toThrow();
-    expect(wrapper).not.toBeNull();
+    render(component);
+    expect(screen.getByRole('textbox')).toBeInTheDocument();
+    expect(screen.queryByRole('article')).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Submit' })).toBeInTheDocument();
   });
 
   it('add and delete a comment', async () => {
-    const wrapper = mount(component);
-    expect(wrapper.find('.comment').exists()).toEqual(false);
-    act(() => {
-      wrapper
-        .find('input[name="comment[comment]"]')
-        .simulate('change', { currentTarget: { value } });
+    render(component);
+    expect(screen.queryByRole('article')).not.toBeInTheDocument();
 
-      wrapper.find('select#comment_visibility').prop('onChange')({
-        currentTarget: { value: 'private' },
-      });
-    });
-    wrapper.find('input[type="submit"]').simulate('click');
-    await axiosPostSpy();
-    wrapper.update();
-    expect(wrapper.find('.comment').exists()).toEqual(true);
-    wrapper.find('.storyActionsDelete').find('a').simulate('click');
-    await axiosDeleteSpy();
-    wrapper.update();
-    expect(wrapper.find('.comment').exists()).toEqual(false);
+    userEvent.type(screen.getByRole('textbox'));
+    userEvent.selectOptions(screen.getByRole('combobox'), 'private');
+    userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+    await waitFor(() => expect(screen.getByRole('article')).toBeInTheDocument());
+    expect(screen.getByRole('article')).toHaveTextContent('Hey');
+
+    userEvent.click(screen.getByRole('link', { name: 'Delete' }));
+
+    await waitFor(() => expect(screen.queryByRole('article')).not.toBeInTheDocument());
   });
 });
