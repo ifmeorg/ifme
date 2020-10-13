@@ -1,6 +1,15 @@
 # frozen_string_literal: true
 
 describe 'Notification', type: :request do
+  let(:previous_page) { 'http://example.com/previous' }
+  let(:format) { 'text/html' }
+  let(:headers) do
+    {
+      'HTTP_REFERER' => previous_page,
+      'ACCEPT' => format
+    }
+  end
+
   describe '#destroy' do
     let(:user) { create(:user1) }
     let(:other_user) { create(:user2) }
@@ -8,8 +17,6 @@ describe 'Notification', type: :request do
     let!(:notification) do
       create(:notification, user: notification_owner)
     end
-    let(:previous_page) { 'http://example.com/previous' }
-    let(:headers) { { 'HTTP_REFERER' => previous_page } }
 
     context 'when the user is signed in' do
       let(:notification_id) { notification.id }
@@ -33,12 +40,7 @@ describe 'Notification', type: :request do
           end
 
           context 'when requested format is json' do
-            let(:headers) do
-              {
-                'HTTP_REFERER' => previous_page,
-                'ACCEPT' => 'application/json'
-              }
-            end
+            let(:format) { 'application/json' }
 
             it 'renders a HEAD response with :no_content' do
               expect(response).to have_http_status 204
@@ -60,12 +62,7 @@ describe 'Notification', type: :request do
           end
 
           context 'when requested format is json' do
-            let(:headers) do
-              {
-                'HTTP_REFERER' => previous_page,
-                'ACCEPT' => 'application/json'
-              }
-            end
+            let(:format) { 'application/json' }
 
             it 'renders a HEAD response with :no_content' do
               expect(response).to have_http_status 204
@@ -84,12 +81,7 @@ describe 'Notification', type: :request do
         end
 
         context 'when requested format is json' do
-          let(:headers) do
-            {
-              'HTTP_REFERER' => previous_page,
-              'ACCEPT' => 'application/json'
-            }
-          end
+          let(:format) { 'application/json' }
 
           it 'renders a HEAD response with :no_content' do
             expect(response).to have_http_status 204
@@ -112,7 +104,7 @@ describe 'Notification', type: :request do
       end
 
       context 'when requested format is json' do
-        let(:headers) { { 'ACCEPT' => 'application/json' } }
+        let(:format) { 'application/json' }
 
         it 'renders a HEAD response with :no_content' do
           expect(response).to have_http_status 204
@@ -185,7 +177,7 @@ describe 'Notification', type: :request do
       end
 
       context 'when requested format is json' do
-        let(:headers) { { 'ACCEPT' => 'application/json' } }
+        let(:format) { 'application/json' }
 
         it 'renders a HEAD response with :no_content' do
           expect(response).to have_http_status 204
@@ -240,7 +232,7 @@ describe 'Notification', type: :request do
       end
 
       context 'when requested format is json' do
-        let(:headers) { { 'ACCEPT' => 'application/json' } }
+        let(:format) { 'application/json' }
 
         it 'renders a HEAD response with :no_content' do
           expect(response).to have_http_status 204
@@ -275,7 +267,7 @@ describe 'Notification', type: :request do
       end
 
       context 'when requested format is json' do
-        let(:headers) { { 'ACCEPT' => 'application/json' } }
+        let(:format) { 'application/json' }
 
         it 'renders a HEAD response with :no_content' do
           expect(response).to have_http_status 204
