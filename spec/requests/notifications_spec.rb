@@ -14,9 +14,7 @@ describe 'Notification', type: :request do
     let(:user) { create(:user1) }
     let(:other_user) { create(:user2) }
     let(:notification_owner) { user }
-    let!(:notification) do
-      create(:notification, user: notification_owner)
-    end
+    let!(:notification) { create(:notification, user: notification_owner) }
 
     context 'when the user is signed in' do
       let(:notification_id) { notification.id }
@@ -34,6 +32,8 @@ describe 'Notification', type: :request do
           end
 
           context 'when requested format is html' do
+            let(:format) { 'text/html' }
+
             it 'redirects the user back to where they were before' do
               expect(response).to redirect_to previous_page
             end
@@ -56,6 +56,8 @@ describe 'Notification', type: :request do
           end
 
           context 'when requested format is html' do
+            let(:format) { 'text/html' }
+
             it 'redirects the user back to where they were before' do
               expect(response).to redirect_to previous_page
             end
@@ -75,6 +77,8 @@ describe 'Notification', type: :request do
         let(:notification_id) { 'something-fake' }
 
         context 'when requested format is html' do
+          let(:format) { 'text/html' }
+
           it 'redirects the user back to where they were before' do
             expect(response).to redirect_to previous_page
           end
@@ -98,6 +102,8 @@ describe 'Notification', type: :request do
       end
 
       context 'when requested format is html' do
+        let(:format) { 'text/html' }
+
         it 'redirects to the new_user_session_path' do
           expect(response).to redirect_to new_user_session_path
         end
@@ -116,9 +122,7 @@ describe 'Notification', type: :request do
   describe '#clear' do
     let(:user) { FactoryBot.create(:user1) }
     let(:other_user) { FactoryBot.create(:user2) }
-    let!(:other_user_notification) do
-      FactoryBot.create(:notification, user: other_user)
-    end
+    let!(:other_user_notification) { create(:notification, user: other_user) }
 
     context 'when the user is signed in' do
       before { sign_in user }
@@ -171,6 +175,8 @@ describe 'Notification', type: :request do
       end
 
       context 'when requested format is html' do
+        let(:format) { 'text/html' }
+
         it 'redirects to the new_user_session_path' do
           expect(response).to redirect_to new_user_session_path
         end
@@ -187,21 +193,13 @@ describe 'Notification', type: :request do
   end
 
   describe '#fetch_notifications' do
-    let(:user) { FactoryBot.create(:user1) }
-    let(:other_user) { FactoryBot.create(:user2) }
-    let!(:other_user_notification) do
-      FactoryBot.create(:notification, user: other_user)
-    end
+    let(:user) { create(:user1) }
+    let(:other_user) { create(:user2) }
+    let!(:other_user_notification) { create(:notification, user: other_user) }
 
     context 'when the user is signed in' do
-      let!(:notification) do
-        FactoryBot.create(:notification, user: user)
-      end
-
-      let!(:notification_two) do
-        FactoryBot.create(:notification, user: user)
-      end
-
+      let!(:notification) { create(:notification, user: user) }
+      let!(:notification_two) { create(:notification, user: user) }
       let(:notification_link) do
         '<a id="MyString" href="/moments/1">Julia Nguyen commented "Hello" on typename</a>'
       end
@@ -226,6 +224,8 @@ describe 'Notification', type: :request do
       end
 
       context 'when requested format is html' do
+        let(:format) { 'text/html' }
+
         it 'redirects to the new_user_session_path' do
           expect(response).to redirect_to new_user_session_path
         end
@@ -261,6 +261,8 @@ describe 'Notification', type: :request do
       end
 
       context 'when requested format is html' do
+        let(:format) { 'text/html' }
+
         it 'redirects to the new_user_session_path' do
           expect(response).to redirect_to new_user_session_path
         end
