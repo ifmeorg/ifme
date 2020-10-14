@@ -1,23 +1,29 @@
 # frozen_string_literal: true
 
-RSpec.describe GroupsController, type: :controller do
-  include StubCurrentUserHelper
+describe 'Groups', type: :request do
+  let(:user) { create(:user1) }
 
   describe 'GET #index' do
-    it 'assigns groups to the groups that the user belongs to' do
-      stub_current_user
-      group = create :group_with_member, user_id: controller.current_user.id
-      other_user = build_stubbed(:user2)
-      create :group_with_member, user_id: other_user.id
+    context 'when user is signed in' do
+      before { sign_in user }
 
-      get :index
+      it 'renders page with groups that the user belongs to' do
+        group = create :group_with_member, user_id: user.id, name: 'group one'
+        other_user = build_stubbed(:user2)
+        other_group = create :group_with_member,
+                             user_id: other_user.id,
+                             name: 'group two'
 
-      expect(assigns(:groups)).to eq [group]
+        get groups_url
+
+        expect(response.body).to include(group.name)
+        expect(response.body).not_to include(other_group.name)
+      end
     end
 
     context "when user isn't signed in" do
       it 'redirects to the sign in page' do
-        get :index
+        get groups_url
 
         expect(response).to redirect_to(new_user_session_path)
       end
@@ -25,42 +31,42 @@ RSpec.describe GroupsController, type: :controller do
   end
 
   describe 'GET #show' do
-    context 'when the group exists' do
-      let(:group) { create :group }
+    context 'when user is signed in' do
+      before { sign_in user }
 
-      it 'sets the group' do
-        stub_current_user
+      context 'when the group exists' do
+        let(:group) { create :group, name: 'test group name' }
 
-        get :show, params: { id: group.id }
+        it 'renders page with group' do
+          get group_path(id: group.id)
 
-        expect(assigns(:group)).to eq(group)
-      end
+          expect(response.body).to include(group.name)
+        end
 
-      context 'when user is member of the group' do
-        it "sets @meetings to the group's meetings" do
-          create_current_user
-          group = create :group_with_member, user_id: controller.current_user.id
-          meeting = create :meeting, group_id: group.id
+        context 'when user is member of the group' do
+          it "renders page with group's meetings" do
+            group = create :group_with_member, user_id: user.id
+            meeting = create :meeting, group_id: group.id, name: 'test meeting'
 
-          get :show, params: { id: group.id }
+            get group_path(id: group.id)
 
-          expect(assigns(:meetings)).to eq [meeting]
+            expect(response.body).to include(meeting.name)
+          end
         end
       end
-    end
 
-    context "when group doesn't exist" do
-      it 'redirects to the index' do
-        stub_current_user
-        get :show, params: { id: 999 }
+      context "when group doesn't exist" do
+        it 'redirects to the index' do
+          get group_path(id: 999)
 
-        expect(response).to redirect_to(groups_path)
+          expect(response).to redirect_to(groups_path)
+        end
       end
     end
 
     context "when user isn't signed in" do
       it 'redirects to sign in' do
-        get :show, params: { id: 999 }
+        get group_path(id: 999)
 
         expect(response).to redirect_to(new_user_session_path)
       end
@@ -68,33 +74,37 @@ RSpec.describe GroupsController, type: :controller do
   end
 
   describe 'GET #edit' do
+    before { sign_in user }
+
     it 'redirects to groups path when current_user is not a leader' do
-      stub_current_user
       group = create :group
-      get :edit, params: { id: group.id }
+
+      get edit_group_path(id: group.id)
 
       expect(response).to redirect_to(groups_path)
     end
   end
 
   describe 'PUT #update' do
+    before { sign_in user }
+
     it 'updates leader' do
-      stub_current_user
       group = create :group
       user = create :user
       non_leader = create :group_member, group: group, leader: false, user: user
 
-      put :update, params: { id: group.id, group: { leader: [user.id] } }
+      put group_path(group), params: { group: { leader: [user.id] } }
 
       non_leader.reload
       expect(non_leader.leader).to be true
     end
 
     it 'returns error response if there is an empty name or description' do
-      stub_current_user
       group = create :group
+      params = { group: { name: nil, description: nil }, format: 'json' }
 
-      put :update, params: { id: group.id, group: { name: nil, description: nil }, format: 'json' }
+      put group_path(group), params: params
+
       group.reload
       json = JSON.parse(response.body)
 
@@ -105,14 +115,14 @@ RSpec.describe GroupsController, type: :controller do
   end
 
   describe 'POST #create' do
-    before do
-      @current_user = stub_current_user
-    end
+    before { sign_in user }
 
     it 'creates a new group and assigns the leader' do
       test_name = 'Test Name'
       test_description = 'This is a test description.'
-      post :create, params: { group: { name: test_name, description: test_description } }
+      params = { group: { name: test_name, description: test_description } }
+
+      post groups_path, params: params
 
       expect(response.code).to eq('302')
 
@@ -121,12 +131,15 @@ RSpec.describe GroupsController, type: :controller do
       expect(created_group.description).to eq(test_description)
 
       member = created_group.group_members.first
-      expect(member.user_id).to eq(@current_user.id)
+      expect(member.user_id).to eq(user.id)
       expect(member.leader).to eq(true)
     end
 
     it 'returns error response if params are missing' do
-      post :create, params: { group: { name: nil, description: nil }, format: 'json' }
+      params = { group: { name: nil, description: nil }, format: 'json' }
+
+      post groups_path, params: params
+
       json = JSON.parse(response.body)
 
       expect(response.code).to eq('422')
@@ -136,11 +149,12 @@ RSpec.describe GroupsController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
+    before { sign_in user }
+
     it 'deletes the group' do
-      stub_current_user
       group = create :group
 
-      delete :destroy, params: { id: group.id }
+      delete group_path(group)
 
       expect(response.code).to eq('302')
       expect(Group.find_by(id: group.id)).to be_nil
