@@ -49,7 +49,7 @@ export const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
 
 export const labelExists = (checkboxes: Checkbox[], compareLabel: string) => checkboxes.filter(
   (checkbox: Checkbox) => checkbox.label.toLowerCase() === compareLabel.toLowerCase(),
-).length === 1;
+).length > 0;
 
 export const addToCheckboxes = (
   { name, id, slug }: CheckboxData,
@@ -77,6 +77,7 @@ type OnSubmitPayload = CheckboxData;
 type OnChangeAction = { type: 'ON_CHANGE', payload: OnChangePayload };
 type OnSubmitAction = { type: 'ON_SUBMIT', payload: OnSubmitPayload };
 type Action = OnChangeAction | OnSubmitAction;
+
 // reducer constants
 export const ON_CHANGE = 'ON_CHANGE';
 export const ON_SUBMIT = 'ON_SUBMIT';

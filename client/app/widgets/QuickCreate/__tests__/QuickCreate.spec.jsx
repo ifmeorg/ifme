@@ -188,6 +188,10 @@ describe('QuickCreate', () => {
       const result = labelExists(checkboxes, 'zoo_label');
       expect(result).toBe(true);
     });
+    it('labelExists returns true if more than one of the same label exists in checkboxes', () => {
+      const result = labelExists(checkboxes, 'middle_label');
+      expect(result).toBe(true);
+    });
 
     it('addToCheckboxes shallow copies an array of checkboxes, pushes a new checkbox, and sorts them', () => {
       const result = addToCheckboxes(
