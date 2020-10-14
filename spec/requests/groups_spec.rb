@@ -16,6 +16,7 @@ describe 'Groups', type: :request do
 
         get groups_url
 
+        expect(response).to be_successful
         expect(response.body).to include(group.name)
         expect(response.body).not_to include(other_group.name)
       end
@@ -40,6 +41,7 @@ describe 'Groups', type: :request do
         it 'renders page with group' do
           get group_path(id: group.id)
 
+          expect(response).to have_http_status(:success)
           expect(response.body).to include(group.name)
         end
 
@@ -81,7 +83,17 @@ describe 'Groups', type: :request do
 
       get edit_group_path(id: group.id)
 
+      flash_message = 'You must be a leader of a group in order to edit it'
+      expect(flash[:error]).to eq(flash_message)
       expect(response).to redirect_to(groups_path)
+    end
+
+    it 'renders page successfully when user is a leader' do
+      group_leader = create :group_member, user_id: user.id, leader: true
+
+      get edit_group_path(id: group_leader.group.id)
+
+      expect(response).to have_http_status(:success)
     end
   end
 
@@ -97,6 +109,7 @@ describe 'Groups', type: :request do
 
       non_leader.reload
       expect(non_leader.leader).to be true
+      expect(response).to redirect_to(groups_path)
     end
 
     it 'returns error response if there is an empty name or description' do
@@ -106,9 +119,9 @@ describe 'Groups', type: :request do
       put group_path(group), params: params
 
       group.reload
-      json = JSON.parse(response.body)
+      expect(response).to have_http_status(:unprocessable_entity)
 
-      expect(response.code).to eq('422')
+      json = JSON.parse(response.body)
       expect(json['name']).to eq(["can't be blank"])
       expect(json['description']).to eq(["can't be blank"])
     end
@@ -124,7 +137,7 @@ describe 'Groups', type: :request do
 
       post groups_path, params: params
 
-      expect(response.code).to eq('302')
+      expect(response).to have_http_status(:redirect)
 
       created_group = Group.last
       expect(created_group.name).to eq(test_name)
@@ -140,9 +153,9 @@ describe 'Groups', type: :request do
 
       post groups_path, params: params
 
-      json = JSON.parse(response.body)
+      expect(response).to have_http_status(:unprocessable_entity)
 
-      expect(response.code).to eq('422')
+      json = JSON.parse(response.body)
       expect(json['name']).to eq(["can't be blank"])
       expect(json['description']).to eq(["can't be blank"])
     end
@@ -156,7 +169,7 @@ describe 'Groups', type: :request do
 
       delete group_path(group)
 
-      expect(response.code).to eq('302')
+      expect(response).to have_http_status(:redirect)
       expect(Group.find_by(id: group.id)).to be_nil
     end
   end
