@@ -24,7 +24,7 @@ class Category < ApplicationRecord
   has_many :strategies_categories, dependent: :destroy
   validates :visible, inclusion: [true, false]
 
-  DISPLAY_ATTRIBUTES = %w[
+  USER_DATA_ATTRIBUTES = %w[
     id
     name
     description

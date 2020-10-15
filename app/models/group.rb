@@ -23,7 +23,7 @@ class Group < ApplicationRecord
            through: :group_members, source: :user
   after_destroy :destroy_notifications
 
-  DISPLAY_ATTRIBUTES = %w[
+  USER_DATA_ATTRIBUTES = %w[
     id
     name
     created_at

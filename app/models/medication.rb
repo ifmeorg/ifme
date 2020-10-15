@@ -26,7 +26,7 @@ class Medication < ApplicationRecord
   # total: total quantity of medication
   # strength: strength of medication
 
-  DISPLAY_ATTRIBUTES = %w[
+  USER_DATA_ATTRIBUTES = %w[
     id
     name
     dosage

@@ -12,7 +12,7 @@
 #
 
 class CarePlanContact < ApplicationRecord
-  DISPLAY_ATTRIBUTES = %w[
+  USER_DATA_ATTRIBUTES = %w[
     id
     name
     phone

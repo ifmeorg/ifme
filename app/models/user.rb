@@ -51,7 +51,7 @@ class User < ApplicationRecord
 
   OAUTH_TOKEN_URL = 'https://accounts.google.com/o/oauth2/token'
 
-  DISPLAY_ATTRIBUTES = %w[
+  USER_DATA_ATTRIBUTES = %w[
     id
     email
     sign_in_count
@@ -165,8 +165,8 @@ class User < ApplicationRecord
 
   def build_csv_data
     user_data = [['user_info']]
-    user_data << DISPLAY_ATTRIBUTES
-    user_data << DISPLAY_ATTRIBUTES.map { |attribute| send(attribute.to_sym) }
+    user_data << USER_DATA_ATTRIBUTES
+    user_data << USER_DATA_ATTRIBUTES.map { |attribute| send(attribute.to_sym) }
     user_data += Group.build_csv_rows(groups)
     user_data += GroupMember.build_csv_rows(group_members)
     user_data += Category.build_csv_rows(categories)

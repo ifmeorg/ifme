@@ -12,7 +12,7 @@
 #
 
 class Notification < ApplicationRecord
-  DISPLAY_ATTRIBUTES = %w[
+  USER_DATA_ATTRIBUTES = %w[
     id
     uniqueid
     data

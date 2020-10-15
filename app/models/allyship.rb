@@ -12,7 +12,7 @@
 #
 
 class Allyship < ApplicationRecord
-  DISPLAY_ATTRIBUTES = %w[
+  USER_DATA_ATTRIBUTES = %w[
     id
     created_at
     updated_at

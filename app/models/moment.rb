@@ -25,7 +25,7 @@ class Moment < ApplicationRecord
   include CommonMethods
   extend FriendlyId
 
-  DISPLAY_ATTRIBUTES = %w[
+  USER_DATA_ATTRIBUTES = %w[
     id
     name
     why

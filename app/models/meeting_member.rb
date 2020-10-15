@@ -13,7 +13,7 @@
 #
 
 class MeetingMember < ApplicationRecord
-  DISPLAY_ATTRIBUTES = %w[
+  USER_DATA_ATTRIBUTES = %w[
     id
     meeting_id
     leader

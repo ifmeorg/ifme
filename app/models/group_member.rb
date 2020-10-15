@@ -12,7 +12,7 @@
 #
 
 class GroupMember < ApplicationRecord
-  DISPLAY_ATTRIBUTES = %w[
+  USER_DATA_ATTRIBUTES = %w[
     id
     group_id
     leader
