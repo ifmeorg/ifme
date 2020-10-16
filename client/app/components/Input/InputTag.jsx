@@ -26,9 +26,7 @@ export function InputTag({
 }: Props) {
   const [checkboxes, setCheckboxes] = useState<Checkbox[]>(defaultCheckboxes);
   const [suggestions, setSuggestions] = useState<Checkbox[]>(defaultCheckboxes);
-  const [autocompleteLabel, setAutocompleteLabel] = useState<
-    string | void | null,
-  >(undefined);
+  const [autocompleteLabel, setAutocompleteLabel] = useState<string>('');
 
   const check = (inputId: string, checked: boolean) => {
     const newCheckboxes = checkboxes.map((checkbox: Checkbox) => {
@@ -43,7 +41,7 @@ export function InputTag({
     });
 
     if (checked) {
-      setAutocompleteLabel(undefined);
+      setAutocompleteLabel('');
     }
     setCheckboxes(newCheckboxes);
   };
