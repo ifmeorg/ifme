@@ -5,7 +5,8 @@
 [![Backers on Open Collective](https://opencollective.com/ifme/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 
-README in: [Spanish](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [Portuguese](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [French](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [Korean](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), [Indonesian](https://github.com/ifmeorg/ifme/blob/main/README-ID.md)
+කියවුමට : [ස්පාඤ්ඤ](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [පෘතුගීසි](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [ප්‍රංශ](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [
+කොරියානු](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), [ඉන්දුනීසියානු](https://github.com/ifmeorg/ifme/blob/main/README-ID.md)
 
 # if-me.org
 
@@ -47,7 +48,7 @@ README in: [Spanish](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [P
 !
 
 
-[Become a backer!](https://opencollective.com/ifme#backer)
+[අනුග්‍රාහකයෙකු වන්න!](https://opencollective.com/ifme#backer)
 
 <a href="https://opencollective.com/ifme#backers" target="_blank"><img src="https://opencollective.com/ifme/backers.svg?width=890"></a>
 
