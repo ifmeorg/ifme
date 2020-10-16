@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe MomentsController do
+describe 'Moments', type: :request do
   let(:user) { create(:user) }
   let(:moment) { build(:moment, user: user) }
 
@@ -8,14 +8,16 @@ describe MomentsController do
     before { sign_in user }
 
     it 'renders template' do
-      get :index
+      get moments_path
       expect(response).to render_template(:index)
     end
 
     context 'when request type is JSON' do
       let(:moment) { create(:moment, user: user) }
-      before { get :index, params: { page: 1, id: moment.id }, format: :json }
+
       it 'returns a response with the correct path' do
+        headers = { 'ACCEPT' => 'application/json'  }
+        get moments_path, params: { page: 1, id: moment.id }, headers: headers
         expect(JSON.parse(response.body)['data'].first['link']).to eq moment_path(moment)
       end
     end
@@ -25,9 +27,9 @@ describe MomentsController do
     before { sign_in user }
 
     it 'creates a new moment' do
-      get :new
+      get new_moment_path
       expect(response).to render_template(:new)
-      expect { post :create, params: { moment: moment.attributes } }
+      expect { post moments_path, params: { moment: moment.attributes } }
         .to(change(Moment, :count).by(1))
     end
   end
@@ -38,30 +40,31 @@ describe MomentsController do
     let!(:moment2)   { create(:moment, user: another_user) }
 
     context 'when the user is logged in' do
-      include_context :logged_in_user
+      before { sign_in user }
 
       context 'when the moment belongs to the current user' do
         it 'renders the edit template' do
-          get :edit, params: { id: moment1.id }
+          get edit_moment_path(moment1.id)
           expect(response).to render_template('edit')
         end
       end
 
       context 'when the moment does not belong to the current user' do
         it 'redirects html requests to the strategy_path' do
-          get :edit, params: { id: moment2.id }
+          get edit_moment_path(moment2.id)
           expect(response).to redirect_to(moment_path(moment2))
         end
 
         it 'renders nothing for json requests' do
-          get :edit, format: 'json', params: { id: moment2.id }
+          headers = { 'ACCEPT' => 'application/json' }
+          get edit_moment_path(moment2.id), headers: headers
           expect(response.body).to be_empty
         end
       end
     end
 
     context 'when the user is not logged in' do
-      before { get :edit, params: { id: moment2.id } }
+      before { get edit_moment_path(moment2.id) }
       it_behaves_like :with_no_logged_in_user
     end
   end
@@ -71,7 +74,7 @@ describe MomentsController do
 
     it 'renders template' do
       moment.save!
-      get :show, params: { id: moment.id }
+      get moment_path(moment.id)
       expect(response).to render_template(:show)
     end
   end
@@ -82,7 +85,7 @@ describe MomentsController do
     before { sign_in user }
 
     def post_create(moment_params)
-      post :create, params: { moment: moment_params }
+      post moments_path params: { moment: moment_params }
     end
 
     context 'when valid params are supplied' do
@@ -136,11 +139,11 @@ describe MomentsController do
     let(:invalid_moment_params) { { why: nil } }
 
     context 'when the user is logged in' do
-      include_context :logged_in_user
+      before { sign_in user }
 
       context 'when the params are valid' do
         before(:each) do
-          patch :update, params: { id: moment.id, moment: valid_moment_params }
+          patch moment_path(moment.id), params: { moment: valid_moment_params }
         end
 
         it 'updates the moment record' do
@@ -158,7 +161,7 @@ describe MomentsController do
 
       context 'when the params are invalid' do
         before(:each) do
-          patch :update, params: { id: moment.id, moment: invalid_moment_params }
+          patch moment_path(moment.id), params: { moment: invalid_moment_params }
         end
 
         it 'does not update the record' do
@@ -173,7 +176,7 @@ describe MomentsController do
 
     context 'when the user is not logged in' do
       before do
-        patch :update, params: { id: moment.id }
+        patch moment_path(moment.id)
       end
 
       it_behaves_like :with_no_logged_in_user
@@ -184,27 +187,28 @@ describe MomentsController do
     let!(:moment) { create(:moment, user: user) }
 
     context 'when the user is logged in' do
-      include_context :logged_in_user
+      before { sign_in user }
 
       it 'destroys the moment' do
-        expect { delete :destroy, params: { id: moment.id } }.to(
+        expect { delete moment_path(moment.id) }.to(
           change(Moment, :count).by(-1)
         )
       end
 
       it 'redirects to the moments path for html requests' do
-        delete :destroy, params: { id: moment.id }
+        delete moment_path(moment.id)
         expect(response).to redirect_to(moments_path)
       end
 
       it 'responds with no content to json requests' do
-        delete :destroy, format: 'json', params: { id: moment.id }
+        headers = { 'ACCEPT' => 'application/json' }
+        delete moment_path(moment.id), headers: headers
         expect(response.body).to be_empty
       end
     end
 
     context 'when the user is not logged in' do
-      before { delete :destroy, params: { id: moment.id } }
+      before { delete moment_path(moment.id) }
 
       it_behaves_like :with_no_logged_in_user
     end
@@ -217,9 +221,10 @@ describe MomentsController do
     let!(:moment) { create(:moment, user_id: user.id, category: [category.id], mood: [mood.id], strategy: [strategy.id]) }
 
     context 'when the user is logged in' do
-      include_context :logged_in_user
       before do
-        get :tagged, params: { page: 1, category_id: category.id, mood_id: mood.id, strategy_id: strategy.id }, format: :json
+        sign_in user
+        headers = { 'ACCEPT' => 'application/json' }
+        get tagged_moments_path, params: { page: 1, category_id: category.id, mood_id: mood.id, strategy_id: strategy.id }, headers: headers
       end
 
       it 'returns a response with the correct path' do
@@ -229,7 +234,8 @@ describe MomentsController do
 
     context 'when the user is not logged in' do
       before do
-        get :tagged, params: { page: 1, category_id: category.id, mood_id: mood.id, strategy_id: strategy.id }, format: :json
+        headers = { 'ACCEPT' => 'application/json' }
+        get tagged_moments_path, params: { page: 1, category_id: category.id, mood_id: mood.id, strategy_id: strategy.id }, headers: headers
       end
 
       it 'returns a no_content status' do
@@ -247,7 +253,7 @@ describe MomentsController do
       new_mood = create(:mood, user_id: new_user.id)
       create(:moment, user_id: new_user.id, category: Array.new(1, new_category.id),
                       mood: Array.new(1, new_mood.id), created_at: create_time)
-      get :index
+      get moments_path
       expect(assigns(:react_moments)).to have_key(create_time)
       expect(assigns(:react_moments)[create_time]).to eq(1)
     end
