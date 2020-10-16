@@ -619,5 +619,14 @@
     "link_name": "udayanshevade",
     "link": "https://github.com/udayanshevade",
     "social": "github"
+  },
+  {
+    "name": "Britton Jenner",
+    "image": "/assets/contributors/britton_jenner.png",
+    "profile": "I'm a full stack developer working on the MERN stack. I have family that have struggled with serious mental health issues since I was young and improving resource access for treatment is super important to me. I'm glad to be able to work on a project like this which allows people to leverage their community for help on their own terms.",
+    "location": "Kitchener, Ontario",
+    "link_name": "FranceJ",
+    "link": "https://github.com/FranceJ",
+    "social": "github"
   }
 ]
