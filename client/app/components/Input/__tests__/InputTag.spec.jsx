@@ -19,7 +19,6 @@ describe('InputTag', () => {
 
     // simulate searching for an option
     userEvent.type(input, 'Two');
-    userEvent.click(input);
 
     const queryOptions = { name: checkboxLabelTwo };
     let checkbox = screen.queryByRole('checkbox', queryOptions);
@@ -55,7 +54,7 @@ describe('InputTag', () => {
 
     // search for the option and re-select it
     userEvent.type(input, 'One');
-    userEvent.click(input);
+
     checkbox = screen.queryByRole('checkbox', queryOptions);
     expect(checkbox).not.toBeInTheDocument();
     const option = screen.getByRole('option', queryOptions);
