@@ -68,7 +68,7 @@ export function InputTag({
     return newSuggestions;
   };
 
-  const getSuggestionValue = (checkbox: Checkbox) => (checkbox.label === autocompleteLabel ? checkbox.label : '');
+  const getSuggestionValue = ({ label }: Checkbox) => (label === autocompleteLabel ? label : '');
 
   const onSuggestionsFetchRequested = (valueProp: { value: string }) => {
     const { value } = valueProp;
@@ -102,6 +102,7 @@ export function InputTag({
   ) => {
     if (method === 'enter') {
       event.preventDefault();
+      event.stopPropagation();
     }
     const inputId = labelExistsUnchecked(suggestion.label);
     if (inputId) {
@@ -127,7 +128,7 @@ export function InputTag({
   const shouldRenderSuggestions = () => true;
 
   const onKeyDown = (e: SyntheticKeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && onChange) {
+    if (!e.isPropagationStopped() && e.key === 'Enter' && onChange) {
       e.preventDefault();
       onChange({ label: autocompleteLabel, checkboxes });
     }
@@ -152,7 +153,7 @@ export function InputTag({
       theme={css}
       inputProps={{
         onChange: onAutocompleteChange,
-        value: autocompleteLabel || '',
+        value: autocompleteLabel,
         className: `tagAutocomplete ${inputCss.tagAutocomplete}`,
         onKeyDown,
         placeholder,
