@@ -34,7 +34,7 @@ module Users
       meeting_members
     ].freeze
 
-    DEFAULT_FILE_PATH = Rails.root.join('tmp/csv_data/')
+    DEFAULT_FILE_PATH = Rails.root.join('tmp', 'csv_data')
 
     belongs_to :user, class_name: '::User', foreign_key: 'user_id'
 
@@ -90,7 +90,7 @@ module Users
     end
 
     def file_path
-      "#{DEFAULT_FILE_PATH}#{request_id}.csv"
+      DEFAULT_FILE_PATH.join("#{request_id}.csv").to_s
     end
   end
 end

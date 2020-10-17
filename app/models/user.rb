@@ -44,7 +44,7 @@
 #  admin                  :boolean          default(FALSE)
 #  third_party_avatar     :text
 #
-
+# rubocop:disable Metrics/ClassLength
 class User < ApplicationRecord
   include PasswordValidator
   include AllyConcern
@@ -98,7 +98,9 @@ class User < ApplicationRecord
   has_many :categories
   has_many :care_plan_contacts
   has_many :password_histories, dependent: :destroy
+  # rubocop:disable Layout/LineLength
   has_many :data_requests, class_name: 'Users::DataRequest', foreign_key: :user_id
+  # rubocop:enable Layout/LineLength
   belongs_to :invited_by, class_name: 'User'
 
   after_initialize :set_defaults, unless: :persisted?
@@ -234,3 +236,4 @@ class User < ApplicationRecord
     !access_expires_at || Time.zone.now > access_expires_at
   end
 end
+# rubocop:enable Metrics/ClassLength

@@ -18,7 +18,9 @@
 #  comments          :text
 #  slug              :string
 #  add_to_google_cal :boolean          default(FALSE)
+# rubocop:disable Layout/LineLength
 #  weekly_dosage     :integer          default(["0", "1", "2", "3", "4", "5", "6"]), is an Array
+# rubocop:enable Layout/LineLength
 #
 
 class Medication < ApplicationRecord
