@@ -74,11 +74,7 @@ module Users
       begin
         require 'csv'
         csv_rows = user.build_csv_data
-        CSV.open(file_path, 'wb') do |csv_row|
-          csv_rows.each do |row|
-            csv_row << row
-          end
-        end
+        write_to_csv(csv_rows)
         self.status_id = STATUS[:success]
         save!
         user.delete_stale_data_file
@@ -91,6 +87,16 @@ module Users
 
     def file_path
       DEFAULT_FILE_PATH.join("#{request_id}.csv").to_s
+    end
+
+    private
+
+    def write_to_csv(csv_rows)
+      CSV.open(file_path, 'wb') do |csv_row|
+        csv_rows.each do |row|
+          csv_row << row
+        end
+      end
     end
   end
 end
