@@ -17,6 +17,11 @@ defaults: &defaults
         POSTGRES_USER: circleci
         POSTGRES_DB: ifme_test
         POSTGRES_PASSWORD: ""
+    - image: redis:4.2.2
+      environment:
+        REDIS_HOST: redis
+        # The default Redis port
+        REDIS_PORT: 6379
   steps:
     - checkout
 jobs:
