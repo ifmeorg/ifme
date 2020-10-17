@@ -61,6 +61,8 @@ module Users
     def after_commit_tasks
       return unless saved_change_to_id? && status_id == STATUS[:enqueued]
 
+      Dir.mkdir(DEFAULT_FILE_PATH) unless File.exist?(DEFAULT_FILE_PATH)
+
       enqueue_download_request
     end
 
@@ -69,7 +71,6 @@ module Users
     end
 
     def create_csv
-      Dir.mkdir(DEFAULT_FILE_PATH) unless File.exist?(DEFAULT_FILE_PATH)
       user = User.includes(*ASSOCIATIONS_TO_EXPORT).find(user_id)
       begin
         require 'csv'
