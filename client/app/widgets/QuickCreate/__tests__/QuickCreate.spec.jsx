@@ -104,13 +104,31 @@ describe('QuickCreate', () => {
     });
 
     it('does not open the modal if the checkbox already exists', () => {
+      const [{ label }] = checkboxes;
       // open accordion
       userEvent.click(screen.getByRole('button'));
       // type a value that already exists
-      userEvent.type(
-        screen.getByRole('textbox'),
-        `${checkboxes[0].label}{enter}`,
-      );
+      userEvent.type(screen.getByRole('textbox'), `${label}{enter}`);
+      // modal should not be open
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    });
+
+    it('does not open modal if input matches an unselected option', () => {
+      const [, { label }] = checkboxes;
+      // open accordion
+      userEvent.click(screen.getByRole('button'));
+      expect(
+        screen.queryByRole('checkbox', {
+          name: label,
+        }),
+      ).not.toBeInTheDocument();
+      // type a value that already exists
+      userEvent.type(screen.getByRole('textbox'), `${label}{enter}`);
+      expect(
+        screen.getByRole('checkbox', {
+          name: label,
+        }),
+      ).toBeInTheDocument();
       // modal should not be open
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     });
