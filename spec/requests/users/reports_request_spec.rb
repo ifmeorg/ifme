@@ -82,6 +82,7 @@ RSpec.describe "Users::Reports", type: :request do
         get "/users/data/download", params: params
         expect(status).to eq(200)
         expect(File.exist?(data_request.file_path.to_s)).to be(true)
+        File.delete(data_request.file_path.to_s) if File.exist?(data_request.file_path.to_s)
       end
     end
 
