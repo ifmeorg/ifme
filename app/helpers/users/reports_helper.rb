@@ -8,7 +8,7 @@ module Users
     end
 
     def fetch_request_status_helper(user, request_id)
-      return 400, { error: 'Request id can be blank.' } if request_id.blank?
+      return 400, { error: "Request id can't be blank." } if request_id.blank?
 
       data_request = user.data_requests.find_by(request_id: request_id)
       if data_request.blank?
@@ -19,7 +19,7 @@ module Users
     end
 
     def download_data_helper(user, request_id)
-      return 400, { error: 'Request id can be blank.' } if request_id.blank?
+      return 400, { error: "Request id can't be blank." } if request_id.blank?
 
       data_request = user.data_requests.find_by(
         request_id: request_id,
