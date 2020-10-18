@@ -1,9 +1,10 @@
 // @flow
-import { mount } from 'enzyme';
 import React from 'react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Header from 'components/Header';
 
-const getComponent = () => (
+const component = (
   <Header
     home={{ name: 'Home', url: '/some-path' }}
     links={[
@@ -13,22 +14,29 @@ const getComponent = () => (
   />
 );
 
-const wrapper = mount(getComponent());
-
 describe('Header', () => {
   it('renders correctly', () => {
-    expect(wrapper.length).toEqual(1);
+    render(component);
+
+    expect(screen.getByRole('banner')).toBeInTheDocument();
+    expect(screen.getByRole('navigation')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /home/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /link 1/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /link 1/i })).toHaveClass(
+      'headerActiveLink',
+    );
+    expect(screen.getByRole('link', { name: /link 2/i })).toBeInTheDocument();
   });
 
   it('toggles hamburger correctly', () => {
-    wrapper.find('#headerHamburger').simulate('click');
-    expect(wrapper.find('#headerMobile').length).toEqual(1);
-    wrapper.find('#headerHamburger').simulate('click');
-    expect(wrapper.find('#headerMobile').length).toEqual(0);
-  });
+    const { container } = render(component);
+    const hamburger = container.querySelector('#headerHamburger');
+    userEvent.click(hamburger);
 
-  it('displays links correctly', () => {
-    expect(wrapper.find('.headerLink').length).toEqual(2);
-    expect(wrapper.find('.headerActiveLink').length).toEqual(1);
+    const mobile = container.querySelector('#headerMobile');
+    expect(mobile).toBeInTheDocument();
+
+    userEvent.click(hamburger);
+    expect(mobile).not.toBeInTheDocument();
   });
 });
