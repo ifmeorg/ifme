@@ -31,32 +31,9 @@ describe('InputTag', () => {
     expect(screen.getAllByRole('option')).toHaveLength(2);
   });
 
-  it('type in value and select it', () => {
-    const [, { label: labelTwo }] = checkboxes;
-    render(component);
-    const input = screen.getByRole('textbox');
-
-    // simulate searching for an option
-    userEvent.type(input, 'Two');
-
-    const queryOptions = { name: labelTwo };
-    let checkbox = screen.queryByRole('checkbox', queryOptions);
-    // at this point the checkbox for the option should still not be visible
-    expect(checkbox).not.toBeInTheDocument();
-
-    // but after selecting the option, its associated checkbox should exist
-    const option = screen.getByRole('option', queryOptions);
-    userEvent.click(option);
-
-    checkbox = screen.getByRole('checkbox', queryOptions);
-    expect(checkbox).toBeInTheDocument();
-  });
-
-  it('un-check existing value and retype and select it', () => {
+  it('un-check existing value', () => {
     const [{ label: labelOne }] = checkboxes;
     render(component);
-
-    const input = screen.getByRole('textbox');
 
     const queryOptions = { name: labelOne };
     // toggle off the target option's checkbox, so we can test re-selecting it below
@@ -66,14 +43,26 @@ describe('InputTag', () => {
     // after toggling it, the checkbox should disappear
     checkbox = screen.queryByRole('checkbox', queryOptions);
     expect(checkbox).not.toBeInTheDocument();
+  });
 
-    // search for the option and re-select it
-    userEvent.type(input, 'One');
+  it('type in value and select it', () => {
+    const [{ label: labelOne }] = checkboxes;
+    render(component);
 
-    checkbox = screen.queryByRole('checkbox', queryOptions);
+    const queryOptions = { name: labelOne };
+    let checkbox = screen.getByRole('checkbox', queryOptions);
+    // un-check selected value so we can re-select it
+    userEvent.click(checkbox);
+    // at this point the checkbox for the option should not be visible
     expect(checkbox).not.toBeInTheDocument();
+
+    // simulate searching for an option
+    const input = screen.getByRole('textbox');
+    userEvent.type(input, 'One');
+    // after selecting the option, its associated checkbox should exist
     const option = screen.getByRole('option', queryOptions);
     userEvent.click(option);
+
     checkbox = screen.getByRole('checkbox', queryOptions);
     expect(checkbox).toBeInTheDocument();
   });
