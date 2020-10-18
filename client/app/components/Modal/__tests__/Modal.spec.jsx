@@ -1,6 +1,9 @@
 // @flow
-import { mount } from 'enzyme';
 import React from 'react';
+import {
+  fireEvent, render, screen, waitFor,
+} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Modal from 'components/Modal';
 
 const title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
@@ -39,19 +42,24 @@ describe('Modal', () => {
     jest.spyOn(window, 'alert');
   });
 
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
   describe('has open prop as false', () => {
     describe('has text values for element and body', () => {
-      const component = <Modal element="Hello" body={bodyText} title={title} />;
       it('toggles correctly', () => {
-        const wrapper = mount(component);
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
-        expect(wrapper.find('.modal').exists()).toEqual(false);
-        wrapper.find('.modalElement').simulate('click');
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
-        expect(wrapper.find('.modal').exists()).toEqual(true);
-        wrapper.find('.modalClose').simulate('click');
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
-        expect(wrapper.find('.modal').exists()).toEqual(false);
+        const { container } = render(<Modal element="Hello" body={bodyText} title={title} />);
+        expect(container.querySelector('.modalBackdrop')).not.toBeInTheDocument();
+        expect(container.querySelector('.modal')).not.toBeInTheDocument();
+
+        userEvent.click(screen.getByRole('button', { name: /hello/i }));
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
+        expect(container.querySelector('.modal')).toBeInTheDocument();
+
+        userEvent.click(screen.getByRole('button', { name: /close/i }));
+        expect(container.querySelector('.modalBackdrop')).not.toBeInTheDocument();
+        expect(container.querySelector('.modal')).not.toBeInTheDocument();
       });
     });
 
@@ -65,17 +73,19 @@ describe('Modal', () => {
             openListener={openListener}
           />
         );
-        const wrapper = mount(component);
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
-        expect(wrapper.find('.modal').exists()).toEqual(false);
-        wrapper.find('.modalElement').simulate('click');
+        const { container } = render(component);
+        expect(container.querySelector('.modalBackdrop')).not.toBeInTheDocument();
+        expect(container.querySelector('.modal')).not.toBeInTheDocument();
+
+        userEvent.click(screen.getByRole('button', { name: /hello/i }));
         expect(window.alert).toHaveBeenCalled();
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
-        expect(wrapper.find('.modal').exists()).toEqual(true);
-        wrapper.find('.modalClose').simulate('click');
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
+        expect(container.querySelector('.modal')).toBeInTheDocument();
+
+        userEvent.click(screen.getByRole('button', { name: /close/i }));
         expect(window.alert).toHaveBeenCalled();
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
-        expect(wrapper.find('.modal').exists()).toEqual(false);
+        expect(container.querySelector('.modalBackdrop')).not.toBeInTheDocument();
+        expect(container.querySelector('.modal')).not.toBeInTheDocument();
       });
     });
 
@@ -88,15 +98,17 @@ describe('Modal', () => {
             title={title}
           />
         );
-        const wrapper = mount(component);
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
-        expect(wrapper.find('.modal').exists()).toEqual(false);
-        wrapper.find('.modalElement').simulate('click');
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
-        expect(wrapper.find('.modal').exists()).toEqual(true);
-        wrapper.find('.modalClose').simulate('click');
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
-        expect(wrapper.find('.modal').exists()).toEqual(false);
+        const { container } = render(component);
+        expect(container.querySelector('.modalBackdrop')).not.toBeInTheDocument();
+        expect(container.querySelector('.modal')).not.toBeInTheDocument();
+
+        userEvent.click(screen.getAllByRole('button', { name: /hello/i })[1]);
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
+        expect(container.querySelector('.modal')).toBeInTheDocument();
+
+        userEvent.click(screen.getByRole('button', { name: /close/i }));
+        expect(container.querySelector('.modalBackdrop')).not.toBeInTheDocument();
+        expect(container.querySelector('.modal')).not.toBeInTheDocument();
       });
     });
 
@@ -110,17 +122,19 @@ describe('Modal', () => {
             openListener={openListener}
           />
         );
-        const wrapper = mount(component);
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
-        expect(wrapper.find('.modal').exists()).toEqual(false);
-        wrapper.find('.modalElement').simulate('click');
+        const { container } = render(component);
+        expect(container.querySelector('.modalBackdrop')).not.toBeInTheDocument();
+        expect(container.querySelector('.modal')).not.toBeInTheDocument();
+
+        userEvent.click(screen.getAllByRole('button', { name: /hello/i })[1]);
         expect(window.alert).toHaveBeenCalled();
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
-        expect(wrapper.find('.modal').exists()).toEqual(true);
-        wrapper.find('.modalClose').simulate('click');
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
+        expect(container.querySelector('.modal')).toBeInTheDocument();
+
+        userEvent.click(screen.getByRole('button', { name: /close/i }));
         expect(window.alert).toHaveBeenCalled();
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
-        expect(wrapper.find('.modal').exists()).toEqual(false);
+        expect(container.querySelector('.modalBackdrop')).not.toBeInTheDocument();
+        expect(container.querySelector('.modal')).not.toBeInTheDocument();
       });
     });
 
@@ -135,16 +149,18 @@ describe('Modal', () => {
         />
       );
       it('toggles correctly', () => {
-        const wrapper = mount(component);
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
-        expect(wrapper.find('.modal').exists()).toEqual(false);
-        wrapper.find('.modalElement').simulate('click');
+        const { container } = render(component);
+        expect(container.querySelector('.modalBackdrop')).not.toBeInTheDocument();
+        expect(container.querySelector('.modal')).not.toBeInTheDocument();
+
+        userEvent.click(screen.getByRole('button', { name: /hello/i }));
         expect(window.alert).toHaveBeenCalled();
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
-        expect(wrapper.find('.modal').exists()).toEqual(true);
-        wrapper.find('.modalBackdrop').simulate('keydown', { key: 'Escape' });
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
-        expect(wrapper.find('.modal').exists()).toEqual(false);
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
+        expect(container.querySelector('.modal')).toBeInTheDocument();
+
+        fireEvent.keyDown(container.querySelector('.modalBackdrop'), { key: 'Escape' });
+        expect(container.querySelector('.modalBackdrop')).not.toBeInTheDocument();
+        expect(container.querySelector('.modal')).not.toBeInTheDocument();
       });
     });
 
@@ -160,17 +176,20 @@ describe('Modal', () => {
         />
       );
       it('toggles correctly', () => {
-        const wrapper = mount(component);
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
-        expect(wrapper.find('.modal').exists()).toEqual(false);
-        wrapper.find('.modalElement').simulate('click');
+        const { container } = render(component);
+        expect(container.querySelector('.modalBackdrop')).not.toBeInTheDocument();
+        expect(container.querySelector('.modal')).not.toBeInTheDocument();
+
+        userEvent.click(screen.getByRole('button', { name: /hello/i }));
         expect(window.alert).toHaveBeenCalled();
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
-        expect(wrapper.find('.modal').exists()).toEqual(true);
-        wrapper.find('.modal').simulate('mouseleave');
-        wrapper.find('.modalBackdrop').simulate('click');
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
-        expect(wrapper.find('.modal').exists()).toEqual(false);
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
+        expect(container.querySelector('.modal')).toBeInTheDocument();
+
+        userEvent.click(container.querySelector('.modalBackdrop'));
+        waitFor(() => {
+          expect(container.querySelector('.modalBackdrop')).not.toBeInTheDocument();
+          expect(container.querySelector('.modal')).not.toBeInTheDocument();
+        });
       });
     });
 
@@ -188,17 +207,18 @@ describe('Modal', () => {
         />
       );
       it('toggles correctly', () => {
-        const wrapper = mount(component);
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
-        expect(wrapper.find('.modal').exists()).toEqual(false);
-        wrapper.find('.modalElement').simulate('click');
+        const { container } = render(component);
+        expect(container.querySelector('.modalBackdrop')).not.toBeInTheDocument();
+        expect(container.querySelector('.modal')).not.toBeInTheDocument();
+
+        userEvent.click(screen.getByRole('button', { name: /hello/i }));
         expect(window.alert).toHaveBeenCalled();
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
-        expect(wrapper.find('.modal').exists()).toEqual(true);
-        wrapper.find('.modal').simulate('mouseover');
-        wrapper.find('.modalBackdrop').simulate('click');
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
-        expect(wrapper.find('.modal').exists()).toEqual(true);
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
+        expect(container.querySelector('.modal')).toBeInTheDocument();
+
+        userEvent.click(container.querySelector('.modal'));
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
+        expect(container.querySelector('.modal')).toBeInTheDocument();
       });
     });
   });
@@ -209,15 +229,17 @@ describe('Modal', () => {
         <Modal element="Hello" body={bodyText} title={title} open />
       );
       it('toggles correctly', () => {
-        const wrapper = mount(component);
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
-        expect(wrapper.find('.modal').exists()).toEqual(true);
-        wrapper.find('.modalClose').simulate('click');
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
-        expect(wrapper.find('.modal').exists()).toEqual(false);
-        wrapper.find('.modalElement').simulate('click');
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
-        expect(wrapper.find('.modal').exists()).toEqual(true);
+        const { container } = render(component);
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
+        expect(container.querySelector('.modal')).toBeInTheDocument();
+
+        userEvent.click(screen.getByRole('button', { name: /close/i }));
+        expect(container.querySelector('.modalBackdrop')).not.toBeInTheDocument();
+        expect(container.querySelector('.modal')).not.toBeInTheDocument();
+
+        userEvent.click(screen.getByRole('button', { name: /hello/i }));
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
+        expect(container.querySelector('.modal')).toBeInTheDocument();
       });
     });
 
@@ -232,16 +254,18 @@ describe('Modal', () => {
             open
           />
         );
-        const wrapper = mount(component);
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
-        expect(wrapper.find('.modal').exists()).toEqual(true);
-        wrapper.find('.modalClose').simulate('click');
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
-        expect(wrapper.find('.modal').exists()).toEqual(false);
-        wrapper.find('.modalElement').simulate('click');
+        const { container } = render(component);
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
+        expect(container.querySelector('.modal')).toBeInTheDocument();
+
+        userEvent.click(screen.getByRole('button', { name: /close/i }));
+        expect(container.querySelector('.modalBackdrop')).not.toBeInTheDocument();
+        expect(container.querySelector('.modal')).not.toBeInTheDocument();
+
+        userEvent.click(screen.getByRole('button', { name: /hello/i }));
         expect(window.alert).toHaveBeenCalled();
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
-        expect(wrapper.find('.modal').exists()).toEqual(true);
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
+        expect(container.querySelector('.modal')).toBeInTheDocument();
       });
     });
 
@@ -255,15 +279,17 @@ describe('Modal', () => {
             open
           />
         );
-        const wrapper = mount(component);
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
-        expect(wrapper.find('.modal').exists()).toEqual(true);
-        wrapper.find('.modalClose').simulate('click');
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
-        expect(wrapper.find('.modal').exists()).toEqual(false);
-        wrapper.find('.modalElement').simulate('click');
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
-        expect(wrapper.find('.modal').exists()).toEqual(true);
+        const { container } = render(component);
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
+        expect(container.querySelector('.modal')).toBeInTheDocument();
+
+        userEvent.click(screen.getByRole('button', { name: /close/i }));
+        expect(container.querySelector('.modalBackdrop')).not.toBeInTheDocument();
+        expect(container.querySelector('.modal')).not.toBeInTheDocument();
+
+        userEvent.click(screen.getAllByRole('button', { name: /hello/i })[1]);
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
+        expect(container.querySelector('.modal')).toBeInTheDocument();
       });
     });
 
@@ -278,16 +304,18 @@ describe('Modal', () => {
             open
           />
         );
-        const wrapper = mount(component);
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
-        expect(wrapper.find('.modal').exists()).toEqual(true);
-        wrapper.find('.modalClose').simulate('click');
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
-        expect(wrapper.find('.modal').exists()).toEqual(false);
-        wrapper.find('.modalElement').simulate('click');
+        const { container } = render(component);
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
+        expect(container.querySelector('.modal')).toBeInTheDocument();
+
+        userEvent.click(screen.getByRole('button', { name: /close/i }));
+        expect(container.querySelector('.modalBackdrop')).not.toBeInTheDocument();
+        expect(container.querySelector('.modal')).not.toBeInTheDocument();
+
+        userEvent.click(screen.getAllByRole('button', { name: /hello/i })[1]);
         expect(window.alert).toHaveBeenCalled();
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
-        expect(wrapper.find('.modal').exists()).toEqual(true);
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
+        expect(container.querySelector('.modal')).toBeInTheDocument();
       });
     });
 
@@ -304,11 +332,11 @@ describe('Modal', () => {
           />
         );
 
-        const wrapper = mount(component);
-        expect(wrapper.find('.avatar').exists()).toEqual(true);
-        wrapper.find('.avatar').simulate('click');
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
-        expect(wrapper.find('.modal').exists()).toEqual(true);
+        const { container } = render(component);
+        expect(container.querySelector('.avatar')).toBeInTheDocument();
+        userEvent.click(container.querySelector('.avatar'));
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
+        expect(container.querySelector('.modal')).toBeInTheDocument();
       });
     });
 
@@ -324,12 +352,13 @@ describe('Modal', () => {
         />
       );
       it('toggles correctly', () => {
-        const wrapper = mount(component);
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
-        expect(wrapper.find('.modal').exists()).toEqual(true);
-        wrapper.find('.modalBackdrop').simulate('keydown', { key: 'Escape' });
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
-        expect(wrapper.find('.modal').exists()).toEqual(false);
+        const { container } = render(component);
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
+        expect(container.querySelector('.modal')).toBeInTheDocument();
+
+        fireEvent.keyDown(container.querySelector('.modalBackdrop'), { key: 'Escape' });
+        expect(container.querySelector('.modalBackdrop')).not.toBeInTheDocument();
+        expect(container.querySelector('.modal')).not.toBeInTheDocument();
       });
     });
 
@@ -348,13 +377,15 @@ describe('Modal', () => {
         />
       );
       it('toggles correctly', () => {
-        const wrapper = mount(component);
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
-        expect(wrapper.find('.modal').exists()).toEqual(true);
-        wrapper.find('.modal').simulate('mouseleave');
-        wrapper.find('.modalBackdrop').simulate('click');
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
-        expect(wrapper.find('.modal').exists()).toEqual(false);
+        const { container } = render(component);
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
+        expect(container.querySelector('.modal')).toBeInTheDocument();
+
+        userEvent.click(container.querySelector('.modalBackdrop'));
+        waitFor(() => {
+          expect(container.querySelector('.modalBackdrop')).not.toBeInTheDocument();
+          expect(container.querySelector('.modal')).not.toBeInTheDocument();
+        });
       });
     });
 
@@ -373,13 +404,13 @@ describe('Modal', () => {
         />
       );
       it('toggles correctly', () => {
-        const wrapper = mount(component);
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
-        expect(wrapper.find('.modal').exists()).toEqual(true);
-        wrapper.find('.modal').simulate('mouseover');
-        wrapper.find('.modalBackdrop').simulate('click');
-        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
-        expect(wrapper.find('.modal').exists()).toEqual(true);
+        const { container } = render(component);
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
+        expect(container.querySelector('.modal')).toBeInTheDocument();
+
+        userEvent.click(container.querySelector('.modal'));
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
+        expect(container.querySelector('.modal')).toBeInTheDocument();
       });
     });
   });
