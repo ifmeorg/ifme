@@ -43,6 +43,8 @@
 #  banned                 :boolean          default(FALSE)
 #  admin                  :boolean          default(FALSE)
 #  third_party_avatar     :text
+#  failed_attempts        :integer          default(0), not null
+#  locked_at              :datetime
 #
 
 class User < ApplicationRecord
@@ -51,8 +53,8 @@ class User < ApplicationRecord
   OAUTH_TOKEN_URL = 'https://accounts.google.com/o/oauth2/token'
 
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :invitable, :database_authenticatable, :registerable, :uid,
+  # :confirmable, :timeoutable and :omniauthable
+  devise :invitable, :database_authenticatable, :registerable, :uid, :lockable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
          omniauth_providers: %i[google_oauth2 facebook]
 
