@@ -9,9 +9,11 @@ RSpec.describe 'CarePlanContacts', type: :request do
 
       context 'when valid params are supplied' do
         it 'creates the care plan contact' do
-          valid_params = { name: 'Person Name', phone: '416000000' }
-
-          post care_plan_contacts_create_path, params: { care_plan_contact: valid_params }
+          post care_plan_contacts_create_path, params: {
+            care_plan_contact: {
+              name: 'Person Name', phone: '416000000'
+            }
+          }
 
           expect(response).to be_successful
           expect(JSON.parse(response.body)).to eq(
@@ -24,9 +26,9 @@ RSpec.describe 'CarePlanContacts', type: :request do
 
       context 'when invalid params are supplied' do
         it 'returns 422 UNPROCESSABLE ENTITY' do
-          invalid_params = { name: nil }
-
-          post care_plan_contacts_create_path, params: { care_plan_contact: invalid_params }
+          post care_plan_contacts_create_path, params: {
+            care_plan_contact: { name: nil }
+          }
 
           expect(response).to have_http_status(:unprocessable_entity)
         end
@@ -35,9 +37,11 @@ RSpec.describe 'CarePlanContacts', type: :request do
 
     context 'when the user is not logged in' do
       it 'redirects to sign_in page' do
-        valid_params = { name: 'Person Name', phone: '416000000' }
-
-        post care_plan_contacts_create_path, params: { care_plan_contact: valid_params }
+        post care_plan_contacts_create_path, params: {
+          care_plan_contact: {
+            name: 'Person Name', phone: '416000000'
+          }
+        }
 
         expect(response).to redirect_to new_user_session_path
       end
@@ -51,10 +55,11 @@ RSpec.describe 'CarePlanContacts', type: :request do
       context 'when valid params are supplied' do
         it 'updates the care plan contact' do
           care_plan_contact = create(:care_plan_contact, user_id: user.id)
-          valid_params = { name: 'Different Name' }
-          request_params = { id: care_plan_contact.id, care_plan_contact: valid_params }
 
-          patch care_plan_contacts_update_path, params: request_params
+          patch care_plan_contacts_update_path, params: {
+            id: care_plan_contact.id,
+            care_plan_contact: { name: 'Different Name' }
+          }
 
           expect(JSON.parse(response.body)).to eq(
             'id' => care_plan_contact.id,
@@ -67,10 +72,11 @@ RSpec.describe 'CarePlanContacts', type: :request do
       context 'when invalid params are supplied' do
         it 'returns 422 UNPROCESSABLE ENTITY' do
           care_plan_contact = create(:care_plan_contact, user_id: user.id)
-          invalid_params = { name: nil }
-          request_params = { id: care_plan_contact.id, care_plan_contact: invalid_params }
 
-          patch care_plan_contacts_update_path, params: request_params
+          patch care_plan_contacts_update_path, params: {
+            id: care_plan_contact.id,
+            care_plan_contact: { name: nil }
+          }
 
           expect(response).to have_http_status(:unprocessable_entity)
           expect(care_plan_contact.reload.name).not_to be_nil
@@ -81,10 +87,11 @@ RSpec.describe 'CarePlanContacts', type: :request do
     context 'when the user is not logged in' do
       it 'redirects to sign_in page' do
         care_plan_contact = create(:care_plan_contact, user_id: user.id)
-        valid_params = { name: 'Different Name' }
-        request_params = { id: care_plan_contact.id, care_plan_contact: valid_params }
 
-        patch care_plan_contacts_update_path, params: request_params
+        patch care_plan_contacts_update_path, params: {
+          id: care_plan_contact.id,
+          care_plan_contact: { name: 'Different Name' }
+        }
 
         expect(response).to redirect_to new_user_session_path
       end
