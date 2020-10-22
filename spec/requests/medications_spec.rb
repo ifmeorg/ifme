@@ -1,65 +1,5 @@
 # frozen_string_literal: true
-describe MedicationsController do
-  describe '#print_reminders' do
-    let(:user) { create(:user1) }
-    subject { controller.print_reminders(medication) }
-
-    describe 'when medication has no reminders' do
-      let(:medication) { create(:medication, user_id: user.id) }
-
-      it 'is empty' do
-        expect(subject).to eq('')
-      end
-    end
-
-    describe 'when medication has refill reminder' do
-      let(:medication) { create(:medication, :with_refill_reminder, user_id: user.id) }
-
-      it 'prints the reminder' do
-        expect(subject).to eq('<div><i class="fa fa-bell smallMarginRight"></i>Refill reminder email</div>')
-      end
-    end
-
-    describe 'when medication has daily reminder' do
-      let(:medication) { create(:medication, :with_daily_reminder, user_id: user.id) }
-
-      it 'prints the reminders' do
-        expect(subject).to eq('<div><i class="fa fa-bell smallMarginRight"></i>Daily reminder email</div>')
-      end
-    end
-
-    describe 'when medication has both reminders' do
-      let(:medication) { create(:medication, :with_both_reminders, user_id: user.id) }
-
-      it 'prints the reminders' do
-        expect(subject).to eq('<div><i class="fa fa-bell smallMarginRight"></i>Refill reminder email, Daily reminder email</div>')
-      end
-    end
-
-    describe 'DELETE #destroy' do
-      let(:user) { create(:user) }
-      let!(:medication) { create(:medication, user: user) }
-
-      context 'when the user is logged in' do
-        include_context :logged_in_user
-        it 'deletes the medication' do
-          expect { delete :destroy, params: { id: medication.id } }
-            .to change(Medication, :count).by(-1)
-        end
-
-        it 'redirects to the medications index page' do
-          delete :destroy, params: { id: medication.id }
-          expect(response).to redirect_to medications_path
-        end
-      end
-
-      context 'when the user is not logged in' do
-        before { delete :destroy, params: { id: medication.id } }
-        it_behaves_like :with_no_logged_in_user
-      end
-    end
-  end
-
+Rspec.describe "Medications", type: :request do
   describe '#index' do
     let(:user) { create(:user) }
     let!(:medication) { create(:medication, user: user) }
@@ -67,13 +7,13 @@ describe MedicationsController do
     context 'when signed in' do
       before { sign_in user }
 
-      it 'renders index page' do
-        get :index
-        expect(response).to render_template(:index)
+      it 'returns a successful response' do
+        get medications_path
+        expect(response).to be_successful
       end
 
       context 'when request type is JSON' do
-        before { get :index, params: { page: 1, id: medication.id }, format: :json }
+        before { get medications_path, params: { page: 1, id: medication.id }, format: :json }
         it 'returns a response with the correct path' do
           expect(JSON.parse(response.body)['data'].first['link']).to eq medication_path(medication)
         end
@@ -81,7 +21,7 @@ describe MedicationsController do
     end
 
     context 'when not signed in' do
-      before { get :index }
+      before { get medications_path }
       it_behaves_like :with_no_logged_in_user
     end
   end
@@ -92,14 +32,14 @@ describe MedicationsController do
 
     context 'when signed in' do
       before { sign_in user }
-      it 'renders the new page' do
-        get :new
-        expect(response).to render_template(:new)
+      it 'returns a successful response' do
+        get new_medication_path
+        expect(response).to be_successful
       end
     end
 
     context 'when not signed in' do
-      before { get :new }
+      before { get new_medication_path }
       it_behaves_like :with_no_logged_in_user
     end
   end
@@ -110,15 +50,25 @@ describe MedicationsController do
 
     context 'when signed in' do
       before { sign_in user }
-      it 'render the show page' do
+
+      context 'when the medication exists' do
         medication.save!
-        get :show, params: { id: medication.id }
-        expect(response).to render_template(:show)
+        it 'returns a successful response' do
+          get medication_path(medication)
+          expect(response).to be_successful
+        end
+      end
+
+      context 'when the medication does not exist' do
+        it 'redirects to the medications page'
+          get medication_path(medication.id + 1)
+          expect(response).to redirect_to(medications_path)
+        end
       end
     end
 
     context 'when not signed in' do
-      before { get :show, params: { id: medication.id } }
+      before { get medication_path(medication) }
       it_behaves_like :with_no_logged_in_user
     end
   end
@@ -128,13 +78,14 @@ describe MedicationsController do
     let(:valid_medication_params) { attributes_for(:medication) }
 
     def post_create(medication_params)
-      post :create, params: { medication: medication_params }
+      post create_medication_path, params: { medication: medication_params }
     end
 
-    context 'when the user is logged in' do
-      include_context :logged_in_user
+    context 'when signed in' do
+      before { sign_in user }
 
       context 'when valid params are supplied' do
+
         it 'creates a medication' do
           expect { post_create valid_medication_params }
             .to change(Medication, :count).by(1)
@@ -144,7 +95,7 @@ describe MedicationsController do
           it 'has no validation errors and has correct refill' do
             post_create valid_medication_params
             expect(assigns(:medication).errors).to be_empty
-            expect(assigns(:medication)[:refill].strftime('%d/%m/%Y')).to eq('01/01/2020')
+            expect(response.body).to include(valid_medication_params.refill)
           end
         end
 
@@ -159,7 +110,7 @@ describe MedicationsController do
 
         it 'redirects to the medication page' do
           post_create valid_medication_params
-          expect(response).to redirect_to medication_path(assigns(:medication))
+          expect(response).to redirect_to medication_path(valid_medication_params.name)
         end
       end
 
@@ -190,8 +141,8 @@ describe MedicationsController do
       end
     end
 
-    context 'when the user is not logged in' do
-      before { post :create }
+    context 'when not signed in' do
+      before { post create_medication_path }
       it_behaves_like :with_no_logged_in_user
     end
   end
@@ -366,6 +317,47 @@ describe MedicationsController do
 
         it_behaves_like :with_no_logged_in_user
       end
+    end
+  end
+
+  describe '#print_reminders' do
+    let(:user) { create(:user1) }
+    subject { MedicationsController.new.print_reminders(medication) }
+
+    context 'when medication has no reminders' do
+      let(:medication) { create(:medication, user_id: user.id) }
+
+      it is_expected.to eq('')
+    end
+
+    context 'when medication has refill reminder' do
+      let(:medication) { create(:medication, :with_refill_reminder, user_id: user.id) }
+
+      it is_expected.to eq(
+        '<div>' \
+        '<i class="fa fa-bell smallMarginRight"></i>' \
+        'Refill reminder email</div>')
+    end
+
+    context 'when medication has daily reminder' do
+      let(:medication) { create(:medication, :with_daily_reminder, user_id: user.id) }
+
+      it is_expected.to eq(
+        '<div>' \
+        '<i class="fa fa-bell smallMarginRight"></i>' \
+        'Daily reminder email</div>'
+      )
+      end
+    end
+
+    context 'when medication has both reminders' do
+      let(:medication) { create(:medication, :with_both_reminders, user_id: user.id) }
+
+      it is_expected.to eq(
+        '<div>' \
+        '<i class="fa fa-bell smallMarginRight"></i>' \
+        'Refill reminder email, Daily reminder email</div>'
+      )
     end
   end
 end
