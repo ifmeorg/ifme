@@ -112,6 +112,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-pwned_password (0.1.9)
+      devise (~> 4)
+      pwned (~> 2.0.0)
     devise_invitable (2.0.2)
       actionmailer (>= 5.0)
       devise (>= 4.6)
@@ -279,6 +282,7 @@ GEM
       multi_json (~> 1.0)
       pusher-signature (~> 0.1.8)
     pusher-signature (0.1.8)
+    pwned (2.0.2)
     raabro (1.4.0)
     rack (2.2.3)
     rack-mini-profiler (2.1.0)
@@ -544,6 +548,7 @@ DEPENDENCIES
   cloudinary (~> 1.11.1)
   database_cleaner
   devise (~> 4.7.1)
+  devise-pwned_password
   devise_invitable (~> 2.0.1)
   devise_uid
   dotenv-rails (~> 2.7.2)

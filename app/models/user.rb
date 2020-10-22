@@ -79,9 +79,9 @@ class User < ApplicationRecord
   ].map!(&:freeze).freeze
 
   # Include default devise modules. Others available are:
-  # :confirmable, :timeoutable and :omniauthable
+  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :uid, :lockable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :pwned_password,
          omniauth_providers: %i[google_oauth2 facebook]
 
   mount_uploader :avatar, AvatarUploader
