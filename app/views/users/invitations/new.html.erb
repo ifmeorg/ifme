@@ -1,5 +1,5 @@
 <%= form_for resource, as: resource_name, url: invitation_path(resource_name), html: { id: 'invitations', method: :post } do |f| %>
-  <%= devise_error_messages! %>
+  <%= render "devise/shared/error_messages", resource: resource %>
   <%= react_component 'Input', props: {
     type: 'text',
     name: 'user[email]',
