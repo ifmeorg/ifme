@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Utils } from 'utils';
+import { act } from 'react-dom/test-utils';
 import StoryContainer from 'components/BaseContainer/StoryContainer';
 import { LoadMoreButton } from 'components/LoadMoreButton';
 
@@ -37,9 +38,11 @@ export const BaseContainerComponent = ({
     Utils.setCsrfToken();
     axios.get(url).then((response: any) => {
       if (response.data) {
-        setlastPage(response.data.lastPage);
-        setpage(page + 1);
-        setdata(data.concat(response.data.data));
+        act(() => {
+          setlastPage(response.data.lastPage);
+          setpage(page + 1);
+          setdata(data.concat(response.data.data));
+        });
       }
     });
   };
