@@ -12,6 +12,14 @@
 #
 
 class CarePlanContact < ApplicationRecord
+  USER_DATA_ATTRIBUTES = %w[
+    id
+    name
+    phone
+    created_at
+    updated_at
+  ].map!(&:freeze).freeze
+
   validates :user_id, :name, presence: true
   belongs_to :user
 end

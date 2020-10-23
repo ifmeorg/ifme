@@ -12,6 +12,14 @@
 #
 
 class Allyship < ApplicationRecord
+  USER_DATA_ATTRIBUTES = %w[
+    id
+    created_at
+    updated_at
+    ally_id
+    status
+  ].map!(&:freeze).freeze
+
   enum status: { accepted: 0, pending_from_user: 1, pending_from_ally: 2 }
 
   validate :different_users

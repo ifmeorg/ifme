@@ -302,6 +302,17 @@ ActiveRecord::Schema.define(version: 2020_10_09_185200) do
     t.index ["uid"], name: "index_users_on_uid", unique: true
   end
 
+  create_table "users_data_requests", force: :cascade do |t|
+    t.string "request_id", null: false
+    t.integer "status_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["request_id"], name: "index_users_data_requests_on_request_id", unique: true
+    t.index ["user_id", "status_id"], name: "index_users_data_requests_on_users_id_and_status_uniq", unique: true, where: "(status_id = 1)"
+    t.index ["user_id"], name: "index_users_data_requests_on_user_id"
+  end
+
   add_foreign_key "moments_categories", "categories"
   add_foreign_key "moments_categories", "moments"
   add_foreign_key "moments_moods", "moments"
@@ -310,4 +321,5 @@ ActiveRecord::Schema.define(version: 2020_10_09_185200) do
   add_foreign_key "moments_strategies", "strategies"
   add_foreign_key "strategies_categories", "categories"
   add_foreign_key "strategies_categories", "strategies"
+  add_foreign_key "users_data_requests", "users"
 end

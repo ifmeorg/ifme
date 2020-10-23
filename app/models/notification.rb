@@ -12,6 +12,14 @@
 #
 
 class Notification < ApplicationRecord
+  USER_DATA_ATTRIBUTES = %w[
+    id
+    uniqueid
+    data
+    created_at
+    updated_at
+  ].map!(&:freeze).freeze
+
   validates :user_id, :uniqueid, :data, presence: true
   belongs_to :user, foreign_key: :user_id
 

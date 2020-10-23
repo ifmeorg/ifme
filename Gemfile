@@ -52,6 +52,11 @@ gem 'selenium-webdriver', '~> 3.142.3'
 
 gem 'rubyzip', '~> 1.3.0'
 
+gem 'sidekiq', '5.0.5'
+gem 'sidekiq-middleware'
+gem 'sidekiq-failures'
+gem "sidekiq-cron", "~> 1.1"
+
 group :development, :test do
   gem 'bundler-audit'
   gem 'dotenv-rails', '~> 2.7.2'

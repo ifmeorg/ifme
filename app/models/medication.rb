@@ -18,13 +18,34 @@
 #  comments          :text
 #  slug              :string
 #  add_to_google_cal :boolean          default(FALSE)
-#  weekly_dosage     :integer
-#   default(["0", "1", "2", "3", "4", "5", "6"]), is an Array
+# rubocop:disable Layout/LineLength
+#  weekly_dosage     :integer          default(["0", "1", "2", "3", "4", "5", "6"]), is an Array
+# rubocop:enable Layout/LineLength
+#
 
 class Medication < ApplicationRecord
   # dosage: amount of medication taken at one time
   # total: total quantity of medication
   # strength: strength of medication
+
+  USER_DATA_ATTRIBUTES = %w[
+    id
+    name
+    dosage
+    refill
+    created_at
+    updated_at
+    user_id
+    total
+    strength
+    strength_unit
+    dosage_unit
+    total_unit
+    comments
+    slug
+    add_to_google_cal
+    weekly_dosage
+  ].map!(&:freeze).freeze
 
   extend FriendlyId
   friendly_id :name
