@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import { render, mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import CarePlanContacts from 'widgets/CarePlanContacts';
 
 const contacts = [
@@ -17,7 +17,6 @@ const contacts = [
 ];
 
 const component = <CarePlanContacts contacts={contacts} />;
-const error = new Error('Error');
 
 describe('CarePlanContacts', () => {
   afterEach(() => {
@@ -25,97 +24,111 @@ describe('CarePlanContacts', () => {
   });
 
   it('renders the component', () => {
-    let wrapper;
-    expect(() => {
-      wrapper = render(component);
-    }).not.toThrow();
-    expect(wrapper).not.toBeNull();
+    render(component);
+
+    expect(screen.getByRole('heading')).toBeInTheDocument();
+    expect(screen.getByText('New Contact')).toBeInTheDocument();
+    expect(screen.getByText(contacts[0].name)).toBeInTheDocument();
+    expect(screen.getByText(contacts[1].name)).toBeInTheDocument();
+    expect(screen.getByText(contacts[1].phone)).toBeInTheDocument();
   });
 
   describe('when editing a contact', () => {
     it('opens a modal and submits the form successfully', async () => {
-      const axiosPatchSpy = jest.spyOn(axios, 'patch').mockImplementation(() => Promise.resolve({
+      const newPhoneNumber = '4160000000';
+      jest.spyOn(axios, 'patch').mockResolvedValue({
         data: {
           id: 1,
           name: 'Test1 Lastname',
-          phone: '4160000000',
+          phone: newPhoneNumber,
         },
-      }));
-      const wrapper = mount(component);
-      wrapper.find('a[aria-label="Edit"]').at(0).simulate('click');
-      expect(wrapper.text()).toContain('Edit Contact');
-      expect(
-        wrapper.find('input[aria-label="Name"]').props().defaultValue,
-      ).toEqual('Test1 Lastname');
-      expect(
-        wrapper.find('input[aria-label="Phone number"]').props().defaultValue,
-      ).toEqual(undefined);
-      wrapper.find('input[aria-label="Phone number"]').instance().value = '4160000000';
-      await act(async () => {
-        await wrapper.find('input[type="submit"]').simulate('click');
       });
-      axiosPatchSpy();
-      expect(wrapper.text()).toContain('4160000000');
+      const { container } = render(component);
+
+      const editLink = container.querySelector('a[aria-label="Edit"]');
+      expect(screen.queryByText('Edit Contact')).not.toBeInTheDocument();
+
+      userEvent.click(editLink);
+      expect(screen.getByText('Edit Contact')).toBeInTheDocument();
+      expect(screen.getByLabelText('Name')).toHaveDisplayValue(
+        contacts[0].name,
+      );
+      expect(screen.getByLabelText('Phone number')).toHaveDisplayValue('');
+
+      userEvent.type(screen.getByLabelText('Phone number'), newPhoneNumber);
+      expect(screen.getByLabelText('Phone number')).toHaveDisplayValue(
+        newPhoneNumber,
+      );
+
+      userEvent.click(screen.getByText('Submit'));
+      await waitFor(() => expect(screen.getByText(newPhoneNumber)).toBeInTheDocument());
     });
 
     it('opens a modal and does not submit the form successfully', async () => {
-      const axiosPatchSpy = jest
-        .spyOn(axios, 'patch')
-        .mockImplementation(() => Promise.reject(error));
-      const wrapper = mount(component);
-      wrapper.find('a[aria-label="Edit"]').at(0).simulate('click');
-      expect(wrapper.text()).toContain('Edit Contact');
-      expect(
-        wrapper.find('input[aria-label="Name"]').props().defaultValue,
-      ).toEqual('Test1 Lastname');
-      expect(
-        wrapper.find('input[aria-label="Phone number"]').props().defaultValue,
-      ).toEqual(undefined);
-      wrapper.find('input[aria-label="Phone number"]').instance().value = '4160000000';
-      await act(async () => {
-        await wrapper.find('input[type="submit"]').simulate('click');
-      });
-      expect(axiosPatchSpy()).rejects.toEqual(error);
-      expect(wrapper.text()).toContain('Error');
+      const error = new Error('Error');
+      const axiosPostSpy = jest.spyOn(axios, 'patch').mockRejectedValue(error);
+      const { container } = render(component);
+
+      const editLink = container.querySelector('a[aria-label="Edit"]');
+      expect(screen.queryByText('Edit Contact')).not.toBeInTheDocument();
+
+      userEvent.click(editLink);
+      expect(screen.getByText('Edit Contact')).toBeInTheDocument();
+      expect(screen.getByLabelText('Name')).toHaveDisplayValue(
+        contacts[0].name,
+      );
+      expect(screen.getByLabelText('Phone number')).toHaveDisplayValue('');
+
+      userEvent.click(screen.getByText('Submit'));
+      await waitFor(() => expect(axiosPostSpy()).rejects.toEqual(error));
+      expect(screen.queryByText('Error: Error')).toBeInTheDocument();
     });
   });
 
   describe('when creating a contact', () => {
     it('opens a modal and submits the form successfully', async () => {
-      const axiosPostSpy = jest.spyOn(axios, 'post').mockImplementation(() => Promise.resolve({
+      const newName = 'Test3 Lastname';
+      const newPhoneNumber = '4160000000';
+      jest.spyOn(axios, 'post').mockResolvedValue({
         data: {
           id: 1,
-          name: 'Test3 Lastname',
-          phone: '4160000000',
+          name: newName,
+          phone: newPhoneNumber,
         },
-      }));
-      const wrapper = mount(<CarePlanContacts />);
-      wrapper.find('button[children="New Contact"]').simulate('click');
-      expect(wrapper.text()).toContain('New Contact');
-      wrapper.find('input[aria-label="Name"]').instance().value = 'Test3 Lastname';
-      wrapper.find('input[aria-label="Phone number"]').instance().value = '4160000000';
-      await act(async () => {
-        await wrapper.find('input[type="submit"]').simulate('click');
       });
-      axiosPostSpy();
-      expect(wrapper.text()).toContain('Test3 Lastname');
-      expect(wrapper.text()).toContain('4160000000');
+      render(<CarePlanContacts />);
+
+      userEvent.click(screen.getByText('New Contact'));
+      const nameField = screen.getByLabelText('Name');
+      const phoneNumberField = screen.getByLabelText('Phone number');
+      expect(nameField).toHaveDisplayValue('');
+      expect(phoneNumberField).toHaveDisplayValue('');
+
+      userEvent.type(nameField, newName);
+      userEvent.type(phoneNumberField, newPhoneNumber);
+      userEvent.click(screen.getByText('Submit'));
+      await waitFor(() => {
+        expect(screen.getByText(newName)).toBeInTheDocument();
+        expect(screen.getByText(newPhoneNumber)).toBeInTheDocument();
+      });
     });
 
     it('opens a modal and does not submit the form successfully', async () => {
-      const axiosPostSpy = jest
-        .spyOn(axios, 'post')
-        .mockImplementation(() => Promise.reject(error));
-      const wrapper = mount(<CarePlanContacts />);
-      wrapper.find('button[children="New Contact"]').simulate('click');
-      expect(wrapper.text()).toContain('New Contact');
-      wrapper.find('input[aria-label="Name"]').instance().value = 'Test3 Lastname';
-      wrapper.find('input[aria-label="Phone number"]').instance().value = '4160000000';
-      await act(async () => {
-        await wrapper.find('input[type="submit"]').simulate('click');
-      });
-      expect(axiosPostSpy()).rejects.toEqual(error);
-      expect(wrapper.text()).toContain('Error');
+      const newName = 'Test3 Lastname';
+      const newPhoneNumber = '4160000000';
+      const error = new Error('Error');
+      const axiosPostSpy = jest.spyOn(axios, 'post').mockRejectedValue(error);
+      render(<CarePlanContacts />);
+
+      userEvent.click(screen.getByText('New Contact'));
+      const nameField = screen.getByLabelText('Name');
+      const phoneNumberField = screen.getByLabelText('Phone number');
+
+      userEvent.type(nameField, newName);
+      userEvent.type(phoneNumberField, newPhoneNumber);
+      userEvent.click(screen.getByText('Submit'));
+      await waitFor(() => expect(axiosPostSpy()).rejects.toEqual(error));
+      expect(screen.queryByText('Error: Error')).toBeInTheDocument();
     });
   });
 });

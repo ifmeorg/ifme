@@ -1,56 +1,41 @@
 // @flow
-import { render } from 'enzyme';
 import React from 'react';
+import { render, screen } from '@testing-library/react';
 import { Logo, LogoSolid } from 'components/Logo';
-
-let wrapper = null;
-const link = '/some-path';
 
 describe('Logo', () => {
   describe('Logo', () => {
     describe('without link', () => {
       it('renders the small size', () => {
-        expect(() => {
-          wrapper = render(<Logo sm />);
-        }).not.toThrow();
-        expect(wrapper).not.toBeNull();
+        render(<Logo sm />);
+        expect(screen.getByRole('presentation')).toBeInTheDocument();
       });
 
       it('renders the regular size', () => {
-        expect(() => {
-          wrapper = render(<Logo />);
-        }).not.toThrow();
-        expect(wrapper).not.toBeNull();
+        render(<Logo />);
+        expect(screen.getByRole('presentation')).toBeInTheDocument();
       });
 
       it('renders the large size', () => {
-        expect(() => {
-          wrapper = render(<Logo lg />);
-        }).not.toThrow();
-        expect(wrapper).not.toBeNull();
+        render(<Logo lg />);
+        expect(screen.getByRole('presentation')).toBeInTheDocument();
       });
     });
 
     describe('with link', () => {
       it('renders the small size', () => {
-        expect(() => {
-          wrapper = render(<Logo sm link={link} />);
-        }).not.toThrow();
-        expect(wrapper).not.toBeNull();
+        render(<Logo sm link="/some-path" />);
+        expect(screen.getByRole('link', { name: /home/i })).toBeInTheDocument();
       });
 
       it('renders the regular size', () => {
-        expect(() => {
-          wrapper = render(<Logo link={link} />);
-        }).not.toThrow();
-        expect(wrapper).not.toBeNull();
+        render(<Logo link="/some-path" />);
+        expect(screen.getByRole('link', { name: /home/i })).toBeInTheDocument();
       });
 
       it('renders the large size', () => {
-        expect(() => {
-          wrapper = render(<Logo lg link={link} />);
-        }).not.toThrow();
-        expect(wrapper).not.toBeNull();
+        render(<Logo lg link="/some-path" />);
+        expect(screen.getByRole('link', { name: /home/i })).toBeInTheDocument();
       });
     });
   });
@@ -58,47 +43,35 @@ describe('Logo', () => {
   describe('LogoSolid', () => {
     describe('without link', () => {
       it('renders the small size', () => {
-        expect(() => {
-          wrapper = render(<LogoSolid sm />);
-        }).not.toThrow();
-        expect(wrapper).not.toBeNull();
+        render(<LogoSolid sm />);
+        expect(screen.getByRole('presentation')).toBeInTheDocument();
       });
 
       it('renders the regular size', () => {
-        expect(() => {
-          wrapper = render(<LogoSolid />);
-        }).not.toThrow();
-        expect(wrapper).not.toBeNull();
+        render(<LogoSolid />);
+        expect(screen.getByRole('presentation')).toBeInTheDocument();
       });
 
       it('renders the large size', () => {
-        expect(() => {
-          wrapper = render(<LogoSolid lg />);
-        }).not.toThrow();
-        expect(wrapper).not.toBeNull();
+        render(<LogoSolid lg />);
+        expect(screen.getByRole('presentation')).toBeInTheDocument();
       });
     });
 
     describe('with link', () => {
       it('renders the small size', () => {
-        expect(() => {
-          wrapper = render(<LogoSolid sm link={link} />);
-        }).not.toThrow();
-        expect(wrapper).not.toBeNull();
+        render(<Logo sm link="/some-path" />);
+        expect(screen.getByRole('link', { name: /home/i })).toBeInTheDocument();
       });
 
       it('renders the regular size', () => {
-        expect(() => {
-          wrapper = render(<LogoSolid link={link} />);
-        }).not.toThrow();
-        expect(wrapper).not.toBeNull();
+        render(<Logo link="/some-path" />);
+        expect(screen.getByRole('link', { name: /home/i })).toBeInTheDocument();
       });
 
       it('renders the large size', () => {
-        expect(() => {
-          wrapper = render(<LogoSolid lg link={link} />);
-        }).not.toThrow();
-        expect(wrapper).not.toBeNull();
+        render(<Logo lg link="/some-path" />);
+        expect(screen.getByRole('link', { name: /home/i })).toBeInTheDocument();
       });
     });
   });

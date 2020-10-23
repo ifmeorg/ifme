@@ -47,7 +47,6 @@
 
 describe User do
   context 'with included modules' do
-    it { expect(described_class).to include PasswordValidator }
     it { expect(described_class).to include AllyConcern }
   end
 
@@ -69,7 +68,6 @@ describe User do
     it { is_expected.to have_many :moods }
     it { is_expected.to have_many :moments }
     it { is_expected.to have_many :categories }
-    it { is_expected.to have_many(:password_histories).dependent(:destroy) }
     it { is_expected.to belong_to :invited_by }
   end
 
@@ -80,24 +78,6 @@ describe User do
 
     it { is_expected.to validate_presence_of :name }
     it { is_expected.to validate_inclusion_of(:locale).in_array(inclusion_array) }
-
-    context '#password_complexity' do
-      context 'with a complex password' do
-        let(:user) do
-          User.create(name: 'some name', email: 'some@user.com', password: '!14Ma5tR0nGPwD?')
-        end
-
-        it { expect(user).to be_valid }
-      end
-
-      context 'with a easy password' do
-        let(:user) do
-          User.create(name: 'some name', email: 'some@user.com', password: 'abc123')
-        end
-
-        it { expect(user).to be_invalid }
-      end
-    end
   end
 
   let(:current_time) { Time.zone.now }
@@ -271,6 +251,23 @@ describe User do
       it 'raises a TypeError Exception' do
         expect { user.update_access_token }.to raise_error(TypeError)
       end
+    end
+  end
+
+  context 'for new users' do
+    it 'invalidates with blank password' do
+      user_with_blank_password = build(:user, password: '')
+      expect(user_with_blank_password.save).to be_falsey
+    end
+
+    it 'invalidates with passwords less than 8 characters' do
+      user_with_short_password = build(:user, password: 'foobar')
+      expect(user_with_short_password.save).to be_falsey
+    end
+
+    it 'validates with passwords containing 8 characters' do
+      user_with_valid_password = build(:user, password: 'validpas')
+      expect(user_with_valid_password.save).to be_truthy
     end
   end
 end

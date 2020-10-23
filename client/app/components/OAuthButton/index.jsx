@@ -15,7 +15,9 @@ type Props = {
 export const OAuthButton = ({
   signIn, type, action, token,
 }: Props) => {
-  const buttonText = I18n.t(`devise.shared.sign_${signIn ? 'in' : 'up'}_${type}`);
+  const buttonText = I18n.t(
+    `devise.shared.sign_${signIn ? 'in' : 'up'}_${type}`,
+  );
   const id = `${type}OAuthForm`;
 
   return (

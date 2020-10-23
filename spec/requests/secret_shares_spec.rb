@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 describe 'SecretShares', type: :request do
-  def raise_record_not_found
-    raise_error(ActiveRecord::RecordNotFound)
-  end
-
   describe 'POST create' do
     let(:moment) { create(:moment, :with_user) }
 

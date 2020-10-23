@@ -1024,9 +1024,7 @@ pt-BR:
         senha.
       password_errors:
         format: >-
-          deve conter de 8 a 128 caracteres, incluindo um maiúsculo, um
-          minúsculo, um dígito e um caractere especial.
-        used: deve ser diferente das últimas três senhas.
+          deve conter de 8 a 128 caracteres.
       placeholders:
         repeat_password: Digite novamente sua senha
       edit:

@@ -46,7 +46,6 @@
 #
 # rubocop:disable Metrics/ClassLength
 class User < ApplicationRecord
-  include PasswordValidator
   include AllyConcern
 
   OAUTH_TOKEN_URL = 'https://accounts.google.com/o/oauth2/token'
@@ -97,7 +96,6 @@ class User < ApplicationRecord
   has_many :moments
   has_many :categories
   has_many :care_plan_contacts
-  has_many :password_histories, dependent: :destroy
   # rubocop:disable Layout/LineLength
   has_many :data_requests, class_name: 'Users::DataRequest', foreign_key: :user_id
   # rubocop:enable Layout/LineLength
@@ -105,13 +103,11 @@ class User < ApplicationRecord
 
   after_initialize :set_defaults, unless: :persisted?
   before_save :remove_leading_trailing_whitespace
-  after_save :create_password_history
 
   validates :name, presence: true
   validates :locale, inclusion: {
     in: Rails.application.config.i18n.available_locales.map(&:to_s).push(nil)
   }
-  validate :password_complexity, unless: :oauth_provided?
 
   def active_for_authentication?
     super && !banned

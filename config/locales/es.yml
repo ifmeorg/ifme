@@ -1004,9 +1004,7 @@ es:
         por favor ingresa un nuevo correo electrónico y contraseña.
       password_errors:
         format: >-
-          debe contener de 8 a 128 caracteres, incluyendo 1 mayúscula, 1
-          minúscula, 1 dígito y 1 carácter especial.
-        used: debe ser diferente de las últimas tres contraseñas.
+          debe contener de 8 a 128.
       placeholders:
         repeat_password: Repetir contraseña
       edit:
