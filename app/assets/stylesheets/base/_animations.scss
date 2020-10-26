@@ -3,17 +3,17 @@
   animation-duration: $duration;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-  -webkit-animation-name: fadeIn;
+  -webkit-animation-name: fadein;
   animation-name: fadeIn;
 
   @-webkit-keyframes fadeIn {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+    0% { opacity: 0; }
+    100% { opacity: 1; }
   }
 
   @keyframes fadeIn {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+    0% { opacity: 0; }
+    100% { opacity: 1; }
   }
 }
 
