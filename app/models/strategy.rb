@@ -22,6 +22,20 @@ class Strategy < ApplicationRecord
   include CommonMethods
   extend FriendlyId
 
+  USER_DATA_ATTRIBUTES = %w[
+    id
+    description
+    viewers
+    comment
+    created_at
+    updated_at
+    name
+    slug
+    published_at
+    visible
+    bookmarked
+  ].map!(&:freeze).freeze
+
   friendly_id :name
   serialize :viewers, Array
 

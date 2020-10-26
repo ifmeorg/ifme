@@ -25,6 +25,23 @@ class Moment < ApplicationRecord
   include CommonMethods
   extend FriendlyId
 
+  USER_DATA_ATTRIBUTES = %w[
+    id
+    name
+    why
+    fix
+    created_at
+    updated_at
+    viewers
+    comment
+    slug
+    secret_share_identifier
+    secret_share_expires_at
+    published_at
+    bookmarked
+    resource_recommendations
+  ].map!(&:freeze).freeze
+
   friendly_id :name
   serialize :viewers, Array
 

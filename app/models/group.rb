@@ -23,6 +23,15 @@ class Group < ApplicationRecord
            through: :group_members, source: :user
   after_destroy :destroy_notifications
 
+  USER_DATA_ATTRIBUTES = %w[
+    id
+    name
+    created_at
+    updated_at
+    description
+    slug
+  ].map!(&:freeze).freeze
+
   def led_by?(user)
     leaders.include? user
   end
