@@ -1,9 +1,9 @@
 // @flow
-import { mount } from 'enzyme';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { InputMocks } from 'mocks/InputMocks';
-import Form from 'components/Form';
+import { Form } from 'components/Form/index';
 
 // TODO (julianguyen): Include InputTextarea after writing stubs for pell editor
 
@@ -22,25 +22,26 @@ const getComponent = () => (
 );
 
 describe('Form', () => {
-  it('has no errors when submit is clicked', () => {
-    const wrapper = mount(getComponent());
-    act(() => wrapper.find('input[name="some-text-name"]').prop('onBlur')({
-      currentTarget: { value: 'Hello' },
-    }));
-    expect(wrapper.find('.error').length).toBe(0);
-    wrapper.find('input[type="submit"]').simulate('click');
-    expect(wrapper.find('.error').length).toBe(0);
+  const {
+    getByRole, getByText, queryByRole, getByPlaceholderText,
+  } = screen;
+
+  it('it renders properly', () => {
+    render(getComponent());
+    expect(getByPlaceholderText('Some Text Placeholder')).toBeInTheDocument();
+    expect(getByText('alert')).toBeInTheDocument();
   });
 
-  it('has errors when submit is clicked', () => {
-    const wrapper = mount(getComponent());
-    expect(wrapper.find('.error').length).toBe(0);
-    act(() => wrapper
-      .find('input[type="checkbox"][name="some-checkbox-one-name"]')
-      .prop('onChange')({
-        currentTarget: { checked: false },
-      }));
-    wrapper.find('input[type="submit"]').simulate('submit');
-    expect(wrapper.find('.error').length).toBe(2);
+  it('has no alert message when textfield has value and submit clicked', () => {
+    render(getComponent());
+    userEvent.type(getByPlaceholderText('Some Text Placeholder'), 'randomName');
+    userEvent.click(getByText('alert'));
+    expect(queryByRole('alert')).not.toBeInTheDocument();
+  });
+
+  it('displays alert message on submit with empty input', () => {
+    render(getComponent());
+    userEvent.click(getByText('alert'));
+    expect(getByRole('alert')).toBeInTheDocument();
   });
 });
