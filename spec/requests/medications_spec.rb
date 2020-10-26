@@ -14,10 +14,10 @@ RSpec.describe "Medications", type: :request do
       end
 
       context 'when request type is JSON' do
-        before { get medications_path,
+        before do get medications_path,
           params: { page: 1, id: medication.id },
           headers: { "ACCEPT" => "application/json" }
-        }
+        end
         it 'returns a response with the correct path' do
           expect(JSON.parse(response.body)['data'].first['link'])
             .to eq medication_path(medication)
@@ -103,12 +103,24 @@ RSpec.describe "Medications", type: :request do
       end
 
       context 'when invalid params are supplied' do
-        let(:invalid_medication_params) {
+        let(:invalid_medication_params) do
           valid_medication_params.merge(name: nil, dosage: nil)
-        }
-        it 'returns 422, unprocessable entity' do
-          post_create invalid_medication_params
-          expect(response).to have_http_status(422)
+        end
+
+        context 'when the request is for html' do
+          it 'returns a successful response' do
+            post_create invalid_medication_params
+            expect(response).to be_successful
+          end
+        end
+
+        context 'when the request is for json' do
+          it 'returns 422, unprocessable entity' do
+            post medications_path,
+              params: { medication: invalid_medication_params },
+              headers: { "ACCEPT" => "application/json" }
+            expect(response).to have_http_status(422)
+          end
         end
       end
 
@@ -147,30 +159,38 @@ RSpec.describe "Medications", type: :request do
       context 'when valid params are supplied' do
 
         it 'updates a medication' do
+          updated_name_slug = valid_medication_params[:name]
+            .downcase
+            .gsub(' ', '-')
           put_update valid_medication_params
-          expect(response.body).to include(valid_medication_params[:name])
+          expect(response.body).to include(updated_name_slug)
         end
 
         it 'redirects to medication' do
           put_update valid_medication_params
           expect(response).to have_http_status(302)
         end
-
-        context 'when refill is update to an empty value' do
-          it 'redirects to medication' do
-            put_update valid_medication_params.merge(refill: nil)
-            expect(response).to have_http_status(302)
-          end
-        end
       end
 
       context 'when invalid params are supplied' do
-        let(:invalid_medication_params) { 
+        let(:invalid_medication_params) do
           valid_medication_params.merge(name: nil, dosage: nil)
-        }
-        it 'returns 422, unprocessable entity' do
-          put_update invalid_medication_params
-          expect(response).to have_http_status(422)
+        end
+
+        context 'when the request is for html' do
+          it 'returns a successful response' do
+            put_update invalid_medication_params
+            expect(response).to be_successful
+          end
+        end
+
+        context 'when the request is for json' do
+          it 'returns 422, unprocessable entity' do
+            put medication_path(medication),
+              params: { medication: invalid_medication_params },
+              headers: { "ACCEPT" => "application/json" }
+            expect(response).to have_http_status(422)
+          end
         end
       end
 
@@ -218,9 +238,9 @@ RSpec.describe "Medications", type: :request do
       end
 
       context 'when medication has a daily reminder' do
-        let!(:medication) {
+        let!(:medication) do
           create(:medication, :with_daily_reminder, user: user)
-        }
+        end
 
         it 'destroys the medication' do
           expect(TakeMedicationReminder.active.count).to eq(1)
@@ -241,9 +261,9 @@ RSpec.describe "Medications", type: :request do
       end
 
       context 'when medication has a refill reminder' do
-        let!(:medication) {
+        let!(:medication) do
           create(:medication, :with_refill_reminder, user: user)
-        }
+        end
 
         it 'destroys the medication' do
           expect(RefillReminder.active.count).to eq(1)
