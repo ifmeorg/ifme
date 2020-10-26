@@ -27,12 +27,14 @@ describe('Form', () => {
     expect(getByPlaceholderText('Some Text Placeholder')).toBeInTheDocument();
     expect(getByText('alert')).toBeInTheDocument();
   });
-  it('no alert message when textfield has value and submit clicked', () => {
+
+  it('has no alert message when textfield has value and submit clicked', () => {
     render(getComponent());
-    userEvent.type(getByPlaceholderText(/Some Text Placeholder/), 'randomName');
+    userEvent.type(getByPlaceholderText('Some Text Placeholder'), 'randomName');
     userEvent.click(getByText('alert'));
     expect(queryByRole('alert')).not.toBeInTheDocument();
   });
+
   it('displays alert message on submit with empty input', () => {
     render(getComponent());
     userEvent.click(getByText('alert'));
