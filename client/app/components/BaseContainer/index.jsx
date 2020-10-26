@@ -57,9 +57,7 @@ export const BaseContainerComponent = ({
   }
 };
 
-export default ({
-  container, data, fetchUrl, lastPage,
-}: Props) => (
+export default ({ container, data, fetchUrl, lastPage }: Props) => (
   <BaseContainerComponent
     container={container}
     data={data}

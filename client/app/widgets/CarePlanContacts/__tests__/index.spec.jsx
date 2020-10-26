@@ -34,13 +34,15 @@ describe('CarePlanContacts', () => {
 
   describe('when editing a contact', () => {
     it('opens a modal and submits the form successfully', async () => {
-      const axiosPatchSpy = jest.spyOn(axios, 'patch').mockImplementation(() => Promise.resolve({
-        data: {
-          id: 1,
-          name: 'Test1 Lastname',
-          phone: '4160000000',
-        },
-      }));
+      const axiosPatchSpy = jest.spyOn(axios, 'patch').mockImplementation(() =>
+        Promise.resolve({
+          data: {
+            id: 1,
+            name: 'Test1 Lastname',
+            phone: '4160000000',
+          },
+        }),
+      );
       const wrapper = mount(component);
       wrapper.find('a[aria-label="Edit"]').at(0).simulate('click');
       expect(wrapper.text()).toContain('Edit Contact');
@@ -50,7 +52,8 @@ describe('CarePlanContacts', () => {
       expect(
         wrapper.find('input[aria-label="Phone number"]').props().defaultValue,
       ).toEqual(undefined);
-      wrapper.find('input[aria-label="Phone number"]').instance().value = '4160000000';
+      wrapper.find('input[aria-label="Phone number"]').instance().value =
+        '4160000000';
       await act(async () => {
         await wrapper.find('input[type="submit"]').simulate('click');
       });
@@ -71,7 +74,8 @@ describe('CarePlanContacts', () => {
       expect(
         wrapper.find('input[aria-label="Phone number"]').props().defaultValue,
       ).toEqual(undefined);
-      wrapper.find('input[aria-label="Phone number"]').instance().value = '4160000000';
+      wrapper.find('input[aria-label="Phone number"]').instance().value =
+        '4160000000';
       await act(async () => {
         await wrapper.find('input[type="submit"]').simulate('click');
       });
@@ -82,18 +86,22 @@ describe('CarePlanContacts', () => {
 
   describe('when creating a contact', () => {
     it('opens a modal and submits the form successfully', async () => {
-      const axiosPostSpy = jest.spyOn(axios, 'post').mockImplementation(() => Promise.resolve({
-        data: {
-          id: 1,
-          name: 'Test3 Lastname',
-          phone: '4160000000',
-        },
-      }));
+      const axiosPostSpy = jest.spyOn(axios, 'post').mockImplementation(() =>
+        Promise.resolve({
+          data: {
+            id: 1,
+            name: 'Test3 Lastname',
+            phone: '4160000000',
+          },
+        }),
+      );
       const wrapper = mount(<CarePlanContacts />);
       wrapper.find('button[children="New Contact"]').simulate('click');
       expect(wrapper.text()).toContain('New Contact');
-      wrapper.find('input[aria-label="Name"]').instance().value = 'Test3 Lastname';
-      wrapper.find('input[aria-label="Phone number"]').instance().value = '4160000000';
+      wrapper.find('input[aria-label="Name"]').instance().value =
+        'Test3 Lastname';
+      wrapper.find('input[aria-label="Phone number"]').instance().value =
+        '4160000000';
       await act(async () => {
         await wrapper.find('input[type="submit"]').simulate('click');
       });
@@ -109,8 +117,10 @@ describe('CarePlanContacts', () => {
       const wrapper = mount(<CarePlanContacts />);
       wrapper.find('button[children="New Contact"]').simulate('click');
       expect(wrapper.text()).toContain('New Contact');
-      wrapper.find('input[aria-label="Name"]').instance().value = 'Test3 Lastname';
-      wrapper.find('input[aria-label="Phone number"]').instance().value = '4160000000';
+      wrapper.find('input[aria-label="Name"]').instance().value =
+        'Test3 Lastname';
+      wrapper.find('input[aria-label="Phone number"]').instance().value =
+        '4160000000';
       await act(async () => {
         await wrapper.find('input[type="submit"]').simulate('click');
       });

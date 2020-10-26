@@ -67,7 +67,8 @@ export class QuickCreate extends React.Component<Props, State> {
   labelExists = (label: string) => {
     const { checkboxes } = this.state;
     return checkboxes.filter(
-      (checkbox: Checkbox) => checkbox.label.toLowerCase() === label.toLowerCase(),
+      (checkbox: Checkbox) =>
+        checkbox.label.toLowerCase() === label.toLowerCase(),
     ).length;
   };
 
@@ -121,9 +122,7 @@ export class QuickCreate extends React.Component<Props, State> {
   };
 
   displayInputTag = () => {
-    const {
-      placeholder, name, id, label,
-    } = this.props;
+    const { placeholder, name, id, label } = this.props;
     const { tagKey, accordionOpen } = this.state;
     return (
       <Input

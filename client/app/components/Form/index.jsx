@@ -13,9 +13,11 @@ export type State = {
   errors: Errors,
 };
 
-export const hasErrors = (errors: Errors) => Object.values(errors).filter((key) => key).length;
+export const hasErrors = (errors: Errors) =>
+  Object.values(errors).filter((key) => key).length;
 
-const getInputsInitialState = (inputs: MyInputProps[]) => inputs.filter((input) => input !== {});
+const getInputsInitialState = (inputs: MyInputProps[]) =>
+  inputs.filter((input) => input !== {});
 
 export const Form = ({ action, inputs: inputsProps }: Props) => {
   const [inputs, setInputs] = useState<MyInputProps[]>(
@@ -80,9 +82,7 @@ export const Form = ({ action, inputs: inputsProps }: Props) => {
   );
 
   const displayQuickCreate = (input: QuickCreateProps): Node => {
-    const {
-      id, name, label, placeholder, checkboxes, formProps,
-    } = input;
+    const { id, name, label, placeholder, checkboxes, formProps } = input;
     if (!checkboxes || !name || !label) return null;
     return (
       <div key={id}>
@@ -98,15 +98,16 @@ export const Form = ({ action, inputs: inputsProps }: Props) => {
     );
   };
 
-  const displayInputs = (): Array<Node | null> => inputs.map((input: any) => {
-    if (INPUT_TYPES.includes(input.type)) {
-      return displayInput(input);
-    }
-    if (input.type === 'quickCreate') {
-      return displayQuickCreate(input);
-    }
-    return null;
-  });
+  const displayInputs = (): Array<Node | null> =>
+    inputs.map((input: any) => {
+      if (INPUT_TYPES.includes(input.type)) {
+        return displayInput(input);
+      }
+      if (input.type === 'quickCreate') {
+        return displayQuickCreate(input);
+      }
+      return null;
+    });
 
   if (!action) {
     return null;

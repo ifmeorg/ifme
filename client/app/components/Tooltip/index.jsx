@@ -20,9 +20,7 @@ const getPosition = (right: ?boolean, center: ?boolean) => {
 };
 
 export const Tooltip = (props: Props) => {
-  const {
-    element, text, right, center, id,
-  } = props;
+  const { element, text, right, center, id } = props;
   const tooltipId = id || `tooltip${Utils.randomString()}`;
   return (
     <div className={`tooltip ${css.tooltip}`}>

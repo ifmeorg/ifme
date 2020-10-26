@@ -83,12 +83,16 @@ const component = <Comments formProps={formProps} />;
 
 describe('Comments', () => {
   beforeEach(() => {
-    axiosPostSpy = jest.spyOn(axios, 'post').mockImplementation(() => Promise.resolve({
-      data: { comment },
-    }));
-    axiosDeleteSpy = jest.spyOn(axios, 'delete').mockImplementation(() => Promise.resolve({
-      data: { id },
-    }));
+    axiosPostSpy = jest.spyOn(axios, 'post').mockImplementation(() =>
+      Promise.resolve({
+        data: { comment },
+      }),
+    );
+    axiosDeleteSpy = jest.spyOn(axios, 'delete').mockImplementation(() =>
+      Promise.resolve({
+        data: { id },
+      }),
+    );
   });
 
   it('renders correctly', () => {

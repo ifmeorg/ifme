@@ -1,9 +1,7 @@
 // @flow
 import React from 'react';
 import axios from 'axios';
-import {
-  render, screen, waitFor, fireEvent,
-} from '@testing-library/react';
+import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import { Notifications } from 'widgets/Notifications';
 
 const button = <button type="button">Notifications</button>;
@@ -20,10 +18,14 @@ describe('Notifications', () => {
       .spyOn(axios, 'delete')
       .mockReturnValue(Promise.resolve({ data: { ok: true } }));
     render(<Notifications element={button} />);
-    await waitFor(() => expect(axios.get).toHaveBeenCalledWith('/notifications/signed_in'));
-    await waitFor(() => expect(axios.get).toHaveBeenCalledWith(
-      '/notifications/fetch_notifications',
-    ));
+    await waitFor(() =>
+      expect(axios.get).toHaveBeenCalledWith('/notifications/signed_in'),
+    );
+    await waitFor(() =>
+      expect(axios.get).toHaveBeenCalledWith(
+        '/notifications/fetch_notifications',
+      ),
+    );
     expect(axios.get).toHaveBeenCalledTimes(2);
     expect(screen.getByText('Hello')).toBeInTheDocument();
     fireEvent.click(screen.getByText('Clear'));

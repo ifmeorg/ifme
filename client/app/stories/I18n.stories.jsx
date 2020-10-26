@@ -6,7 +6,8 @@ export default {
 
 export const Message = () => I18n.t('draft');
 
-export const MessageWithVariable = () => I18n.t('created', { created_at: 'Blah' });
+export const MessageWithVariable = () =>
+  I18n.t('created', { created_at: 'Blah' });
 
 MessageWithVariable.story = {
   name: 'Message with variable',

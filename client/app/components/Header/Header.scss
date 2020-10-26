@@ -3,8 +3,10 @@
 @mixin linkStyle() {
   a {
     @include standardTransition();
+
     color: $white;
     text-decoration: none;
+
     &:hover {
       color: $white;
       opacity: 0.5;
@@ -24,7 +26,9 @@
   &Link {
     @include linkStyle();
     @include setMargin($size-0, $size-0, $size-20, $size-0);
+
     font-size: $size-16;
+
     @media screen and (max-width: $medium) {
       text-align: center;
     }
@@ -42,9 +46,11 @@
 
   &Hamburger {
     @include setFontSize($size-30);
+
     display: none;
     color: $white;
     cursor: pointer;
+
     @media screen and (max-width: $medium) {
       display: block;
     }
@@ -53,9 +59,11 @@
   &Mobile {
     background: transparent;
     position: static;
+
     &Nav {
       display: none;
     }
+
     @media screen and (max-width: $medium) {
       background: $mulberry-key-lime;
       position: fixed;
@@ -63,6 +71,7 @@
       right: 0;
       bottom: 0;
       top: 0;
+
       &Nav {
         margin-bottom: auto;
         display: flex;
@@ -70,11 +79,13 @@
         justify-content: center;
         flex-direction: column;
         width: 100%;
+
         > div {
           overflow: auto;
           width: 100%;
         }
       }
+
       &Bg {
         background: $black-70;
         height: 100%;
@@ -83,6 +94,7 @@
       }
     }
   }
+
   &Desktop {
     width: 100%;
     padding: 25px $size-34;
@@ -92,26 +104,34 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
     @media screen and (max-width: $medium) {
       padding: 15px $size-10;
     }
+
     &Home {
       @include linkStyle();
+
       font-size: $size-30;
     }
+
     &Nav {
       &Links {
         @include setFontSize($size-18);
+
         display: flex;
         flex-direction: row;
         letter-spacing: 0.0571429em;
         text-transform: uppercase;
+
         > div {
           @include setMargin($size-0, $size-26, $size-0, $size-0);
         }
+
         > div:last-of-type {
           @include setMargin($size-0, $size-0, $size-0, $size-0);
         }
+
         @media screen and (max-width: $medium) {
           display: none;
         }

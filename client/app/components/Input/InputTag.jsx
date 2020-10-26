@@ -51,8 +51,8 @@ export function InputTag({
   const checkboxChange = (checkbox: { checked: boolean, id: string }) => {
     const { checked, id: inputId } = checkbox;
     if (
-      !checked
-      && checkboxes.filter((item: Checkbox) => item.id === inputId && item.checked)
+      !checked &&
+      checkboxes.filter((item: Checkbox) => item.id === inputId && item.checked)
         .length
     ) {
       check(inputId, false);
@@ -62,15 +62,18 @@ export function InputTag({
   const getSuggestions = (label: string) => {
     const inputValue = label.trim().toLowerCase();
     const inputLength = inputValue.length;
-    const newSuggestions: Checkbox[] = inputLength === 0
-      ? checkboxes
-      : checkboxes.filter(
-        (checkbox: Checkbox) => checkbox.label.toLowerCase().indexOf(inputValue) > -1,
-      );
+    const newSuggestions: Checkbox[] =
+      inputLength === 0
+        ? checkboxes
+        : checkboxes.filter(
+            (checkbox: Checkbox) =>
+              checkbox.label.toLowerCase().indexOf(inputValue) > -1,
+          );
     return newSuggestions;
   };
 
-  const getSuggestionValue = (checkbox: Checkbox) => (checkbox.label === autocompleteLabel ? checkbox.label : '');
+  const getSuggestionValue = (checkbox: Checkbox) =>
+    checkbox.label === autocompleteLabel ? checkbox.label : '';
 
   const onSuggestionsFetchRequested = (valueProp: { value: string }) => {
     const { value } = valueProp;
@@ -85,8 +88,9 @@ export function InputTag({
   const labelExistsUnchecked = (label: string) => {
     if (!label.length) return null;
     const checkboxWithLabel = checkboxes.filter(
-      (checkbox: Checkbox) => checkbox.label.toLowerCase() === label.toLowerCase()
-        && !checkbox.checked,
+      (checkbox: Checkbox) =>
+        checkbox.label.toLowerCase() === label.toLowerCase() &&
+        !checkbox.checked,
     );
     return checkboxWithLabel.length && checkboxWithLabel[0].id;
   };

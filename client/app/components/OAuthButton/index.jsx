@@ -12,10 +12,10 @@ type Props = {
   token: string,
 };
 
-export const OAuthButton = ({
-  signIn, type, action, token,
-}: Props) => {
-  const buttonText = I18n.t(`devise.shared.sign_${signIn ? 'in' : 'up'}_${type}`);
+export const OAuthButton = ({ signIn, type, action, token }: Props) => {
+  const buttonText = I18n.t(
+    `devise.shared.sign_${signIn ? 'in' : 'up'}_${type}`,
+  );
   const id = `${type}OAuthForm`;
 
   return (
@@ -38,8 +38,6 @@ export const OAuthButton = ({
   );
 };
 
-export default ({
-  signIn, type, action, token,
-}: Props) => (
+export default ({ signIn, type, action, token }: Props) => (
   <OAuthButton signIn={signIn} type={type} action={action} token={token} />
 );

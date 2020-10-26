@@ -62,7 +62,9 @@ export function InputPassword({
         autoComplete="off"
         className={inputCss.password}
         onFocus={() => onFocus(required, hasError)}
-        onBlur={(e: SyntheticEvent<HTMLInputElement>) => onBlur(e, required, hasError)}
+        onBlur={(e: SyntheticEvent<HTMLInputElement>) =>
+          onBlur(e, required, hasError)
+        }
       />
       <button
         type="button"

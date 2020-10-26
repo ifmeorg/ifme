@@ -40,11 +40,11 @@ export const CarePlanContacts = ({ contacts: contactsProp }: Props) => {
         <div className="pageSubtitleRight">
           <Modal
             className={css.newContact}
-            element={(
+            element={
               <button type="button" className={css.buttonS}>
                 {I18n.t('care_plan.index.new_contact')}
               </button>
-            )}
+            }
             title={I18n.t(
               `care_plan.index.${editableContact ? 'edit' : 'new'}_contact`,
             )}
@@ -56,8 +56,8 @@ export const CarePlanContacts = ({ contacts: contactsProp }: Props) => {
       </div>
       {I18n.t('care_plan.index.contacts_info')}
       <div className="gridTwo marginTop">
-        {contacts
-          && contacts.map((contact) => {
+        {contacts &&
+          contacts.map((contact) => {
             const { name, phone, id } = contact;
             return (
               <div className="gridTwoItemBoxLight" key={id}>

@@ -106,15 +106,17 @@ export const InputDefault = (props: Props) => {
       max={max}
       autoComplete={autoComplete}
       onFocus={() => onFocus(required, hasError)}
-      onBlur={(e: SyntheticEvent<HTMLInputElement>) => onBlur(e, required, hasError)}
+      onBlur={(e: SyntheticEvent<HTMLInputElement>) =>
+        onBlur(e, required, hasError)
+      }
       ref={myRef}
       aria-label={label}
       aria-invalid={hasError}
       onClick={
         copyOnClick
           ? (e: SyntheticEvent<HTMLInputElement>) => {
-            copyToClipBoard(e, copyOnClick);
-          }
+              copyToClipBoard(e, copyOnClick);
+            }
           : () => {}
       }
     />

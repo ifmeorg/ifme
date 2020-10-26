@@ -3,6 +3,7 @@
 .tag {
   @include setFontSize($size-14);
   @include setMargin($size-0, $size-8, $size-8, $size-0);
+
   padding: $size-4 $size-12;
   text-indent: 4px;
   display: inline-block;
@@ -13,11 +14,14 @@
   border: $size-1 solid $mulberry;
   mix-blend-mode: normal;
   color: $mulberry;
-  &:link, &:visited, &:hover {
+
+  &:link,
+  &:visited,
+  &:hover {
     color: $mulberry;
   }
 
-  &:last-child{
+  &:last-child {
     @include setMargin($size-0, $size-0, $size-0, $size-0);
   }
 
@@ -25,7 +29,10 @@
     color: $white;
     border: $size-1;
     background-color: $mulberry;
-    &:link, &:visited, &:hover {
+
+    &:link,
+    &:visited,
+    &:hover {
       color: $white;
     }
   }
@@ -34,7 +41,10 @@
     color: $white;
     border: $size-1;
     background-color: $white-10;
-    &:link, &:visited, &:hover {
+
+    &:link,
+    &:visited,
+    &:hover {
       color: $white;
     }
   }
@@ -43,7 +53,10 @@
     color: $black;
     border: $size-1;
     background-color: $key-lime;
-    &:link, &:visited, &:hover {
+
+    &:link,
+    &:visited,
+    &:hover {
       color: $black;
     }
   }

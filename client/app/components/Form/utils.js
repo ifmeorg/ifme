@@ -31,7 +31,8 @@ export const getNewInputs = ({
   errors,
 }: GetNewInputsArgs): GetNewInputsReturn => {
   const isInputError = (input: MyInputProps) => {
-    const validType = REQUIRES_DEFAULT.includes(input.type) || input.type === 'textarea';
+    const validType =
+      REQUIRES_DEFAULT.includes(input.type) || input.type === 'textarea';
     return (
       validType && input.required && refs[input.id] && !refs[input.id].value
     );

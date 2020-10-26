@@ -1,8 +1,10 @@
 @import "~styles/_legacy.scss";
 @import "~styles/_global_font.scss";
 
-body, html {
+body,
+html {
   @include setFontSize($size-20);
+
   margin: 0 auto;
   font-family: $font-family;
   font-weight: $font-weight-400;
@@ -11,6 +13,7 @@ body, html {
 
 a {
   text-decoration: none;
+
   &:hover {
     opacity: 0.5;
   }

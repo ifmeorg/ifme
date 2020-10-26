@@ -28,9 +28,9 @@ const taggedResources = (tags: ?(string[]), updateTagFilter) => {
             onClick={
               updateTagFilter
                 ? (tagLabel) => {
-                  updateTagFilter(tagLabel);
-                  scrollUp();
-                }
+                    updateTagFilter(tagLabel);
+                    scrollUp();
+                  }
                 : null
             }
           />
@@ -47,9 +47,7 @@ const authorRes = (author: ?string) => {
 };
 
 export const Resource = (props: Props) => {
-  const {
-    author, link, tags = [], title, updateTagFilter,
-  } = props;
+  const { author, link, tags = [], title, updateTagFilter } = props;
   return (
     <div className={`resource ${css.resource}`}>
       <a

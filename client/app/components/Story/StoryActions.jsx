@@ -90,12 +90,11 @@ const displayViewers = (
   </div>
 );
 
-const titleItem = (item: string) => item.charAt(0).toUpperCase() + item.slice(1);
+const titleItem = (item: string) =>
+  item.charAt(0).toUpperCase() + item.slice(1);
 
 const tooltipElement = (item: string, actions: Actions, dark: ?boolean) => {
-  const {
-    link, dataMethod, dataConfirm, name, onClick,
-  } = actions[item];
+  const { link, dataMethod, dataConfirm, name, onClick } = actions[item];
   return (
     <a
       href={link}
@@ -157,7 +156,9 @@ export const StoryActions = (props: Props) => {
         DELETE,
         REPORT,
         VIEWERS,
-      ].map((item: string) => (actions[item] ? displayItem(actions, item, hasStory, dark) : null))}
+      ].map((item: string) =>
+        actions[item] ? displayItem(actions, item, hasStory, dark) : null,
+      )}
     </div>
   );
 };

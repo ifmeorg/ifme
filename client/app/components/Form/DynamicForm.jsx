@@ -52,7 +52,8 @@ const getParams = (inputs: MyInputProps[], myRefs: Object) => {
   return params;
 };
 
-export const hasErrors = (errors: Errors) => Object.values(errors).filter((key) => key).length;
+export const hasErrors = (errors: Errors) =>
+  Object.values(errors).filter((key) => key).length;
 
 export const DynamicForm = ({
   nameValue,
@@ -135,19 +136,18 @@ export const DynamicForm = ({
     </div>
   );
 
-  const displayInputs = () => inputs.map((input: MyInputProps) => {
-    if (INPUT_TYPES.includes(input.type)) {
-      return displayInput(input);
-    }
-    return null;
-  });
+  const displayInputs = () =>
+    inputs.map((input: MyInputProps) => {
+      if (INPUT_TYPES.includes(input.type)) {
+        return displayInput(input);
+      }
+      return null;
+    });
 
   return <div className={css.form}>{displayInputs()}</div>;
 };
 
-export default ({
-  nameValue, formProps, onSubmit, type,
-}: Props) => (
+export default ({ nameValue, formProps, onSubmit, type }: Props) => (
   <DynamicForm
     nameValue={nameValue}
     formProps={formProps}

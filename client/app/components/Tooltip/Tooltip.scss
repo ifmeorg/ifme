@@ -6,6 +6,7 @@
 
   > div:first-of-type {
     display: inline-block;
+
     &:hover + div {
       display: inline;
     }
@@ -14,6 +15,7 @@
   > div:last-of-type {
     @include setFontSize($size-14);
     @include setPadding($size-10, $size-10, $size-10, $size-10);
+
     font-weight: $font-weight-400;
     text-transform: none;
     letter-spacing: normal;

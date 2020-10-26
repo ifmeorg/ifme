@@ -22,20 +22,20 @@ describe('Form', () => {
   const {
     getByRole, getByText, queryByRole, getByPlaceholderText,
   } = screen;
-  test('it renders properly', () => {
+  it('it renders properly', () => {
     render(getComponent());
-    expect(getByPlaceholderText(/Some Text Placeholder/i)).toBeInTheDocument();
-    expect(getByText(/submit/i)).toBeInTheDocument();
+    expect(getByPlaceholderText('Some Text Placeholder')).toBeInTheDocument();
+    expect(getByText('alert')).toBeInTheDocument();
   });
-  test('no alert message when textfield has value and submit clicked', () => {
+  it('no alert message when textfield has value and submit clicked', () => {
     render(getComponent());
     userEvent.type(getByPlaceholderText(/Some Text Placeholder/), 'randomName');
-    userEvent.click(getByText(/submit/i));
-    expect(queryByRole(/alert/i)).not.toBeInTheDocument();
+    userEvent.click(getByText('alert'));
+    expect(queryByRole('alert')).not.toBeInTheDocument();
   });
-  test('displays alert message on submit with empty input', () => {
+  it('displays alert message on submit with empty input', () => {
     render(getComponent());
-    userEvent.click(getByText(/submit/i));
-    expect(getByRole(/alert/i)).toBeInTheDocument();
+    userEvent.click(getByText('alert'));
+    expect(getByRole('alert')).toBeInTheDocument();
   });
 });

@@ -21,9 +21,7 @@ export type State = {
   toggled: boolean,
 };
 
-export const Header = ({
-  home, links, mobileOnly, profile,
-}: Props) => {
+export const Header = ({ home, links, mobileOnly, profile }: Props) => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [toggled, setToggled] = useState(true);
 
@@ -42,20 +40,21 @@ export const Header = ({
     return <FontAwesomeIcon icon={faBars} />;
   };
 
-  const displayLinks = (): Node[] => links.map((link: Link) => (
-    <div className={css.headerLink} key={link.name}>
-      <a
-        href={link.url}
-        className={`${link.active ? css.headerActiveLink : ''} ${
-          link.hideInMobile ? css.headerHideInMobile : ''
-        }`}
-        data-method={`${link.dataMethod || ''}`}
-        rel={`${link.dataMethod ? 'nofollow' : ''}`}
-      >
-        {link.name}
-      </a>
-    </div>
-  ));
+  const displayLinks = (): Node[] =>
+    links.map((link: Link) => (
+      <div className={css.headerLink} key={link.name}>
+        <a
+          href={link.url}
+          className={`${link.active ? css.headerActiveLink : ''} ${
+            link.hideInMobile ? css.headerHideInMobile : ''
+          }`}
+          data-method={`${link.dataMethod || ''}`}
+          rel={`${link.dataMethod ? 'nofollow' : ''}`}
+        >
+          {link.name}
+        </a>
+      </div>
+    ));
 
   const displayDesktop = (): Node => (
     <div
@@ -106,8 +105,6 @@ export const Header = ({
   );
 };
 
-export default ({
-  home, links, mobileOnly, profile,
-}: Props) => (
+export default ({ home, links, mobileOnly, profile }: Props) => (
   <Header home={home} links={links} mobileOnly={mobileOnly} profile={profile} />
 );

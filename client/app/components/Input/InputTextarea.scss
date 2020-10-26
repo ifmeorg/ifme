@@ -2,17 +2,23 @@
 
 .button {
   @include setFontSize($size-24);
+
   background: transparent;
   color: $white;
   border: none;
   padding: $size-0;
   margin-right: $size-16;
-  b, strong {
+
+  b,
+  strong {
     color: $white !important;
   }
+
   &Selected {
     color: $mulberry;
-    b, strong {
+
+    b,
+    strong {
       color: $mulberry !important;
     }
   }
@@ -20,17 +26,22 @@
 
 .content {
   @include setMargin($size-20, $size-0, $size-0, $size-0);
+
   background: transparent;
   padding: $size-0;
   color: $white;
   outline: none;
+
   a {
     color: $blumine !important;
     cursor: pointer;
   }
-  b, strong {
+
+  b,
+  strong {
     color: $white !important;
   }
+
   p {
     margin: $size-0;
   }
@@ -39,27 +50,36 @@
 .dark {
   .button {
     color: $white;
-    b, strong {
+
+    b,
+    strong {
       color: $white !important;
     }
+
     &Selected {
       color: $key-lime;
-      b, strong {
+
+      b,
+      strong {
         color: $key-lime !important;
       }
     }
   }
+
   .content {
     color: $white;
+
     a {
       color: $cornflower !important;
     }
-    b, strong {
+
+    b,
+    strong {
       color: $white !important;
     }
   }
 }
 
-.editor{
+.editor {
   min-height: $size-70;
 }

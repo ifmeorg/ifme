@@ -2,6 +2,7 @@
 
 @mixin paddingForSelectIcon($padding) {
   padding-right: $padding * 2 + $size-12;
+
   @media screen and (max-width: $medium) {
     padding-right: $padding + $size-12;
   }
@@ -14,10 +15,12 @@
   .location {
     @include setPadding($size-18, $size-18, $size-18, $size-18);
   }
+
   .select {
     &Icon {
       @include setPadding($size-0, $size-18, $size-0, $size-18);
     }
+
     select {
       @include setPadding($size-18, $size-0, $size-18, $size-18);
       @include paddingForSelectIcon($size-18);
@@ -33,20 +36,24 @@
     @include setPadding($size-26, $size-26, $size-26, $size-26);
     @include setFontSize($size-20);
   }
+
   .select {
     &Icon {
       @include setPadding($size-0, $size-26, $size-0, $size-26);
     }
+
     select {
       @include setFontSize($size-20);
       @include setPadding($size-26, $size-0, $size-26, $size-26);
       @include paddingForSelectIcon($size-26);
     }
   }
+
   .label,
   .accordion {
     @include setFontSize($size-18);
   }
+
   .checkbox {
     @include setFontSize($size-20);
   }
@@ -58,24 +65,29 @@
   .password,
   .location {
     background-color: $mulberry-70;
+
     &:focus,
     &:focus-within {
       background-color: $mulberry;
       color: $white;
     }
+
     &::placeholder {
       color: $white-80;
     }
   }
+
   .select {
     select {
       background-color: $mulberry-70;
       color: $white;
+
       &:focus {
         background-color: $mulberry;
       }
     }
   }
+
   .label,
   .checkbox,
   .accordion {
@@ -90,6 +102,7 @@
   @include setFontSize($size-18);
   @include setPadding($size-24, $size-24, $size-24, $size-24);
   @include linearTransition(0.25s);
+
   color: $white;
   background-color: $white-10;
   font-weight: $font-weight-400;
@@ -98,11 +111,13 @@
   box-shadow: $size-0 $size-2 $size-10 $black-10;
   width: 100%;
   box-sizing: border-box;
+
   &:focus,
   &:focus-within {
     background-color: $white-20;
     outline: none;
   }
+
   &::placeholder {
     color: $white-80;
   }
@@ -110,8 +125,10 @@
 
 .select {
   position: relative;
+
   &Icon {
     @include setPadding($size-0, $size-24, $size-0, $size-24);
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -123,10 +140,12 @@
     top: calc(50% - 10px);
     pointer-events: none;
   }
+
   select {
     @include setFontSize($size-18);
     @include setPadding($size-24, $size-0, $size-24, $size-24);
     @include paddingForSelectIcon($size-24);
+
     color: $white;
     font-weight: $font-weight-400;
     width: 100%;
@@ -138,9 +157,11 @@
     border-radius: $size-4;
     box-shadow: $size-0 $size-2 $size-10 $black-10;
     border: none;
+
     &:focus {
       background-color: $white-20;
     }
+
     option {
       color: initial;
     }
@@ -150,22 +171,29 @@
 .label {
   @include setFontSize($size-16);
   @include linearTransition(0.25s);
+
   color: $white-80;
   font-weight: $font-weight-400;
+
   &Info {
     display: flex;
     flex-direction: row;
     align-items: center;
   }
+
   &Error {
     @include setMargin($size-8, $size-0, $size-0, $size-0);
+
     font-weight: bold;
   }
+
   &NoAccordion {
     @include setMargin($size-0, $size-0, $size-10, $size-0);
   }
+
   &Text {
     @include setMargin($size-0, $size-8, $size-0, $size-0);
+
     letter-spacing: 0.095em;
     text-transform: uppercase;
   }
@@ -174,6 +202,7 @@
 .accordion {
   @include setFontSize($size-16);
   @include setMargin($size-0, $size-0, $size-10, $size-0);
+
   color: $white-80;
   letter-spacing: 0.095em;
   text-transform: uppercase;
@@ -181,15 +210,19 @@
   flex-wrap: nowrap;
   user-select: none;
   cursor: pointer;
+
   + div {
     @include setMargin($size-0, $size-0, $size-10, $size-0);
   }
+
   &Title {
     width: 100%;
   }
+
   &Caret {
     @include setMargin($size-0, $size-0, $size-0, $size-8);
   }
+
   &Close {
     display: none;
   }
@@ -202,8 +235,10 @@
 .tags {
   display: flex;
   flex-direction: row;
+
   > div {
     @include setMargin($size-0, $size-8, $size-0, $size-0);
+
     &:last-of-type {
       @include setMargin($size-0, $size-0, $size-0, $size-0);
     }
@@ -212,18 +247,22 @@
 
 .checkbox {
   @include setFontSize($size-18);
+
   color: $white;
   display: flex;
   flex-direction: row;
   align-items: center;
   word-break: break-all;
+
   > div:first-of-type {
     display: flex;
     flex-direction: row;
     align-items: center;
   }
+
   &Label {
     @include setMargin($size-0, $size-0, $size-0, $size-8);
+
     text-transform: capitalize;
   }
 }

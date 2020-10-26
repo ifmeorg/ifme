@@ -4,9 +4,7 @@ import { shallow } from 'enzyme';
 import { InputMocks } from 'mocks/InputMocks';
 import { InputRadioGroup } from 'components/Input/InputRadioGroup';
 
-const {
-  id, name, value, options,
-} = InputMocks.inputRadioProps;
+const { id, name, value, options } = InputMocks.inputRadioProps;
 
 describe('InputRadioGroup', () => {
   beforeEach(() => {
