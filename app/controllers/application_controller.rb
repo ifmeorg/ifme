@@ -63,4 +63,12 @@ class ApplicationController < ActionController::Base
                                                password_confirmation
                                                invitation_token]
   end
+
+  def after_sign_in_path_for(resource)
+    if resource.respond_to?(:pwned?) && resource.pwned?
+      cookies[:pwned] = { value: true, expires: Time.now + 10.minutes }
+    end
+
+    super
+  end
 end
