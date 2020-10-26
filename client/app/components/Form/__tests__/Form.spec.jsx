@@ -3,7 +3,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { InputMocks } from 'mocks/InputMocks';
-import Form from 'components/Form/index';
+import Form from 'components/Form';
 
 // TODO (julianguyen): Include InputTextarea after writing stubs for pell editor
 
