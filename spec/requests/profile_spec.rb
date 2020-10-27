@@ -156,7 +156,7 @@ describe "Profile", type: :request do
           expect { post remove_ban_profile_index_path, params: {user_id: -1} }
             .not_to change(Devise.mailer.deliveries, :count).from(0)
           expect(response).to redirect_to(admin_dashboard_path)
-          expect(flash[:alert]).to eq("Could not remove ban on -1")
+          expect(flash[:alert]).to include("Could not remove ban")
         end
       end
     end
