@@ -1,7 +1,7 @@
 // @flow
-import { mount } from 'enzyme';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { InputMocks } from 'mocks/InputMocks';
 import DynamicForm from 'components/Form/DynamicForm';
 
@@ -34,6 +34,8 @@ const getMockInputs = (nameValue) => {
   return defaultMockInputs;
 };
 
+const testOnSubmit = jest.fn();
+
 const getComponent = (options = {}) => {
   const mockInputs = getMockInputs(options.nameValue);
   return (
@@ -43,57 +45,69 @@ const getComponent = (options = {}) => {
         action: '/fake-action',
         inputs: mockInputs,
       }}
-      onSubmit={() => {}}
+      onSubmit={testOnSubmit}
     />
   );
 };
 
-describe('Form', () => {
-  describe('when nameValue does not exist', () => {
-    it('has no errors when submit is clicked', () => {
-      const wrapper = mount(getComponent());
-      act(() => wrapper.find('input[name="some-text-name"]').prop('onBlur')({
-        currentTarget: { value: 'Hello' },
-      }));
-      expect(wrapper.find('.error').length).toBe(0);
-      wrapper.find('input[type="submit"]').prop('onClick');
-      expect(wrapper.find('.error').length).toBe(0);
+describe('DynamicForm', () => {
+  const { getByRole, getByText, getByPlaceholderText } = screen;
+
+  describe('when name value does not exist', () => {
+    it('renders correctly', () => {
+      render(getComponent());
+      expect(getByPlaceholderText('Some Text Placeholder')).toBeInTheDocument();
+      expect(
+        getByRole('button', { name: 'Some Submit Value' }),
+      ).toBeInTheDocument();
     });
 
-    it('has errors when submit is clicked', () => {
-      const wrapper = mount(getComponent());
-      expect(wrapper.find('.error').length).toBe(0);
-      act(() => wrapper
-        .find('input[type="checkbox"][name="some-checkbox-one-name"]')
-        .prop('onChange')({
-          currentTarget: { checked: false },
-        }));
-      wrapper.find('input[type="submit"]').simulate('click');
-      expect(wrapper.find('.error').length).toBe(2);
+    it('has no errors when submit is clicked', async () => {
+      render(getComponent());
+      userEvent.type(getByPlaceholderText('Some Text Placeholder'), 'bye');
+      userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
+      await waitFor(() => {
+        expect(testOnSubmit).toHaveBeenCalledTimes(1);
+      });
+    });
+
+    it('has errors when submit is clicked', async () => {
+      render(getComponent());
+      userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
+      await waitFor(() => {
+        expect(testOnSubmit).toHaveBeenCalledTimes(1);
+      });
+      expect(getByRole('alert')).toBeInTheDocument();
     });
   });
 
-  describe('when nameValue exists', () => {
-    it('has no errors when submit is clicked', () => {
-      const wrapper = mount(getComponent({ nameValue: 'Name' }));
-      act(() => wrapper.find('input[name="some-text-name"]').prop('onBlur')({
-        currentTarget: { value: 'Hello' },
-      }));
-      expect(wrapper.find('.error').length).toBe(0);
-      wrapper.find('input[type="submit"]').prop('onClick');
-      expect(wrapper.find('.error').length).toBe(0);
+  describe('when name value exists', () => {
+    it('renders correctly', () => {
+      render(getComponent({ nameValue: 'name' }));
+      expect(getByText('Name')).toBeInTheDocument();
+      expect(getByPlaceholderText('Some Text Placeholder')).toBeInTheDocument();
+      expect(
+        getByRole('button', { name: 'Some Submit Value' }),
+      ).toBeInTheDocument();
     });
 
-    it('has errors when submit is clicked', () => {
-      const wrapper = mount(getComponent({ nameValue: 'Name' }));
-      expect(wrapper.find('.error').length).toBe(0);
-      act(() => wrapper
-        .find('input[type="checkbox"][name="some-checkbox-one-name"]')
-        .prop('onChange')({
-          currentTarget: { checked: false },
-        }));
-      wrapper.find('input[type="submit"]').simulate('click');
-      expect(wrapper.find('.error').length).toBe(2);
+    it('has no errors when submit is clicked', async () => {
+      render(getComponent({ nameValue: 'name' }));
+      userEvent.type(getByText('Name'), 'hi');
+      userEvent.type(getByPlaceholderText('Some Text Placeholder'), 'bye');
+      userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
+      await waitFor(() => {
+        expect(testOnSubmit).toHaveBeenCalledTimes(1);
+      });
+    });
+
+    it('has errors when submit is clicked', async () => {
+      render(getComponent({ nameValue: 'name' }));
+      userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
+      await waitFor(() => {
+        expect(testOnSubmit).toHaveBeenCalledTimes(1);
+      });
+      expect(getByRole('alert')).toBeInTheDocument();
     });
   });
 });
