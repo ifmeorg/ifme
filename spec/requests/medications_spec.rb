@@ -67,7 +67,7 @@ RSpec.describe "Medications", type: :request do
       context 'when the medication does not exist' do
         it 'redirects to the medications page' do
           get medication_path(medication.id + 1)
-          expect(response).to have_http_status(302)
+          expect(response).to redirect_to(medications_path)
         end
       end
     end
@@ -96,7 +96,7 @@ RSpec.describe "Medications", type: :request do
             .to change(Medication, :count).by(1)
         end
 
-        it 'redirects to medication' do
+        it 'redirects the user' do
           post_create valid_medication_params
           expect(response).to have_http_status(302)
         end
@@ -159,14 +159,12 @@ RSpec.describe "Medications", type: :request do
       context 'when valid params are supplied' do
 
         it 'updates a medication' do
-          updated_name_slug = valid_medication_params[:name]
-            .downcase
-            .gsub(' ', '-')
+          updated_name_slug = (valid_medication_params[:name]).parameterize
           put_update valid_medication_params
           expect(response.body).to include(updated_name_slug)
         end
 
-        it 'redirects to medication' do
+        it 'redirects the user' do
           put_update valid_medication_params
           expect(response).to have_http_status(302)
         end
@@ -228,7 +226,7 @@ RSpec.describe "Medications", type: :request do
 
         it 'redirects to the medications path for html requests' do
           delete medication_path(medication)
-          expect(response).to have_http_status(302)
+          expect(response).to redirect_to(medications_path)
         end
 
         it 'responds with no content to json requests' do
@@ -251,7 +249,7 @@ RSpec.describe "Medications", type: :request do
 
         it 'redirects to the medications path for html requests' do
           delete medication_path(medication)
-          expect(response).to have_http_status(302)
+          expect(response).to redirect_to(medications_path)
         end
 
         it 'responds with no content to json requests' do
@@ -274,7 +272,7 @@ RSpec.describe "Medications", type: :request do
 
         it 'redirects to the medications path for html requests' do
           delete medication_path(medication)
-          expect(response).to have_http_status(302)
+          expect(response).to redirect_to(medications_path)
         end
 
         it 'responds with no content to json requests' do
