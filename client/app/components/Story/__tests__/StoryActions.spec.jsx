@@ -5,6 +5,7 @@ import { StoryActions } from 'components/Story/StoryActions';
 
 describe('storyActions', () => {
   const { getByText } = screen;
+
   describe('with create google calendar action', () => {
     it('renders correctly', () => {
       render(
