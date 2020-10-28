@@ -1,14 +1,13 @@
 // @flow
-import { render } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { StoryDraft } from 'components/Story/StoryDraft';
 
 describe('StoryDraft', () => {
+  const { getByText } = screen;
+
   it('renders correctly', () => {
-    let wrapper = null;
-    expect(() => {
-      wrapper = render(<StoryDraft draft="DRAFT" />);
-    }).not.toThrow();
-    expect(wrapper).not.toBeNull();
+    render(<StoryDraft draft="DRAFT" />);
+    expect(getByText('DRAFT')).toBeInTheDocument();
   });
 });
