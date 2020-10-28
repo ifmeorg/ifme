@@ -5,6 +5,7 @@ import { Story } from 'components/Story';
 
 describe('story', () => {
   const { getByText, getByRole } = screen;
+
   describe('has no options', () => {
     it('renders correctly', () => {
       render(<Story name="Real Moment" link="some-url" />);

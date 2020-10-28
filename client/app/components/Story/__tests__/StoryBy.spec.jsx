@@ -1,28 +1,21 @@
 // @flow
-import { render } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { StoryBy } from 'components/Story/StoryBy';
 
 describe('StoryBy', () => {
+  const { getByText } = screen;
+
   describe('has no options', () => {
     it('renders correctly', () => {
-      let wrapper = null;
-      expect(() => {
-        wrapper = render(<StoryBy author="Some author" />);
-      }).not.toThrow();
-      expect(wrapper).not.toBeNull();
+      render(<StoryBy author="Some author" />);
+      expect(getByText('Some author')).toBeInTheDocument();
     });
   });
-
   describe('has all options', () => {
     it('renders correctly', () => {
-      let wrapper = null;
-      expect(() => {
-        wrapper = render(
-          <StoryBy author={<div>Some author</div>} avatar="/some-url" />,
-        );
-      }).not.toThrow();
-      expect(wrapper).not.toBeNull();
+      render(<StoryBy author="Some author" avatar="/some-url" />);
+      expect(getByText('Some author')).toBeInTheDocument();
     });
   });
 });
