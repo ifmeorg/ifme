@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe 'UserUpdatesProfile', js: true do
+RSpec.feature 'UserUpdatesProfile', type: :feature, js: true do
   let(:new_password) { "foobar_w!th_Password" }
 
   describe 'user logged in with Google OAuth' do
