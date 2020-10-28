@@ -1,16 +1,13 @@
 // @flow
-import { render } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { StoryMoods } from 'components/Story/StoryMoods';
 
 describe('StoryMoods', () => {
+  const { getByText } = screen;
+
   it('renders correctly', () => {
-    let wrapper = null;
-    expect(() => {
-      wrapper = render(
-        <StoryMoods moods={[{ name: 'Nervous', slug: '/nervous' }]} />,
-      );
-    }).not.toThrow();
-    expect(wrapper).not.toBeNull();
+    render(<StoryMoods moods={[{ name: 'Nervous', slug: '/nervous' }]} />);
+    expect(getByText('Nervous')).toBeInTheDocument();
   });
 });
