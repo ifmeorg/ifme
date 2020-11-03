@@ -80,3 +80,4 @@ es:
       not_saved:
         one: 'Ha ocurrido 1 error:'
         other: 'Han ocurrido %{count} errores:'
+      pwned_password: "ha aparecido anteriormente en una violación de datos y nunca debe usarse. Si alguna vez lo ha usado en algún lugar, ¡cámbielo de inmediato!"
