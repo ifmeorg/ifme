@@ -82,3 +82,4 @@ nl:
       not_saved:
         one: '1 fout voorkwam dat %{resource} opgeslagen kon worden:'
         other: '%{count} fouten voorkwamen dat %{resource} opgeslagen kon worden:'
+      pwned_password: "is eerder verschenen in een datalek en mag nooit worden gebruikt. Als je het ooit ergens hebt gebruikt, verander het dan onmiddellijk!"

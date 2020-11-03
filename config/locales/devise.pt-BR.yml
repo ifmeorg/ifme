@@ -91,3 +91,4 @@ pt-BR:
       not_saved:
         one: 'Um erro proibiu este %{resource} de ser salvo:'
         other: '%{count} erros proibiram os recursos %{resource} de serem salvos:'
+      pwned_password: "já apareceu em uma violação de dados e nunca deve ser usado. Se você já usou em qualquer lugar antes, mude-o imediatamente!"
