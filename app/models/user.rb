@@ -81,8 +81,11 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :uid, :lockable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :pwned_password,
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
          omniauth_providers: %i[google_oauth2 facebook]
+  # https://github.com/michaelbanfield/devise-pwned_password#disabling-in-test-environments
+  # TODO: might be best to reenable if we disable real network requests & stub them with https://github.com/bblimke/webmock
+  devise :pwned_password unless Rails.env.test?
 
   mount_uploader :avatar, AvatarUploader
 
