@@ -66,7 +66,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if resource.respond_to?(:pwned?) && resource.pwned?
-      cookies[:pwned] = { value: true, expires: Time.now + 10.minutes }
+      cookies[:pwned] = { value: true, expires: Time.current + 10.minutes }
     end
 
     super
