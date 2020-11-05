@@ -88,3 +88,4 @@ vi:
       not_saved:
         one: 'Một lỗi đã ngăn lưu này từ %{resource}:'
         other: '%{count} lỗi đã ngăn lưu này từ %{resource}:'
+      pwned_password: "trước đây đã xuất hiện trong một vụ vi phạm dữ liệu và không bao giờ được sử dụng. Nếu bạn đã từng sử dụng nó ở bất cứ đâu trước đây, hãy thay đổi nó ngay lập tức!"
