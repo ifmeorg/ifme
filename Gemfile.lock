@@ -352,6 +352,8 @@ GEM
       rails (>= 3.2)
       rainbow (~> 3.0)
       webpacker (>= 4.0)
+    recaptcha (5.6.0)
+      json
     redis (4.2.2)
     redis-namespace (1.8.0)
       redis (>= 3.0.4)
@@ -583,6 +585,7 @@ DEPENDENCIES
   rails-i18n (~> 6.0.0)
   rails_12factor (= 0.0.3)
   react_on_rails (= 12.0.1)
+  recaptcha
   resque (= 2.0.0)
   resque-scheduler (= 4.4.0)
   resque_mailer (= 2.4.3)

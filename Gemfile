@@ -14,6 +14,7 @@ gem 'devise_invitable', '~> 2.0.1'
 gem 'devise-pwned_password'
 gem 'devise_uid'
 gem 'pg', '1.1.4'
+gem "recaptcha"
 gem 'resque', '2.0.0'
 gem 'resque-scheduler', '4.4.0'
 gem 'resque_mailer', '2.4.3'
