@@ -4,7 +4,7 @@
 [![Backers on Open Collective](https://opencollective.com/ifme/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 
-README en: [Inglês](https://github.com/ifmeorg/ifme/blob/main/README.md), [Espanhol](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [Francês](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [Coreano](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), [Indonésio](https://github.com/ifmeorg/ifme/blob/main/README-ID.md)
+README en: [Inglês](https://github.com/ifmeorg/ifme/blob/main/README.md), [Espanhol](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [Francês](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [Coreano](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), [Indonésio](https://github.com/ifmeorg/ifme/blob/main/README-ID.md), [Turco](https://github.com/ifmeorg/ifme/blob/main/README-TR.md)
 
 # if-me.org
 
