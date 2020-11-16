@@ -2,11 +2,15 @@
 
 class SessionsController < Devise::SessionsController
   prepend_before_action :check_recaptcha, only: [:create]
-  prepend_before_action :display_recaptcha, only: [:new]
+  before_action :set_recaptcha, only: [:new]
 
   def create
     super
     set_user_locale if user_signed_in?
+  end
+
+  def new
+    super
   end
 
   private
@@ -20,19 +24,33 @@ class SessionsController < Devise::SessionsController
   end
 
   def check_recaptcha
-    if(recaptcha_needed && !verify_recaptcha)
+    if recaptcha_required_for_user? && !verify_recaptcha
       self.resource = resource_class.new sign_in_params
-      redirect_to new_session_path(resource_name, email: sign_in_params[:email])
+      redirect_to new_session_path(resource_name, recaptcha: true)
+    else
+      cookies.delete(:login_recaptcha)
     end
   end
 
-  def display_recaptcha
-    @display_captcha = recaptcha_needed
+  def set_recaptcha
+    return unless show_recaptcha?
+
+    @display_recaptcha = true
+    cookies.permanent[:login_recaptcha] = true
   end
 
-  def recaptcha_needed
-    user = User.find_by(email: sign_in_params[:email] || params[:email])
-    failed_attempts = user&.failed_attempts.to_i
-    failed_attempts >= 3
+  def show_recaptcha?
+    (recaptcha_required_for_user? ||
+     params[:recaptcha] ||
+     cookies[:login_recaptcha])
+  end
+
+  def recaptcha_required_for_user?
+    @recaptcha_required_for_user ||= begin
+      user = User.find_by(email: sign_in_params[:email])
+      return false if user.nil?
+
+      RecaptchaService.new(user).recaptcha_required_for_login?
+    end
   end
 end

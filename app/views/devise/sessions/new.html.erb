@@ -35,9 +35,11 @@
         } %>
       </div>
     <% end -%>
-    <% if @display_captcha %>
-      <%= recaptcha_tags %>
+
+    <% if @display_recaptcha %>
+      <%= recaptcha_tags id: 'recaptcha-form' %>
     <% end %>
+
     <%= f.submit t('account.sign_in'), class: 'buttonGhostM marginTop' %>
   </div>
 <% end %>
