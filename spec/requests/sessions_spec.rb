@@ -1,68 +1,87 @@
 # frozen_string_literal: true
 
 describe 'Sessions', type: :request do
-  let(:recaptcha_id) { 'recaptcha-form' }
+  let(:recaptcha_id) { 'recaptcha_form' }
 
   describe '#new' do
     after { cookies[:login_recaptcha] = nil }
 
-    context 'when user has recaptcha cookie' do
-      it 'displays recaptcha' do
+    context 'when recaptcha is not configured' do
+      before do
+        allow(RecaptchaService).to receive(:recaptcha_configured?).and_return(false)
+      end
+
+      it 'does not display recaptcha' do
         cookies[:login_recaptcha] = true
         get new_user_session_path
 
-        expect(response.body).to include recaptcha_id
+        expect(response.body).to_not include recaptcha_id
       end
-    end
+    end 
 
-    context 'when user does not have recaptcha cookie' do
-      context 'and recaptcha is specified in query string' do
-        before do
-          get new_user_session_path, params: { recaptcha: true }
-        end
+    context 'when recaptcha is configured' do
+      before do
+        allow(RecaptchaService).to receive(:recaptcha_configured?).and_return(true)
+      end
 
+      context 'and user has recaptcha cookie' do
         it 'displays recaptcha' do
+          cookies[:login_recaptcha] = true
+          get new_user_session_path
+
           expect(response.body).to include recaptcha_id
         end
-
-        it 'sets recaptcha cookie' do
-          expect(cookies[:login_recaptcha]).to eq 'true'
-        end
       end
 
-      context 'and recaptcha is not specified in query string' do
-        context 'and sign in params are not present' do
-          it 'does not display recaptcha' do
-            get new_user_session_path
+      context 'and user does not have recaptcha cookie' do
+        context 'and recaptcha is specified in query string' do
+          before do
+            get new_user_session_path, params: { recaptcha: true }
+          end
 
-            expect(response.body).to_not include recaptcha_id
+          it 'displays recaptcha' do
+            expect(response.body).to include recaptcha_id
+          end
+
+          it 'sets recaptcha cookie' do
+            expect(cookies[:login_recaptcha]).to eq 'true'
           end
         end
 
-        context 'and user is specified in sign in params' do
-          context 'and user has less than 3 failed logins' do
-            let(:user) { create(:user, failed_attempts: 0) }
-
+        context 'and recaptcha is not specified in query string' do
+          context 'and sign in params are not present' do
             it 'does not display recaptcha' do
-              get new_user_session_path, params: { email: user.email }
+              get new_user_session_path
 
               expect(response.body).to_not include recaptcha_id
             end
           end
 
-          context 'and user has 3 failed logins' do
-            let(:user) { create(:user, failed_attempts: 3) }
+          context 'and user is specified in sign in params' do
+            context 'and user has less than 3 failed logins' do
+              let(:user) { create(:user, failed_attempts: 0) }
 
-            before do
-              get new_user_session_path, params: { user: { email: user.email } }
+              it 'does not display recaptcha' do
+                get new_user_session_path, params: { email: user.email }
+
+                expect(response.body).to_not include recaptcha_id
+              end
             end
 
-            it 'displays recaptcha' do
-              expect(response.body).to include recaptcha_id
-            end
+            context 'and user has 3 failed logins' do
+              let(:user) { create(:user, failed_attempts: 3) }
 
-            it 'sets recaptcha cookie' do
-              expect(cookies[:login_recaptcha]).to eq 'true'
+              before do
+                get new_user_session_path, params: { user: { email: user.email } }
+              end
+
+              it 'displays recaptcha' do
+                expect(response.body).to include recaptcha_id
+              end
+
+              it 'sets recaptcha cookie' do
+                expect(cookies[:login_recaptcha]).to eq 'true'
+              end
             end
           end
         end
@@ -72,12 +91,16 @@ describe 'Sessions', type: :request do
 
   describe '#post' do
     let(:password) { 'password' }
+    let(:failed_attempts) { 5 }
     let(:user) { create(:user, failed_attempts: 5, password: password) }
 
-    context 'when user does not require recaptcha' do
-      it 'does not check recaptcha' do
-        expect(SessionsController).to_not receive(:verify_recaptcha)
+    before do
+      allow(RecaptchaService).to receive(:recaptcha_configured?).and_return(true)
+    end
 
+    context 'when user does not require recaptcha' do
+      let(:failed_attempts) { 1 }
+      it 'does not check recaptcha' do
         post "/users/sign_in", params: { user: { email: user.email, password: password } }
       end
     end

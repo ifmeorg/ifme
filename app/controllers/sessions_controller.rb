@@ -40,17 +40,16 @@ class SessionsController < Devise::SessionsController
   end
 
   def show_recaptcha?
-    (recaptcha_required_for_user? ||
-     params[:recaptcha] ||
-     cookies[:login_recaptcha])
+    RecaptchaService.recaptcha_configured? &&
+      (cookies[:login_recaptcha] ||
+      params[:recaptcha] ||
+      recaptcha_required_for_user?)
   end
 
   def recaptcha_required_for_user?
-    @recaptcha_required_for_user ||= begin
-      user = User.find_by(email: sign_in_params[:email])
-      return false if user.nil?
+    user = User.find_by(email: sign_in_params[:email])
+    return false if user.nil?
 
-      RecaptchaService.new(user).recaptcha_required_for_login?
-    end
+    RecaptchaService.new(user).recaptcha_required_for_login?
   end
 end
