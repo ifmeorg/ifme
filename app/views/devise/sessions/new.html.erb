@@ -37,10 +37,10 @@
     <% end -%>
 
     <% if @display_recaptcha %>
-      <%= recaptcha_tags id: 'recaptcha-form' %>
+      <%= recaptcha_tags id: 'recaptcha-form', callback: 'recaptcha_verified', expired_callback: 'recaptcha_expired' %>
     <% end %>
 
-    <%= f.submit t('account.sign_in'), class: 'buttonGhostM marginTop' %>
+    <%= f.submit t('account.sign_in'), disabled: @display_recaptcha, class: 'recaptcha-submit buttonGhostM marginTop' %>
   </div>
 <% end %>
 
