@@ -3,94 +3,77 @@
 require 'spec_helper'
 
 describe RecaptchaService do
-  let(:failed_attempts) { 0 }
-  let(:user) { create(:user, failed_attempts: failed_attempts) }
-
-  subject { described_class.new(user) }
-
   describe '#recaptcha_configured?' do
-    let(:site_key) { '11111' }
-    let(:secret_key) { '22222' }
-    let(:configuration) {
-      instance_double(
-        Recaptcha::Configuration,
-        site_key: site_key,
-        secret_key: secret_key,
-      )
-    }
+    subject { described_class.recaptcha_configured? }
 
-    before do
+    it 'returns true if site key and secret key are present' do
+      configuration =
+        instance_double(
+          Recaptcha::Configuration,
+          site_key: '11111',
+          secret_key: '22222',
+        )
       allow(Recaptcha).to receive(:configuration).and_return(configuration)
+
+      expect(subject).to be true
     end
 
-    context 'site key and secrete key are present' do
+    it 'returns false if site key is blank' do
+      configuration =
+        instance_double(
+          Recaptcha::Configuration,
+          site_key: nil,
+          secret_key: '22222',
+        )
+      allow(Recaptcha).to receive(:configuration).and_return(configuration)
 
-      it 'returns true' do
-        expect(described_class.recaptcha_configured?).to be true
-      end
+      expect(subject).to be false
     end
 
-    context 'site key is blank' do
-      let(:site_key) {}
+    it 'returns false if secret key is blank' do
+      configuration =
+        instance_double(
+          Recaptcha::Configuration,
+          site_key: '11111',
+          secret_key: nil,
+        )
+      allow(Recaptcha).to receive(:configuration).and_return(configuration)
 
-      it 'returns false' do
-        expect(described_class.recaptcha_configured?).to be false
-      end
-    end
-
-    context 'secret key is blank' do
-      let(:secret_key) {}
-      
-      it 'returns false' do
-        expect(described_class.recaptcha_configured?).to be false
-      end
+      expect(subject).to be false
     end
   end
 
   describe '#recaptcha_required_for_login?' do
-    context 'recaptcha is not configured' do
-      before do
-        allow(described_class).to receive(:recaptcha_configured?).and_return(false)
-      end
+    it 'returns false if recaptcha is not configured' do
+      allow(described_class).to receive(:recaptcha_configured?).and_return(false)
+      user = create(:user, failed_attempts: 5)
 
-      it 'returns false' do
-        expect(subject.recaptcha_required_for_login?).to be false
-      end
+      expect(described_class.new(user).recaptcha_required_for_login?).to be false
     end
 
-    context 'recaptcha is configured' do
+    context 'when recaptcha is configured' do
       before do
         allow(described_class).to receive(:recaptcha_configured?).and_return(true)
       end
 
-      context 'when the user has no failed logins' do
-        it 'returns false' do
-          expect(subject.recaptcha_required_for_login?).to be false
-        end
+      it 'returns false if the user has no failed logins' do
+        user = create(:user, failed_attempts: 0)
+        expect(described_class.new(user).recaptcha_required_for_login?).to be false
       end
 
-      context 'when the user has less than 3 failed logins' do
-        let(:failed_attempts) { 2 }
-
-        it 'returns false' do
-          expect(subject.recaptcha_required_for_login?).to be false
-        end
+      it 'returns false if the user has less than 3 failed logins' do
+        user = create(:user, failed_attempts: 2)
+        expect(described_class.new(user).recaptcha_required_for_login?).to be false
       end
 
-      context 'when the user has 3 failed logins' do
-        let(:failed_attempts) { 3 }
-
-        it 'returns true' do
-          expect(subject.recaptcha_required_for_login?).to be true
-        end
+      it 'returns true if the user has 3 failed logins' do
+        user = create(:user, failed_attempts: 3)
+        expect(described_class.new(user).recaptcha_required_for_login?).to be true
       end
 
-      context 'when the user has more than 3 failed logins' do
-        let(:failed_attempts) { 4 }
-
-        it 'returns true' do
-          expect(subject.recaptcha_required_for_login?).to be true
-        end
+      it 'returns true if the user has more than 3 failed logins' do
+        user = create(:user, failed_attempts: 4)
+        expect(described_class.new(user).recaptcha_required_for_login?).to be true
       end
     end
   end

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 class RecaptchaService
+  MIN_ATTEMPTS_FOR_RECAPTCHA = 3
+
   def initialize(user)
     @user = user
   end
@@ -13,6 +15,6 @@ class RecaptchaService
     return false unless self.class.recaptcha_configured?
 
     failed_attempts = @user.failed_attempts.to_i
-    failed_attempts >= 3
+    failed_attempts >= MIN_ATTEMPTS_FOR_RECAPTCHA
   end
 end
