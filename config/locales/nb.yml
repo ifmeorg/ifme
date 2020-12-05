@@ -233,6 +233,7 @@ nb:
       dosage_unit: 'Doseringsenhet'
       dosage_placeholder: f.eks. 2
       refill: påfyll
+      name_hint: Generisk eller merkenavn på medisinen
       comments_hint: Legg til ytterlige kommentarer her f.eks. loggføring av symptomer
       add_to_google_cal: Google Kalender påminnelse
       google_cal_hint: Vi legger til en påminnelse for denne medisinen til din Google kalender.

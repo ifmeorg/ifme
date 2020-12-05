@@ -229,6 +229,7 @@ es:
       dosage_unit: 'Unidad de dosis'
       dosage_placeholder: e.g. 2
       refill: resurtir
+      name_hint: Nombre genérico o de marca del medicamento
       comments_hint: 'Agrega más comentarios aquí, por ejemplo, tus síntomas.'
       add_to_google_cal: Recordatorio con Calendario de Google
       google_cal_hint: >-

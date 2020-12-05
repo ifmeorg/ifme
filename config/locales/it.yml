@@ -232,6 +232,7 @@ it:
       dosage_unit: 'Unità di dosaggio'
       dosage_placeholder: es. 2
       refill: riempimento
+      name_hint: Nome generico o di marca del farmaco
       comments_hint: 'Aggiungi qualsiasi commento aggiuntivo qui, esempio: sintomi'
       add_to_google_cal: Reminder Google Calendar
       google_cal_hint: Aggiungeremo un reminder per questa medicazione al tuo Google Calendar.
