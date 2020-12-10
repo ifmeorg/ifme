@@ -96,7 +96,7 @@ RSpec.configure do |config|
     config.include HiddenHeaderSupport
   end
 
-  config.after(:each) do
+  config.after(:context, type: :feature) do
     Capybara.reset_sessions!
     Capybara.use_default_driver
     Capybara.app_host = nil

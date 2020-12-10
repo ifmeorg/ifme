@@ -1,4 +1,4 @@
-describe 'Load more resources', js: true do
+RSpec.feature 'Load more resources', type: :feature, js: true do
   let(:user) { create :user }
   feature 'load more feature' do
     context 'clicking the load more button' do
