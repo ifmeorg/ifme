@@ -224,6 +224,7 @@ en:
       dosage: dosage
       dosage_unit: 'Dosage Unit'
       refill: refill
+      name_hint: 'Generic or brand name of the medication'
       comments_hint: 'Add any additional comments here, e.g. logging your symptoms'
       add_to_google_cal: Google Calendar reminder
       google_cal_hint: We'll add a reminder for this medication to your Google calendar.

@@ -219,6 +219,7 @@ zh-CN:
       dosage_unit: '剂量单位'
       dosage_placeholder: '例如: 2'
       refill: 补药
+      name_hint: 药物的通用名称或品牌名称
       comments_hint: 在此处添加任何其他评论， 例如记录你的症状
       add_to_google_cal: 谷歌日历提醒
       google_cal_hint: 我们会将这种药物的提醒添加到你的谷歌日历中。

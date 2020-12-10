@@ -231,6 +231,7 @@ pt-BR:
       dosage_unit: 'Unidade de dosagem'
       dosage_placeholder: 'ex.: 2mg'
       refill: refil
+      name_hint: Genérico ou nome comercial do medicamento
       comments_hint: >-
         Adicione quaisquer comentários adicionais aqui, por exemplo: registrando
         os sintomas

@@ -221,6 +221,7 @@ ko:
       dosage_unit: '복용량 단위'
       dosage_placeholder: '예: 2'
       refill: 재구매
+      name_hint: 의약품의 일반 또는 브랜드 이름
       comments_hint: 증상 기록과 같은 추가 설명을 여기에 추가하십시오.
       add_to_google_cal: Google 캘린더 알림
       google_cal_hint: 이 의약품에 대한 알림을 Google 캘린더에 추가하십시오.

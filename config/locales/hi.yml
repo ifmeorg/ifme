@@ -227,6 +227,7 @@ hi:
       dosage_unit: 'खुराक इकाई'
       dosage_placeholder: जैसे 2
       refill: फिर से भरना
+      name_hint: दवा का सामान्य या ब्रांड नाम
       comments_hint: 'कोई अतिरिक्त टिप्पणी यहां जोड़ें, उदा। अपने लक्षण लॉगिंग'
       add_to_google_cal: Google कैलेंडर अनुस्मारक
       google_cal_hint: >-

@@ -229,6 +229,7 @@ sv:
       dosage_unit: 'Doseringsenhet'
       dosage_placeholder: t.ex. 2
       refill: påfyllning
+      name_hint: Läkemedlets generiska eller varumärke
       comments_hint: 'Lägg till några ytterligare kommentarer här, t.ex. loggar dina symptom'
       add_to_google_cal: Google Calendar-påminnelse
       google_cal_hint: >-
