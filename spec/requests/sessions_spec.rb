@@ -100,6 +100,15 @@ describe 'Sessions', type: :request do
 
         expect(response).to redirect_to root_path
       end
+
+      context 'with invalid credentials' do
+        it 'remains on sign in page without recaptcha' do
+          post user_session_path, params: { user: { email: user.email, password: 'invalid password' } }
+
+          expect(response.status).to eq 200
+          expect(response.body).to_not include recaptcha_id
+        end
+      end
     end
 
     context 'when user requires recaptcha' do
@@ -138,7 +147,8 @@ describe 'Sessions', type: :request do
         context 'when credentials are invalid' do
           let(:entered_password) { 'invalid_password' }
 
-          it 'redirects to sign in page with recaptcha' do
+          it 'remains on sign in page with recaptcha' do
+            expect(response.status).to eq 200
             expect(response.body).to include recaptcha_id
           end
         end
