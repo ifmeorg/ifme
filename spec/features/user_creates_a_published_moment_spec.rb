@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe 'UserCreatesAPublishedMoment', js: true do
+RSpec.feature 'UserCreatesAPublishedMoment', type: :feature, js: true do
   let(:user) { create :user2, :with_allies }
   let!(:category) { create :category, user_id: user.id }
   let!(:mood) { create :mood, user_id: user.id }

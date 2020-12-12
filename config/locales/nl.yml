@@ -229,6 +229,7 @@ nl:
       dosage_unit: 'Doseringseenheid'
       dosage_placeholder: b.v. 2
       refill: bijvullen
+      name_hint: Generieke of merknaam van het medicijn
       comments_hint: 'Voeg hier extra opmerkingen toe, bijvoorbeeld je symptomen'
       add_to_google_cal: Google Agenda herinnering
       google_cal_hint: We voegen een herinnering toe voor dit medicijn in je Google Agenda.

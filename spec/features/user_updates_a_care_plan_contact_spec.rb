@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe 'UserUpdatesACarePlanContact', js: true do
+RSpec.feature 'UserUpdatesACarePlanContact', type: :feature, js: true do
   scenario 'unsuccessful' do
     user = create :user
     create :care_plan_contact, user_id: user.id

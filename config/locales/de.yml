@@ -242,6 +242,7 @@ de:
       dosage_unit: 'Dosierungseinheit'
       dosage_placeholder: z.B. 2
       refill: Auffüllen
+      name_hint: Generisches oder Markenname des Medikaments
       comments_hint: 'Füge hier weitere Details hinzu, wie z.B. deine Symptome'
       add_to_google_cal: Google Kalender Erinnerung
       google_cal_hint: >-

@@ -233,6 +233,7 @@ vi:
       dosage_unit: 'Đơn vị liều dùng'
       dosage_placeholder: e.g. 2
       refill: bổ sung
+      name_hint: Tên chung hoặc tên thương hiệu của thuốc
       comments_hint: 'Thêm bình luận vào đây, ví dụ: trạng thái của bạn'
       add_to_google_cal: Lịch nhắc nhở của Google
       google_cal_hint: >-

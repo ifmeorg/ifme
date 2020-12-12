@@ -136,7 +136,7 @@ module MedicationsFormHelper
       type: 'text',
       label: t('common.name'),
       value: @medication.name || nil,
-      info: t('categories.form.name_hint'),
+      info: t('medications.form.name_hint'),
       required: true
     }.merge(medication_basic_props('name'))
   end

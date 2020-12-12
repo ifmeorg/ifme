@@ -238,6 +238,7 @@ fr:
       dosage_unit: 'Unité de dosage'
       dosage_placeholder: ex. 2
       refill: renouvellement
+      name_hint: Nom générique ou de marque du médicament
       comments_hint: >-
         Ajoutez des commentaires supplémentaires ici. Par exemple, listez vos
         symptômes

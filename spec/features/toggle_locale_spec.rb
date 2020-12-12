@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe 'ToggleLocale', js: true do
+RSpec.feature 'ToggleLocale', type: :feature, js: true do
   let(:user) { create :user }
 
   feature 'Toggling the locale dropdown to change the language' do
