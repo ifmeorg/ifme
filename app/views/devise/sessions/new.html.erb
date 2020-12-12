@@ -1,3 +1,4 @@
+<% title t('layouts.application.signin') %>
 <div class="subtitle"><%= t('devise.sessions.subtitle') %></div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -34,7 +35,12 @@
         } %>
       </div>
     <% end -%>
-    <%= f.submit t('account.sign_in'), class: 'buttonGhostM marginTop' %>
+
+    <% if @display_recaptcha %>
+      <%= recaptcha_tags id: 'recaptcha_form', callback: 'recaptcha_verified', expired_callback: 'recaptcha_expired' %>
+    <% end %>
+
+    <%= f.submit t('account.sign_in'), disabled: @display_recaptcha, class: 'recaptcha_submit buttonGhostM marginTop' %>
   </div>
 <% end %>
 
