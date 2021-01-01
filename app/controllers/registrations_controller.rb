@@ -11,8 +11,8 @@ class RegistrationsController < Devise::RegistrationsController
       params.delete('current_password')
       resource.update_without_password(params)
     else
-      resource.update_with_password(params)
       cookies.delete(:pwned)
+      resource.update_with_password(params)
     end
   end
 
