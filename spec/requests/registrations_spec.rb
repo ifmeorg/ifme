@@ -6,7 +6,6 @@ RSpec.describe 'Registrations', type: :request do
     before do
       sign_in user
       put user_registration_path, params: update_params
-      user.reload
     end
 
     it { expect(response).to redirect_to(edit_user_registration_path) }
@@ -42,7 +41,6 @@ RSpec.describe 'Registrations', type: :request do
         it 'does not redirects' do
           sign_in user
           put user_registration_path, params: {}
-          user.reload
           expect(response).not_to redirect_to(edit_user_registration_path)
         end
       end
