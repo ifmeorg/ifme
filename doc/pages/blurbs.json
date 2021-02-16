@@ -628,5 +628,14 @@
     "link_name": "FranceJ",
     "link": "https://github.com/FranceJ",
     "social": "github"
+  },
+  {
+    "name": "Arun Kumar",
+    "image": "/assets/contributors/Arun_Kumar.jpg",
+    "profile": "I'm a Ruby on Rails developer. I love contributing to this project which improves the mental health of people and provides social welfare. if me is a great platform where people can share their personal stories and feel safe and healthy.",
+    "location": "Kerala, India",
+    "link_name": "arun-kumar",
+    "link": "https://github.com/Arunthogadiya",
+    "social": "github"
   }
 ]
