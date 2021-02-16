@@ -19,7 +19,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     flash[:notice] = I18n.t('devise.omniauth_callbacks.success',
                             kind: t("navigation.#{params[:provider]}"))
     sign_in_and_redirect @user, event: :authentication
-    user.skip_confirmation!
   end
 
   private
@@ -48,6 +47,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     user.third_party_avatar = omniauth_avatar
     user.remote_avatar_url = omniauth_avatar
+    user.skip_confirmation!
     user.save!
   end
 end
