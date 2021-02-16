@@ -3,6 +3,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f9444a4d4116720518fe/test_coverage)](https://codeclimate.com/github/ifmeorg/ifme/test_coverage)
 [![Backers on Open Collective](https://opencollective.com/ifme/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
+[![Awesome Humane Tech](https://raw.githubusercontent.com/humanetech-community/awesome-humane-tech/main/humane-tech-badge.svg?sanitize=true)](https://github.com/humanetech-community/awesome-humane-tech)
 
 README en: [Ingles](https://github.com/ifmeorg/ifme/blob/main/README.md), [Portugués](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [Francés](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [Coreano](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), [Indonesio](https://github.com/ifmeorg/ifme/blob/main/README-ID.md), [Turco](https://github.com/ifmeorg/ifme/blob/main/README-TR.md)
 

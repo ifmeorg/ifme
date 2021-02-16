@@ -4,6 +4,7 @@
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](code-of-conduct.md)
 [![Backers on Open Collective](https://opencollective.com/ifme/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
+[![Awesome Humane Tech](https://raw.githubusercontent.com/humanetech-community/awesome-humane-tech/main/humane-tech-badge.svg?sanitize=true)](https://github.com/humanetech-community/awesome-humane-tech)
 
 README dalam bahasa lainnya: [Inggris](https://github.com/ifmeorg/ifme/blob/main/README.md), [Spanyol](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [Portugis](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [Perancis](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [Korea](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), [Turki](https://github.com/ifmeorg/ifme/blob/main/README-TR.md)
 
