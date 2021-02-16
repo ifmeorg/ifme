@@ -19,6 +19,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     flash[:notice] = I18n.t('devise.omniauth_callbacks.success',
                             kind: t("navigation.#{params[:provider]}"))
     sign_in_and_redirect @user, event: :authentication
+    user.skip_confirmation! 
   end
 
   private
