@@ -14,6 +14,8 @@
     <%= t('devise.invitations.edit.header') %>
   <% elsif reset_password_path? %>
     <%= t('layouts.title.reset_password') %>
+  <% elsif new_user_confirmation_path? %>
+    <%= t('devise.confirmations.resend_confirmation') %>
   <% elsif yield(:page_new).present? && @page_new %>
     <div class="pageTitleLeft">
       <%= yield(:title) %>

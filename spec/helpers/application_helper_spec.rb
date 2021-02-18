@@ -316,6 +316,36 @@ describe ApplicationHelper do
     end
   end
 
+  describe 'new_user_confirmation_path?' do
+    let(:page) { '' }
+    let(:current_controller) { '' }
+    let(:action_name) { '' }
+    subject { new_user_confirmation_path? }
+
+    before(:each) do
+      params[:controller] = current_controller
+      allow(self).to receive('action_name').and_return(action_name)
+      allow(self).to receive('current_page?').and_return(false)
+      allow(self).to receive('current_page?').with(page).and_return(true)
+    end
+
+    context 'when the path matches' do
+      let(:page) { new_user_confirmation_path }
+      it { is_expected.to be true }
+    end
+
+    context 'when the controller and action match the path' do
+      let(:current_controller) { 'devise/confirmations' }
+      let(:action_name) { 'new' }
+      it { is_expected.to be true }
+    end
+
+    context 'when the path does not match' do
+      let(:page) { about_path }
+      it { is_expected.to be false }
+    end
+  end
+
   describe 'secret_share_path?' do
     let(:page) { '' }
     let(:current_controller) { '' }
