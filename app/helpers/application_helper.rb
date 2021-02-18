@@ -58,9 +58,10 @@ module ApplicationHelper
   end
 
   def new_user_confirmation_path?
-    path = new_user_confirmation_path
-    devise_page?(path, 'devise/confirmations', 'new') ||
-      devise_page?(path, 'devise/confirmations', 'create')
+    # path = new_user_confirmation_path
+    # devise_page?(path, 'devise/confirmations', 'new') ||
+    #   devise_page?(path, 'devise/confirmations', 'create')
+    false
   end
 
   def secret_share_path?
