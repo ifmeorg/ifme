@@ -47,6 +47,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     user.third_party_avatar = omniauth_avatar
     user.remote_avatar_url = omniauth_avatar
+    user.skip_confirmation!
     user.save!
   end
 end
