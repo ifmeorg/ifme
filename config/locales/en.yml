@@ -1001,3 +1001,10 @@ en:
       edit_contact: Edit Contact
       phone_number: Phone number
       contacts_info: Loved ones you should talk to
+  moment_templates:
+    index:
+      title: Moment Templates
+      subtitle: Writing prompts for writing your moments
+      new_template: New Template
+      edit_template: Edit Template
+      instructions: You haven't created any templates yet.

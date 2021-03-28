@@ -3,33 +3,33 @@ import React, { useState } from 'react';
 import { I18n } from 'libs/i18n';
 import { Utils } from 'utils';
 import DynamicForm from 'components/Form/DynamicForm';
-import ContactsContext from './CarePlanContactsContext';
-import css from './CarePlanContacts.scss';
+import TemplatesContext from './MomentTemplatesContext';
+import css from './MomentTemplates.scss';
 
-export type Contact = {
+export type Template = {
   id: number,
   name: string,
-  phone?: string,
+  description: string,
 };
 
 type Response = {
   error?: string,
-  data?: Contact,
+  data?: Template,
 };
 
 export type Props = {
-  contact?: Contact,
+  template?: Template,
 };
 
-export const CarePlanContactsForm = ({ contact }: Props) => {
+export const MomentTemplatesForm = ({ template }: Props) => {
   const [error, setError] = useState();
-  const action = `/care_plan_contacts/${
-    contact ? `update?id=${contact.id}` : 'create'
+  const action = `/moment_templates/${
+    template ? `update?id=${template.id}` : 'create'
   }`;
 
   const onSubmit = (response: Response, context: Object) => {
     const {
-      contacts,
+      templates,
       setTemplates,
       setEditableTemplate,
       setOpenModal,
@@ -38,12 +38,12 @@ export const CarePlanContactsForm = ({ contact }: Props) => {
     if (response.error) {
       setError(response.error);
     } else {
-      let newContacts = [...contacts];
-      if (contact) {
-        newContacts = newContacts.filter((c) => c.id !== contact.id);
+      let newTemplates = [...templates];
+      if (template) {
+        newTemplates = newTemplates.filter((c) => c.id !== template.id);
       }
-      newContacts.push(response.data);
-      setTemplates(newContacts.sort((a, b) => a.name.localeCompare(b.name)));
+      newTemplates.push(response.data);
+      setTemplates(newTemplates.sort((a, b) => a.name.localeCompare(b.name)));
       setOpenModal(false);
       setModalKey(Utils.randomString());
       setEditableTemplate(null);
@@ -51,30 +51,31 @@ export const CarePlanContactsForm = ({ contact }: Props) => {
   };
 
   return (
-    <ContactsContext.Consumer>
+    <TemplatesContext.Consumer>
       {(context) => (
         <>
           <DynamicForm
-            type={contact ? 'patch' : 'post'}
+            type={template ? 'patch' : 'post'}
             formProps={{
               action,
               inputs: [
                 {
-                  id: 'care_plan_contact_name',
-                  name: 'care_plan_contact[name]',
+                  id: 'moment_template_name',
+                  name: 'moment_template[name]',
                   type: 'text',
                   label: I18n.t('common.name'),
                   dark: true,
                   required: true,
-                  value: contact && contact.name,
+                  value: template && template.name,
                 },
                 {
-                  id: 'care_plan_contact_phone',
-                  name: 'care_plan_contact[phone]',
-                  type: 'tel',
-                  label: I18n.t('care_plan.index.phone_number'),
+                  id: 'moment_template_description',
+                  name: 'moment_template[description]',
+                  type: 'textarea',
+                  label: I18n.t('common.form.description'),
                   dark: true,
-                  value: contact && contact.phone,
+                  required: true,
+                  value: template && template.description,
                 },
                 {
                   dark: true,
@@ -97,10 +98,10 @@ export const CarePlanContactsForm = ({ contact }: Props) => {
           )}
         </>
       )}
-    </ContactsContext.Consumer>
+    </TemplatesContext.Consumer>
   );
 };
 
-export default ({ contact }: Props) => (
-  <CarePlanContactsForm contact={contact} />
+export default ({ template }: Props) => (
+  <MomentTemplatesForm template={template} />
 );

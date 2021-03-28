@@ -18,6 +18,7 @@ module.name_mapper='^components\(.*\)$' -> '<PROJECT_ROOT>/app/components\1'
 module.name_mapper='^utils\(.*\)$' -> '<PROJECT_ROOT>/app/utils\1'
 module.name_mapper='^mocks\(.*\)$' -> '<PROJECT_ROOT>/app/mocks\1'
 module.name_mapper='^widgets\(.*\)$' -> '<PROJECT_ROOT>/app/widgets\1'
+module.name_mapper='^pages\(.*\)$' -> '<PROJECT_ROOT>/app/pages\1'
 
 module.name_mapper='.*\.\(bmp\|gif\|jpg\|jpeg\|png\|psd\|svg\|webp\|m4v\|mov\|mp4\|mpeg\|mpg\|webm\|aac\|aiff\|caf\|m4a\|mp3\|wav\|html\|pdf\)' -> '<PROJECT_ROOT>/flow/media.js'
 module.name_mapper='.*\.\(css\|sass\|scss\)' -> '<PROJECT_ROOT>/flow/stylesheets.js'

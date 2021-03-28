@@ -13,8 +13,8 @@
 
 FactoryBot.define do
   factory :moment_template do
-    name  { 'Test Moment Template' }
-    description { 'Test Moment Template' }
+    name  { 'Test Moment Template Name' }
+    description { 'Test Moment Template Description' }
 
     trait :with_user do
       user { create(:user1) }
