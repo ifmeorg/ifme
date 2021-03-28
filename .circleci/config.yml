@@ -83,7 +83,7 @@ jobs:
           name: Run YAML linter
           command: |
             set -e
-            curl https://bootstrap.pypa.io/2.7/get-pip.py -o get-pip.py
+            curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py
             python get-pip.py --user
             python -m pip install --user yamllint
             cd config && yamllint locales/
