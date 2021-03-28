@@ -14,13 +14,13 @@ type Props = {
 };
 
 export const CarePlanContacts = ({ contacts: contactsProp }: Props) => {
-  const [editableContact, setEditableContact] = useState();
+  const [editableContact, setEditableTemplate] = useState();
   const [modalKey, setModalKey] = useState();
-  const [contacts, setContacts] = useState(contactsProp || []);
+  const [contacts, setTemplates] = useState(contactsProp || []);
   const [openModal, setOpenModal] = useState(false);
 
   const editContact = (contact) => {
-    setEditableContact(contact);
+    setEditableTemplate(contact);
     setOpenModal(true);
     setModalKey(Utils.randomString());
   };
@@ -29,8 +29,8 @@ export const CarePlanContacts = ({ contacts: contactsProp }: Props) => {
     <ContactsContext.Provider
       value={{
         contacts,
-        setContacts,
-        setEditableContact,
+        setTemplates,
+        setEditableTemplate,
         setOpenModal,
         setModalKey,
       }}

@@ -31,6 +31,10 @@
       &Right {
         margin-left: auto;
         padding-left: $size-20;
+
+        button {
+          font-weight: bold;
+        }
       }
 
       @media screen and (max-width: $small) {

@@ -42,6 +42,7 @@ const config = {
       utils: resolve(__dirname, 'app/utils'),
       mocks: resolve(__dirname, 'app/mocks'),
       widgets: resolve(__dirname, 'app/widgets'),
+      pages: resolve(__dirname, 'app/pages'),
     },
     extensions: ['.js', '.jsx', '.scss'],
   },

@@ -81,6 +81,12 @@ Rails.application.routes.draw do
   match 'care_plan_contacts/update', to: 'care_plan_contacts#update', via: :patch
   match 'care_plan_contacts/destroy', to: 'care_plan_contacts#destroy', via: :delete
 
+  match 'moment_templates', to: 'moment_templates#index', via: :get
+
+  match 'moment_templates/create', to: 'moment_templates#create', via: :post
+  match 'moment_templates/update', to: 'moment_templates#update', via: :patch
+  match 'moment_templates/destroy', to: 'moment_templates#destroy', via: :delete
+
   resources :profile, only: :index do
     collection do
       post 'add_ban'
