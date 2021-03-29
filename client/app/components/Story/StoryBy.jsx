@@ -14,9 +14,7 @@ export const StoryBy = (props: Props) => {
   return (
     <div className={css.storyBy}>
       <Avatar src={avatar} small />
-      <div className={css.storyByAuthor}>
-        {Utils.renderContent(author)}
-      </div>
+      <div className={css.storyByAuthor}>{Utils.renderContent(author)}</div>
     </div>
   );
 };

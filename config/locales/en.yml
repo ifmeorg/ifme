@@ -1011,3 +1011,7 @@ en:
       new_template: New Template
       edit_template: Edit Template
       instructions: You haven't created any templates yet.<br>You can also add the following premade templates and customize them another time.
+      premade1_name: Basic
+      premade1_description: What happened and how do you feel?<br>What thoughts would you like to have?
+      premade2_name: Gratitude
+      premade2_description: What is one thing you appreciate about yourself?<br>What are you looking forward to today?

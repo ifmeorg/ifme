@@ -131,7 +131,6 @@ export const Input = ({
         name={name}
         required={required}
         hasError={(errorPresent: boolean) => hasError(errorPresent)}
-        myRef={myRef}
         dark={dark}
         options={options}
       />

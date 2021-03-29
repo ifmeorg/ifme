@@ -15,7 +15,7 @@ export const PageTitle = ({
   title, subtitle, cta, instructions,
 }: Props) => {
   useEffect(() => {
-    window.document.title = `${I18n.t('app_name')} | ${title}`;
+    window.document.title = `${I18n.t('app_name')} - ${title}`;
   });
 
   return (
