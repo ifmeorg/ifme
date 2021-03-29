@@ -1,5 +1,6 @@
 // @flow
 import axios from 'axios';
+import renderHTML from 'react-render-html';
 
 const randomString = () => Math.random().toString(36).substring(2, 15)
   + Math.random().toString(36).substring(2, 15);
@@ -27,8 +28,16 @@ const getPusher = () => {
   return null;
 };
 
+const renderContent = (content: string | any) => {
+  if (typeof content === 'string') {
+    return renderHTML(content);
+  }
+  return content;
+};
+
 export const Utils = {
   randomString,
   setCsrfToken,
   getPusher,
+  renderContent,
 };

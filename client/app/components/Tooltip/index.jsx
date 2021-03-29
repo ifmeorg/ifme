@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import renderHTML from 'react-render-html';
 import { Utils } from 'utils';
 import css from './Tooltip.scss';
 
@@ -27,7 +26,7 @@ export const Tooltip = (props: Props) => {
   return (
     <div className={`tooltip ${css.tooltip}`}>
       <div className="tooltipElement" aria-labelledby={tooltipId}>
-        {typeof element === 'string' ? renderHTML(element) : element}
+        {Utils.renderContent(element)}
       </div>
       <div
         id={tooltipId}

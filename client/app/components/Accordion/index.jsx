@@ -1,6 +1,6 @@
 // @flow
 import React, { useState } from 'react';
-import renderHTML from 'react-render-html';
+import { Utils } from 'utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
 import globalCss from 'styles/_global.scss';
@@ -34,7 +34,7 @@ export const Accordion = ({
       className={`${open ? 'accordionContent' : css.accordionClose}`}
       role="region"
     >
-      {typeof children === 'string' ? renderHTML(children) : children}
+      {Utils.renderContent(children)}
     </div>
   );
 
@@ -55,7 +55,7 @@ export const Accordion = ({
         aria-expanded={open}
       >
         <div className={css.accordionTitle}>
-          {typeof title === 'string' ? renderHTML(title) : title}
+          {Utils.renderContent(title)}
         </div>
         <div className={css.accordionCaret}>
           <FontAwesomeIcon icon={open ? faCaretUp : faCaretDown} />

@@ -43,6 +43,16 @@ const inputTextareaProps = {
   info: 'Some Textarea Info',
 };
 
+const inputTextareaTemplateProps = {
+  id: 'some-textarea-template-id',
+  type: 'textareaTemplate',
+  name: 'some-textarea-template-name',
+  label: 'Some Textarea Template Label',
+  placeholder: 'Some Textarea Template Placeholder',
+  info: 'Some Textarea Template Info',
+  options,
+};
+
 const inputSelectProps = {
   id: 'some-select-id',
   type: 'select',
@@ -124,6 +134,7 @@ const createInput = (props: Props, extraProps: any) => {
 export const InputMocks = {
   inputTextProps,
   inputTextareaProps,
+  inputTextareaTemplateProps,
   inputSelectProps,
   inputRadioProps,
   inputCheckboxProps,

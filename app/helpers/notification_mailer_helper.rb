@@ -1,6 +1,4 @@
 # frozen_string_literal: true
-
-# rubocop:disable Metrics/ModuleLength
 module NotificationMailerHelper
   def comment_on_moment_subject(data)
     I18n.t(
@@ -161,4 +159,3 @@ module NotificationMailerHelper
     link_to(I18n.t('click_here'), path)
   end
 end
-# rubocop:enable Metrics/ModuleLength

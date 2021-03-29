@@ -20,14 +20,18 @@
 
 <% if @moment.why.present? %>
   <div class="smallMarginTop">
-    <div class="label"><%= label_tag t('moments.form.why') %></div>
+    <% if @moment.fix.present? %>
+      <div class="label">
+        <%= label_tag t('moments.form.why_legacy') %>
+      </div>
+    <% end %>
     <%= sanitize(@moment.why) %>
   </div>
 <% end %>
 
 <% if @moment.fix.present? %>
   <div class="smallMarginTop">
-    <div class="label"><%= label_tag t('moments.form.fix') %></div>
+    <div class="label"><%= label_tag t('moments.form.fix_legacy') %></div>
     <%= sanitize(@moment.fix) %>
   </div>
 <% end %>

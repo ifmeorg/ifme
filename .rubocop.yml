@@ -66,5 +66,7 @@ Style/HashTransformValues:
   Enabled: true
 
 Metrics/MethodLength:
-  Enabled: true
-  Max: 25
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false

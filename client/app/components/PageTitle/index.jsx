@@ -1,5 +1,6 @@
 // @flow
 import React, { useEffect } from 'react';
+import { Utils } from 'utils';
 import { I18n } from 'libs/i18n';
 import globalCSS from 'styles/_global.scss';
 
@@ -24,7 +25,7 @@ export const PageTitle = ({
         {cta && <div className={globalCSS.pageTitleRight}>{cta}</div>}
       </div>
       <div className={globalCSS.subtitle}>{subtitle}</div>
-      {instructions}
+      {Utils.renderContent(instructions)}
     </>
   );
 };

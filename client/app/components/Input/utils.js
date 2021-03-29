@@ -15,6 +15,7 @@ export const TYPES: string[] = REQUIRES_DEFAULT.concat([
   'switch',
   'password',
   'location',
+  'textareaTemplate',
 ]);
 
 export const REQUIRES_LABEL: string[] = DEFAULT_WITH_LABEL.concat([
@@ -26,6 +27,7 @@ export const REQUIRES_LABEL: string[] = DEFAULT_WITH_LABEL.concat([
   'switch',
   'password',
   'location',
+  'textareaTemplate',
 ]);
 
 export const REQUIRED_POSSIBLE: string[] = DEFAULT_WITH_LABEL.concat([
@@ -34,6 +36,7 @@ export const REQUIRED_POSSIBLE: string[] = DEFAULT_WITH_LABEL.concat([
   'checkboxGroup',
   'password',
   'location',
+  'textareaTemplate',
 ]);
 
 export type Option = {
@@ -73,7 +76,8 @@ export type Props = {
     | 'email'
     | 'search'
     | 'quickCreate'
-    | 'tel',
+    | 'tel'
+    | 'textareaTemplate',
   name: string,
   label?: string,
   placeholder?: string,

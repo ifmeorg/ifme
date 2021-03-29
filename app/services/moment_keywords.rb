@@ -12,7 +12,7 @@ class MomentKeywords
     collect_keywords(@moment.strategies)
     @moment_keywords.push(extract(@moment.name),
                           extract(@moment.why),
-                          extract(@moment.fix))
+                          extract(@moment.fix || []))
     remove_special_chars
     downcase_keywords
     @moment_keywords = @moment_keywords.join(' ')

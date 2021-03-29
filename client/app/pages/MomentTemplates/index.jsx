@@ -1,12 +1,13 @@
 // @flow
 import React, { useState } from 'react';
 import { I18n } from 'libs/i18n';
-import { Story } from 'components/Story';
 import { PageTitle } from 'components/PageTitle';
 import Modal from 'components/Modal';
+import { Accordion } from 'components/Accordion';
 import { Utils } from 'utils';
 import MomentTemplatesForm from 'pages/MomentTemplates/MomentTemplatesForm';
 import type { Template } from 'pages/MomentTemplates/MomentTemplatesForm';
+import MomentTemplate from 'pages/MomentTemplates/MomentTemplate';
 import TemplatesContext from './MomentTemplatesContext';
 import css from './MomentTemplates.scss';
 
@@ -58,31 +59,14 @@ export const MomentTemplates = ({ templates: templatesProp }: Props) => {
           />
         )}
         instructions={
-          templates && I18n.t('moment_templates.index.instructions')
+          templates.length === 0 && I18n.t('moment_templates.index.instructions')
         }
       />
-      {templates && (
+      {templates.length > 0 && (
         <div className="gridTwo marginTop">
-          {templates.map((template) => {
-            const { name, id } = template;
+          {templates.map(({ name, id, description }) => {
             return (
-              <div className="gridTwoItemBoxLight" key={id}>
-                <Story
-                  name={name}
-                  actions={{
-                    delete: {
-                      name: I18n.t('common.actions.delete'),
-                      link: `/moment_templates/destroy?id=${id}`,
-                      dataConfirm: I18n.t('common.actions.confirm'),
-                      dataMethod: 'delete',
-                    },
-                    edit: {
-                      name: I18n.t('common.actions.edit'),
-                      onClick: () => editTemplate(template),
-                    },
-                  }}
-                />
-              </div>
+              <MomentTemplate key={id.toString()} id={id.toString()} name={name} description={description} editTemplate={editTemplate} />
             );
           })}
         </div>

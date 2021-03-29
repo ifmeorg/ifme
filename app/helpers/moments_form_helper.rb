@@ -17,8 +17,7 @@ module MomentsFormHelper
 
   def moment_input_props(field, type, label, group = false)
     { id: "moment_#{field}", type: type,
-      name: "moment[#{field}]#{group ? '[]' : ''}",
-      label: t(label) }
+      name: "moment[#{field}]#{group ? '[]' : ''}", label: t(label) }
   end
 
   def moment_text_input_props(field, type, label, required = false)
@@ -31,20 +30,27 @@ module MomentsFormHelper
   end
 
   def moment_why
-    moment_text_input_props('why', 'textarea', 'moments.form.why', true)
+    moment_text_input_props(
+      'why', 'textareaTemplate',
+      "moments.form.#{@moment.fix.present? ? 'why_legacy' : 'why'}", true
+    ).merge(options: options_for_templates(current_user.moment_templates))
   end
 
   def moment_fix
-    moment_text_input_props('fix', 'textarea', 'moments.form.fix')
+    if @moment.fix.present?
+      return moment_text_input_props(
+        'fix', 'textarea', 'moments.form.fix_legacy'
+      )
+    end
+    {}
   end
 
   def quick_create_props(model_relation, form_props)
     model_name = model_relation.name.downcase
     moment_input_props(
       model_name, 'quickCreate', "#{model_name.pluralize}.plural", true
-    )
-      .merge(placeholder: t('common.form.search_by_keywords'),
-             checkboxes: checkboxes_for(model_relation), formProps: form_props)
+    ).merge(placeholder: t('common.form.search_by_keywords'),
+            checkboxes: checkboxes_for(model_relation), formProps: form_props)
   end
 
   def moment_category
@@ -74,11 +80,10 @@ module MomentsFormHelper
   def moment_bookmarked
     moment_input_props(
       'bookmarked', 'switch', 'moments.form.bookmarked_question'
+    ).merge(
+      value: true, uncheckedValue: false,
+      checked: @moment.bookmarked, dark: true
     )
-      .merge(
-        value: true, uncheckedValue: false,
-        checked: @moment.bookmarked, dark: true
-      )
   end
 
   def moment_display_resources
@@ -93,8 +98,7 @@ module MomentsFormHelper
       moment_name, moment_why, moment_fix, moment_category, moment_mood,
       moment_strategy, get_viewers_input(
         @viewers, 'moment', 'moments', @moment
-      ),
-      moment_comment, moment_publishing,
+      ), moment_comment, moment_publishing,
       Rails.env.development? ? moment_bookmarked : {}, moment_display_resources
     ]
   end
@@ -102,8 +106,7 @@ module MomentsFormHelper
   def checkboxes_for(data)
     checkboxes = []
     data.each do |item|
-      checkboxes.push(id: item.slug, label: item.name,
-                      value: item.id,
+      checkboxes.push(id: item.slug, label: item.name, value: item.id,
                       checked: data_for(item)&.include?(item.id))
     end
     checkboxes
@@ -118,5 +121,13 @@ module MomentsFormHelper
     when 'Strategy'
       @moment.strategies.pluck(:id)
     end
+  end
+
+  def options_for_templates(data)
+    options = []
+    data.each do |item|
+      options.push(id: item.slug, label: item.name, value: item.description)
+    end
+    options
   end
 end
