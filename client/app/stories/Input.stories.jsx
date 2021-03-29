@@ -128,6 +128,60 @@ TextareaWithAccordion.story = {
   name: 'Textarea with accordion',
 };
 
+export const TextareaTemplate = () => (
+  <>
+    {InputMocks.createInput(InputMocks.inputTextareaTemplateProps, {
+      required: true,
+    })}
+    {InputMocks.createInput(InputMocks.inputTextareaTemplateProps, {
+      required: true,
+      large: true,
+    })}
+    {InputMocks.createInput(InputMocks.inputTextareaTemplateProps, {
+      required: true,
+      dark: true,
+    })}
+    {InputMocks.createInput(InputMocks.inputTextareaTemplateProps, {
+      required: true,
+      dark: true,
+      large: true,
+    })}
+  </>
+);
+
+TextareaTemplate.story = {
+  name: 'TextareaTemplate',
+};
+
+export const TextareaTemplateWithAccordion = () => (
+  <>
+    {InputMocks.createInput(InputMocks.inputTextareaTemplateProps, {
+      required: true,
+      accordion: true,
+    })}
+    {InputMocks.createInput(InputMocks.inputTextareaTemplateProps, {
+      required: true,
+      large: true,
+      accordion: true,
+    })}
+    {InputMocks.createInput(InputMocks.inputTextareaTemplateProps, {
+      required: true,
+      dark: true,
+      accordion: true,
+    })}
+    {InputMocks.createInput(InputMocks.inputTextareaTemplateProps, {
+      required: true,
+      dark: true,
+      large: true,
+      accordion: true,
+    })}
+  </>
+);
+
+TextareaTemplateWithAccordion.story = {
+  name: 'TextareaTemplate with accordion',
+};
+
 export const Submit = () => (
   <>
     {InputMocks.createInput(InputMocks.inputSubmitProps, {

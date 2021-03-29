@@ -1,6 +1,7 @@
 // @flow
 import React, { useState } from 'react';
 import { InputTextarea } from 'components/Input/InputTextarea';
+import { InputTextareaTemplate } from 'components/Input/InputTextareaTemplate';
 import { InputLabel } from 'components/Input/InputLabel';
 import { InputError } from 'components/Input/InputError';
 import { InputSubmit } from 'components/Input/InputSubmit';
@@ -117,6 +118,22 @@ export const Input = ({
         hasError={(errorPresent: boolean) => hasError(errorPresent)}
         myRef={myRef}
         dark={dark}
+      />
+    );
+  };
+
+  const displayTextareaTemplate = () => {
+    if (type !== 'textareaTemplate') return null;
+    return (
+      <InputTextareaTemplate
+        value={value}
+        id={id}
+        name={name}
+        required={required}
+        hasError={(errorPresent: boolean) => hasError(errorPresent)}
+        myRef={myRef}
+        dark={dark}
+        options={options}
       />
     );
   };
@@ -277,6 +294,7 @@ export const Input = ({
       {displaySelect()}
       {displayRadio()}
       {displayTextarea()}
+      {displayTextareaTemplate()}
       {displayTag()}
       {displaySwitch()}
       {displayLocation()}

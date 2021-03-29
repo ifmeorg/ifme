@@ -1,6 +1,6 @@
 // @flow
-import React from 'react';
-import renderHTML from 'react-render-html';
+import React, { type Element } from 'react';
+import { Utils } from 'utils';
 import { StoryName } from 'components/Story/StoryName';
 import { StoryDate } from 'components/Story/StoryDate';
 import { StoryDraft } from 'components/Story/StoryDraft';
@@ -26,8 +26,9 @@ export type Props = {
   moods?: Mood[],
   storyBy?: StoryByProps,
   storyType?: string,
-  body?: string,
+  body?: string | Element<any> | any,
   medicationBody?: Medication,
+  onClick?: Function,
 };
 
 const renderHeader = (
@@ -36,12 +37,13 @@ const renderHeader = (
   draft: ?string,
   name: string,
   link: ?string,
+  onClick: ?Function,
 ) => (
   <div className={css.header}>
     <div className={css.gridRowSpaceBetween}>
       <div className={css.headerTitle}>
         {draft && <StoryDraft draft={draft} />}
-        <StoryName name={name} link={link} />
+        <StoryName name={name} link={link} onClick={onClick} />
       </div>
       {condensed && actions && <StoryActions actions={actions} hasStory />}
     </div>
@@ -111,13 +113,14 @@ export const Story = ({
   link,
   body,
   medicationBody,
+  onClick,
 }: Props) => {
   const condensed = !storyBy && !storyType;
   return (
     <div className={`story ${css.story}`}>
-      {renderHeader(condensed, actions, draft, name, link)}
+      {renderHeader(condensed, actions, draft, name, link, onClick)}
       {date && <StoryDate date={date} />}
-      {body && <div className={css.body}>{renderHTML(body)}</div>}
+      {body && <div className={css.body}>{Utils.renderContent(body)}</div>}
       {medicationBody && renderMedicationBody(medicationBody)}
       {renderFooter(categories, moods, storyBy, storyType, actions)}
     </div>

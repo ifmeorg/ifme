@@ -1,9 +1,9 @@
 // @flow
 import React, { useState, type Element } from 'react';
-import renderHTML from 'react-render-html';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { I18n } from 'libs/i18n';
+import { Utils } from 'utils';
 import { Avatar } from 'components/Avatar';
 import css from './Modal.scss';
 
@@ -45,13 +45,6 @@ export const Modal = (props: Props) => {
   const [open, setOpen] = useState(!!openProps);
   const [modalHasFocus, setModalHasFocus] = useState(true);
 
-  const displayContent = (content: string | any) => {
-    if (typeof content === 'string') {
-      return renderHTML(content);
-    }
-    return content;
-  };
-
   const toggleOpen = () => {
     const documentBody = ((document.body: any): HTMLBodyElement);
     if (!open) {
@@ -91,7 +84,7 @@ export const Modal = (props: Props) => {
 
   const displayModalBody = () => (
     <div id="modalDesc" className={css.modalBoxBody}>
-      {displayContent(body)}
+      {Utils.renderContent(body)}
     </div>
   );
 
@@ -156,7 +149,7 @@ export const Modal = (props: Props) => {
           role="button"
           tabIndex={0}
         >
-          {renderComponent || displayContent(element)}
+          {renderComponent || Utils.renderContent(element)}
         </div>
       );
     }
