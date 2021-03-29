@@ -1,9 +1,9 @@
 // @flow
 import React, { useState } from 'react';
+import axios from 'axios';
 import { I18n } from 'libs/i18n';
 import { PageTitle } from 'components/PageTitle';
 import Modal from 'components/Modal';
-import { Accordion } from 'components/Accordion';
 import { Utils } from 'utils';
 import MomentTemplatesForm from 'pages/MomentTemplates/MomentTemplatesForm';
 import type { Template } from 'pages/MomentTemplates/MomentTemplatesForm';
@@ -25,6 +25,34 @@ export const MomentTemplates = ({ templates: templatesProp }: Props) => {
     setEditableTemplate(template);
     setOpenModal(true);
     setModalKey(Utils.randomString());
+  };
+
+  const addPremadeTemplates = () => {
+    const premadeOne = axios
+      .post('/moment_templates/create', {
+        moment_template: {
+          name: I18n.t('moment_templates.index.premade1_name'),
+          description: I18n.t('moment_templates.index.premade1_description'),
+        },
+      })
+      .then((response: Object) => response);
+
+    const premadeTwo = axios
+      .post('/moment_templates/create', {
+        moment_template: {
+          name: I18n.t('moment_templates.index.premade2_name'),
+          description: I18n.t('moment_templates.index.premade2_description'),
+        },
+      })
+      .then((response: Object) => response);
+
+    Promise.all([premadeOne, premadeTwo]).then((values) => {
+      const newTemplates = [];
+      values.forEach((value) => {
+        newTemplates.push(value.data);
+      });
+      setTemplates(newTemplates.sort((a, b) => a.name.localeCompare(b.name)));
+    });
   };
 
   return (
@@ -59,14 +87,31 @@ export const MomentTemplates = ({ templates: templatesProp }: Props) => {
           />
         )}
         instructions={
-          templates.length === 0 && I18n.t('moment_templates.index.instructions')
+          templates.length === 0
+          && I18n.t('moment_templates.index.instructions')
         }
       />
+      {templates.length === 0 && (
+        <div className={css.smallMarginTop}>
+          <button
+            type="button"
+            className={css.buttonDarkS}
+            onClick={addPremadeTemplates}
+          >
+            {I18n.t('common.actions.add_all')}
+          </button>
+        </div>
+      )}
       {templates.length > 0 && (
         <div className="gridTwo marginTop">
-          {templates.map(({ name, id, description }) => {
+          {templates.map((template) => {
+            const { id } = template;
             return (
-              <MomentTemplate key={id.toString()} id={id.toString()} name={name} description={description} editTemplate={editTemplate} />
+              <MomentTemplate
+                key={id}
+                template={template}
+                editTemplate={editTemplate}
+              />
             );
           })}
         </div>

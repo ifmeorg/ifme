@@ -15,10 +15,13 @@ export const StoryName = ({ name, link, onClick }: Props) => {
         {name}
       </a>
     );
-  } else if (onClick) {
-    return (<button type="button" className={css.name} onClick={onClick}>
-      {name}
-    </button>);
+  }
+  if (onClick) {
+    return (
+      <button type="button" className={css.name} onClick={onClick}>
+        {name}
+      </button>
+    );
   }
   return <span className={css.name}>{name}</span>;
 };

@@ -54,9 +54,7 @@ export const Accordion = ({
         tabIndex="0"
         aria-expanded={open}
       >
-        <div className={css.accordionTitle}>
-          {Utils.renderContent(title)}
-        </div>
+        <div className={css.accordionTitle}>{Utils.renderContent(title)}</div>
         <div className={css.accordionCaret}>
           <FontAwesomeIcon icon={open ? faCaretUp : faCaretDown} />
         </div>
