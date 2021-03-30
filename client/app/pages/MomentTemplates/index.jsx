@@ -21,6 +21,17 @@ export const MomentTemplates = ({ templates: templatesProp }: Props) => {
   const [templates, setTemplates] = useState(templatesProp || []);
   const [openModal, setOpenModal] = useState(false);
 
+  const premadeTemplates = [
+    {
+      name: I18n.t('moment_templates.index.premade1_name'),
+      description: I18n.t('moment_templates.index.premade1_description'),
+    },
+    {
+      name: I18n.t('moment_templates.index.premade2_name'),
+      description: I18n.t('moment_templates.index.premade2_description'),
+    },
+  ];
+
   const editTemplate = (template) => {
     setEditableTemplate(template);
     setOpenModal(true);
@@ -30,19 +41,13 @@ export const MomentTemplates = ({ templates: templatesProp }: Props) => {
   const addPremadeTemplates = () => {
     const premadeOne = axios
       .post('/moment_templates/create', {
-        moment_template: {
-          name: I18n.t('moment_templates.index.premade1_name'),
-          description: I18n.t('moment_templates.index.premade1_description'),
-        },
+        moment_template: premadeTemplates[0],
       })
       .then((response: Object) => response);
 
     const premadeTwo = axios
       .post('/moment_templates/create', {
-        moment_template: {
-          name: I18n.t('moment_templates.index.premade2_name'),
-          description: I18n.t('moment_templates.index.premade2_description'),
-        },
+        moment_template: premadeTemplates[1],
       })
       .then((response: Object) => response);
 
@@ -92,15 +97,27 @@ export const MomentTemplates = ({ templates: templatesProp }: Props) => {
         }
       />
       {templates.length === 0 && (
-        <div className={css.smallMarginTop}>
-          <button
-            type="button"
-            className={css.buttonDarkS}
-            onClick={addPremadeTemplates}
-          >
-            {I18n.t('common.actions.add_all')}
-          </button>
-        </div>
+        <>
+          <div className={css.smallMarginTop}>
+            <button
+              type="button"
+              className={css.buttonDarkS}
+              onClick={addPremadeTemplates}
+            >
+              {I18n.t('common.actions.add_all')}
+            </button>
+          </div>
+          <div className="gridTwo marginTop">
+            {premadeTemplates.map((template, index) => {
+              return (
+                <MomentTemplate
+                  key={index}
+                  template={template}
+                />
+              );
+            })}
+          </div>
+        </>
       )}
       {templates.length > 0 && (
         <div className="gridTwo marginTop">
