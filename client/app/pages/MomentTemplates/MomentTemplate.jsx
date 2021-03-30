@@ -6,9 +6,14 @@ import Modal from 'components/Modal';
 import { Story } from 'components/Story';
 import type { Template } from 'pages/MomentTemplates/MomentTemplatesForm';
 
+type PremadeTemplate = {
+  name: string,
+  description: string,
+};
+
 type Props = {
-  template: Template,
-  editTemplate: Function,
+  template: Template | PremadeTemplate,
+  editTemplate?: Function,
 };
 
 export const MomentTemplate = ({ template, editTemplate }: Props) => {
@@ -25,7 +30,7 @@ export const MomentTemplate = ({ template, editTemplate }: Props) => {
           setOpen(true);
           setModalKey(Utils.randomString());
         }}
-        actions={{
+        actions={editTemplate && id ? {
           delete: {
             name: I18n.t('common.actions.delete'),
             link: `/moment_templates/destroy?id=${id}`,
@@ -36,7 +41,7 @@ export const MomentTemplate = ({ template, editTemplate }: Props) => {
             name: I18n.t('common.actions.edit'),
             onClick: () => editTemplate(template),
           },
-        }}
+        } : null}
       />
     </div>
   );
