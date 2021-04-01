@@ -48,7 +48,6 @@
     "react-autosuggest": "^10.0.0",
     "react-chartkick": "^0.4.0",
     "react-dom": "^16.13.1",
-    "react-html-parser": "^2.0.2",
     "react-lazyload": "^3.0.0",
     "react-on-rails": "12.0.1",
     "react-render-html": "^0.6.0"
