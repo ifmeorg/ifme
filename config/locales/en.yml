@@ -759,6 +759,12 @@ en:
         quiz: quiz
         attachment: attachment
         eating_disorders: eating disorders
+        asian: asian
+        pacific_islander: pacific islander
+        south_asian: south asian
+        southeast_asian: southeast asian
+        east_asian: east asian
+        al_anon: al-anon
   profile:
     index:
       title: Profile

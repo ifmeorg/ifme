@@ -789,6 +789,12 @@ it:
         quiz: quiz
         attachment: attaccamento
         eating_disorders: problemi alimentari
+        asian: asiatico
+        pacific_islander: Abitante delle isole del Pacifico
+        south_asian: Sud asiatico
+        southeast_asian: Sud est asiatico
+        east_asian: est asiatico
+        al_anon: al-anon
   profile:
     index:
       title: Profilo

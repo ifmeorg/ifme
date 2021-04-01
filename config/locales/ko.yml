@@ -683,6 +683,12 @@ ko:
         quiz: 퀴즈
         attachment: 애착
         eating_disorders: 섭식 장애
+        asian: 아시아 사람
+        pacific_islander: 태평양 섬 주민
+        south_asian: 남아시아
+        southeast_asian: 동남아시아
+        east_asian: 동아시아
+        al_anon: al-anon
   profile:
     index:
       title: 프로필
