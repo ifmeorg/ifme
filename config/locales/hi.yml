@@ -781,6 +781,12 @@ hi:
         quiz: प्रश्नोत्तरी
         attachment: आसक्ति
         eating_disorders: भोजन विकार
+        asian: एशियाई
+        pacific_islander: प्रशांत द्वीप
+        south_asian: दक्षिण एशियाई
+        southeast_asian: दक्षिणपूर्व एशियाई
+        east_asian: पूर्व एशियाई
+        al_anon: al-anon
   profile:
     index:
       title: प्रोफाइल

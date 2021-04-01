@@ -790,6 +790,12 @@ vi:
         quiz: đố
         attachment: tập tin đính kèm
         eating_disorders: rối loạn ăn uống
+        asian: Châu Á
+        pacific_islander: Thái Bình Dương
+        south_asian: phía nam Châu Á
+        southeast_asian: đông nam á
+        east_asian: Đông Á
+        al_anon: al-anon
   profile:
     index:
       title: Hồ sơ

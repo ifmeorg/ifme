@@ -773,6 +773,12 @@ sv:
         quiz: frågesport
         attachment: anknytning
         eating_disorders: ätstörningar
+        asian: asiatisk
+        pacific_islander: Stilla öbor
+        south_asian: sydasiatiska
+        southeast_asian: sydöst asiat
+        east_asian: Öst asiat
+        al_anon: al-anon
   profile:
     index:
       title: Profil

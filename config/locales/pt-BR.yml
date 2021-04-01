@@ -816,6 +816,12 @@ pt-BR:
         quiz: questionário
         attachment: anexo
         eating_disorders: distúrbios alimentares
+        asian: asiática
+        pacific_islander: ilhéu do pacífico
+        south_asian: sul asiático
+        southeast_asian: Sudeste asiático
+        east_asian: leste Asiático
+        al_anon: al-anon
   profile:
     index:
       title: Perfil

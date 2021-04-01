@@ -804,6 +804,12 @@ nl:
         quiz: quiz
         attachment: hechting
         eating_disorders: eet stoornissen
+        asian: aziatisch
+        pacific_islander: eilandbewoner van de Stille Oceaan
+        south_asian: zuid-aziaat
+        southeast_asian: Zuidoost-Aziatisch
+        east_asian: Oost-Aziatisch
+        al_anon: al-anon
   profile:
     index:
       title: Profiel

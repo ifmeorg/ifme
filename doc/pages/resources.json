@@ -174,10 +174,10 @@
     "languages": ["en", "es"]
   },
   {
-    "name": "Alcoholics Anonymous (US and Canada)",
+    "name": "Alcoholics Anonymous",
     "link": "https://www.aa.org/",
     "tags": ["anonymous", "support_groups", "directory", "addiction", "alcoholism", "communities"],
-    "languages": ["en", "es"]
+    "languages": ["en", "es", "fr"]
   },
   {
     "name": "Open Sourcing Mental Illness (OSMI)",
@@ -530,7 +530,7 @@
   {
     "name": "National Queer & Trans Therapists of Color Network (US)",
     "link": "http://www.nqttcn.com",
-    "tags": ["lgbt", "people_of_colour", "therapy", "counseling", "directory"],
+    "tags": ["lgbt", "people_of_colour", "therapy", "counseling", "directory", "black_people", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian"],
     "languages": ["en"]
   },
   {
@@ -782,7 +782,7 @@
   {
     "name": "Ayana Therapy",
     "link": "https://www.ayanatherapy.com/",
-    "tags": ["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat", "android", "ios", "people_of_colour", "lgbt"],
+    "tags": ["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat", "android", "ios", "people_of_colour", "lgbt", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian"],
     "languages": ["en"]
   },
   {
@@ -916,5 +916,35 @@
     "link": "https://www.ethelsclub.com/",
     "tags": ["black_people", "latinx", "people_of_colour", "communities", "social_justice"],
     "languages": ["en"]
+  },
+  {
+    "name": "Asians Do Therapy",
+    "link": "https://asiansdotherapy.com/",
+    "tags": ["asian", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "communities", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "South Asian Therapists",
+    "link": "https://southasiantherapists.org/",
+    "tags": ["south_asian", "therapy", "counseling", "directory"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Asian Mental Health Collective (Canada, US)",
+    "link": "https://www.asianmhc.org/",
+    "tags": ["asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "therapy", "counseling", "directory", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "PROGRESH",
+    "link": "https://progresh.wixsite.com/",
+    "tags": ["people_of_colour", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "al_anon", "addiction", "alcoholism", "communities", "anonymous", "support_groups"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Al-Anon",
+    "link": "https://al-anon.org/",
+    "tags": ["al_anon", "anonymous", "support_groups", "directory", "addiction", "alcoholism", "communities"],
+    "languages": ["en", "es", "fr"]
   }
 ]

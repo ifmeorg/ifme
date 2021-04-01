@@ -771,6 +771,12 @@ nb:
         quiz: quiz
         attachment: feste
         eating_disorders: spiseforstyrrelser
+        asian: asiatisk
+        pacific_islander: stillehavsboer
+        south_asian: sør-asiatisk
+        southeast_asian: sørøstasiatisk
+        east_asian: østasiatiske
+        al_anon: al-anon
   profile:
     index:
       title: Profil

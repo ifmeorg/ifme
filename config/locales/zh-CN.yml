@@ -645,6 +645,12 @@ zh-CN:
         quiz: 测验
         attachment: 附件
         eating_disorders: 饮食失调
+        asian: 亞洲人
+        pacific_islander: 太平洋島民
+        south_asian: 南亞
+        southeast_asian: 東南亞人
+        east_asian: 東亞
+        al_anon: al-anon
   profile:
     index:
       title: 个人资料

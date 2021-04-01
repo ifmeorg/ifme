@@ -804,6 +804,12 @@ es:
         quiz: examen
         attachment: adjunto archivo
         eating_disorders: trastornos de la alimentación
+        asian: asiático
+        pacific_islander: isleño del pacífico
+        south_asian: asiático del sur
+        southeast_asian: sudeste Asiatico
+        east_asian: asiático del este
+        al_anon: al-anon
   profile:
     index:
       title: Perfil

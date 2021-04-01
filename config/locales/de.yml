@@ -862,6 +862,12 @@ de:
         quiz: quiz
         attachment: anhang
         eating_disorders: essstörungen
+        asian: asian
+        pacific_islander: pazifische Inselbewohner
+        south_asian: Süd asiatisch
+        southeast_asian: Südost asiatisch
+        east_asian: Ostasiate
+        al_anon: al-anon
   profile:
     index:
       title: Profil
