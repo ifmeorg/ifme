@@ -13,7 +13,7 @@ describe('PageTitle', () => {
     render(<PageTitle title={TITLE} subtitle={SUBTITLE} />);
     expect(screen.getByText(TITLE)).toBeInTheDocument();
     expect(screen.getByText(SUBTITLE)).toBeInTheDocument();
-    expect(window.document.title).toEqual(`if-me.org | ${TITLE}`);
+    expect(window.document.title).toEqual(`if-me.org - ${TITLE}`);
   });
 
   it('renders with title, subtitle, and cta', () => {
@@ -26,7 +26,7 @@ describe('PageTitle', () => {
     );
     expect(screen.getByText(TITLE)).toBeInTheDocument();
     expect(screen.getByText(SUBTITLE)).toBeInTheDocument();
-    expect(window.document.title).toEqual(`if-me.org | ${TITLE}`);
+    expect(window.document.title).toEqual(`if-me.org - ${TITLE}`);
     expect(screen.getByText(CTA_TEXT)).toBeInTheDocument();
   });
 
@@ -41,7 +41,7 @@ describe('PageTitle', () => {
     );
     expect(screen.getByText(TITLE)).toBeInTheDocument();
     expect(screen.getByText(SUBTITLE)).toBeInTheDocument();
-    expect(window.document.title).toEqual(`if-me.org | ${TITLE}`);
+    expect(window.document.title).toEqual(`if-me.org - ${TITLE}`);
     expect(screen.getByText(CTA_TEXT)).toBeInTheDocument();
     expect(screen.getByText(INSTRUCTIONS)).toBeInTheDocument();
   });
