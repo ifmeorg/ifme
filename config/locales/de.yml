@@ -342,8 +342,9 @@ de:
       cancel_secret_share: Geheimnis teilen abbrechen
       link_copied: Link zur geheimen Freigabe in die Zwischenablage kopiert
     form:
-      why: Was ist passiert und wie fühlst du dich?
-      fix: Woran würdest du gerne denken?
+      why: Schreibe darüber
+      why_legacy: Was ist passiert und wie fühlst du dich?
+      fix_legacy: Woran würdest du gerne denken?
       what_happened: Was ist passiert?
       viewers_hint: 'Helfer, die deinen Moment sehen können'
       draft_question: Möchtest du deinen Moment als Entwurf speichern?
@@ -1122,3 +1123,14 @@ de:
       edit_contact: Kontakt bearbeiten
       phone_number: Telefonnummer
       contacts_info: Lieben, mit denen Sie sprechen sollten
+  moment_templates:
+    index:
+      title: Momentvorlagen
+      subtitle: Schreiben von Vorlagen für Ihre Momente
+      new_template: Neue Vorlage
+      edit_template: Vorlage bearbeiten
+      instructions: Sie haben noch keine Vorlagen erstellt.<br>Sie können auch die folgenden vorgefertigten Vorlagen hinzufügen und ein anderes Mal anpassen.
+      premade1_name: Basic
+      premade1_description: Was ist passiert und wie fühlst du dich?<br>Welche Gedanken möchtest du haben?
+      premade2_name: Dankbarkeit
+      premade2_description: Was schätzen Sie an sich selbst?<br>Worauf freuen Sie sich heute?

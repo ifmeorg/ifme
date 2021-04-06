@@ -341,8 +341,9 @@ fr:
       cancel_secret_share: Annuler le partage de secret
       link_copied: Lien de partage secret copié dans le Presse-papiers
     form:
-      why: Qu''est-ce qui c'est passé et que ressentez-vous ?
-      fix: Quelles pensées voudriez-vous avoir ?
+      why: Écrire à ce sujet
+      why_legacy: Qu''est-ce qui c'est passé et que ressentez-vous ?
+      fix_legacy: Quelles pensées voudriez-vous avoir ?
       what_happened: Que c'est-il passé ?
       viewers_hint: Alliés qui peuvent visualiser ce moment
       draft_question: Voulez-vous conserver ce moment comme brouillon ?
@@ -1085,3 +1086,14 @@ fr:
       edit_contact: Modifier le contact
       phone_number: Numéro de téléphone
       contacts_info: Les êtres chers auxquels vous devriez parler
+  moment_templates:
+    index:
+      title: Modèles Moment
+      subtitle: Rédaction de modèles pour vos moments
+      new_template: Nouveau modèle
+      edit_template: Modifier le modèle
+      instructions: Vous n'avez pas encore créé de modèles.<br>Vous pouvez également ajouter les modèles prédéfinis suivants et les personnaliser une autre fois.
+      premade1_name: De base
+      premade1_description: Que s'est-il passé et comment vous sentez-vous?<br>Quelles pensées aimeriez-vous avoir?
+      premade2_name: Reconnaissance
+      premade2_description: Qu'est-ce que vous appréciez chez vous?<br>Qu'attendez-vous aujourd'hui?

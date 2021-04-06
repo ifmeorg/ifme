@@ -328,8 +328,9 @@ pt-BR:
       cancel_secret_share: Cancelar compartilhar segredo
       link_copied: Link de compartilhamento secreto copiado para a área de transferência
     form:
-      why: O que aconteceu e como você se sente?
-      fix: Quais pensamentos você gostaria de ter?
+      why: Escreva sobre isso
+      why_legacy: O que aconteceu e como você se sente?
+      fix_legacy: Quais pensamentos você gostaria de ter?
       what_happened: O que acontece?
       viewers_hint: 'Aliados que podem ver esse seu momento:'
       draft_question: Você quer salvar seu momento com um rascunho?
@@ -1079,3 +1080,14 @@ pt-BR:
       edit_contact: Editar Contato
       phone_number: Número de telefone
       contacts_info: Amados, você deve conversar
+  moment_templates:
+    index:
+      title: Modelos de Momento
+      subtitle: Escrevendo modelos para seus momentos
+      new_template: Novo modelo
+      edit_template: Editar modelo
+      instructions: Você ainda não criou nenhum modelo.<br>Você também pode adicionar os seguintes modelos predefinidos e personalizá-los em outra ocasião.
+      premade1_name: Básico
+      premade1_description: WO que aconteceu e como você se sente?<br>Que pensamentos você gostaria de ter?
+      premade2_name: Gratidão
+      premade2_description: O que você aprecia em você?<br>O que você espera hoje?

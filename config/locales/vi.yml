@@ -325,8 +325,9 @@ vi:
       cancel_secret_share: Hủy bỏ chia sẻ bí mật
       link_copied: Đã sao chép liên kết Chia sẻ bí mật vào khay nhớ tạm
     form:
-      why: Chuyện gì đã xảy ra và bạn cảm thấy thế nào?
-      fix: Bạn muốn suy nghĩ về chuyện này như thế nào??
+      why: Viết về nó
+      why_legacy: Chuyện gì đã xảy ra và bạn cảm thấy thế nào?
+      fix_legacy: Bạn muốn suy nghĩ về chuyện này như thế nào??
       what_happened: Điều gì đã xảy ra?
       viewers_hint: Những đồng minh có thể xem bình luận của bạn
       draft_question: Bạn có muốn lưu lại khoản khắc này như một bản nháp không?
@@ -1038,3 +1039,14 @@ vi:
       edit_contact: Chỉnh sửa liên hệ
       phone_number: Số điện thoại
       contacts_info: Những người thân yêu bạn nên nói chuyện với
+  moment_templates:
+    index:
+      title: Mẫu khoảnh khắc
+      subtitle: Viết mẫu cho những khoảnh khắc của bạn
+      new_template: Bản mẫu mới
+      edit_template: Chỉnh sửa Mẫu
+      instructions: Bạn chưa tạo bất kỳ mẫu nào.<br>Bạn cũng có thể thêm các mẫu tạo sẵn sau đây và tùy chỉnh chúng vào lúc khác.
+      premade1_name: Căn bản
+      premade1_description: Điều gì đã xảy ra và bạn cảm thấy thế nào?<br>Bạn muốn có những suy nghĩ gì?
+      premade2_name: Lòng biết ơn
+      premade2_description: Bạn đánh giá cao điều gì ở bản thân?<br>Bạn mong đợi điều gì ở ngày hôm nay?
