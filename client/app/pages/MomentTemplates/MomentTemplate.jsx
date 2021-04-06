@@ -7,6 +7,7 @@ import { Story } from 'components/Story';
 import type { Template } from 'pages/MomentTemplates/MomentTemplatesForm';
 
 type PremadeTemplate = {
+  id?: string,
   name: string,
   description: string,
 };
@@ -30,18 +31,22 @@ export const MomentTemplate = ({ template, editTemplate }: Props) => {
           setOpen(true);
           setModalKey(Utils.randomString());
         }}
-        actions={editTemplate && id ? {
-          delete: {
-            name: I18n.t('common.actions.delete'),
-            link: `/moment_templates/destroy?id=${id}`,
-            dataConfirm: I18n.t('common.actions.confirm'),
-            dataMethod: 'delete',
-          },
-          edit: {
-            name: I18n.t('common.actions.edit'),
-            onClick: () => editTemplate(template),
-          },
-        } : null}
+        actions={
+          editTemplate && id
+            ? {
+              delete: {
+                name: I18n.t('common.actions.delete'),
+                link: `/moment_templates/destroy?id=${id}`,
+                dataConfirm: I18n.t('common.actions.confirm'),
+                dataMethod: 'delete',
+              },
+              edit: {
+                name: I18n.t('common.actions.edit'),
+                onClick: () => editTemplate(template),
+              },
+            }
+            : undefined
+        }
       />
     </div>
   );

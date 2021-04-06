@@ -35,9 +35,7 @@ module MomentsFormHelper
       "moments.form.#{@moment.fix.present? ? 'why_legacy' : 'why'}", true
     )
 
-    if @moment.fix.present?
-      return props
-    end
+    return props if @moment.fix.present?
 
     props.merge(options: options_for_templates(current_user.moment_templates))
   end
