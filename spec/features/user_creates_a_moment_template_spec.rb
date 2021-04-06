@@ -21,7 +21,7 @@ RSpec.feature 'UserCreatesAMomentTemplate', type: :feature, js: true do
     expect(page).to have_content 'Template Name'
 
     within '.story' do
-      find('a[aria-label="Edit"]').click
+      click_button('Template Name')
     end
 
     expect(page).to have_content 'Some template description'

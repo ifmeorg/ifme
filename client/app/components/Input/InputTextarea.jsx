@@ -7,7 +7,7 @@ import { faLink } from '@fortawesome/free-solid-svg-icons';
 import css from './InputTextarea.scss';
 import inputCss from './Input.scss';
 
-// TODO (julianguyen): Tests after writing stubs for pell editor
+// TODO (julianguyen): More tests after writing stubs for Pell editor
 
 const handleResult = (type: string) => {
   switch (type) {
