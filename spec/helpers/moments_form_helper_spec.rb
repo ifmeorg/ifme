@@ -13,6 +13,9 @@ describe MomentsFormHelper do
     @categories = user.categories
     @moods = user.moods
     @strategies = user.strategies
+
+    params[:controller] = 'moments'
+    allow_to_receive(:current_user, user)
   end
 
   describe '#new_moment_props' do
@@ -22,10 +25,15 @@ describe MomentsFormHelper do
       @category = Category.new
       @mood = Mood.new
       @strategy = Strategy.new
+
+      allow(controller).to receive(:action_name).and_return('create')
+      allow(subject).to receive(:current_user).and_return(user)
     end
 
+    subject { new_moment_props }
+
     it 'returns correct props' do
-      expect(new_moment_props).to eq(
+      expect(subject).to eq(
         action: '/moments',
         inputs: [
           {
@@ -40,17 +48,10 @@ describe MomentsFormHelper do
           {
             dark: true,
             id: 'moment_why',
-            label: 'What happened and how do you feel?', name: 'moment[why]',
+            label: 'Write about it', name: 'moment[why]',
+            options: [],
             required: true,
-            type: 'textarea',
-            value: nil
-          },
-          {
-            dark: true,
-            id: 'moment_fix',
-            label: 'What thoughts would you like to have?', name: 'moment[fix]',
-            required: false,
-            type: 'textarea',
+            type: 'textareaTemplate',
             value: nil
           },
           {
@@ -265,10 +266,15 @@ describe MomentsFormHelper do
       @category = category
       @mood = mood
       @strategy = strategy
+
+      allow(controller).to receive(:action_name).and_return('edit')
+      allow(subject).to receive(:current_user).and_return(user)
     end
 
+    subject { edit_moment_props }
+
     it 'returns correct props' do
-      expect(edit_moment_props).to eq(
+      expect(subject).to eq(
         inputs: [
           {
             id: 'moment_name',
@@ -281,9 +287,10 @@ describe MomentsFormHelper do
           },
           {
             id: 'moment_why',
-            type: 'textarea',
+            type: 'textareaTemplate',
             name: 'moment[why]',
             label: 'What happened and how do you feel?',
+            options: [],
             value: 'Test Why',
             required: true,
             dark: true
@@ -530,5 +537,11 @@ describe MomentsFormHelper do
         action: '/moments/test-moment'
       )
     end
+  end
+
+  private
+
+  def allow_to_receive(method, result)
+    allow_any_instance_of(MomentsFormHelper).to receive(method).and_return(result)
   end
 end
