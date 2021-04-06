@@ -321,8 +321,9 @@ nl:
       cancel_secret_share: Geheim Delen annuleren
       link_copied: Geheime share-link gekopieerd naar klembord
     form:
-      why: Wat is er gebeurd en wat is je gevoel?
-      fix: Welke gedachten zou je willen hebben?
+      why: Schrijf erover
+      why_legacy: Wat is er gebeurd en wat is je gevoel?
+      fix_legacy: Welke gedachten zou je willen hebben?
       what_happened: Wat is er gebeurd?
       viewers_hint: Bondgenoten die je moment kunnen bekijken
       draft_question: Wil je je moment als concept opslaan?
@@ -1049,3 +1050,14 @@ nl:
       edit_contact: Bewerk contact
       phone_number: Telefoonnummer
       contacts_info: Amados, você deve coGeliefden met wie je moet pratennversar
+  moment_templates:
+    index:
+      title: Moment-sjablonen
+      subtitle: Sjablonen schrijven voor uw momenten
+      new_template: Nieuwe sjabloon
+      edit_template: Sjabloon bewerken
+      instructions: Je hebt nog geen sjablonen gemaakt.<br>Je kunt ook de volgende kant-en-klare sjablonen toevoegen en ze een andere keer aanpassen.
+      premade1_name: Basic
+      premade1_description: Wat is er gebeurd en hoe voel je je?<br>Welke gedachten zou je willen hebben?
+      premade2_name: Dankbaarheid
+      premade2_description: Wat waardeer je aan jezelf?<br>Waar kijk je vandaag naar uit?

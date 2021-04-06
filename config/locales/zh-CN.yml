@@ -299,8 +299,9 @@ zh-CN:
       cancel_secret_share: 取消秘密分享
       link_copied: 秘密共享链接已复制到剪贴板
     form:
-      why: 发生了什么，你感觉如何？
-      fix: 你有什么想法？
+      why: 寫一下
+      why_legacy: 发生了什么，你感觉如何？
+      fix_legacy: 你有什么想法？
       what_happened: 发生了什么？
       viewers_hint: 可以看到你日记的好友
       draft_question: 你想将自己的日记分享保存为草稿吗？
@@ -838,3 +839,14 @@ zh-CN:
       edit_contact: 更改联系资料
       phone_number: 电话号码
       contacts_info: 你应该和亲人谈谈
+  moment_templates:
+    index:
+      title: 時刻模板
+      subtitle: 隨時編寫模板
+      new_template: 新範本
+      edit_template: 編輯範本
+      instructions: 您尚未創建任何模板。<br>您還可以添加以下預製模板並再次對其進行自定義。
+      premade1_name: 基本的
+      premade1_description: 發生了什麼，您感覺如何？<br>您想擁有什麼想法？
+      premade2_name: 感激
+      premade2_description: 您欣賞自己的一件事是什麼？<br>您今天期待什麼？

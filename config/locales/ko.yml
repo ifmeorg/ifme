@@ -303,8 +303,9 @@ ko:
       cancel_secret_share: 비밀 공유 취소
       link_copied: 클립보드에 복사된 비밀 공유 링크
     form:
-      why: 어떤 일이 있었고 그 때의 기분은 어땠나요?
-      fix: 어떤 생각을 하고 싶으세요?
+      why: 그것에 대해 쓰기
+      why_legacy: 어떤 일이 있었고 그 때의 기분은 어땠나요?
+      fix_legacy: 어떤 생각을 하고 싶으세요?
       what_happened: 무슨 일이 있었나요?
       viewers_hint: 당신의 경험들을 볼 수 있는 공유자
       draft_question: 이대로 경험을 저장하시겠습니까?
@@ -887,3 +888,14 @@ ko:
       edit_contact: 연락처 편집
       phone_number: 전화 번호
       contacts_info: 당신이 이야기해야 할 사랑하는 사람들
+  moment_templates:
+    index:
+      title: 모멘트 템플릿
+      subtitle: 순간을위한 템플릿 작성
+      new_template: 새 템플릿
+      edit_template: 템플릿 편집
+      instructions: 아직 템플릿을 생성하지 않았습니다.<br>다음 미리 만들어진 템플릿을 추가하고 나중에 맞춤 설정할 수도 있습니다.
+      premade1_name: 기본
+      premade1_description: 무슨 일이 일어 났고 기분이 어때?<br>어떤 생각을하고 싶나요?
+      premade2_name: 감사
+      premade2_description: 자신에 대해 고마운 점 한 가지는 무엇입니까?<br>오늘 무엇을 기대하십니까?

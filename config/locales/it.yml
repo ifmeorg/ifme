@@ -324,8 +324,9 @@ it:
       cancel_secret_share: Annulla Condivisione Segreta
       link_copied: Link Condividi segreta copiato negli appunti
     form:
-      why: Cos’è successo e come ti senti?
-      fix: Che pensieri ti piacerebbe avere?
+      why: Scrivilo
+      why_legacy: Cos’è successo e come ti senti?
+      fix_legacy: Che pensieri ti piacerebbe avere?
       what_happened: Cos’è successo?
       viewers_hint: Alleati che possono vedere il tuo momento
       draft_question: Vuoi salvare il tuo momento come una bozza?
@@ -1041,3 +1042,14 @@ it:
       edit_contact: Modifica il contatto
       phone_number: Numero di telefono
       contacts_info: Persone care con cui dovresti parlare
+  moment_templates:
+    index:
+      title: Modelli Moment
+      subtitle: Scrivere modelli per i tuoi momenti
+      new_template: Nuovo modello
+      edit_template: Modifica modello
+      instructions: Non hai ancora creato alcun modello.<br>Puoi anche aggiungere i seguenti modelli predefiniti e personalizzarli un'altra volta.
+      premade1_name: Di base
+      premade1_description: Cosa è successo e come ti senti?<br>Quali pensieri vorresti avere?
+      premade2_name: Gratitudine
+      premade2_description: Qual è una cosa che apprezzi di te stesso?<br>Cosa aspetti con impazienza oggi?

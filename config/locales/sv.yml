@@ -323,8 +323,9 @@ sv:
       cancel_secret_share: Annullera Hemlig Andel
       link_copied: Secret Share länk kopieras till Urklipp
     form:
-      why: Vad hände och hur känner du dig?
-      fix: Vilka tankar skulle du vilja ha?
+      why: Skriv om det
+      why_legacy: Vad hände och hur känner du dig?
+      fix_legacy: Vilka tankar skulle du vilja ha?
       what_happened: Vad hände?
       viewers_hint: Allierade som kan se ditt ögonblick
       draft_question: Vill du spara ditt ögonblick som ett utkast?
@@ -1022,3 +1023,14 @@ sv:
       edit_contact: Redigera kontakt
       phone_number: Telefonnummer
       contacts_info: Älskade du bör prata med
+  moment_templates:
+    index:
+      title: Momentmallar
+      subtitle: Skrivmallar för dina ögonblick
+      new_template: Ny mall
+      edit_template: Redigera mall
+      instructions: Du har inte skapat några mallar än.<br>Du kan också lägga till följande färdiga mallar och anpassa dem en annan gång.
+      premade1_name: Grundläggande
+      premade1_description: Vad hände och hur mår du?<br>Vilka tankar vill du ha?
+      premade2_name: Tacksamhet
+      premade2_description: Vad är en sak du uppskattar med dig själv?<br>Vad ser du fram emot idag?

@@ -326,8 +326,9 @@ es:
       cancel_secret_share: Cancelar Compartir en Secreto
       link_copied: Secreto Compartir enlace copiado al portapapeles
     form:
-      why: ¿Qué ocurrió y cómo te sentiste
-      fix: ¿Qué pensamientos te gustaría tener?
+      why: Escribe sobre eso
+      why_legacy: ¿Qué ocurrió y cómo te sentiste
+      fix_legacy: ¿Qué pensamientos te gustaría tener?
       what_happened: ¿Qué ocurrió?
       viewers_hint: 'Aliados que pueden ver tu momento:'
       draft_question: ¿Quieres guardar tu momento como borrador?
@@ -1059,3 +1060,14 @@ es:
       edit_contact: Editar contacto
       phone_number: Número de teléfono
       contacts_info: Amados con los que deberías hablar
+  moment_templates:
+    index:
+      title: Plantillas de momento
+      subtitle: Plantillas de redacción para tus momentos
+      new_template: Nueva plantilla
+      edit_template: Editar plantilla
+      instructions: Aún no ha creado ninguna plantilla.<br>También puede agregar las siguientes plantillas prefabricadas y personalizarlas en otro momento.
+      premade1_name: Básico
+      premade1_description: ¿Qué pasó y cómo te sientes?<br>¿Qué pensamientos te gustaría tener?
+      premade2_name: Gratitud
+      premade2_description: ¿Qué es lo que aprecias de ti mismo?<br>¿Qué esperas hoy?
