@@ -30,10 +30,16 @@ module MomentsFormHelper
   end
 
   def moment_why
-    moment_text_input_props(
+    props = moment_text_input_props(
       'why', 'textareaTemplate',
       "moments.form.#{@moment.fix.present? ? 'why_legacy' : 'why'}", true
-    ).merge(options: options_for_templates(current_user.moment_templates))
+    )
+
+    if @moment.fix.present?
+      return props
+    end
+
+    props.merge(options: options_for_templates(current_user.moment_templates))
   end
 
   def moment_fix
