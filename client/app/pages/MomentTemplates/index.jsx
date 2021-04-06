@@ -108,14 +108,9 @@ export const MomentTemplates = ({ templates: templatesProp }: Props) => {
             </button>
           </div>
           <div className="gridTwo marginTop">
-            {premadeTemplates.map((template, index) => {
-              return (
-                <MomentTemplate
-                  key={index}
-                  template={template}
-                />
-              );
-            })}
+            {premadeTemplates.map((template) => (
+              <MomentTemplate key={template.name} template={template} />
+            ))}
           </div>
         </>
       )}

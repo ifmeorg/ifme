@@ -37,11 +37,14 @@ describe('MomentTemplates', () => {
         description: 'Description',
       };
 
-      jest.spyOn(axios, 'post').mockResolvedValueOnce({
-        data: premadeOne,
-      }).mockResolvedValueOnce({
-        data: premadeTwo,
-      });
+      jest
+        .spyOn(axios, 'post')
+        .mockResolvedValueOnce({
+          data: premadeOne,
+        })
+        .mockResolvedValueOnce({
+          data: premadeTwo,
+        });
 
       const { container } = render(<MomentTemplates />);
       expect(screen.getByText('Moment Templates')).toBeInTheDocument();
@@ -65,8 +68,12 @@ describe('MomentTemplates', () => {
         expect(screen.queryByText('Add all')).toBeNull();
         expect(screen.getByText(premadeOne.name)).toBeInTheDocument();
         expect(screen.getByText(premadeTwo.name)).toBeInTheDocument();
-        expect(container.querySelectorAll('a[aria-label="Edit"]').length).toEqual(2);
-        expect(container.querySelectorAll('a[aria-label="Delete"]').length).toEqual(2);
+        expect(
+          container.querySelectorAll('a[aria-label="Edit"]').length,
+        ).toEqual(2);
+        expect(
+          container.querySelectorAll('a[aria-label="Delete"]').length,
+        ).toEqual(2);
       });
     });
   });

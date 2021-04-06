@@ -12,7 +12,9 @@ describe('InputTextarea', () => {
   });
 
   it('renders correctly', () => {
-    const component = InputMocks.createInput(InputMocks.inputTextareaTemplateProps);
+    const component = InputMocks.createInput(
+      InputMocks.inputTextareaTemplateProps,
+    );
     const { container } = render(component);
 
     const textarea = screen.getByRole('textbox');
@@ -29,7 +31,9 @@ describe('InputTextarea', () => {
 
   describe('editor', () => {
     it('initializes on mount', () => {
-      const component = InputMocks.createInput(InputMocks.inputTextareaTemplateProps);
+      const component = InputMocks.createInput(
+        InputMocks.inputTextareaTemplateProps,
+      );
       const { container } = render(component);
       const editor = container.querySelector('.editor');
       expect(pell.init).toHaveBeenCalledWith(
@@ -38,7 +42,9 @@ describe('InputTextarea', () => {
     });
 
     it('has a tab index and focuses', () => {
-      const component = InputMocks.createInput(InputMocks.inputTextareaTemplateProps);
+      const component = InputMocks.createInput(
+        InputMocks.inputTextareaTemplateProps,
+      );
       render(component);
       // first tab should focus the editor textarea
       const textarea = screen.getByRole('textbox');
