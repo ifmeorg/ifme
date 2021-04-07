@@ -31,7 +31,6 @@ RSpec.feature 'UserCreatesAPublishedMoment', type: :feature, js: true do
       expect(find('.pageTitle')).to have_content 'New Moment'
       find('#moment_name').set('My New Moment')
       fill_in_textarea('A moment why', '#moment_why')
-      fill_in_textarea('A moment fix', '#moment_fix')
 
       within('#moment_category_accordion') do
         find('.accordion').click
@@ -99,10 +98,7 @@ RSpec.feature 'UserCreatesAPublishedMoment', type: :feature, js: true do
       expect(page).to have_content 'Some New Category'.upcase
       expect(page).to have_content 'Test Mood'.upcase
       expect(page).to have_content 'Some New Mood'.upcase
-      expect(page).to have_content 'What happened and how do you feel?'.upcase
       expect(page).to have_content 'A moment why'
-      expect(page).to have_content 'What thoughts would you like to have?'.upcase
-      expect(page).to have_content 'A moment fix'
       expect(page).to have_content 'What strategies would help?'.upcase
       expect(page).to have_content 'Test Strategy'
       expect(page).to have_content 'Some New Strategy'
