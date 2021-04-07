@@ -82,6 +82,7 @@ ko:
       error_explanation: 표시된 부분을 입력하십시오.
       empty_error: 이 부분은 필수로 작성해야 합니다.
       search_by_keywords: 키워드로 검색
+      template: 템플릿 선택
     time_ago: '%{date} 전'
     write_to_us: 저희에게 연락
     days: 날들
@@ -313,6 +314,7 @@ ko:
       resource_recommendations_question: 리소스 권장사항 표시
     index:
       subtitle: '여러분의 정신 건강에 영향을 미치는 사건들과 상황들, 경험들을 깊이 파고드세요.'
+      subtitle_link: 순간에 대한 글쓰기를위한 템플릿을 만들고 구성합니다.
       instructions: >-
         아직 경험에 대한 작성 기록이 없습니다.<br><br>어디서 부터 시작하고 어떻게 말해야 할지 모르겠어도 괜찮습니다. 긍정적이어도,
         부정적이어도 상관 없습니다. 당장 말할 필요는 없습니다. 당신이 준비가 되었을 때 말해주세요! 경험에 대한 예시입니다!

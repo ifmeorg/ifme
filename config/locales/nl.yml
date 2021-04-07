@@ -82,6 +82,7 @@ nl:
       error_explanation: Vul alsjeblieft de gemarkeerde velden in!
       empty_error: Dit veld kan niet leeg zijn!
       search_by_keywords: Zoeken op trefwoorden
+      template: Kies een sjabloon
     time_ago: '%{date} geleden'
     write_to_us: schrijf ons
     days: dagen
@@ -333,6 +334,7 @@ nl:
       subtitle: >-
         Duik diep in je momenten - gebeurtenissen en situaties die invloed
         hebben op je geestelijke gezondheid.
+      subtitle_link: Maak en organiseer sjablonen om over uw momenten te schrijven.
       instructions: >-
         Je hebt nog niet geschreven over je momenten.<br><br>Weet je niet waar
         te beginnen? Is er iets wat vandaag gebeurd is dat je zou willen delen

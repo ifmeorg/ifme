@@ -82,6 +82,7 @@ vi:
       error_explanation: Vui lòng điền đầy đủ các trường được làm đậm!
       empty_error: Trường này không thể để trống!
       search_by_keywords: Tìm kiếm theo từ khóa
+      template: Chọn một mẫu
     time_ago: 'Cách đây %{date} ngày'
     write_to_us: viết cho chúng tôi
     days: Ngày
@@ -337,6 +338,7 @@ vi:
       subtitle: >-
         Đào sâu vào khoản khắc của bạn – sự kiện tình huống đã ảnh hưởng đến sức
         khỏe tinh thần của bạn.
+      subtitle_link: Tạo và sắp xếp các mẫu để viết về những khoảnh khắc của bạn.
       instructions: >-
         Bạn chưa viết về bất kỳ khoảnh khắc nào được nêu ra.<br> <br>Không biết
         bắt đầu từ đâu? Có chuyện gì xảy ra hôm nay mà bạn muốn chia sẻ và thảo

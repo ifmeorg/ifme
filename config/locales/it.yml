@@ -82,6 +82,7 @@ it:
       error_explanation: 'Per favore, riempi i campi indicati!'
       empty_error: Questo campo non può essere vuoto!
       search_by_keywords: Cerca per parole chiave
+      template: Scegli un modello
     time_ago: '%{date} fa'
     write_to_us: scrivici
     days: giorni
@@ -336,6 +337,7 @@ it:
       subtitle: >-
         Immergiti nei tuoi momenti - eventi e situazioni che hanno effetto sul
         tuo stato mentale.
+      subtitle_link: Crea e organizza modelli per scrivere dei tuoi momenti.
       instructions: >-
         Non hai ancora aggiunto nessun momento.<br><br>Non sai dove cominciare?
         Non c’è qualcosa che ti è successo oggi di cui ti piacerebbe parlare con

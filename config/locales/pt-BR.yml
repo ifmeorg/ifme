@@ -82,6 +82,7 @@ pt-BR:
       error_explanation: 'Por favor, preencha os campos marcados!'
       empty_error: Este campo não pode estar vazio!
       search_by_keywords: Pesquisar por palavras-chave
+      template: Escolha um modelo
     time_ago: '%{date} atrás'
     write_to_us: join.ifme@gmail.com
     days: Dias
@@ -340,6 +341,7 @@ pt-BR:
       subtitle: >-
         Mergulhe profundamente nos seus momentos - Momentos e situações que
         afetam sua saúde mental.
+      subtitle_link: Crie e organize modelos para escrever sobre seus momentos.
       instructions: >-
         Você ainda não escreveu sobre seus momentos.<br><br>Não sabe por onde
         começar? Diga alguma coisa que aconteceu hoje que você gostaria de
