@@ -93,7 +93,6 @@ RSpec.feature 'UserCreatesADraftMoment', type: :feature, js: true do
       expect(page).to have_content 'Some New Category'.upcase
       expect(page).to have_content 'Test Mood'.upcase
       expect(page).to have_content 'Some New Mood'.upcase
-      expect(page).to have_content 'What happened and how do you feel?'.upcase
       expect(page).to have_content 'A moment why'
       expect(page).to have_content 'What strategies would help?'.upcase
       expect(page).to have_content 'Test Strategy'
