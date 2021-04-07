@@ -82,6 +82,7 @@ nb:
       error_explanation: Vennligst fyll inn de markerte feltene!
       empty_error: Dette feltet kan ikke være tomt!
       search_by_keywords: Søk etter nøkkelord
+      template: Velg en mal
     time_ago: '%{date} siden'
     write_to_us: skriv til oss
     days: Dager
@@ -329,6 +330,7 @@ nb:
       subtitle: >-
         Dykk dypt inn i øyeblikkene dine - hendelser og situasjoner som påvirker
         din mentale helse.
+      subtitle_link: Lag og organiser maler for å skrive om øyeblikkene dine.
       instructions: >-
         Du har ikke skrevet om noen øyeblikk enda.<br><br>Vet ikke hvor du skal
         begynne? Er det noe som har skjedd i dag som du har lyst til å dele og

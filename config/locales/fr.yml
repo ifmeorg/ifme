@@ -82,6 +82,7 @@ fr:
       error_explanation: Merci de compléter les champs indiqués!
       empty_error: Ce champ ne peut pas être vide!
       search_by_keywords: Recherche par mots-clés
+      template: Choisissez un modèle
     time_ago: 'il y a %{date}'
     write_to_us: nous écrire
     days: Jours
@@ -353,6 +354,7 @@ fr:
       subtitle: >-
         Replonger dans vos moments - événements et situations qui affectent
         votre bien-être mental.
+      subtitle_link: Créez et organisez des modèles pour écrire sur vos moments.
       instructions: >-
         Vous n'avez pas encore décrit de moment.<br><br>Vous ne savez pas par où
         commencer ? Que c'est-il passé aujourd'hui que vous aimeriez partager et

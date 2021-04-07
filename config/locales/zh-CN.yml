@@ -82,6 +82,7 @@ zh-CN:
       error_explanation: 请填写做记号的地方！
       empty_error: 不能为空！
       search_by_keywords: 关键词搜索
+      template: 選擇一個模板
     time_ago: '%{date}之前'
     write_to_us: 联系我们
     days: 天
@@ -309,6 +310,7 @@ zh-CN:
       resource_recommendations_question: 显示资源推荐？
     index:
       subtitle: 深入分析影响你心理健康的事件和情况。
+      subtitle_link: 創建和組織用於撰寫您的時刻的模板。
       instructions: >-
         你尚未写任何日记。<br><br>不知道从哪里开始？ 想与亲人分享和讨论今天发生的事情？可以好心情或坏心情！
         你不必立即共享它-准备好共享时才会分享！这是日记分享的例子.

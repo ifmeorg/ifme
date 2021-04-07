@@ -82,6 +82,7 @@ es:
       error_explanation: Por favor completa los campos indicados
       empty_error: ¡Este campo no puede estar vacío!
       search_by_keywords: Búsqueda por palabras clave
+      template: Elige una plantilla
     time_ago: 'hace %{date}'
     write_to_us: escríbenos
     days: Dias
@@ -338,6 +339,7 @@ es:
       subtitle: >-
         Profundiza en tus Momentos - eventos y situaciones que afectan tu salud
         mental
+      subtitle_link: Crea y organiza plantillas para escribir sobre tus momentos.
       instructions: >-
         Aún no has escrito sobre tus momentos.<br><br>¿No sabes por díbde
         empezar? Escribe algo que haya ocurrido hoy y que te gustaría compartir

@@ -82,6 +82,7 @@ sv:
       error_explanation: Vänligen fyll i de markerade fälten!
       empty_error: Det här fältet kan inte vara tomt!
       search_by_keywords: Sök med nyckelord
+      template: Välj en mall
     time_ago: '%{date} sedan'
     write_to_us: skriv till oss
     days: dagar
@@ -335,6 +336,7 @@ sv:
       subtitle: >-
         Fördjupa dig djupt i dina ögonblick - händelser och situationer som
         påverkar din mentala hälsa.
+      subtitle_link: Skapa och ordna mallar för att skriva om dina ögonblick.
       instructions: >-
         Du har inte skrivit några ögonblick än.<br><br>Vet inte vart du ska
         börja? Vad har hänt i dag som du vill dela och diskutera med en älskad?
