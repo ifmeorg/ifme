@@ -37,8 +37,6 @@ Todos são altamente encorajados a [se adicionarem](https://github.com/ifmeorg/i
 Nós também aceitamos contribuições financeiras, com total transparência na nossa [Open Collective](https://opencollective.com/ifme).
 Qualquer um pode registrar uma quantia. Se ela fizer sentido para o desenvolvimento da comunidade, esta será "mesclada" no regristro pelos colaboradores principais e a pessoa que depositou a quantia será reembolsada.
 
-Nós também temos uma página no [Patreon](https://www.patreon.com/ifme) onde você pode contribuir mensalmente.
-
 ### Apoiadores
 
 Agradecemos aos nossos apoiadores [Rob Drimmie](https://www.patreon.com/user?u=3251857),
