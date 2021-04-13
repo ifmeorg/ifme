@@ -108,12 +108,12 @@ module MomentsFormHelper
   end
 
   def checkboxes_for(data)
-    checkboxes = []
-    data.each do |item|
-      checkboxes.push(id: item.slug, label: item.name, value: item.id,
-                      checked: data_for(item)&.include?(item.id))
+    data.map do |item|
+      {
+        id: item.slug, label: item.name, value: item.id,
+        checked: data_for(item)&.include?(item.id)
+      }
     end
-    checkboxes
   end
 
   def data_for(item)
@@ -128,10 +128,8 @@ module MomentsFormHelper
   end
 
   def options_for_templates(data)
-    options = []
-    data.each do |item|
-      options.push(id: item.slug, label: item.name, value: item.description)
+    data.map do |item|
+      { id: item.slug, label: item.name, value: item.description }
     end
-    options
   end
 end

@@ -5,7 +5,7 @@ class CreateMomentTemplates < ActiveRecord::Migration[6.0]
       t.text :description
       t.string :slug
       t.index :slug, unique: true
-      t.integer :user_id
+      t.references :user, foreign_key: true, null: true
 
       t.timestamps
     end

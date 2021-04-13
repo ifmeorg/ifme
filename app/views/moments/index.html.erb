@@ -6,7 +6,7 @@
   <br /><%= link_to t('moments.index.subtitle_link'), moment_templates_path %>
 </div>
 
-<% if @moments.length > 0 %>
+<% if @moments.any? %>
   <%= render partial: '/search/posts', locals: { data_type: 'moment' } %>
   <div class="hideOnMobile marginTop marginBottom">
     <%= react_component("ChartControl", props: {

@@ -143,10 +143,11 @@ ActiveRecord::Schema.define(version: 2021_03_28_174852) do
     t.string "name"
     t.text "description"
     t.string "slug"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["slug"], name: "index_moment_templates_on_slug", unique: true
+    t.index ["user_id"], name: "index_moment_templates_on_user_id"
   end
 
   create_table "moments", force: :cascade do |t|
@@ -325,6 +326,7 @@ ActiveRecord::Schema.define(version: 2021_03_28_174852) do
     t.index ["user_id"], name: "index_users_data_requests_on_user_id"
   end
 
+  add_foreign_key "moment_templates", "users"
   add_foreign_key "moments_categories", "categories"
   add_foreign_key "moments_categories", "moments"
   add_foreign_key "moments_moods", "moments"
