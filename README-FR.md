@@ -37,8 +37,6 @@ On accepte aussi les contributions financières en toute transparence sur notre 
 
 Tout le modèle peut participer aux frais. Si la dépense a un sens pour le développement de  la communauté, il sera "fusionné" dans le livre de notre Open Collective  par les contributeurs principaux et les personnes qui ont effectué des dons seront remboursés
 
-On a aussi une Page [Patreon](https://www.patreon.com/ifme) ou vous pouves faire des donations mensuelles.
-
 ### Donateurs
 
 Merci a nos donateurs sur patreon [Rob Drimmie](https://www.patreon.com/user?u=3251857), [Joseph D. Marhee](https://www.patreon.com/user?u=2899171), et [Carol Willing](https://www.patreon.com/user?u=202458)!

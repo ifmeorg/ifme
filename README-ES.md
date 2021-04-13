@@ -40,8 +40,6 @@ También agradecemos las contribuciones financieras con total transparencia en n
 [Open Collective](https://opencollective.com/ifme).
  . Cualquiera puede presentar un gasto. Si el gasto tiene sentido para el desarrollo de la comunidad, será "fusionado" en el libro mayor de nuestro Colectivo Abierto por los contribuyentes principales y la persona que presentó el gasto será reembolsada.
 
-También tenemos una página de [Patreon](https://www.patreon.com/ifme) donde puedes hacer donaciones mensuales.
-
 ### Patrocinadores
 
 ¡Gracias a nuestros patrocinadores de Patreon, [Rob Drimmie](https://www.patreon.com/user?u=3251857),

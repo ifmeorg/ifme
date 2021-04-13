@@ -38,8 +38,6 @@ Herkesin, Katkıda Bulun sayfamıza [kendilerini eklenmesi](https://github.com/i
 
 Ayrıca, [Açık Topluluğumuza](https://opencollective.com/ifme), tam şeffaflıkla yapılan, mali yardımları memnuniyetle karşılıyoruz. Herkes masraf bildirimi yapabilir. Yapılan gider topluluğun gelişimi için mantıklı ise Açık Topluluğumuz'un muhasebe defterine birleştirilerek gider bilgirimi yapan kişinin masrafları karşılanacaktır.
 
-Ayrıca aylık bağış yapabileceğiniz bir[Patreon](https://www.patreon.com/ifme) sayfamız var.
-
 ### Destekçiler
 
 Patreon destekçilerimiz [Rob Drimmie](https://www.patreon.com/user?u=3251857),

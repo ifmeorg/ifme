@@ -51,10 +51,6 @@ if me의 사이트는 [if-me.org](https://www.if-me.org/)에서 확인할 수 �
 
 커뮤니티 개발 중 비용을 청구할 일이 있고 그것이 타당하다면, 핵심 기여자분들에 의해 저희의 Open Collective의 장부에 "병합" 될 것이고 비용을 청구하신 분은 청구한 금액을 받으실 수 있으실 겁니다
 
-저희는 또한 한달 단위로 여러분이 후원해주실 수 있는 [Patreon](https://www.patreon.com/ifme)페이지도 운영하고 있습니다.
-
-많은 관심 부탁드립니다.
-
 ### 후원자
 
 Patreon 후원자 [Rob Drimmie](https://www.patreon.com/user?u=3251857), [Joseph D. Marhee](https://www.patreon.com/user?u=2899171) 그리고 [Carol Willing](https://www.patreon.com/user?u=202458)에게 감사를 표합니다!

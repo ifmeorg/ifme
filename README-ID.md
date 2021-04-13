@@ -39,8 +39,6 @@ Setiap orang sangat dianjurkan untuk [menambahkan diri mereka sendiri](https://g
 
 Kami juga menerima kontrubusi finansial secara transparan pada [Open Collective](https://opencollective.com/ifme) kami. Siapapun dapat mengajukan dana. Jika dana tersebut "masuk akal" untuk perkembangan komunitas, maka akan "digabungkan" dalam buku besar Open Collective kami oleh kontributor inti dan orang yang mengajukan dana tersebut akan mendapatkan kompensansi yang sesuai.
 
-Kami juga memiliki halaman [Patreon](https://www.patreon.com/ifme) yang dimana kamu bisa memberikan donasi bulanan.
-
 ### Pendukung
 Terima Kasih untuk semua pendukung kami yaitu [Rob Drimmie](https://www.patreon.com/user?u=3251857), [Joseph D. Marhee](https://www.patreon.com/user?u=2899171), dan [Carol Willing](https://www.patreon.com/user?u=202458)!
 

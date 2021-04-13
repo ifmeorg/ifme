@@ -49,9 +49,6 @@ Anyone can file an expense. If the expense makes sense for the development of
 the community, it will be "merged" in the ledger of our Open Collective by the
 core contributors and the person who filed the expense will be reimbursed.
 
-We also have a [Patreon](https://www.patreon.com/ifme) page where you can give
-monthly donations.
-
 ### Backers
 
 Thank you to our Patreon backers [Rob Drimmie](https://www.patreon.com/user?u=3251857),
