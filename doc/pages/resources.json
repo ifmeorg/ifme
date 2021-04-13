@@ -946,5 +946,17 @@
     "link": "https://al-anon.org/",
     "tags": ["al_anon", "anonymous", "support_groups", "directory", "addiction", "alcoholism", "communities"],
     "languages": ["en", "es", "fr"]
+  },
+  {
+    "name": "Therapy for Latinx (US)",
+    "link": "https://latinxtherapy.com/",
+    "tags": ["latinx", "hispanic", "therapy", "counseling", "directory", "podcast"],
+    "languages": ["en", "es"]
+  },
+  {
+    "name": "The People of Color & Mental Illness Photo Project by Dior Vargas",
+    "link": "https://www.diorvargas.com/work/poc-mental-illness",
+    "tags": ["people_of_colour", "black_people", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "blog", "education", "learning"],
+    "languages": ["en"]
   }
 ]
