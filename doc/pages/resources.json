@@ -958,5 +958,11 @@
     "link": "https://www.diorvargas.com/work/poc-mental-illness",
     "tags": ["people_of_colour", "black_people", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "blog", "education", "learning"],
     "languages": ["en"]
+  },
+  {
+    "name": "Disability Visibility Project",
+    "link": "https://disabilityvisibilityproject.com/",
+    "tags": ["education", "learning", "podcast", "social_justice", "books"],
+    "languages": ["en"]
   }
 ]
