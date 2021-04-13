@@ -16,6 +16,11 @@
 
   @include staticContentLink();
 
+  b,
+  strong {
+    color: $white;
+  }
+
   .pageTitle {
     @include setFontSize($size-36);
     @include setMargin($size-0, $size-0, $size-50, $size-0);
