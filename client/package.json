@@ -42,7 +42,7 @@
     "js-cookie": "^2.2.1",
     "jstimezonedetect": "^1.0.6",
     "location-autocomplete": "^1.2.4",
-    "merge": "^1.2.1",
+    "merge": "^2.1.1",
     "pell": "^1.0.6",
     "react": "^16.13.1",
     "react-autosuggest": "^10.0.0",
