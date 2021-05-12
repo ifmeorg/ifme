@@ -32,7 +32,7 @@
     "@sentry/browser": "^5.6.3",
     "axios": "^0.21.1",
     "babel-core": "7.0.0-bridge.0",
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "chartkick": "^3.1.1",
     "core-js": "3",
     "dot-prop": "^5.1.1",
