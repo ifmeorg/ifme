@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import axios from 'axios';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 import BaseContainer from 'components/BaseContainer';
 
 const response = {
@@ -54,7 +54,7 @@ describe('BaseContainer', () => {
           const { container, getByRole } = render(getComponent({ fetchUrl }));
           const loadMoreButton = getByRole('button');
           fireEvent.click(loadMoreButton);
-          await axiosGetSpy();
+          await act(() => axiosGetSpy());
           expect(axiosGetSpy).toBeCalledWith(
             'https://if-me.org/some-fetch-url.json?page=2',
           );
@@ -96,7 +96,7 @@ describe('BaseContainer', () => {
           const { container, queryByRole } = render(getComponent({ fetchUrl }));
           const loadMoreButton = queryByRole('button');
           fireEvent.click(loadMoreButton);
-          await axiosGetSpy();
+          await act(() => axiosGetSpy());
           const stories = container.querySelectorAll('.story');
           expect(axiosGetSpy).toBeCalledWith(
             'https://if-me.org/some-fetch-url.json?page=2&uid=some-uid',
