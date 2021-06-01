@@ -90,13 +90,13 @@ export function InputTextarea(props: Props) {
     }
   };
 
-  const onPaste = e => {
+  const onPaste = (e) => {
     e.preventDefault();
 
     const text = (e.originalEvent || e).clipboardData.getData('text/plain') ?? '';
 
-    document.execCommand("insertHTML", false, text);
-  }
+    document.execCommand('insertHTML', false, text);
+  };
 
   useEffect(() => {
     if (editorRef.current) {
