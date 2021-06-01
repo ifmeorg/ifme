@@ -90,6 +90,14 @@ export function InputTextarea(props: Props) {
     }
   };
 
+  const onPaste = e => {
+    e.preventDefault();
+
+    const text = (e.originalEvent || e).clipboardData.getData('text/plain') ?? '';
+
+    document.execCommand("insertHTML", false, text);
+  }
+
   useEffect(() => {
     if (editorRef.current) {
       editor.current = init({
@@ -108,6 +116,7 @@ export function InputTextarea(props: Props) {
       className={`${inputCss.default} ${dark ? css.dark : ''}`}
       onBlur={onBlur}
       onFocus={onFocus}
+      onPaste={onPaste}
       tabIndex={0}
       role="textbox"
       ref={editorRef}
