@@ -1,7 +1,4 @@
-/**
- * @flow
- * Enzyme samples: https://gist.github.com/richardscarrott/d89b37aff55ccc504193335198e676d1
- */
+// @flow
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
