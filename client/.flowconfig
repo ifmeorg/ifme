@@ -1,7 +1,6 @@
 [ignore]
 .*/__tests__/.*
 .*/node_modules/draft-js/.*
-.*/node_modules/enzyme-matchers/.*
 .*/node_modules/radium/.*
 
 [include]
