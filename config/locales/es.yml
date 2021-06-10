@@ -812,6 +812,8 @@ es:
         southeast_asian: sudeste Asiatico
         east_asian: asiático del este
         al_anon: al-anon
+        burnout: agotamiento
+        breakup: ruptura
   profile:
     index:
       title: Perfil

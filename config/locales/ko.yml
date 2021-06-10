@@ -691,6 +691,8 @@ ko:
         southeast_asian: 동남아시아
         east_asian: 동아시아
         al_anon: al-anon
+        burnout: 탈진
+        breakup: 붕괴
   profile:
     index:
       title: 프로필

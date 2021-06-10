@@ -842,7 +842,7 @@
   {
     "name": "Thrive Global",
     "link": "https://thriveglobal.com/",
-    "tags": ["blog", "stress", "workplace"],
+    "tags": ["blog", "stress", "burnout", "workplace"],
     "languages": ["en"]
   },
   {
@@ -963,6 +963,18 @@
     "name": "Disability Visibility Project",
     "link": "https://disabilityvisibilityproject.com/",
     "tags": ["education", "learning", "podcast", "social_justice", "books"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Mend",
+    "link": "https://www.letsmend.com/",
+    "tags": ["burnout", "breakup", "mood_tracking", "journaling", "self_care", "blog", "free", "paid"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Rx Breakup",
+    "link": "https://rxbreakup.com/",
+    "tags": ["ios", "android", "free", "paid", "breakup", "journaling", "self_care", "blog"],
     "languages": ["en"]
   }
 ]
