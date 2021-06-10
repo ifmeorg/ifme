@@ -767,6 +767,8 @@ en:
         southeast_asian: southeast asian
         east_asian: east asian
         al_anon: al-anon
+        burnout: burnout
+        breakup: breakup
   profile:
     index:
       title: Profile
