@@ -24,8 +24,8 @@
       ]
     }],
     "react/prefer-stateless-function": ["off"],
-     // Disabled because we use Flow
-     "react/prop-types": ["off"]
+    // Disabled because we use Flow
+    "react/prop-types": ["off"]
   },
   "settings": {
     "import/resolver": {

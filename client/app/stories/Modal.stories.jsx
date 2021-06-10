@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal } from 'components/Modal';
-import photoTara from 'app/assets/images/contributors/ingrid_garcia.jpg';
+/* eslint-disable import/no-extraneous-dependencies */
+import photo from 'app/assets/images/contributors/ingrid_garcia.jpg';
 
 const title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
 
@@ -79,7 +80,7 @@ HtmlValuesForElementAndBodyWithOpenListener.story = {
 
 export const AvatarComponentAsTheElement = () => (
   <Modal
-    element={{ component: 'Avatar', props: { src: photoTara, small: true } }}
+    element={{ component: 'Avatar', props: { src: photo, small: true } }}
     body={bodyHTML}
     title={title}
     openListener={openListener}
