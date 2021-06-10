@@ -1,6 +1,7 @@
 import React from 'react';
 import { Avatar } from 'components/Avatar';
-import photoTara from 'app/assets/images/contributors/ingrid_garcia.jpg';
+/* eslint-disable import/no-extraneous-dependencies */
+import photo from 'app/assets/images/contributors/ingrid_garcia.jpg';
 
 const name = 'Tara';
 
@@ -10,11 +11,11 @@ export default {
 
 export const WithImage = () => (
   <>
-    <Avatar src={photoTara} small />
+    <Avatar src={photo} small />
     <br />
-    <Avatar src={photoTara} />
+    <Avatar src={photo} />
     <br />
-    <Avatar src={photoTara} large />
+    <Avatar src={photo} large />
   </>
 );
 
@@ -38,11 +39,11 @@ WithoutImage.story = {
 
 export const WithImageAndName = () => (
   <>
-    <Avatar src={photoTara} name={name} small />
+    <Avatar src={photo} name={name} small />
     <br />
-    <Avatar src={photoTara} name={name} />
+    <Avatar src={photo} name={name} />
     <br />
-    <Avatar src={photoTara} name={name} large />
+    <Avatar src={photo} name={name} large />
   </>
 );
 
