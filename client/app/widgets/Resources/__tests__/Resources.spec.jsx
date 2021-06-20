@@ -8,14 +8,7 @@ const resourcesData = [
   {
     name: '7 Cups',
     link: 'https://www.7cups.com',
-    tags: [
-      'counseling',
-      'paid',
-      'free',
-      'texting',
-      'android',
-      'ios',
-    ],
+    tags: ['counseling', 'paid', 'free', 'texting', 'android', 'ios'],
     languages: ['en', 'es'],
   },
   {
