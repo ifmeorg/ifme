@@ -9,7 +9,6 @@ const resourcesData = [
     name: '7 Cups',
     link: 'https://www.7cups.com',
     tags: [
-      'therapy',
       'counseling',
       'paid',
       'free',
@@ -42,7 +41,7 @@ const getComponent = ({ history } = {}) => (
  * Each resource can have multiple associated tags,
  * and each tag can be clicked to filter related resources.
  * So to test we:
-  - pick a tag at random to test, i.e. 'therapy'
+  - pick a tag at random to test, i.e. 'counseling'
   - query the occurrences of that tag
   - select the tag, which applies a filter
   - and check that the view updates
@@ -65,10 +64,10 @@ describe('Resources', () => {
         expect(screen.getAllByText(tag)).not.toHaveLength(0);
       });
 
-    let tagText = 'therapy';
+    let tagText = 'counseling';
     let queryOptions = { name: tagText };
 
-    // only expect 1 'therapy' tag from initial resourcesData
+    // only expect 1 'counseling' tag from initial resourcesData
     let selectedTags = screen.getAllByRole('button', queryOptions);
     expect(selectedTags).toHaveLength(1);
     // select the tag to filter resources
@@ -95,7 +94,7 @@ describe('Resources', () => {
      */
     tagText = 'ios';
     queryOptions = { name: tagText };
-    // only 1 resource with 'ios' tag when 'therapy' filter is applied
+    // only 1 resource with 'ios' tag when 'counseling' filter is applied
     selectedTags = screen.getAllByRole('button', queryOptions);
     expect(selectedTags).toHaveLength(1);
     [selectedTag] = selectedTags;
@@ -218,11 +217,11 @@ describe('Resources', () => {
 
         // choose two filters at once and expect the search string to update accordingly
         userEvent.click(screen.getAllByRole('button', { name: 'ios' })[0]);
-        userEvent.click(screen.getByRole('button', { name: 'therapy' }));
+        userEvent.click(screen.getByRole('button', { name: 'counseling' }));
 
         expect(historyMock).toHaveBeenCalledWith({
           pathname: '/resources',
-          search: '?filter[]=ios&filter[]=therapy',
+          search: '?filter[]=counseling&filter[]=ios',
         });
       });
     });
