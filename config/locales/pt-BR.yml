@@ -699,6 +699,7 @@ pt-BR:
       emergency: >-
         Se você ou alguém que você conhece estiver passando por uma emergência
         de saúde mental, procure ajuda o mais rápido possível.
+      popular_tags: Tags populares
       crisis_prevention:
         title: Como vai você?
         description: 'Você é amado, não importa o que'
@@ -839,6 +840,7 @@ pt-BR:
   search:
     label: Buscar
     search_by_name: Buscar pelo nome
+    search_by_tags: Pesquisa por tags
     form:
       search_by_location: Buscar por localização
       search_by_email: Buscar por e-mail

@@ -664,6 +664,7 @@ hi:
       emergency: >-
         यदि आप या आपके कोई परिचित मानसिक स्वास्थ्य आपात स्थिति का सामना कर रहे
         हैं, तो जल्द से जल्द मदद के लिए पहुँचें।
+      popular_tags: प्रसिद्ध टग्स
       crisis_prevention:
         title: आप कैसे हैं?
         description: आपको कोई फर्क नहीं पड़ता प्यार किया जाता है
@@ -804,6 +805,7 @@ hi:
   search:
     label: खोज
     search_by_name: नाम से खोजें
+    search_by_tags: टैग द्वारा खोजें
     form:
       search_by_location: स्थान के आधार पर खोजें
       search_by_email: ईमेल द्वारा खोजें

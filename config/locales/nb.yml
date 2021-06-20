@@ -654,6 +654,7 @@ nb:
       emergency: >-
         Hvis du eller noen du kjenner opplever en krise i psykisk helse, må du
         kontakte hjelp så snart som mulig.
+      popular_tags: Populære koder
       crisis_prevention:
         title: Hvordan går det?
         description: Du er elsket uansett hva
@@ -794,6 +795,7 @@ nb:
   search:
     label: Søk
     search_by_name: Søk med navn
+    search_by_tags: Søk etter koder
     form:
       search_by_location: Søk med plassering
       search_by_email: Søk med e-post

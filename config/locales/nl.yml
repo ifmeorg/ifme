@@ -687,6 +687,7 @@ nl:
       emergency: >-
         Als u of iemand die u kent een psychische noodsituatie heeft, neem dan
         zo snel mogelijk contact op met hulp.
+      popular_tags: Populaire tags
       crisis_prevention:
         title: Hoe gaat het?
         description: Je bent hoe dan ook geliefd
@@ -827,6 +828,7 @@ nl:
   search:
     label: Zoeken
     search_by_name: Zoeken op naam
+    search_by_tags: Zoeken op tags
     form:
       search_by_location: Zoeken op locatie
       search_by_email: Zoeken op e-mail

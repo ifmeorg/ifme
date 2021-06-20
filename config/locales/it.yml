@@ -672,6 +672,7 @@ it:
       emergency: >-
         Se tu o qualcuno che conosci state vivendo un'emergenza per la salute
         mentale, contattate il più presto possibile.
+      popular_tags: Tag popolari
       crisis_prevention:
         title: Come te la passi?
         description: 'Sei amato, non importa quale'
@@ -812,6 +813,7 @@ it:
   search:
     label: Cerca
     search_by_name: Cerca in base al nome
+    search_by_tags: Cerca per tag
     form:
       search_by_location: Cerca in base al luogo
       search_by_email: Cerca in base all’EMail

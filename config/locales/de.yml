@@ -745,6 +745,7 @@ de:
       emergency: >-
         Wenn du oder jemand, den du kennst sich in einem psychischen Notfall
         befindet, wende dich so bald wie möglich an deinen Ansprechpartner.
+      popular_tags: Beliebte Schlagwörter
       crisis_prevention:
         title: Wie geht es dir?
         description: 'Du wirst geliebt, egal was'
@@ -885,6 +886,7 @@ de:
   search:
     label: Suche
     search_by_name: Nach Namen suchen
+    search_by_tags: Suche nach Tags
     form:
       search_by_location: Nach Ort suchen
       search_by_email: Nach E-Mail suchen

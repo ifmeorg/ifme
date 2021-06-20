@@ -707,6 +707,7 @@ fr:
       emergency: >-
         Si vous ou une personne de votre entourage êtes confrontée à une urgence
         en santé mentale, demandez de l'aide dès que possible.
+      popular_tags: Tags populaires
       crisis_prevention:
         title: Comment ça va?
         description: Vous êtes aimé quoi qu'il arrive
@@ -847,6 +848,7 @@ fr:
   search:
     label: Recherche
     search_by_name: Rechercher par nom
+    search_by_tags: Recherche par tags
     form:
       search_by_location: Rechercher par lieu
       search_by_email: Rechercher par email
