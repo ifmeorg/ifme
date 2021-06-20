@@ -69,7 +69,7 @@ const getPopularTags = () => {
       label={I18n.t(`pages.resources.tags.${tag}`)}
       key={Utils.randomString()}
       onClick={() => {
-        window.location.href = `/resources?filter[]=${tag}`;
+        window.location.href = `/resources?filter[]=${tag.replaceAll('_', '%20')}`;
       }}
     />
   ));
