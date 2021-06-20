@@ -642,6 +642,7 @@ en:
       emergency: >-
         If you or someone you know is experiencing a mental health emergency,
         reach out for help as soon as possible.
+      popular_tags: Popular Tags
       crisis_prevention:
         title: How are you doing?
         description: You are loved no matter what
@@ -782,6 +783,7 @@ en:
   search:
     label: Search
     search_by_name: Search by name
+    search_by_tags: Search by tags
     form:
       search_by_location: Search by location
       search_by_email: Search by email

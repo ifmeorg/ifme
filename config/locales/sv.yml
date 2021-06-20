@@ -656,6 +656,7 @@ sv:
       emergency: >-
         Om du eller någon som du känner upplever en kris i psykisk hälsa, räcka
         ut hjälp så snart som möjligt.
+      popular_tags: Populära taggar
       crisis_prevention:
         title: Hur mår du?
         description: Du är älskad oavsett vad
@@ -796,6 +797,7 @@ sv:
   search:
     label: Sök
     search_by_name: Sök på namn
+    search_by_tags: Sök efter taggar
     form:
       search_by_location: Sök efter plats
       search_by_email: Sök via e-post

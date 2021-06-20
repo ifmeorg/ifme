@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { I18n } from 'libs/i18n';
 import { Resource } from 'components/Resource';
+import { Tag } from 'components/Tag';
 import { Utils } from 'utils';
 import type { Checkbox } from 'components/Input/utils';
 import { InputTag } from 'components/Input/InputTag';
@@ -42,6 +43,38 @@ const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
     return aLabel > bLabel ? 1 : 0;
   });
 
+const getPopularTags = () => {
+  const tags = [
+    'asian',
+    'black_people',
+    'black_women',
+    'communities',
+    'east_asian',
+    'education',
+    'latinx',
+    'lgbt',
+    'indigenous',
+    'pacific_islander',
+    'people_of_colour',
+    'south_asian',
+    'southeast_asian',
+    'therapy',
+    'women',
+    'women_of_colour',
+  ];
+
+  return tags.map((tag) => (
+    <Tag
+      normal
+      label={I18n.t(`pages.resources.tags.${tag}`)}
+      key={Utils.randomString()}
+      onClick={() => {
+        window.location.href = `/resources?filter[]=${tag}`;
+      }}
+    />
+  ));
+};
+
 const infoDescription = (
   <center className={css.marginBottom}>
     {I18n.t('pages.resources.description')}
@@ -51,6 +84,12 @@ const infoDescription = (
       >
         {I18n.t('pages.resources.emergency')}
       </a>
+    </p>
+    <p>
+      <div className={`${css.tinyTitle} ${css.smallMarginBottom}`}>
+        {I18n.t('pages.resources.popular_tags')}
+      </div>
+      {getPopularTags()}
     </p>
   </center>
 );
@@ -193,7 +232,7 @@ export const Resources = ({
         key={Utils.randomString()}
         id="resourceTags"
         name="resourceTags"
-        placeholder={I18n.t('common.form.search_by_keywords')}
+        placeholder={I18n.t('search.search_by_tags')}
         checkboxes={checkboxes}
         onCheckboxChange={(box) => checkboxChange(box)}
       />

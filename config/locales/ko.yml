@@ -566,6 +566,7 @@ ko:
     resources:
       description: '이것은 커뮤니티, 교육 도구, 핫라인, 서비스를 포함하는 정신 건강 자원의 큐레이션된 목록입니다.'
       emergency: '만약 여러분이나 여러분이 아는 누군가가 정신 건강이 심각할 정도로 악화되고 있다면, 가능한 한 빨리 도움을 요청하세요.'
+      popular_tags: 인기 태그
       crisis_prevention:
         title: 어떻게 지내요?
         description: 당신은 무슨 일이 있어도 사랑 받습니다.
@@ -706,6 +707,7 @@ ko:
   search:
     label: 검색
     search_by_name: 이름으로 검색
+    search_by_tags: 태그로 검색
     form:
       search_by_location: 지역으로 검색
       search_by_email: 이메일로 검색

@@ -687,6 +687,7 @@ es:
       emergency: >-
         Si usted o alguien que conoce está experimentando una emergencia de
         salud mental, busque ayuda lo antes posible.
+      popular_tags: Etiquetas Populares
       crisis_prevention:
         title: ¿Cómo estás?
         description: Eres amado pase lo que pase
@@ -827,6 +828,7 @@ es:
   search:
     label: Búsqueda
     search_by_name: Búsqueda por nombre
+    search_by_tags: Buscar por etiquetas
     form:
       search_by_location: Búsqueda por ubicación
       search_by_email: Búsqueda por correo electrónico

@@ -528,6 +528,7 @@ zh-CN:
     resources:
       description: 这是我们精选的精神健康参考资料小结，其中包括社区，教育工具，热线和服务。
       emergency: 如果你或你认识的某个人遇到精神健康紧急情况，请尽快寻求专业帮助。
+      popular_tags: 熱門標籤
       crisis_prevention:
         title: 你好吗？
         description: 不管你爱你
@@ -668,6 +669,7 @@ zh-CN:
   search:
     label: 搜索
     search_by_name: 按名称搜索
+    search_by_tags: 按標籤搜索
     form:
       search_by_location: 按位置搜索
       search_by_email: 通过电子邮件搜索
