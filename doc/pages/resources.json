@@ -398,7 +398,7 @@
   {
     "name": "Psychology Today",
     "link": "https://www.psychologytoday.com",
-    "tags": ["learning", "directory", "education"],
+    "tags": ["learning", "directory", "education", "therapy", "counseling", "blog"],
     "languages": ["en"]
   },
   {
@@ -530,7 +530,7 @@
   {
     "name": "National Queer & Trans Therapists of Color Network (US)",
     "link": "http://www.nqttcn.com",
-    "tags": ["lgbt", "people_of_colour", "therapy", "counseling", "directory", "black_people", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian"],
+    "tags": ["lgbt", "people_of_colour", "therapy", "counseling", "directory", "black_people", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "indigenous"],
     "languages": ["en"]
   },
   {
@@ -782,7 +782,7 @@
   {
     "name": "Ayana Therapy",
     "link": "https://www.ayanatherapy.com/",
-    "tags": ["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat", "android", "ios", "people_of_colour", "lgbt", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian"],
+    "tags": ["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat", "android", "ios", "people_of_colour", "lgbt", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "indigenous"],
     "languages": ["en"]
   },
   {
@@ -938,7 +938,7 @@
   {
     "name": "PROGRESH",
     "link": "https://progresh.wixsite.com/home",
-    "tags": ["people_of_colour", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "al_anon", "addiction", "alcoholism", "communities", "anonymous", "support_groups"],
+    "tags": ["people_of_colour", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "indigenous", "al_anon", "addiction", "alcoholism", "communities", "anonymous", "support_groups"],
     "languages": ["en"]
   },
   {
@@ -956,7 +956,7 @@
   {
     "name": "The People of Color & Mental Illness Photo Project by Dior Vargas",
     "link": "https://www.diorvargas.com/work/poc-mental-illness",
-    "tags": ["people_of_colour", "black_people", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "blog", "education", "learning"],
+    "tags": ["people_of_colour", "black_people", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "indigenous", "blog", "education", "learning"],
     "languages": ["en"]
   },
   {
@@ -968,13 +968,31 @@
   {
     "name": "Mend",
     "link": "https://www.letsmend.com/",
-    "tags": ["burnout", "breakup", "mood_tracking", "journaling", "self_care", "blog", "free", "paid"],
+    "tags": ["burnout", "breakup", "mood_tracking", "journaling", "self_care", "blog", "free", "paid", "ios"],
     "languages": ["en"]
   },
   {
     "name": "Rx Breakup",
     "link": "https://rxbreakup.com/",
-    "tags": ["ios", "android", "free", "paid", "breakup", "journaling", "self_care", "blog"],
+    "tags": ["ios", "android", "free", "breakup", "journaling", "self_care", "blog"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Inclusive Therapists",
+    "link": "https://www.inclusivetherapists.com/",
+    "tags": ["therapy", "counseling", "directory", "people_of_colour", "lgbt", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "indigenous", "blog", "training"],
+    "languages": ["en", "es"]
+  },
+  {
+    "name": "Online Therapy",
+    "link": "https://www.onlinetherapy.com/",
+    "tags": ["learning", "directory", "education", "therapy", "counseling", "blog"],
+    "languages": ["en"]
+  },
+  {
+    "name": "RESIDEhere",
+    "link": "https://www.residehere.co/",
+    "tags": ["women_of_colour", "therapists", "communities", "blog", "support_groups", "training", "free", "paid"],
     "languages": ["en"]
   }
 ]
