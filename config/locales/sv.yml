@@ -322,6 +322,8 @@ sv:
       expires_at: Förfaller vid
       cancel_secret_share: Annullera Hemlig Andel
       link_copied: Secret Share länk kopieras till Urklipp
+      info: Alla som har den här länken kan se den här sidan
+      info_public: Du tittar på detta via en privat länk. Dela inte den här sidan utan författarens medgivande.
     form:
       why: Skriv om det
       why_legacy: Vad hände och hur känner du dig?

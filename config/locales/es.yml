@@ -325,6 +325,8 @@ es:
       expires_at: Caduca en
       cancel_secret_share: Cancelar Compartir en Secreto
       link_copied: Secreto Compartir enlace copiado al portapapeles
+      info: Cualquiera con este enlace puede ver esta página
+      info_public: Estás viendo esto a través de un enlace privado. No comparta esta página sin el consentimiento del autor.
     form:
       why: Escribe sobre eso
       why_legacy: ¿Qué ocurrió y cómo te sentiste

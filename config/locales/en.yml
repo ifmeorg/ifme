@@ -312,6 +312,8 @@ en:
       expires_at: Expire at
       cancel_secret_share: Cancel Secret Share
       link_copied: Secret Share link copied to clipboard
+      info: Anyone with this link can see this page
+      info_public: You are viewing this through a private link. Please do not share this page without the author's consent.
     form:
       why: Write about it
       why_legacy: What happened and how do you feel?

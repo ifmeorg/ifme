@@ -119,6 +119,13 @@
     font-weight: $font-weight-400;
   }
 
+  .tinyTitle {
+    @include setFontSize($size-16);
+
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
   .label,
   label {
     color: $mulberry-90;

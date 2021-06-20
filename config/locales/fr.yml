@@ -340,6 +340,8 @@ fr:
       expires_at: Expire le
       cancel_secret_share: Annuler le partage de secret
       link_copied: Lien de partage secret copié dans le Presse-papiers
+      info: Toute personne disposant de ce lien peut voir cette page
+      info_public: Vous le visualisez via un lien privé. Merci de ne pas partager cette page sans l'accord de l'auteur.
     form:
       why: Écrire à ce sujet
       why_legacy: Qu''est-ce qui c'est passé et que ressentez-vous ?

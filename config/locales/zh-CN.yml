@@ -298,6 +298,8 @@ zh-CN:
       expires_at: 到期
       cancel_secret_share: 取消秘密分享
       link_copied: 秘密共享链接已复制到剪贴板
+      info: 知道此鏈接的任何人都可以看到此頁面
+      info_public: 您正在通過私人鏈接查看此內容。 未經作者同意，請勿分享本頁面。
     form:
       why: 寫一下
       why_legacy: 发生了什么，你感觉如何？

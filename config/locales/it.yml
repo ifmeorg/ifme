@@ -323,6 +323,8 @@ it:
       expires_at: Scadenza
       cancel_secret_share: Annulla Condivisione Segreta
       link_copied: Link Condividi segreta copiato negli appunti
+      info: Chiunque abbia questo link può vedere questa pagina
+      info_public: Lo stai visualizzando tramite un link privato. Si prega di non condividere questa pagina senza il consenso dell'autore.
     form:
       why: Scrivilo
       why_legacy: Cos’è successo e come ti senti?
