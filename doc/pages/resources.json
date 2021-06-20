@@ -468,7 +468,7 @@
     "languages": ["en"]
   },
   {
-    "name": "Crisis Text Line (US)",
+    "name": "Crisis Text Line (International)",
     "link": "http://www.crisistextline.org",
     "tags": ["crisis_prevention", "suicide_prevention", "twenty_four_seven", "free", "anonymous", "hotlines"],
     "languages": ["en"]
@@ -702,8 +702,8 @@
     "languages": ["en"]
   },
   {
-    "name": "#selfcare app",
-    "link": "http://truluv.ai/selfcare/",
+    "name": "TRU LUV",
+    "link": "https://truluv.ai/",
     "tags": ["meditation", "game", "self_care", "android", "ios", "free"],
     "languages": ["en"]
   },
