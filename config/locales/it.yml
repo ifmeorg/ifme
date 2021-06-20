@@ -799,6 +799,8 @@ it:
         al_anon: al-anon
         burnout: bruciato
         breakup: rottura
+        indigenous: Popolazioni indigene
+        therapists: terapisti
   profile:
     index:
       title: Profilo

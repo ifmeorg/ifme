@@ -814,6 +814,8 @@ es:
         al_anon: al-anon
         burnout: agotamiento
         breakup: ruptura
+        indigenous: Pueblos indígenas
+        therapists: terapeutas
   profile:
     index:
       title: Perfil
