@@ -17,7 +17,8 @@ describe MomentsHelper, type: :controller do
           readOnly: true,
           value: secret_share_url(moment.secret_share_identifier),
           dark: true,
-          copyOnClick: I18n.t('moments.secret_share.link_copied')
+          copyOnClick: I18n.t('moments.secret_share.link_copied'),
+          info: I18n.t('moments.secret_share.info')
         }
       ], action: moment_path(moment) }
       expect(controller.secret_share_props(moment)).to eq(input)
