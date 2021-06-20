@@ -327,6 +327,8 @@ pt-BR:
       expires_at: Expirar em
       cancel_secret_share: Cancelar compartilhar segredo
       link_copied: Link de compartilhamento secreto copiado para a área de transferência
+      info: Qualquer pessoa com este link pode ver esta página
+      info_public: Você está vendo isso através de um link privado. Por favor, não compartilhe esta página sem o consentimento do autor.
     form:
       why: Escreva sobre isso
       why_legacy: O que aconteceu e como você se sente?

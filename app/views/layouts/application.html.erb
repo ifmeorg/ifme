@@ -67,6 +67,13 @@
         </div>
       <% elsif secret_share_path? %>
         <div class="secretShareContent">
+          <div class="gridItemBoxDark marginBottom">
+            <div class="gridRowSpaceBetween">
+              <div class="gridRowSpaceBetween">
+                <%= t('moments.secret_share.info_public') %>
+              </div>
+            </div>
+          </div>
           <%= render partial: "shared/page_title" %>
           <%= yield %>
         </div>

@@ -316,6 +316,8 @@ nb:
       expires_at: Utløper
       cancel_secret_share: Avbryt Hemmelig deling
       link_copied: Hemmelig sharelink kopiert til utklippstavlen
+      info: Alle med denne lenken kan se denne siden
+      info_public: Du ser på dette via en privat lenke. Ikke del denne siden uten forfatterens samtykke.
     form:
       why: Skriv om det
       why_legacy: Hva skjedde og hvordan føler du deg?

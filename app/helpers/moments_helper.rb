@@ -36,7 +36,8 @@ module MomentsHelper
       readOnly: true,
       value: secret_share_url(moment.secret_share_identifier) || nil,
       dark: true,
-      copyOnClick: t('moments.secret_share.link_copied')
+      copyOnClick: t('moments.secret_share.link_copied'),
+      info: t('moments.secret_share.info')
     }], action:  moment_path(moment) }
   end
 

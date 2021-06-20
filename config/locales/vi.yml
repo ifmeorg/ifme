@@ -324,6 +324,8 @@ vi:
       expires_at: Hết hạn lúc
       cancel_secret_share: Hủy bỏ chia sẻ bí mật
       link_copied: Đã sao chép liên kết Chia sẻ bí mật vào khay nhớ tạm
+      info: Bất kỳ ai có liên kết này đều có thể xem trang này
+      info_public: Bạn đang xem điều này thông qua một liên kết riêng tư. Vui lòng không chia sẻ trang này khi chưa có sự đồng ý của tác giả.
     form:
       why: Viết về nó
       why_legacy: Chuyện gì đã xảy ra và bạn cảm thấy thế nào?

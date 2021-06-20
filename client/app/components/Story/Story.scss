@@ -9,8 +9,6 @@
 }
 
 .actions {
-  @include setMargin($size-4, $size-0, $size-0, $size-0);
-
   display: flex;
   flex-direction: row;
 
