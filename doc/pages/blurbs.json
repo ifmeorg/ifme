@@ -512,7 +512,7 @@
     "link": "https://github.com/jollyjerr",
     "social": "github"
   },
-    {
+  {
     "name": "Jasmine Logan",
     "image": "/assets/contributors/jasmine_logan.png",
     "profile": "I am a former music teacher turned developer attending Lambda School. I love podcasts and painting my nails in elaborate designs. I'm excited to contribute to a project that does so much good! ",
@@ -637,5 +637,14 @@
     "link_name": "arun-kumar",
     "link": "https://github.com/Arunthogadiya",
     "social": "github"
+  },
+  {
+    "name": "Ted Vu",
+    "image": "/assets/contributors/ted_vu.jpg",
+    "profile": "I'm a Software Engineer based in Melbourne. I have experienced Mental Health Issue a lot in my life and I want to leverage technologies to address and alleviate the problem. Depression particularly in my country has not been publicly discussed and Vietnamese people tend to have false perceptions about it, they think that having depression means there is something wrong with your mind which causes weird behaviours. In my view, that is not necessarily the case, I believe life is extremely dynamic and dealing with bad time is key to evolve as a human being. Therefore, I really want to contribute to this project as I feel resonated with the project ideas and missions. A nice article in Vietnamese on depression: https://huyenchip.com/vn/depression/",
+    "location": "Melbourne",
+    "link_name": "TedVuBlog",
+    "link": "https://tedvu.com",
+    "social": "globe"
   }
 ]
