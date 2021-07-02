@@ -57,11 +57,12 @@
     }
 
     &Selected {
-      color: $key-lime;
+      background: white;
+      color: $mulberry;
 
       b,
       strong {
-        color: $key-lime !important;
+        color: $mulberry !important;
       }
     }
   }
