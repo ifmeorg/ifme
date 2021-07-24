@@ -2,16 +2,16 @@ de:
   devise:
     failure:
       invited: >-
-        Sie haben eine ausstehende Einladung, akzeptieren Sie diese, um die
-        Erstellung Ihres Kontos abzuschließen.
+        Du hast eine ausstehende Einladung, nimm sie an, um die
+        Erstellung Deines Kontos abzuschließen.
     invitations:
       send_instructions: 'Eine Einladungs-E-Mail wurde an %{email} gesendet.'
       failed_send: 'Ein Fehler ist aufgetreten. %{email} konnte nicht eingeladen werden.'
       invitation_token_invalid: Das angegebene Einladungstoken ist nicht gültig!
-      updated: Ihr Passwort wurde erfolgreich vergeben. Sie sind jetzt angemeldet.
-      updated_not_active: Ihr Passwort wurde erfolgreich vergeben.
+      updated: Dein Passwort wurde erfolgreich vergeben. Du bist jetzt angemeldet.
+      updated_not_active: Dein Passwort wurde erfolgreich vergeben.
       no_invitations_remaining: Keine Einladungen übrig
-      invitation_removed: Ihre Einladung wurde entfernt.
+      invitation_removed: Deine Einladung wurde entfernt.
       new:
         header: Schicke eine Verbündeteneinladung
         submit_button: Eine Einladung schicken
@@ -20,17 +20,17 @@ de:
         submit_button: Setze mein Passwort
     mailer:
       invitation_instructions:
-        subject: '%{name} hat Sie eingeladen if-me.org beizutreten!'
-        subject_nameless: 'Jemand hat Sie eingeladen, if-me.org beizutreten!'
+        subject: '%{name} hat Dich eingeladen if-me.org beizutreten!'
+        subject_nameless: 'Jemand hat Dich eingeladen, if-me.org beizutreten!'
         hello: 'Hallo %{email}!'
         someone_invited_you: >-
-          %{name} hat Sie eingeladen http://www.if-me.org beizutreten, eine
-          Gemeinschaft, um Erfahrungen mit Ihren Angehörigen zu teilen und Ihre
-          Stimmungen, Medikamente und Selbstfürsorge zu verfolgen. Sie können
-          die Einladung über den folgenden Link annehmen.
+          %{name} hat Dich eingeladen http://www.if-me.org beizutreten, eine
+          Gemeinschaft, um Erfahrungen mit Deinen Angehörigen zu teilen und Deine
+          Stimmungen, Medikamente und Selbstfürsorge zu verfolgen. Du kannst die
+          Einladung über den folgenden Link annehmen.
         accept: Die Einladung annehmen!
         accept_until: 'Diese Einladung läuft ab am %{due_date}.'
         ignore: >-
-          Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie bitte diese
-          E-Mail.<br />Ihr Konto wird nur erstellt, wenn Sie den Link oben aufrufen und
-          Ihr Passwort festlegen.
+          Wenn Du die Einladung nicht annehmen möchtest, ignoriere bitte diese
+          E-Mail.<br />Dein Konto wird nur erstellt, wenn Du den Link oben aufrufst und
+          Dein Passwort festlegst.
