@@ -72,7 +72,7 @@ RSpec.describe 'Membership', type: :request do
         # Assert
         expect(response).to redirect_to(groups_path)
         expect(flash[:alert]).to eq(
-          'You cannot kick a group member because you are not a leader.'
+          'You cannot remove a group member because you are not a leader.'
         )
       end
     end
