@@ -147,7 +147,7 @@ describe "Profile", type: :request do
           expect { post remove_ban_profile_index_path, params: {user_id: banned_user.id} }
             .to change(Devise.mailer.deliveries, :count).by(1)
           expect(response).to redirect_to(admin_dashboard_path)
-          expect(flash[:notice]).to eq("Ban removed on #{banned_user.name}")
+          expect(flash[:notice]).to eq("Ban removed from #{banned_user.name}")
         end
       end
 
