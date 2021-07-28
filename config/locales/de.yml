@@ -459,8 +459,8 @@ de:
         if-me.org | %{user} hat ein neues Meeting "%{meeting}" für die Gruppe
         "%{group}" erstellt
       meeting_body: >-
-        <p>%{subject}</p><p><i>%{description}</i></p><p><strong>Ort: 
-        </strong>%{location}</p><p><strong>Datum:</strong> %{date}
+        <p>%{subject}</p><p><i>%{description}</i></p><p><strong>Ort:
+        </strong> %{location}</p><p><strong>Datum:</strong> %{date}
         </p><p><strong>Zeit:</strong> %{time}</p>
       new_meeting_link: '<p>Um mehr zu erfahren oder teilzunehmen, %{link}!</p>'
       update_meeting_link: '<p>Um mehr zu erfahren, %{link}!</p>'
