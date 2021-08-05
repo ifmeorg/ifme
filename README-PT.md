@@ -13,9 +13,9 @@ README en: [Inglês](https://github.com/ifmeorg/ifme/blob/main/README.md), [Espa
 
 Lidar com a saúde mental é o que nos torna humanos. Mas para muitos de nós, é complicado falar abertamente sobre isso. Nem todo mundo é conselheiro ou terapeuta. As pessoas com as quais interagimos todos os dias moldam nossas emoções e comportamento. Envolvê-los no tratamento da saúde mental é a chave para a recuperação.
 
-Nosso site está hospedado em [if-me.org](https://www.if-me.org/). Os sistemas de design ao vivo podem ser encontrados [design.if-me.org](http://design.if-me.org/).
+Nosso site está disponível em [if-me.org](https://www.if-me.org/). O design system está disponível em [design.if-me.org](http://design.if-me.org/).
 
-Nos usamos o maravilhoso [Contrato de Contribuinte](http://contributor-covenant.org) para nosso código de conduta. Por favor, [leia-o](https://github.com/ifmeorg/ifme/blob/main/code_of_conduct.md)
+Nós usamos o maravilhoso [Acordo de Colaborador](http://contributor-covenant.org) para nosso código de conduta. Por favor, [leia-o](https://github.com/ifmeorg/ifme/blob/main/code_of_conduct.md)
 antes de se juntar ao nosso projeto.
 
 **Leia sobre os objetivos do nosso projeto e como contribuir (não apenas como desenvolvedor(a)) [aqui](https://github.com/ifmeorg/ifme/blob/main/CONTRIBUTING.md).**
@@ -26,7 +26,7 @@ Por favor, confira nossa [Wiki](https://github.com/ifmeorg/ifme/wiki) para docum
 
 ### Instalação
 
-Informações sobre como instalar e configurar o aplicativo [aqui](https://github.com/ifmeorg/ifme/wiki/Installation). As instâncias de teste, desenvolvimento e produção são verificadas
+Informações sobre como instalar e configurar o aplicativo [aqui](https://github.com/ifmeorg/ifme/wiki/Installation). As instâncias de teste, desenvolvimento e produção são abordadas.
 
 ### Colaborador Blurb
 
@@ -35,7 +35,7 @@ Todos são altamente encorajados a [se adicionarem](https://github.com/ifmeorg/i
 ## Doar
 
 Nós também aceitamos contribuições financeiras, com total transparência na nossa [Open Collective](https://opencollective.com/ifme).
-Qualquer um pode registrar uma quantia. Se ela fizer sentido para o desenvolvimento da comunidade, esta será "mesclada" no regristro pelos colaboradores principais e a pessoa que depositou a quantia será reembolsada.
+Qualquer um pode registrar uma quantia. Se ela fizer sentido para o desenvolvimento da comunidade, esta será "mesclada" no registro pelos colaboradores principais e a pessoa que depositou a quantia será reembolsada.
 
 ### Apoiadores
 
