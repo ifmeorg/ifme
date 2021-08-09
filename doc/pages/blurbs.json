@@ -646,5 +646,14 @@
     "link_name": "TedVuBlog",
     "link": "https://tedvu.com",
     "social": "globe"
+  },
+  {
+    "name": "Francisco Perejón Barrios",
+    "image": "/assets/contributors/francisco_perejon.jpg",
+    "profile": "I'm a recently graduated software engineer. Throughout my childhood and youth, people in my family have had problems with depression and alcoholism, they have now overcome it and one thing that has helped a lot in this achievement has been the help groups (such as Alcoholics Anonymous) or psychologists. I talk a lot with my sister about how important mental health is, for this reason, having the opportunity to help this cause is an honour for me.",
+    "location": "Seville, Spain",
+    "link_name": "FranPortfolio",
+    "link": "https://franperejon.tk",
+    "social": "globe"
   }
 ]
