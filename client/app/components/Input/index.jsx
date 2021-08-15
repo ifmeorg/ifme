@@ -10,6 +10,7 @@ import { InputCheckbox } from 'components/Input/InputCheckbox';
 import { InputCheckboxGroup } from 'components/Input/InputCheckboxGroup';
 import { InputPassword } from 'components/Input/InputPassword';
 import { InputSelect } from 'components/Input/InputSelect';
+import { InputMultiSelect } from 'components/Input/InputMultiSelect';
 import { InputRadioGroup } from 'components/Input/InputRadioGroup';
 import { InputTag } from 'components/Input/InputTag';
 import { InputSwitch } from 'components/Input/InputSwitch';
@@ -186,6 +187,23 @@ export const Input = ({
     return null;
   };
 
+  const displayMultiSelect = () => {
+    if (type === 'multi_select' && options) {
+      return (
+        <InputMultiSelect
+          name={name}
+          id={id}
+          ariaLabel={ariaLabel}
+          label={label}
+          value={value}
+          options={options}
+          onChange={onChange}
+        />
+      );
+    }
+    return null;
+  };
+
   const displayRadio = () => {
     if (type === 'radio' && options) {
       return (
@@ -293,6 +311,7 @@ export const Input = ({
       {displayCheckboxGroup()}
       {displayPassword()}
       {displaySelect()}
+      {displayMultiSelect()}
       {displayRadio()}
       {displayTextarea()}
       {displayTextareaTemplate()}

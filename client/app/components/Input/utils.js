@@ -10,6 +10,7 @@ export const TYPES: string[] = REQUIRES_DEFAULT.concat([
   'checkbox',
   'radio',
   'select',
+  'multi_select',
   'checkboxGroup',
   'tag',
   'switch',
@@ -67,6 +68,7 @@ export type Props = {
     | 'time'
     | 'date'
     | 'select'
+    | 'multi_select'
     | 'checkboxGroup'
     | 'tag'
     | 'hidden'

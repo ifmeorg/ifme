@@ -10,6 +10,18 @@
         dark: true
       } %>
       <%= f.hidden_field :data_type, value: local_assigns[:data_type] %>
+      <% if @moments %>
+        <div class="searchInputMultiSelect">
+          <%= react_component 'Input', props: {
+              type: 'multi_select',
+              ariaLabel: t('search.filter_by'),
+              id: 'selected_filters',
+              label: t('search.filter_by'),
+              name: 'selected_filters',
+              options: @options_for_multiselect
+            } %>
+        </div>
+      <% end %>
       <%= f.submit t('search.label'), class: 'searchSubmit buttonDarkL' %>
     </div>
   <% end %>

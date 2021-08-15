@@ -14,10 +14,11 @@ class SearchController < ApplicationController
   def posts
     data_type = params[:search][:data_type]
     term = params[:search][:name]
+    selected_filters = params[:selected_filters]
 
     return unless data_type.in?(%w[moment category mood strategy medication])
 
-    redirect_to_path(make_path(term, data_type))
+    redirect_to_path(make_path(term, data_type, selected_filters))
   end
 
   private
@@ -28,7 +29,11 @@ class SearchController < ApplicationController
         .where.not(banned: true)
   end
 
-  def make_path(term, data_type)
-    send("#{data_type.pluralize}_path", ({ search: term } if term.present?))
+  def make_path(term, data_type, selected_filters)
+    search_hash = {}
+    search_hash[:search] =  term if term.present?
+    search_hash[:filters] = selected_filters if selected_filters.present?
+
+    send("#{data_type.pluralize}_path", search_hash)
   end
 end
