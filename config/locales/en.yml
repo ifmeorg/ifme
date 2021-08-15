@@ -355,6 +355,13 @@ en:
     show:
       strategies: What strategies would help?
       resources: What resources could help?
+    filters:
+      secret_share: Secret Share Enabled
+      no_viewers: No Viewers
+      one_viewer: At Least One Viewer
+      coments_enabled: Comments Enabled
+      draft_enabled: Draft Enabled
+      published: Published
   moods:
     singular: Mood
     plural: Moods
@@ -824,6 +831,7 @@ en:
     label: Search
     search_by_name: Search by name
     search_by_tags: Search by tags
+    filter_by: Filter by...
     form:
       search_by_location: Search by location
       search_by_email: Search by email
