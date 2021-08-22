@@ -6,6 +6,7 @@ import { InputTextarea } from 'components/Input/InputTextarea';
 import { Utils } from 'utils';
 import globalCss from 'styles/_global.scss';
 import type { Option } from './utils';
+import { mergeRefs } from "./utils";
 
 // TODO (julianguyen): Tests after writing stubs for pell editor
 
@@ -17,6 +18,7 @@ export type Props = {
   hasError?: Function,
   dark?: boolean,
   options?: Option[],
+  myRef?: any,
 };
 
 export const InputTextareaTemplate = ({
@@ -27,6 +29,7 @@ export const InputTextareaTemplate = ({
   hasError,
   dark,
   options: optionsProp,
+  myRef
 }: Props) => {
   const [value, setValue] = useState(valueProp);
   const [textareaKey, setTextareaKey] = useState();
@@ -80,7 +83,7 @@ export const InputTextareaTemplate = ({
         value={options ? options[0].value || value : value}
         required={required}
         hasError={hasError}
-        myRef={textareaRef}
+        myRef={mergeRefs(textareaRef, myRef)}
         dark={dark}
       />
     </>

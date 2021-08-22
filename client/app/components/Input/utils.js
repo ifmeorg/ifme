@@ -110,3 +110,15 @@ export type Props = {
   googleAPIKey?: string,
   copyOnClick?: string,
 };
+
+export const mergeRefs = (...refs) => {
+  return element => {
+    for (const ref of refs) {
+      if (typeof ref === 'function'){
+        ref(element);
+      } else if (ref) {
+        ref.current = element;
+      }
+    }
+  }
+}
