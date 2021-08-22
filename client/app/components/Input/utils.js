@@ -111,14 +111,12 @@ export type Props = {
   copyOnClick?: string,
 };
 
-export const mergeRefs = (...refs) => {
-  return element => {
-    for (const ref of refs) {
-      if (typeof ref === 'function'){
-        ref(element);
-      } else if (ref) {
-        ref.current = element;
-      }
+export const mergeRefs = (...refs: any) => (element: HTMLInputElement) => {
+  for (const ref of refs) {
+    if (typeof ref === 'function') {
+      ref(element);
+    } else if (ref) {
+      ref.current = element;
     }
   }
-}
+};
