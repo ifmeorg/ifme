@@ -111,12 +111,13 @@ export type Props = {
   copyOnClick?: string,
 };
 
+/* eslint no-param-reassign: ["error", { "props": false }] */
 export const mergeRefs = (...refs: any) => (element: HTMLInputElement) => {
-  refs.forEach(ref => {
+  refs.forEach((ref) => {
     if (typeof ref === 'function') {
       ref(element);
     } else if (ref) {
       ref.current = element;
     }
-  })
+  });
 };
