@@ -373,6 +373,13 @@ pt-BR:
     show:
       strategies: Quais estratégias poderiam ajudar nesse momento?
       resources: Quais recursos poderiam ajudar?
+    filters:
+      secret_share: Ações secretas ativadas
+      no_viewers: Sem espectadores
+      one_viewer: No mínimo um espectador
+      coments_enabled: Comentários Habilitado
+      draft_enabled: Rascunho Habilitado
+      published: Publicado em
   moods:
     singular: Humor
     plural: Humores
@@ -876,6 +883,7 @@ pt-BR:
     label: Buscar
     search_by_name: Buscar pelo nome
     search_by_tags: Pesquisa por tags
+    filter_by: Filtrar por...
     form:
       search_by_location: Buscar por localização
       search_by_email: Buscar por e-mail

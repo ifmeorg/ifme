@@ -359,6 +359,13 @@ nb:
     show:
       strategies: Hvilke strategier kan hjelpe?
       resources: Hvilke ressurser kan hjelpe?
+    filters:
+      secret_share: Hemmelig andel aktivert
+      no_viewers: Ingen seere
+      one_viewer: Minst én seer
+      coments_enabled: Kommentarer aktivert
+      draft_enabled: Utkast aktivert
+      published: Publisert
   moods:
     singular: Humør
     plural: Humør
@@ -833,6 +840,7 @@ nb:
     label: Søk
     search_by_name: Søk med navn
     search_by_tags: Søk etter koder
+    filter_by: filtrer etter...
     form:
       search_by_location: Søk med plassering
       search_by_email: Søk med e-post
