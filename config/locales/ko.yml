@@ -337,6 +337,13 @@ ko:
     show:
       strategies: 어떤 계획이 도움이 될까요?
       resources: 어떤 자료가 도움이 될까요?
+    filters:
+      secret_share: 비밀 공유 활성화됨
+      no_viewers: 뷰어 없음
+      one_viewer: 적어도 한 명의 뷰어
+      coments_enabled: 댓글 활성화
+      draft_enabled: 초안 사용
+      published: 게시됨
   moods:
     singular: 기분
     plural: 기분
@@ -738,6 +745,7 @@ ko:
     label: 검색
     search_by_name: 이름으로 검색
     search_by_tags: 태그로 검색
+    filter_by: 필터링 기준...
     form:
       search_by_location: 지역으로 검색
       search_by_email: 이메일로 검색

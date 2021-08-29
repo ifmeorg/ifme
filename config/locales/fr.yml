@@ -383,6 +383,13 @@ fr:
     show:
       strategies: Quelle stratégie aiderait ?
       resources: Quelles ressources pourraient aider?
+    filters:
+      secret_share: Partage Secret Activé
+      no_viewers: Aucun téléspectateur
+      one_viewer: Au Moins Un Spectateur
+      coments_enabled: Commentaires Activés
+      draft_enabled: Draft Activé
+      published: Publié
   moods:
     singular: Humeur
     plural: Humeurs
@@ -863,6 +870,7 @@ fr:
     label: Recherche
     search_by_name: Rechercher par nom
     search_by_tags: Recherche par tags
+    filter_by: Filtrer par...
     form:
       search_by_location: Rechercher par lieu
       search_by_email: Rechercher par email

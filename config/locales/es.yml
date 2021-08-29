@@ -190,7 +190,7 @@ es:
       error_save: 'No podemos guardar este grupo debido a que:'
       error_edit_permission: Debes ser el líder del grupo para poder editarlo
     index:
-      subtitle: 'Crea y únete a grupos que brindan apoyo, guía, y pláticas.'
+      subtitle: 'Crea y únete a grupos que brindan apoyo, guía y pláticas.'
       available_groups: Grupos disponibles
       joined_groups: Grupos a los que te has unido
       leader: (Líder)
@@ -360,16 +360,23 @@ es:
         mental
       subtitle_link: Crea y organiza plantillas para escribir sobre tus momentos.
       instructions: >-
-        Aún no has escrito sobre tus momentos.<br /><br />¿No sabes por díbde
+        Aún no has escrito sobre tus momentos.<br><br>¿No sabes por dónde
         empezar? Escribe algo que haya ocurrido hoy y que te gustaría compartir
         y discutir con tus seres queridos. ¡Puede ser positivo o negativo! No
-        tienes que compartirlo ahora mismo - ¡Hazlo hasta que te sientas listo!
+        tienes que compartirlo ahora mismo - ¡Hazlo cuando te sientas listo!
         Aquí hay un Momento de ejemplo.
       example_name: ¡Preocupación por una entrevsita de mañana!
       example_category: Carrera
     show:
       strategies: ¿Qué estrategias podrían ayudar?
       resources: ¿Qué recursos podrían ayudar?
+    filters:
+      secret_share: Secreto Activado
+      no_viewers: Sin Observadores
+      one_viewer: Al Menos Un Observador
+      coments_enabled: Comentarios Habilitados
+      draft_enabled: Borrador Habilitado
+      published: Publicado
   moods:
     singular: Estado de Ánimo
     plural: Estados de Ánimo
@@ -872,6 +879,7 @@ es:
     label: Búsqueda
     search_by_name: Búsqueda por nombre
     search_by_tags: Buscar por etiquetas
+    filter_by: Filtrar por...
     form:
       search_by_location: Búsqueda por ubicación
       search_by_email: Búsqueda por correo electrónico
@@ -979,8 +987,8 @@ es:
         /><i>Tomado de
         http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
       instructions: >-
-        Aún no has creado ninguna estrategia personalizada.<br /> También puedes
-        agregar la siguiente estretagia predeterminada y personalizarla en otra
+        Aún no has creado ninguna estrategia personalizada.<br> También puedes
+        agregar la siguiente estrategia predeterminada y personalizarla en otra
         ocasión.
     reminder_mailer:
       subject: 'if-me.org | ¡No olvides llevar a cabo %{name}!'

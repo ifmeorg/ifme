@@ -370,6 +370,13 @@ it:
     show:
       strategies: Che strategie sarebbero utili?
       resources: Che risorse potrebbero aiutare?
+    filters:
+      secret_share: Condivisione Segreta Abilitata
+      no_viewers: Nessuno Spettatore
+      one_viewer: Almeno Uno Spettatore
+      coments_enabled: Commenti Abilitati
+      draft_enabled: Bozza Abilitata
+      published: Pubblicato
   moods:
     singular: Stato d'animo
     plural: Stati d'animo
@@ -864,6 +871,7 @@ it:
     label: Cerca
     search_by_name: Cerca in base al nome
     search_by_tags: Cerca per tag
+    filter_by: Filtrare per...
     form:
       search_by_location: Cerca in base al luogo
       search_by_email: Cerca in base all'EMail
