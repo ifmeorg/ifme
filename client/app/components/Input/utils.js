@@ -112,11 +112,11 @@ export type Props = {
 };
 
 export const mergeRefs = (...refs: any) => (element: HTMLInputElement) => {
-  for (const ref of refs) {
+  refs.forEach(ref => {
     if (typeof ref === 'function') {
       ref(element);
     } else if (ref) {
       ref.current = element;
     }
-  }
+  })
 };
