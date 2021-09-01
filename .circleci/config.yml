@@ -7,7 +7,7 @@ defaults: &defaults
     CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
     CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
   docker:
-    - image: circleci/ruby:2.6-node-browsers-legacy
+    - image: circleci/ruby:2.6.6-stretch-node-browsers
       environment:
         PGHOST: 127.0.0.1
         PGUSER: circleci
