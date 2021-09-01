@@ -30,7 +30,8 @@ if ENV['SELENIUM_REMOTE_HOST']
       app,
       browser: :remote,
       url: "http://#{ENV['SELENIUM_REMOTE_HOST']}:4444/wd/hub",
-      desired_capabilities: :firefox
+      desired_capabilities: :firefox,
+      timeout: 60
     )
   end
   ip = `/sbin/ip route|awk '/scope/ { print $9 }'`.delete("\n")
