@@ -23,7 +23,9 @@ class SearchController < ApplicationController
   private
 
   def search_by_email(email)
-    User.where(email: email).where.not(id: current_user.id).where.not(banned: true)
+    User.where(email: email)
+        .where.not(id: current_user.id)
+        .where.not(banned: true)
   end
 
   def make_path(term, data_type)
