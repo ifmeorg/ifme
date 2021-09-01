@@ -79,14 +79,14 @@ jobs:
             set -e
             (cd client && yarn lint:flow && yarn lint:eslint && yarn test:circleci)
             (cd client && ../tmp/cc-test-reporter format-coverage -t lcov -o ../tmp/codeclimate.frontend.json coverage/lcov.info)
-      - run:
-          name: Run YAML linter
-          command: |
-            set -e
-            curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py
-            python get-pip.py --user
-            python -m pip install --user yamllint
-            cd config && yamllint locales/
+      # - run:
+      #     name: Run YAML linter
+      #     command: |
+      #       set -e
+      #       curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py
+      #       python get-pip.py --user
+      #       python -m pip install --user yamllint
+      #       cd config && yamllint locales/
       - persist_to_workspace:
           root: tmp
           paths:
