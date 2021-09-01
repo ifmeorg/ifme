@@ -50,7 +50,7 @@ gem 'groupdate', '4.1.2'
 gem 'react_on_rails', '12.0.1'
 gem 'webpacker', '5.1.1'
 
-gem 'selenium-webdriver', '~> 3.142.3'
+gem 'selenium-webdriver', '~> 3.142.7'
 
 gem 'rubyzip', '~> 1.3.0'
 
@@ -93,7 +93,7 @@ group :development, :test do
 
   gem 'bullet'
 
-  gem 'webdrivers'
+  gem 'webdrivers', '>= 4.6.1'
 
   gem 'actionview', '>= 6.0.3.3'
 end
