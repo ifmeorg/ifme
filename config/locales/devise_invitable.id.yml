@@ -1,0 +1,36 @@
+id:
+  devise:
+    failure:
+      invited: >-
+        Anda memiliki undangan yang tertunda, terima undangan untuk
+        menyelesaikan pembuatan akun.
+    invitations:
+      send_instructions: 'Sebuah email undangan telah dikirimkan ke %{email}.'
+      failed_send: 'Terjadi sebuah kesalahan. %{email} tidak dapat diundang.'
+      invitation_token_invalid: Token undangan yang diberikan tidak valid!
+      updated: Kata sandi telah berhasil diatur. Anda sekarang telah masuk.
+      updated_not_active: Kata sandi anda telah berhasil diatur.
+      no_invitations_remaining: Tidak ada undangan tersisa
+      invitation_removed: Undangan anda telah dihapus.
+      new:
+        header: Kirim sebuah undangan sekutu
+        submit_button: Kirim sebuah undangan
+      edit:
+        header: Atur kata sandi anda
+        submit_button: Atur kata sandi saya
+    mailer:
+      invitation_instructions:
+        subject: '%{name} mengundangmu untuk mengikuti if-me.org!'
+        subject_nameless: Seseorang mengundangmu untuk mengikuti if-me.org!
+        hello: 'Halo %{email}!'
+        someone_invited_you: >-
+          %{name} telah mengundang anda untuk mengikuti http://www.if-me.org, sebuah komunitas
+          untuk berbagi tentang pengalaman kesehatan mental bersama dengan orang terkasih anda
+          dan memantau suasana hati, pengobatan, dan perawatan diri anda. Anda dapat menerima
+          undangan ini melalui tautan di bawah ini.
+        accept: Terima undangan!
+        accept_until: 'Undangan ini akan berakhir pada %{due_date}.'
+        ignore: >-
+          Jika anda tidak ingin menerima undangan ini, silahkan mengabaikan email ini.
+          <br/>Akun anda tidak akan dibuat sampai anda mengakses tautan di atas dan
+          mengatur kata sandi anda.
