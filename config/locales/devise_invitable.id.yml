@@ -24,13 +24,14 @@ id:
         subject_nameless: Seseorang mengundangmu untuk mengikuti if-me.org!
         hello: 'Halo %{email}!'
         someone_invited_you: >-
-          %{name} telah mengundang anda untuk mengikuti http://www.if-me.org, sebuah komunitas
-          untuk berbagi tentang pengalaman kesehatan mental bersama dengan orang terkasih anda
-          dan memantau suasana hati, pengobatan, dan perawatan diri anda. Anda dapat menerima
-          undangan ini melalui tautan di bawah ini.
+          %{name} telah mengundang anda untuk mengikuti http://www.if-me.org,
+          sebuah komunitas untuk berbagi tentang pengalaman kesehatan mental
+          bersama dengan orang terkasih anda dan memantau suasana hati,
+          pengobatan, dan perawatan diri anda. Anda dapat menerima undangan ini
+          melalui tautan di bawah ini.
         accept: Terima undangan!
         accept_until: 'Undangan ini akan berakhir pada %{due_date}.'
         ignore: >-
-          Jika anda tidak ingin menerima undangan ini, silahkan mengabaikan email ini.
-          <br/>Akun anda tidak akan dibuat sampai anda mengakses tautan di atas dan
-          mengatur kata sandi anda.
+          Jika anda tidak ingin menerima undangan ini, silahkan mengabaikan
+          email ini. <br/>Akun anda tidak akan dibuat sampai anda mengakses
+          tautan di atas dan mengatur kata sandi anda.
