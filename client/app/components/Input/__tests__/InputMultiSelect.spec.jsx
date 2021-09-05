@@ -27,7 +27,6 @@ describe('InputMultiSelect', () => {
         ariaLabel={ariaLabel}
         value={value}
         options={options}
-        onChange={someEvent}
       />,
     );
     const multiSelect = screen.getByRole('button', { className: 'buttonL' });
@@ -42,7 +41,6 @@ describe('InputMultiSelect', () => {
         id={id}
         ariaLabel={ariaLabel}
         options={options}
-        onChange={someEvent}
       />,
     );
     // toggle the first value

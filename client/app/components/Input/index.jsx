@@ -197,7 +197,6 @@ export const Input = ({
           label={label}
           value={value}
           options={options}
-          onChange={onChange}
         />
       );
     }

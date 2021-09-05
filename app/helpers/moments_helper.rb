@@ -91,30 +91,6 @@ module MomentsHelper
     { options: options_for_multiselect, filters: filters_of_multiselect }
   end
 
-  def filters_of_multiselect
-    ['secret_share_identifier IS NOT NULL', { viewers: [] },
-     'length(viewers) > 0', { comment: true },
-     { published_at: nil }, 'published_at IS NOT NULL']
-  end
-
-  def options_for_multiselect
-    options = [t('moments.filters.secret_share'),
-               t('moments.filters.no_viewers'),
-               t('moments.filters.one_viewer'),
-               t('moments.filters.coments_enabled'),
-               t('moments.filters.draft_enabled'),
-               t('moments.filters.published')]
-    options_hash = []
-    options.each_with_index do |element, index|
-      options_hash.push({
-                          id: element,
-                          label: element,
-                          value: index
-                        })
-    end
-    options_hash
-  end
-
   private
 
   def element_actions(element, present_object)
@@ -169,5 +145,28 @@ module MomentsHelper
     return if is_strategy || element.secret_share_identifier.blank?
 
     t('moments.secret_share.link_info')
+
+  def filters_of_multiselect
+    ['secret_share_identifier IS NOT NULL', { viewers: [] },
+     'length(viewers) > 0', { comment: true },
+     { published_at: nil }, 'published_at IS NOT NULL']
+  end
+
+  def options_for_multiselect
+    options = [t('moments.filters.secret_share'),
+               t('moments.filters.no_viewers'),
+               t('moments.filters.one_viewer'),
+               t('moments.filters.coments_enabled'),
+               t('moments.filters.draft_enabled'),
+               t('moments.filters.published')]
+    options_hash = []
+    options.each_with_index do |element, index|
+      options_hash.push({
+                          id: element,
+                          label: element,
+                          value: index
+                        })
+    end
+    options_hash
   end
 end
