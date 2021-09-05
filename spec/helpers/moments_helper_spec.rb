@@ -491,4 +491,15 @@ describe MomentsHelper, type: :controller do
       end
     end
   end
+
+  describe '#hash_for_multiselect' do
+    subject { controller.hash_for_multiselect }
+    it 'contains the 6 options' do
+      expect(subject[:options].size).to eq(6)
+    end
+
+    it 'contains the 6 filters' do
+      expect(subject[:filters].size).to eq(6)
+    end
+  end
 end
