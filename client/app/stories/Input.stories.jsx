@@ -334,9 +334,13 @@ const SelectTemplate = (args) => (
   </>
 );
 
-export const Select = SelectTemplate.bind({});
+export const MultiSelect = () => (
+  <>
+    {InputMocks.createInput(InputMocks.inputMultiSelectProps)}
+  </>
+);
 
-const SelectWithAccordionTemplate = (args) => (
+export const SelectWithAccordion = () => (
   <>
     {InputMocks.createInput(InputMocks.inputSelectProps, {
       onChange: InputMocks.event,
@@ -371,8 +375,6 @@ const SelectWithAccordionTemplate = (args) => (
     })}
   </>
 );
-
-export const SelectWithAccordion = SelectWithAccordionTemplate.bind({});
 
 SelectWithAccordion.storyName = 'Select with accordion';
 

@@ -13,7 +13,6 @@ export type Props = {
   ariaLabel?: string,
   label?: string,
   value?: any,
-  onChange?: Function,
 };
 
 export function InputMultiSelect({

@@ -64,6 +64,15 @@ const inputSelectProps = {
   options,
 };
 
+const inputMultiSelectProps = {
+  type: 'multi_select',
+  ariaLabel: 'some-select-label',
+  id: 'some-select-id',
+  label: 'some-select-arialabel',
+  name: 'some-select-label',
+  options,
+};
+
 const inputRadioProps = {
   id: 'some-radio-id',
   type: 'radio',
@@ -146,6 +155,7 @@ export const InputMocks = {
   inputTextareaProps,
   inputTextareaTemplateProps,
   inputSelectProps,
+  inputMultiSelectProps,
   inputRadioProps,
   inputCheckboxProps,
   inputCheckboxGroupProps,
