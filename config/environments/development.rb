@@ -86,4 +86,10 @@ Rails.application.configure do
 
   config.action_controller.default_url_options = { host: primary_domain }
   config.action_controller.asset_host = primary_domain
+
+  # To render an HTML page with debugging information, use the value :default.
+  # To render debugging information preserving the response format, use the value :api.
+  # By default, config.debug_exception_response_format is set to :api, when config.api_only is set to true.
+  # But we set it here explicitly so that we can change it if we want and we know that it is on.
+  config.debug_exception_response_format = :api
 end
