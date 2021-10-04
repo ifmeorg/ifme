@@ -22,29 +22,29 @@ class ResourceRecommendations
 
   def matched_tags
     @moment_keywords = MomentKeywords.new(@moment).call
-    resource_tags = all_resources.flat_map do |resource|
+
+    all_resources.flat_map do |resource|
       resource['tags'].select do |tag|
         @moment_keywords.match?(tag)
       end
     end
-    resource_tags
   end
 
   def show_crisis_prevention
-    if @moment.user_id == @current_user.id &&
-       (@moment.created_at.to_date == Date.current ||
-       @moment.updated_at.to_date == Date.current)
+    if same_user? && same_date?
       @moment_keywords = MomentKeywords.new(@moment).call
-      CRISIS_PREVENTION_TAGS.each do |tag|
-        return true if @moment_keywords.match?(get_crisis_preventation_tag(tag))
+
+      return CRISIS_PREVENTION_TAGS.any? do |tag|
+        @moment_keywords.match?(get_crisis_prevention_tag(tag))
       end
     end
+
     false
   end
 
   private
 
-  def get_crisis_preventation_tag(tag)
+  def get_crisis_prevention_tag(tag)
     I18n.t("pages.resources.crisis_prevention.#{tag}")
   end
 
@@ -54,5 +54,14 @@ class ResourceRecommendations
       item['tags'].map! { |tag| I18n.t("pages.resources.tags.#{tag}") }
     end
     resources
+  end
+
+  def same_user?
+    @moment.user_id == @current_user.id
+  end
+
+  def same_date?
+    @moment.created_at.to_date == Date.current ||
+      @moment.updated_at.to_date == Date.current
   end
 end
