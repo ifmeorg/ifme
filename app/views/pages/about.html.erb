@@ -47,9 +47,7 @@
 </div>
 
 <div class="messageBody gridMany marginTop">
-  <% @blurbs.each do |blurb| %>
-    <%= render partial: 'contributor_blurb', locals: { blurb: blurb } %>
-  <% end %>
+  <%= render partial: 'contributor_blurb', collection: @blurbs, cached: true %>
 </div>
 
 <div class="messageMain marginTop">
