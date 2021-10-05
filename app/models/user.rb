@@ -238,5 +238,11 @@ class User < ApplicationRecord
   def access_token_expired?
     !access_expires_at || Time.zone.now > access_expires_at
   end
+
+  def confirmation_required?
+    return false if oauth_provided?
+
+    super
+  end
 end
 # rubocop:enable Metrics/ClassLength
