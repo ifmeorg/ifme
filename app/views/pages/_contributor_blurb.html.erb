@@ -1,44 +1,42 @@
-<% cache contributor_blurb do %>
-  <div class="gridManyItem center">
-    <%= react_component('Modal', props: {
-      element: {
-        component: 'Avatar',
-        props: {
-          src: ProfilePicture.normalize_url(contributor_blurb["image"]),
-          alt: t('pages.contribute.contributor_avatar_alt', {
-            name: contributor_blurb['name']
-          })
-        }
-      },
-      body: <<~HEREDOC
+<div class="gridManyItem center">
+  <%= react_component('Modal', props: {
+    element: { 
+      component: 'Avatar', 
+      props: { 
+        src: ProfilePicture.normalize_url(blurb["image"]),
+        alt: t('pages.contribute.contributor_avatar_alt', {
+          name: blurb['name']
+        })
+      } 
+    },
+    body: <<~HEREDOC
       <div class="contributorModalBody">
         <div class="contributorModalBodyPhoto hideOnSmall">
-          <img class="contributorAvatar" src="#{ProfilePicture.normalize_url(contributor_blurb["image"])}" alt="">
+          <img class="contributorAvatar" src="#{ProfilePicture.normalize_url(blurb["image"])}" alt="">
         </div>
         <div class="contributorModalBodyCopy">
           <div class="contributorModalHeader">
             <div class="contributorModalBodyPhoto showOnSmall">
-                <img class="contributorAvatar" src="#{ProfilePicture.normalize_url(contributor_blurb["image"])}" alt="">
+                <img class="contributorAvatar" src="#{ProfilePicture.normalize_url(blurb["image"])}" alt="">
             </div>
             <div>
               <div role="heading" class="contributorModalName">
-                #{contributor_blurb["name"]}
+                #{blurb["name"]}
               </div>
               <div class="contributorModalBodySocialLinks">
                 <div class="socialLink">
-                  <i class="fa fa-location-arrow fa-inline"></i>#{contributor_blurb["location"]}
+                  <i class="fa fa-location-arrow fa-inline"></i>#{blurb["location"]}
                 </div>
                 <div class="socialLink">
-                  <i class="#{get_icon_class(contributor_blurb["social"])} fa-inline"></i>
-                  #{link_to(contributor_blurb["link_name"], contributor_blurb["link"], target: 'blank')}
+                  <i class="#{get_icon_class(blurb["social"])} fa-inline"></i>
+                  #{link_to(blurb["link_name"], blurb["link"], target: 'blank')}
                 </div>
               </div>
             </div>
           </div>
-          <p>#{contributor_blurb["profile"]}</p>
+          <p>#{blurb["profile"]}</p>
         </div>
-
-      HEREDOC
-    }) %>
-  </div>
-<% end %>
+     
+    HEREDOC
+  }) %>
+</div>
