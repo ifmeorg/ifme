@@ -2,7 +2,7 @@
 
 module FormHelper
   def edit_form_props(inputs, action)
-    return nil unless inputs.class == Array && action
+    return nil unless inputs.instance_of?(Array) && action
 
     props = form_props(inputs, action)
     props[:inputs].push(update_input).push(submit_field)
@@ -11,7 +11,7 @@ module FormHelper
   end
 
   def new_form_props(inputs, action)
-    return nil unless inputs.class == Array && action
+    return nil unless inputs.instance_of?(Array) && action
 
     props = form_props(inputs, action)
     props[:inputs].push(submit_field)
@@ -20,7 +20,7 @@ module FormHelper
   end
 
   def quick_create_form_props(inputs, action)
-    return nil unless inputs.class == Array && action
+    return nil unless inputs.instance_of?(Array) && action
 
     new_form_props(inputs, action)
   end
