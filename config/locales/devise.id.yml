@@ -53,7 +53,7 @@ id:
         Sebuah pesan dengan tautan konfirmasi telah dikirim ke alamat email anda.
         Silahkan ikuti tautan nya untuk mengaktivasi akun anda.
       update_needs_confirmation: >-
-        Anda telah berhasil memperbarui akun anda, namun kami perlu memverifikasi alamat email baru anda. Silahkan periksa email anda dan ikuti 
+        Anda telah berhasil memperbarui akun anda, namun kami perlu memverifikasi alamat email baru anda. Silahkan periksa email anda dan ikuti
         tautan konfirmasi untuk mengkonfirmasi alamat email baru anda.
       updated: Akun anda telah berhasil diperbarui.
     sessions:
@@ -64,7 +64,7 @@ id:
       send_instructions: >-
         Anda akan menerima pesan email dengan instruksi untuk membuka kunci akun anda dalam beberapa menit.
       send_paranoid_instructions: >-
-        Jika akun anda benar, anda akan menerima pesan email dengan instruksi 
+        Jika akun anda benar, anda akan menerima pesan email dengan instruksi
         untuk membuka kunci akun anda dalam beberapa menit.
       unlocked: Akun anda telah berhasil dikunci. Silahkan masuk untuk melanjutkan.
   errors:
