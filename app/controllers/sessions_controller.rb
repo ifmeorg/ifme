@@ -9,10 +9,6 @@ class SessionsController < Devise::SessionsController
     set_user_locale if user_signed_in?
   end
 
-  def new
-    super
-  end
-
   private
 
   def set_user_locale
