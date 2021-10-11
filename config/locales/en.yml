@@ -2,15 +2,15 @@ en:
   app_name: if-me.org
   app_description: A community for mental health experiences
   email: join.ifme@gmail.com
-  created: 'Created %{created_at}'
+  created: "Created %{created_at}"
   draft: Draft
-  edited: 'Created %{created_at} (edited)'
-  edited_updated_at: 'Created %{created_at} (edited %{updated_at})'
-  salutation: 'Hi %{name},'
+  edited: "Created %{created_at} (edited)"
+  edited_updated_at: "Created %{created_at} (edited %{updated_at})"
+  salutation: "Hi %{name},"
   click_here: click here
   language: Language
-  yes_text: 'yes'
-  no_text: 'no'
+  yes_text: "yes"
+  no_text: "no"
   expand_menu: expand menu
   close: close
   load_more: Load more
@@ -30,8 +30,9 @@ en:
     hi: हिंदी
     zh-CN: 中文
     ko: 한국어
+    id: Bahasa Indonesia
   navigation:
-    skip_to_main_content: 'Skip to main content'
+    skip_to_main_content: "Skip to main content"
     google: Google
     main_menu: Main menu
     user_menu: User menu
@@ -66,7 +67,7 @@ en:
       confirm: Are you sure?
       delete: Delete
       edit: Edit
-      edit_instance: 'Edit %{instance}'
+      edit_instance: "Edit %{instance}"
       join: Join
       leave: Leave
       add: Add
@@ -82,7 +83,7 @@ en:
       empty_error: This field cannot be empty!
       search_by_keywords: Search by keywords
       template: Choose a template
-    time_ago: '%{date} ago'
+    time_ago: "%{date} ago"
     write_to_us: write to us
     days: Days
   reports:
@@ -90,17 +91,17 @@ en:
     reported_users: Reported Users
     banned_users: Banned Users
     reasons: Reasons
-    new: 'New Report for %{name}'
+    new: "New Report for %{name}"
     remove_ban: Remove Ban
     ban_user: Ban User
-    report_sent: 'Report for %{name} sent'
-    report_error: 'Could not send report for %{name}'
+    report_sent: "Report for %{name} sent"
+    report_error: "Could not send report for %{name}"
     reportee: Reportee
     reporter: Reporter
-    user_banned: '%{name} has been banned'
-    ban_removed: 'Ban removed from %{name}'
-    user_banned_error: 'Could not ban %{name}'
-    ban_removed_error: 'Could not remove ban from %{name}'
+    user_banned: "%{name} has been banned"
+    ban_removed: "Ban removed from %{name}"
+    user_banned_error: "Could not ban %{name}"
+    ban_removed_error: "Could not remove ban from %{name}"
   comment:
     singular: Comment
     plural: Comments
@@ -114,8 +115,8 @@ en:
     sign_up: Sign up
     forgot_password: Forgot your password?
   members:
-    one: '%{count} member'
-    other: '%{count} members'
+    one: "%{count} member"
+    other: "%{count} members"
   allies:
     add_ally: Add to Allies
     cancel_ally_request: Cancel Request
@@ -126,7 +127,7 @@ en:
       outgoing: Outgoing Requests
       incoming: Incoming Requests
       invited: Invited by email
-      invited_on: 'Invited on: %{date}'
+      invited_on: "Invited on: %{date}"
       invitation_expired: Invitation expired
       invite: Invite your loved ones!
       none: >-
@@ -142,12 +143,12 @@ en:
     edit_category: Edit Category
     new: New Category
     form:
-      name_hint: 'Categorize recurring people, places, things, activities, and more'
+      name_hint: "Categorize recurring people, places, things, activities, and more"
     label:
-      one: 'Category:'
-      other: 'Categories:'
+      one: "Category:"
+      other: "Categories:"
     index:
-      subtitle: 'Life is messy, categorize the different people, places, and things.'
+      subtitle: "Life is messy, categorize the different people, places, and things."
       premade1_name: Family
       premade1_description: Family related
       premade2_name: Friends
@@ -155,7 +156,7 @@ en:
       premade3_name: Work
       premade3_description: Work related
       premade4_name: Meditation
-      premade4_description: 'Meditation, deep breathing, and relaxing activities'
+      premade4_description: "Meditation, deep breathing, and relaxing activities"
       instructions: >-
         You haven't created any custom categories yet.<br>You can also add the
         following premade categories and customize them another time.
@@ -171,12 +172,12 @@ en:
     plural: Groups
     form:
       leaders: Leaders
-      only_leader: 'You are the only leader, therefore you can''t leave.'
+      only_leader: "You are the only leader, therefore you can't leave."
       cannot_delete: Please note that you cannot delete groups.
-      error_save: 'We can''t save this group because: '
+      error_save: "We can't save this group because: "
       error_edit_permission: You must be a leader of a group in order to edit it
     index:
-      subtitle: 'Create and join groups that offer support, mentorship, and discussions.'
+      subtitle: "Create and join groups that offer support, mentorship, and discussions."
       available_groups: Available Groups
       joined_groups: Joined Groups
       leader: (Leader)
@@ -185,13 +186,13 @@ en:
       success: You have joined this group.
       group_not_exists: You cannot join a group that doesn't exist.
     leave:
-      error: 'You cannot leave the group, you are the only leader.'
-      success: 'You have left %{group}'
-      remove_member_success: 'You have removed %{user} from %{group}'
+      error: "You cannot leave the group, you are the only leader."
+      success: "You have left %{group}"
+      remove_member_success: "You have removed %{user} from %{group}"
       remove_member_error: You cannot remove a group member because you are not a leader.
     new: New Group
     show:
-      led_by: 'Led by:'
+      led_by: "Led by:"
       delete: Delete group
   layouts:
     application:
@@ -212,23 +213,23 @@ en:
     singular: Medication
     edit_medication: Edit Medication
     refill_reminder: Refill reminder email
-    dosage: 'Daily Dosage:'
-    weekly_dosage: 'Weekly dosage:'
-    refill: 'Refill:'
-    quantity: 'Total Quantity:'
-    strength: 'Strength:'
-    event_summary: 'Refill for %{name}.'
+    dosage: "Daily Dosage:"
+    weekly_dosage: "Weekly dosage:"
+    refill: "Refill:"
+    quantity: "Total Quantity:"
+    strength: "Strength:"
+    event_summary: "Refill for %{name}."
     form:
       strength: Strength
-      strength_unit: 'Strength Unit'
+      strength_unit: "Strength Unit"
       dosage: dosage
-      dosage_unit: 'Dosage Unit'
+      dosage_unit: "Dosage Unit"
       refill: refill
-      name_hint: 'Generic or brand name of the medication'
-      comments_hint: 'Add any additional comments here, e.g. logging your symptoms'
+      name_hint: "Generic or brand name of the medication"
+      comments_hint: "Add any additional comments here, e.g. logging your symptoms"
       add_to_google_cal: Google Calendar reminder
       google_cal_hint: We'll add a reminder for this medication to your Google calendar.
-      strength_hint: 'Medication strength, usually found beside the name'
+      strength_hint: "Medication strength, usually found beside the name"
       total_hint: Total number of pills or amount of medication
       dosage_hint: Number of pills or servings daily
       weekly_dosage_hint: Days of the week to take this medication
@@ -238,26 +239,26 @@ en:
         refilled.
       daily_reminder_hint: We'll email you a daily reminder to take this medication
       total: Total
-      total_unit: 'Total Unit'
+      total_unit: "Total Unit"
     new: New Medication
     units:
-      display: '%{count} %{unit}'
+      display: "%{count} %{unit}"
       mg: mg
       ml: ml
       tablets:
         one: tablet
         other: tablets
     reminder_mailer:
-      subject: 'Don''t forget to take %{name}!'
-      body: 'Here''s a friendly reminder to take your medication %{name}!'
+      subject: "Don't forget to take %{name}!"
+      body: "Here's a friendly reminder to take your medication %{name}!"
     refill_mailer:
-      subject: 'Your refill for %{name} is coming up soon!'
+      subject: "Your refill for %{name} is coming up soon!"
       body: >-
         Here's a friendly reminder to refill your medication %{name} on
         %{refill}!
     index:
       title: Medications
-      subtitle: 'Keep track of your medications, including dosage and refill information.'
+      subtitle: "Keep track of your medications, including dosage and refill information."
       instructions: >-
         You haven't saved any medications yet.<br /><br />Here's an example of a
         saved medication! You can also write about your experience.
@@ -267,7 +268,7 @@ en:
       example_dosage: 2 tablets
       example_refill: 05/31/2016
     show:
-      comments: 'Comments:'
+      comments: "Comments:"
   meetings:
     singular: Meeting
     edit_meeting: Edit Meeting
@@ -280,8 +281,8 @@ en:
       cancel_meeting: Cancel meeting
       meeting_time: Time
       members_of_group_html:
-        one: '%{count} Member of %{group}'
-        other: '%{count} Members of %{group}'
+        one: "%{count} Member of %{group}"
+        other: "%{count} Members of %{group}"
     reminder_mailer:
       subject: 'Your meeting "%{meeting_name}" is tomorrow at %{time}!'
       body: |-
@@ -289,8 +290,8 @@ en:
          "%{meeting_name}", will be taking place at %{time} at
          %{location}!
     leave:
-      error: 'You cannot leave the meeting, you are the only leader.'
-      success: 'You have left %{meeting}'
+      error: "You cannot leave the meeting, you are the only leader."
+      success: "You have left %{meeting}"
     new: New Meeting
     google_cal:
       create:
@@ -344,9 +345,9 @@ en:
     plural: Moods
     edit_mood: Edit Mood
     new: New Mood
-    example_moods: 'Nervous, Anxious, Hopeful'
+    example_moods: "Nervous, Anxious, Hopeful"
     index:
-      subtitle: 'Create tags describing your state of mind, feelings, and emotions.'
+      subtitle: "Create tags describing your state of mind, feelings, and emotions."
       premade1_name: Accepting
       premade1_description: Accepting and being at peace with differences and limitations
       premade2_name: Ambitious
@@ -354,7 +355,7 @@ en:
       premade3_name: Curious
       premade3_description: Feeling curious about uncertainty
       premade4_name: Resentful
-      premade4_description: 'Not accepting certain facts, feeling angry, vengeful, and/or jealous'
+      premade4_description: "Not accepting certain facts, feeling angry, vengeful, and/or jealous"
       premade5_name: Hopeless
       premade5_description: Feeling sad and hopeless - unable to find any possible solutions
       instructions: >-
@@ -364,13 +365,13 @@ en:
     plural: Notifications
     none: There are none
     clear: Clear
-    created_by_html: '<strong>Created by</strong>: %{name}'
+    created_by_html: "<strong>Created by</strong>: %{name}"
     preview: View more
     members:
       title: List of Members
     ally:
-      accepted: '%{name} accepted your ally request!'
-      sent_html: '%{link_to_user} sent an ally request!'
+      accepted: "%{name} accepted your ally request!"
+      sent_html: "%{link_to_user} sent an ally request!"
     comment:
       full: '%{name} commented "%{comment}" on %{typename}'
       truncated: '%{name} commented "%{comment}" [...] on %{typename}'
@@ -390,11 +391,11 @@ en:
       comment_on_meeting_subject: >-
         if-me.org | %{user} commented on the meeting "%{meeting}" in the group
         "%{group}"
-      comment_on_private_body: '<p>Your ally <strong>%{user}</strong> commented privately:</p>'
-      comment_on_body: '<p>Your ally <strong>%{user}</strong> commented:</p>'
-      comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
-      comment_text: '<p><i>%{comment}</i></p>'
-      comment_link: '<p>To read it, %{link}!</p>'
+      comment_on_private_body: "<p>Your ally <strong>%{user}</strong> commented privately:</p>"
+      comment_on_body: "<p>Your ally <strong>%{user}</strong> commented:</p>"
+      comment_text_cutoff: "<p><i>%{comment} [...]</i></p>"
+      comment_text: "<p><i>%{comment}</i></p>"
+      comment_link: "<p>To read it, %{link}!</p>"
       new_group_subject: 'if-me.org | %{user} created a group "%{group}"'
       new_group_body: >-
         <p>%{user} created a group
@@ -414,17 +415,17 @@ en:
         <p>%{subject}</p><p><i>%{description}</i></p>
         <p><strong>Location:</strong> %{location}</p><p><strong>
         Date:</strong> %{date}</p><p><strong>Time:</strong> %{time}</p>
-      new_meeting_link: '<p>To learn more and attend, %{link}!</p>'
-      update_meeting_link: '<p>To learn more, %{link}!</p>'
+      new_meeting_link: "<p>To learn more and attend, %{link}!</p>"
+      update_meeting_link: "<p>To learn more, %{link}!</p>"
       remove_meeting_subject: 'if-me.org | %{user} has cancelled "%{meeting}" for "%{group}"'
       join_meeting_subject: 'if-me.org | %{user} has joined "%{meeting}" for "%{group}"'
       join_meeting_body: '<p>To see "%{meeting}", %{link}!</p>'
       reported_user_subject: if-me.org | You have reported a user
-      reported_user_body: 'You have reported %{reported_name}. This will be reviewed by an admin.'
+      reported_user_body: "You have reported %{reported_name}. This will be reviewed by an admin."
       reportee_user_subject: if-me.org | You have been reported
       reportee_user_body: You have been reported. This will be reviewed by an admin.
       add_ban_subject: if-me.org | You have been banned
-      add_ban_body: 'You have been banned for violating our %{code_of_conduct_link}.'
+      add_ban_body: "You have been banned for violating our %{code_of_conduct_link}."
       remove_ban_subject: if-me.org | You are no longer banned
       remove_ban_body: >-
         You were previously banned for violating our %{code_of_conduct_link}.
@@ -458,7 +459,7 @@ en:
         If you're interested in writing for us, pitch us at %{email}! We welcome
         anonymous submissions too.
     contribute:
-      contributor_avatar_alt: 'Contributor biography for %{name}'
+      contributor_avatar_alt: "Contributor biography for %{name}"
       message_text_one: >-
         We're always looking for ideas from everyone, including <strong>mental
         health advocates</strong>, <strong>health professionals</strong>,
@@ -538,15 +539,15 @@ en:
         main_message_one: Better communication with loved ones leads to better mental health.
         message_text_one: We need each other's support to break down stigmas.
         message_one: Share your stories with loved ones and get the support you deserve
-        message_two: 'Be you, no strings attached and with security and privacy'
-        message_three: 'Document your moods, medications, and self-care'
+        message_two: "Be you, no strings attached and with security and privacy"
+        message_three: "Document your moods, medications, and self-care"
         main_message_two: We are open source because mental health should be open.
         message_text_two: >-
           We are <strong>always</strong> looking for your %{help} and
           %{feedback}!
         help: help
       signed_in_empty:
-        main_message_one: 'Hello %{name}!'
+        main_message_one: "Hello %{name}!"
         message_text_one: Here's how you can start sharing your stories.
         main_message_two: Tell us about yourself.
         cell_one: >-
@@ -564,7 +565,7 @@ en:
           Keep track of it and create reminders!<br /> Need extra support? Join or
           create a %{group} to open up
         main_message_five: Have any questions or concerns?
-        message_text_three: 'Check out our %{faq} page or %{email_link}!'
+        message_text_three: "Check out our %{faq} page or %{email_link}!"
         strategize: Strategize
     partners:
       description: >-
@@ -789,16 +790,16 @@ en:
       search_by_email: Search by email
     index:
       title: Search for Allies
-      user_not_found: 'User %{email} not found'
+      user_not_found: "User %{email} not found"
   shared:
     footer:
       licence: AGPL-3.0
-      licence_subtitle: 'Licenced under %{licence}'
+      licence_subtitle: "Licenced under %{licence}"
       connect: connect
     comments:
       share_everyone: Share with everyone
-      share_with: 'Share with %{name} only'
-      visible_only_between_you_and: 'Visible only between you and %{name}'
+      share_with: "Share with %{name} only"
+      visible_only_between_you_and: "Visible only between you and %{name}"
       not_allies: (not allies)
     header:
       signout: Sign out
@@ -810,25 +811,25 @@ en:
         other: You are <strong>not</strong> the only viewer.
       viewers_html:
         zero: There are <strong>no</strong> viewers.
-        one: '%{names} is a viewer.'
-        other: '%{names} are viewers.'
+        one: "%{names} is a viewer."
+        other: "%{names} are viewers."
     stats:
       you_are_focusing: You are focusing the most on
-      user_is_focusing: '%{name} is focusing the most on'
+      user_is_focusing: "%{name} is focusing the most on"
       visible_in_stats: Visible in stats?
     viewers:
       plural: Viewers
       you: Only you
       you_link: Visible to only you
-      many: 'Visible to %{viewers}'
+      many: "Visible to %{viewers}"
     meeting_info:
       attending: You are attending. Change your mind?
-      not_attending: 'You are not attending. %{join}'
-      not_attending_one_spot_left: 'You are not attending. There is one spot left to fill! %{join}'
-      not_attending_spots_left: 'You are not attending. There are %{number} spots left to fill! %{join}'
+      not_attending: "You are not attending. %{join}"
+      not_attending_one_spot_left: "You are not attending. There is one spot left to fill! %{join}"
+      not_attending_spots_left: "You are not attending. There are %{number} spots left to fill! %{join}"
       not_attending_no_spots_left: You are not attending. There is no room to join.
     quick_create:
-      new: 'New %{name}'
+      new: "New %{name}"
   strategies:
     singular: Strategy
     plural: Strategies
@@ -838,15 +839,15 @@ en:
     form:
       describe: Describe the strategy.
       strategies_label: What strategies would help achieve these thoughts?
-      name_hint: 'Any activity, train of thought, or form or self-care that helps you'
+      name_hint: "Any activity, train of thought, or form or self-care that helps you"
       viewers_hint: Allies who can view your strategy and tag their own moments with it
       daily_reminder_hint: We'll email you a daily reminder to perform this strategy
       draft_question: Do you want to save your strategy as draft?
       bookmarked_question: Bookmark this strategy?
       bookmarked_info: Bookmarked strategies appear in your Care Plan
     label:
-      one: 'Strategy:'
-      other: 'Strategies:'
+      one: "Strategy:"
+      other: "Strategies:"
     index:
       subtitle: >-
         Strategize self-care to achieve desired thoughts and attitudes towards
@@ -884,8 +885,8 @@ en:
         You haven't created any custom strategies yet.<br>You can also add the
         following premade strategy and customize it another time.
     reminder_mailer:
-      subject: 'Don''t forget to perform %{name}!'
-      body: 'Here''s a friendly reminder to perform %{name}!'
+      subject: "Don't forget to perform %{name}!"
+      body: "Here's a friendly reminder to perform %{name}!"
   stats:
     total_moments: >-
       You have written a <strong>total</strong> of <strong>%{count}</strong>
@@ -893,19 +894,19 @@ en:
     total_moment: >-
       You have written a <strong>total</strong> of <strong>%{count}</strong>
       moment.
-    monthly_moments: 'This <strong>month</strong> you wrote <strong>%{count}</strong> moments.'
-    monthly_moment: 'This <strong>month</strong> you wrote <strong>%{count}</strong> moment.'
+    monthly_moments: "This <strong>month</strong> you wrote <strong>%{count}</strong> moments."
+    monthly_moment: "This <strong>month</strong> you wrote <strong>%{count}</strong> moment."
   warnings:
     no_description: You didn't write a description!
     yes_description: Writing one can help you and others better understand in detail
   mailers:
     accepted_ally_request:
-      subject: 'if-me.org | %{ally_name} accepted your ally request!'
+      subject: "if-me.org | %{ally_name} accepted your ally request!"
       message: >-
         <p>Congrats! You can now share Moments, Strategies, and more with
         %{ally_name}.</p>
     new_ally_request:
-      subject: 'if-me.org | %{ally_name} sent an ally request!'
+      subject: "if-me.org | %{ally_name} sent an ally request!"
       message: >-
         <p>Please <a href="%{allies_url}">sign in</a> to accept or reject the
         request!</p>
@@ -927,7 +928,7 @@ en:
         link_instructions: >-
           Someone has requested a link to change your password. You can do this
           through the link below.
-        ignore: 'If you didn''t request this, please ignore this email.'
+        ignore: "If you didn't request this, please ignore this email."
         info: >-
           Your password won't change until you access the link above and create
           a new one.
@@ -944,7 +945,7 @@ en:
         send_instructions: Send me reset password instructions
     registrations:
       email_notifications: Email Notifications
-      comment_notify_text: 'Comments on moments, strategies, and meetings'
+      comment_notify_text: "Comments on moments, strategies, and meetings"
       ally_notify_text: New and accepted ally requests
       group_notify_text: Group updates
       meeting_notify_text: Meeting updates
@@ -992,7 +993,7 @@ en:
           private space
         label: A few details
     sessions:
-      subtitle: 'Welcome back, we''re looking forward to you helping you tackle your day'
+      subtitle: "Welcome back, we're looking forward to you helping you tackle your day"
     shared:
       sign_in_google: Sign in with Google
       sign_up_google: Sign up with Google

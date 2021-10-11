@@ -2,11 +2,11 @@ zh-CN:
   app_name: if-me.org
   app_description: 心理健康社区
   email: join.ifme@gmail.com
-  created: '创建时间%{created_at}'
+  created: "创建时间%{created_at}"
   draft: 草稿
-  edited: '编辑时间%{created_at} (修改时间)'
-  edited_updated_at: '编辑时间%{created_at} (修改时间 %{updated_at})'
-  salutation: '你好, %{name},'
+  edited: "编辑时间%{created_at} (修改时间)"
+  edited_updated_at: "编辑时间%{created_at} (修改时间 %{updated_at})"
+  salutation: "你好, %{name},"
   click_here: 点击这里
   language: 语言
   yes_text: 是的
@@ -30,6 +30,7 @@ zh-CN:
     hi: हिंदी
     zh-CN: 中文
     ko: 한국어
+    id: Bahasa Indonesia
   navigation:
     skip_to_main_content: 跳至主要内容
     main_menu: 主菜单
@@ -66,7 +67,7 @@ zh-CN:
       confirm: 确定？
       delete: 删除
       edit: 编辑
-      edit_instance: '编辑%{instance}'
+      edit_instance: "编辑%{instance}"
       join: 加入
       leave: 离开
       add: 添加
@@ -82,7 +83,7 @@ zh-CN:
       empty_error: 不能为空！
       search_by_keywords: 关键词搜索
       template: 選擇一個模板
-    time_ago: '%{date}之前'
+    time_ago: "%{date}之前"
     write_to_us: 联系我们
     days: 天
   reports:
@@ -90,17 +91,17 @@ zh-CN:
     reported_users: 投诉不良用户
     banned_users: 封号的用户
     reasons: 原因
-    new: '新投诉 %{name}'
+    new: "新投诉 %{name}"
     remove_ban: 取消封号
     ban_user: 封号用户
-    report_sent: '投诉 %{name} 已发送'
-    report_error: '无法发送有关 %{name} 的投诉'
+    report_sent: "投诉 %{name} 已发送"
+    report_error: "无法发送有关 %{name} 的投诉"
     reportee: 被投诉用户
     reporter: 投诉用户
-    user_banned: '%{name} 已经被封号'
-    ban_removed: '取消封号 %{name}'
-    user_banned_error: '无法封号 %{name}'
-    ban_removed_error: '无法取消封号 %{name}'
+    user_banned: "%{name} 已经被封号"
+    ban_removed: "取消封号 %{name}"
+    user_banned_error: "无法封号 %{name}"
+    ban_removed_error: "无法取消封号 %{name}"
   comment:
     singular: 评论
     plural: 注释
@@ -114,8 +115,8 @@ zh-CN:
     sign_up: 注册
     forgot_password: 忘记密码了吗？
   members:
-    one: '%{count} 成员'
-    other: '%{count} 成员'
+    one: "%{count} 成员"
+    other: "%{count} 成员"
   allies:
     add_ally: 添加到好友
     cancel_ally_request: 取消邀请
@@ -126,14 +127,14 @@ zh-CN:
       outgoing: 寄出邀请
       incoming: 传入邀请
       invited: 通过电子邮件邀请
-      invited_on: '邀请参加日期: %{date}'
+      invited_on: "邀请参加日期: %{date}"
       invitation_expired: 邀请已过期
       invite: 邀请你的亲朋好友！
       none: 你目前没有好友！你可以搜索他们或邀请加入！
       view_all_allies: 查看所有好友
       cancel: 取消
     form:
-      placeholder: '输入一个或多个的电子邮件, 逗号分隔'
+      placeholder: "输入一个或多个的电子邮件, 逗号分隔"
   categories:
     singular: 类别
     plural: 分类目录
@@ -142,8 +143,8 @@ zh-CN:
     form:
       name_hint: 整理经常用的人员，地点，事物，活动等
     label:
-      one: '类别:'
-      other: '分类目录:'
+      one: "类别:"
+      other: "分类目录:"
     index:
       subtitle: 生活是复杂的，对不同的人，地方和事物进行整理。
       premade1_name: 家庭
@@ -153,7 +154,7 @@ zh-CN:
       premade3_name: 工作
       premade3_description: 工作相关
       premade4_name: 冥想
-      premade4_description: '冥想, 深呼吸, 和休闲活动'
+      premade4_description: "冥想, 深呼吸, 和休闲活动"
       instructions: 你尚未创建任何自定义类别。<br>你还可以添加以下指定类别， 然后再次自定义它们。
   errors:
     home_page: 首页
@@ -167,9 +168,9 @@ zh-CN:
     plural: 小组
     form:
       leaders: 组长
-      only_leader: '你是唯一的组长, 所以你不能离开.'
+      only_leader: "你是唯一的组长, 所以你不能离开."
       cannot_delete: 请注意，你不能删除小组.
-      error_save: '删除组错误:'
+      error_save: "删除组错误:"
       error_edit_permission: 你必须是组长才能对其进行修改
     index:
       subtitle: 创建并加入提供支持，指导和讨论的小组.
@@ -181,13 +182,13 @@ zh-CN:
       success: 你已加入该小组.
       group_not_exists: 不存在的小组.
     leave:
-      error: '你不能离开群, 你是唯一的组长。'
-      success: '离开%{group}'
-      remove_member_success: '你从 %{group} 小组中已删除 %{user} '
+      error: "你不能离开群, 你是唯一的组长。"
+      success: "离开%{group}"
+      remove_member_success: "你从 %{group} 小组中已删除 %{user} "
       remove_member_error: 你不是组长，因此无法删除小组成员。
     new: 新组
     show:
-      led_by: '组长: '
+      led_by: "组长: "
       delete: 删除小组
   layouts:
     application:
@@ -196,28 +197,28 @@ zh-CN:
       update_account: 自定义你的帐户
     mailer:
       html:
-        app_description: '%{app_name} 是一个鼓励人们与亲人好友分享心理健康故事的社区。'
-        no_reply: '你无法回复此电子邮件。如果你有任何疑问，疑虑或反馈，请发送电子邮件 %{email}!'
+        app_description: "%{app_name} 是一个鼓励人们与亲人好友分享心理健康故事的社区。"
+        no_reply: "你无法回复此电子邮件。如果你有任何疑问，疑虑或反馈，请发送电子邮件 %{email}!"
     title:
       reset_password: 重置你的密码
   medications:
     singular: 用药
     edit_medication: 修改药物
     refill_reminder: 补药提醒电子邮件
-    dosage: '每日剂量: '
-    weekly_dosage: '每周剂量: '
-    refill: '补药: '
-    quantity: '总共: '
-    strength: '强度: '
-    event_summary: '补充 %{name}。'
+    dosage: "每日剂量: "
+    weekly_dosage: "每周剂量: "
+    refill: "补药: "
+    quantity: "总共: "
+    strength: "强度: "
+    event_summary: "补充 %{name}。"
     form:
       strength: 强度
-      strength_unit: '力量单位'
-      strength_placeholder: '例如: 100'
-      total_placeholder: '例如: 30'
+      strength_unit: "力量单位"
+      strength_placeholder: "例如: 100"
+      total_placeholder: "例如: 30"
       dosage: 剂量
-      dosage_unit: '剂量单位'
-      dosage_placeholder: '例如: 2'
+      dosage_unit: "剂量单位"
+      dosage_placeholder: "例如: 2"
       refill: 补药
       name_hint: 药物的通用名称或品牌名称
       comments_hint: 在此处添加任何其他评论， 例如记录你的症状
@@ -231,21 +232,21 @@ zh-CN:
       refill_reminder_hint: 我们将在需要补充药物的一周前通过电子邮件提醒你。
       daily_reminder_hint: 我们会每天通过电子邮件提醒你服用这种药物
       total: 总量
-      total_unit: '总单位'
+      total_unit: "总单位"
     new: 新药
     units:
-      display: '%{count} %{unit}'
+      display: "%{count} %{unit}"
       mg: 毫克
       ml: 毫升
       tablets:
         one: 药片
         other: 药片
     reminder_mailer:
-      subject: '别忘了服用 %{name}!'
-      body: '友情提示:你需要服 %{name} 药!'
+      subject: "别忘了服用 %{name}!"
+      body: "友情提示:你需要服 %{name} 药!"
     refill_mailer:
-      subject: '你补药 %{name} 快到了！'
-      body: '这是一个友情提示，以补充你的药物 %{name} 快到了, %{refill}!'
+      subject: "你补药 %{name} 快到了！"
+      body: "这是一个友情提示，以补充你的药物 %{name} 快到了, %{refill}!"
     index:
       title: 药物治疗
       subtitle: 跟踪你的药物，包括剂量和补充药物信息。
@@ -256,7 +257,7 @@ zh-CN:
       example_dosage: 2片
       example_refill: 2016/05/31
     show:
-      comments: '注释: '
+      comments: "注释: "
   meetings:
     singular: 会面
     edit_meeting: 修改会面
@@ -269,14 +270,14 @@ zh-CN:
       cancel_meeting: 取消会面
       meeting_time: 时间
       members_of_group_html:
-        one: '小组 %{group} 会面, 总共 %{count} 成员'
-        other: '小组 %{group} 会面, 总共 %{count} 成员'
+        one: "小组 %{group} 会面, 总共 %{count} 成员"
+        other: "小组 %{group} 会面, 总共 %{count} 成员"
     reminder_mailer:
       subject: '你的会面 "%{meeting_name}" 明天在 %{time}!'
       body: '提醒你，明天的"%{meeting_name}"会面, 将在 %{time} 在 %{location}!'
     leave:
       error: 你不能离开会面，你是唯一的成员。
-      success: '你已经离开会面 %{meeting}'
+      success: "你已经离开会面 %{meeting}"
     new: 新会面
     google_cal:
       create:
@@ -315,7 +316,7 @@ zh-CN:
       instructions: >-
         你尚未写任何日记。<br><br>不知道从哪里开始？ 想与亲人分享和讨论今天发生的事情？可以好心情或坏心情！
         你不必立即共享它-准备好共享时才会分享！这是日记分享的例子.
-      example_name: '明天面试, 好紧张！'
+      example_name: "明天面试, 好紧张！"
       example_category: 工作
     show:
       strategies: 哪些健康规划会有所帮助?
@@ -329,7 +330,7 @@ zh-CN:
     index:
       subtitle: 创建描述你的心理状态，感觉和情感的标签。
       premade1_name: 接受
-      premade1_description: '接受生活的变化与局限, 心静如水'
+      premade1_description: "接受生活的变化与局限, 心静如水"
       premade2_name: 有野心
       premade2_description: 对实现自己的目标感到乐观
       premade3_name: 好奇
@@ -343,13 +344,13 @@ zh-CN:
     plural: 提示
     none: 没有
     clear: 清空
-    created_by_html: '<strong>创建于</strong>: %{name}'
+    created_by_html: "<strong>创建于</strong>: %{name}"
     preview: 查看更多
     members:
       title: 成员名单
     ally:
-      accepted: '%{name} 接受了你的好友请求！'
-      sent_html: '%{link_to_user} 发送了一个好友请求！'
+      accepted: "%{name} 接受了你的好友请求！"
+      sent_html: "%{link_to_user} 发送了一个好友请求！"
     comment:
       full: '%{name} 已评论 "%{comment}" 在 %{typename} 上'
       truncated: '%{name} 已评论 "%{comment}" [...] 在 %{typename} 上'
@@ -367,11 +368,11 @@ zh-CN:
       comment_on_moment_subject: '%{user} 评论了你的日记 "%{moment}"'
       comment_on_strategy_subject: '%{user} 评论了你的规划 "%{strategy}"'
       comment_on_meeting_subject: '%{user} 在组中 "%{group}" - "%{meeting}" 发表了评论'
-      comment_on_private_body: '<p>你的朋友 <strong>%{user}</strong> 的秘密分享:</p>'
-      comment_on_body: '<p>你的朋友 <strong>%{user}</strong> 的分享: </p>'
-      comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
-      comment_text: '<p><i>%{comment}</i></p>'
-      comment_link: '<p>阅读链接: %{link}!</p>'
+      comment_on_private_body: "<p>你的朋友 <strong>%{user}</strong> 的秘密分享:</p>"
+      comment_on_body: "<p>你的朋友 <strong>%{user}</strong> 的分享: </p>"
+      comment_text_cutoff: "<p><i>%{comment} [...]</i></p>"
+      comment_text: "<p><i>%{comment}</i></p>"
+      comment_link: "<p>阅读链接: %{link}!</p>"
       new_group_subject: 'if-me.org 用户 %{user} 建立了一个小组 "%{group}"'
       new_group_body: >-
         <p>if-me.org 用户 %{user} 建立了一个小组 "%{group}":</p><p><i>
@@ -389,25 +390,25 @@ zh-CN:
         <p>%{subject}</p><p><i>%{description}</i></p><p><strong> 地点: </strong>
         %{location}</p><p><strong>日期: </strong> %{date}</p><p> <strong>时间:
         </strong> %{time}</p>
-      new_meeting_link: '<p>要了解参加信息，点击链接 %{link}</p>'
-      update_meeting_link: '<p>了解更多， %{link}!</p>'
+      new_meeting_link: "<p>要了解参加信息，点击链接 %{link}</p>"
+      update_meeting_link: "<p>了解更多， %{link}!</p>"
       remove_meeting_subject: 'if-me.org | 用户 %{user} 已取消小组 "%{group}" 的会面: "%{meeting}"'
       join_meeting_subject: 'if-me.org | 用户 %{user} 已经加入小组 "%{group}" 的会面: "%{meeting}"'
       join_meeting_body: '<p>查看更多 "%{meeting}", %{link}!</p>'
       reported_user_subject: if-me.org | 你已投诉用户
-      reported_user_body: '你已投诉 %{reported_name}。将由管理员进行审查。'
+      reported_user_body: "你已投诉 %{reported_name}。将由管理员进行审查。"
       reportee_user_subject: if-me.org | 你已被投诉
       reportee_user_body: 你被投诉了。管理员将进行审查。
       add_ban_subject: if-me.org | 你已经被封号
-      add_ban_body: '你因违反我们的规定 %{code_of_conduct_link} 而被封号。'
+      add_ban_body: "你因违反我们的规定 %{code_of_conduct_link} 而被封号。"
       remove_ban_subject: if-me.org | 你不再被封号
-      remove_ban_body: '你先前因违反我们的规定而被禁止 %{code_of_conduct_link}。你已经被解封。'
+      remove_ban_body: "你先前因违反我们的规定而被禁止 %{code_of_conduct_link}。你已经被解封。"
   omniauth:
     access_denied: 服务器拒绝访问
   pages:
     about:
-      main_message_one: '%{app_name} 是一个促进心理健康的社区， 鼓励人们与可信赖的好友分享他们的个人故事。'
-      message_text_one: '我们每天交流的人，包括朋友，家人，同事，老师和心理健康服务人员, 可以成为可信赖的好友。'
+      main_message_one: "%{app_name} 是一个促进心理健康的社区， 鼓励人们与可信赖的好友分享他们的个人故事。"
+      message_text_one: "我们每天交流的人，包括朋友，家人，同事，老师和心理健康服务人员, 可以成为可信赖的好友。"
       main_message_two: 处理心理健康的问题是我们生活的很重要的一部分。但是对于我们许多人来说， 开口分享心理健康的问题是很困难的。
       message_text_two: 并非每个人都是精神健康顾问或心理学专家。 我们每天相处的人会影响我们的情感和行为。鼓励他人参与心理健康治疗与活动是很重要的。
       message_text_three: >-
@@ -415,9 +416,9 @@ zh-CN:
         %{fund_club_link} 的财政支持。 你可以通过向我们捐款来支持我们 %{open_collective_link}。
       fund_club: Fund Club
     blog:
-      description: '如果你有兴趣为我们写电子邮件，请向我们联系 %{email}！我们也欢迎匿名提交。'
+      description: "如果你有兴趣为我们写电子邮件，请向我们联系 %{email}！我们也欢迎匿名提交。"
     contribute:
-      contributor_avatar_alt: '志愿者 %{name}'
+      contributor_avatar_alt: "志愿者 %{name}"
       message_text_one: >-
         我们一直在努力寻求每个人的看法, <strong>心理健康倡导者 </strong>,<strong>精神健康专业人员</strong>,
         <strong>软件开发人员</strong>, <strong>翻译人员</strong>,
@@ -430,7 +431,7 @@ zh-CN:
     faq:
       title: 常见问题
       data_access_question: 谁有权访问我的数据?
-      data_access_answer: '数据未提供给任何第三方. 删除帐户将删除你的所有数据.<br><br>分析用户数据权利限制在程序范畴内,以提供更好的服务。'
+      data_access_answer: "数据未提供给任何第三方. 删除帐户将删除你的所有数据.<br><br>分析用户数据权利限制在程序范畴内,以提供更好的服务。"
       moment_question: 什么是日记?
       moment_answer: >-
         一 <strong>%{moment}</strong> 是影响你心理健康的事件和情况. 可以是好事与坏事.
@@ -441,9 +442,9 @@ zh-CN:
         你可以使用类别标记健康规划。 你还可以选择查看和评论的好友。 你可以使健康规划仅对你可见。
         共享健康规划将对所有指定的好友可见，这意味着你可以使用好友的健康规划标记自己的好友圈!
       category_question: 什么是标签?
-      category_answer: '一 <strong>%{category}</strong> 是可以代表对你重要的人物， 地点和事物的标签.'
+      category_answer: "一 <strong>%{category}</strong> 是可以代表对你重要的人物， 地点和事物的标签."
       mood_question: 什么是心情?
-      mood_answer: '一 <strong>%{mood}</strong> 是描述你的心境，感觉和情感状态的标签.'
+      mood_answer: "一 <strong>%{mood}</strong> 是描述你的心境，感觉和情感状态的标签."
       group_question: 什么是小组?
       group_answer: >-
         一 <strong>%{group}</strong>提供有关心理健康的支持，指导和讨论. 你可以创建小组，你的好友可以选择性的加入.
@@ -451,7 +452,7 @@ zh-CN:
         会面有地点和时间.该位置可以是实际地点， 也可以是谷歌 Hangouts 网址.会面还允许发表评论. 如果你是小组组长，那么除非有其他组长，
         否则你不能离开小组. 仅当你是唯一成员时才能删除组.
       medications_question: 我如何使用药物服务功能?
-      medications_answer: '<strong>%{medications} </strong> 功能使你可以记录所服用的处方药。你还可以记录你的症状。'
+      medications_answer: "<strong>%{medications} </strong> 功能使你可以记录所服用的处方药。你还可以记录你的症状。"
       invite_question: 如何邀请亲朋好友加入应用程序？
       invite_answer: >-
         转到<strong>%{allies} </strong>页面，
@@ -463,7 +464,7 @@ zh-CN:
     home:
       update_pwd_modal:
         title: 更新密码
-        body: '我们已为用户实施了更好的安全服务，请更新你的密码 %{update_password_link}'
+        body: "我们已为用户实施了更好的安全服务，请更新你的密码 %{update_password_link}"
         update_link: 更新你的密码。
       stories: 故事
       not_signed_in:
@@ -473,26 +474,26 @@ zh-CN:
         message_two: 忠于自己，没有附带条件，并具有安全和隐私性保障
         message_three: 记录你的情绪，药物和自我健康规划
         main_message_two: 我们是开源的，因为心理健康应该是开放的话题。
-        message_text_two: '我们<strong>始终</strong>在征求你的%{help}和 %{feedback}！'
+        message_text_two: "我们<strong>始终</strong>在征求你的%{help}和 %{feedback}！"
         help: 帮助
       signed_in_empty:
-        main_message_one: '%{name}，你好！'
+        main_message_one: "%{name}，你好！"
         message_text_one: 这里是如何开始分享你的故事的导引。
         main_message_two: 向我们介绍你自己。
         cell_one: >-
           自定义你的%{profile}-添加个人简介和个人照片<br>添加自定义
           %{moods}以最好地描述你的情绪<br>添加%{allies}-你想与之分享的朋友，家人和其他人
         main_message_three: 写你的故事。
-        cell_two: '创建自定义%{categories}以帮助组织写出你的日记<br> %{moments}-记录影响你心理健康的事件和情况'
+        cell_two: "创建自定义%{categories}以帮助组织写出你的日记<br> %{moments}-记录影响你心理健康的事件和情况"
         main_message_four: 好好照顾自己。
         cell_three: >-
           %{strategize}你的自我保健计划！<br>目前正在服用%{medications}？
           跟踪它,并创建每日提示！<br>需要额外的服务功能吗？加入或创建%{group}
         main_message_five: 有任何疑问顾虑吗？
-        message_text_three: '请查看我们的%{faq}页面或%{email_link}！'
+        message_text_three: "请查看我们的%{faq}页面或%{email_link}！"
         strategize: 制定健康规划
     partners:
-      description: '这些是难得的组织，我们受到鼓励并有幸与之合作。 我们很乐意与你的组织合作，通过%{email}向我们发送电子邮件。'
+      description: "这些是难得的组织，我们受到鼓励并有幸与之合作。 我们很乐意与你的组织合作，通过%{email}向我们发送电子邮件。"
     privacy:
       summary: 摘要
       summary_description: >-
@@ -556,7 +557,7 @@ zh-CN:
         therapy: 治疗
         counseling: 咨询
         youth: 青少年
-        lgbt: '同性恋,双性恋或跨性别群'
+        lgbt: "同性恋,双性恋或跨性别群"
         harassment: 骚扰
         self_care: 自我护理
         women: 女人
@@ -675,16 +676,16 @@ zh-CN:
       search_by_email: 通过电子邮件搜索
     index:
       title: 搜索好友
-      user_not_found: '找不到用户%{email}'
+      user_not_found: "找不到用户%{email}"
   shared:
     footer:
       licence: AGPL-3.0
-      licence_subtitle: '在%{licence}下获得许可'
+      licence_subtitle: "在%{licence}下获得许可"
       connect: 连接
     comments:
       share_everyone: 与所有人共享
-      share_with: '仅与%{name}共享'
-      visible_only_between_you_and: '仅在你和%{name}之间可见'
+      share_with: "仅与%{name}共享"
+      visible_only_between_you_and: "仅在你和%{name}之间可见"
       not_allies: （非好友）
     header:
       signout: 退出
@@ -693,28 +694,28 @@ zh-CN:
       disabled_comments: 评论已被禁用。
       you_are_viewer_html:
         one: 你是唯一的观众。
-        other: ' <strong>不是</strong>你是唯一的读者。'
+        other: " <strong>不是</strong>你是唯一的读者。"
       viewers_html:
         zero: 没有<strong>没有</strong>个读者。
-        one: '%{names}是读者。'
-        other: '%{names}是读者。'
+        one: "%{names}是读者。"
+        other: "%{names}是读者。"
     stats:
       you_are_focusing: 你最关注的是
-      user_is_focusing: '%{name}最关注'
+      user_is_focusing: "%{name}最关注"
       visible_in_stats: 统计参考资料中显示？
     viewers:
       plural: 读者
       you: 只有你
       you_link: 仅对你可见
-      many: '对%{viewers}可见'
+      many: "对%{viewers}可见"
     meeting_info:
       attending: 你在参加。改变你的想法？
-      not_attending: '你没有参加。 %{加入}'
-      not_attending_one_spot_left: '你没有参加。还剩一个位置！ %{加入}'
-      not_attending_spots_left: '你没有参加。还剩%{number}个位置！ %{加入}'
-      not_attending_no_spots_left: '你没有参加。抱歉,没有加入的位置。'
+      not_attending: "你没有参加。 %{加入}"
+      not_attending_one_spot_left: "你没有参加。还剩一个位置！ %{加入}"
+      not_attending_spots_left: "你没有参加。还剩%{number}个位置！ %{加入}"
+      not_attending_no_spots_left: "你没有参加。抱歉,没有加入的位置。"
     quick_create:
-      new: '新%{name}'
+      new: "新%{name}"
   strategies:
     singular: 健康规划
     plural: 健康规划
@@ -731,8 +732,8 @@ zh-CN:
       bookmarked_question: 将健康规划加上个书签?
       bookmarked_info: 已标记为策略的策略会出现在您的护理计划中
     label:
-      one: '健康规划: '
-      other: '健康规划: '
+      one: "健康规划: "
+      other: "健康规划: "
     index:
       subtitle: 制定自我护理健康规划，以实现对自己日记的理想与目标。
       premade1_name: 五分钟冥想
@@ -750,22 +751,22 @@ zh-CN:
         http://www.mindful.org/a-five-minute-breathing-meditation/ </i>
       instructions: 你尚未创建任何自定义健康规划。<br>你还可以添加以下预制健康规划， 然后再次对其进行自定义。
     reminder_mailer:
-      subject: '别忘了做一做%{name}！'
-      body: '这是做一做%{name}的友好提示！'
+      subject: "别忘了做一做%{name}！"
+      body: "这是做一做%{name}的友好提示！"
   stats:
-    total_moments: '你写了<strong>总计</strong><strong>%{count} </strong> 个日记。'
-    total_moment: '你写了<strong>总计</strong><strong>%{count} </strong> 个日记。'
-    monthly_moments: '你在<strong> 此月 </strong>里写了<strong>%{count} </strong>个日记。'
-    monthly_moment: '你在<strong>此月</strong>写下了<strong>%{count} </strong> 日记。'
+    total_moments: "你写了<strong>总计</strong><strong>%{count} </strong> 个日记。"
+    total_moment: "你写了<strong>总计</strong><strong>%{count} </strong> 个日记。"
+    monthly_moments: "你在<strong> 此月 </strong>里写了<strong>%{count} </strong>个日记。"
+    monthly_moment: "你在<strong>此月</strong>写下了<strong>%{count} </strong> 日记。"
   warnings:
     no_description: 你没有写说明！
     yes_description: 写一个说明可以帮助你和其他人更好地理解
   mailers:
     accepted_ally_request:
-      subject: 'if-me.org | %{ally_name}接受了你的好友请求！'
-      message: ' <p>恭喜！你现在可以与%{ally_name}共享日记，健康规划等。</p>'
+      subject: "if-me.org | %{ally_name}接受了你的好友请求！"
+      message: " <p>恭喜！你现在可以与%{ally_name}共享日记，健康规划等。</p>"
     new_ally_request:
-      subject: 'if-me.org | %{ally_name}发送了一个好友请求！'
+      subject: "if-me.org | %{ally_name}发送了一个好友请求！"
       message: ' <p>请<a href="%{allies_url}">登录</a>以接受或拒绝该请求！</p>'
   devise:
     password: 密码
@@ -815,7 +816,7 @@ zh-CN:
           profile_picture: 个人资料图片
           remove_picture: 删除图片
           about: 关于
-          password_for: ' <strong>if-me.org</strong>帐户的密码'
+          password_for: " <strong>if-me.org</strong>帐户的密码"
           update: 更新
         placeholders:
           optional: 可选填
@@ -826,7 +827,7 @@ zh-CN:
           button: 永久删除我的帐户
           confirm: 你确定吗？你将丢失所有数据。但是你可以随时再次注册！
       new:
-        subtitle: '在一个安全，私密的地方讲我们的故事,保持健康的心态'
+        subtitle: "在一个安全，私密的地方讲我们的故事,保持健康的心态"
         label: 一些细节
     sessions:
       subtitle: 欢迎回来，我们希望帮助你度过健康的一天

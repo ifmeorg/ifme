@@ -2,15 +2,15 @@ it:
   app_name: if-me.org
   app_description: Una community per la condivisione di esperienze relative alla salute mentale
   email: join.ifme@gmail.com
-  created: 'Creato %{created_at}'
+  created: "Creato %{created_at}"
   draft: Bozza
-  edited: 'Creato %{created_at} (modificato)'
-  edited_updated_at: 'Creato %{created_at} (modificato %{updated_at})'
-  salutation: 'Ciao %{name},'
+  edited: "Creato %{created_at} (modificato)"
+  edited_updated_at: "Creato %{created_at} (modificato %{updated_at})"
+  salutation: "Ciao %{name},"
   click_here: clicca qui
   language: Lingua
   yes_text: sì
-  no_text: 'no'
+  no_text: "no"
   expand_menu: espandere il menu
   close: vicino
   load_more: Carica altro
@@ -30,6 +30,7 @@ it:
     hi: हिंदी
     zh-CN: 中文
     ko: 한국어
+    id: Bahasa Indonesia
   navigation:
     skip_to_main_content: Salta al contenuto principale
     main_menu: Menu del sito principale
@@ -66,7 +67,7 @@ it:
       confirm: Sei sicuro?
       delete: Elimina
       edit: Modifica
-      edit_instance: 'Modifica %{instance}'
+      edit_instance: "Modifica %{instance}"
       join: Registrati
       leave: Abbandona
       add: Aggiungi
@@ -78,11 +79,11 @@ it:
       email: EMail
       location: Luogo
       description: Descrizione
-      error_explanation: 'Per favore, riempi i campi indicati!'
+      error_explanation: "Per favore, riempi i campi indicati!"
       empty_error: Questo campo non può essere vuoto!
       search_by_keywords: Cerca per parole chiave
       template: Scegli un modello
-    time_ago: '%{date} fa'
+    time_ago: "%{date} fa"
     write_to_us: scrivici
     days: giorni
   reports:
@@ -90,17 +91,17 @@ it:
     reported_users: Utenti Segnalati
     banned_users: Utenti Vietati
     reasons: Motivi
-    new: 'Nuovo rapporto per %{name}'
+    new: "Nuovo rapporto per %{name}"
     remove_ban: Rimuovi il divieto
     ban_user: Divieto all'utente
-    report_sent: 'Rapporto per %{name} inviato'
-    report_error: 'Impossibile inviare un rapporto per %{name}'
+    report_sent: "Rapporto per %{name} inviato"
+    report_error: "Impossibile inviare un rapporto per %{name}"
     reportee: Reportee
     reporter: Reporter
-    user_banned: '%{name} è stata bandita'
-    ban_removed: 'Bannato rimosso su %{name}'
-    user_banned_error: 'Non potrei vietare %{name}'
-    ban_removed_error: 'Impossibile rimuovere il divieto su %{name}'
+    user_banned: "%{name} è stata bandita"
+    ban_removed: "Bannato rimosso su %{name}"
+    user_banned_error: "Non potrei vietare %{name}"
+    ban_removed_error: "Impossibile rimuovere il divieto su %{name}"
   comment:
     singular: Commento
     plural: Commenti
@@ -114,8 +115,8 @@ it:
     sign_up: Registrati
     forgot_password: Dimenticato la tua password?
   members:
-    one: '%{count} membro'
-    other: '%{count} membri'
+    one: "%{count} membro"
+    other: "%{count} membri"
   allies:
     add_ally: Aggiungi agli alleati
     cancel_ally_request: Annulla Richiesta
@@ -126,7 +127,7 @@ it:
       outgoing: Richieste Inviate
       incoming: Richieste Ricevute
       invited: Invitato via email
-      invited_on: 'Invitato su: %{date}'
+      invited_on: "Invitato su: %{date}"
       invitation_expired: Invito scaduto
       invite: Invita i tuoi cari!
       none: Non hai ancora nessun alleato! Puoi cercarli o invitare qualcuno!
@@ -140,12 +141,12 @@ it:
     edit_category: Modifica Categoria
     new: Nuova Categoria
     form:
-      name_hint: 'Categorizza persone ricorrenti, luoghi, cose, attività, e tanto più'
+      name_hint: "Categorizza persone ricorrenti, luoghi, cose, attività, e tanto più"
     label:
-      one: 'Categoria:'
-      other: 'Categorie:'
+      one: "Categoria:"
+      other: "Categorie:"
     index:
-      subtitle: 'La vita è disordinata, categorizza le differenti persone, luoghi e cose.'
+      subtitle: "La vita è disordinata, categorizza le differenti persone, luoghi e cose."
       premade1_name: Famiglia
       premade1_description: Relativo alla famiglia
       premade2_name: Amici
@@ -153,7 +154,7 @@ it:
       premade3_name: Lavoro
       premade3_description: Relativo al lavoro
       premade4_name: Meditazione
-      premade4_description: 'Meditazione, respirazione e attività rilassanti'
+      premade4_description: "Meditazione, respirazione e attività rilassanti"
       instructions: >-
         Non hai ancora creato nessuna categoria personalizzata.<br> Puoi anche
         scegliere una delle seguenti categorie già pronte e personalizzarle più
@@ -170,9 +171,9 @@ it:
     plural: Gruppi
     form:
       leaders: Leaders
-      only_leader: 'Sei l’unico leader, pertanto non puoi abbandonare.'
+      only_leader: "Sei l’unico leader, pertanto non puoi abbandonare."
       cannot_delete: Tieni a mente che non è possibile eliminare gruppi.
-      error_save: 'Non possiamo salvare questo gruppo perché: '
+      error_save: "Non possiamo salvare questo gruppo perché: "
       error_edit_permission: Devi essere il leader di un gruppo per modificarlo
     index:
       subtitle: >-
@@ -190,13 +191,13 @@ it:
       success: Ti sei unito a questo gruppo.
       group_not_exists: Non puoi unirti a un gruppo che non esiste.
     leave:
-      error: 'Non puoi lasciare il gruppo, sei l’unico leader.'
-      success: 'Hai lasciato %{group}'
-      remove_member_success: 'Hai rimosso %{user} da %{group}'
+      error: "Non puoi lasciare il gruppo, sei l’unico leader."
+      success: "Hai lasciato %{group}"
+      remove_member_success: "Hai rimosso %{user} da %{group}"
       remove_member_error: Non puoi calciare un membro del gruppo perché non sei un leader.
     new: Nuovo Gruppo
     show:
-      led_by: 'Gestito da:'
+      led_by: "Gestito da:"
       delete: Elimina gruppo
   layouts:
     application:
@@ -217,23 +218,23 @@ it:
     singular: Medicazione
     edit_medication: Modifica Medicazione
     refill_reminder: EMail di Notifica per la ricarica
-    dosage: 'Dosaggio giornaliero:'
-    weekly_dosage: 'Dosaggio settimanale:'
-    refill: 'Riempimento:'
-    quantity: 'Quantità totale:'
-    strength: 'Peso:'
-    event_summary: 'Ricarica per %{name}.'
+    dosage: "Dosaggio giornaliero:"
+    weekly_dosage: "Dosaggio settimanale:"
+    refill: "Riempimento:"
+    quantity: "Quantità totale:"
+    strength: "Peso:"
+    event_summary: "Ricarica per %{name}."
     form:
       strength: peso
-      strength_unit: 'Unità di peso'
+      strength_unit: "Unità di peso"
       strength_placeholder: es. 100
       total_placeholder: es. 30
       dosage: dosaggio
-      dosage_unit: 'Unità di dosaggio'
+      dosage_unit: "Unità di dosaggio"
       dosage_placeholder: es. 2
       refill: riempimento
       name_hint: Nome generico o di marca del farmaco
-      comments_hint: 'Aggiungi qualsiasi commento aggiuntivo qui, esempio: sintomi'
+      comments_hint: "Aggiungi qualsiasi commento aggiuntivo qui, esempio: sintomi"
       add_to_google_cal: Reminder Google Calendar
       google_cal_hint: Aggiungeremo un reminder per questa medicazione al tuo Google Calendar.
       strength_hint: Quanto è potente questo medicinale? Solitamente si trova accanto al nome
@@ -248,24 +249,24 @@ it:
         Ti invieremo una EMail giornaliera ricordandoti di prendere la
         medicazione
       total: Totale
-      total_unit: 'Unità totale'
+      total_unit: "Unità totale"
     new: Nuova Medicazione
     units:
-      display: '%{count} %{unit}'
+      display: "%{count} %{unit}"
       mg: mg
       ml: ml
       tablets:
         one: pastiglia
         other: pastiglie
     reminder_mailer:
-      subject: 'Non dimenticare di prendere %{name}!'
-      body: 'Hey, non dimenticare di prendere %{name}!'
+      subject: "Non dimenticare di prendere %{name}!"
+      body: "Hey, non dimenticare di prendere %{name}!"
     refill_mailer:
-      subject: '%{name} è quasi finita, non dimenticare di prendere un refill!'
-      body: 'Hey, non dimenticare di prendere un refill di %{name} il %{refill}!'
+      subject: "%{name} è quasi finita, non dimenticare di prendere un refill!"
+      body: "Hey, non dimenticare di prendere un refill di %{name} il %{refill}!"
     index:
       title: Medicazioni
-      subtitle: 'Tieni traccia delle tue medicazioni, includendo dosaggio e refill.'
+      subtitle: "Tieni traccia delle tue medicazioni, includendo dosaggio e refill."
       instructions: >-
         Non hai ancora salvato nessuna medicazione.<br><br>Eccoti un esempio di
         medicazione! Puoi anche scrivere riguardo le tue esperienze.
@@ -275,7 +276,7 @@ it:
       example_dosage: 2 pastiglie
       example_refill: 05/31/2016
     show:
-      comments: 'Commenti:'
+      comments: "Commenti:"
   meetings:
     singular: Raduno
     edit_meeting: Modifica Raduno
@@ -288,16 +289,16 @@ it:
       cancel_meeting: Annulla raduno
       meeting_time: Ora
       members_of_group_html:
-        one: '%{count} Membro di %{group}'
-        other: '%{count} Membri di %{group}'
+        one: "%{count} Membro di %{group}"
+        other: "%{count} Membri di %{group}"
     reminder_mailer:
       subject: 'Il tuo raduno "%{meeting_name}" è domani all’ora %{time}!'
       body: >-
         Hey, il tuo raduno "%{meeting_name}", si terrà domani all’ora %{time}
         presso %{location}!
     leave:
-      error: 'Non puoi lasciare il raduno, sei l’unico leader.'
-      success: 'Hai lasciato %{meeting}'
+      error: "Non puoi lasciare il raduno, sei l’unico leader."
+      success: "Hai lasciato %{meeting}"
     new: Nuovo Raduno
     google_cal:
       create:
@@ -355,9 +356,9 @@ it:
     plural: Stati d’animo
     edit_mood: Modifica stato d’animo
     new: Nuovo stato d’animo
-    example_moods: 'Nervoso, Ansioso, Speranzoso'
+    example_moods: "Nervoso, Ansioso, Speranzoso"
     index:
-      subtitle: 'Crea tag che descrivono il tuo stato d’animo, sentimenti ed emozioni.'
+      subtitle: "Crea tag che descrivono il tuo stato d’animo, sentimenti ed emozioni."
       premade1_name: Accettante
       premade1_description: Essere a proprio agio tra differenze e limitazioni
       premade2_name: Ambizioso
@@ -365,7 +366,7 @@ it:
       premade3_name: Curioso
       premade3_description: Sentirsi curiosi di fronte all’incertezza
       premade4_name: Vendicativo
-      premade4_description: 'Non accettare alcuni fatti, sentirsi arrabbiati, vendicativi e/o gelosi'
+      premade4_description: "Non accettare alcuni fatti, sentirsi arrabbiati, vendicativi e/o gelosi"
       premade5_name: Senza Speranza
       premade5_description: Sentirsi tristi e senza speranza - incapaci di trovare soluzioni
       instructions: >-
@@ -376,13 +377,13 @@ it:
     plural: Notifiche
     none: Nessuna notifica.
     clear: Svuota
-    created_by_html: '<strong>Creato da</strong>: %{name}'
+    created_by_html: "<strong>Creato da</strong>: %{name}"
     preview: Mostra altri
     members:
       title: Lista dei membri
     ally:
-      accepted: '%{name} ha accettato la tua richiesta d’alleanza!'
-      sent_html: '%{link_to_user} ti ha inviato una richiesta d’alleanza!'
+      accepted: "%{name} ha accettato la tua richiesta d’alleanza!"
+      sent_html: "%{link_to_user} ti ha inviato una richiesta d’alleanza!"
     comment:
       full: '%{name} ha commentato con "%{comment}" su %{typename}'
       truncated: '%{name} ha commentato con "%{comment}" [...] su %{typename}'
@@ -405,10 +406,10 @@ it:
       comment_on_private_body: >-
         <p>Il tuo alleato <strong>%{user}</strong> ha aggiunto un commento
         privato:</p>
-      comment_on_body: '<p>Il tuo alleato <strong>%{user}</strong> ha commentato:</p>'
-      comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
-      comment_text: '<p><i>%{comment}</i></p>'
-      comment_link: '<p>Per leggerlo, %{link}!</p>'
+      comment_on_body: "<p>Il tuo alleato <strong>%{user}</strong> ha commentato:</p>"
+      comment_text_cutoff: "<p><i>%{comment} [...]</i></p>"
+      comment_text: "<p><i>%{comment}</i></p>"
+      comment_link: "<p>Per leggerlo, %{link}!</p>"
       new_group_subject: 'if-me.org | %{user} ha creato il gruppo "%{group}"'
       new_group_body: >-
         <p>%{user} ha creato il gruppo "%{group}":</p><p><i>
@@ -428,8 +429,8 @@ it:
         <p>%{subject}</p><p><i>%{description}</i></p><p><strong> Luogo:</strong>
         %{location}</p><p><strong>Data:</strong> %{date}</p><p>
         <strong>Ora:</strong> %{time}</p>
-      new_meeting_link: '<p>Per saperne di più ed unirti, %{link}!</p>'
-      update_meeting_link: '<p>Per saperne di più, %{link}!</p>'
+      new_meeting_link: "<p>Per saperne di più ed unirti, %{link}!</p>"
+      update_meeting_link: "<p>Per saperne di più, %{link}!</p>"
       remove_meeting_subject: 'if-me.org | %{user} ha eliminato "%{meeting}" per "%{group}"'
       join_meeting_subject: 'if-me.org | %{user} si è unito a "%{meeting}" per "%{group}"'
       join_meeting_body: '<p>Per vedere "%{meeting}", %{link}!</p>'
@@ -440,7 +441,7 @@ it:
       reportee_user_subject: if-me.org | Sei stato segnalato
       reportee_user_body: Sei stato segnalato. Questo sarà esaminato da un amministratore.
       add_ban_subject: if-me.org | Sei stato escluso
-      add_ban_body: 'Sei stato bannato per aver violato la nostra %{code_of_conduct_link}.'
+      add_ban_body: "Sei stato bannato per aver violato la nostra %{code_of_conduct_link}."
       remove_ban_subject: if-me.org | Non sei più bannato
       remove_ban_body: >-
         In precedenza sei stato bannato per aver violato la nostra
@@ -475,7 +476,7 @@ it:
         Se vorresti scrivere per noi, contattaci su %{email}! Diamo il benvenuto
         anche a contribuzioni anonime.
     contribute:
-      contributor_avatar_alt: 'Biografia del collaboratore per %{name}'
+      contributor_avatar_alt: "Biografia del collaboratore per %{name}"
       message_text_one: >-
         Siamo sempre in cerca di nuove idee da chiunque, includendo
         <strong>appassionati</strong>, <strong>professionisti</strong>,
@@ -565,15 +566,15 @@ it:
         message_one: >-
           Condividi i tuoi pensieri con i tuoi cari e ricevi il supporto di cui
           hai bisogno
-        message_two: 'Sii te stesso, libero ma con sicurezza e privacy'
+        message_two: "Sii te stesso, libero ma con sicurezza e privacy"
         message_three: Documenta i tuoi stati d’animo e medicazioni
         main_message_two: >-
           Siamo open source perché la salute mentale dovrebbe essere aperta a
           tutti.
-        message_text_two: 'Siamo <strong>sempre</strong> in cerca del tuo %{help} e %{feedback}!'
+        message_text_two: "Siamo <strong>sempre</strong> in cerca del tuo %{help} e %{feedback}!"
         help: aiuto
       signed_in_empty:
-        main_message_one: 'Ciao %{name}!'
+        main_message_one: "Ciao %{name}!"
         message_text_one: Ecco come puoi cominciare a condividere i tuoi pensieri.
         main_message_two: Parlaci di te.
         cell_one: >-
@@ -675,7 +676,7 @@ it:
       popular_tags: Tag popolari
       crisis_prevention:
         title: Come te la passi?
-        description: 'Sei amato, non importa quale'
+        description: "Sei amato, non importa quale"
         die: morire
         dead: morto
         died: morto
@@ -819,16 +820,16 @@ it:
       search_by_email: Cerca in base all’EMail
     index:
       title: Cerca compagni
-      user_not_found: 'Non siamo riusciti a trovare l’utente %{email}'
+      user_not_found: "Non siamo riusciti a trovare l’utente %{email}"
   shared:
     footer:
       licence: AGPL-3.0
-      licence_subtitle: 'Autorizzato sotto %{licence}'
+      licence_subtitle: "Autorizzato sotto %{licence}"
       connect: raggiungici
     comments:
       share_everyone: Condividi con tutti
-      share_with: 'Condividi solo con %{name}'
-      visible_only_between_you_and: 'Visibili solo a te e %{name}'
+      share_with: "Condividi solo con %{name}"
+      visible_only_between_you_and: "Visibili solo a te e %{name}"
       not_allies: (non alleati)
     header:
       signout: Logout
@@ -840,25 +841,25 @@ it:
         other: <strong>Non sei</strong> l’unico che può visualizzare.
       viewers_html:
         zero: <strong>Nessuno</strong> può visualizzare.
-        one: '%{names} può visualizzare.'
-        other: '%{names} possono visualizzare.'
+        one: "%{names} può visualizzare."
+        other: "%{names} possono visualizzare."
     stats:
       you_are_focusing: Ti stai concentrando specialmente su
-      user_is_focusing: '%{name} si sta concentrando specialmente su'
+      user_is_focusing: "%{name} si sta concentrando specialmente su"
       visible_in_stats: Visibile nelle statistiche?
     viewers:
       plural: Visualizzatori
       you: Solo tu
       you_link: Visibile solo a te
-      many: 'Visibile a %{viewers}'
+      many: "Visibile a %{viewers}"
     meeting_info:
       attending: Parteciperai. Cambiato idea?
-      not_attending: 'Non parteciperai. %{join}'
-      not_attending_one_spot_left: 'Non parteciperai. Rimane solo un posto! %{join}'
-      not_attending_spots_left: 'Non parteciperai. Rimangono %{number} posti! %{join}'
+      not_attending: "Non parteciperai. %{join}"
+      not_attending_one_spot_left: "Non parteciperai. Rimane solo un posto! %{join}"
+      not_attending_spots_left: "Non parteciperai. Rimangono %{number} posti! %{join}"
       not_attending_no_spots_left: Non parteciperai. Non è rimasto nessun posto.
     quick_create:
-      new: 'Nuovo %{name}'
+      new: "Nuovo %{name}"
   strategies:
     singular: Strategia
     plural: Strategie
@@ -868,7 +869,7 @@ it:
     form:
       describe: Descrivi la Strategia.
       strategies_label: Quali strategie ti aiuterebbero a porti in questo modo?
-      name_hint: 'Qualsiasi attività, modo di fare o cura di sé che ti è d’aiuto'
+      name_hint: "Qualsiasi attività, modo di fare o cura di sé che ti è d’aiuto"
       viewers_hint: >-
         Alleati che possono visualizzare la tua strategia e taggarci i propri
         momenti
@@ -877,8 +878,8 @@ it:
       bookmarked_question: Aggiungi questa strategia ai segnalibri?
       bookmarked_info: Le strategie contrassegnate vengono visualizzate nel piano di assistenza
     label:
-      one: 'Strategia:'
-      other: 'Strategie:'
+      one: "Strategia:"
+      other: "Strategie:"
     index:
       subtitle: >-
         Organizza la strategia adatta a raggiungere il tuo stato d’animo
@@ -918,8 +919,8 @@ it:
         scegliere una delle seguenti strategie già pronte e personalizzare più
         avanti.
     reminder_mailer:
-      subject: 'Non dimenticare di fare %{name}!'
-      body: 'Hey, non dimenticare di fare %{name}!'
+      subject: "Non dimenticare di fare %{name}!"
+      body: "Hey, non dimenticare di fare %{name}!"
   stats:
     total_moments: >-
       Hai creato un <strong>totale</strong> di <strong>%{count} </strong>
@@ -938,12 +939,12 @@ it:
     yes_description: Scriverne una può aiutare te e gli altri a capire meglio in dettaglio
   mailers:
     accepted_ally_request:
-      subject: 'if-me.org | %{ally_name} ha accettato la tua richiesta di alleanza!'
+      subject: "if-me.org | %{ally_name} ha accettato la tua richiesta di alleanza!"
       message: >-
         <p>Congratulazioni! Puoi ora condividere Momenti, Strategie e molto
         altro con %{ally_name}.</p>
     new_ally_request:
-      subject: 'if-me.org | %{ally_name} ti ha inviato una richiesta di alleanza!'
+      subject: "if-me.org | %{ally_name} ti ha inviato una richiesta di alleanza!"
       message: >-
         <p>Per favore <a href="%{allies_url}">logga</a> per accettarla o
         rifiutarla!</p>
@@ -967,7 +968,7 @@ it:
         link_instructions: >-
           Qualcuno ha richiesto un link per resettare la tua password. Puoi
           farlo attraverso il link sottostante.
-        ignore: 'Se non sei stato tu, ignora pure questa EMail.'
+        ignore: "Se non sei stato tu, ignora pure questa EMail."
         info: >-
           La tua password rimarrà invariata finché non aprirai il link e ne
           creerai una nuova.
@@ -984,8 +985,8 @@ it:
         send_instructions: Inviami le istruzioni per il reset della mia password
     registrations:
       email_notifications: Notifiche via EMail
-      comment_notify_text: 'Commenti su momenti, strategie e raduni'
-      ally_notify_text: 'Richieste di alleanza, nuove ed accettate'
+      comment_notify_text: "Commenti su momenti, strategie e raduni"
+      ally_notify_text: "Richieste di alleanza, nuove ed accettate"
       group_notify_text: Aggiornamenti sui gruppi
       meeting_notify_text: Aggiornamenti sui raduni
       google_auth1: >-
@@ -1032,7 +1033,7 @@ it:
           posto sano e privato
         label: Alcuni dettagli
     sessions:
-      subtitle: 'Bentornato, non vediamo l’ora di aiutarti ad affrontare questa giornata!'
+      subtitle: "Bentornato, non vediamo l’ora di aiutarti ad affrontare questa giornata!"
     shared:
       sign_in_google: Effettua il login con Google
       sign_up_google: Registrati con Google

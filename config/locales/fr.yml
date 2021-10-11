@@ -2,11 +2,11 @@ fr:
   app_name: if-me.org
   app_description: Communauté et santé mentale
   email: join.ifme@gmail.com
-  created: 'Créé le %{created_at}'
+  created: "Créé le %{created_at}"
   draft: Brouillon
-  edited: 'Crée le %{created_at} (modifié)'
-  edited_updated_at: 'Créé le %{created_at} (modifié le %{updated_at})'
-  salutation: 'Bonjour %{name},'
+  edited: "Crée le %{created_at} (modifié)"
+  edited_updated_at: "Créé le %{created_at} (modifié le %{updated_at})"
+  salutation: "Bonjour %{name},"
   click_here: cliquez ici
   language: Langue
   yes_text: oui
@@ -30,6 +30,7 @@ fr:
     hi: हिंदी
     zh-CN: 中文
     ko: 한국어
+    id: Bahasa Indonesia
   navigation:
     skip_to_main_content: Passer au contenu principal
     main_menu: Menu du site principal
@@ -66,7 +67,7 @@ fr:
       confirm: Êtes-vous certain?
       delete: Supprimer
       edit: Modifier
-      edit_instance: 'Éditer %{instance}'
+      edit_instance: "Éditer %{instance}"
       join: Joindre
       leave: Quitter
       add: Ajouter
@@ -82,7 +83,7 @@ fr:
       empty_error: Ce champ ne peut pas être vide!
       search_by_keywords: Recherche par mots-clés
       template: Choisissez un modèle
-    time_ago: 'il y a %{date}'
+    time_ago: "il y a %{date}"
     write_to_us: nous écrire
     days: Jours
   reports:
@@ -90,17 +91,17 @@ fr:
     reported_users: Utilisateurs Rapportés
     banned_users: Utilisateurs Bannis
     reasons: Les Raisons
-    new: 'Nouveau rapport pour %{name}'
+    new: "Nouveau rapport pour %{name}"
     remove_ban: Supprimer l'interdiction
     ban_user: Utilisateur Banni
-    report_sent: 'Rapport pour %{name} envoyé'
-    report_error: 'Impossible d''envoyer le rapport pour %{name}'
+    report_sent: "Rapport pour %{name} envoyé"
+    report_error: "Impossible d'envoyer le rapport pour %{name}"
     reportee: Reporter
     reporter: Rapporté par
-    user_banned: '%{name} a été bannie'
-    ban_removed: 'Banni enlevé sur %{name}'
-    user_banned_error: 'Impossible d''interdire %{name}'
-    ban_removed_error: 'Impossible de lever l''interdiction sur %{name}'
+    user_banned: "%{name} a été bannie"
+    ban_removed: "Banni enlevé sur %{name}"
+    user_banned_error: "Impossible d'interdire %{name}"
+    ban_removed_error: "Impossible de lever l'interdiction sur %{name}"
   comment:
     singular: Commentaire
     plural: Commentaires
@@ -114,8 +115,8 @@ fr:
     sign_up: S'enregistrer
     forgot_password: Mot de passe oublié ?
   members:
-    one: '%{count} membre'
-    other: '%{count} membres'
+    one: "%{count} membre"
+    other: "%{count} membres"
   allies:
     add_ally: Ajouter des alliés
     cancel_ally_request: Annuler la demande
@@ -126,7 +127,7 @@ fr:
       outgoing: Demandes envoyées
       incoming: Demandes reçues
       invited: Invité par email
-      invited_on: 'Invité sur: %{date}'
+      invited_on: "Invité sur: %{date}"
       invitation_expired: Invitation expirée
       invite: Invitez vos proches!
       none: >-
@@ -146,8 +147,8 @@ fr:
         Regrouper dans des catégories des groupes de personnes, lieux, choses,
         activités et autres
     label:
-      one: 'Catégorie:'
-      other: 'Catégories:'
+      one: "Catégorie:"
+      other: "Catégories:"
     index:
       subtitle: >-
         La vie est compliquée, regrouper dans des catégories des personnes,
@@ -159,7 +160,7 @@ fr:
       premade3_name: Travail
       premade3_description: Relation professionelle
       premade4_name: Méditation
-      premade4_description: 'Méditation, respiration profonde et activités relaxantes'
+      premade4_description: "Méditation, respiration profonde et activités relaxantes"
       instructions: >-
         Vous n'avez pas encore créé de catégories personnalisées.<br> Vous
         pouvez ajouter ces catégories pré-configurées et les personnaliser plus
@@ -180,7 +181,7 @@ fr:
         Vous êtes le seul animateur, pour cette raison vous ne pouvez pas le
         quitter.
       cannot_delete: Merci de prendre note que vous ne pouvez pas supprimer un groupe.
-      error_save: 'Nous ne pouvons pas enregistrer ce groupe parce que: '
+      error_save: "Nous ne pouvons pas enregistrer ce groupe parce que: "
       error_edit_permission: Vous devez être un animateur de groupe pour le modifier
     index:
       subtitle: >-
@@ -195,14 +196,14 @@ fr:
       group_not_exists: Vous ne pouvez pas rejoindre un groupe qui n'existe pas.
     leave:
       error: Vous ne pouvez pas quitter ce groupe. Vous êtes le seul animateur.
-      success: 'Vous avez quitté %{group}'
-      remove_member_success: 'Vous avez supprimé %{user} de %{group}'
+      success: "Vous avez quitté %{group}"
+      remove_member_success: "Vous avez supprimé %{user} de %{group}"
       remove_member_error: >-
         Vous ne pouvez pas éjecter un membre du groupe car vous n'êtes pas un
         animateur.
     new: Nouveau groupe
     show:
-      led_by: 'Animé par:'
+      led_by: "Animé par:"
       delete: Supprimer le groupe
   layouts:
     application:
@@ -223,19 +224,19 @@ fr:
     singular: Médication
     edit_medication: Modifier la médication
     refill_reminder: E-mail de rappel pour le renouvellement
-    dosage: 'Dosage journalier:'
-    weekly_dosage: 'Dosage hebdomadaire:'
-    refill: 'Renouvellement:'
-    quantity: 'Quantité totale:'
-    strength: 'Puissance:'
-    event_summary: 'Recharge pour %{name}.'
+    dosage: "Dosage journalier:"
+    weekly_dosage: "Dosage hebdomadaire:"
+    refill: "Renouvellement:"
+    quantity: "Quantité totale:"
+    strength: "Puissance:"
+    event_summary: "Recharge pour %{name}."
     form:
       strength: Concentration
-      strength_unit: 'Unité de concentration'
+      strength_unit: "Unité de concentration"
       strength_placeholder: ex. 100
       total_placeholder: ex. 30
       dosage: dosage
-      dosage_unit: 'Unité de dosage'
+      dosage_unit: "Unité de dosage"
       dosage_placeholder: ex. 2
       refill: renouvellement
       name_hint: Nom générique ou de marque du médicament
@@ -246,7 +247,7 @@ fr:
       google_cal_hint: >-
         Nous allons ajouter une alerte pour cette médication à votre Google
         Agenda.
-      strength_hint: 'Dosage de la médication, généralement trouvé à coté du nom'
+      strength_hint: "Dosage de la médication, généralement trouvé à coté du nom"
       total_hint: Nombre total de pillules ou quantité du médicament.
       dosage_hint: Nombre de pillules ou de prises journalières
       weekly_dosage_hint: Jours de la semaine pour la prise du médicament
@@ -258,22 +259,22 @@ fr:
         Nous vous enverrons un email de rappel journalier pour la prise de ce
         médicament.
       total: Total
-      total_unit: 'Unité totale'
+      total_unit: "Unité totale"
     new: Nouvelle médication
     units:
-      display: '%{count} %{unit}'
+      display: "%{count} %{unit}"
       mg: mg
       ml: ml
       tablets:
         one: tablette
         other: tablettes
     reminder_mailer:
-      subject: 'Noubliez pas de rendre votre %{name}!'
+      subject: "Noubliez pas de rendre votre %{name}!"
       body: >-
         Voici un petit rappel pour ne pas oublier de prendre votre médicament
         %{name}!
     refill_mailer:
-      subject: 'Le renouvellement de %{name} arrive bientôt!'
+      subject: "Le renouvellement de %{name} arrive bientôt!"
       body: >-
         Voici un petit rappel pour ne pas oublier de renouveler votre médication
         %{name} le %{refill}!
@@ -292,7 +293,7 @@ fr:
       example_dosage: 2 tablets
       example_refill: 05/31/2016
     show:
-      comments: 'Commentaires:'
+      comments: "Commentaires:"
   meetings:
     singular: Rencontre
     edit_meeting: Modifier la rencontre
@@ -305,16 +306,16 @@ fr:
       cancel_meeting: Annuler la réunion
       meeting_time: Horaire
       members_of_group_html:
-        one: '%{count} membre de %{group}'
-        other: '%{count} membres de %{group}'
+        one: "%{count} membre de %{group}"
+        other: "%{count} membres de %{group}"
     reminder_mailer:
       subject: 'Votre réunion "%{meeting_name}" est demain à %{time}!'
       body: >-
         Voici un petit rappel pour votre réunion demain, "%{meeting_name}", qui
         aura lieu à %{time} à %{location}!
     leave:
-      error: 'Vous ne pouvez pas quitter la réunion, vous êtes le seul animateur.'
-      success: 'Vous avez quitté %{meeting}'
+      error: "Vous ne pouvez pas quitter la réunion, vous êtes le seul animateur."
+      success: "Vous avez quitté %{meeting}"
     new: Nouvelle réunion
     google_cal:
       create:
@@ -372,7 +373,7 @@ fr:
     plural: Humeurs
     edit_mood: Modifier une humeur
     new: Nouvelle humeur
-    example_moods: 'Nerveux, anxieuse, stressé'
+    example_moods: "Nerveux, anxieuse, stressé"
     index:
       subtitle: >-
         Créer des étiquettes décrivant vos états d'esprits, sentiment et
@@ -396,13 +397,13 @@ fr:
     plural: Notifications
     none: Aucune
     clear: Effacer
-    created_by_html: '<strong>Créé par</strong>: %{name}'
+    created_by_html: "<strong>Créé par</strong>: %{name}"
     preview: Afficher plus
     members:
       title: Liste des membres
     ally:
-      accepted: '%{name} à accépté votre demande d''alliance !'
-      sent_html: '%{link_to_user} à envoyé une demande d''alliance!'
+      accepted: "%{name} à accépté votre demande d'alliance !"
+      sent_html: "%{link_to_user} à envoyé une demande d'alliance!"
     comment:
       full: '%{name} a commenté "%{comment}" sur %{typename}'
       truncated: '%{name} a commenté "%{comment}" [...] sur %{typename}'
@@ -422,11 +423,11 @@ fr:
       comment_on_meeting_subject: >-
         if-me.org | %{user} a commenté votre réunion "%{meeting}" dans le groupe
         "%{group}"
-      comment_on_private_body: '<p>Votre allié <strong>%{user}</strong> a commenté en privé:</p>'
-      comment_on_body: '<p>Votre allié <strong>%{user}</strong> a commenté:</p>'
-      comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
-      comment_text: '<p><i>%{comment}</i></p>'
-      comment_link: '<p>Pour le lire, %{link}!</p>'
+      comment_on_private_body: "<p>Votre allié <strong>%{user}</strong> a commenté en privé:</p>"
+      comment_on_body: "<p>Votre allié <strong>%{user}</strong> a commenté:</p>"
+      comment_text_cutoff: "<p><i>%{comment} [...]</i></p>"
+      comment_text: "<p><i>%{comment}</i></p>"
+      comment_link: "<p>Pour le lire, %{link}!</p>"
       new_group_subject: 'if-me.org | %{user} a créé le groupe "%{group}"'
       new_group_body: >-
         <p>%{user} a créé un groupe "%{group}":</p><p><i>
@@ -446,8 +447,8 @@ fr:
         <p>%{subject}</p><p><i>%{description}</i></p><p><strong>Lieu:
           </strong> %{location}</p><p><strong>Date:</strong> %{date}
           </p><p><strong>Horaire:</strong> %{time}</p>
-      new_meeting_link: '<p>Pour en savoir plus et participer, %{link}!</p>'
-      update_meeting_link: '<p>Pour en savoir plus, %{link}!</p>'
+      new_meeting_link: "<p>Pour en savoir plus et participer, %{link}!</p>"
+      update_meeting_link: "<p>Pour en savoir plus, %{link}!</p>"
       remove_meeting_subject: 'if-me.org | %{user} a annulé "%{meeting}" de "%{group}"'
       join_meeting_subject: 'if-me.org | %{user} a rejoint "%{meeting}" de "%{group}"'
       join_meeting_body: '<p>Pour afficher "%{meeting}", %{link}!</p>'
@@ -458,9 +459,9 @@ fr:
       reportee_user_subject: if-me.org | Vous avez été signalé
       reportee_user_body: Vous avez été signalé. Cela sera examiné par un administrateur.
       add_ban_subject: if-me.org | Vous avez été banni
-      add_ban_body: 'Vous avez été banni pour avoir violé notre %{code_of_conduct_link}.'
+      add_ban_body: "Vous avez été banni pour avoir violé notre %{code_of_conduct_link}."
       remove_ban_subject: if-me.org | Vous n'êtes plus banni
-      remove_ban_body: 'Vous avez déjà été banni pour avoir violé notre %{code_of_conduct_link}.'
+      remove_ban_body: "Vous avez déjà été banni pour avoir violé notre %{code_of_conduct_link}."
   omniauth:
     access_denied: Accès refusé
   pages:
@@ -492,7 +493,7 @@ fr:
         Si vous êtes intéressé afin d'écrire pour nous, envoyez-nous un email à
         %{email} ! Nous sommes aussi ouverts aux contributions anonymes.
     contribute:
-      contributor_avatar_alt: 'Biographie de contributeur pour %{name}'
+      contributor_avatar_alt: "Biographie de contributeur pour %{name}"
       message_text_one: >-
         Nous apprécions les contributions et idées de tout le monde, y compris
         <strong>spécialistes en santé mentale </strong>, <strong>professionels
@@ -589,7 +590,7 @@ fr:
         message_two: >-
           Soyez vous-mêmes, sans engagement, en toute sécurité et
           confidentialité.
-        message_three: 'Documentez vos humeurs, médications, et soins personnels.'
+        message_three: "Documentez vos humeurs, médications, et soins personnels."
         main_message_two: >-
           Nous sommes open source car le bien-être psychique devrait être ouvert
           à tous.
@@ -598,7 +599,7 @@ fr:
           %{help} ou votre %{feedback}!
         help: aide
       signed_in_empty:
-        main_message_one: 'Bonjour %{name}!'
+        main_message_one: "Bonjour %{name}!"
         message_text_one: Ici vous pouvez commencer à partager vos histoires.
         main_message_two: Parlez nous de vous.
         cell_one: >-
@@ -617,7 +618,7 @@ fr:
           %{medications}? Gardez le contrôle et créez des rappels!<br> Besoin de
           soutien supplémentaire? Rejoingnez ou créez un %{group} pour échanger
         main_message_five: Avez-vous des questions?
-        message_text_three: 'Jetez un coup d''''oeil à la %{faq} ou utilisez %{email_link} !'
+        message_text_three: "Jetez un coup d''oeil à la %{faq} ou utilisez %{email_link} !"
         strategize: Organisez
     partners:
       description: >-
@@ -854,16 +855,16 @@ fr:
       search_by_email: Rechercher par email
     index:
       title: Rechercher des alliés
-      user_not_found: 'Utilisateur correspondant à %{email} n''existe pas'
+      user_not_found: "Utilisateur correspondant à %{email} n'existe pas"
   shared:
     footer:
       licence: AGPL-3.0
-      licence_subtitle: 'Sous license %{licence}'
+      licence_subtitle: "Sous license %{licence}"
       connect: S'identifier
     comments:
       share_everyone: partager avec tout le monde
-      share_with: 'Partager seulement avec %{name}'
-      visible_only_between_you_and: 'Accessible seulement par vous et %{name}'
+      share_with: "Partager seulement avec %{name}"
+      visible_only_between_you_and: "Accessible seulement par vous et %{name}"
       not_allies: (pas alliés)
     header:
       signout: Se déconnecter
@@ -875,25 +876,25 @@ fr:
         other: Vous <strong>n'êtes pas</strong> le seul lecteur.
       viewers_html:
         zero: Il n'y a <strong>pas</strong> de visiteur.
-        one: '%{names} est un lecteur.'
-        other: '%{names} sont des lecteurs.'
+        one: "%{names} est un lecteur."
+        other: "%{names} sont des lecteurs."
     stats:
       you_are_focusing: Vous vous concentrez le plus
-      user_is_focusing: '%{name} se concentre le plus'
+      user_is_focusing: "%{name} se concentre le plus"
       visible_in_stats: Visible dans les statistiques?
     viewers:
       plural: lecteurs
       you: Seulment vous
       you_link: Accessible seulement par vous
-      many: 'Accessible à %{viewers}'
+      many: "Accessible à %{viewers}"
     meeting_info:
       attending: Vous participez. Vous voulez changer d'avis ?
-      not_attending: 'Vous ne participez pas. %{join}'
-      not_attending_one_spot_left: 'Vous ne participez pas. Il ne reste plus qu''''une place! %{join}'
-      not_attending_spots_left: 'Vous ne participez pas. Il reste %{number} places de libres! %{join}'
+      not_attending: "Vous ne participez pas. %{join}"
+      not_attending_one_spot_left: "Vous ne participez pas. Il ne reste plus qu''une place! %{join}"
+      not_attending_spots_left: "Vous ne participez pas. Il reste %{number} places de libres! %{join}"
       not_attending_no_spots_left: Vous ne participez pas. Il n''y a plus de place disponible.
     quick_create:
-      new: 'Nouveau %{name}'
+      new: "Nouveau %{name}"
   strategies:
     singular: Stratégie
     plural: Stratégies
@@ -903,7 +904,7 @@ fr:
     form:
       describe: Décrire la stratégie.
       strategies_label: Quelles stratégies aideraient à atteindre cet état d''esprit ?
-      name_hint: 'Une activité, fil de pensées ou pratique de bien-être qui vous aide.'
+      name_hint: "Une activité, fil de pensées ou pratique de bien-être qui vous aide."
       viewers_hint: >-
         Alliés qui peuvent accéder à votre stratégie et étiqueter leurs propres
         moments avec celle-ci.
@@ -914,8 +915,8 @@ fr:
       bookmarked_question: Ajouter cette stratégie à vos favoris?
       bookmarked_info: Des stratégies marquées d'un signet apparaissent dans votre plan de soins
     label:
-      one: 'Stratégie:'
-      other: 'Stratégies:'
+      one: "Stratégie:"
+      other: "Stratégies:"
     index:
       subtitle: >-
         Organisez votre bien-être, afin desired thoughts and attitudes towards
@@ -959,8 +960,8 @@ fr:
         ajouter les stratégies pré-configurées suivantes et les personnaliser
         plus tard.
     reminder_mailer:
-      subject: 'N''oubliez pas de pratiquer %{name} !'
-      body: 'Voici un  petit rappel afin de pratiquer %{name} !'
+      subject: "N'oubliez pas de pratiquer %{name} !"
+      body: "Voici un  petit rappel afin de pratiquer %{name} !"
   stats:
     total_moments: >-
       Vous avez rédigé un <strong>total</strong> de <strong>%{count}</strong>
@@ -981,12 +982,12 @@ fr:
       meilleures compréhension des détails.
   mailers:
     accepted_ally_request:
-      subject: 'if-me.org | %{ally_name} a accépté votre demande!'
+      subject: "if-me.org | %{ally_name} a accépté votre demande!"
       message: >-
         <p>Félicitation! Vous pouvez maintenant partager des Moments,
         Stratégies, et plus avec %{ally_name}.</p>
     new_ally_request:
-      subject: 'if-me.org | %{ally_name} vous a envoyé une demande d''alliance!'
+      subject: "if-me.org | %{ally_name} vous a envoyé une demande d'alliance!"
       message: >-
         <p>Merci de vous <a href="%{allies_url}">identifier</a> pour accepter ou
         refuser la demande!</p>
@@ -1025,7 +1026,7 @@ fr:
         send_instructions: Envoyez-moi les instructions pour réinitialiser mon mot de passe
     registrations:
       email_notifications: Notifications par email
-      comment_notify_text: 'Commentaires sur les moments, stratégies et réunions'
+      comment_notify_text: "Commentaires sur les moments, stratégies et réunions"
       ally_notify_text: Nouvelle demandes d'allié et demandes acceptées
       group_notify_text: Mise à jour de groupes
       meeting_notify_text: Mise à jour de réunions
