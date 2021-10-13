@@ -2,9 +2,10 @@
 
 module GroupNotificationHelper
   def group_leader_notify(data, recipient, type)
-    if type == 'add_group_leader'
+    case type
+    when 'add_group_leader'
       add_group_notify(data, recipient)
-    elsif type == 'remove_group_leader'
+    when 'remove_group_leader'
       remove_group_notify(data, recipient)
     end
   end

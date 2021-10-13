@@ -4,13 +4,13 @@ class SessionsController < Devise::SessionsController
   prepend_before_action :check_recaptcha, only: [:create]
   before_action :set_recaptcha, only: [:new]
 
+  def new
+    super
+  end
+
   def create
     super
     set_user_locale if user_signed_in?
-  end
-
-  def new
-    super
   end
 
   private
