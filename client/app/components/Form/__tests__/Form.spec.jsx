@@ -24,7 +24,7 @@ const getComponent = () => (
 describe('Form', () => {
   const { getByRole, queryByRole, getByPlaceholderText } = screen;
 
-  it('it renders properly', () => {
+  it('renders properly', () => {
     render(getComponent());
     expect(getByPlaceholderText('Some Text Placeholder')).toBeInTheDocument();
     expect(
