@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import axios from 'axios';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { InputMocks } from 'mocks/InputMocks';
@@ -34,7 +35,7 @@ const getMockInputs = (nameValue) => {
   return defaultMockInputs;
 };
 
-const testOnSubmit = jest.fn();
+const error = 'Oh no';
 
 const getComponent = (options = {}) => {
   const mockInputs = getMockInputs(options.nameValue);
@@ -45,13 +46,17 @@ const getComponent = (options = {}) => {
         action: '/fake-action',
         inputs: mockInputs,
       }}
-      onSubmit={testOnSubmit}
+      onSubmit={jest.fn()}
     />
   );
 };
 
 describe('DynamicForm', () => {
   const { getByRole, getByText, getByPlaceholderText } = screen;
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
 
   describe('when name value does not exist', () => {
     it('renders correctly', () => {
@@ -63,20 +68,18 @@ describe('DynamicForm', () => {
     });
 
     it('has no errors when submit is clicked', async () => {
+      const axiosPostSpy = jest.spyOn(axios, 'post').mockResolvedValue({});
       render(getComponent());
       userEvent.type(getByPlaceholderText('Some Text Placeholder'), 'bye');
       userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
-      await waitFor(() => {
-        expect(testOnSubmit).toHaveBeenCalledTimes(1);
-      });
+      await waitFor(() => expect(axiosPostSpy).toBeCalled());
     });
 
     it('has errors when submit is clicked', async () => {
+      const axiosPostSpy = jest.spyOn(axios, 'post').mockRejectedValue({ error: 'Oh no' });
       render(getComponent());
       userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
-      await waitFor(() => {
-        expect(testOnSubmit).toHaveBeenCalledTimes(1);
-      });
+      await waitFor(() => expect(axiosPostSpy()).rejects.toEqual({ error }));
       expect(getByRole('alert')).toBeInTheDocument();
     });
   });
@@ -92,21 +95,19 @@ describe('DynamicForm', () => {
     });
 
     it('has no errors when submit is clicked', async () => {
+      const axiosPostSpy = jest.spyOn(axios, 'post').mockResolvedValue({});
       render(getComponent({ nameValue: 'name' }));
       userEvent.type(getByText('Name'), 'hi');
       userEvent.type(getByPlaceholderText('Some Text Placeholder'), 'bye');
       userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
-      await waitFor(() => {
-        expect(testOnSubmit).toHaveBeenCalledTimes(1);
-      });
+      await waitFor(() => expect(axiosPostSpy).toBeCalled());
     });
 
     it('has errors when submit is clicked', async () => {
+      const axiosPostSpy = jest.spyOn(axios, 'post').mockRejectedValue({ error });
       render(getComponent({ nameValue: 'name' }));
       userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
-      await waitFor(() => {
-        expect(testOnSubmit).toHaveBeenCalledTimes(1);
-      });
+      await waitFor(() => expect(axiosPostSpy()).rejects.toEqual({ error }));
       expect(getByRole('alert')).toBeInTheDocument();
     });
   });
