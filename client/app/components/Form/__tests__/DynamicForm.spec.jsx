@@ -6,7 +6,7 @@ import userEvent from '@testing-library/user-event';
 import { InputMocks } from 'mocks/InputMocks';
 import DynamicForm from 'components/Form/DynamicForm';
 
-// TODO (julianguyen): Include InputTextarea after writing stubs for pell editor
+// TODO (julianguyen): Include InputTextarea after writing stubs for Pell editor
 
 const defaultMockInputs = [
   { ...InputMocks.inputTextProps, required: true },
@@ -54,10 +54,6 @@ const getComponent = (options = {}) => {
 describe('DynamicForm', () => {
   const { getByRole, getByText, getByPlaceholderText } = screen;
 
-  afterEach(() => {
-    jest.restoreAllMocks();
-  });
-
   describe('when name value does not exist', () => {
     it('renders correctly', () => {
       render(getComponent());
@@ -76,7 +72,9 @@ describe('DynamicForm', () => {
     });
 
     it('has errors when submit is clicked', async () => {
-      const axiosPostSpy = jest.spyOn(axios, 'post').mockRejectedValue({ error: 'Oh no' });
+      const axiosPostSpy = jest
+        .spyOn(axios, 'post')
+        .mockRejectedValue({ error });
       render(getComponent());
       userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
       await waitFor(() => expect(axiosPostSpy()).rejects.toEqual({ error }));
@@ -104,7 +102,9 @@ describe('DynamicForm', () => {
     });
 
     it('has errors when submit is clicked', async () => {
-      const axiosPostSpy = jest.spyOn(axios, 'post').mockRejectedValue({ error });
+      const axiosPostSpy = jest
+        .spyOn(axios, 'post')
+        .mockRejectedValue({ error });
       render(getComponent({ nameValue: 'name' }));
       userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
       await waitFor(() => expect(axiosPostSpy()).rejects.toEqual({ error }));

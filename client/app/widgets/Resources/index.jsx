@@ -91,9 +91,7 @@ const infoDescription = (
     <div className={`${css.tinyTitle} ${css.smallMarginBottom}`}>
       {I18n.t('pages.resources.popular_tags')}
     </div>
-    <p>
-      {getPopularTags()}
-    </p>
+    <p>{getPopularTags()}</p>
   </center>
 );
 
