@@ -1,57 +1,37 @@
 <% if !not_signed_in_root_path? %>
+  <h1 class="pageTitle">
   <% if sign_in_path? %>
-  <div class="pageTitle">
     <%= t('layouts.application.signin') %>
-  </div>
   <% elsif join_path? %>
-    <div class="pageTitle">
-      <%= t('layouts.application.create_account') %>
-    </div>
+    <%= t('layouts.application.create_account') %>
   <% elsif forgot_password_path? %>
-    <div class="pageTitle">
-      <%= t('account.forgot_password') %>
-    </div>
+    <%= t('account.forgot_password') %>
   <% elsif update_account_path? %>
-    <div class="pageTitle">
-      <%= t('layouts.application.update_account') %>
-    </div>
+    <%= t('layouts.application.update_account') %>
   <% elsif send_ally_invitation_path? %>
-    <div class="pageTitle">
-      <%= t('devise.invitations.new.header') %>
-    </div>
+    <%= t('devise.invitations.new.header') %>
   <% elsif ally_accept_invitation_path? %>
-    <div class="pageTitle">
-      <%= t('devise.invitations.edit.header') %>
-    </div>
+    <%= t('devise.invitations.edit.header') %>
   <% elsif reset_password_path? %>
-    <div class="pageTitle">
-      <%= t('layouts.title.reset_password') %>
-    </div>
+    <%= t('layouts.title.reset_password') %>
   <% elsif new_user_confirmation_path? %>
-    <div class="pageTitle">
-      <%= t('devise.confirmations.resend_confirmation') %>
-    </div>
+    <%= t('devise.confirmations.resend_confirmation') %>
   <% elsif yield(:page_new).present? && @page_new %>
-    <div class="pageTitle">
-      <div>
-        <%= yield(:title) %>
-      </div>
-      <div class="pageTitleRight">
-        <%= link_to @page_new, yield(:page_new), class: 'buttonM' %>
-      </div>
-    </div>
-  <% elsif @page_author.present? %>
-    <div class="pageTitle">
-      <div>
-        <%= yield(:title) %>
-      </div>
-      <div class="pageTitleRight">
-        <%= render partial: '/shared/page_author', locals: { author: @page_author } %>
-      </div>
-    </div>
-  <% elsif yield(:title).present? %>
-    <div class="pageTitle">
+    <div>
       <%= yield(:title) %>
     </div>
+    <div class="pageTitleRight">
+      <%= link_to @page_new, yield(:page_new), class: 'buttonM' %>
+    </div>
+  <% elsif @page_author.present? %>
+    <div>
+      <%= yield(:title) %>
+    </div>
+    <div class="pageTitleRight">
+      <%= render partial: '/shared/page_author', locals: { author: @page_author } %>
+    </div>
+  <% elsif yield(:title).present? %>
+    <%= yield(:title) %>
   <% end %>
+  </h1>
 <% end %>
