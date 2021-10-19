@@ -30,14 +30,14 @@ describe('Tooltip', () => {
   test('Element is text / right position', () => {
     render(<Tooltip element="hello" text="Some text" right />);
     expect(getByRole('tooltip')).toBeInTheDocument();
-    expect(getByRole('tooltip')).toHaveClass('tooltipRight');
     expect(getByText('Some text')).toBeInTheDocument();
+    expect(getByText('Some text')).toHaveClass('tooltipRight');
   });
   test('Element is html / right position', () => {
     render(<Tooltip element={<div>hello</div>} text="Some text" right />);
     expect(getByRole('tooltip')).toBeInTheDocument();
-    expect(getByRole('tooltip')).toHaveClass('tooltipRight');
     expect(getByText('Some text')).toBeInTheDocument();
+    expect(getByText('Some text')).toHaveClass('tooltipRight');
   });
   test('Element is FontAwsomeIcon / center position', () => {
     render(
@@ -48,20 +48,20 @@ describe('Tooltip', () => {
       />,
     );
     expect(getByRole('tooltip')).toBeInTheDocument();
-    expect(getByRole('tooltip')).toHaveClass('tooltipRight');
     expect(getByText('Some text')).toBeInTheDocument();
+    expect(getByText('Some text')).toHaveClass('tooltipRight');
   });
   test('Element is text / center position', () => {
     render(<Tooltip element="hello" text="Some text" center />);
     expect(getByRole('tooltip')).toBeInTheDocument();
-    expect(getByRole('tooltip')).toHaveClass('tooltipCenter');
     expect(getByText('Some text')).toBeInTheDocument();
+    expect(getByText('Some text')).toHaveClass('tooltipCenter');
   });
   test('Element is html / center position', () => {
     render(<Tooltip element={<div>hello</div>} text="Some text" center />);
     expect(getByRole('tooltip')).toBeInTheDocument();
-    expect(getByRole('tooltip')).toHaveClass('tooltipCenter');
     expect(getByText('Some text')).toBeInTheDocument();
+    expect(getByText('Some text')).toHaveClass('tooltipCenter');
   });
   test('Element is FontAwsomeIcon / center position', () => {
     render(
@@ -72,7 +72,7 @@ describe('Tooltip', () => {
       />,
     );
     expect(getByRole('tooltip')).toBeInTheDocument();
-    expect(getByRole('tooltip')).toHaveClass('tooltipCenter');
     expect(getByText('Some text')).toBeInTheDocument();
+    expect(getByText('Some text')).toHaveClass('tooltipCenter');
   });
 });
