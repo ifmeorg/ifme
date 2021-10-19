@@ -1,16 +1,8 @@
 <div class="gridMany">
   <% if notice.present? %>
-    <% if current_page?(root_path) %>
-      <div role="region" aria-live="polite" class="notice displayNone"><%= notice %></div>
-    <% else %>
-      <div role="region" aria-live="polite" class="notice"><%= notice %></div>
-    <% end %>
+    <div role="region" aria-live="polite" class="notice"><%= notice %></div>
   <% end %>
   <% if alert.present? %>
-    <% if current_page?(root_path) %>
-      <div role="alert" class="alert displayNone"><%= alert %></div>
-    <% else %>
-      <div role="alert" class="alert"><%= alert %></div>
-    <% end %>
+    <div role="alert" class="alert"><%= alert %></div>
   <% end %>
 </div>
