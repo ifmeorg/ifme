@@ -1,14 +1,16 @@
-<% if notice.present? %>
-  <% if current_page?(root_path) %>
-    <div class="notice displayNone"><%= notice %></div>
-  <% else %>
-    <div class="notice"><%= notice %></div>
+<div class="gridMany">
+  <% if notice.present? %>
+    <% if current_page?(root_path) %>
+      <div role="region" aria-live="polite" class="notice displayNone"><%= notice %></div>
+    <% else %>
+      <div role="region" aria-live="polite" class="notice"><%= notice %></div>
+    <% end %>
   <% end %>
-<% end %>
-<% if alert.present? %>
-  <% if current_page?(root_path) %>
-    <div class="alert displayNone"><%= alert %></div>
-  <% else %>
-    <div class="alert"><%= alert %></div>
+  <% if alert.present? %>
+    <% if current_page?(root_path) %>
+      <div role="alert" class="alert displayNone"><%= alert %></div>
+    <% else %>
+      <div role="alert" class="alert"><%= alert %></div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
