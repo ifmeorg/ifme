@@ -6,14 +6,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Tooltip } from 'components/Tooltip';
 
 describe('Tooltip', () => {
-  const { getAllByRole, getByText } = screen;
+  const { getByRole, getByText } = screen;
   test('Element is text / default position', () => {
     render(<Tooltip element="Hello" text="Some text" />);
-    expect(getAllByRole('tooltip')).toHaveLength(2);
+    expect(getByRole('tooltip')).toBeInTheDocument();
   });
   test('Element is html / default position', () => {
     render(<Tooltip element={<div>hello</div>} text="Some text" />);
-    expect(getAllByRole('tooltip')).toHaveLength(2);
+    expect(getByRole('tooltip')).toBeInTheDocument();
     expect(getByText('Some text')).toBeInTheDocument();
   });
   test('Element is FontAwsomeIcon / center position', () => {
@@ -24,20 +24,20 @@ describe('Tooltip', () => {
         center
       />,
     );
-    expect(getAllByRole('tooltip')).toHaveLength(2);
+    expect(getByRole('tooltip')).toBeInTheDocument();
     expect(getByText('Some text')).toBeInTheDocument();
   });
   test('Element is text / right position', () => {
     render(<Tooltip element="hello" text="Some text" right />);
-    expect(getAllByRole('tooltip')).toHaveLength(2);
+    expect(getByRole('tooltip')).toBeInTheDocument();
+    expect(getByRole('tooltip')).toHaveClass('tooltipRight');
     expect(getByText('Some text')).toBeInTheDocument();
-    expect(getByText('Some text')).toHaveClass('tooltipRight');
   });
   test('Element is html / right position', () => {
     render(<Tooltip element={<div>hello</div>} text="Some text" right />);
-    expect(getAllByRole('tooltip')).toHaveLength(2);
+    expect(getByRole('tooltip')).toBeInTheDocument();
+    expect(getByRole('tooltip')).toHaveClass('tooltipRight');
     expect(getByText('Some text')).toBeInTheDocument();
-    expect(getByText('Some text')).toHaveClass('tooltipRight');
   });
   test('Element is FontAwsomeIcon / center position', () => {
     render(
@@ -47,21 +47,21 @@ describe('Tooltip', () => {
         right
       />,
     );
-    expect(getAllByRole('tooltip')).toHaveLength(2);
+    expect(getByRole('tooltip')).toBeInTheDocument();
+    expect(getByRole('tooltip')).toHaveClass('tooltipRight');
     expect(getByText('Some text')).toBeInTheDocument();
-    expect(getByText('Some text')).toHaveClass('tooltipRight');
   });
   test('Element is text / center position', () => {
     render(<Tooltip element="hello" text="Some text" center />);
-    expect(getAllByRole('tooltip')).toHaveLength(2);
+    expect(getByRole('tooltip')).toBeInTheDocument();
+    expect(getByRole('tooltip')).toHaveClass('tooltipCenter');
     expect(getByText('Some text')).toBeInTheDocument();
-    expect(getByText('Some text')).toHaveClass('tooltipCenter');
   });
   test('Element is html / center position', () => {
     render(<Tooltip element={<div>hello</div>} text="Some text" center />);
-    expect(getAllByRole('tooltip')).toHaveLength(2);
+    expect(getByRole('tooltip')).toBeInTheDocument();
+    expect(getByRole('tooltip')).toHaveClass('tooltipCenter');
     expect(getByText('Some text')).toBeInTheDocument();
-    expect(getByText('Some text')).toHaveClass('tooltipCenter');
   });
   test('Element is FontAwsomeIcon / center position', () => {
     render(
@@ -71,8 +71,8 @@ describe('Tooltip', () => {
         center
       />,
     );
-    expect(getAllByRole('tooltip')).toHaveLength(2);
+    expect(getByRole('tooltip')).toBeInTheDocument();
+    expect(getByRole('tooltip')).toHaveClass('tooltipCenter');
     expect(getByText('Some text')).toBeInTheDocument();
-    expect(getByText('Some text')).toHaveClass('tooltipCenter');
   });
 });
