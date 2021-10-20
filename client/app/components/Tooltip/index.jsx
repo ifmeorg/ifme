@@ -27,12 +27,16 @@ export const Tooltip = (props: Props) => {
     <div className={`tooltip ${css.tooltip}`}>
       <div
         className="tooltipElement"
-        aria-labelledby={tooltipId}
+        aria-describedby={tooltipId}
         role="tooltip"
       >
         {Utils.renderContent(element)}
       </div>
-      <div id={tooltipId} className={`${getPosition(right, center)}`}>
+      <div
+        id={tooltipId}
+        role="tooltip"
+        className={`${getPosition(right, center)}`}
+      >
         {text}
       </div>
     </div>
