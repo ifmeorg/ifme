@@ -990,7 +990,7 @@ id:
       resend: Kirim ulang petunjuka buka kunci
   care_plan:
     index:
-      title:  Rencana Perawatan
+      title: Rencana Perawatan
       subtitle: Susun rencana untuk melewati masa-masa sulit
       contacts: Kontrak-kontrak
       new_contact: Kontrak Baru
