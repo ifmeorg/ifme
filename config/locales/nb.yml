@@ -2,11 +2,11 @@ nb:
   app_name: if-me.org
   app_description: Et samfunn for mental helse opplevelser
   email: join.ifme@gmail.com
-  created: 'Opprettet %{created_at}'
+  created: "Opprettet %{created_at}"
   draft: Utkast
-  edited: 'Opprettet %{created_at} (redigert)'
-  edited_updated_at: 'Opprettet %{created_at} (redigert %{updated_at})'
-  salutation: 'Hei %{name},'
+  edited: "Opprettet %{created_at} (redigert)"
+  edited_updated_at: "Opprettet %{created_at} (redigert %{updated_at})"
+  salutation: "Hei %{name},"
   click_here: klikk her
   language: Språk
   yes_text: ja
@@ -30,8 +30,9 @@ nb:
     hi: हिंदी
     zh-CN: 中文
     ko: 한국어
+    id: Bahasa Indonesia
   navigation:
-    skip_to_main_content: 'Hopp til hovedinnhold'
+    skip_to_main_content: "Hopp til hovedinnhold"
     main_menu: Hovedstedmeny
     user_menu: Brukermeny
     about: Om
@@ -66,7 +67,7 @@ nb:
       confirm: Er du sikker?
       delete: Slett
       edit: Rediger
-      edit_instance: 'Rediger %{instance}'
+      edit_instance: "Rediger %{instance}"
       join: Bli med
       leave: Forlat
       add: Legg til
@@ -82,7 +83,7 @@ nb:
       empty_error: Dette feltet kan ikke være tomt!
       search_by_keywords: Søk etter nøkkelord
       template: Velg en mal
-    time_ago: '%{date} siden'
+    time_ago: "%{date} siden"
     write_to_us: skriv til oss
     days: Dager
   reports:
@@ -90,17 +91,17 @@ nb:
     reported_users: Rapporterte Brukere
     banned_users: Forbudte Brukere
     reasons: Grunner
-    new: 'Ny rapport for %{name}'
+    new: "Ny rapport for %{name}"
     remove_ban: Fjern Ban
     ban_user: Forbud Bruker
-    report_sent: 'Rapport for %{name} sendt'
-    report_error: 'Kunne ikke sende rapport for %{name}'
+    report_sent: "Rapport for %{name} sendt"
+    report_error: "Kunne ikke sende rapport for %{name}"
     reportee: Reportee
     reporter: Rapportert av
-    user_banned: '%{name} har blitt utestengt'
-    ban_removed: 'Forbudt fjernet på %{name}'
-    user_banned_error: 'Kunne ikke forby %{name}'
-    ban_removed_error: 'Kunne ikke fjerne forbud mot %{name}'
+    user_banned: "%{name} har blitt utestengt"
+    ban_removed: "Forbudt fjernet på %{name}"
+    user_banned_error: "Kunne ikke forby %{name}"
+    ban_removed_error: "Kunne ikke fjerne forbud mot %{name}"
   comment:
     singular: Kommentar
     plural: Kommentarer
@@ -114,8 +115,8 @@ nb:
     sign_up: Registrer
     forgot_password: Glemt passordet ditt?
   members:
-    one: '%{count} medlem'
-    other: '%{count} medlemmer'
+    one: "%{count} medlem"
+    other: "%{count} medlemmer"
   allies:
     add_ally: Legg til allierte
     cancel_ally_request: Avbryt forespørsel
@@ -126,7 +127,7 @@ nb:
       outgoing: Utgående forespørsler
       incoming: Innkommende forespørsler
       invited: Invitert via e-post
-      invited_on: 'Invitert til: %{date}'
+      invited_on: "Invitert til: %{date}"
       invitation_expired: Invitasjon utløpt
       invite: Inviter dine kjente!
       none: >-
@@ -142,12 +143,12 @@ nb:
     edit_category: Rediger kategori
     new: Ny kategori
     form:
-      name_hint: 'Kategoriser gjentakende folk, steder, ting, aktiviteter osv.'
+      name_hint: "Kategoriser gjentakende folk, steder, ting, aktiviteter osv."
     label:
-      one: 'Kategori:'
-      other: 'Kategorier:'
+      one: "Kategori:"
+      other: "Kategorier:"
     index:
-      subtitle: 'Livet er rotete, kategoriser de ulike menneskene, stedene, og tingene.'
+      subtitle: "Livet er rotete, kategoriser de ulike menneskene, stedene, og tingene."
       premade1_name: Familie
       premade1_description: Familierelatert
       premade2_name: Venner
@@ -155,7 +156,7 @@ nb:
       premade3_name: Jobb
       premade3_description: Jobbrelatert
       premade4_name: Meditasjon
-      premade4_description: 'Meditasjon, dyp pusting, og avslappende aktiviteter'
+      premade4_description: "Meditasjon, dyp pusting, og avslappende aktiviteter"
       instructions: >-
         Du har ikke opprettet noen tilpassede kategorier enda.<br> Du kan også
         legge til de følgende ferdiglagde kategoriene og tilpasse de senere.
@@ -171,9 +172,9 @@ nb:
     plural: Grupper
     form:
       leaders: Ledere
-      only_leader: 'Du er den eneste lederen, du kan derfor ikke dra.'
+      only_leader: "Du er den eneste lederen, du kan derfor ikke dra."
       cannot_delete: Vennligst legg merke til at du ikke kan slette grupper.
-      error_save: 'Vi kan ikke lagre denne gruppen fordi: '
+      error_save: "Vi kan ikke lagre denne gruppen fordi: "
       error_edit_permission: Du må være lederen av gruppen for å kunne redigere den
     index:
       subtitle: >-
@@ -191,13 +192,13 @@ nb:
       success: Du har blitt med i denne gruppen.
       group_not_exists: Du kan ikke bli med i en gruppe som ikke eksisterer.
     leave:
-      error: 'Du kan ikke forlate denne gruppen, du er den eneste lederen.'
-      success: 'Du har forlatt %{group}'
-      remove_member_success: 'Du har fjernet %{user} fra %{group}'
+      error: "Du kan ikke forlate denne gruppen, du er den eneste lederen."
+      success: "Du har forlatt %{group}"
+      remove_member_success: "Du har fjernet %{user} fra %{group}"
       remove_member_error: Du kan ikke sparke et gruppemedlem fordi du ikke er leder.
     new: Ny gruppe
     show:
-      led_by: 'Ledet av:'
+      led_by: "Ledet av:"
       delete: Slett gruppe
   layouts:
     application:
@@ -218,26 +219,26 @@ nb:
     singular: Medisinering
     edit_medication: Rediger medisinering
     refill_reminder: Påminnelsesepost om når du må fylle på
-    dosage: 'Daglig dose:'
-    weekly_dosage: 'Ukentlig dose:'
-    refill: 'Påfyllelse:'
-    quantity: 'Total kvantitet:'
-    strength: 'Styrke:'
-    event_summary: 'Påfyll på %{name}.'
+    dosage: "Daglig dose:"
+    weekly_dosage: "Ukentlig dose:"
+    refill: "Påfyllelse:"
+    quantity: "Total kvantitet:"
+    strength: "Styrke:"
+    event_summary: "Påfyll på %{name}."
     form:
       strength: Styrke
-      strength_unit: 'Styrkeenhet'
+      strength_unit: "Styrkeenhet"
       strength_placeholder: f.eks. 100
       total_placeholder: f.eks. 30
       dosage: dose
-      dosage_unit: 'Doseringsenhet'
+      dosage_unit: "Doseringsenhet"
       dosage_placeholder: f.eks. 2
       refill: påfyll
       name_hint: Generisk eller merkenavn på medisinen
       comments_hint: Legg til ytterlige kommentarer her f.eks. loggføring av symptomer
       add_to_google_cal: Google Kalender påminnelse
       google_cal_hint: Vi legger til en påminnelse for denne medisinen til din Google kalender.
-      strength_hint: 'Medisin styrke, vanligvis beskrevet ved siden av navnet'
+      strength_hint: "Medisin styrke, vanligvis beskrevet ved siden av navnet"
       total_hint: Totalt nummer av piller eller mengde medisin
       dosage_hint: Nummer av piller eller daglig mengde
       weekly_dosage_hint: Hvilken av dagene i uka du tar denne medisinen
@@ -245,24 +246,24 @@ nb:
       refill_reminder_hint: Vi sender deg en påminnelse uken for medisinen må fylles på.
       daily_reminder_hint: Vi sender deg en daglig påminnelse om å ta denne medisinen
       total: Totalt
-      total_unit: 'Total enhet'
+      total_unit: "Total enhet"
     new: Ny medisin
     units:
-      display: '%{count} %{unit}'
+      display: "%{count} %{unit}"
       mg: mg
       ml: ml
       tablets:
         one: tablett
         other: tabletter
     reminder_mailer:
-      subject: 'Ikke glem å ta %{name}!'
-      body: 'Her er en vennlig påminnelse om å ta %{name}!'
+      subject: "Ikke glem å ta %{name}!"
+      body: "Her er en vennlig påminnelse om å ta %{name}!"
     refill_mailer:
-      subject: 'Du må fylle opp %{name} snart!'
-      body: 'Her er en vennlig påminnelse om å fylle opp %{name} på %{refill}!'
+      subject: "Du må fylle opp %{name} snart!"
+      body: "Her er en vennlig påminnelse om å fylle opp %{name} på %{refill}!"
     index:
       title: Medisiner
-      subtitle: 'Hold styr på medisinene dine, inkludert dose og påfyllingsinformasjon.'
+      subtitle: "Hold styr på medisinene dine, inkludert dose og påfyllingsinformasjon."
       instructions: >-
         Du har ikke lagret noen medisiner enda.<br><br>Her er et eksempel på en
         lagret medisin! Du kan også skrive om din opplevelse.
@@ -272,7 +273,7 @@ nb:
       example_dosage: 2 tabletter
       example_refill: 31/05/2016
     show:
-      comments: 'Kommentarer:'
+      comments: "Kommentarer:"
   meetings:
     singular: Møte
     edit_meeting: Rediger møte
@@ -285,16 +286,16 @@ nb:
       cancel_meeting: Avlys møte
       meeting_time: Tid
       members_of_group_html:
-        one: '%{count} Medlem av %{group}'
-        other: '%{count} Medlemmer av %{group}'
+        one: "%{count} Medlem av %{group}"
+        other: "%{count} Medlemmer av %{group}"
     reminder_mailer:
       subject: 'Ditt møte "%{meeting_name}" er i morgen kl %{time}!'
       body: >-
         Her er en vennlig påminnelse om at møtet ditt i morgen,
         "%{meeting_name}", vil finne sted kl %{time} på %{location}!
     leave:
-      error: 'Du kan ikke forlate møtet, du er den eneste lederen.'
-      success: 'Du har forlatt %{meeting}'
+      error: "Du kan ikke forlate møtet, du er den eneste lederen."
+      success: "Du har forlatt %{meeting}"
     new: Nytt møte
     google_cal:
       create:
@@ -348,9 +349,9 @@ nb:
     plural: Humør
     edit_mood: Rediger humør
     new: Nytt humør
-    example_moods: 'Nervøs, engstelig, håpefull'
+    example_moods: "Nervøs, engstelig, håpefull"
     index:
-      subtitle: 'Lag tagger som beskriver din sinnstilstand, følelser, og tanker.'
+      subtitle: "Lag tagger som beskriver din sinnstilstand, følelser, og tanker."
       premade1_name: Aksepterende
       premade1_description: Aksepterende og i fred med forskjeller og begrensninger
       premade2_name: Ambisiøs
@@ -372,13 +373,13 @@ nb:
     plural: Notifikasjoner
     none: Det er ingen
     clear: Klar
-    created_by_html: '<strong>Laget av</strong>: %{name}'
+    created_by_html: "<strong>Laget av</strong>: %{name}"
     preview: Se mer
     members:
       title: Liste over medlemmer
     ally:
-      accepted: '%{name} aksepterte din allianseforespørsel!'
-      sent_html: '%{link_to_user} sendte en allianseforespørsel!'
+      accepted: "%{name} aksepterte din allianseforespørsel!"
+      sent_html: "%{link_to_user} sendte en allianseforespørsel!"
     comment:
       full: '%{name} kommenterte "%{comment}" på %{typename}'
       truncated: '%{name} kommenterte "%{comment}" [...] på %{typename}'
@@ -398,11 +399,11 @@ nb:
       comment_on_meeting_subject: >-
         if-me.org | %{user} kommenterte på møtet "%{meeting}" i gruppen
         "%{group}"
-      comment_on_private_body: '<p>Din allierte <strong>%{user}</strong> kommenterte privat:</p>'
-      comment_on_body: '<p>Din allierte <strong>%{user}</strong> kommenterte:</p>'
-      comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
-      comment_text: '<p><i>%{comment}</i></p>'
-      comment_link: '<p>For å lese det, %{link}!</p>'
+      comment_on_private_body: "<p>Din allierte <strong>%{user}</strong> kommenterte privat:</p>"
+      comment_on_body: "<p>Din allierte <strong>%{user}</strong> kommenterte:</p>"
+      comment_text_cutoff: "<p><i>%{comment} [...]</i></p>"
+      comment_text: "<p><i>%{comment}</i></p>"
+      comment_link: "<p>For å lese det, %{link}!</p>"
       new_group_subject: 'if-me.org | %{user} lagde en gruppe "%{group}"'
       new_group_body: >-
         <p>%{user} lagde en gruppe "%{group}":</p><p><i>
@@ -420,8 +421,8 @@ nb:
         <p>%{subject}</p><p><i>%{description}</i></p><p><strong>
         Plassering:</strong> %{location}</p><p><strong>Dato:</strong>
         %{date}</p> <p><strong>Tid:</strong> %{time}</p>
-      new_meeting_link: '<p>For å lære mer og bli med, %{link}!</p>'
-      update_meeting_link: '<p>For å lære mer, %{link}!</p>'
+      new_meeting_link: "<p>For å lære mer og bli med, %{link}!</p>"
+      update_meeting_link: "<p>For å lære mer, %{link}!</p>"
       remove_meeting_subject: 'if-me.org | %{user} har kansellert "%{meeting}" i "%{group}"'
       join_meeting_subject: 'if-me.org | %{user} har blitt med i "%{meeting}" i "%{group}"'
       join_meeting_body: '<p>For å se "%{meeting}", %{link}!</p>'
@@ -432,7 +433,7 @@ nb:
       reportee_user_subject: if-me.org | Du har blitt rapportert
       reportee_user_body: Du har blitt rapportert. Dette blir vurdert av en administrator.
       add_ban_subject: if-me.org | Du har blitt bannlyst
-      add_ban_body: 'Du har blitt utestengt for å krenke vår %{code_of_conduct_link}.'
+      add_ban_body: "Du har blitt utestengt for å krenke vår %{code_of_conduct_link}."
       remove_ban_subject: if-me.org | Du er ikke lenger utestengt
       remove_ban_body: >-
         Du ble tidligere forbudt for å krenke vår %{code_of_conduct_link}. Du er
@@ -465,7 +466,7 @@ nb:
         Hvis du er interessert i å skrive for oss, kontakt oss på %{email}! Vi
         tar også imot anonyme innleveringer.
     contribute:
-      contributor_avatar_alt: 'Bidragsyter biografi for %{name}'
+      contributor_avatar_alt: "Bidragsyter biografi for %{name}"
       message_text_one: >-
         Vi er alltid på utkikk etter ideer fra alle, inkludert <strong>mental
         helse forkjempere</strong>, <strong>helsearbeidere </strong>,
@@ -549,15 +550,15 @@ nb:
         main_message_one: Bedre kommunikasjon med kjente leder til bedre mental helse.
         message_text_one: Vi trenger hverandres støtte for å bryte ned stigmaer.
         message_one: Del dine historier med kjente og få støtten du fortjener
-        message_two: 'Vær deg selv, ingen forpliktelser og med sikkerhet og personvern'
-        message_three: 'Dokumenter ditt humør, medisiner, og selvpleie'
+        message_two: "Vær deg selv, ingen forpliktelser og med sikkerhet og personvern"
+        message_three: "Dokumenter ditt humør, medisiner, og selvpleie"
         main_message_two: Vi har åpen kildekode fordi mental helse burde være åpent.
         message_text_two: >-
           Vi er <strong>alltid</strong> på utkikk etter din %{help} og
           %{feedback}!
         help: hjelp
       signed_in_empty:
-        main_message_one: 'Hallo %{name}!'
+        main_message_one: "Hallo %{name}!"
         message_text_one: Slik kan du begynne å dele dine historier.
         main_message_two: Fortell oss om deg selv.
         cell_one: >-
@@ -575,7 +576,7 @@ nb:
           Hold styr på det og lag påminnelser!<br>Trenger du ekstra støtte? Bli
           med i eller lag en %{group} for å snakke ut
         main_message_five: Har du noen spørsmål eller bekymringer?
-        message_text_three: 'Sjekk ut vår %{faq} side eller %{email_link}!'
+        message_text_three: "Sjekk ut vår %{faq} side eller %{email_link}!"
         strategize: Lag en strategiplan
     partners:
       description: >-
@@ -801,16 +802,16 @@ nb:
       search_by_email: Søk med e-post
     index:
       title: Søk etter allierte
-      user_not_found: 'Bruker %{email} ikke funnet'
+      user_not_found: "Bruker %{email} ikke funnet"
   shared:
     footer:
       licence: AGPL-3.0
-      licence_subtitle: 'Lisensiert under %{licence}'
+      licence_subtitle: "Lisensiert under %{licence}"
       connect: koble til
     comments:
       share_everyone: Del med alle
-      share_with: 'Del kun med %{name}'
-      visible_only_between_you_and: 'Kun synlig for deg og %{name}'
+      share_with: "Del kun med %{name}"
+      visible_only_between_you_and: "Kun synlig for deg og %{name}"
       not_allies: (ikke allierte)
     header:
       signout: Logg ut
@@ -822,25 +823,25 @@ nb:
         other: Du er <strong>ikke</strong> den eneste seeren.
       viewers_html:
         zero: Det er <strong>ingen</strong> seere.
-        one: '%{names} er en seer.'
-        other: '%{names} er seere.'
+        one: "%{names} er en seer."
+        other: "%{names} er seere."
     stats:
       you_are_focusing: Du fokuserer mest på
-      user_is_focusing: '%{name} fokuserer mest på'
+      user_is_focusing: "%{name} fokuserer mest på"
       visible_in_stats: Synlig i statistikk?
     viewers:
       plural: Seere
       you: Kun deg
       you_link: Kun synlig for deg
-      many: 'Synlig for %{viewers}'
+      many: "Synlig for %{viewers}"
     meeting_info:
       attending: Du deltar. Ombestemt deg?
-      not_attending: 'Du deltar ikke. %{join}'
-      not_attending_one_spot_left: 'Du er ikke deltakende. Det er en plass igjen! %{join}'
-      not_attending_spots_left: 'Du er ikke deltakende. Det er %{number} plasser igjen! %{join}'
+      not_attending: "Du deltar ikke. %{join}"
+      not_attending_one_spot_left: "Du er ikke deltakende. Det er en plass igjen! %{join}"
+      not_attending_spots_left: "Du er ikke deltakende. Det er %{number} plasser igjen! %{join}"
       not_attending_no_spots_left: Du er ikke deltakende. Det er ikke noe mer plass igjen.
     quick_create:
-      new: 'Ny %{name}'
+      new: "Ny %{name}"
   strategies:
     singular: Strategi
     plural: Strategier
@@ -859,8 +860,8 @@ nb:
       bookmarked_question: Bokmerke denne strategien?
       bookmarked_info: Bokmerkede strategier vises i din omsorgsplan
     label:
-      one: 'Strategi:'
-      other: 'Strategier:'
+      one: "Strategi:"
+      other: "Strategier:"
     index:
       subtitle: >-
         Planlegg selvpleie for å oppnå ønskede tanker og innstillinger for
@@ -900,8 +901,8 @@ nb:
         til de følgende forhåndslagde strategien og tilpasse den fra tid til
         annen.
     reminder_mailer:
-      subject: 'Ikke glem å utføre %{name}!'
-      body: 'Her en en vennlig påminnelse om å utføre %{name}!'
+      subject: "Ikke glem å utføre %{name}!"
+      body: "Her en en vennlig påminnelse om å utføre %{name}!"
   stats:
     total_moments: >-
       Du har skrevet ett <strong>totalt</strong> av <strong>%{count}</strong>
@@ -920,12 +921,12 @@ nb:
     yes_description: A skrive en kan hjelpe deg og andre bedre forstå i detalj
   mailers:
     accepted_ally_request:
-      subject: 'if-me.org | %{ally_name} aksepterte din allianseforesporsel!'
+      subject: "if-me.org | %{ally_name} aksepterte din allianseforesporsel!"
       message: >-
         <p>Gratulerer! Du kan nå dele øyeblikk, strategier og mer med
         %{ally_name}.</p>
     new_ally_request:
-      subject: 'if-me.org | %{ally_name} sendte en allianseforespørsel!'
+      subject: "if-me.org | %{ally_name} sendte en allianseforespørsel!"
       message: >-
         <p>Vennligst <a href="%{allies_url}">logg inn</a> for å akseptere eller
         avvise forespørselen!</p>
@@ -947,7 +948,7 @@ nb:
         link_instructions: >-
           Noen har spurt om en link til å forandre passordet ditt. Du kan gjøre
           dette gjennom linken nedenfor.
-        ignore: 'Hvis du ikke spurte om dette, vennligst ignorer denne e-posten.'
+        ignore: "Hvis du ikke spurte om dette, vennligst ignorer denne e-posten."
         info: >-
           Passordet ditt forandres ikke for du klikker på linken ovenfor og
           lager ett nytt.
@@ -964,7 +965,7 @@ nb:
         send_instructions: Send meg instruksjoner for tilbakestilling av passord
     registrations:
       email_notifications: E-post varslinger
-      comment_notify_text: 'Kommentarer på øyeblikk, strategier og møter'
+      comment_notify_text: "Kommentarer på øyeblikk, strategier og møter"
       ally_notify_text: Nye og aksepterte allianseforespørseler
       group_notify_text: Gruppeoppdateringer
       meeting_notify_text: Møteoppdateringer
@@ -1013,7 +1014,7 @@ nb:
           trygt, privat sted
         label: Ett par detaljer
     sessions:
-      subtitle: 'Velkommen tilbake, vi ser frem til å hjelpe deg takle dagen din'
+      subtitle: "Velkommen tilbake, vi ser frem til å hjelpe deg takle dagen din"
     shared:
       sign_in_google: Logg inn med Google
       sign_up_google: Registrer deg med Google

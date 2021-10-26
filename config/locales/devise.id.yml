@@ -77,3 +77,4 @@ id:
       not_saved:
         one: "1 eror tidak dapat menyimpan %{resource} ini:"
         other: "%{count} eror tidak dapat menyimpan %{resource} ini:"
+      pwned_password: "Sebelumnya telah muncul dalam pelanggaran data dan tidak boleh digunakan. Jika Anda pernah menggunakannya di mana saja sebelumnya, segera ubah!"
