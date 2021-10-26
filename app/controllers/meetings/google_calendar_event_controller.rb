@@ -77,7 +77,7 @@ module Meetings
 
       return message if exception_message.blank?
 
-      message + ' ' + exception_message
+      "#{message} #{exception_message}"
     end
   end
 end

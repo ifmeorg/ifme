@@ -1,0 +1,19 @@
+id:
+  views:
+    pagination:
+      first: "&laquo; Pertama"
+      last: Terakhir &raquo;
+      previous: "&lsaquo; Sebelumnya"
+      next: Selanjutnya &rsaquo;
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Tidak ada %{entry_name} yang ditemukan"
+          one: "Menampilkan <b>1</b> %{entry_name}"
+          other: "Menampilkan <b>all %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: >-
+          Menampilkan %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> dari
+          <b>%{total}</b> total

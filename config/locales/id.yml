@@ -1,0 +1,1010 @@
+id:
+  app_name: if-me.org
+  app_description: Komunitas untuk pengalaman kesehatan mental.
+  email: join.ifme@gmail.com
+  created: "Dibuat %{created_at}"
+  draft: Draft
+  edited: "Dibuat %{created_at} (diedit)"
+  edited_updated_at: "Dibuat %{created_at} (diedit %{updated_at})"
+  salutation: "Hi %{name},"
+  click_here: Klik disini
+  language: Bahasa
+  yes_text: Ya
+  no_text: Tidak
+  expand_menu: Perluas menu
+  close: Tutup
+  load_more: Muat lebih banyak
+  of: dari
+  languages:
+    en: English
+    es: Español
+    nl: Nederlands
+    pt-BR: Português
+    sv: Svenska
+    various_languages: Bahasa lainnya
+    vi: Tiếng Việt
+    it: Italiano
+    nb: Norsk
+    de: Deutsch
+    fr: Français
+    hi: हिंदी
+    zh-CN: 中文
+    ko: 한국어
+    id: Bahasa Indonesia
+  navigation:
+    skip_to_main_content: Lewati ke konten utama
+    google: Google
+    main_menu: Menu utama
+    user_menu: Menu pengguna
+    about: Tentang
+    blog: Blog
+    contribute: Kontribusi
+    partners: Partners
+    privacy: Privacy Policy
+    github: GitHub
+    open_collective: Open Collective
+    instagram: Instagram
+    rss: RSS
+    twitter: Twitter
+    facebook: Facebook
+    feedback: feedback
+    give_feedback: Beri Masukan
+    press: Press
+    faq: FAQ
+    resources: Resources
+    code_of_conduct: Kode Etik
+  common:
+    name: Nama
+    you: Anda
+    title: Judul
+    date: Tanggal
+    daily_reminder: Email Pengingat Harian
+    actions:
+      plural: Aksi
+      submit: Kirim
+      submit_publish: Terbitkan
+      submit_draft: Draf
+      confirm: Apakah Kamu Yakin?
+      delete: Hapus
+      edit: Ubah
+      edit_instance: "Sunting %{instance}"
+      join: Gabung
+      leave: Tinggalkan
+      add: Tambah
+      add_all: Tambah Semua
+      select_all: Pilih Semua
+      remove: Hapus
+      report: Laporkan
+    form:
+      email: Email
+      location: Lokasi
+      description: Deskripsi
+      error_explanation: Silakan isi kolom yang ditandai!
+      empty_error: Kolom ini tidak boleh kosong!
+      search_by_keywords: Cari berdasarkan kata kunci
+      template: Pilih template
+    time_ago: "%{date} yang lalu"
+    write_to_us: Tulis kepada kami
+    days: Hari
+  reports:
+    admin_dashboard: Dasbor Admin
+    reported_users: Pengguna yang Dilaporkan
+    banned_users: Pengguna yang Diblokir
+    reasons: Alasan
+    new: "Laporan Baru untuk %{name}"
+    remove_ban: Hilangkan Ban
+    ban_user: Ban Pengguna
+    report_sent: "Laporan untuk %{name} telah dikirimkan"
+    report_error: "Tidak dapat mengirimkan laporan untuk %{name}"
+    reportee: Terlapor
+    reporter: Pelapor
+    user_banned: "%{name} telah dilarang"
+    ban_removed: "Larangan dihapus dari%{name}"
+    user_banned_error: "Tidak bisa melarang %{name}"
+    ban_removed_error: "Tidak dapat menghapus larangan dari %{name}"
+  comment:
+    singular: Komentar
+    plural: Komentar
+    posting: Memposting komentar...
+    allow_comments: Allow Comments?
+    hint: Hanya Anda dan pemirsa yang dapat berkomentar
+    control: Kontrol siapa yang dapat melihat dan berkomentar
+  account:
+    singular: Akun
+    sign_in: Masuk
+    sign_up: Daftar
+    forgot_password: Lupa kata sandi Anda?
+  members:
+    one: "%{count} anggota"
+    other: "%{count} anggota"
+  allies:
+    add_ally: Tambahkan ke Pertemanan
+    cancel_ally_request: Batalkan permintaan
+    accept: Terima
+    reject: Tolak
+    index:
+      title: Teman
+      outgoing: Permintaan Keluar
+      incoming: Permintaan masuk
+      invited: Diundang melalui email
+      invited_on: "Diundang pada: %{date}"
+      invitation_expired: Undangan telah kedaluwarsa
+      invite: Ajak orang tersayang Anda!
+      none: >-
+        Anda saat ini tidak memiliki teman! Anda dapat mencari mereka atau mengundang orang-orang
+        terkasih untuk bergabung!
+      view_all_allies: Lihat semua teman
+      cancel: Batalkan
+    form:
+      placeholder: Masukkan satu atau beberapa email yang dipisahkan koma
+  categories:
+    singular: Kategori
+    plural: Kategori
+    edit_category: Ubah Categori
+    new: Kategori Baru
+    form:
+      name_hint: Kategorikan orang, tempat, benda, aktivitas, dan lainnya yang berulang
+    label:
+      one: "Kategori:"
+      other: "Kategori:"
+    index:
+      subtitle: Hidup itu berantakan, kategorikan orang, tempat, dan hal yang berbeda.
+      premade1_name: Keluarga
+      premade1_description: Keluarga Terkait
+      premade2_name: Teman-teman
+      premade2_description: Teman-teman terkait
+      premade3_name: Pekerjaan
+      premade3_description: Pekerjaan Terkait
+      premade4_name: Meditasi
+      premade4_description: Meditasi, pernapasan dalam, dan aktivitas santai
+      instructions: >-
+        Anda belum membuat kategori khusus apa pun.<br>
+        Anda juga dapat menambahkan kategori siap pakai berikut dan menyesuaikannya di lain waktu.
+  errors:
+    home_page: Kembali ke rumah
+    internal_server_error:
+      header_message: Halaman ini tidak dapat ditampilkan
+    not_found:
+      header_message: Halaman ini tidak ada
+    empty_params: Tidak boleh kosong
+  groups:
+    singular: Kelompok
+    plural: Kelompok
+    form:
+      leaders: Pemimpin
+      only_leader: Anda adalah satu-satunya pemimpin, oleh karena itu Anda tidak bisa pergi.
+      cannot_delete: Harap dicatat bahwa Anda tidak dapat menghapus grup.
+      error_save: "Kami tidak dapat menyimpan grup ini karena:"
+      error_edit_permission: Anda harus menjadi pemimpin grup untuk mengeditnya
+    index:
+      subtitle: Buat dan bergabunglah dengan grup yang menawarkan dukungan, bimbingan, dan diskusi.
+      available_groups: Grup yang Tersedia
+      joined_groups: Grup yang Diikuti
+      leader: (Pemimpin)
+      instructions: Anda belum menjadi bagian dari grup mana pun.
+    join:
+      success: Anda telah bergabung dengan grup ini.
+      group_not_exists: Anda tidak dapat bergabung dengan grup yang tidak ada.
+    leave:
+      error: Anda tidak dapat meninggalkan grup, Anda adalah satu-satunya pemimpin.
+      success: "Anda telah keluar dari %{group}"
+      remove_member_success: "Anda telah dikeluarkan %{user} dari %{group}"
+      remove_member_error: Anda tidak dapat menghapus anggota grup karena Anda bukan pemimpin.
+    new: Group baru
+    show:
+      led_by: "Dipimpin oleh:"
+      delete: Hapus grup
+  layouts:
+    application:
+      signin: Ceritakan kisahmu sekarang
+      create_account: Bergabunglah dengan komunitas sekarang
+      update_account: Sesuaikan akun Anda
+    mailer:
+      html:
+        app_description: >-
+          %{app_name} adalah komunitas yang mendorong orang untuk berbagi
+          cerita kesehatan mental mereka dengan orang yang dicintai.
+        no_reply: >-
+          Anda tidak dapat membalas email ini. Jika Anda memiliki pertanyaan,
+          masalah, atau masukan, silakan kirim email. %{email}!
+    title:
+      reset_password: Atur ulang kata sandi Anda
+  medications:
+    singular: Pengobatan
+    edit_medication: Sunting Pengobatan
+    refill_reminder: Isi ulang email pengingat
+    dosage: "Dosis Harian:"
+    weekly_dosage: "Dosis Mingguan:"
+    refill: "Isi Ulang:"
+    quantity: "Jumlah Total:"
+    strength: "Tenaga:"
+    event_summary: "Isi ulang untuk %{name}."
+    form:
+      strength: Tenaga
+      strength_unit: "Satuan Tenaga"
+      dosage: Dosis
+      dosage_unit: "Satuan Dosis"
+      refill: Isi ulang
+      name_hint: "Nama generik atau merek obat"
+      comments_hint: "Tambahkan komentar tambahan di sini, cont. mencatat gejala Anda"
+      add_to_google_cal: Pengingat Google Kalender
+      google_cal_hint: Kami akan menambahkan pengingat untuk pengobatan ini ke Google Kalender Anda.
+      strength_hint: "Kekuatan obat, biasanya ditemukan di samping nama"
+      total_hint: Jumlah total pil atau banyaknya obat
+      dosage_hint: Jumlah pil atau porsi setiap hari
+      weekly_dosage_hint: Hari dalam seminggu untuk minum obat ini
+      refill_hint: Kapan harus mengisi ulang resep ini?
+      refill_reminder_hint: >-
+        Kami akan mengirimkan email pengingat kepada Anda seminggu sebelum obat Anda
+        perlu diisi ulang.
+      daily_reminder_hint: Kami akan mengirimkan email pengingat setiap hari untuk minum obat ini
+      total: Jumlah
+      total_unit: "Jumlah Satuan"
+    new: Obat Baru
+    units:
+      display: "%{count} %{unit}"
+      mg: mg
+      ml: ml
+      tablets:
+        one: tablet
+        other: tablet
+    reminder_mailer:
+      subject: "Jangan lupa mengkonsumsi %{name}!"
+      body: "Ini adalah pengingat baik untuk minum obat Anda %{name}!"
+    refill_mailer:
+      subject: "Isi ulang Anda untuk %{name} akan segera datang!"
+      body: >-
+        Ini adalah pengingat baik untuk mengisi ulang obat Anda %{name} pada
+        %{refill}!
+    index:
+      title: Obat-obatan
+      subtitle: "Memantau obat Anda, termasuk dosis dan informasi isi ulang."
+      instructions: >-
+        Anda belum menyimpan obat apapun.<br /><br />berikut adalah contoh obat yang
+        telah disimpan! Anda juga dapat menuliskan pengalaman Anda.
+      example_name: Prozac
+      example_strength: 10 mg
+      example_total: 40 tablets
+      example_dosage: 2 tablets
+      example_refill: 05/31/2016
+    show:
+      comments: "Komentar:"
+  meetings:
+    singular: Rapat
+    edit_meeting: Sunting Rapat
+    form:
+      location_placeholder: URL atau alamat jalan
+      maximum_members: Anggota Maksimum
+      maximum_placeholder: 0 jika tidak maksimum
+    join_success: Anda telah bergabung dalam rapat ini.
+    info:
+      cancel_meeting: Batalkan rapat
+      meeting_time: Waktu
+      members_of_group_html:
+        one: "%{count} anggota grup %{group}"
+        other: "%{count} anggota grup %{group}"
+    reminder_mailer:
+      subject: 'Rapat Anda "%{meeting_name}" dilaksanakan besok pada %{time}!'
+      body: |-
+        Ini adalah pengingat bahwa rapat Anda besok,
+         "%{meeting_name}", akan berlangsung pada %{time} di
+         %{location}!
+    leave:
+      error: "Anda tidak dapat meninggalkan rapat, Anda adalah satu-satunya pemimpin."
+      success: "Anda telah meninggalkan %{meeting}"
+    new: Rapat Baru
+    google_cal:
+      create:
+        add: Tambahkan ke Google Kalender
+        success: Rapat berhasil ditambahkan ke Google Kalender.
+        error: Terjadi masalah saat menambahkan rapat ke Google Kalender.
+      destroy:
+        remove: Hapus dari Google Kalender
+        success: Rapat berhasil dihapus dari Google Kalender.
+        error: Terjadi masalah saat menghapus rapat dari Google Kalender.
+  moments:
+    singular: Momen
+    plural: Momen
+    edit_moment: Sunting Momen
+    tagged_moments: Momen yang Ditandai
+    new: Momen Baru
+    secret_share:
+      singular: Berbagi Rahasia
+      expires_at: Kedaluwarsa pada
+      cancel_secret_share: Batalkan Berbagi Rahasia
+      link_copied: Tautan Berbagi Rahasia disalin ke papan klip
+      info: Siapa pun yang memiliki tautan ini dapat melihat halaman ini
+      info_public: Anda melihat ini melalui tautan pribadi. Tolong jangan bagikan halaman ini tanpa persetujuan penulis.
+    form:
+      why: Tulis tentang ini
+      why_legacy: Apa yang terjadi dan bagaimana perasaan Anda?
+      fix_legacy: Pikiran apa yang ingin Anda miliki?
+      what_happened: Apa yang terjadi?
+      viewers_hint: Teman yang dapat melihat momen Anda
+      draft_question: Apakah Anda ingin menyimpan momen Anda sebagai draf?
+      bookmarked_question: Tandai momen ini?
+      resource_recommendations_question: Tampilkan Rekomendasi Sumber Daya?
+    index:
+      subtitle: >-
+        Pelajari momen Anda lebih dalam - peristiwa dan situasi yang mempengaruhi kesehatan mental Anda.
+      subtitle_link: Buat dan atur template untuk menulis tentang momen Anda.
+      instructions: >-
+        Anda belum menulis tentang momen apa pun.<br /><br /> Tidak tahu harus mulai
+        dari mana? Hal apa yang terjadi hari ini yang ingin kamu bagikan
+        dan diskusikan dengan orang yang Anda cintai? Itu bisa positif atau negatif! Anda tidak harus
+        langsung membagikannya - hanya jika Anda siap! Berikut adalah contoh sebuah Momen.
+      example_name: Panik karena besok wawancara!
+      example_category: Karir
+    show:
+      strategies: Strategi apa yang akan membantu?
+      resources: Sumber daya apa yang dapat membantu?
+  moods:
+    singular: Suasana Hati
+    plural: Suasana Hati
+    edit_mood: Sunting Suasana Hati
+    new: Suasana Hati Baru
+    example_moods: "Gugup, Cemas, Penuh Harapan"
+    index:
+      subtitle: "Buat tag yang menggambarkan keadaan pikiran, perasaan, dan emosi Anda."
+      premade1_name: Menerima
+      premade1_description: Menerima dan berdamai dengan perbedaan dan keterbatasan
+      premade2_name: Ambisius
+      premade2_description: Merasa optimis untuk mencapai tujuan
+      premade3_name: Penasaran
+      premade3_description: Merasa ingin tahu tentang ketidakpastian
+      premade4_name: Marah
+      premade4_description: "Tidak menerima fakta tertentu, merasa marah, dendam, dan/atau cemburu"
+      premade5_name: Kehilangan harapan
+      premade5_description: Merasa sedih dan putus asa - tidak dapat menemukan solusi yang memungkinkan
+      instructions: >-
+        Anda belum membuat suasana hati apa pun.<br />Anda juga dapat menambahkan suasana hati
+        yang telah dibuat sebelumnya dan menyesuaikannya di lain waktu.
+  notifications:
+    plural: Notifikasi
+    none: Tidak ada
+    clear: Jelas
+    created_by_html: "<strong>Dibuat oleh</strong>: %{name}"
+    preview: Lihat lebih banyak
+    members:
+      title: Daftar Anggota
+    ally:
+      accepted: "%{name} menerima permintaan pertemananmu!"
+      sent_html: "%{link_to_user} mengirim permintaan pertemanan!"
+    comment:
+      full: '%{name} berkomentar "%{comment}" pada %{typename}'
+      truncated: '%{name} berkomentar "%{comment}" [...] pada %{typename}'
+    group:
+      new_group: '%{name} membuat grup "%{group_name}"'
+      new_group_member: '%{name} bergabung dengan grup Anda "%{group_name}"'
+      add_group_leader: '%{name} menjadi pemimpin "%{group_name}"'
+      remove_group_leader: '%{name} tidak lagi menjadi pemimpin "%{group_name}"'
+    meeting:
+      new_meeting: '%{name} membuat rapat baru "%{meeting_name}" untuk "%{group_name}"'
+      remove_meeting: '%{name} telah membatalkan "%{meeting_name}" untuk "%{group_name}"'
+      update_meeting: '%{name} telah memperbarui "%{meeting_name}" untuk "%{group_name}"'
+      join_meeting: '%{name} telah bergabung di "%{meeting_name}" untuk "%{group_name}"'
+    mailer:
+      comment_on_moment_subject: 'if-me.org | %{user} mengomentari momen Anda "%{moment}"'
+      comment_on_strategy_subject: 'if-me.org | %{user} mengomentari strategi Anda "%{strategy}"'
+      comment_on_meeting_subject: >-
+        if-me.org | %{user} berkomentar pada rapat "%{meeting}" dalam grup
+        "%{group}"
+      comment_on_private_body: "<p>Teman Anda <strong>%{user}</strong> berkomentar secara pribadi:</p>"
+      comment_on_body: "<p>Teman Anda <strong>%{user}</strong> berkomentar:</p>"
+      comment_text_cutoff: "<p><i>%{comment} [...]</i></p>"
+      comment_text: "<p><i>%{comment}</i></p>"
+      comment_link: "<p>Untuk dibaca, %{link}!</p>"
+      new_group_subject: 'if-me.org | %{user} membuat grup "%{group}"'
+      new_group_body: >-
+        <p>%{user} membuat sembuah grup
+        "%{group}":</p><p><i>%{description}</i></p><p>Pelajari lebih lanjut dan bergabung,
+        %{link}!</p><p>Silakan ikuti %{code_of_conduct_link} kami!</p>
+      new_group_member_subject: 'if-me.org | %{user} bergabung dengan grup Anda "%{group}"'
+      add_group_leader_you_subject: 'if-me.org | Anda menjadi pemimpin "%{group}"'
+      add_group_leader_subject: 'if-me.org | %{user} menjadi pemimpin " %{group}"'
+      add_remove_group_leader_body: '<p>Untuk dilihat "%{group}", %{link}!</p>'
+      remove_group_leader_you_subject: 'if-me.org | Anda tidak lagi menjadi pemimpin "%{group}"'
+      remove_group_leader_subject: 'if-me.org | %{user} tidak lagi menjadi pemimpin "%{group}"'
+      update_meeting_subject: 'if-me.org | %{user} telah memperbarui rapat "%{meeting}" untuk "%{group}"'
+      new_meeting_subject: >-
+        if-me.org | %{user} telah membuat rapat "%{meeting}" untuk
+        "%{group}"
+      meeting_body: >-
+        <p>%{subject}</p><p><i>%{description}</i></p>
+        <p><strong>Lokasi:</strong> %{location}</p><p><strong>
+        Tanggal:</strong> %{date}</p><p><strong>Time:</strong> %{time}</p>
+      new_meeting_link: "<p>Untuk mempelajari lebih lanjut dan hadir, %{link}!</p>"
+      update_meeting_link: "<p>Untuk mempelajari lebih lanjut, %{link}!</p>"
+      remove_meeting_subject: 'if-me.org | %{user} telah membatalkan "%{meeting}" untuk "%{group}"'
+      join_meeting_subject: 'if-me.org | %{user} telah bergabung dalam "%{meeting}" untuk "%{group}"'
+      join_meeting_body: '<p>Untuk dilihat "%{meeting}", %{link}!</p>'
+      reported_user_subject: if-me.org | Anda telah melaporkan seorang pengguna
+      reported_user_body: "Anda telah melaporkan %{reported_name}. Ini akan ditinjau oleh admin."
+      reportee_user_subject: if-me.org | Anda telah dilaporkan
+      reportee_user_body: Anda telah dilaporkan. Ini akan ditinjau oleh admin.
+      add_ban_subject: if-me.org | Anda telah diblokir
+      add_ban_body: "Anda telah diblokir karena melanggar %{code_of_conduct_link} kami."
+      remove_ban_subject: if-me.org | Anda tidak lagi diblokir
+      remove_ban_body: >-
+        Anda sebelumnya diblokir karena melanggar %{code_of_conduct_link} kami.
+        Anda tidak lagi diblokir.
+  omniauth:
+    access_denied: Akses ditolak
+  pages:
+    about:
+      main_message_one: >-
+        %{app_name} adalah komunitas untuk pengalaman kesehatan mental yang
+        mendorong orang untuk berbagi kisah pribadi mereka dengan orang tepercaya.
+      message_text_one: >-
+        Orang tepercaya adalah orang-orang yang berinteraksi dengan kita setiap hari,
+        termasuk teman, anggota keluarga, rekan kerja, guru, dan pekerja kesehatan mental.
+      main_message_two: >-
+        Berurusan dengan kesehatan mental adalah apa yang membuat kita menjadi manusia.
+        Tapi bagi banyak dari kita, itu adalah perjuangan untuk terbuka tentang hal ini.
+      message_text_two: >-
+        Not everyone is a counsellor or therapist. The people who we interact
+        with everyday shape our emotions and behaviour. Getting them involved in
+        mental health treatment is the key to recovery.
+      message_text_three: >-
+        <strong>Ingin membantu mendanai kami?</strong> Pada tahun 2016, kami
+        menerima hibah komunitas dari Linebreak. Pada tahun 2017, kami menerima
+        dana dari %{fund_club_link}. Anda dapat mendukung kami dengan menyumbang
+        ke %{open_collective_link} kami.
+      fund_club: Fund Club
+    blog:
+      description: >-
+        Jika Anda tertarik menulis untuk kami, hubungi kami di %{email}!
+        Kami juga menerima kiriman anonim.
+    contribute:
+      contributor_avatar_alt: "Biografi kontributor %{name}"
+      message_text_one: >-
+        Kami selalu mencari ide dari semua orang, termasuk <strong>pendukung
+        kesehatan mental</strong>, <strong>ahli kesehatan</strong>,
+        <strong>software developer</strong>, <strong>penerjemah</strong>, dan
+        <strong>UX designer</strong>! <p
+        class="noMarginBottom">Silakan hubungi %{email_link} dan kami akan terhubung dengan Anda!
+        Anda akan diundang untuk berpartisipasi di halaman %{slack_link} kami, alat komunikasi utama
+        kami. Pastikan untuk mem-fork repositori kami yang dihosting di
+        %{github_link}!</p>
+      more_contributors: Kontributor Hebat Lainnya!
+      thanks: Terima kasih yang sebesar-besarnya kepada
+      slack: Slack
+    faq:
+      title: Pertanyaan yang Sering Diajukan
+      data_access_question: Siapa yang memiliki akses ke data saya?
+      data_access_answer: >-
+        Data tidak diberikan atau diakses oleh pihak ketiga mana pun. Menghapus akun Anda
+        akan menghapus semua data Anda.<br /><br />Data pengguna dalam aplikasi dianalisis
+        untuk memberikan rekomendasi yang disesuaikan.
+      moment_question: Apa itu Momen?
+      moment_answer: >-
+        <strong>%{moment}</strong> adalah peristiwa dan situasi yang mempengaruhi
+        kesehatan mental Anda. Bisa berupa positif atau negatif. Anggap saja sebagai entri
+        jurnal atau pembaruan status. <br /><br />Anda dapat menandai Momen dengan
+        Strategi, Kategori, dan Suasana Hati. Anda juga dapat memilih teman mana yang
+        dapat melihatnya dan berkomentar. Anda juga dapat membuat Momen yang hanya terlihat oleh Anda.
+      strategy_question: Apa itu Strategi?
+      strategy_answer: >-
+        <strong>%{strategy}</strong> adalah kegiatan, rangkaian pemikiran,
+        atau bentuk perawatan diri yang membantu Anda mengatasi atau fokus pada pemulihan.
+        <br /><br />Anda dapat menandai Strategi dengan Kategori. Anda juga dapat memilih
+        teman mana yang dapat melihatnya dan berkomentar. Anda juga dapat membuat Strategi
+        yang hanya terlihat oleh Anda. Strategi yang dibagikan akan terlihat oleh semua
+        teman yang ditentukan, yang berarti Anda dapat menandai Momen Anda dengan Strategi mereka!
+      category_question: Apa itu Kategori?
+      category_answer: >-
+        <strong>%{category}</strong> adalah tag yang dapat mewakili orang,
+        tempat, dan hal-hal yang penting bagi Anda.
+      mood_question: Apa itu Mood?
+      mood_answer: >-
+        <strong>%{mood}</strong> adalah tag yang menggambarkan keadaan pikiran, perasaan, dan emosi Anda.
+      group_question: Apa itu Grup?
+      group_answer: >-
+        <strong>%{group}</strong> memberikan dukungan, bimbingan, dan diskusi tentang kesehatan mental.
+        Anda dapat membuat Grup dan teman Anda memiliki opsi untuk bergabung. Anda hanya dapat bergabung
+        dengan grup yang dibuat oleh teman.<br><br>Sebagai pemimpin Grup, Anda dapat membuat
+        <strong>Rapat</strong>. Rapat tersebut memiliki lokasi dan waktu. Lokasi dapat berupa
+        tempat fisik atau URL Google Hangout. Rapat juga memungkinkan untuk dikomentari. Jika Anda
+        adalah pemimpin Grup, Anda tidak dapat meninggalkan grup kecuali ada pemimpin lain.
+        Grup hanya dapat dihapus jika Anda adalah satu-satunya anggota.
+      medications_question: Bagaimana cara menggunakan fitur Obat?
+      medications_answer: >-
+        Fitur <strong>%{medications}</strong> memungkinkan Anda untuk mencatat obat resep yang Anda pakai.
+        Anda juga dapat mencatat gejala Anda.
+      invite_question: Bagaimana saya bisa mengundang orang tersayang untuk bergabung dalam aplikasi ini?
+      invite_answer: >-
+        Pergi ke halaman <strong>%{allies}</strong> dan klik tautan "Ajak orang tersayang".
+        Anda dapat mengundang mereka melalui email. Ketika orang terkasih Anda menerima undangan,
+        mereka akan ditambahkan ke daftar teman Anda.
+      email_notifications_question: Bagaimana cara mengubah notifikasi email?
+      email_notifications_answer: >-
+        Pergi ke halaman <strong>%{accounts}</strong>. Disini Anda dapat mengubah alaman email Anda,
+        kata sandi, foto profil, dan bio. Anda juga dapat menghapus akun Anda.
+        Ketika Anda menghapus akun Anda, semua data Anda akan terhapus.
+    home:
+      update_pwd_modal:
+        title: Perbarui kata sandi
+        body: >-
+          Kami telah menerapkan langkah-langkah keamanan yang lebih baik untuk pengguna kami,
+          harap %{update_password_link}
+        update_link: perbarui kata sandi Anda.
+      stories: Cerita
+      not_signed_in:
+        main_message_one: Komunikasi yang lebih baik dengan orang yang dicintai mengarah pada kesehatan mental yang lebih baik.
+        message_text_one: Kita membutuhkan dukungan satu sama lain untuk mematahkan stigma.
+        message_one: Bagikan cerita Anda dengan orang yang Anda cintai dan dapatkan dukungan yang layak Anda dapatkan
+        message_two: "Jadilah dirimu sendiri, tanpa pamrih dan dengan keamanan dan privasi"
+        message_three: "Dokumentasikan suasana hati, obat-obatan, dan perawatan diri Anda"
+        main_message_two: Kami sangat terbuka, karena kesehatan mental harus terbuka.
+        message_text_two: >-
+          Kami <strong>selalu</strong> membutuhkan %{help} Anda dan
+          %{feedback}!
+        help: help
+      signed_in_empty:
+        main_message_one: "Halo %{name}!"
+        message_text_one: Disinilah cara Anda dapat mulai berbagi cerita.
+        main_message_two: Ceritakan tentang diri Anda.
+        cell_one: >-
+          Sesuaikan %{profile} Anda - tambahkan bio dan foto profil. <br>Tambahkan
+          %{moods} kustom untuk menggambarkan emosi Anda dengan baik<br />Tambahkan %{allies} -
+          teman, keluarga, dan orang lain yang ingin Anda bagikan
+        main_message_three: Tulis cerita Anda.
+        cell_two: >-
+          Buat %{kategori} kustom untuk membantu Anda mengatur momen Anda <br />
+          Tulis tentang %{momen} - peristiwa dan situasi yang memengaruhi kesehatan mental Anda
+        main_message_four: Jaga dirimu.
+        cell_three: >-
+          %{strategize} rencana perawatan diri Anda!<br />Sedang menggunakan %{medications}?
+          Pantaulah dan buat pengingat!<br /> Butuh dukungan ekstra? Bergabung atau buat sebuah
+          %{group} untuk lebih terbuka
+        main_message_five: Punya pertanyaan atau masalah?
+        message_text_three: "Lihat halaman %{faq} atau %{email_link} kami!"
+        strategize: Menyusun Strategi
+    partners:
+      description: >-
+        Ini adalah organisasi luar biasa yang memberikan kami inspirasi dan
+        hak istimewa untuk bekerja sama. Kami ingin bekerja sama dengan organisasi Anda,
+        kirimkan email kepada kami di %{email}.
+    privacy:
+      summary: Kesimpulan
+      summary_description: >-
+        <p>Kebijakan privasi ini adalah untuk situs web ini dan mengatur privasi penggunanya
+        yang memilih untuk menggunakannya. </p><p>Mengingat konten situs web yang sensitif,
+        privasi merupakan perhatian yang sangat penting bagi kami. Kebijakan tersebut menetapkan
+        untuk menguraikan bagaimana data pengguna dikumpulkan, untuk apa data tersebut digunakan,
+        dan bagaimana data tersebut dilindungi.</p>
+      user_data: User Data
+      user_data_description: >-
+        <p>Pengguna dimaksudkan untuk memberi kami kutipan pribadi dari kehidupan mereka
+        (dalam fitur Momen) dan anekdot dalam pengobatan. Data dari fitur Momen dibagikan
+        dengan siapa pun yang dipilih pengguna untuk berbagi. Data dari fitur Obat hanya
+        dapat dilihat oleh pengguna. Kedua data tersebut tidak akan digunakan untuk tujuan
+        tambahan apa pun dan tidak akan diserahkan kepada pihak luar.</p><p>Aplikasi ini
+        juga berisi data terkait kelompok pendukung dan strategi untuk mengatasi tantangan
+        kesehatan mental. Data ini hanya dapat diakses oleh pengguna yang diberi izin untuk
+        melihatnya. Data dari kedua fitur dapat ditampilkan secara publik kepada pengguna saat ini
+        dan di masa mendatang. Namun, identitas pengguna akan dirahasiakan.</p>
+      cookies: Penggunaan Cookie
+      cookies_description: >-
+        <p>Situs web ini menggunakan cookie untuk meningkatkan pengalaman pengguna saat
+        mengunjungi situs web. Jika berlaku, situs web ini menggunakan sistem kontrol
+        cookie yang memungkinkan pengguna pada kunjungan pertama mereka ke situs web
+        untuk mengizinkan atau melarang penggunaan cookie di komputer/perangkat mereka.
+        </p><p>Cookie adalah file kecil yang disimpan ke perangkat keras komputer pengguna
+        yang melacak dan menyimpan informasi tentang interaksi pengguna dengan penggunaan
+        situs web. Ini memungkinkan situs web, melalui servernya untuk memberikan pengalaman
+        yang disesuaikan kepada pengguna dalam situs web ini.</p><p> Pengguna disarankan
+        bahwa jika mereka ingin menolak penggunaan dan penyimpanan cookie dari situs
+        web ini ke perangkat komputer mereka, mereka harus mengambil langkah-langkah yang
+        diperlukan dalam pengaturan keamanan browser web mereka untuk memblokir
+        semua cookie dari situs web ini dan vendor layanan eksternalnya.</p><p>
+        Situs web ini menggunakan tracking software untuk memantau pengunjung agar
+        lebih memahami bagaimana mereka menggunakannya. Perangkat lunak ini disediakan oleh
+        Google Analytics yang menggunakan cookie untuk melacak penggunaan pengunjung.
+        Perangkat lunak ini akan menyimpan cookie ke perangkat komputer Anda untuk
+        melacak dan memantau keterlibatan dan penggunaan situs web Anda, tetapi tidak
+        akan menyimpan atau mengumpulkan informasi pribadi. Anda dapat membaca
+        %{google_privacy_policy} Google untuk informasi lebih lanjut.</p>
+      social_media: Social Media Platforms
+      social_media_description: >-
+        <p>Komunikasi, engagement dan tindakan yang diambil melalui platform media
+        sosial eksternal yang diikuti oleh situs web ini disesuaikan dengan syarat d
+        an ketentuan serta kebijakan privasi yang dimiliki masing-masing platform media sosial.
+        </p><p>Pengguna disarankan untuk menggunakan platform media sosial dengan bijak dan komunikatif /
+        terlibat dengan mereka dengan hati-hati, dan berhati-hati sehubungan dengan privasi dan
+        detail pribadi mereka sendiri. Situs web ini tidak akan pernah meminta informasi pribadi
+        atau sensitif melalui platform media sosial dan mendorong pengguna yang ingin mendiskusikan
+        detail yang sensitif untuk menghubungi mereka melalui saluran komunikasi utama seperti
+        melalui telepon atau email.</p><p>Situs web ini dapat menggunakan tombol berbagi sosial
+        yang membantu berbagi konten web langsung dari halaman web ke platform media sosial
+        yang bersangkutan. Pengguna disarankan sebelum menggunakan tombol berbagi sosial agar
+        mereka melakukannya atas kebijaksanaan mereka sendiri dan perhatikan bahwa platform
+        media sosial ini dapat melacak dan menyimpan permintaan Anda untuk membagikan halaman web
+        masing-masing melalui akun platform media sosial Anda.</p>
+      contact: Kontak Kami
+      contact_description: >-
+        <p>Silakan %{email_link}jika Anda memiliki pertanyaan atau persoalan.</p><p
+        class="noMarginBottom"><em>Kebijakan Privasi diadaptasi dari
+        %{jamie_king_media}.</em></p>
+    resources:
+      description: >-
+        Ini adalah daftar sumber daya kesehatan mental kami yang dikurasi,
+        yang mencakup komunitas, alat pendidikan, hotline, dan layanan.
+      emergency: >-
+        Jika Anda atau seseorang yang Anda kenal sedang mengalami keadaan darurat
+        kesehatan mental, cari dan hubungi bantuan sesegera mungkin.
+      popular_tags: Tag Populer
+      crisis_prevention:
+        title: Bagaimana kabar Anda?
+        description: Anda dicintai apa pun yang terjadi
+        die: meninggal
+        dead: meninggal
+        died: meninggal
+        dying: meninggal
+        death: kematian
+        passed_away: meninggal
+        kill_myself: membunuh diri saya sendiri
+        hurt_myself: menyakiti diri saya sendiri
+        suicide: bunuh diri
+        suicidal: kecenderungan bunuh diri
+      tags:
+        communities: komunitas
+        education: pendidikan
+        hotlines: hotline
+        services: layanan
+        people_of_colour: orang kulit berwarna
+        women_of_colour: wanita kulit berwarna
+        black_women: wanita kulit hitam
+        domestic_violence: kekerasan dalam rumah tangga
+        dating_violence: kekerasan dalam hubungan pacaran
+        cyberbullying: perundungan siber
+        therapy: terapi
+        counseling: konseling
+        youth: anak muda
+        lgbt: LGBT
+        harassment: kekerasan
+        self_care: perawatan diri
+        women: women
+        chatbot: chatbot
+        anonymous: anonim
+        free: gratis
+        paid: berbayar
+        twenty_four_seven: 24/7
+        videos: video
+        blog: blog
+        podcast: podcast
+        books: buku
+        publication: publikasi
+        video_chat: pesan video
+        texting: pesan teks
+        open_source: open source
+        workplace: tempat kerja
+        social_justice: keadilan sosial
+        tech_industry: industri teknologi
+        meditation: meditasi
+        anxiety: kecemasan
+        social_anxiety: kecemasan sosial
+        trigger_warnings: peringatan konten sensitif
+        netflix: netflix
+        homeless: tunawisma
+        talks: obrolan
+        voice_chat: pesan suara
+        training: pelatihan
+        directory: direktori
+        self_injury: melukai diri sendiri
+        treatment: perawatan
+        care_planning: perencanaan perawatan
+        depression: depresi
+        ocd: OCD
+        advice: nasihat
+        forum: forum
+        learning: belajar
+        crisis_prevention: pencegahan krisis
+        safety_planning: perencanaan keselamatan
+        suicide_prevention: pencegahan bunuh diri
+        android: android
+        ios: iOS
+        support_groups: grup pendukung
+        mindfulness: perhatian
+        journaling: jurnal
+        mood_tracking: pelacakan mood
+        veterans: veteran
+        music: musik
+        integrative: integratif
+        ptsd: PTSD
+        tbi: TBI
+        news: berita
+        government: pemerintah
+        christian: kristen
+        humor: humor
+        conference: konferensi
+        addiction: kecanduan
+        rehabilitation: rehabilitasi
+        teachers: guru
+        bipolar: gangguan
+        goal_tracking: pelacakan tujuan
+        social_network: jaringan sosial
+        add: ADD
+        adhd: ADHD
+        sexual_assault_survivors: penyintas kekerasan seksual
+        political_movement: gerakan politik
+        reporting: pemberitaan
+        game: game
+        stress: stress
+        fidget: gelisah
+        colouring: mewarnai
+        deaf: tuli
+        asl: ASL
+        latinx: latinx
+        hispanic: hispanik
+        senior_citizens: warga senior
+        black_people: orang-orang berkulit hitam
+        sexual_health: kesehatan seksual
+        hackathon: hackathon
+        stories: cerita
+        teen: remaja
+        coaching: pembinaan
+        physical_dependence: ketergantungan fisik
+        codependency: ketergantungan bersama
+        relationships: hubungan
+        alcoholism: alkoholisme
+        cbt: CBT
+        chrome: chrome
+        firefox: firefox
+        social_media_break: istirahat dari media sosial
+        quiz: kuis
+        attachment: lampiran
+        eating_disorders: gangguan makan
+        asian: asia
+        pacific_islander: penduduk pulau pasifik
+        south_asian: asia selatan
+        southeast_asian: asia tenggara
+        east_asian: asia timur
+        al_anon: al-anon
+        burnout: kelelahan
+        breakup: putus
+        indigenous: asli
+        therapists: terapis
+  profile:
+    index:
+      title: Profil
+      edit_user: Sesuaikan profil
+  pusher:
+    not_authorized: Tidak diizinkan
+  search:
+    label: Cari
+    search_by_name: Cari berdasarkan nama
+    search_by_tags: Cari berdasarkan tag
+    form:
+      search_by_location: Cari berdasarkan lokasi
+      search_by_email: Cari berdasarkan email
+    index:
+      title: Cari teman
+      user_not_found: "%{email} pengguna tidak ditemukan"
+  shared:
+    footer:
+      licence: AGPL-3.0
+      licence_subtitle: "Berlisensi di bawah %{licence}"
+      connect: konek
+    comments:
+      share_everyone: Bagikan dengan semua orang
+      share_with: "Hanya bagikan dengan %{name}"
+      visible_only_between_you_and: "Hanya terlihat antara Anda dan %{name}"
+      not_allies: (bukan teman)
+    header:
+      signout: Keluar
+      home: Beranda
+    viewers_indicator:
+      disabled_comments: Komentar telah dinonaktifkan.
+      you_are_viewer_html:
+        one: Anda adalah satu-satunya penonton.
+        other: Anda <strong>bukan</strong> satu-satunya penonton.
+      viewers_html:
+        zero: <strong>Tidak ada</strong> penonton.
+        one: "%{names} adalah penonton."
+        other: "%{names} adalah penonton."
+    stats:
+      you_are_focusing: Anda paling fokus pada
+      user_is_focusing: "%{name} paling fokus pada"
+      visible_in_stats: Terlihat di statistik?
+    viewers:
+      plural: Penonton
+      you: Hanya Anda
+      you_link: Hanya terlihat oleh Anda
+      many: "Terlihat oleh %{viewers}"
+    meeting_info:
+      attending: Anda hadir. Anda berubah pikiran?
+      not_attending: "Anda tidak hadir. %{join}"
+      not_attending_one_spot_left: "Anda tidak hadir. Ada satu tempat tersisa untuk diisi! %{join}"
+      not_attending_spots_left: "Anda tidak hadir. Ada %{number} tempat tersisa untuk diisi! %{join}"
+      not_attending_no_spots_left: Anda tidak hadir. Tidak ada ruang untuk bergabung.
+    quick_create:
+      new: "%{name} baru"
+  strategies:
+    singular: Strategi
+    plural: Strategi
+    edit_strategy: Sunting Strategi
+    tagged_strategies: Strategi yang Ditandai
+    new: Strategi Baru
+    form:
+      describe: Jelaskan strateginya.
+      strategies_label: Strategi apa yang akan membantu mencapai pemikiran ini?
+      name_hint: "Setiap aktivitas, rangkaian pemikiran, atau bentuk perawatan diri yang membantu Anda"
+      viewers_hint: Teman yang dapat melihat strategi Anda dan menandai momen mereka sendiri dengannya
+      daily_reminder_hint: Kami akan mengirimi Anda email pengingat setiap hari untuk melakukan strategi ini
+      draft_question: Apakah Anda ingin menyimpan strategi Anda sebagai draf?
+      bookmarked_question: Tandai strategi ini?
+      bookmarked_info: Strategi yang ditandai muncul di Rencana Perawatan Anda
+    label:
+      one: "Strategi:"
+      other: "Strategi:"
+    index:
+      subtitle: >-
+        Menyusun strategi perawatan diri untuk mencapai pikiran dan sikap yang diinginkan terhadap momen Anda.
+      premade1_name: Meditasi Lima Menit
+      premade1_description: >-
+        1) <b>Temukan posisi yang santai dan nyaman.</b> Anda bisa duduk di
+        kursi atau menduduki bantal di atas lantai. Jaga punggung untuk tetap tegak, tapi tidak terlalu
+        tegak. Tangan diistirahatkan pada posisi yang nyaman. Lidah diletakaan di langit-langit
+        mulut Anda dimanapun yang terasa nyaman. <br /><br />2)<b>Perhatikan dan rilekskan
+        tubuh Anda.</b> Coba perhatikan bentuk tubuh Anda, berat tubuh Anda. Biarkan diri Anda
+        rileks dan penasaran atas tubuh Anda yang duduk di sini — sensasi yang dialaminya,
+        sentuhannya, koneksinya dengan lantai atau kursi. Rilekskan area yang sesak atau tegang. Bernafaslah.
+        <br /><br />3) <b>Atur nafas Anda.</b> Rasakan aliran alami nafas yang masuk dan keluar.
+        Anda tidak perlu melakukan apapun pada nafas Anda. Tidak panjang, tidak pendek, nafas secara alami saja.
+        Perhatikan dimana Anda Perhatikan di mana Anda merasakan napas Anda di tubuh Anda.
+        Mungkin Anda merasakannya di perut Anda. Mungkin di dada atau tenggorokan Anda atau
+        di lubang hidungmu. Lihat apakah Anda bisa merasakan sensasi nafas Anda, satu nafas pada satu waktu.
+        Ketika satu nafas berakhir, nafas selanjutnya dimulai.<br /><br />4) <b>
+        Berbaik hatilah pada pikiranmu yang berkelana.</b> Sekarang ketika Anda melakukan
+        ini, Anda mungkin memperhatikan bahwa pikiran Anda mungkin mulai berkelana.
+        Anda mungkin mulai memikirkan hal-hal lain. Jika ini terjadi, tidak masalah.
+        Hal ini sangatlah alami. Perhatikan saja bahwa pikiran Anda telah berkelana.
+        Anda dapat mengatakan "berpikir" atau "berkelana" di kepala Anda dengan lembut.
+        Dan kemudian dengan perlahan arahkan perhatian Anda kembali ke pernapasan Anda.
+        <br /><br />5) <b>Tetaplah seperti ini selama lima sampai tujuh menit. </b>
+        Perhatikan nafas Anda dalam diam. Dari waktu ke waktu, Anda akan tersesat dalam pikiran Anda,
+        kemudian kembali ke napas Anda.<br /><br />6) <b>Masuk sebelum Anda keluar </b>
+        Setelah beberapa menit, sekali lagi perhatikan tubuh Anda, seluruh tubuh Anda, yang duduk di sini.
+        Biarkan diri Anda rileks lebih dalam dan kemudian berikan diri Anda beberapa penghargaan
+        karena telah melakukan latihan ini hari ini. <br /><br /><i>Diambil dari
+        http://www.mindful.org/a-five-minute-breathing-meditation/ </i>
+      instructions: >-
+        Anda belum membuat pilihan strategi apa pun.<br>Anda juga dapat menambahkan
+        strategi siap pakai berikut dan menyesuaikannya di lain waktu.
+    reminder_mailer:
+      subject: "Jangan lupa untuk melakukan %{name}!"
+      body: "Ini adalah pengingat untuk melakukan %{name}!"
+  stats:
+    total_moments: >-
+      Anda telah menulis <strong>total</strong> <strong>%{count}</strong>
+      momen.
+    total_moment: >-
+      Anda telah menulis <strong>total</strong> <strong>%{count}</strong>
+      momen.
+    monthly_moments: "<strong>Bulan</strong> ini Anda menulis <strong>%{count}</strong> momen."
+    monthly_moment: "<strong>Bulan</strong> ini Anda menulis <strong>%{count}</strong> momen."
+  warnings:
+    no_description: Anda tidak menulis deskripsi!
+    yes_description: Menulisnya dapat membantu Anda dan orang lain lebih memahami secara detail
+  mailers:
+    accepted_ally_request:
+      subject: "if-me.org | %{ally_name} menerima permintaan pertemanan Anda!"
+      message: >-
+        <p>Selamat! Sekarang Anda dapat berbagi momen, strategi, dan lainnya dengan
+        %{ally_name}.</p>
+    new_ally_request:
+      subject: "if-me.org | %{ally_name} mengirim permintaan pertemanan!"
+      message: >-
+        <p>Silakan <a href="%{allies_url}">daftar</a> untuk untuk menerima
+        atau menolak permintaan!</p>
+  devise:
+    password: Kata Sandi
+    new_password: Kata sandi baru
+    current_password: Kata sandi saat ini
+    password_change: Ubah kata sandi
+    remember_me: Ingat saya
+    show_password: Tampilkan kata sandi
+    hide_password: Sembunyikan kata sandi
+    confirmations:
+      resend_confirmation: Kirim ulang petunjuk konfirmasi
+    mailer:
+      confirmation:
+        link_instructions: Anda dapat mengkonfirmasi email akun Anda melalui tautan di bawah ini
+        link_text: Konfirmasi akun saya
+      reset_password:
+        link_instructions: >-
+          Seseorang telah meminta tautan untuk mengubah kata sandi Anda.
+          Anda dapat melakukannya melalui tautan di bawah ini.
+        ignore: "Jika Anda tidak mengajukan pengaturan kata sandi, mohon abaikan email ini."
+        info: >-
+          Kata sandi Anda tidak akan berubah hingga Anda mengakses tautan di atas dan membuat
+          kata sandi yang baru.
+      unlock:
+        info: >-
+          Akun Anda telah terkunci karena terlalu banyak percobaan masuk yang gagal
+        link_instructions: Klik tautan berikut untuk membuka kunci akun Anda
+        link_text: Buka kunci akun saya
+    passwords:
+      edit:
+        confirmation: Konfirmasi kata sandi baru
+      new:
+        send_instructions: Kirimkan instruksi pengaturan ulang kata sandi
+    registrations:
+      email_notifications: Notifikasi Email
+      comment_notify_text: "Komentar tentang momen, strategi, dan rapat"
+      ally_notify_text: Permintaan pertemanan baru dan diterima
+      group_notify_text: Pembaruan grup
+      meeting_notify_text: Pembaruan rapat
+      google_auth1: >-
+        Jika Anda tidak ingin lagi diautentikasi dengan Google,
+        silakan masukkan email dan kata sandi baru.
+      google_auth2: >-
+        Karena Anda telah diautentikasi dengan Google, Anda tidak perlu
+        memasukkan kata sandi Anda.<br />Jika Anda ingin mengubahnya, silakan masukkan
+        email dan kata sandi baru.
+      facebook_auth1: >-
+        Jika Anda tidak ingin lagi diautentikasi dengan Facebook,
+        silakan masukkan email dan kata sandi baru.
+      facebook_auth2: >-
+        Karena Anda telah diautentikasi dengan Facebook, Anda tidak perlu memasukkan
+        kata sandi Anda.<br />Jika Anda ingin mengubahnya, silakan masukkan
+        email dan kata sandi baru.
+      password_errors:
+        format: >-
+          harus terdiri dari 8 sampai 128 karakter.
+      placeholders:
+        repeat_password: Ulangi Kata Sandi
+      edit:
+        labels:
+          profile_picture: Foto profil
+          remove_picture: Hapus foto
+          about: Tentang
+          password_for: Kata sandi untuk akun <strong>if-me.org</strong>
+          update: Memperbarui
+        placeholders:
+          optional: Opsional
+          about: >-
+            Perkenalkan diri Anda! Mengapa Anda di sini dan apa yang ingin Anda capai?
+            Harap dicatat bahwa hal ini akan terlihat ketika pengguna lain mencari Anda
+          required: Perlu diisi
+        delete:
+          text: Apakah <strong>if-me.org</strong> tidak berhasil untuk Anda?
+          button: Hapus akun saya secara permanen
+          confirm: >-
+            Apakah Anda yakin? Anda akan kehilangan semua data Anda. Tapi Anda selalu bisa mendaftar lagi!
+      new:
+        subtitle: >-
+          Mulailah menceritakan kisah Anda dan pertahankan kesehatan Anda di tempat yang aman dan khusus
+        label: Beberapa detail
+    sessions:
+      subtitle: "Selamat datang kembali, kami menantikan untuk membantu Anda menghadapi hari Anda"
+    shared:
+      sign_in_google: Masuk menggunakan Google
+      sign_up_google: Daftar menggunakan Google
+      sign_in_facebook: Masuk menggunakan Facebook
+      sign_up_facebook: Daftar menggunakan Facebook
+      confirmation: Tidak menerima instruksi konfirmasi?
+      unlock: Tidak menerima instruksi membuka kunci?
+    unlock:
+      resend: Kirim ulang petunjuka buka kunci
+  care_plan:
+    index:
+      title: Rencana Perawatan
+      subtitle: Susun rencana untuk melewati masa-masa sulit
+      contacts: Kontrak-kontrak
+      new_contact: Kontrak Baru
+      edit_contact: Sunting Kontrak
+      phone_number: Nomor Telepon
+      contacts_info: Orang-orang terkasih yang harus Anda ajak bicara
+  moment_templates:
+    index:
+      title: Template Momen
+      subtitle: Menulis template untuk momen Anda
+      new_template: Template Baru
+      edit_template: Sunting Template
+      instructions: Anda belum membuat template apapun.<br>Anda juga dapat menambahkan template siap pakai berikut ini dan menyesuaikannya di lain waktu.
+      premade1_name: Dasar
+      premade1_description: Apa yang terjadi dan apa yang Anda rasakan?<br>Apa yang Anda pikirkan?
+      premade2_name: Rasa Bersyukur
+      premade2_description: Apa yang Anda syukuri tentang diri Anda?<br>Apa yang sedang Anda nantikan hari ini?

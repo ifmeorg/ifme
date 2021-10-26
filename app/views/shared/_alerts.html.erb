@@ -1,14 +1,8 @@
-<% if notice.present? %>
-  <% if current_page?(root_path) %>
-    <div class="notice displayNone"><%= notice %></div>
-  <% else %>
-    <div class="notice"><%= notice %></div>
+<div class="gridMany">
+  <% if notice.present? %>
+    <div role="region" aria-live="polite" class="notice <%= (user_signed_in? && !static_page?) || secret_share_path? ? 'noticeDashboard' : '' %>"><%= notice %></div>
   <% end %>
-<% end %>
-<% if alert.present? %>
-  <% if current_page?(root_path) %>
-    <div class="alert displayNone"><%= alert %></div>
-  <% else %>
-    <div class="alert"><%= alert %></div>
+  <% if alert.present? %>
+    <div role="alert" class="alert <%= (user_signed_in? && !static_page?) || secret_share_path? ? 'alertDashboard' : '' %>"><%= alert %></div>
   <% end %>
-<% end %>
+</div>

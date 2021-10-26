@@ -20,10 +20,10 @@ export const PageTitle = ({
 
   return (
     <>
-      <div className={globalCSS.pageTitle}>
+      <h1 className={globalCSS.pageTitle}>
         <div>{title}</div>
         {cta && <div className={globalCSS.pageTitleRight}>{cta}</div>}
-      </div>
+      </h1>
       <div className={globalCSS.subtitle}>{subtitle}</div>
       {Utils.renderContent(instructions)}
     </>

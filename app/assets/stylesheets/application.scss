@@ -65,19 +65,21 @@ html {
   align-items: center;
   justify-content: center;
 
-  > div:first-of-type {
-    margin-bottom: auto;
+  > div {
     width: 100%;
   }
 
-  > div:last-of-type {
-    margin-top: auto;
-    width: 100%;
+  .profiler-results {
+    width: auto;
   }
 }
 
 .htmlOptions {
   height: 100%;
+}
+
+main {
+  width: 100%;
 }
 
 @import "core/*";

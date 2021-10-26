@@ -82,7 +82,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :uid, :lockable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
-         omniauth_providers: %i[google_oauth2 facebook]
+         :confirmable, omniauth_providers: %i[google_oauth2 facebook]
   # https://github.com/michaelbanfield/devise-pwned_password#disabling-in-test-environments
   # TODO: reenable if we disable real network requests & stub them with Webmock
   # https://github.com/bblimke/webmock
@@ -237,6 +237,12 @@ class User < ApplicationRecord
 
   def access_token_expired?
     !access_expires_at || Time.zone.now > access_expires_at
+  end
+
+  def confirmation_required?
+    return false if oauth_provided?
+
+    super
   end
 end
 # rubocop:enable Metrics/ClassLength

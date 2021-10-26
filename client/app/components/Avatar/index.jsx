@@ -12,7 +12,7 @@ export type Props = {
 };
 
 const displayImage = (alt: ?string, src: string) => (
-  <img alt={alt} className={`${css.image}`} src={src} />
+  <img alt={alt ?? ''} className={`${css.image}`} src={src} />
 );
 
 const displayName = (name: string) => (
@@ -32,9 +32,7 @@ export const Avatar = (props: Props) => {
   const height = getHeight(small, large);
   return (
     <div
-      className={`avatar ${css.avatar} ${large ? css.large : ''} ${
-        small ? css.small : ''
-      }`}
+      className={`avatar ${css.avatar} ${large ? css.large : ''} ${small ? css.small : ''}`}
     >
       <LazyLoad height={height} offset={height} once>
         {src ? (

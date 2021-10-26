@@ -25,13 +25,13 @@ export const Tooltip = (props: Props) => {
   const tooltipId = id || `tooltip${Utils.randomString()}`;
   return (
     <div className={`tooltip ${css.tooltip}`}>
-      <div className="tooltipElement" aria-labelledby={tooltipId}>
+      <div className="tooltipElement" aria-describedby={tooltipId}>
         {Utils.renderContent(element)}
       </div>
       <div
         id={tooltipId}
-        className={`${getPosition(right, center)}`}
         role="tooltip"
+        className={`${getPosition(right, center)}`}
       >
         {text}
       </div>
