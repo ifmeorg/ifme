@@ -47,7 +47,7 @@ module Shared
 
     current_user.moments.each { |m| update_object(model_object, m) }
     current_user.strategies.each do |s|
-      update_object(model_object, s) if model_object.class == Category
+      update_object(model_object, s) if model_object.instance_of?(Category)
     end
   end
 

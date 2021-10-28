@@ -71,9 +71,7 @@ class Moment < ApplicationRecord
   scope :published, -> { where.not(published_at: nil) }
   scope :recent, -> { order('created_at DESC') }
 
-  attr_accessor :mood
-  attr_accessor :category
-  attr_accessor :strategy
+  attr_accessor :mood, :category, :strategy
 
   def self.find_secret_share!(identifier)
     find_by!(
