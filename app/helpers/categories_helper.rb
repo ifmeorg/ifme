@@ -22,7 +22,7 @@ module CategoriesHelper
 
   def present_category_or_mood(element)
     url_helper = mood_path(element)
-    url_helper = category_path(element) if element.class.name == 'Category'
+    url_helper = category_path(element) if element.instance_of?(Category)
     {
       name: element.name,
       link: url_helper,
@@ -34,7 +34,7 @@ module CategoriesHelper
 
   def actions_setup(element, url_helper)
     link = edit_mood_path(element)
-    link = edit_category_path(element) if element.class.name == 'Category'
+    link = edit_category_path(element) if element.instance_of?(Category)
     {
       edit: {
         name: t('common.actions.edit'),
