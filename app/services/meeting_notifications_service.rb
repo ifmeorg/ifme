@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 class MeetingNotificationsService
-  attr_reader :current_user
-  attr_reader :meeting
-  attr_reader :type
-  attr_reader :members
-  attr_reader :uniqueid
+  attr_reader :current_user, :meeting, :type, :members, :uniqueid
 
   def initialize(current_user:, meeting:, type:, members:)
     @current_user = current_user
