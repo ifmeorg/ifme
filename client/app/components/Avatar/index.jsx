@@ -36,7 +36,7 @@ export const Avatar = (props: Props) => {
         small ? css.small : ''
       }`}
     >
-      <LazyLoad height={height} offset={height} once>
+      <LazyLoad height={height} offset={height} once tabIndex={0}>
         {src ? (
           displayImage(alt, src)
         ) : (
