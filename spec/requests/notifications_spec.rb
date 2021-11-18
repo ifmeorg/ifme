@@ -195,16 +195,28 @@ describe 'Notification', type: :request do
   describe '#fetch_notifications' do
     let(:user) { create(:user1) }
     let(:other_user) { create(:user2) }
-    let!(:other_user_notification) { create(:notification, user: other_user) }
-
     context 'when the user is signed in' do
-      let!(:notification) { create(:notification, user: user) }
-      let!(:notification_two) { create(:notification, user: user) }
+      let!(:notification) {
+        create(
+          :notification,
+          user: user,
+          data: {
+            cutoff: false,
+            user: 'Almond Butters',
+            comment: 'Hello',
+            typename: 'typename',
+            type: 'type_comment_moment',
+            typeid: 1,
+            commentable_id: 1,
+            user_id: other_user.id
+          }.to_json
+        )
+      }
       let(:notification_link) do
-        '<a id="MyString" href="/moments/1">Julia Nguyen commented "Hello" on typename</a>'
+        '<a id="MyString" href="/moments/1">Almond Butters commented "Hello" on typename</a>'
       end
       let(:expected_result) do
-        { fetch_notifications: [notification_link, notification_link] }.to_json
+        { fetch_notifications: [notification_link] }.to_json
       end
 
       before do

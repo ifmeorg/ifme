@@ -46,6 +46,7 @@ class NotificationsController < ApplicationController
   def render_notification(notification)
     uniqueid = notification[:uniqueid]
     data = convert_to_hash(notification[:data])
+    data[:email] = User.find(data[:user_id]).email # In case data[:name] is invalid
     case data[:type]
     when /comment/ then comment_link(uniqueid, data)
     when /accepted_ally_request/ then accepted_ally_link(uniqueid, data)
