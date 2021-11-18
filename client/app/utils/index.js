@@ -1,6 +1,7 @@
 // @flow
 import axios from 'axios';
 import renderHTML from 'react-render-html';
+import { sanitize } from 'dompurify';
 
 const randomString = () => Math.random()
   .toString(36)
@@ -34,7 +35,7 @@ const getPusher = () => {
 
 const renderContent = (content: string | any) => {
   if (typeof content === 'string') {
-    return renderHTML(content);
+    return renderHTML(sanitize(content));
   }
   return content;
 };
