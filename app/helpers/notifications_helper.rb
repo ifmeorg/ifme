@@ -6,7 +6,7 @@ module NotificationsHelper
     i18n_key = data[:cutoff] ? 'truncated' : 'full'
     notification = t(
       "notifications.comment.#{i18n_key}",
-      name: data[:user],
+      name: name_or_email(data),
       comment: strip_tags(data[:comment]),
       typename: data[:typename]
     )
@@ -16,7 +16,7 @@ module NotificationsHelper
   def accepted_ally_link(uniqueid, data)
     notification = t(
       'notifications.ally.accepted',
-      name: data[:user]
+      name: name_or_email(data)
     )
     link = "/profile?uid=#{data[:uid]}"
     notification_link(uniqueid, link, notification)
@@ -24,7 +24,7 @@ module NotificationsHelper
 
   def new_ally_request_link(uniqueid, data)
     link = "/profile?uid=#{data[:uid]}"
-    link_html = "<a href=\"#{link}\">#{data[:user]}</a>"
+    link_html = "<a href=\"#{link}\">#{name_or_email(data)}</a>"
     # rubocop:disable Layout/LineLength
     "<div id=\"#{uniqueid}\"><div>#{t('notifications.ally.sent_html', link_to_user: link_html)}</div>#{request_actions(data[:user_id])}</div>"
     # rubocop:enable Layout/LineLength
@@ -33,7 +33,7 @@ module NotificationsHelper
   def group_link(uniqueid, data)
     notification = t(
       "notifications.group.#{data[:type]}",
-      name: data[:user],
+      name: name_or_email(data),
       group_name: data[:group]
     )
     link = "/groups/#{data[:group_id]}"
@@ -43,7 +43,7 @@ module NotificationsHelper
   def meeting_link(uniqueid, data)
     notification = t(
       "notifications.meeting.#{data[:type]}",
-      name: data[:user],
+      name: name_or_email(data),
       group_name: data[:group],
       meeting_name: data[:typename]
     )
@@ -96,5 +96,9 @@ module NotificationsHelper
 
   def notification_link(uniqueid, link, notification)
     "<a id=\"#{uniqueid}\" href=\"#{link}\">#{notification}</a>"
+  end
+
+  def name_or_email(data)
+    sanitize(data[:user]).presence || data[:email]
   end
 end

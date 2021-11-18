@@ -13,6 +13,8 @@
 #
 
 describe Notification do
+  let(:user) { create(:user1) }
+
   context 'with relations' do
     it { is_expected.to belong_to :user }
   end
@@ -24,7 +26,7 @@ describe Notification do
   end
 
   it 'is valid with valid attributes' do
-    notification = build(:notification)
+    notification = build(:notification, user: user)
 
     expect(notification).to be_valid
   end
