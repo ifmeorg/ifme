@@ -35,6 +35,7 @@
     "chart.js": "^2.9.4",
     "chartkick": "^3.1.1",
     "core-js": "3",
+    "dompurify": "^2.3.3",
     "dot-prop": "^5.1.1",
     "es5-shim": "^4.5.13",
     "font-awesome": "^4.7.0",
