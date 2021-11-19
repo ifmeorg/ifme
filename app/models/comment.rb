@@ -82,6 +82,7 @@ class Comment < ApplicationRecord
   def notification_data(creator, association, type, unique_id)
     {
       user: creator.name,
+      user_id: creator.id,
       commentid: id,
       comment: comment[0..80],
       cutoff: comment.length > 80,
