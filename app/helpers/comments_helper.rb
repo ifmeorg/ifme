@@ -42,6 +42,7 @@ module CommentsHelper
       commentByUid: user.uid,
       commentByName: user.name,
       commentByAvatar: user.avatar.url,
+      commentByAdmin: user.admin?,
       comment: sanitize(comment.comment),
       viewers: CommentViewersService.viewers(comment, current_user),
       createdAt: created_at(comment.created_at),

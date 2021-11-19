@@ -64,50 +64,92 @@ const value = 'Hey';
 
 const id = 1;
 
-const comment = {
+const getComment = ({ commentByAdmin } = {}) => ({
   comment: value,
-  currentUserId: 'some-uid',
+  currentUserUid: 'some-uid',
   commentByAvatar: null,
+  commentByAdmin: Boolean(commentByAdmin),
   commentByName: 'Kind Human',
   commentByUid: 'uid',
   createdAt: 'Created less than a minute ago',
   deleteAction: '/comments/delete?comment_id=1',
   id,
   viewers: 'Visible only between you and Lane Kim',
-};
-
-const component = <Comments formProps={formProps} />;
+});
 
 describe('Comments', () => {
-  beforeEach(() => {
-    jest.spyOn(axios, 'post').mockResolvedValue({
-      data: { comment },
+  describe('when written by a non-admin user', () => {
+    it('renders correctly with a report link', () => {
+      render(<Comments formProps={formProps} comments={[getComment()]} />);
+      expect(screen.getByRole('textbox')).toBeInTheDocument();
+      expect(screen.getByRole('article')).toBeInTheDocument();
+      expect(
+        screen.getByRole('button', { name: 'Submit' }),
+      ).toBeInTheDocument();
+      expect(screen.getByRole('link', { name: 'Report' })).toBeInTheDocument();
     });
-    jest.spyOn(axios, 'delete').mockResolvedValue({
-      data: { id },
+
+    it('add and delete a comment', async () => {
+      jest.spyOn(axios, 'post').mockResolvedValue({
+        data: { comment: getComment() },
+      });
+      jest.spyOn(axios, 'delete').mockResolvedValue({
+        data: { id },
+      });
+      render(<Comments formProps={formProps} />);
+      expect(screen.queryByRole('article')).not.toBeInTheDocument();
+
+      userEvent.type(screen.getByRole('textbox'));
+      userEvent.selectOptions(screen.getByRole('combobox'), 'private');
+      userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+      await waitFor(() => expect(screen.getByRole('article')).toBeInTheDocument());
+      expect(screen.getByRole('article')).toHaveTextContent('Hey');
+
+      userEvent.click(screen.getByRole('link', { name: 'Delete' }));
+
+      await waitFor(() => expect(screen.queryByRole('article')).not.toBeInTheDocument());
     });
   });
 
-  it('renders correctly', () => {
-    render(component);
-    expect(screen.getByRole('textbox')).toBeInTheDocument();
-    expect(screen.queryByRole('article')).not.toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Submit' })).toBeInTheDocument();
-  });
+  describe('when written by an admin user', () => {
+    it('renders correctly without a report link', () => {
+      render(
+        <Comments
+          formProps={formProps}
+          comments={[getComment({ commentByAdmin: true })]}
+        />,
+      );
+      expect(screen.getByRole('textbox')).toBeInTheDocument();
+      expect(screen.getByRole('article')).toBeInTheDocument();
+      expect(
+        screen.getByRole('button', { name: 'Submit' }),
+      ).toBeInTheDocument();
+      expect(
+        screen.queryByRole('link', { name: 'Report' }),
+      ).not.toBeInTheDocument();
+    });
 
-  it('add and delete a comment', async () => {
-    render(component);
-    expect(screen.queryByRole('article')).not.toBeInTheDocument();
+    it('add and delete a comment', async () => {
+      jest.spyOn(axios, 'post').mockResolvedValue({
+        data: { comment: getComment({ commentByAdmin: true }) },
+      });
+      jest.spyOn(axios, 'delete').mockResolvedValue({
+        data: { id },
+      });
+      render(<Comments formProps={formProps} />);
+      expect(screen.queryByRole('article')).not.toBeInTheDocument();
 
-    userEvent.type(screen.getByRole('textbox'));
-    userEvent.selectOptions(screen.getByRole('combobox'), 'private');
-    userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+      userEvent.type(screen.getByRole('textbox'));
+      userEvent.selectOptions(screen.getByRole('combobox'), 'private');
+      userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
-    await waitFor(() => expect(screen.getByRole('article')).toBeInTheDocument());
-    expect(screen.getByRole('article')).toHaveTextContent('Hey');
+      await waitFor(() => expect(screen.getByRole('article')).toBeInTheDocument());
+      expect(screen.getByRole('article')).toHaveTextContent('Hey');
 
-    userEvent.click(screen.getByRole('link', { name: 'Delete' }));
+      userEvent.click(screen.getByRole('link', { name: 'Delete' }));
 
-    await waitFor(() => expect(screen.queryByRole('article')).not.toBeInTheDocument());
+      await waitFor(() => expect(screen.queryByRole('article')).not.toBeInTheDocument());
+    });
   });
 });

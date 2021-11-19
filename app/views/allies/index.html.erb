@@ -56,9 +56,11 @@
           <div>
             <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: ally.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
           </div>
-          <div>
-            <%= link_to t('common.actions.report'), new_report_path(uid: ally.uid) %>
-          </div>
+          <% if !ally.admin? && ally != current_user %>
+            <div>
+              <%= link_to t('common.actions.report'), new_report_path(uid: ally.uid) %>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>

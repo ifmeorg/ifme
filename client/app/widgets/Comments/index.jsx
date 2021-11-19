@@ -24,6 +24,7 @@ type Comment = {
   commentByUid: string,
   commentByName: string,
   commentByAvatar?: string,
+  commentByAdmin: Boolean,
   comment: any,
   viewers?: string,
   createdAt: string,
@@ -68,9 +69,10 @@ export const Comments = ({ comments, formProps }: Props) => {
     currentUserUid: string,
     uid: string,
     id: number,
+    commentByAdmin: Boolean,
   ) => {
     const actions = {};
-    if (currentUserUid !== uid) {
+    if (currentUserUid !== uid && !commentByAdmin) {
       actions.report = reportAction(uid, id);
     }
     if (viewers) {
@@ -94,6 +96,7 @@ export const Comments = ({ comments, formProps }: Props) => {
       commentByUid,
       commentByName,
       commentByAvatar,
+      commentByAdmin,
       comment,
       viewers,
       createdAt,
@@ -113,6 +116,7 @@ export const Comments = ({ comments, formProps }: Props) => {
               currentUserUid,
               commentByUid,
               id,
+              commentByAdmin,
             )}
             hasStory
           />
