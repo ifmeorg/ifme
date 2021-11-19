@@ -39,6 +39,7 @@ class GroupNotifier
   def data
     {
       user: @current_user.name,
+      user_id: @current_user.id,
       group_id: @group.id,
       group: @group.name,
       type: @type,

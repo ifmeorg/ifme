@@ -56,6 +56,7 @@ class MeetingNotificationsService
   def new_or_update_meeting_data
     {
       user: current_user.name,
+      user_id: current_user.id,
       typeid: meeting.id,
       group: meeting.group.name,
       typename: meeting.name,
