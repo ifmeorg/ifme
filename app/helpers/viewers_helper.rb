@@ -67,11 +67,12 @@ module ViewersHelper
   def checkboxes_viewers_input(viewers, name, obj)
     checkboxes = []
     viewers.each do |item|
+      user = User.find(item.id)
       checkboxes.push(
         id: "#{name}_viewers_#{item.id}",
         value: item.id,
         checked: obj.viewers.include?(item.id),
-        label: User.find(item.id).name
+        label: sanitize(user.name).presence || user.email
       )
     end
     checkboxes
