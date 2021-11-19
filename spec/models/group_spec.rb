@@ -163,7 +163,8 @@ describe Group do
   end
 
   def create_notification_for(group)
+    user = create :user1
     data = { group_id: group.id }.to_json
-    create :notification, uniqueid: 'new_group_1', data: data
+    create :notification, uniqueid: 'new_group_1', data: data, user: user
   end
 end
