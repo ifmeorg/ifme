@@ -32,7 +32,9 @@ export const Avatar = (props: Props) => {
   const height = getHeight(small, large);
   return (
     <div
-      className={`avatar ${css.avatar} ${large ? css.large : ''} ${small ? css.small : ''}`}
+      className={`avatar ${css.avatar} ${large ? css.large : ''} ${
+        small ? css.small : ''
+      }`}
     >
       <LazyLoad height={height} offset={height} once tabIndex={0}>
         {src ? (

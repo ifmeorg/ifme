@@ -1,13 +1,12 @@
 // @flow
 import React, { useState, useEffect, useRef } from 'react';
+import { sanitize } from 'dompurify';
 import ReactDOMServer from 'react-dom/server';
 import { init, exec } from 'pell';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 import css from './InputTextarea.scss';
 import inputCss from './Input.scss';
-
-// TODO (julianguyen): More tests after writing stubs for Pell editor
 
 const handleResult = (type: string) => {
   switch (type) {
@@ -67,12 +66,12 @@ export function InputTextarea(props: Props) {
   const {
     id, name, value: propValue, required, hasError, myRef, dark,
   } = props;
-  const [value, setValue] = useState<string>(propValue || '');
+  const [value, setValue] = useState<string>(sanitize(propValue) || '');
   const editorRef = useRef(null);
   const editor = useRef(null);
 
   const onChange = (updatedValue: string) => {
-    setValue(updatedValue);
+    setValue(sanitize(updatedValue));
   };
 
   const onBlur = () => {
@@ -95,7 +94,7 @@ export function InputTextarea(props: Props) {
 
     const text = (e.originalEvent || e).clipboardData.getData('text/plain') ?? '';
 
-    document.execCommand('insertHTML', false, text);
+    document.execCommand('insertHTML', false, sanitize(text));
   };
 
   useEffect(() => {
