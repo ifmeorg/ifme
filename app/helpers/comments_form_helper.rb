@@ -49,7 +49,7 @@ module CommentsFormHelper
       ),
       comment_visibility_option(
         'private',
-        t('shared.comments.share_with', name: owner.name)
+        t('shared.comments.share_with', name: name_or_email(owner))
       )
     ]
   end
@@ -74,7 +74,7 @@ module CommentsFormHelper
       user = User.find_by(id: viewer_id)
       next if user.banned
 
-      label = t('shared.comments.share_with', name: user.name)
+      label = t('shared.comments.share_with', name: name_or_email(user))
       options.push(comment_viewers_option(viewer_id, label, viewer_id))
     end
     options
@@ -103,5 +103,9 @@ module CommentsFormHelper
     return [] unless %w[moment strategy].include?(commentable_type)
 
     input_for_moment_or_strategy(commentable)
+  end
+
+  def name_or_email(user)
+    sanitize(user.name).presence || user.email
   end
 end
