@@ -178,6 +178,7 @@ describe Comment do
         expect(Notification.last.uniqueid).to eq(uniqueid)
         expect(JSON.parse(Notification.last.data)).to eq(
           'user' => user2.name,
+          'user_id' => user2.id,
           'commentid' => new_comment.id,
           'comment' => long_comment[0..80],
           'cutoff' => true,
@@ -198,6 +199,7 @@ describe Comment do
         expect(Notification.last.uniqueid).to eq(uniqueid)
         expect(JSON.parse(Notification.last.data)).to eq(
           'user' => user2.name,
+          'user_id' => user2.id,
           'commentid' => new_comment.id,
           'comment' => long_comment[0..80],
           'cutoff' => true,
@@ -227,6 +229,7 @@ describe Comment do
         expect(Notification.last.uniqueid).to eq(uniqueid)
         expect(JSON.parse(Notification.last.data)).to eq(
           'user' => user2.name,
+          'user_id' => user2.id,
           'commentid' => new_comment.id,
           'comment' => long_comment[0..80],
           'cutoff' => true,
@@ -247,6 +250,7 @@ describe Comment do
         expect(Notification.last.uniqueid).to eq(uniqueid)
         expect(JSON.parse(Notification.last.data)).to eq(
           'user' => user2.name,
+          'user_id' => user2.id,
           'commentid' => new_comment.id,
           'comment' => long_comment[0..80],
           'cutoff' => true,
@@ -272,6 +276,7 @@ describe Comment do
 
         data = {
           'user' => user3.name,
+          'user_id' => user3.id,
           'commentid' => new_comment.id,
           'comment' => long_comment[0..80],
           'cutoff' => true,

@@ -45,6 +45,7 @@ class MeetingNotificationsService
   def remove_meeting_data
     {
       user: current_user.name,
+      user_id: current_user.id,
       group_id: meeting.group_id,
       group: meeting.group.name,
       typename: meeting.name,
