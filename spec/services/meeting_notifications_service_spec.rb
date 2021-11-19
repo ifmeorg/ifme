@@ -32,6 +32,7 @@ describe MeetingNotificationsService do
         expect(Notification.first.uniqueid).to eq(uniqueid)
         expect(JSON.parse(Notification.first.data)).to eq(
           'user' => user.name,
+          'user_id' => user.id,
           'group_id' => group.id,
           'group' => group.name,
           'typename' => meeting.name,
@@ -53,6 +54,7 @@ describe MeetingNotificationsService do
         expect(Notification.first.uniqueid).to eq(uniqueid)
         expect(JSON.parse(Notification.first.data)).to eq(
           'user' => user.name,
+          'user_id' => user.id,
           'typeid' => meeting.id,
           'group' => group.name,
           'typename' => meeting.name,
@@ -73,6 +75,7 @@ describe MeetingNotificationsService do
         expect(Notification.first.uniqueid).to eq(uniqueid)
         expect(JSON.parse(Notification.first.data)).to eq(
           'user' => user.name,
+          'user_id' => user.id,
           'typeid' => meeting.id,
           'group' => group.name,
           'typename' => meeting.name,

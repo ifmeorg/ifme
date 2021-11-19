@@ -64,6 +64,7 @@ describe GroupNotifier, '#send_notifications_to' do
   def expected_data
     {
       user: user.name,
+      user_id: user.id,
       group_id: group.id,
       group: group.name,
       type: type,
