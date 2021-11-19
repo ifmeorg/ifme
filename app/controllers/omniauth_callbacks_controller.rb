@@ -18,7 +18,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     user.accept_invitation! if invitation_token
     upload_avatar(omniauth_avatar)
     flash[:notice] = I18n.t('devise.omniauth_callbacks.success',
-                            kind: t("navigation.#{params[:provider]}"))
+                            kind: t("navigation.#{provider_key}"))
     sign_in_and_redirect @user, event: :authentication
   end
 
@@ -38,8 +38,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     user.third_party_avatar != omniauth_avatar
   end
 
-  # returns the invitation token passed in with the callback url
   def invitation_token
+    # Returns the invitation token passed in with the callback url
     request.env.dig('omniauth.params', 'invitation_token')
   end
 
@@ -49,5 +49,11 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     user.third_party_avatar = omniauth_avatar
     user.remote_avatar_url = omniauth_avatar
     user.save!
+  end
+
+  def provider_key
+    return 'google' if @user.provider == 'google_oauth2'
+
+    @user.provider
   end
 end
