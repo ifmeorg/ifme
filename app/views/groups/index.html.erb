@@ -48,22 +48,26 @@
 <% end %>
 
 <% if @available_groups.any? %>
-  <div class="title"><%= t('groups.index.available_groups') %></div>
-  <div class="gridTwo">
-    <% @available_groups.each do |group| %>
-      <div class="gridTwoItemBoxLight">
-        <%= react_component('Story', html_options: html_options, props: {
-          name: group.name,
-          link: url_for(group),
-          actions: {
-            join: {
-              name: t('common.actions.join'),
-              link: group_membership_path(group_id: group.id, id: 'join'),
-              dataMethod: 'post'
+  <div class="smallMarginTop">
+    <div class="title">
+      <%= t('groups.index.available_groups') %>
+    </div>
+    <div class="gridTwo">
+      <% @available_groups.each do |group| %>
+        <div class="gridTwoItemBoxLight">
+          <%= react_component('Story', html_options: html_options, props: {
+            name: group.name,
+            link: url_for(group),
+            actions: {
+              join: {
+                name: t('common.actions.join'),
+                link: group_membership_path(group_id: group.id, id: 'join'),
+                dataMethod: 'post'
+              }
             }
-          }
-        }) %>
-      </div>
-    <% end %>
+          }) %>
+        </div>
+      <% end %>
+    </div>
   </div>
 <% end %>
