@@ -92,8 +92,7 @@ class MedicationsController < ApplicationController
   # DELETE /medications/1.json
   def destroy
     @medication.destroy
-    TakeMedicationReminder.where(medication_id: @medication.id).destroy_all
-    RefillReminder.where(medication_id: @medication.id).destroy_all
+
     redirect_to_path(medications_path)
   end
 

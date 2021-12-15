@@ -236,15 +236,15 @@ RSpec.describe "Medications", type: :request do
       end
 
       context 'when medication has a daily reminder' do
-        let!(:medication) do
-          create(:medication, :with_daily_reminder, user: user)
-        end
+        let!(:medication) { create(:medication, user: user) }
+
+        before { medication.take_medication_reminder.update(active: true) }
 
         it 'destroys the medication' do
-          expect(TakeMedicationReminder.active.count).to eq(1)
-          expect { delete medication_path(medication) }
-            .to(change(Medication, :count).by(-1))
-          expect(TakeMedicationReminder.active.count).to eq(0)
+          expect {
+            delete medication_path(medication)
+          }.to change { Medication.count }.by(-1)
+            .and change { TakeMedicationReminder.count }.to(0)
         end
 
         it 'redirects to the medications path for html requests' do
@@ -259,15 +259,15 @@ RSpec.describe "Medications", type: :request do
       end
 
       context 'when medication has a refill reminder' do
-        let!(:medication) do
-          create(:medication, :with_refill_reminder, user: user)
-        end
+        let!(:medication) { create(:medication, user: user) }
+
+        before { medication.refill_reminder.update(active: true) }
 
         it 'destroys the medication' do
-          expect(RefillReminder.active.count).to eq(1)
-          expect { delete medication_path(medication) }
-            .to(change(Medication, :count).by(-1))
-          expect(RefillReminder.active.count).to eq(0)
+          expect {
+            delete medication_path(medication)
+          }.to change { Medication.count }.by(-1)
+           .and change { RefillReminder.count }.to(0)
         end
 
         it 'redirects to the medications path for html requests' do
