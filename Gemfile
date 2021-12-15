@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '~> 2.6.6'
+ruby '~> 2.7.0'
 
 gem 'puma'
 gem 'rack-rewrite'
-gem 'rails', '~> 6.0.3.3'
+gem 'rails', '~> 6.1.4.3'
 
 gem 'activerecord-import'
 gem 'bcrypt', '3.1.13'
@@ -29,7 +29,7 @@ gem 'carrierwave', '~> 1.3.1'
 gem 'certified', '1.0.0'
 gem 'chronic', '0.10.2'
 gem 'cloudinary', '~> 1.21.0'
-gem 'figaro', '1.1.1'
+gem 'figaro', '1.2.0'
 gem 'google-api-client', '~> 0.30.2'
 gem 'kaminari', '1.2.1'
 gem 'omniauth-facebook'
@@ -94,8 +94,6 @@ group :development, :test do
   gem 'bullet'
 
   gem 'webdrivers', '>= 4.6.1'
-
-  gem 'actionview', '>= 6.0.3.3'
 end
 
 group :test do
