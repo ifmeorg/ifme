@@ -89,7 +89,8 @@ RSpec.describe 'Categories', type: :request do
       end
 
       context 'user is trying to edit a category another user created' do
-        let(:other_category) { create(:category, user_id: user.id + 1) }
+        let(:other_user) { create(:user2) }
+        let(:other_category) { create(:category, user_id: other_user.id) }
         before { get edit_category_path(other_category.id) }
 
         it 'redirects to the category path' do
