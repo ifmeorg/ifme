@@ -2,8 +2,9 @@
 
 RSpec.describe MoodsController, type: :controller do
   let(:user) { create(:user1) }
+  let(:other_user) { create(:user2) }
   let(:user_mood) { create(:mood, user_id: user.id) }
-  let(:other_mood) { create(:mood, user_id: user.id + 1) }
+  let(:other_mood) { create(:mood, user_id: other_user.id) }
   let(:valid_mood_params) { attributes_for(:mood) }
   let(:invalid_mood_params) { { name: nil, description: nil } }
 

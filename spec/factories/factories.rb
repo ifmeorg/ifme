@@ -32,7 +32,7 @@ FactoryBot.define do
     name { 'Test Group' }
   end
 
-  factory :group do
+  factory :group, class: Group do
     name { 'Test Group' }
     description { 'Group description' }
 

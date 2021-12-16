@@ -25,7 +25,7 @@ RSpec.describe 'Membership', type: :request do
     end
 
     context 'new group member for non-existent group' do
-      it "doesn't new member" do
+      it "does not add new member" do
         # Act
         post group_membership_path(group_id: 9000)
 
