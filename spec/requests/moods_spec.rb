@@ -1,119 +1,130 @@
 # frozen_string_literal: true
 
-RSpec.describe MoodsController, type: :controller do
-  let(:user) { create(:user1) }
-  let(:user_mood) { create(:mood, user_id: user.id) }
-  let(:other_mood) { create(:mood, user_id: user.id + 1) }
-  let(:valid_mood_params) { attributes_for(:mood) }
+describe 'Moods', type: :request do
+  let(:user)                { create(:user1) }
+  let(:user_mood)           { create(:mood, user_id: user.id) }
+  let(:other_mood)          { create(:mood, user_id: user.id + 1) }
+  let(:valid_mood_params)   { attributes_for(:mood) }
   let(:invalid_mood_params) { { name: nil, description: nil } }
+  let(:json_header)         { { "ACCEPT" => "application/json" } }
 
   describe '#index' do
-    context 'when the user is logged in' do
-      include_context :logged_in_user
-      before { get :index }
-      it 'sets the categories and page tooltip ivar' do
+    context 'when the request type is HTML' do
+      it 'lists all the user moods' do
+        user_mood
+        sign_in user
+        get moods_path
+        expect(response.body).to include 'Test Mood'
         expect(assigns(:moods)).to eq [user_mood]
         expect(assigns(:page_new)).to eq I18n.t('moods.new')
       end
-      it 'renders the page' do
-        expect(response).to render_template(:index)
-      end
     end
 
-    context 'when request type is JSON' do
-      include_context :logged_in_user
-      before { get :index, params: { page: 1, id: user_mood.id }, format: :json }
-      it 'returns a response with the correct path' do
-        expect(JSON.parse(response.body)['data'].first['link']).to eq mood_path(user_mood)
+    context 'when the request type is JSON' do
+      it 'lists all the user moods' do
+        user_mood
+        sign_in user
+        get moods_path, headers: json_header
+        result = JSON.parse(response.body)
+        expect(result['data'].first['link']).to eq mood_path(user_mood)
       end
     end
 
     context 'when the user is not logged in' do
-      before { get :index }
+      before { get moods_path }
       it_behaves_like :with_no_logged_in_user
     end
   end
 
   describe '#show' do
     context 'when the user is logged in' do
-      include_context :logged_in_user
       context 'when the user created the mood' do
-        before { get :show, params: { id: user_mood.id } }
         it 'renders the page' do
+          sign_in user
+          get mood_path(user_mood)
           expect(response).to render_template(:show)
+          expect(response.body).to include 'Test Mood'
+          expect(assigns(:mood)).to eq user_mood
         end
       end
+
       context "when the user didn't create the mood" do
-        before { get :show, params: { id: other_mood.id } }
         it 'redirects to the mood index page' do
+          sign_in user
+          get mood_path(other_mood)
           expect(response).to redirect_to moods_path
         end
       end
     end
+
     context 'when the user is not logged in' do
-      before { get :show, params: { id: user_mood.id } }
+      before { get mood_path(user_mood) }
       it_behaves_like :with_no_logged_in_user
     end
   end
 
   describe '#new' do
     context 'when the user is logged in' do
-      include_context :logged_in_user
       it 'renders the page' do
-        get :new
+        sign_in user
+        get new_mood_path
         expect(response).to render_template(:new)
+        expect(response.body).to include 'New Mood'
       end
     end
+
     context 'when the user is not logged in' do
-      before { get :new }
+      before { get new_mood_path }
       it_behaves_like :with_no_logged_in_user
     end
   end
 
   describe '#edit' do
     context 'when the user is logged in' do
-      include_context :logged_in_user
       context 'user is trying to edit a mood they created' do
         it 'renders the edit form' do
-          get :edit, params: { id: user_mood.id }
+          sign_in user
+          get edit_mood_path(user_mood)
           expect(response).to render_template(:edit)
+          expect(response.body).to include 'Edit Test Mood'
         end
       end
+
       context 'user is trying to edit a mood another user created' do
         it 'redirects to the mood path' do
-          get :edit, params: { id: other_mood.id }
+          sign_in user
+          get edit_mood_path(other_mood)
           expect(response).to redirect_to mood_path(other_mood)
         end
       end
     end
+
     context 'when the user is not logged in' do
-      before { get :edit, params: { id: user_mood.id } }
+      before { get edit_mood_path(user_mood) }
       it_behaves_like :with_no_logged_in_user
     end
   end
 
   describe '#create' do
     context 'when the user is logged in' do
-      include_context :logged_in_user
-
       context 'when valid params are supplied' do
         it 'creates a mood' do
-          expect { post :create, params: { mood: valid_mood_params } }
-            .to change(Mood, :count).by 1
-        end
-        it 'redirects to the mood page' do
-          post :create, params: { mood: valid_mood_params }
+          expect(Mood.all.count).to eq 0
+          sign_in user
+          post moods_path, params: { mood: valid_mood_params }
+          expect(Mood.all.count).to eq 1
           expect(response).to redirect_to mood_path(assigns(:mood))
         end
       end
 
       context 'when invalid params are supplied' do
-        before { post :create, params: { mood: invalid_mood_params } }
         it 're-renders the creation form' do
+          expect(Mood.all.count).to eq 0
+          sign_in user
+          post moods_path, params: { mood: invalid_mood_params }
           expect(response).to render_template(:new)
-        end
-        it 'adds errors to the mood ivar' do
           expect(assigns(:mood).errors).not_to be_empty
+          expect(Mood.all.count).to eq 0
         end
       end
 
@@ -124,32 +135,33 @@ RSpec.describe MoodsController, type: :controller do
           another_user = create(:user2)
           hacked_mood_params =
             valid_mood_params.merge(user_id: another_user.id)
-          expect { post :create, params: { mood: hacked_mood_params } }
-            .to change(Mood, :count).by(1)
+          sign_in user
+          post moods_path, params: { mood: hacked_mood_params }
+          expect(Mood.all.count).to eq 1
           expect(Mood.last.user_id).to eq(user.id)
         end
       end
     end
 
     context 'when the user is not logged in' do
-      before { post :create }
+      before { post moods_path }
       it_behaves_like :with_no_logged_in_user
     end
   end
 
   describe '#premade' do
     context 'when the user is logged in' do
-      include_context :logged_in_user
-      it 'creates 5 premade moods' do
-        expect { post :premade }.to change(Mood, :count).by 5
-      end
       it 'redirects to the mood index page' do
-        post :premade
+        expect(Mood.all.count).to eq 0
+        sign_in user
+        post premade_moods_path
         expect(response).to redirect_to moods_path
+        expect(Mood.all.count).to eq 5
       end
     end
+
     context 'when the user is not logged in' do
-      before { post :premade }
+      before { post premade_moods_path }
       it_behaves_like :with_no_logged_in_user
     end
   end
@@ -159,28 +171,27 @@ RSpec.describe MoodsController, type: :controller do
     let(:invalid_update_params) { { name: nil } }
 
     context 'when the user is logged in' do
-      include_context :logged_in_user
       context 'when valid params are supplied' do
-        before { patch :update, params: { id: user_mood.id, mood: valid_update_params } }
         it 'updates the mood' do
+          sign_in user
+          patch mood_path(user_mood), params: { id: user_mood.id, mood: valid_update_params }
           expect(user_mood.reload.name).to eq 'updated name'
-        end
-        it 'redirects to the mood page' do
           expect(response).to redirect_to mood_path(assigns(:mood))
         end
       end
+
       context 'when invalid params are supplied' do
-        before { patch :update, params: { id: user_mood.id, mood: invalid_update_params } }
         it 're-renders the edit form' do
+          sign_in user
+          patch mood_path(user_mood), params: { id: user_mood.id, mood: invalid_update_params }
           expect(response).to render_template(:edit)
-        end
-        it 'adds errors to the mood ivar' do
           expect(assigns(:mood).errors).not_to be_empty
         end
       end
     end
+
     context 'when the user is not logged in' do
-      before { patch :update, params: { id: user_mood.id } }
+      before { patch mood_path(user_mood) }
       it_behaves_like :with_no_logged_in_user
     end
   end
@@ -189,36 +200,31 @@ RSpec.describe MoodsController, type: :controller do
     let!(:moment) { create(:moment, user_id: user.id, mood: [user_mood.id]) }
 
     context 'when the user is logged in' do
-      include_context :logged_in_user
       it 'deletes the mood' do
-        expect { delete :destroy, params: { id: user_mood.id } }
-          .to change(Mood, :count).by(-1)
-      end
-      it 'removes moods from existing moments' do
-        delete :destroy, params: { id: user_mood.id }
+        expect(Mood.all.count).to eq 1
+        sign_in user
+        delete mood_path(user_mood)
+        expect(Mood.all.count).to eq 0
+        # Remove moods from existing moment
         expect(moment.reload.moods).not_to include(user_mood)
-      end
-      it 'redirects to the mood index page' do
-        delete :destroy, params: { id: user_mood.id }
         expect(response).to redirect_to moods_path
       end
     end
+
     context 'when the user is not logged in' do
-      before { delete :destroy, params: { id: user_mood.id } }
+      before { delete mood_path(user_mood) }
       it_behaves_like :with_no_logged_in_user
     end
   end
 
   describe '#quick_create' do
     context 'when the user is logged in' do
-      include_context :logged_in_user
       context 'when valid params are supplied' do
-        it 'creates the mood' do
-          expect { post :quick_create, params: { mood: valid_mood_params } }
-            .to change(Mood, :count).by 1
-        end
         it 'responds with a checkbox in json format' do
-          post :quick_create, params: { mood: valid_mood_params }
+          expect(Mood.all.count).to eq 0
+          sign_in user
+          post quick_create_moods_path, params: { mood: valid_mood_params }
+          expect(Mood.all.count).to eq 1
           expect(response.body).to eq({
             success: true,
             id: Mood.last.id,
@@ -227,15 +233,18 @@ RSpec.describe MoodsController, type: :controller do
           }.to_json)
         end
       end
+
       context 'when invalid params are supplied' do
         it 'responds with an error in json format' do
-          post :quick_create, params: { mood: invalid_mood_params }
+          sign_in user
+          post quick_create_moods_path, params: { mood: invalid_mood_params }
           expect(response.body).to eq({ success: false }.to_json)
         end
       end
     end
+
     context 'when the user is not logged in' do
-      before { post :quick_create }
+      before { post quick_create_moods_path }
       it_behaves_like :with_no_logged_in_user
     end
   end
