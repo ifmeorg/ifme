@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import { I18n } from 'libs/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPencilAlt,
@@ -58,7 +59,14 @@ const classMap = (dark: ?boolean) => {
     report: (
       <FontAwesomeIcon icon={faExclamationTriangle} className={className} />
     ),
-    viewers: <FontAwesomeIcon icon={faLock} className={className} />,
+    viewers: (
+      <FontAwesomeIcon
+        icon={faLock}
+        className={className}
+        tabIndex={0}
+        aria-label={I18n.t('shared.viewers.plural')}
+      />
+    ),
     add_to_google_cal: (
       <FontAwesomeIcon icon={faCalendarPlus} className={className} />
     ),
@@ -74,13 +82,7 @@ const displayViewers = (
   hasStory: ?boolean,
   dark: ?boolean,
 ) => (
-  <div
-    key={item}
-    className="storyActionsViewers"
-    aria-label={actions[item]}
-    role="button"
-    tabIndex={0}
-  >
+  <div key={item} className="storyActionsViewers">
     <Tooltip
       className="storyActionsViewer"
       element={classMap(dark)[item]}
@@ -119,13 +121,7 @@ const displayLink = (
   hasStory: ?boolean,
   dark: ?boolean,
 ) => (
-  <div
-    role="button"
-    tabIndex={0}
-    key={item}
-    aria-label={actions[item]}
-    className={`storyActions${titleItem(item)}`}
-  >
+  <div key={item} className={`storyActions${titleItem(item)}`}>
     <Tooltip
       element={tooltipElement(item, actions, dark)}
       text={actions[item].name}
