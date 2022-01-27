@@ -355,7 +355,7 @@ GEM
       webpacker (>= 4.0)
     recaptcha (5.6.0)
       json
-    redis (4.4.0)
+    redis (4.5.1)
     redis-namespace (1.8.0)
       redis (>= 3.0.4)
     regexp_parser (1.8.1)
@@ -461,10 +461,10 @@ GEM
       faraday (>= 0.7.6, < 1.0)
     shoulda-matchers (4.4.1)
       activesupport (>= 4.2.0)
-    sidekiq (5.2.0)
-      connection_pool (~> 2.2, >= 2.2.2)
-      rack-protection (>= 1.5.0)
-      redis (>= 3.3.5, < 5)
+    sidekiq (6.4.0)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
     sidekiq-cron (1.2.0)
       fugit (~> 1.1)
       sidekiq (>= 4.2.1)
@@ -604,7 +604,7 @@ DEPENDENCIES
   selenium-webdriver (~> 3.142.7)
   sentry-raven
   shoulda-matchers
-  sidekiq (= 5.2.0)
+  sidekiq (= 6.4.0)
   sidekiq-cron (~> 1.1)
   sidekiq-failures
   sidekiq-middleware
