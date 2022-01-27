@@ -54,7 +54,7 @@ gem 'selenium-webdriver', '~> 3.142.7'
 
 gem 'rubyzip', '~> 1.3.0'
 
-gem 'sidekiq', '5.2.0'
+gem 'sidekiq', '6.4.0'
 gem 'sidekiq-middleware'
 gem 'sidekiq-failures'
 gem "sidekiq-cron", "~> 1.1"
