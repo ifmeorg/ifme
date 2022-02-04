@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# rubocop:disable Metrics/ClassLength
 # == Schema Information
 #
 # Table name: users
@@ -45,8 +46,13 @@
 #  third_party_avatar     :text
 #  failed_attempts        :integer          default(0), not null
 #  locked_at              :datetime
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string
+#  session_token          :string
 #
-# rubocop:disable Metrics/ClassLength
+# rubocop:enable
 class User < ApplicationRecord
   include AllyConcern
 
@@ -115,6 +121,16 @@ class User < ApplicationRecord
   validates :locale, inclusion: {
     in: Rails.application.config.i18n.available_locales.map(&:to_s).push(nil)
   }
+
+  def authenticatable_salt
+    return super unless session_token
+
+    "#{super}#{session_token}"
+  end
+
+  def invalidate_all_sessions!
+    update_attribute(:session_token, SecureRandom.hex)
+  end
 
   def active_for_authentication?
     super && !banned
@@ -245,4 +261,3 @@ class User < ApplicationRecord
     super
   end
 end
-# rubocop:enable Metrics/ClassLength
