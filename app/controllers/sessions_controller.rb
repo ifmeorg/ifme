@@ -3,6 +3,7 @@
 class SessionsController < Devise::SessionsController
   prepend_before_action :check_recaptcha, only: [:create]
   before_action :set_recaptcha, only: [:new]
+  prepend_before_action :invalidate_all_sessions, only: [:destroy]
 
   def new
     super
@@ -14,7 +15,6 @@ class SessionsController < Devise::SessionsController
   end
 
   def destroy
-    current_user.invalidate_all_sessions!
     super
   end
 
@@ -56,5 +56,9 @@ class SessionsController < Devise::SessionsController
     return false if user.nil?
 
     RecaptchaService.new(user).recaptcha_required_for_login?
+  end
+
+  def invalidate_all_sessions
+    current_user.invalidate_all_sessions!
   end
 end
