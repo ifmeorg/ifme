@@ -9,6 +9,8 @@ class PagesController < ApplicationController
   skip_before_action :if_not_signed_in, except: %i[home_data]
   before_action :if_not_signed_in, only: %i[home_data]
 
+  before_action :if_not_admin, only: %i[admin_dashboard]
+
   def home
     if user_signed_in?
       setup_stories
@@ -54,6 +56,11 @@ class PagesController < ApplicationController
   def about
     @blurbs = set_blurbs
     @contributors = set_contributors
+  end
+
+  def admin_dashboard
+    @reports = Report.order('created_at DESC').all
+    @banned_users = User.where(banned: true)
   end
 
   def faq; end
