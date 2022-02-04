@@ -1,4 +1,4 @@
-RSpec.describe "Users::Reports", type: :request do
+describe "Users::Reports", type: :request do
   let(:user) { create(:user) }
 
   describe '#submit_request' do

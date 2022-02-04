@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.feature 'UserUpdatesAMomentTemplate', type: :feature, js: true do
+feature 'UserUpdatesAMomentTemplate', type: :feature, js: true do
   scenario 'unsuccessful' do
     user = create :user
     create :moment_template, user_id: user.id

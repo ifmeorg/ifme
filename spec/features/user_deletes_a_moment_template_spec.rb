@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.feature 'UserDeletesAMomentTemplate', type: :feature, js: true do
+feature 'UserDeletesAMomentTemplate', type: :feature, js: true do
   scenario 'successful' do
     user = create :user
     create :moment_template, user_id: user.id

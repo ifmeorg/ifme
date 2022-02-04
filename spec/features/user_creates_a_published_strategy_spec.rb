@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.feature 'UserCreatesAPublishedStrategy', type: :feature, js: true do
+feature 'UserCreatesAPublishedStrategy', type: :feature, js: true do
   let(:user) { create :user2, :with_allies }
   let!(:category) { create :category, user_id: user.id }
 

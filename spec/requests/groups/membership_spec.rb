@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Membership', type: :request do
+describe 'Membership', type: :request do
   before { sign_in current_user }
 
   let(:current_user) { create(:user1) }

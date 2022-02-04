@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.feature 'UserCreatesACarePlanContact', type: :feature, js: true do
+feature 'UserCreatesACarePlanContact', type: :feature, js: true do
   scenario 'unsuccessful' do
     user = create :user
     login_as user

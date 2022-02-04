@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.feature 'UserCreatesAMedication', type: :feature, js: true do
+feature 'UserCreatesAMedication', type: :feature, js: true do
   let(:user) { create(:user_oauth) }
   let(:medication) { user.medications.last }
   let(:name) { 'A medication name' }

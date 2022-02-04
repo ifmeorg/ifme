@@ -10,6 +10,6 @@
 #     end
 #   end
 # end
-# RSpec.describe Groups::MembershipsHelper, type: :helper do
+# describe Groups::MembershipsHelper, type: :helper do
 #   pending "add some examples to (or delete) #{__FILE__}"
 # end

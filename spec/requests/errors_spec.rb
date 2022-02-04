@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Error', type: :request do
+describe 'Error', type: :request do
   describe 'GET #not_found' do
     it 'returns http 404' do
       get errors_not_found_path

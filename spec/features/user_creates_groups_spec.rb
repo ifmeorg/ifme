@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.feature 'UserCreatesGroups', type: :feature, js: true do
+feature 'UserCreatesGroups', type: :feature, js: true do
   scenario 'successful' do
     user = create :user
     login_as user
