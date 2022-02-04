@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Categories', type: :request do
+describe 'Categories', type: :request do
   let(:user) { create(:user) }
   let(:category) { create(:category, user_id: user.id) }
 

@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-RSpec.describe "Medications", type: :request do
+describe "Medications", type: :request do
 
   describe '#index' do
     let(:user) { create(:user) }

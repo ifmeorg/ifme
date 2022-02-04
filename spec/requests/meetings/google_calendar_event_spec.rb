@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'GoogleCalendarEvent', type: :request do
+describe 'GoogleCalendarEvent', type: :request do
   let(:user) { create(:user_oauth) }
   let(:meeting) { create(:meeting) }
   let(:calendar_uploader) { double }

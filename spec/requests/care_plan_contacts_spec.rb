@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'CarePlanContacts', type: :request do
+describe 'CarePlanContacts', type: :request do
   let(:user) { create(:user) }
 
   describe '#create' do

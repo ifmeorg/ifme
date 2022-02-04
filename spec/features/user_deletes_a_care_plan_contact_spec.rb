@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.feature 'UserDeletesACarePlanContact', type: :feature, js: true do
+feature 'UserDeletesACarePlanContact', type: :feature, js: true do
   scenario 'successful' do
     user = create :user
     create :care_plan_contact, user_id: user.id

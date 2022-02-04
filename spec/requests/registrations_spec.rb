@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # rubocop:disable Metrics/BlockLength
-RSpec.describe 'Registrations', type: :request do
+describe 'Registrations', type: :request do
   shared_examples 'successfully redirects' do
     before do
       sign_in user

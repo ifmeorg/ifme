@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe PagesHelper, type: :helper do
+describe PagesHelper, type: :helper do
   describe '#print_contributors' do
     it 'returns empty result for empty array' do
       expect(print_contributors([])).to eq('')

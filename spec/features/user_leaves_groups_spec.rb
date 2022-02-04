@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.feature 'UserLeavesGroups', type: :feature, js: true do
+feature 'UserLeavesGroups', type: :feature, js: true do
   scenario 'user leaves group that they belong to' do
     user = create :user1
     login_as user

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'MomentTemplate', type: :request do
+describe 'MomentTemplate', type: :request do
   let(:user) { create(:user) }
 
   describe '#create' do

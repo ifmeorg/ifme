@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.feature 'Display of recommended resource links', type: :feature, js: true do
+feature 'Display of recommended resource links', type: :feature, js: true do
   let(:user) { create :user }
 
   scenario 'User allows' do

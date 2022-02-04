@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "Care Plan", type: :request do
+describe "Care Plan", type: :request do
   describe '#index' do
     context 'when user is signed in' do
       let(:user) { create(:user) }

@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe MedicationRefillHelper, type: :helper do
+describe MedicationRefillHelper, type: :helper do
   include CalendarHelper
   include Devise::Test::ControllerHelpers
 

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.feature 'UserCreatesAMomentTemplate', type: :feature, js: true do
+feature 'UserCreatesAMomentTemplate', type: :feature, js: true do
   scenario 'unsuccessful' do
     user = create :user
     login_as user

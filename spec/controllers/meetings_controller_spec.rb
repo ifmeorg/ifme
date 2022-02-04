@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe MeetingsController, type: :controller do
+describe MeetingsController, type: :controller do
   describe 'without being logged in' do
     subject { controller }
     # TODO: implement session controller

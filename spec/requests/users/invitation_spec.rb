@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Invitation', type: :request do
+describe 'Invitation', type: :request do
   let(:user) { create(:user, name: 'Jane') }
   let(:invitee1) { 'invited_friend@gmail.com' }
   let(:invitee2) { 'other_friend@gmail.com' }
