@@ -13,6 +13,11 @@ class SessionsController < Devise::SessionsController
     set_user_locale if user_signed_in?
   end
 
+  def destroy
+    current_user.invalidate_all_sessions!
+    super
+  end
+
   private
 
   def set_user_locale
