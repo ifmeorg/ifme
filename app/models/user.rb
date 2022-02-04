@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-# rubocop:disable Metrics/ClassLength
 # == Schema Information
 #
 # Table name: users
@@ -52,7 +51,7 @@
 #  unconfirmed_email      :string
 #  session_token          :string
 #
-# rubocop:enable
+
 class User < ApplicationRecord
   include AllyConcern
 
