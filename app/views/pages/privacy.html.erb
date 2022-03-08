@@ -10,16 +10,19 @@
 <article class="article">
   <h1 class="articleHeading"><%= t('pages.privacy.user_data') %></h1>
   <div class="articleContent">
-    <%= raw t('pages.privacy.user_data_description') %>
+    <p>
+      <%= raw t('pages.faq.data_access_answer') %>
+    </p>
+    <%= raw t('pages.privacy.user_data_description', {
+      faq_link: link_to(t('pages.faq.title'), faq_path)
+    }) %>
   </div>
 </article>
 
 <article class="article">
   <h1 class="articleHeading"><%= t('pages.privacy.cookies') %></h1>
   <div class="articleContent">
-    <%= raw t('pages.privacy.cookies_description', {
-      google_privacy_policy: link_to(t('navigation.privacy').downcase, 'http://www.google.com/privacy.html', target: 'blank')
-    }) %>
+    <%= raw t('pages.privacy.cookies_description') %>
   </div>
 </article>
 
@@ -34,8 +37,7 @@
   <h1 class="articleHeading"><%= t('pages.privacy.contact') %></h1>
   <div class="articleContent">
     <%= raw t('pages.privacy.contact_description', {
-      email_link: link_to(t('common.write_to_us'), "mailto:#{t('email')}"),
-      jamie_king_media: link_to('Jamie King Media', 'http://jamieking.co.uk/resources/download-free-sample-privacy-policy.html', target: 'blank')
+      email_link: link_to(t('common.write_to_us'), "mailto:#{t('email')}")
     }) %>
   </div>
 </article>
