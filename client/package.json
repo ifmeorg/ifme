@@ -96,7 +96,7 @@
     "identity-obj-proxy": "^3.0.0",
     "imports-loader": "^0.8.0",
     "jest": "^26.2.2",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "prettier-eslint": "^11.0.0",
     "react-test-renderer": "^17.0.2",
