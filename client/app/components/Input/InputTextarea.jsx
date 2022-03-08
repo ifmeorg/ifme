@@ -76,7 +76,7 @@ export function InputTextarea(props: Props) {
 
   const onBlur = () => {
     if (required && hasError) {
-      hasError(!value || value === '<p><br></p>');
+      hasError(!value || value === '<p><br /></p>');
     }
   };
 

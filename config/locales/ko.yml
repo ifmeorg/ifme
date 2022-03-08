@@ -2,11 +2,11 @@ ko:
   app_name: if-me.org
   app_description: 정신 건강을 위한 커뮤니티
   email: join.ifme@gmail.com
-  created: "%{created_at}을 생성"
+  created: '%{created_at}을 생성'
   draft: 초안
-  edited: "%{created_at}을 생성 (수정됨)"
-  edited_updated_at: "%{created_at}을 생성 (%{updated_at}이(가) 수정됨)"
-  salutation: "안녕하세요 %{name},"
+  edited: '%{created_at}을 생성 (수정됨)'
+  edited_updated_at: '%{created_at}을 생성 (%{updated_at}이(가) 수정됨)'
+  salutation: '안녕하세요 %{name},'
   click_here: 이곳을 클릭하시오
   language: 언어
   yes_text: 예
@@ -67,7 +67,7 @@ ko:
       confirm: 이대로 진행하시겠습니까?
       delete: 삭제
       edit: 편집
-      edit_instance: "%{instance} 편집"
+      edit_instance: '%{instance} 편집'
       join: 가입하기
       leave: 나가기
       add: 추가
@@ -83,7 +83,7 @@ ko:
       empty_error: 이 부분은 필수로 작성해야 합니다.
       search_by_keywords: 키워드로 검색
       template: 템플릿 선택
-    time_ago: "%{date} 전"
+    time_ago: '%{date} 전'
     write_to_us: 저희에게 연락
     days: 날들
   reports:
@@ -91,17 +91,17 @@ ko:
     reported_users: 신고된 사용자
     banned_users: 정지된 사용자
     reasons: 사유
-    new: "%{name}에 대한 새로운 신고가 있습니다"
+    new: '%{name}에 대한 새로운 신고가 있습니다'
     remove_ban: 정지 해제
     ban_user: 사용자 정지
-    report_sent: "%{name}에 대한 신고가 접수되었습니다"
-    report_error: "에 대한 보고서를 보낼 수 없습니다 %{name}"
+    report_sent: '%{name}에 대한 신고가 접수되었습니다'
+    report_error: '에 대한 보고서를 보낼 수 없습니다 %{name}'
     reportee: 피신고자
     reporter: 신고자
-    user_banned: "%{name} 이(가) 정지되었습니다"
-    ban_removed: "%{name} 의 정지가 해제되었습니다."
-    user_banned_error: "금지 할 수 없습니다 %{name}"
-    ban_removed_error: "에 대한 금지를 제거 할 수 없습니다 %{name}"
+    user_banned: '%{name} 이(가) 정지되었습니다'
+    ban_removed: '%{name} 의 정지가 해제되었습니다.'
+    user_banned_error: '금지 할 수 없습니다 %{name}'
+    ban_removed_error: '에 대한 금지를 제거 할 수 없습니다 %{name}'
   comment:
     singular: 댓글
     plural: 댓글들
@@ -115,8 +115,8 @@ ko:
     sign_up: 회원가입
     forgot_password: 비밀번호를 잊으셨나요?
   members:
-    one: "%{count} 멤버"
-    other: "%{count} 멤버들"
+    one: '%{count} 멤버'
+    other: '%{count} 멤버들'
   allies:
     add_ally: 동료로 등록하기
     cancel_ally_request: 요청을 취소하기
@@ -127,7 +127,7 @@ ko:
       outgoing: 외부 요청
       incoming: 내부 요청
       invited: 이메일을 통해 초대하기
-      invited_on: "%{date}에 초대되었음"
+      invited_on: '%{date}에 초대되었음'
       invitation_expired: 초대 요청이 만료되었음
       invite: 당신이 사랑하는 사람을 초대하세요!
       none: 당신은 현재 동료가 없습니다! 당신이 사랑하는 사람들을 지금 찾아보거나 도채해보세요!
@@ -141,12 +141,12 @@ ko:
     edit_category: 카테고리 편집
     new: 새로운 카테고리
     form:
-      name_hint: "사람, 장소, 물건, 활동을 그룹으로 분류하세요"
+      name_hint: '사람, 장소, 물건, 활동을 그룹으로 분류하세요'
     label:
-      one: "카테고리:"
-      other: "카테고리:"
+      one: '카테고리:'
+      other: '카테고리:'
     index:
-      subtitle: "삶이라는 것은 복잡하기 때문에 사람들, 장소들, 그리고 여러 가지의 것들을 분류해야 합니다."
+      subtitle: '삶이라는 것은 복잡하기 때문에 사람들, 장소들, 그리고 여러 가지의 것들을 분류해야 합니다.'
       premade1_name: 가족
       premade1_description: 가족과 관련된
       premade2_name: 친구
@@ -154,8 +154,8 @@ ko:
       premade3_name: 일
       premade3_description: 일과 관련된
       premade4_name: 명상
-      premade4_description: "명상, 심호흡, 편안한 황동"
-      instructions: 아직 어떤 카테고리도 만들지 않았습니다.<br>또한 카테고리를 미리 만들고 나중에 맞춤설정할수도 있습니다.
+      premade4_description: '명상, 심호흡, 편안한 황동'
+      instructions: 아직 어떤 카테고리도 만들지 않았습니다.<br />또한 카테고리를 미리 만들고 나중에 맞춤설정할수도 있습니다.
   errors:
     home_page: 홈페이지로 돌아가기
     internal_server_error:
@@ -170,10 +170,10 @@ ko:
       leaders: 리더
       only_leader: 당신이 유일한 리더이기 때문에 떠날 수 없습니다.
       cannot_delete: 그룹을 삭제하실 수 없습니다.
-      error_save: "이 그룹을 저장할 수 없는 이유는 다음과 같습니다: "
+      error_save: '이 그룹을 저장할 수 없는 이유는 다음과 같습니다: '
       error_edit_permission: 편집하려면 그룹의 리더여야 합니다.
     index:
-      subtitle: "지원, 멘토링, 토론을 제공하는 그룹을 만들고 참여하십시오."
+      subtitle: '지원, 멘토링, 토론을 제공하는 그룹을 만들고 참여하십시오.'
       available_groups: 사용 가능한 그룹
       joined_groups: 가입된 그룹
       leader: (리더)
@@ -183,8 +183,8 @@ ko:
       group_not_exists: 존재하지 않는 그룹에는 가입할 수 없습니다.
     leave:
       error: 이 그룹의 유일한 리더이기 때문에 그룹을 떠날 수 없습니다.
-      success: "%{group}을(를) 떠났습니다."
-      remove_member_success: "%{user}을(를) %{group}에서 퇴장시켰습니다."
+      success: '%{group}을(를) 떠났습니다.'
+      remove_member_success: '%{user}을(를) %{group}에서 퇴장시켰습니다.'
       remove_member_error: 그룹의 리더가 아니기 때문에 그룹의 멤버를 강제 퇴장 시킬 수 없습니다.
     new: 새로운 그룹
     show:
@@ -197,7 +197,7 @@ ko:
       update_account: 당신의 계정을 맞춤설정 하세요
     mailer:
       html:
-        app_description: "%{app_name} 은(는) 사랑하는 사람들과 그들의 정신 건강 이야기를 공유하도록 장려하는 커뮤니티입니다."
+        app_description: '%{app_name} 은(는) 사랑하는 사람들과 그들의 정신 건강 이야기를 공유하도록 장려하는 커뮤니티입니다.'
         no_reply: >-
           본 메일은 발신전용으로 회신이 불가능합니다. 저희에게 질문이나 문제 또는 의견이 있으시면 %{email}로 이메일을
           보내주십시오!
@@ -207,26 +207,26 @@ ko:
     singular: 의약품
     edit_medication: 의약품 편집
     refill_reminder: 의약품 재구입 알림 이메일
-    dosage: "일일 복용량: "
-    weekly_dosage: "주간 복용량: "
-    refill: "재구입 날짜: "
-    quantity: "총 수량: "
-    strength: "용량: "
-    event_summary: "%{name} 재구매하기"
+    dosage: '일일 복용량: '
+    weekly_dosage: '주간 복용량: '
+    refill: '재구입 날짜: '
+    quantity: '총 수량: '
+    strength: '용량: '
+    event_summary: '%{name} 재구매하기'
     form:
       strength: 용량
-      strength_unit: "강도 단위"
-      strength_placeholder: "예: 100"
-      total_placeholder: "예: 30"
+      strength_unit: 강도 단위
+      strength_placeholder: '예: 100'
+      total_placeholder: '예: 30'
       dosage: 복용량
-      dosage_unit: "복용량 단위"
-      dosage_placeholder: "예: 2"
+      dosage_unit: 복용량 단위
+      dosage_placeholder: '예: 2'
       refill: 재구매
       name_hint: 의약품의 일반 또는 브랜드 이름
       comments_hint: 증상 기록과 같은 추가 설명을 여기에 추가하십시오.
       add_to_google_cal: Google 캘린더 알림
       google_cal_hint: 이 의약품에 대한 알림을 Google 캘린더에 추가하십시오.
-      strength_hint: "의약품 용량, 보통은 이름 옆에 적혀있음"
+      strength_hint: '의약품 용량, 보통은 이름 옆에 적혀있음'
       total_hint: 총 알약의 수 혹은 총 약물의 양
       dosage_hint: 하루에 복용하는 약물의 갯수나 용량
       weekly_dosage_hint: 이 약을 복용하는 요일
@@ -234,34 +234,34 @@ ko:
       refill_reminder_hint: 약을 재구매하야 하는 날의 일주일 전에 미리 알림 메일을 보냅니다.
       daily_reminder_hint: 이 약을 먹으라는 알림 메일을 보냅니다.
       total: 총
-      total_unit: "총 단위"
+      total_unit: 총 단위
     new: 새로운 의약품
     units:
-      display: "%{count} %{unit}"
+      display: '%{count} %{unit}'
       mg: mg
       ml: ml
       tablets:
         one: 알약
         other: 알약들
     reminder_mailer:
-      subject: "%{name}을(를) 복용하시는걸 잊지 마세요!"
-      body: "%{name}을(를) 복용하도록 알려주는 친절한 알림입니다!"
+      subject: '%{name}을(를) 복용하시는걸 잊지 마세요!'
+      body: '%{name}을(를) 복용하도록 알려주는 친절한 알림입니다!'
     refill_mailer:
-      subject: "곧 %{name}을(를) 재구매 해야합니다!"
-      body: "%{name}을(를) 재구매하도록 알려주는 친절한 알림입니다!"
+      subject: '곧 %{name}을(를) 재구매 해야합니다!'
+      body: '%{name}을(를) 재구매하도록 알려주는 친절한 알림입니다!'
     index:
       title: 의약품
       subtitle: 복용량 및 리필정보 등 당신의 약에 대한 정보를 계속 확인하십시오.
       instructions: >-
-        아직 의약품 정보에 대해 저장하지 않았습니다.<br><br>다음은 약 정보에 대한 예시입니다. 당신의 경험에 대해 작성할 수도
-        있습니다.
+        아직 의약품 정보에 대해 저장하지 않았습니다.<br /><br />다음은 약 정보에 대한 예시입니다. 당신의 경험에 대해 작성할
+        수도 있습니다.
       example_name: Prozac
       example_strength: 10 mg
       example_total: 40 알약들
       example_dosage: 2 알약들
       example_refill: 05/31/2016
     show:
-      comments: "댓글:"
+      comments: '댓글:'
   meetings:
     singular: 미팅
     edit_meeting: 미팅 편집
@@ -274,14 +274,14 @@ ko:
       cancel_meeting: 미팅 취소
       meeting_time: 시간
       members_of_group_html:
-        one: "%{group} 그룹 멤버의 %{count}명"
-        other: "%{group} 그룹 멤버의 %{count}명"
+        one: '%{group} 그룹 멤버의 %{count}명'
+        other: '%{group} 그룹 멤버의 %{count}명'
     reminder_mailer:
       subject: '"%{meeting_name}" 미팅이 %{time}에 있습니다!'
       body: '내일 %{time}에 %{location}에서 열리는 "%{meeting_name}" 미팅을 알려주는 친절한 알림입니다!'
     leave:
       error: 당신이 이 그룹의 유일한 리더이기 때문에 그룹을 떠날 수 없습니다.
-      success: "%{meeting}을(를) 나갔습니다"
+      success: '%{meeting}을(를) 나갔습니다'
     new: 새로운 미팅
     google_cal:
       create:
@@ -315,12 +315,12 @@ ko:
       bookmarked_question: 이 경험을 북마크 하시겠습니까?
       resource_recommendations_question: 리소스 권장사항 표시
     index:
-      subtitle: "여러분의 정신 건강에 영향을 미치는 사건들과 상황들, 경험들을 깊이 파고드세요."
+      subtitle: '여러분의 정신 건강에 영향을 미치는 사건들과 상황들, 경험들을 깊이 파고드세요.'
       subtitle_link: 순간에 대한 글쓰기를위한 템플릿을 만들고 구성합니다.
       instructions: >-
-        아직 경험에 대한 작성 기록이 없습니다.<br><br>어디서 부터 시작하고 어떻게 말해야 할지 모르겠어도 괜찮습니다. 긍정적이어도,
-        부정적이어도 상관 없습니다. 당장 말할 필요는 없습니다. 당신이 준비가 되었을 때 말해주세요! 경험에 대한 예시입니다!
-        참고해보세요!
+        아직 경험에 대한 작성 기록이 없습니다.<br /><br />어디서 부터 시작하고 어떻게 말해야 할지 모르겠어도 괜찮습니다.
+        긍정적이어도, 부정적이어도 상관 없습니다. 당장 말할 필요는 없습니다. 당신이 준비가 되었을 때 말해주세요! 경험에 대한
+        예시입니다! 참고해보세요!
       example_name: 내일 면접 때문에 혼란에 빠졌었다.
       example_category: 경력
     show:
@@ -331,9 +331,9 @@ ko:
     plural: 기분
     edit_mood: 기분 편집
     new: 새로운 기분
-    example_moods: "긴장, 불안, 희망"
+    example_moods: '긴장, 불안, 희망'
     index:
-      subtitle: "당신의 마음, 감정, 감정을 설명하는 태그를 만드세요."
+      subtitle: '당신의 마음, 감정, 감정을 설명하는 태그를 만드세요.'
       premade1_name: 수긍
       premade1_description: 차이와 한계를 받아들이고 평화로운 상태가 됩니다.
       premade2_name: 야망
@@ -344,18 +344,18 @@ ko:
       premade4_description: 특정 사실을 받아들이지 않고 화를 내거나 복수하거나 질투하는 느낌
       premade5_name: 가망없음
       premade5_description: 슬픔과 가망이 없는 느낌 - 가능한 해결책을 찾을 수 없음
-      instructions: 아직 어떤 기분도 만들지 않았습니다.<br>기분을 미리 만들고 나중에 커스터마이즈할수도 있습니다.
+      instructions: 아직 어떤 기분도 만들지 않았습니다.<br />기분을 미리 만들고 나중에 커스터마이즈할수도 있습니다.
   notifications:
     plural: 공지
     none: 아무것도 없습니다
     clear: 처리되었습니다
-    created_by_html: "%{name} 에 의해 <strong>만들어졌습니다</strong>: "
+    created_by_html: '%{name} 에 의해 <strong>만들어졌습니다</strong>: '
     preview: 더 보기
     members:
       title: 구성원 목록
     ally:
-      accepted: "%{name} 이(가) 당신의 동료요청을 수락했습니다!"
-      sent_html: "%{link_to_user} 이(가) 동료요청을 보냈습니다!"
+      accepted: '%{name} 이(가) 당신의 동료요청을 수락했습니다!'
+      sent_html: '%{link_to_user} 이(가) 동료요청을 보냈습니다!'
     comment:
       full: '%{name} 가 %{typename}에 댓글을 달았습니다. "%{comment}" '
       truncated: '%{name} 가 %{typename}에 댓글을 달았습니다. "%{comment}" [...]'
@@ -375,11 +375,11 @@ ko:
       comment_on_moment_subject: 'if-me.org | %{user} 이(가) 당신의 경험 "%{moment}"에 댓글을 달았습니다'
       comment_on_strategy_subject: 'if-me.org | %{user} 이(가) 당신의 계획 "%{strategy}"에 댓글을 달았습니다. "%{strategy}"'
       comment_on_meeting_subject: 'if-me.org | %{user} 이(가) "%{group}"에 있는 "%{meeting}" 에 댓글을 달았습니다.'
-      comment_on_private_body: "<p>너의 동료 <strong>%{user}</strong> 이(가) 비밀 댓글을 달았습니다.:</p>"
-      comment_on_body: "<p>너의 동료 <strong>%{user}</strong> 이(가) 댓글을 남겼습니다.:</p>"
-      comment_text_cutoff: "<p><i>%{comment} [...]</i></p>"
-      comment_text: "<p><i>%{comment}</i></p>"
-      comment_link: "<p>읽으시려면 %{link} 을 눌러주세요!</p>"
+      comment_on_private_body: '<p>너의 동료 <strong>%{user}</strong> 이(가) 비밀 댓글을 달았습니다.:</p>'
+      comment_on_body: '<p>너의 동료 <strong>%{user}</strong> 이(가) 댓글을 남겼습니다.:</p>'
+      comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
+      comment_text: '<p><i>%{comment}</i></p>'
+      comment_link: '<p>읽으시려면 %{link} 을 눌러주세요!</p>'
       new_group_subject: 'if-me.org | %{user} 가 그룹 "%{group}"을(를) 만들었습니다.'
       new_group_body: >-
         <p>%{user} 이(가) "%{group}"을 만들었습니다.:</p><p><i>%{description}</i></p><p>
@@ -397,19 +397,19 @@ ko:
         <p>%{subject}</p><p><i>%{description}</i></p> <p><strong>위치:</strong>
         %{location}</p><p><strong>
         날짜:</strong>%{date}</p><p><strong>시간:</strong> %{time}</p>
-      new_meeting_link: "<p>자세한 사항과 참석을 원하시면, %{link}을 눌러주세요!</p>"
-      update_meeting_link: "<p>자세한 사항은, %{link}을 눌러주세요!</p>"
+      new_meeting_link: '<p>자세한 사항과 참석을 원하시면, %{link}을 눌러주세요!</p>'
+      update_meeting_link: '<p>자세한 사항은, %{link}을 눌러주세요!</p>'
       remove_meeting_subject: 'if-me.org | %{user} 이(가) "%{group}"에서의 "%{meeting}"미팅을 지웠습니다.'
       join_meeting_subject: 'if-me.org | %{user} 이(가) "%{group}"에서의 "%{meeting}"에 참여했습니다.'
       join_meeting_body: '<p> "%{meeting}"을 보기 위해서는, %{link}!</p>'
       reported_user_subject: if-me.org | 이 사용자를 신고했습니다
-      reported_user_body: "%{reported_name} 을(를) 신고했습니다. 이 사항은 관리자에게 보고되어질 것입니다."
+      reported_user_body: '%{reported_name} 을(를) 신고했습니다. 이 사항은 관리자에게 보고되어질 것입니다.'
       reportee_user_subject: if-me.org | 신고를 당하셨습니다.
       reportee_user_body: 신고를 당하셨습니다. 이 사항은 관리자에게 보고되어질 것입니다.
       add_ban_subject: if-me.org | 정지되었습니다.
-      add_ban_body: "당신은 우리의  %{code_of_conduct_link}을 위반해서 정지되었습니다."
+      add_ban_body: '당신은 우리의  %{code_of_conduct_link}을 위반해서 정지되었습니다.'
       remove_ban_subject: if-me.org | 정지가 해제되었습니다
-      remove_ban_body: "당신은 이전에 우리의 %{code_of_conduct_link}을 위반해서 정지되었었습니다. 이제부터 정지가 해제됩니다."
+      remove_ban_body: '당신은 이전에 우리의 %{code_of_conduct_link}을 위반해서 정지되었었습니다. 이제부터 정지가 해제됩니다.'
   omniauth:
     access_denied: 접근 거부
   pages:
@@ -422,24 +422,24 @@ ko:
         공유하는 것입니다.
       main_message_two: 정신건강을 다루면서 우리는 진정한 인간이 됩니다. 하지만 대다수의 사람들은 정신 건강에 대해 열린 자세를 취하기 힘들어 합니다.
       message_text_two: >-
-        모든 사람이 상담자나 치료사는 아닙니다. 허나 우리의 감정과 행동은 평소에 함께 대화하며 상호작용 하는 사람들로 인해
-        형성됩니다. 그러므로 이들과 함께 정신 건강 치료를 하는 것은 더 빠른 회복의 열쇠가 될 것입니다.
+        모든 사람이 상담자나 치료사는 아닙니다. 허나 우리의 감정과 행동은 평소에 함께 대화하며 상호작용 하는 사람들로 인해 형성됩니다.
+        그러므로 이들과 함께 정신 건강 치료를 하는 것은 더 빠른 회복의 열쇠가 될 것입니다.
       message_text_three: >-
         <strong>저희에게 자금을 후원하고 싶으신가요?</strong> 2016 년에 우리는 Linebreak로부터 지원금을
         받았었습니다. 2017년부터는 %{fund_club_link} 으로부터 자금을 받는 중입니다. 저희의
         %{open_collective_link} 에 후원해주심으로써 저희를 지원하실 수 있습니다.
       fund_club: 펀드 클럽
     blog:
-      description: "만약 당신이 저희를 위해 글을 쓰는데 관심이 있다면, %{email}로 보내주세요! 저희는 익명 제출도 환영합니다."
+      description: '만약 당신이 저희를 위해 글을 쓰는데 관심이 있다면, %{email}로 보내주세요! 저희는 익명 제출도 환영합니다.'
     contribute:
-      contributor_avatar_alt: "%{name}의 기부자 전기"
+      contributor_avatar_alt: '%{name}의 기부자 전기'
       message_text_one: >-
         우리는 항상 여러분으로부터 아이디어를 찾고 있어요, <strong>정신 건강 옹호자들</strong>,<strong>건강
         전문가들</strong>, <strong>소프트웨어 개발자들</strong>, <strong>번역가들</strong>, 그리고
         <strong>UX 디자이너들</strong>을 포함해서요! <p
         class="noMarginBottom">%{email_link}해주시면 저희가 당신에게 접촉할 것입니다! 당신은 저희의
-        %{slack_link} 과, 저희의 주요 커뮤니케이션 메신저에 초대받아서 참여하실 수 있습니다.
-        %{github_link}에 있는 저장소를 포크해주세요!</p>
+        %{slack_link} 과, 저희의 주요 커뮤니케이션 메신저에 초대받아서 참여하실 수 있습니다. %{github_link}에
+        있는 저장소를 포크해주세요!</p>
       more_contributors: 더많은 멋진 기여자분들!
       thanks: 감사를 표합니다
       slack: 슬랙
@@ -447,36 +447,42 @@ ko:
       title: 자주 묻는 질문들
       data_access_question: 누가 저의 데이터에 접근할 수 있나요?
       data_access_answer: >-
-        데이터는 제3자가 열람할 수 있도록 제공되거나 만들어지지 않습니다. 계정을 삭제하면 모든 데이터가 제거됩
-        니다.<br><br>사용자 데이터는                       앱 내에서 분석하여 맞춤형 권장사항을 제공합니다.
+        데이터는 제3자가 열람할 수 있도록 제공되거나 만들어지지 않습니다. 계정을 삭제하면 모든 데이터가 제거됩 니다.<br /><br
+        />사용자 데이터는                       앱 내에서 분석하여 맞춤형 권장사항을 제공합니다. <br /><br
+        />사용자가 Facebook 또는 Google을 통해 인증된 경우 프로필 사진과 이름이 계정에 사용됩니다.
       moment_question: '"경험"이 뭐에요?'
       moment_answer: >-
         <strong>%{moment}</strong> 은 당신의 정신 건강에 영향을 준 사건이나 상황들입니다. 이것은 긍정적이거나
-        부정적일 수도 있습니다. 언론 항목 또는 상태 업데이트로 생각해보면 될거에요.<br><br> 당신은 계획,카테코리,그리고 기분에
-        따라 그 경험들을 태그할 수 있습니다. 또한 동료들은 이것들을 볼 수 있고 코멘트를 남길 수도 있어요. 또한 당신만이 볼 수 있는
-        경험들을 만들 수 있습니다.
+        부정적일 수도 있습니다. 언론 항목 또는 상태 업데이트로 생각해보면 될거에요.<br /><br /> 당신은 계획,카테코리,그리고
+        기분에 따라 그 경험들을 태그할 수 있습니다. 또한 동료들은 이것들을 볼 수 있고 코멘트를 남길 수도 있어요. 또한 당신만이 볼
+        수 있는 경험들을 만들 수 있습니다.<br /><br /><strong>%{moment_templates}</strong>를
+        사용하면 재사용 가능한 쓰기 프롬프트를 만들 수 있습니다.
       strategy_question: '"계획"은 뭐에요?'
       strategy_answer: >-
         <strong>%{strategy}</strong> 은 당신이 회복에 대처하거나 집중하는 데 도움을 주는 활동, 생각의 훈련,
-        또는 자기 관리의 형태에요.<br><br> 당신은 카테고리와 함께 계획들을 태그할 수 있어요. 당신은 동료들이 볼 수 있고
+        또는 자기 관리의 형태에요.<br /><br /> 당신은 카테고리와 함께 계획들을 태그할 수 있어요. 당신은 동료들이 볼 수 있고
         코멘트를 남길 수 있는 것들을 선택할 수 있어요. 당신은 또 본인에게만 보이는 계획을 만들 수 있어요. 공유되어지는 계획들은
         지정된 모든 동료들에게 보일 거고, 그 동료들의 계획들을 너의 경험들에 태그가 될 수 있다는 말입니다.
       category_question: '"카테고리"는 뭐에요?'
-      category_answer: "<strong>%{category}</strong>은 당신에게 중요한 사람들, 장소, 사물들을 대표할 수 있는 꼬리표와 같습니다."
+      category_answer: '<strong>%{category}</strong>은 당신에게 중요한 사람들, 장소, 사물들을 대표할 수 있는 꼬리표와 같습니다.'
       mood_question: '"무드"는 뭐에요?'
-      mood_answer: "<strong>%{mood}</strong>은 당신의 마음, 감정, 감정 상태를 설명하는 태그입니다."
+      mood_answer: '<strong>%{mood}</strong>은 당신의 마음, 감정, 감정 상태를 설명하는 태그입니다.'
       group_question: '"그룹"은 뭐에요?'
       group_answer: >-
         <strong>%{group}</strong>은 정신 건강에 대한 지원, 멘토링, 의견을 제공합니다. 그룹을 만들 수 있고,
-        당신의 동료들은 참여할 선택권이 있습니다. 당신은 당신의 동료들에 의해 만들어진 그룹에만 가입할 수 있습니다. <br><br>그룹
-        리더로써, 당신은 <strong>미팅</strong>을 만들 수 있습니다. 미팅은 시간과 장소가 있습니다. 위치는 실제 위치 또는
-        Google Hangout URL일수 있습니다. 미팅에서는 코멘트를 할수도 있습니다. 그룹 리더인 경우, 다른 리더가 없는 한
-        그룹을 나갈 수 없습니다. 그룹들은 오직 당신만이 유일한 멤버일 때만 삭제할 수 있습니다.
+        당신의 동료들은 참여할 선택권이 있습니다. 당신은 당신의 동료들에 의해 만들어진 그룹에만 가입할 수 있습니다. <br /><br
+        />그룹 리더로써, 당신은 <strong>미팅</strong>을 만들 수 있습니다. 미팅은 시간과 장소가 있습니다. 위치는 실제
+        위치 또는 Google Hangout URL일수 있습니다. 미팅에서는 코멘트를 할수도 있습니다. 그룹 리더인 경우, 다른 리더가
+        없는 한 그룹을 나갈 수 없습니다. 그룹들은 오직 당신만이 유일한 멤버일 때만 삭제할 수 있습니다.
       medications_question: 의약품 메뉴를 어떤 식으로 사용할 수 있습니까?
       medications_answer: >-
         <strong>%{medications}</strong> 기능은 당신이 복용하고 있는 처방약들을 기록할 수 있게 해줍니다. 증상을
         기록할
          수도 있습니다.
+      care_plan_question: 케어 플랜 기능은 어떻게 사용합니까?
+      care_plan_answer: >-
+        <strong>%{care_plan}</strong> 기능을 사용하면 어려운 시기에 연락해야 하는 사랑하는 사람의 목록을 유지하고
+        좋아하는 자기 관리 전략을 북마크에 추가할 수 있습니다.
       invite_question: 어떻게 하면 좋아하는 사람들을 앱에 초대할 수 있습니까?
       invite_answer: >-
         <strong>%{allies}</strong> 페이지로 이동하여 "좋아하는 사람을 초대" 링크를 클릭하십시오. 당신은 이메일을
@@ -488,9 +494,7 @@ ko:
     home:
       update_pwd_modal:
         title: 비밀번호 업데이트
-        body: >-
-          사용자들을 위해 더 나은 보안 조치를 시행했습니다. %{update_password_link}로 들어가서 절차를
-          밟아주세요..
+        body: '사용자들을 위해 더 나은 보안 조치를 시행했습니다. %{update_password_link}로 들어가서 절차를 밟아주세요..'
         update_link: 비밀번호를 업데이트 하십시오.
       stories: 이야기
       not_signed_in:
@@ -498,27 +502,27 @@ ko:
         message_text_one: 부정적인 감정을 없애기 위해서는 서로간의 도움이 필요합니다.
         message_one: 사랑하는 사람들과 이야기를 나누고 그에 알맞는 도움을 받으십시오.
         message_two: 비밀이나 사적인 것에 얽매이지 말고 자신 스스로를 떠올리세요.
-        message_three: "기분, 의약품 및 자가 관리를 기록하세요."
+        message_three: '기분, 의약품 및 자가 관리를 기록하세요.'
         main_message_two: 정신건강으로의 길은 모두에게 열려있어야 하기에 저희는 오픈소스로 운영됩니다.
-        message_text_two: "저희는 <strong>항상</strong> 여러분의 %{help}과 %{feedback}을 받고 있습니다!"
+        message_text_two: '저희는 <strong>항상</strong> 여러분의 %{help}과 %{feedback}을 받고 있습니다!'
         help: 도움
       signed_in_empty:
-        main_message_one: "안녕하세요 %{name}!"
+        main_message_one: '안녕하세요 %{name}!'
         message_text_one: 여러분의 이야기를 공유할 수 있는 방법들을 소개하고자 합니다.
         main_message_two: 당신에 대해서 이야기해주세요.
         cell_one: >-
-          당신의 %{profile}을 맞춤설정 하십시오. - 자신의 건강상태와 프로필 사진을 설정하세요 <br>자신에게 맞는 감정을
-          추가하여 너의 기분을 표현하세요<br>당신이 공유하기를 바라는 친구나 가족 등을 %{allies}에 추가하세요
+          당신의 %{profile}을 맞춤설정 하십시오. - 자신의 건강상태와 프로필 사진을 설정하세요 <br />자신에게 맞는 감정을
+          추가하여 너의 기분을 표현하세요<br />당신이 공유하기를 바라는 친구나 가족 등을 %{allies}에 추가하세요
         main_message_three: 당신의 이야기를 작성하세요.
         cell_two: >-
-          자신만의 %{categories}를 생성하는것은 당신의 경험을 형성하는데 도움을 줍니다 <br>당신의 정신건강에 영향을
+          자신만의 %{categories}를 생성하는것은 당신의 경험을 형성하는데 도움을 줍니다 <br />당신의 정신건강에 영향을
           미쳤던 %{moments}을 작성하세요
         main_message_four: 스스로를 보살피십시오.
         cell_three: >-
-          %{strategize}은 당신만의 셀프 케어 계획입니다! <br>현재 %{medications}을 복용하십니까? 계속 확인하고
-          알림을 만듭시다!<br> 추가적인 도움이 필요하십니까? %{group}을 가입하거나 생성하여 도움을 받으세요
+          %{strategize}은 당신만의 셀프 케어 계획입니다! <br />현재 %{medications}을 복용하십니까? 계속
+          확인하고 알림을 만듭시다!<br /> 추가적인 도움이 필요하십니까? %{group}을 가입하거나 생성하여 도움을 받으세요
         main_message_five: 질문이나 문의사항이 있나요?
-        message_text_three: "%{faq} 페이지 또는 %{email_link}을 이용하여 주세요!"
+        message_text_three: '%{faq} 페이지 또는 %{email_link}을 이용하여 주세요!'
         strategize: 계획
     partners:
       description: >-
@@ -531,13 +535,7 @@ ko:
         </p><p>웹 사이트의 민감한 내용을 고려할 때, 개인 정보 보호는 우리에게 매우 중요한 고려요소입니다. 이 정책은 사용자
         데이터 수집 방법, 데이터 사용 대상 및 보호 방법을 간략하게 설명합니다.
       user_data: 사용자 정보
-      user_data_description: >-
-        <p>사용자들은 자신의 삶에서 발췌한("경험" 기능에서) 이야기와 의약품에 대한 정보를 우리에게 제공하고자 합니다."" 기능의
-        정보는 사용자가 누구와 공유할지 선택할 사람에게만 공유됩니다. 의약품 기능의 정보는 사용자에게만 표시됩니다. 두 정보 모두 추가
-        용도로 사용되지 않으며 외부에 전달되지 않습니다.</p> <p>또한 이 애플리케이션에는 그룹을 지원하기 위한 정보 및
-        정신 건강 문제에 대처하기 위한 계획과 관련된 정보도 포함되어 있습니다. 이 정보는 보기 권한이 부여된 사용자만 액세스할 수
-        있습니다. 현재 및 미래의 사용자에게 보여주기 위해 두 기능의 정보를 공개적으로 표시할 수 있습니다. 그러나 사용자 ID는
-        비공개로 유지됩니다.</p>
+      user_data_description: '<p>우리 %{faq_link} 페이지에는 이 웹사이트의 기능에 대한 자세한 정보가 있습니다.</p>'
       cookies: 쿠키 사용
       cookies_description: >-
         <p>이 웹사이트는 사용자가 웹사이트를 방문하는 동안 더 나은 경험을 하기 위해 쿠키를 사용합니다. 해당되는 경우 이 웹 사이트는
@@ -545,28 +543,16 @@ ko:
         <p>쿠키는 사용자의 상호 작용 및 웹 사이트의 사용에 대한 정보를 추적, 저장 및 저장하는 사용자의 컴퓨터 하드 드라이브에
         저장된 작은 파일입니다. 이를 통해 웹 사이트는 서버를 통해 사용자에게 이 웹 사이트의 맞춤형 경험을 제공할 수 있습니다.</p>
         <p>사용자는 이 웹 사이트의 쿠키를 컴퓨터 하드 드라이브에 사용하고 저장하는 것을 거부하려면 웹 브라우저 보안 설정 내에서 이
-        웹 사이트 및 외부 서비스 공급업체의 모든 쿠키를 차단하는 데 필요한 조치를 취해야 합니다.</p> <p>이 웹 사이트에서는 추적
-        소프트웨어를 사용하여 방문자가 어떻게 사용하는지 더 잘 이해할 수 있도록 모니터링합니다. 이 소프트웨어는 방문자 사용을 추적하기
-        위해 쿠키를 사용하는 Google Analytics에서 제공합니다. 소프트웨어는 사용자의 참여와 웹 사이트의 사용을 추적 및
-        모니터링하기 위해 컴퓨터의 하드 드라이브에 쿠키를 저장하지만 개인 정보를 저장, 저장 또는 수집하지는 않습니다. 자세한 내용은
-        Google의 %{google_privacy_policy}를 참조하십시오.</p>
+        웹 사이트 및 외부 서비스 공급업체의 모든 쿠키를 차단하는 데 필요한 조치를 취해야 합니다.</p>
       social_media: 소셜 미디어 플랫폼
       social_media_description: >-
         <p>본 웹 사이트가 참여하는 외부 소셜 미디어 플랫폼을 통해 이루어지는 커뮤니케이션, 참여 및 조치는 각 소셜 미디어 플랫폼과
-        함께 제공되는 개인 정보 보호 정책과 약관에 따라 달라집니다.</p><p>사용자들은 소셜 미디어 플랫폼을 현명하게 사용하고,
-        자신의 사생활과 개인적인 세부 사항에 대해 충분한 주의와 주의를 기울여 소통하는 것이 좋습니다. 본 웹 사이트는 소셜 미디어
-        플랫폼을 통해 개인 정보나 민감한 정보를 절대 요청하지 않으며, 민감한 세부 정보를 논의하고자 하는 사용자들은 전화나 이메일 등의
-        사적인 채널을 통해 연락하도록 권장합니다.</p> <p>이 웹 사이트는 웹 페이지에서 해당 소셜 미디어 플랫폼으로 직접 웹
-        콘텐츠를 공유할 수 있는 소셜 공유 버튼을 사용할 수 있습니다. 사용자는 소셜 공유 버튼을 사용하기 전에 소셜 미디어 플랫폼
-        계정을 통해 웹 페이지 공유 요청을 각각 추적하고 저장할 수 있다는 점을 유념해야 합니다.</p>
+        함께 제공되는 개인 정보 보호 정책과 약관에 따라 달라집니다.</p>
       contact: 문의하기
-      contact_description: >-
-        <p>질문이나 우려사항이 있을시 %{email_link}로 부탁드립니다.</p> <p
-        class="noMarginBottom"><em>개인 정보 보호 정책이 %{jamie_king_media}에서
-        조정되었습니다.</em></p>
+      contact_description: '<p class="no_margin_bottom">질문이나 우려사항이 있을시 %{email_link}로 부탁드립니다.</p>'
     resources:
-      description: "이것은 커뮤니티, 교육 도구, 핫라인, 서비스를 포함하는 정신 건강 자원의 큐레이션된 목록입니다."
-      emergency: "만약 여러분이나 여러분이 아는 누군가가 정신 건강이 심각할 정도로 악화되고 있다면, 가능한 한 빨리 도움을 요청하세요."
+      description: '이것은 커뮤니티, 교육 도구, 핫라인, 서비스를 포함하는 정신 건강 자원의 큐레이션된 목록입니다.'
+      emergency: '만약 여러분이나 여러분이 아는 누군가가 정신 건강이 심각할 정도로 악화되고 있다면, 가능한 한 빨리 도움을 요청하세요.'
       popular_tags: 인기 태그
       crisis_prevention:
         title: 어떻게 지내요?
@@ -714,16 +700,16 @@ ko:
       search_by_email: 이메일로 검색
     index:
       title: 동료 찾기
-      user_not_found: "%{email}를 찾을 수 없습니다"
+      user_not_found: '%{email}를 찾을 수 없습니다'
   shared:
     footer:
       licence: AGPL-3.0
-      licence_subtitle: "%{licence}를 따릅니다."
+      licence_subtitle: '%{licence}를 따릅니다.'
       connect: connect
     comments:
       share_everyone: 모든사람에게 공개하기
-      share_with: "%{name}에게만 공개하기"
-      visible_only_between_you_and: "사용자와 %{name}에게만 보이기"
+      share_with: '%{name}에게만 공개하기'
+      visible_only_between_you_and: '사용자와 %{name}에게만 보이기'
       not_allies: (동료가 아닙니다)
     header:
       signout: 로그아웃
@@ -735,25 +721,25 @@ ko:
         other: 다른사람들이 <strong>이미</strong> 조회했습니다.
       viewers_html:
         zero: 조회한 사람이 <strong>없습니다</strong>.
-        one: "%{names} 님이 조회하셨습니다."
-        other: "%{names} 님이 조회하셨습니다."
+        one: '%{names} 님이 조회하셨습니다.'
+        other: '%{names} 님이 조회하셨습니다.'
     stats:
       you_are_focusing: 당신이 가장 집중하고 있는것은
-      user_is_focusing: "%{name} (이)가 가장 집중하고 있는것은"
+      user_is_focusing: '%{name} (이)가 가장 집중하고 있는것은'
       visible_in_stats: 통계를 표시하겠습니까?
     viewers:
       plural: 조회자들
       you: 당신만
       you_link: 당신만이 볼 수 있습니다
-      many: "%{viewers}들이 볼 수 있습니다"
+      many: '%{viewers}들이 볼 수 있습니다'
     meeting_info:
       attending: 지금 참여중입니다. 마음을 바꾸시겠습니까?
-      not_attending: "당신은 참여중이 아닙니다. %{join}"
-      not_attending_one_spot_left: "당신은 참여중이 아닙니다. 한자리 남아있습니다!! %{join}"
-      not_attending_spots_left: "당신은 참여중이 아닙니다. %{number}자리 남아있습니다. %{join}"
+      not_attending: '당신은 참여중이 아닙니다. %{join}'
+      not_attending_one_spot_left: '당신은 참여중이 아닙니다. 한자리 남아있습니다!! %{join}'
+      not_attending_spots_left: '당신은 참여중이 아닙니다. %{number}자리 남아있습니다. %{join}'
       not_attending_no_spots_left: 당신은 참여중이 아닙니다. 남은자리가 없습니다.
     quick_create:
-      new: "새로운 %{name}"
+      new: '새로운 %{name}'
   strategies:
     singular: 계획
     plural: 계획들
@@ -763,55 +749,55 @@ ko:
     form:
       describe: 계획을 설명하세요
       strategies_label: 어떤 계획이 이 생각들을 달성하는데 도움이 될까?
-      name_hint: "당신을 도울 수 있는 모든 활동, 생각의 훈련, 또는 형태나 자기관리"
+      name_hint: '당신을 도울 수 있는 모든 활동, 생각의 훈련, 또는 형태나 자기관리'
       viewers_hint: 여러분의 계획을 보고 자신의 경험을 태그할 수 있는 동료들
       daily_reminder_hint: 이 계획을 수행하기 위해 매일 알림을 메일로 보내드립니다.
       draft_question: 계획을 이대로 저장 하시겠습니까?
       bookmarked_question: 이 계획을 북마크하시겠습니까?
       bookmarked_info: 북마크 된 계획이 케어 플랜에 나타납니다
     label:
-      one: "계획:"
-      other: "계획들:"
+      one: '계획:'
+      other: '계획들:'
     index:
       subtitle: 자신의 경험에 대해서 원하는 생각과 태도를 갖도록 자기관리계획을 세우십시오.
       premade1_name: 5분 명상
       premade1_description: >-
         1) <b>편안하고 쾌적한 자세를 찾으세요.</b> 위자에 앉거나 방석을 깔고 바닥에 앉으실 수 있습니다.허리를 똑바로 세우되
-        너무 꽉 조이지는 마세요. 어디던지 편안한 곳에 손을 쉬게 해주세요. 입천장이든 어디든 편안한곳에 혀를 놓으세요.
-        <br><br>2) <b>여러분의 몸을 의식하고 긴장을 푸세요.</b> 여러분의 몸의 모양과 무게를 의식하도록 노력해보세요.
+        너무 꽉 조이지는 마세요. 어디던지 편안한 곳에 손을 쉬게 해주세요. 입천장이든 어디든 편안한곳에 혀를 놓으세요. <br
+        /><br />2) <b>여러분의 몸을 의식하고 긴장을 푸세요.</b> 여러분의 몸의 모양과 무게를 의식하도록 노력해보세요.
         긴장을 풀고 여기에 앉아있는 여러분의 신체에 대해 호기심을 가지세요. 그것이 경험하는 감각, 촉감, 바닥이나 의자와의 연결 등을
-        말입니다. 꽉 끼거나 팽팽한 부분이 있으면 모두 긴장을 푸세요. 그저 숨을 쉬세요. <br><br>3) <b>숨을 들이쉬고,
-        내쉬세요.</b> 자연스러운 숨의 흐름을 느껴보세요. 아무것도 필요하지 않습니다. 길지도, 짧지도 그저 자연스럽게만 하면 됩니다.
-        여러분의 몸에서 숨이 느껴지는 곳을 주목하세요. 복부에 있을 수도 있습니다. 혹은 가슴이나 목구멍, 또는 콧구멍에 있을 수도
-        있습니다. 한 번에 한 호흡씩 호흡의 감각을 느낄 수 있는지 살펴보세요. 한 호흡이 끝나면 다음 호흡이
-        시작됩니다.<br><br>4) <b>당신의 방황하는 마음을 친절하게 대하세요.</b> 여러분이 이렇게 할 때, 여러분의 마음이
-        방황할지도 모릅니다. 아마 다른 생각을 떠올릴지도 모릅니다. 만약 이런일이 일어날지라도, 그것은 문제되지 않습니다. 아주
+        말입니다. 꽉 끼거나 팽팽한 부분이 있으면 모두 긴장을 푸세요. 그저 숨을 쉬세요. <br /><br />3) <b>숨을
+        들이쉬고, 내쉬세요.</b> 자연스러운 숨의 흐름을 느껴보세요. 아무것도 필요하지 않습니다. 길지도, 짧지도 그저 자연스럽게만
+        하면 됩니다. 여러분의 몸에서 숨이 느껴지는 곳을 주목하세요. 복부에 있을 수도 있습니다. 혹은 가슴이나 목구멍, 또는 콧구멍에
+        있을 수도 있습니다. 한 번에 한 호흡씩 호흡의 감각을 느낄 수 있는지 살펴보세요. 한 호흡이 끝나면 다음 호흡이
+        시작됩니다.<br /><br />4) <b>당신의 방황하는 마음을 친절하게 대하세요.</b> 여러분이 이렇게 할 때, 여러분의
+        마음이 방황할지도 모릅니다. 아마 다른 생각을 떠올릴지도 모릅니다. 만약 이런일이 일어날지라도, 그것은 문제되지 않습니다. 아주
         자연스러운 입입니다. 그저 자신의 마음이 방황했다는 사실을 알아두세요. 머리 속에서 "생각한다" 라거나 "방황한다" 라고 부드럽게
         말할 수 있습니다. 그리고 나서 여러분의 주의를 다시 호흡으로 부드럽게 돌립니다. 여기서 5분에서 7분정도 머무르세요. 당신의
-        숨에 조용히 주목합시다. 이따금씩 생각에 잠기다가 다시 호흡으로 돌아오게 됩니다. <br><br>6) <b>끝내기 전에
+        숨에 조용히 주목합시다. 이따금씩 생각에 잠기다가 다시 호흡으로 돌아오게 됩니다. <br /><br />6) <b>끝내기 전에
         확인해봅시다.</b> 몇분이 지나면 다시 한번 당신의 신체, 몸 전체가 여기 앉아 있는것을 의식하세요. 스스로 더 깊게 긴장을
-        푸시길 바라고 이 연습을 수행하는데 있어 스스로에게 감사를 표합시다. <br><br><i>출처 :
+        푸시길 바라고 이 연습을 수행하는데 있어 스스로에게 감사를 표합시다. <br /><br /><i>출처 :
         http://www.mindful.org/a-five-minute-breathing-meditation/ </i>
-      instructions: 아직 어떤 계획도 만들지 않았습니다.<br>또한 사전 계획을 미리 만들고 나중에 맞춤설정할수도 있습니다.
+      instructions: 아직 어떤 계획도 만들지 않았습니다.<br />또한 사전 계획을 미리 만들고 나중에 맞춤설정할수도 있습니다.
     reminder_mailer:
-      subject: "%{name}을(를) 하는것을 잊지 마십시오!!"
-      body: "%{name}을(를) 수행하라는 친절한 알림메세지 입니다!"
+      subject: '%{name}을(를) 하는것을 잊지 마십시오!!'
+      body: '%{name}을(를) 수행하라는 친절한 알림메세지 입니다!'
   stats:
-    total_moments: "<strong>총</strong> <strong>%{count}</strong> 개의 경험들을 작성했습니다."
+    total_moments: '<strong>총</strong> <strong>%{count}</strong> 개의 경험들을 작성했습니다.'
     total_moment: |-
       <strong>총</strong> <strong>%{count}</strong> 개의
        경험을 작성했습니다.
-    monthly_moments: "이번 <strong>달</strong> 에는 총 <strong>%{count}</strong> 개의 경험들을 작성했습니다."
-    monthly_moment: "이번 <strong>달</strong> 에는 총 <strong>%{count}</strong> 개의 경험을 작성했습니다."
+    monthly_moments: '이번 <strong>달</strong> 에는 총 <strong>%{count}</strong> 개의 경험들을 작성했습니다.'
+    monthly_moment: '이번 <strong>달</strong> 에는 총 <strong>%{count}</strong> 개의 경험을 작성했습니다.'
   warnings:
     no_description: 설명을 쓰지 않았습니다!
     yes_description: 글을 쓰는것은 나와 다른사람들이 더 잘 이해하는 데 도움이 됩니다.
   mailers:
     accepted_ally_request:
-      subject: "if-me.org | %{ally_name} accepted your ally request!"
-      message: "<p>축하합니다! 이제 경험들과 계획등을 %{ally_name}과 공유 할 수 있습니다</p>"
+      subject: 'if-me.org | %{ally_name} accepted your ally request!'
+      message: '<p>축하합니다! 이제 경험들과 계획등을 %{ally_name}과 공유 할 수 있습니다</p>'
     new_ally_request:
-      subject: "if-me.org | %{ally_name} 이(가) 당신의 동료요청을 수락했습니다!"
+      subject: 'if-me.org | %{ally_name} 이(가) 당신의 동료요청을 수락했습니다!'
       message: '<p><a href="%{allies_url}">로그인</a> 하여 요청을 수락하거나 거절하세요!</p>'
   devise:
     password: 비밀번호
@@ -842,7 +828,7 @@ ko:
         send_instructions: 비밀번호 재설정 메일 보내기
     registrations:
       email_notifications: 이메일 알림
-      comment_notify_text: "경험, 계획, 미팅들에 대한 댓글"
+      comment_notify_text: '경험, 계획, 미팅들에 대한 댓글'
       ally_notify_text: 새 수락된 동료 요청
       group_notify_text: 그룹 업데이트
       meeting_notify_text: 미팅 업데이트
@@ -850,12 +836,10 @@ ko:
       google_auth2: >-
         Google에서 인증을 받았으므로 비밀번호를 입력할 필요가 없습니다. 이것을 바꾸고 싶으시다면 새로운 이메일과 비밀번호를
         입력하십시오.
-      facebook_auth1: >-
-        더 이상 Facebook을 통해 인증하지 않으려면 새 이메일과 비밀번호를 입력하십시오.
-      facebook_auth2: >-
-        Facebook 인증을 받았으므로 비밀번호를 입력 할 필요가 없습니다. 이를 변경하려면 새 이메일과 비밀번호를 입력하십시오.
+      facebook_auth1: 더 이상 Facebook을 통해 인증하지 않으려면 새 이메일과 비밀번호를 입력하십시오.
+      facebook_auth2: Facebook 인증을 받았으므로 비밀번호를 입력 할 필요가 없습니다. 이를 변경하려면 새 이메일과 비밀번호를 입력하십시오.
       password_errors:
-        format: "8자~128자 내로."
+        format: 8자~128자 내로.
       placeholders:
         repeat_password: 비밀번호 확인
       edit:
@@ -876,7 +860,7 @@ ko:
           button: 계정 영구 탈퇴
           confirm: 정말이신가요? 모든 데이터가 삭제됩니다. 하지만 언제든 다시 가입하실 수 있습니다!
       new:
-        subtitle: "안전하고, 사적인 공간에서 당신의 이야기를 나누고 건강을 유지하세요"
+        subtitle: '안전하고, 사적인 공간에서 당신의 이야기를 나누고 건강을 유지하세요'
         label: 몇 가지 세부 사항
     sessions:
       subtitle: 다시 오신것을 환영합니다. 우리는 당신이 당신의 하루를 해결하는데 도움을 드릴 수 있도록 최선을 다하겠습니다.
@@ -904,8 +888,8 @@ ko:
       subtitle: 순간을위한 템플릿 작성
       new_template: 새 템플릿
       edit_template: 템플릿 편집
-      instructions: 아직 템플릿을 생성하지 않았습니다.<br>다음 미리 만들어진 템플릿을 추가하고 나중에 맞춤 설정할 수도 있습니다.
+      instructions: 아직 템플릿을 생성하지 않았습니다.<br />다음 미리 만들어진 템플릿을 추가하고 나중에 맞춤 설정할 수도 있습니다.
       premade1_name: 기본
-      premade1_description: 무슨 일이 일어 났고 기분이 어때?<br>어떤 생각을하고 싶나요?
+      premade1_description: 무슨 일이 일어 났고 기분이 어때?<br />어떤 생각을하고 싶나요?
       premade2_name: 감사
-      premade2_description: 자신에 대해 고마운 점 한 가지는 무엇입니까?<br>오늘 무엇을 기대하십니까?
+      premade2_description: 자신에 대해 고마운 점 한 가지는 무엇입니까?<br />오늘 무엇을 기대하십니까?
