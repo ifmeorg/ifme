@@ -4,6 +4,10 @@ import { queryByText, render } from '@testing-library/react';
 import React from 'react';
 import { HeaderProfile } from '../HeaderProfile';
 
+jest.mock('widgets/Notifications', () => ({
+  Notifications: () => <></>,
+}));
+
 const profileWithAvatar = {
   avatar: '//congue.volutpat/sollicitudin.jpg',
   name: 'Sollicitudin',
