@@ -69,18 +69,10 @@ ReactOnRails.configure do |config|
   ################################################################################
   # Replace the following line to the location where you keep translation.js & default.js for use by client
   config.i18n_dir = Rails.root.join('client', 'app', 'libs', 'i18n')
+  config.i18n_output_format = 'js'
   #
   # Replace the following line to the location where you keep your client i18n yml files
   # that will source for automatic generation on translations.js & default.js
   # By default(without this option) all yaml files from Rails.root.join("config", "locales") and installed gems are loaded
   # config.i18n_yml_dir = Rails.root.join("config", "locales", "client")
-
-  ################################################################################
-  # MISCELLANEOUS OPTIONS
-  ################################################################################
-
-  # If you want to use webpack for CSS and images, and still use the asset pipeline,
-  # see https://github.com/shakacode/react_on_rails/blob/master/docs/additional-reading/rails-assets.md
-  # And you will use a setting like this.
-  # config.symlink_non_digested_assets_regex = /\.(png|jpg|jpeg|gif|tiff|woff|ttf|eot|svg|map)/
 end

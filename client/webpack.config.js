@@ -6,7 +6,7 @@ const glob = require('glob');
 const { resolve } = require('path');
 const CompressionPlugin = require('compression-webpack-plugin');
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
-const ManifestPlugin = require('webpack-manifest-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -15,15 +15,14 @@ const webpack = require('webpack');
 const configPath = resolve('..', 'config');
 const devOrTestMode = process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test';
 const { output } = webpackConfigLoader(configPath);
-const outputFilename = `[name]${devOrTestMode ? '-[hash]' : ''}`;
+const outputFilename = `[name]${devOrTestMode ? '-[contenthash]' : ''}`;
 
 const cssLoaderWithModules = {
   loader: 'css-loader',
   options: {
     modules: {
-      localIdentName: '[name]__[local]___[hash:base64:5]',
+      localIdentName: '[name]__[local]___[contenthash:base64:5]',
     },
-    localsConvention: 'camelCase',
     importLoaders: 1,
   },
 };
@@ -45,13 +44,15 @@ const config = {
       pages: resolve(__dirname, 'app/pages'),
     },
     extensions: ['.js', '.jsx', '.scss'],
+    // For react-render-html package
+    fallback: { "stream": require.resolve("stream-browserify") }
   },
 
   entry: {
     // Shims should be singletons, and webpack bundle is always loaded
     webpack_bundle: [
-      'es5-shim/es5-shim',
-      'es5-shim/es5-sham',
+      // 'es5-shim/es5-shim',
+      // 'es5-shim/es5-sham',
       '@babel/polyfill',
     ].concat(glob.sync('./app/startup/*')),
   },
@@ -74,9 +75,8 @@ const config = {
       maxAsyncRequests: 5,
       maxInitialRequests: 3,
       automaticNameDelimiter: '~',
-      name: true,
       cacheGroups: {
-        vendors: {
+        defaultVendors: {
           test: /[\\/]node_modules[\\/]/,
           priority: -10,
         },
@@ -112,23 +112,30 @@ const config = {
       chunkFilename: `${outputFilename}.chunk.css`,
       hot: !!devOrTestMode,
     }),
-    new ManifestPlugin({ publicPath: output.publicPath, writeToFileEmit: true }),
+    new WebpackManifestPlugin({ publicPath: output.publicPath, writeToFileEmit: true }),
     // only load moment.js data for locales we support (see config/locale.rb)
     new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en|es|de|it|nb|nl|pt-BR|sv|vi|fr/),
   ],
 
   module: {
     rules: [
-      {
-        test: require.resolve('react'),
-        use: {
-          loader: 'imports-loader',
-          options: {
-            shim: 'es5-shim/es5-shim',
-            sham: 'es5-shim/es5-sham',
-          },
-        },
-      },
+      // {
+      //   test: require.resolve('react'),
+      //   use: {
+      //     loader: 'imports-loader',
+      //     options: {
+      //       // shim: 'es5-shim/es5-shim',
+      //       // sham: 'es5-shim/es5-sham',
+      //       imports: [
+      //         {
+      //           syntax: 'default',
+      //           moduleName: 'react',
+      //           name: 'React',
+      //         },
+      //       ],
+      //     },
+      //   },
+      // },
       {
         test: /\.jsx?$/,
         use: 'babel-loader',
@@ -143,9 +150,8 @@ const config = {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: '[name]__[local]___[hash:base64:5]',
+                localIdentName: '[name]__[local]___[contenthash:base64:5]',
               },
-              localsConvention: 'camelCase',
             },
           },
         ],
@@ -167,9 +173,8 @@ const config = {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: '[name]__[local]___[hash:base64:5]',
+                localIdentName: '[name]__[local]___[contenthash:base64:5]',
               },
-              localsConvention: 'camelCase',
             },
           },
           'sass-loader',
@@ -195,10 +200,11 @@ const config = {
             loader: 'url-loader',
             options: {
               limit: 8000,
-              name: 'images/[hash]-[name].[ext]',
+              name: 'images/[contenthash]-[name].[ext]',
             },
           },
         ],
+        type: 'javascript/auto',
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
@@ -207,10 +213,11 @@ const config = {
           {
             loader: 'file-loader',
             options: {
-              name: 'fonts/[hash]-[name].[ext]',
+              name: 'fonts/[contenthash]-[name].[ext]',
             },
           },
         ],
+        type: 'javascript/auto',
       },
     ],
   },

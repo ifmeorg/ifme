@@ -346,7 +346,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rdoc (6.3.1)
-    react_on_rails (12.0.1)
+    react_on_rails (12.4.0)
       addressable
       connection_pool
       execjs (~> 2.5)
@@ -585,7 +585,7 @@ DEPENDENCIES
   rails-erd (~> 1.6)
   rails-i18n (~> 6.0.0)
   rails_12factor (= 0.0.3)
-  react_on_rails (= 12.0.1)
+  react_on_rails (= 12.4.0)
   recaptcha
   resque (= 2.0.0)
   resque-scheduler (= 4.4.0)
