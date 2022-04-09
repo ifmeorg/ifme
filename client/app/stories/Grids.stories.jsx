@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import css from 'styles/_global.scss';
 
@@ -22,7 +23,7 @@ export default {
   title: 'Style Guide/Grids',
 };
 
-export const Grids = () => (
+const Template = (args) => (
   <>
     {getGrid('gridTwo', 'ItemBoxDark')}
     {getGrid('gridTwo', 'ItemBoxGhost')}
@@ -33,3 +34,5 @@ export const Grids = () => (
     {getGrid('gridMany', 'Item')}
   </>
 );
+
+export const Default = Template.bind({});

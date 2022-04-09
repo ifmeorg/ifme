@@ -1,29 +1,31 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Form } from 'components/Form';
 import { InputMocks } from 'mocks/InputMocks';
 
 export default {
   title: 'Components/Form',
-  parameters: {
-    backgrounds: { default: 'mulberry' },
-  },
+  component: Form,
 };
 
-export const Default = () => (
-  <Form
-    action="/post-wont-work"
-    inputs={[
-      { ...InputMocks.inputTextProps, required: true },
-      {
-        ...InputMocks.inputTextareaProps,
-        required: true,
-        accordion: true,
-      },
-      InputMocks.inputSelectProps,
-      { ...InputMocks.inputCheckboxGroupProps, required: true },
-      InputMocks.inputTagProps,
-      InputMocks.inputSwitchProps,
-      InputMocks.inputSubmitProps,
-    ]}
-  />
-);
+const Template = (args) => <Form {...args} />;
+
+export const Default = Template.bind({});
+
+Default.args = {
+  action: '/post-wont-work',
+  inputs: [
+    { ...InputMocks.inputTextProps, required: true, dark: true },
+    {
+      ...InputMocks.inputTextareaProps,
+      required: true,
+      accordion: true,
+      dark: true,
+    },
+    { ...InputMocks.inputSelectProps, dark: true },
+    { ...InputMocks.inputCheckboxGroupProps, required: true, dark: true },
+    { ...InputMocks.inputTagProps, dark: true },
+    { ...InputMocks.inputSwitchProps, dark: true },
+    { ...InputMocks.inputSubmitProps, dark: true },
+  ],
+};

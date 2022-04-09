@@ -1,66 +1,73 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Avatar } from 'components/Avatar';
 /* eslint-disable import/no-extraneous-dependencies */
 import photo from 'app/assets/images/contributors/ingrid_garcia.jpg';
 
-const name = 'Tara';
+const name = 'Name';
 
 export default {
   title: 'Components/Avatar',
+  component: Avatar,
 };
 
-export const WithImage = () => (
-  <>
-    <Avatar src={photo} small />
-    <br />
-    <Avatar src={photo} />
-    <br />
-    <Avatar src={photo} large />
-  </>
-);
+const Template = (args) => <Avatar {...args} />;
 
-WithImage.story = {
-  name: 'With image',
-};
+export const RegularSizeWithImage = Template.bind({});
 
-export const WithoutImage = () => (
-  <>
-    <Avatar small />
-    <br />
-    <Avatar />
-    <br />
-    <Avatar large />
-  </>
-);
+RegularSizeWithImage.args = { src: photo };
+RegularSizeWithImage.storyName = 'Regular size with image';
 
-WithoutImage.story = {
-  name: 'Without image',
-};
+export const SmallSizeWithImage = Template.bind({});
 
-export const WithImageAndName = () => (
-  <>
-    <Avatar src={photo} name={name} small />
-    <br />
-    <Avatar src={photo} name={name} />
-    <br />
-    <Avatar src={photo} name={name} large />
-  </>
-);
+SmallSizeWithImage.args = { src: photo, small: true };
+SmallSizeWithImage.storyName = 'Small size with image';
 
-WithImageAndName.story = {
-  name: 'With image and name',
-};
+export const LargeSizeWithImage = Template.bind({});
 
-export const WithoutImageAndWithName = () => (
-  <>
-    <Avatar small name={name} />
-    <br />
-    <Avatar name={name} />
-    <br />
-    <Avatar name={name} large />
-  </>
-);
+LargeSizeWithImage.args = { src: photo, large: true };
+LargeSizeWithImage.storyName = 'Large size with image';
 
-WithoutImageAndWithName.story = {
-  name: 'Without image and with name',
-};
+export const RegularSizeWithNoImage = Template.bind({});
+
+RegularSizeWithNoImage.storyName = 'Regular size with no image';
+
+export const SmallSizeWithNoImage = Template.bind({});
+
+SmallSizeWithNoImage.args = { small: true };
+SmallSizeWithNoImage.storyName = 'Small size with no image';
+
+export const LargeSizeWithNoImage = Template.bind({});
+
+LargeSizeWithNoImage.args = { large: true };
+LargeSizeWithNoImage.storyName = 'Large size with no image';
+
+export const RegularSizeWithImageAndName = Template.bind({});
+
+RegularSizeWithImageAndName.args = { src: photo, name };
+RegularSizeWithImageAndName.storyName = 'Regular size with image and name';
+
+export const SmallSizeWithImageAndName = Template.bind({});
+
+SmallSizeWithImageAndName.args = { src: photo, small: true, name };
+SmallSizeWithImageAndName.storyName = 'Small size with image and name';
+
+export const LargeSizeWithImageAndName = Template.bind({});
+
+LargeSizeWithImageAndName.args = { src: photo, large: true, name };
+LargeSizeWithImageAndName.storyName = 'Large size with image and name';
+
+export const RegularSizeWithNameAndNoImage = Template.bind({});
+
+RegularSizeWithNameAndNoImage.args = { name };
+RegularSizeWithNameAndNoImage.storyName = 'Regular size with name and no image';
+
+export const SmallSizeWithNameAndNoImage = Template.bind({});
+
+SmallSizeWithNameAndNoImage.args = { small: true, name };
+SmallSizeWithNameAndNoImage.storyName = 'Small size with name and no image';
+
+export const LargeSizeWithNameAndNoImage = Template.bind({});
+
+LargeSizeWithNameAndNoImage.args = { large: true, name };
+LargeSizeWithNameAndNoImage.storyName = 'Large size with name and no image';

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Resource } from 'components/Resource';
 
@@ -12,44 +13,44 @@ const tags = [
 
 export default {
   title: 'Components/Resource',
-  parameters: {
-    backgrounds: { default: 'mulberry' },
-  },
+  component: Resource,
 };
 
-export const WithTags = () => (
-  <Resource
-    tags={tags.concat(tags)}
-    title="LifeSIGNS: Self Injury Guidance & Network Support (UK)"
-    link="http://www.lifesigns.org.uk/"
-  />
-);
+const Template = (args) => <Resource {...args} />;
 
-WithTags.story = {
-  name: 'With tags',
+export const WithTags = Template.bind({});
+
+WithTags.args = {
+  tags: tags.concat(tags),
+  title: 'LifeSIGNS: Self Injury Guidance & Network Support (UK)',
+  link: 'http://www.lifesigns.org.uk/',
 };
-
-export const WithoutTags = () => (
-  <Resource
-    title="A very long title for a resource that should wrap to two lines and then some or not"
-    link="www.if-me.org"
-    author="Author with a very very long name that is usually an edge case"
-  />
-);
-
-WithoutTags.story = {
-  name: 'Without tags',
+WithTags.parameters = {
+  backgrounds: { default: 'mulberry' },
 };
+WithTags.storyName = 'With tags';
 
-export const WithAllOptions = () => (
-  <Resource
-    tags={tags.concat(tags)}
-    title="Invisible Illnesses: depression is an ocean, and another measure to consider"
-    link="www.if-me.org"
-    author="Desi Rottman"
-  />
-);
+export const WithoutTags = Template.bind({});
 
-WithAllOptions.story = {
-  name: 'With all options',
+WithoutTags.args = {
+  title: 'A very long title for a resource that should wrap to two lines and then some or not',
+  link: 'https://if-me.org',
+  author: 'Author with a very very long name that is usually an edge case',
 };
+WithoutTags.parameters = {
+  backgrounds: { default: 'mulberry' },
+};
+WithoutTags.storyName = 'Without tags';
+
+export const WithAllProps = Template.bind({});
+
+WithAllProps.args = {
+  tags: tags.concat(tags),
+  title: 'Invisible Illnesses: depression is an ocean, and another measure to consider',
+  link: 'https://if-me.org',
+  author: 'Desi Rottman',
+};
+WithAllProps.parameters = {
+  backgrounds: { default: 'mulberry' },
+};
+WithAllProps.storyName = 'With all props';

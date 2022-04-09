@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import css from 'styles/_global.scss';
 
@@ -25,7 +26,7 @@ export default {
   title: 'Style Guide/Margins',
 };
 
-export const Margins = () => (
+const MarginsTemplate = (args) => (
   <>
     {getMargin('marginRight')}
     {getMargin('smallMarginRight')}
@@ -38,3 +39,5 @@ export const Margins = () => (
     {getMargin('noMarginBottom')}
   </>
 );
+
+export const Margins = MarginsTemplate.bind({});
