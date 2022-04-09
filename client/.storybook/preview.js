@@ -1,15 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies, import/no-unresolved, import/extensions */
-import { setDefaults, withInfo } from '@storybook/addon-info';
 import { addDecorator, addParameters } from '@storybook/react';
 import './stories.scss';
-
-// addon-info
-setDefaults({
-  header: true,
-  inline: true,
-  source: true,
-  propTables: false,
-});
 
 export const parameters = {
   backgrounds: {
@@ -22,12 +13,3 @@ export const parameters = {
     ],
   },
 };
-
-addDecorator(withInfo({
-  styles: {
-    infoBody: { margin: '0', padding: '20px' },
-    infoPage: { margin: '0' },
-    infoStory: { margin: '0', padding: '20px 0' },
-    source: { h1: { margin: '0' } },
-  },
-}));

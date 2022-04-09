@@ -7,10 +7,13 @@
     "start": "foreman start -f Procfile.dev"
   },
   "engines": {
-    "node": "14.8.0"
+    "node": "16.14.2"
   },
   "cacheDirectories": [
     "node_modules",
     "client/node_modules"
+  ],
+  "browserslist": [
+    "defaults"
   ]
 }
