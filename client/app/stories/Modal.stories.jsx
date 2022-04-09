@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Modal } from 'components/Modal';
 /* eslint-disable import/no-extraneous-dependencies */
@@ -22,71 +23,64 @@ const openListener = () => {
 
 export default {
   title: 'Components/Modal',
+  component: Modal,
 };
 
-export const TextValuesForElementAndBody = () => (
-  <Modal element="Hello" body={bodyText} title={title} />
-);
+const Template = (args) => <Modal {...args} />;
 
-TextValuesForElementAndBody.story = {
-  name: 'Text values for element and body',
+export const TextValuesForElementAndBody = Template.bind({});
+
+TextValuesForElementAndBody.args = {
+  element: 'Hello',
+  body: bodyText,
+  title,
 };
+TextValuesForElementAndBody.storyName = 'Text values for element and body';
 
-export const LongTextValueForcingBodyToScroll = () => (
-  <Modal element="Hello" body={longBodyText} title={title} />
-);
+export const LongTextValueForcingBodyToScroll = Template.bind({});
 
-LongTextValueForcingBodyToScroll.story = {
-  name: 'Long text value forcing body to scroll',
+LongTextValueForcingBodyToScroll.args = {
+  element: 'Hello',
+  body: longBodyText,
+  title,
 };
+LongTextValueForcingBodyToScroll.storyName = 'Long text value forcing body to scroll';
 
-export const TextValuesForElementAndBodyWithOpenListener = () => (
-  <Modal
-    element="Hello"
-    body={bodyText}
-    title={title}
-    openListener={openListener}
-  />
-);
+export const TextValuesForElementAndBodyWithOpenListener = Template.bind({});
 
-TextValuesForElementAndBodyWithOpenListener.story = {
-  name: 'Text values for element and body with openListener',
+TextValuesForElementAndBodyWithOpenListener.args = {
+  element: 'Hello',
+  body: bodyText,
+  title,
+  openListener,
 };
+TextValuesForElementAndBodyWithOpenListener.storyName = 'Text values for element and body with openListener';
 
-export const HtmlValuesForElementAndBody = () => (
-  <Modal
-    element={<button type="button">Hello</button>}
-    body={bodyHTML}
-    title={title}
-  />
-);
+export const HtmlValuesForElementAndBody = Template.bind({});
 
-HtmlValuesForElementAndBody.story = {
-  name: 'HTML values for element and body',
+HtmlValuesForElementAndBody.args = {
+  element: <button type="button">Hello</button>,
+  body: bodyHTML,
+  title,
 };
+HtmlValuesForElementAndBody.storyName = 'HTML values for element and body';
 
-export const HtmlValuesForElementAndBodyWithOpenListener = () => (
-  <Modal
-    element={<button type="button">Hello</button>}
-    body={bodyHTML}
-    title={title}
-    openListener={openListener}
-  />
-);
+export const HtmlValuesForElementAndBodyWithOpenListener = Template.bind({});
 
-HtmlValuesForElementAndBodyWithOpenListener.story = {
-  name: 'HTML values for element and body with openListener',
+HtmlValuesForElementAndBodyWithOpenListener.args = {
+  element: <button type="button">Hello</button>,
+  body: bodyHTML,
+  title,
+  openListener,
 };
+HtmlValuesForElementAndBodyWithOpenListener.storyName = 'HTML values for element and body with openListener';
 
-export const AvatarComponentAsTheElement = () => (
-  <Modal
-    element={{ component: 'Avatar', props: { src: photo, small: true } }}
-    body={bodyHTML}
-    title={title}
-    openListener={openListener}
-  />
-);
+export const AvatarComponentAsTheElement = Template.bind({});
 
-AvatarComponentAsTheElement.story = {
-  name: 'Avatar component as the element',
+AvatarComponentAsTheElement.args = {
+  element: { component: 'Avatar', props: { src: photo, small: true } },
+  body: bodyHTML,
+  title,
+  openListener,
 };
+AvatarComponentAsTheElement.storyName = 'Avatar component as the element';

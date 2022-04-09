@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable max-len */
 import React from 'react';
 import { Tooltip } from 'components/Tooltip';
 import { Logo } from 'components/Logo';
@@ -9,7 +11,7 @@ export default {
   title: 'Components/Tooltip',
 };
 
-export const ElementIsText = () => (
+const ElementIsTextTemplate = (args) => (
   <center>
     <Tooltip element="Hello" text={longText} />
     <br />
@@ -18,11 +20,11 @@ export const ElementIsText = () => (
   </center>
 );
 
-ElementIsText.story = {
-  name: 'Element is text',
-};
+export const ElementIsText = ElementIsTextTemplate.bind({});
 
-export const ElementIsHtml = () => (
+ElementIsText.storyName = 'Element is text';
+
+const ElementIsHtmlTemplate = (args) => (
   <center>
     <Tooltip element={<Logo lg />} text={longText} />
     <br />
@@ -31,15 +33,14 @@ export const ElementIsHtml = () => (
   </center>
 );
 
-ElementIsHtml.story = {
-  name: 'Element is HTML',
-};
+export const ElementIsHtml = ElementIsHtmlTemplate.bind({});
 
+ElementIsHtml.storyName = 'Element is HTML';
 ElementIsHtml.parameters = {
   backgrounds: { default: 'mulberry' },
 };
 
-export const ElementIsTextAndTooltipIsPositionedRight = () => (
+const ElementIsTextAndTooltipIsPositionedRightTemplate = (args) => (
   <center>
     <Tooltip element="Hello" text={longText} right />
     <br />
@@ -48,11 +49,11 @@ export const ElementIsTextAndTooltipIsPositionedRight = () => (
   </center>
 );
 
-ElementIsTextAndTooltipIsPositionedRight.story = {
-  name: 'Element is text and tooltip is positioned right',
-};
+export const ElementIsTextAndTooltipIsPositionedRight = ElementIsTextAndTooltipIsPositionedRightTemplate.bind({});
 
-export const ElementIsHtmlAndTooltipIsPositionedRight = () => (
+ElementIsTextAndTooltipIsPositionedRight.storyName = 'Element is text and tooltip is positioned right';
+
+const ElementIsHtmlAndTooltipIsPositionedRightTemplate = (args) => (
   <center>
     <Tooltip element={<Logo lg />} text={longText} right />
     <br />
@@ -61,15 +62,14 @@ export const ElementIsHtmlAndTooltipIsPositionedRight = () => (
   </center>
 );
 
-ElementIsHtmlAndTooltipIsPositionedRight.story = {
-  name: 'Element is HTML and tooltip is positioned right',
-};
+export const ElementIsHtmlAndTooltipIsPositionedRight = ElementIsHtmlAndTooltipIsPositionedRightTemplate.bind({});
 
+ElementIsHtmlAndTooltipIsPositionedRight.storyName = 'Element is HTML and tooltip is positioned right';
 ElementIsHtmlAndTooltipIsPositionedRight.parameters = {
   backgrounds: { default: 'mulberry' },
 };
 
-export const ElementIsTextAndTooltipIsPositionedCenter = () => (
+const ElementIsTextAndTooltipIsPositionedCenterTemplate = (args) => (
   <center>
     <Tooltip element="Hello" text={longText} center />
     <br />
@@ -78,11 +78,11 @@ export const ElementIsTextAndTooltipIsPositionedCenter = () => (
   </center>
 );
 
-ElementIsTextAndTooltipIsPositionedCenter.story = {
-  name: 'Element is text and tooltip is positioned center',
-};
+export const ElementIsTextAndTooltipIsPositionedCenter = ElementIsTextAndTooltipIsPositionedCenterTemplate.bind({});
 
-export const ElementIsHtmlAndTooltipIsPositionedCenter = () => (
+ElementIsTextAndTooltipIsPositionedCenter.storyName = 'Element is text and tooltip is positioned center';
+
+const ElementIsHtmlAndTooltipIsPositionedCenterTemplate = (args) => (
   <center>
     <Tooltip element={<Logo lg />} text={longText} center />
     <br />
@@ -91,10 +91,9 @@ export const ElementIsHtmlAndTooltipIsPositionedCenter = () => (
   </center>
 );
 
-ElementIsHtmlAndTooltipIsPositionedCenter.story = {
-  name: 'Element is HTML and tooltip is positioned center',
-};
+export const ElementIsHtmlAndTooltipIsPositionedCenter = ElementIsHtmlAndTooltipIsPositionedCenterTemplate.bind({});
 
+ElementIsHtmlAndTooltipIsPositionedCenter.storyName = 'Element is HTML and tooltip is positioned center';
 ElementIsHtmlAndTooltipIsPositionedCenter.parameters = {
   backgrounds: { default: 'mulberry' },
 };

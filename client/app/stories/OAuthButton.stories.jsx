@@ -1,38 +1,48 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { OAuthButton } from 'components/OAuthButton';
 
 export default {
   title: 'Components/OAuthButton',
+  component: OAuthButton,
 };
 
-export const SignInWithGoogle = () => (
-  <OAuthButton signIn type="google" token="token" action="/fake-action" />
-);
+const Template = (args) => <OAuthButton {...args} />;
 
-SignInWithGoogle.story = {
-  name: 'Sign in with Google',
+export const SignInWithGoogle = Template.bind({});
+
+SignInWithGoogle.args = {
+  signIn: true,
+  type: 'google',
+  token: 'token',
+  action: '/fake-action',
 };
+SignInWithGoogle.storyName = 'Sign in with Google';
 
-export const SignUpWithGoogle = () => (
-  <OAuthButton type="google" token="token" action="/fake-action" />
-);
+export const SignUpWithGoogle = Template.bind({});
 
-SignUpWithGoogle.story = {
-  name: 'Sign up with Google',
+SignUpWithGoogle.args = {
+  type: 'google',
+  token: 'token',
+  action: '/fake-action',
 };
+SignUpWithGoogle.storyName = 'Sign up with Google';
 
-export const SignInWithFacebook = () => (
-  <OAuthButton signIn type="facebook" token="token" action="/fake-action" />
-);
+export const SignInWithFacebook = Template.bind({});
 
-SignInWithFacebook.story = {
-  name: 'Sign in with Facebook',
+SignInWithFacebook.args = {
+  signIn: true,
+  type: 'facebook',
+  token: 'token',
+  action: '/fake-action',
 };
+SignInWithFacebook.storyName = 'Sign in with Facebook';
 
-export const SignUpWithFacebook = () => (
-  <OAuthButton type="facebook" token="token" action="/fake-action" />
-);
+export const SignUpWithFacebook = Template.bind({});
 
-SignUpWithFacebook.story = {
-  name: 'Sign up with Facebook',
+SignUpWithFacebook.args = {
+  type: 'facebook',
+  token: 'token',
+  action: '/fake-action',
 };
+SignUpWithFacebook.storyName = 'Sign up with Facebook';

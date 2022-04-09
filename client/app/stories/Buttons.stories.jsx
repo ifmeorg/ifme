@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import css from 'styles/_global.scss';
 
@@ -19,21 +20,14 @@ export default {
   title: 'Style Guide/Buttons',
 };
 
-export const Buttons = () => (
+const LightBackgroundTemplate = (args) => (
   <div style={rowStyle}>
     <div>
-      <h1>Default</h1>
+      <h1>Regular</h1>
       {getButton('buttonXS')}
       {getButton('buttonS')}
       {getButton('buttonM')}
       {getButton('buttonL')}
-    </div>
-    <div>
-      <h1>Ghost</h1>
-      {getButton('buttonGhostXS')}
-      {getButton('buttonGhostS')}
-      {getButton('buttonGhostM')}
-      {getButton('buttonGhostL')}
     </div>
     <div>
       <h1>Dark</h1>
@@ -45,9 +39,32 @@ export const Buttons = () => (
   </div>
 );
 
-Buttons.story = {
-  parameters: {
-    componentSubtitle:
-      'Default can be used for anything. Ghost is for pages that are pre-login. Dark is for account pages.',
-  },
+export const ButtonsOnLightBackground = LightBackgroundTemplate.bind({});
+
+ButtonsOnLightBackground.storyName = 'Buttons on light background';
+
+const DarkBackgroundTemplate = (args) => (
+  <div style={rowStyle}>
+    <div>
+      <h1 style={{ color: '#FFFFFF' }}>Regular</h1>
+      {getButton('buttonXS')}
+      {getButton('buttonS')}
+      {getButton('buttonM')}
+      {getButton('buttonL')}
+    </div>
+    <div>
+      <h1 style={{ color: '#FFFFFF' }}>Ghost</h1>
+      {getButton('buttonGhostXS')}
+      {getButton('buttonGhostS')}
+      {getButton('buttonGhostM')}
+      {getButton('buttonGhostL')}
+    </div>
+  </div>
+);
+
+export const ButtonsOnDarkBackground = DarkBackgroundTemplate.bind({});
+
+ButtonsOnDarkBackground.storyName = 'Buttons on dark background';
+ButtonsOnDarkBackground.parameters = {
+  backgrounds: { default: 'mulberry' },
 };

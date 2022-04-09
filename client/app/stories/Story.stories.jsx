@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import 'font-awesome/scss/font-awesome.scss';
 import React from 'react';
 import { Story } from 'components/Story';
@@ -7,17 +8,17 @@ export default {
   title: 'Components/Story',
 };
 
-export const NoOptions = () => (
+const NoPropsTemplate = (args) => (
   <div className={`${css.gridTwoItemBoxLight} gridTwoItemBoxLight`}>
     <Story name="Real Moment" link="some-url" />
   </div>
 );
 
-NoOptions.story = {
-  name: 'no options',
-};
+export const NoProps = NoPropsTemplate.bind({});
 
-export const AllOptions = () => (
+NoProps.storyName = 'No props';
+
+const AllPropsTemplate = (args) => (
   <div className={`${css.gridTwoItemBoxLight} gridTwoItemBoxLight`}>
     <Story
       actions={{
@@ -49,6 +50,6 @@ export const AllOptions = () => (
   </div>
 );
 
-AllOptions.story = {
-  name: 'all options',
-};
+export const AllProps = AllPropsTemplate.bind({});
+
+AllProps.storyName = 'All props';

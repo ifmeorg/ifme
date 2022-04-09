@@ -1,33 +1,44 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Tag } from 'components/Tag';
 
 export default {
   title: 'Components/Tag',
+  component: Tag,
 };
 
-export const TagNormal = () => <Tag normal label="Self-Injury" />;
+const Template = (args) => <Tag {...args} />;
 
-TagNormal.story = {
-  name: 'TagNormal',
-  parameters: {
-    backgrounds: { default: 'mulberry' },
-  },
+export const NormalStyle = Template.bind({});
+
+NormalStyle.args = {
+  normal: true,
+  label: 'Self-Injury',
+};
+NormalStyle.storyName = 'Normal style';
+NormalStyle.parameters = {
+  backgrounds: { default: 'mulberry' },
 };
 
-export const TagSecondary = () => <Tag secondary label="Self-Injury" />;
+export const SecondaryStyle = Template.bind({});
 
-TagSecondary.story = {
-  name: 'TagSecondary',
+SecondaryStyle.args = {
+  secondary: true,
+  label: 'Self-Injury',
 };
+SecondaryStyle.storyName = 'Secondary style';
 
-export const TagGhost = () => <Tag label="Self-Injury" />;
+export const GhostStyle = Template.bind({});
 
-TagGhost.story = {
-  name: 'TagGhost',
+GhostStyle.args = {
+  label: 'Self-Injury',
 };
+GhostStyle.storyName = 'Ghost style';
 
-export const TagDark = () => <Tag dark label="Self-Injury" />;
+export const DarkStyle = Template.bind({});
 
-TagDark.story = {
-  name: 'TagDark',
+DarkStyle.args = {
+  dark: true,
+  label: 'Self-Injury',
 };
+DarkStyle.storyName = 'Dark style';

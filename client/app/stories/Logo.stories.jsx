@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Logo, LogoSolid } from 'components/Logo';
 
@@ -7,86 +8,82 @@ export default {
   title: 'Components/Logo',
 };
 
-export const Small = () => <Logo sm />;
+const LogoTemplate = (args) => <Logo {...args} />;
 
-Small.parameters = {
+export const RegularStyleAndSmallSize = LogoTemplate.bind({});
+
+RegularStyleAndSmallSize.args = { sm: true };
+RegularStyleAndSmallSize.parameters = {
+  backgrounds: { default: 'mulberry' },
+};
+RegularStyleAndSmallSize.storyName = 'Regular style and small size';
+
+export const RegularStyleAndSmallSizeWithLink = LogoTemplate.bind({});
+
+RegularStyleAndSmallSizeWithLink.args = { sm: true, link };
+RegularStyleAndSmallSizeWithLink.storyName = 'Regular style and small size with link';
+RegularStyleAndSmallSizeWithLink.parameters = {
   backgrounds: { default: 'mulberry' },
 };
 
-export const SmallWithLink = () => <Logo sm link={link} />;
+export const RegularStyleAndRegularSize = LogoTemplate.bind({});
 
-SmallWithLink.story = {
-  name: 'Small with link',
+RegularStyleAndRegularSize.parameters = {
+  backgrounds: { default: 'mulberry' },
 };
+RegularStyleAndRegularSize.storyName = 'Regular style and regular size';
 
-SmallWithLink.parameters = {
+export const RegularStyleAndRegularSizeWithLink = LogoTemplate.bind({});
+
+RegularStyleAndRegularSizeWithLink.args = { link };
+RegularStyleAndRegularSizeWithLink.storyName = 'Regular style and regular size with link';
+RegularStyleAndRegularSizeWithLink.parameters = {
   backgrounds: { default: 'mulberry' },
 };
 
-export const Regular = () => <Logo />;
+export const RegularStyleAndLargeSize = LogoTemplate.bind({});
 
-Regular.parameters = {
+RegularStyleAndLargeSize.args = { lg: true };
+RegularStyleAndLargeSize.parameters = {
+  backgrounds: { default: 'mulberry' },
+};
+RegularStyleAndLargeSize.storyName = 'Regular style and large size';
+
+export const RegularStyleAndLargeSizeWithLink = LogoTemplate.bind({});
+
+RegularStyleAndLargeSizeWithLink.args = { lg: true, link };
+RegularStyleAndLargeSizeWithLink.storyName = 'Regular style and large size with link';
+RegularStyleAndLargeSizeWithLink.parameters = {
   backgrounds: { default: 'mulberry' },
 };
 
-export const RegularWithLink = () => <Logo link={link} />;
+const LogoSolidTemplate = (args) => <LogoSolid {...args} />;
 
-RegularWithLink.story = {
-  name: 'Regular with link',
-};
+export const SolidStyleAndSmallSize = LogoSolidTemplate.bind({});
 
-RegularWithLink.parameters = {
-  backgrounds: { default: 'mulberry' },
-};
+SolidStyleAndSmallSize.args = { sm: true };
+SolidStyleAndSmallSize.storyName = 'Solid style and small size';
 
-export const Large = () => <Logo lg />;
+export const SolidStyleAndSmallSizeWithLink = LogoSolidTemplate.bind({});
 
-Large.parameters = {
-  backgrounds: { default: 'mulberry' },
-};
+SolidStyleAndSmallSizeWithLink.args = { sm: true, link };
+SolidStyleAndSmallSizeWithLink.storyName = 'Solid style and small size with link';
 
-export const LargeWithLink = () => <Logo lg link={link} />;
+export const SolidStyleAndRegularSize = LogoSolidTemplate.bind({});
 
-LargeWithLink.story = {
-  name: 'Large with link',
-};
+SolidStyleAndRegularSize.storyName = 'Solid style and regular size';
 
-LargeWithLink.parameters = {
-  backgrounds: { default: 'mulberry' },
-};
+export const SolidStyleAndRegularSizeWithLink = LogoSolidTemplate.bind({});
 
-export const SolidSmall = () => <LogoSolid sm />;
+SolidStyleAndRegularSizeWithLink.args = { link };
+SolidStyleAndRegularSizeWithLink.storyName = 'Solid style and regular size with link';
 
-SolidSmall.story = {
-  name: 'Solid small',
-};
+export const SolidStyleAndLargeSize = LogoSolidTemplate.bind({});
 
-export const SolidSmallWithLink = () => <LogoSolid sm link={link} />;
+SolidStyleAndLargeSize.args = { lg: true };
+SolidStyleAndLargeSize.storyName = 'Solid style and large style';
 
-SolidSmallWithLink.story = {
-  name: 'Solid small with link',
-};
+export const SolidStyleAndLargeSizeWithLink = LogoSolidTemplate.bind({});
 
-export const SolidRegular = () => <LogoSolid />;
-
-SolidRegular.story = {
-  name: 'Solid regular',
-};
-
-export const SolidRegularWithLink = () => <LogoSolid link={link} />;
-
-SolidRegularWithLink.story = {
-  name: 'Solid regular with link',
-};
-
-export const SolidLarge = () => <LogoSolid lg />;
-
-SolidLarge.story = {
-  name: 'Solid large',
-};
-
-export const SolidLargeWithLink = () => <LogoSolid lg link={link} />;
-
-SolidLargeWithLink.story = {
-  name: 'Solid large with link',
-};
+SolidStyleAndLargeSizeWithLink.args = { lg: true, link };
+SolidStyleAndLargeSizeWithLink.storyName = 'Solid style and large size with link';

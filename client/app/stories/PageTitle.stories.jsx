@@ -1,44 +1,35 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { PageTitle } from 'components/PageTitle';
 
 export default {
   title: 'Components/PageTitle',
+  component: PageTitle,
 };
 
-export const PageTitleWithoutCta = () => (
-  <PageTitle title="Title" subtitle="Subtitle" />
-);
+const Template = (args) => <PageTitle {...args} />;
 
-PageTitleWithoutCta.story = {
-  name: 'PageTitle without cta',
+export const PageTitleWithoutCta = Template.bind({});
+
+PageTitleWithoutCta.args = { title: 'Title', subtitle: 'Subtitle' };
+PageTitleWithoutCta.storyName = 'PageTitle without call to action';
+
+export const PageTitleWithCta = Template.bind({});
+
+PageTitleWithCta.args = { title: 'Title', subtitle: 'Subtitle', cta: <button type="button">Hello</button> };
+PageTitleWithCta.storyName = 'PageTitle with call to action';
+
+export const PageTitleWithInstructions = Template.bind({});
+
+PageTitleWithInstructions.args = {
+  title: 'Title',
+  subtitle: 'Subtitle',
+  instructions: (
+    <>
+      These are instructions with a button:
+      {' '}
+      <button type="button">Hello</button>
+    </>
+  ),
 };
-
-export const PageTitleWithCta = () => (
-  <PageTitle
-    title="Title"
-    subtitle="Subtitle"
-    cta={<button type="button">Hello</button>}
-  />
-);
-
-PageTitleWithCta.story = {
-  name: 'PageTitle with cta',
-};
-
-export const PageTitleWithInstructions = () => (
-  <PageTitle
-    title="Title"
-    subtitle="Subtitle"
-    instructions={(
-      <>
-        These are instructions with a button:
-        {' '}
-        <button type="button">Hello</button>
-      </>
-    )}
-  />
-);
-
-PageTitleWithCta.story = {
-  name: 'PageTitle with instructions',
-};
+PageTitleWithInstructions.storyName = 'PageTitle with instructions';

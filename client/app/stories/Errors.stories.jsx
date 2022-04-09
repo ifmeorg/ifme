@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import css from 'styles/_global.scss';
 
@@ -5,10 +6,10 @@ export default {
   title: 'Style Guide/Errors',
 };
 
-export const Errors = () => (
-  <div className={`${css.errorField} error`}>
-    <h2 className={`${css.errorText} error`}>errors</h2>
-    <ul className={`${css.errorText} error`}>
+const Template = (args) => (
+  <div className={`${css.errorField} errorField`}>
+    <h2 className={`${css.errorText} errorText`}>errors</h2>
+    <ul className={`${css.errorText} errorText`}>
       <li>this</li>
       <li>is</li>
       <li>an</li>
@@ -16,3 +17,5 @@ export const Errors = () => (
     </ul>
   </div>
 );
+
+export const Default = Template.bind({});

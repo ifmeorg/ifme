@@ -4,9 +4,14 @@ const custom = require('../webpack.config');
 module.exports = {
   stories: ['../app/stories/**/*.stories.@(jsx|mdx)'],
   addons: [
-    '@storybook/addon-docs',
     '@storybook/addon-links',
-    '@storybook/addon-backgrounds',
+    {
+      name: '@storybook/addon-essentials',
+      options: {
+        controls: false,
+        actions: false,
+      }
+    },
   ],
   webpackFinal: (config) => {
     config.resolve.modules.push(path.resolve(__dirname, '../..'));

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Accordion } from 'components/Accordion';
 
@@ -6,52 +7,49 @@ const children = 'Hello';
 
 export default {
   title: 'Components/Accordion',
+  component: Accordion,
 };
 
-export const Default = () => (
-  <Accordion id="some_id" title={title}>
-    {children}
-  </Accordion>
-);
+const Template = (args) => <Accordion {...args} />;
 
-Default.story = {
-  name: 'Default size and style',
-};
+export const RegularSizeAndRegularStyle = Template.bind({});
 
-Default.parameters = {
+RegularSizeAndRegularStyle.args = { id: 'some_id', title, children };
+RegularSizeAndRegularStyle.storyName = 'Regular size and regular style';
+RegularSizeAndRegularStyle.parameters = {
   backgrounds: { default: 'mulberry' },
 };
 
-export const DefaultLarge = () => (
-  <Accordion id="some_id" title={title} large>
-    {children}
-  </Accordion>
-);
+export const LargeSizeAndRegularStyle = Template.bind({});
 
-DefaultLarge.story = {
-  name: 'Default style and large size',
+LargeSizeAndRegularStyle.args = {
+  id: 'some_id',
+  title,
+  children,
+  large: true,
 };
-
-DefaultLarge.parameters = {
+LargeSizeAndRegularStyle.storyName = 'Large size and regular style';
+LargeSizeAndRegularStyle.parameters = {
   backgrounds: { default: 'mulberry' },
 };
 
-export const DefaultDark = () => (
-  <Accordion id="some_id" title={title} dark>
-    {children}
-  </Accordion>
-);
+export const RegularSizeAndDarkStyle = Template.bind({});
 
-DefaultDark.story = {
-  name: 'Default size and dark style',
+RegularSizeAndDarkStyle.args = {
+  id: 'some_id',
+  title,
+  children,
+  dark: true,
 };
+RegularSizeAndDarkStyle.storyName = 'Regular size and dark style';
 
-export const LargeDark = () => (
-  <Accordion id="some_id" title={title} large dark>
-    {children}
-  </Accordion>
-);
+export const LargeSizeAndDarkStyle = Template.bind({});
 
-LargeDark.story = {
-  name: 'Large size and dark style',
+LargeSizeAndDarkStyle.args = {
+  id: 'some_id',
+  title,
+  children,
+  large: true,
+  dark: true,
 };
+LargeSizeAndDarkStyle.storyName = 'Large size and dark style';
