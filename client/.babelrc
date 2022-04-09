@@ -1,10 +1,14 @@
 {
   "presets": [
+    // "./node_modules/shakapacker/package/babel/preset.js",
     [
       "@babel/env", {
-        "useBuiltIns": "usage",
-        "modules": "commonjs",
-        "corejs": "3"
+        // "useBuiltIns": "usage",
+        // "modules": "commonjs",
+        // "corejs": "3"
+        "useBuiltIns": "entry",
+        "corejs": "3.8",
+        "modules": "auto"
       }
     ],
     "@babel/preset-flow",

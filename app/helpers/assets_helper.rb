@@ -13,13 +13,13 @@ module AssetsHelper
     content = inline_file(path, true)
     return nil unless content
 
-    "<style>#{content}</style>".html_safe
+    "<style media=\"all\">#{content}</style>".html_safe
   end
 
   private
 
   def inline_file(path, css = false)
-    if css && path == 'webpack_bundle.css'
+    if css && path == 'pack_bundle.css'
       File.read(Rails.root.join('public', webpack_folder, path))
     elsif Rails.application.assets
       get_application_asset(path)
@@ -29,7 +29,7 @@ module AssetsHelper
   end
 
   def webpack_folder
-    Rails.env.test? ? 'webpack-test' : 'webpack'
+    Rails.env.test? ? 'packs-test' : 'packs'
   end
 
   def get_application_asset(path)

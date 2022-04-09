@@ -50,3 +50,10 @@ node_modules
 
 # Ignore gems installed locally
 /vendor
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

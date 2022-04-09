@@ -1,3 +1,7 @@
 {
-  "javascript.validate.enable": false
+  "javascript.validate.enable": false,
+  "cSpell.words": [
+    "browserslist",
+    "webpacker"
+  ]
 }

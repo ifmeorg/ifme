@@ -459,6 +459,11 @@ GEM
     semantic_range (2.3.0)
     sentry-raven (2.13.0)
       faraday (>= 0.7.6, < 1.0)
+    shakapacker (6.2.0)
+      activesupport (>= 5.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 5.2)
+      semantic_range (>= 2.3.0)
     shoulda-matchers (4.4.1)
       activesupport (>= 4.2.0)
     sidekiq (6.4.0)
@@ -603,6 +608,7 @@ DEPENDENCIES
   sdoc (= 1.0.0)
   selenium-webdriver (~> 3.142.7)
   sentry-raven
+  shakapacker (= 6.2)
   shoulda-matchers
   sidekiq (= 6.4.0)
   sidekiq-cron (~> 1.1)

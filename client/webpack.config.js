@@ -15,7 +15,8 @@ const webpack = require('webpack');
 const configPath = resolve('..', 'config');
 const devOrTestMode = process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test';
 const { output } = webpackConfigLoader(configPath);
-const outputFilename = `[name]${devOrTestMode ? '-[contenthash]' : ''}`;
+const outputFilename = '[name]';
+// const outputFilename = `[name]${devOrTestMode ? '-[contenthash]' : ''}`;
 
 const cssLoaderWithModules = {
   loader: 'css-loader',
@@ -45,12 +46,12 @@ const config = {
     },
     extensions: ['.js', '.jsx', '.scss'],
     // For react-render-html package
-    fallback: { "stream": require.resolve("stream-browserify") }
+    fallback: { stream: require.resolve('stream-browserify') },
   },
 
   entry: {
     // Shims should be singletons, and webpack bundle is always loaded
-    webpack_bundle: [
+    pack_bundle: [
       // 'es5-shim/es5-shim',
       // 'es5-shim/es5-sham',
       '@babel/polyfill',

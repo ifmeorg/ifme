@@ -110,3 +110,5 @@ group :production do
   gem 'rails_12factor', '0.0.3'
   gem 'sentry-raven'
 end
+
+gem "shakapacker", "= 6.2"
