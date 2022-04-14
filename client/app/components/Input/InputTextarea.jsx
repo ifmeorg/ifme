@@ -1,5 +1,6 @@
 // @flow
 import React, { useState, useEffect, useRef } from 'react';
+import type { Node } from 'react';
 import { sanitize } from 'dompurify';
 import ReactDOMServer from 'react-dom/server';
 import { init, exec } from 'pell';
@@ -62,7 +63,7 @@ export type Props = {
   dark?: boolean,
 };
 
-export function InputTextarea(props: Props) {
+export function InputTextarea(props: Props): Node {
   const {
     id, name, value: propValue, required, hasError, myRef, dark,
   } = props;

@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import css from './Tag.scss';
 
 type Props = {
@@ -24,7 +25,7 @@ export const Tag = ({
   secondary,
   onClick,
   href,
-}: Props) => {
+}: Props): Node => {
   if (href) {
     return (
       <a

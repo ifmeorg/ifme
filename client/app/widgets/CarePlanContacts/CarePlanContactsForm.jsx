@@ -1,5 +1,6 @@
 // @flow
 import React, { useState } from 'react';
+import type { Node } from 'react';
 import { I18n } from 'libs/i18n';
 import { Utils } from 'utils';
 import DynamicForm from 'components/Form/DynamicForm';
@@ -21,7 +22,7 @@ export type Props = {
   contact?: Contact,
 };
 
-export const CarePlanContactsForm = ({ contact }: Props) => {
+export const CarePlanContactsForm = ({ contact }: Props): Node => {
   const [error, setError] = useState();
   const action = `/care_plan_contacts/${
     contact ? `update?id=${contact.id}` : 'create'
@@ -101,6 +102,6 @@ export const CarePlanContactsForm = ({ contact }: Props) => {
   );
 };
 
-export default ({ contact }: Props) => (
+export default ({ contact }: Props): Node => (
   <CarePlanContactsForm contact={contact} />
 );

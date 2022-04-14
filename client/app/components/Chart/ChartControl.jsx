@@ -1,5 +1,6 @@
 // @flow
 import React, { useState } from 'react';
+import type { Node } from 'react';
 import { I18n } from 'libs/i18n';
 import globalCss from 'styles/_global.scss';
 import { Chart } from 'components/Chart';
@@ -30,8 +31,8 @@ const ChartControlButton = ({ type, onClick }: ChartControlButtonProps) => (
 export const ChartControl = ({
   types,
   initialParams: { type: initialType, data },
-}: chartControlProps) => {
-  const [type: string, setType] = useState(initialType);
+}: chartControlProps): Node => {
+  const [type, setType]: [string, Function] = useState(initialType);
 
   const onSelectType = (value: string) => () => {
     setType(value);

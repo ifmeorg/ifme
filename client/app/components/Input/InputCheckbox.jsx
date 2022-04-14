@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import renderHTML from 'react-render-html';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestion } from '@fortawesome/free-solid-svg-icons';
@@ -46,7 +47,7 @@ const displayCheckbox = (id, name, value, checked, onChange, label) => (
   />
 );
 
-export const InputCheckbox = (props: Props) => {
+export const InputCheckbox = (props: Props): Node => {
   const {
     id,
     name,

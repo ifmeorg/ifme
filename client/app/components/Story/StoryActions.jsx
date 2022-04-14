@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import { I18n } from 'libs/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -140,7 +141,7 @@ const displayItem = (
   return displayLink(actions, item, hasStory, dark);
 };
 
-export const StoryActions = (props: Props) => {
+export const StoryActions = (props: Props): Node => {
   const { actions, hasStory, dark } = props;
   return (
     <div className={css.actions}>

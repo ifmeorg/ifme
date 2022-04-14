@@ -23,7 +23,7 @@ export type State = {
 
 export const Header = ({
   home, links, mobileOnly, profile,
-}: Props) => {
+}: Props): Node => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [toggled, setToggled] = useState(true);
 
@@ -108,6 +108,6 @@ export const Header = ({
 
 export default ({
   home, links, mobileOnly, profile,
-}: Props) => (
+}: Props): Node => (
   <Header home={home} links={links} mobileOnly={mobileOnly} profile={profile} />
 );

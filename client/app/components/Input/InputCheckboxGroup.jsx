@@ -1,5 +1,6 @@
 // @flow
 import React, { useState } from 'react';
+import type { Node } from 'react';
 import { InputCheckbox } from 'components/Input/InputCheckbox';
 import type { Checkbox } from './utils';
 
@@ -13,7 +14,7 @@ export function InputCheckboxGroup({
   hasError,
   required,
   checkboxes: defaultCheckboxes,
-}: Props) {
+}: Props): Node {
   const [checkboxes, setCheckboxes] = useState<Checkbox[]>(defaultCheckboxes);
 
   const handleOnChange = (checkbox: { checked: boolean, id: string }) => {

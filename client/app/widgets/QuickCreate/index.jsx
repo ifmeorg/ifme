@@ -1,5 +1,6 @@
 // @flow
 import React, { useReducer } from 'react';
+import type { Node } from 'react';
 import Modal from 'components/Modal';
 import Input from 'components/Input';
 import type { Checkbox } from 'components/Input/utils';
@@ -47,14 +48,17 @@ export const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
   // eslint-disable-next-line implicit-arrow-linebreak
   checkboxes.sort((a: Checkbox, b: Checkbox) => alpha(a.label, b.label));
 
-export const labelExists = (checkboxes: Checkbox[], compareLabel: string) => checkboxes.filter(
+export const labelExists = (
+  checkboxes: Checkbox[],
+  compareLabel: string,
+): boolean => checkboxes.filter(
   (checkbox: Checkbox) => checkbox.label.toLowerCase() === compareLabel.toLowerCase(),
 ).length > 0;
 
 export const addToCheckboxes = (
   { name, id, slug }: CheckboxData,
   checkboxes: Checkbox[],
-) => {
+): Checkbox[] => {
   const newCheckboxes = [
     ...checkboxes,
     {
@@ -116,7 +120,7 @@ export const QuickCreate = ({
   label,
   checkboxes: checkboxesProp,
   formProps,
-}: Props) => {
+}: Props): Node => {
   const [
     {
       checkboxes, accordionOpen, tagKey, body, open, modalKey,

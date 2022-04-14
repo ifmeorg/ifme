@@ -1,5 +1,6 @@
 // @flow
 import React, { useState } from 'react';
+import type { Node } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { I18n } from 'libs/i18n';
@@ -43,7 +44,7 @@ export function InputPassword({
   required,
   label,
   hasError,
-}: Props) {
+}: Props): Node {
   const [showText, setShowText] = useState<boolean>(false);
 
   const toggleShow = () => {

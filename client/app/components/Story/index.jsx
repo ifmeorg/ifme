@@ -1,5 +1,5 @@
 // @flow
-import React, { type Element } from 'react';
+import React, { type Element, type Node } from 'react';
 import { Utils } from 'utils';
 import { StoryName } from 'components/Story/StoryName';
 import { StoryDate } from 'components/Story/StoryDate';
@@ -114,7 +114,7 @@ export const Story = ({
   body,
   medicationBody,
   onClick,
-}: Props) => {
+}: Props): Node => {
   const condensed = !storyBy && !storyType;
   return (
     <div className={`story ${css.story}`}>

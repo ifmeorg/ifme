@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import { I18n } from 'libs/i18n';
 import css from './OAuthButton.scss';
 import googleIcon from './googleIcon.svg';
@@ -14,7 +15,7 @@ type Props = {
 
 export const OAuthButton = ({
   signIn, type, action, token,
-}: Props) => {
+}: Props): Node => {
   const buttonText = I18n.t(
     `devise.shared.sign_${signIn ? 'in' : 'up'}_${type}`,
   );
@@ -42,6 +43,6 @@ export const OAuthButton = ({
 
 export default ({
   signIn, type, action, token,
-}: Props) => (
+}: Props): Node => (
   <OAuthButton signIn={signIn} type={type} action={action} token={token} />
 );

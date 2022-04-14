@@ -1,5 +1,6 @@
 // @flow
 import React, { useState } from 'react';
+import type { Node } from 'react';
 import axios from 'axios';
 import renderHTML from 'react-render-html';
 import { I18n } from 'libs/i18n';
@@ -36,7 +37,7 @@ export type Props = {
   formProps: FormProps,
 };
 
-export const Comments = ({ comments, formProps }: Props) => {
+export const Comments = ({ comments, formProps }: Props): Node => {
   const [commentsState, setCommentsState] = useState<(Comment | any)[]>(
     comments || []);
   const [key, setKey] = useState<string>('');
@@ -150,6 +151,6 @@ export const Comments = ({ comments, formProps }: Props) => {
   );
 };
 
-export default ({ comments, formProps }: Props) => (
+export default ({ comments, formProps }: Props): Node => (
   <Comments comments={comments} formProps={formProps} />
 );

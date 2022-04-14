@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import css from './Input.scss';
 
 export const REQUIRES_DEFAULT = [
@@ -68,7 +69,7 @@ const onBlur = (
   }
 };
 
-export const InputDefault = (props: Props) => {
+export const InputDefault = (props: Props): Node => {
   const {
     id,
     type,

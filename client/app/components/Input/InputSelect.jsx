@@ -1,5 +1,6 @@
 // @flow
 import React, { useState } from 'react';
+import type { Node } from 'react';
 import renderHTML from 'react-render-html';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
@@ -24,7 +25,7 @@ export function InputSelect({
   label,
   onChange,
   value: propValue,
-}: Props) {
+}: Props): Node {
   const [value, setValue] = useState<any>(propValue);
 
   const toggleValue = (e: SyntheticEvent<HTMLInputElement>) => {

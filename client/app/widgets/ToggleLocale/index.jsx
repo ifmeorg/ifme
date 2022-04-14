@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { I18n } from 'libs/i18n';
@@ -35,7 +36,7 @@ const onChange = (e: SyntheticEvent<HTMLInputElement>) => {
   }
 };
 
-export const ToggleLocale = (props: Props) => {
+export const ToggleLocale = (props: Props): Node => {
   const { locale, locales } = props;
   return (
     <Input

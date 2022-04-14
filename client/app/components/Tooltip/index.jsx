@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import { Utils } from 'utils';
 import css from './Tooltip.scss';
 
@@ -18,7 +19,7 @@ const getPosition = (right: ?boolean, center: ?boolean) => {
   return center ? css.tooltipCenter : '';
 };
 
-export const Tooltip = (props: Props) => {
+export const Tooltip = (props: Props): Node => {
   const {
     element, text, right, center, id,
   } = props;

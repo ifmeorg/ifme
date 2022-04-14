@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import globalCss from 'styles/_global.scss';
 
 export type Props = {
@@ -31,7 +32,7 @@ export const InputSubmit = ({
   value,
   disabled,
   formNoValidate,
-}: Props) => (
+}: Props): Node => (
   <input
     id={id}
     type="submit"

@@ -1,5 +1,6 @@
 // @flow
 import React, { useState } from 'react';
+import type { Node } from 'react';
 import { Utils } from 'utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
@@ -26,7 +27,7 @@ export const Accordion = ({
   dark,
   large,
   open: openProp,
-}: Props) => {
+}: Props): Node => {
   const [open, setOpen] = useState(!!openProp);
 
   const displayContent = () => (

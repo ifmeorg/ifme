@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import { Input } from 'components/Input';
 import type { Props } from 'components/Input/utils';
 
@@ -124,9 +125,9 @@ const inputSubmitProps = {
   value: 'Some Submit Value',
 };
 
-const event = () => window.alert('Event triggered!');
+const event = (): void => window.alert('Event triggered!');
 
-const createInput = (props: Props, extraProps: any) => {
+const createInput = (props: Props, extraProps: any): Node => {
   const inputProps = { ...props, ...extraProps };
   return React.createElement(Input, inputProps);
 };

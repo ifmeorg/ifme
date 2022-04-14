@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAsterisk, faQuestion } from '@fortawesome/free-solid-svg-icons';
 import globalCss from 'styles/_global.scss';
@@ -37,7 +38,7 @@ const displayLabel = (label: string, error: ?boolean) => (
   <div className={`${error ? css.error : ''} ${css.labelText}`}>{label}</div>
 );
 
-export const InputLabel = (props: Props) => {
+export const InputLabel = (props: Props): Node => {
   const {
     error, label, required, info, htmlFor,
   } = props;

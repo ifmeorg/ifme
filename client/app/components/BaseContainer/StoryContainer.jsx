@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import { Story } from 'components/Story';
 import type { Props as StoryProps } from 'components/Story';
 
@@ -7,7 +8,7 @@ export type Props = {
   data: StoryProps[],
 };
 
-const StoryContainer = ({ data }: Props) => (
+const StoryContainer = ({ data }: Props): Node => (
   <div className="gridTwo">
     {data.map((storyProps) => (
       <div className="gridTwoItemBoxLight" key={storyProps.link}>

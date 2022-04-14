@@ -1,5 +1,6 @@
 // @flow
 import React, { useState } from 'react';
+import type { Node } from 'react';
 import axios from 'axios';
 import { Utils } from 'utils';
 import StoryContainer from 'components/BaseContainer/StoryContainer';
@@ -23,7 +24,7 @@ export const BaseContainerComponent = ({
   data: dataProps,
   fetchUrl: fetchUrlProps,
   lastPage: lastPageProps,
-}: Props) => {
+}: Props): Node => {
   const [page, setpage] = useState(1);
   const [lastPage, setlastPage] = useState(!!lastPageProps);
   const [data, setdata] = useState(dataProps);
@@ -59,7 +60,7 @@ export const BaseContainerComponent = ({
 
 export default ({
   container, data, fetchUrl, lastPage,
-}: Props) => (
+}: Props): Node => (
   <BaseContainerComponent
     container={container}
     data={data}

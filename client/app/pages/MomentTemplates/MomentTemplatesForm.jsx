@@ -1,5 +1,6 @@
 // @flow
 import React, { useState } from 'react';
+import type { Node } from 'react';
 import { I18n } from 'libs/i18n';
 import { Utils } from 'utils';
 import DynamicForm from 'components/Form/DynamicForm';
@@ -21,7 +22,7 @@ export type Props = {
   template?: Template,
 };
 
-export const MomentTemplatesForm = ({ template }: Props) => {
+export const MomentTemplatesForm = ({ template }: Props): Node => {
   const [error, setError] = useState();
   const action = `/moment_templates/${
     template ? `update?id=${template.id}` : 'create'
@@ -102,6 +103,6 @@ export const MomentTemplatesForm = ({ template }: Props) => {
   );
 };
 
-export default ({ template }: Props) => (
+export default ({ template }: Props): Node => (
   <MomentTemplatesForm template={template} />
 );

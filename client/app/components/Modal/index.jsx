@@ -1,5 +1,5 @@
 // @flow
-import React, { useState, type Element } from 'react';
+import React, { useState, type Element, type Node } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { I18n } from 'libs/i18n';
@@ -31,7 +31,7 @@ export type State = {
   modalHasFocus: boolean,
 };
 
-export const Modal = (props: Props) => {
+export const Modal = (props: Props): Node => {
   const {
     element,
     elementId,
@@ -173,7 +173,7 @@ export default ({
   body,
   modalKey,
   className,
-}: ModalPropsExtended) => (
+}: ModalPropsExtended): Node => (
   <Modal
     element={element}
     elementId={elementId}

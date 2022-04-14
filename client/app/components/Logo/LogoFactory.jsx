@@ -1,5 +1,5 @@
 // @flow
-import React, { type StatelessFunctionalComponent } from 'react';
+import React from 'react';
 import { I18n } from 'libs/i18n';
 import css from './Logo.scss';
 
@@ -18,10 +18,8 @@ const sizeClass = (sm, lg) => {
   return '';
 };
 
-export function LogoFactory(
-  size: string = '',
-): StatelessFunctionalComponent<Props> {
-  const LogoComponent = ({ link, sm, lg }: Props) => {
+export const LogoFactory = (size: string = ''): any => {
+  const LogoComponent = ({ link, sm, lg }: Props): any => {
     const containerClass = `${css.logo} ${css[size] || ''} ${sizeClass(
       sm,
       lg,
@@ -46,4 +44,4 @@ export function LogoFactory(
     );
   };
   return LogoComponent;
-}
+};

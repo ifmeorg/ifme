@@ -112,7 +112,9 @@ export type Props = {
 };
 
 /* eslint no-param-reassign: ["error", { "props": false }] */
-export const mergeRefs = (...refs: any) => (element: HTMLInputElement) => {
+export const mergeRefs = (...refs: any): Function => (
+  element: HTMLInputElement,
+): Function => {
   refs.forEach((ref) => {
     if (typeof ref === 'function') {
       ref(element);
