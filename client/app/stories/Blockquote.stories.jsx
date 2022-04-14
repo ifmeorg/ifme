@@ -11,7 +11,11 @@ const Template = (args) => <Blockquote {...args} />;
 
 export const Default = Template.bind({});
 
-Default.args = { text: "It's not just all in your head, it's all around you. We can heal together.", author: '❤️' };
+Default.args = {
+  text:
+    "It's not just all in your head, it's all around you. We can heal together.",
+  author: '❤️',
+};
 Default.parameters = {
   backgrounds: { default: 'mulberry' },
 };

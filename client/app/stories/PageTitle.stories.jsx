@@ -16,7 +16,11 @@ PageTitleWithoutCta.storyName = 'PageTitle without call to action';
 
 export const PageTitleWithCta = Template.bind({});
 
-PageTitleWithCta.args = { title: 'Title', subtitle: 'Subtitle', cta: <button type="button">Hello</button> };
+PageTitleWithCta.args = {
+  title: 'Title',
+  subtitle: 'Subtitle',
+  cta: <button type="button">Hello</button>,
+};
 PageTitleWithCta.storyName = 'PageTitle with call to action';
 
 export const PageTitleWithInstructions = Template.bind({});

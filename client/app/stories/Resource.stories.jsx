@@ -33,7 +33,8 @@ WithTags.storyName = 'With tags';
 export const WithoutTags = Template.bind({});
 
 WithoutTags.args = {
-  title: 'A very long title for a resource that should wrap to two lines and then some or not',
+  title:
+    'A very long title for a resource that should wrap to two lines and then some or not',
   link: 'https://if-me.org',
   author: 'Author with a very very long name that is usually an edge case',
 };
@@ -46,7 +47,8 @@ export const WithAllProps = Template.bind({});
 
 WithAllProps.args = {
   tags: tags.concat(tags),
-  title: 'Invisible Illnesses: depression is an ocean, and another measure to consider',
+  title:
+    'Invisible Illnesses: depression is an ocean, and another measure to consider',
   link: 'https://if-me.org',
   author: 'Desi Rottman',
 };
