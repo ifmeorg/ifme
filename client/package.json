@@ -103,7 +103,7 @@
     "sass-loader": "^8.0.2",
     "stylelint": "^13.7.2",
     "stylelint-config-standard": "^20.0.0",
-    "surge": "^0.21.3",
+    "surge": "^0.23.1",
     "terser-webpack-plugin": "^3.0.8",
     "url-loader": "^4.0.0",
     "webpack": "^4.42.0",
