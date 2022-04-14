@@ -1,7 +1,10 @@
 {
-  "plugins": ["flowtype", "jest", "react"],
+  "plugins": ["flowtype", "jest", "react", "ft-flow"],
   "extends": ["airbnb", "plugin:flowtype/recommended"],
   "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false
+  },
   "env": {
     "browser": true,
     "jest/globals": true
