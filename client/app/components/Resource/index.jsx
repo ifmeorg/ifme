@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import { Utils } from 'utils';
 import { Tag } from 'components/Tag';
 import css from './Resource.scss';
@@ -46,7 +47,7 @@ const authorRes = (author: ?string) => {
   return <div className={`author ${css.author}`}>{author}</div>;
 };
 
-export const Resource = (props: Props) => {
+export const Resource = (props: Props): Node => {
   const {
     author, link, tags = [], title, updateTagFilter,
   } = props;

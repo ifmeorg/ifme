@@ -1,5 +1,6 @@
 // @flow
 import React, { useState } from 'react';
+import type { Node } from 'react';
 import { I18n } from 'libs/i18n';
 import { Story } from 'components/Story';
 import Modal from 'components/Modal';
@@ -13,7 +14,7 @@ type Props = {
   contacts: Contact[],
 };
 
-export const CarePlanContacts = ({ contacts: contactsProp }: Props) => {
+export const CarePlanContacts = ({ contacts: contactsProp }: Props): Node => {
   const [editableContact, setEditableTemplate] = useState();
   const [modalKey, setModalKey] = useState();
   const [contacts, setTemplates] = useState(contactsProp || []);
@@ -85,6 +86,6 @@ export const CarePlanContacts = ({ contacts: contactsProp }: Props) => {
   );
 };
 
-export default ({ contacts }: Props) => (
+export default ({ contacts }: Props): Node => (
   <CarePlanContacts contacts={contacts} />
 );

@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import { Utils } from 'utils';
 import { Avatar } from 'components/Avatar';
 import css from './Story.scss';
@@ -9,7 +10,7 @@ export type Props = {
   author: any,
 };
 
-export const StoryBy = (props: Props) => {
+export const StoryBy = (props: Props): Node => {
   const { avatar, author } = props;
   return (
     <div className={css.storyBy}>

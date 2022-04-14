@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import css from './Story.scss';
 
 export type Props = {
@@ -8,7 +9,7 @@ export type Props = {
   onClick?: Function,
 };
 
-export const StoryName = ({ name, link, onClick }: Props) => {
+export const StoryName = ({ name, link, onClick }: Props): Node => {
   if (link) {
     return (
       <a className={css.name} href={link}>

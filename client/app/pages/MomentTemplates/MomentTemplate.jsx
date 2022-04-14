@@ -1,5 +1,6 @@
 // @flow
 import React, { useState } from 'react';
+import type { Node } from 'react';
 import { I18n } from 'libs/i18n';
 import { Utils } from 'utils';
 import Modal from 'components/Modal';
@@ -17,7 +18,7 @@ type Props = {
   editTemplate?: Function,
 };
 
-export const MomentTemplate = ({ template, editTemplate }: Props) => {
+export const MomentTemplate = ({ template, editTemplate }: Props): Node => {
   const { id, name, description } = template;
   const [open, setOpen] = useState(false);
   const [modalKey, setModalKey] = useState();
@@ -52,6 +53,6 @@ export const MomentTemplate = ({ template, editTemplate }: Props) => {
   );
 };
 
-export default ({ template, editTemplate }: Props) => (
+export default ({ template, editTemplate }: Props): Node => (
   <MomentTemplate template={template} editTemplate={editTemplate} />
 );

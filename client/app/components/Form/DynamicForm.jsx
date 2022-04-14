@@ -1,5 +1,7 @@
 // @flow
+/* eslint-disable max-len */
 import React, { useState } from 'react';
+import type { Node } from 'react';
 import axios from 'axios';
 import Input from 'components/Input';
 import { TYPES as INPUT_TYPES } from 'components/Input/utils';
@@ -52,14 +54,14 @@ const getParams = (inputs: MyInputProps[], myRefs: Object) => {
   return params;
 };
 
-export const hasErrors = (errors: Errors) => Object.values(errors).filter((key) => key).length;
+export const hasErrors = (errors: Errors): number => Object.values(errors).filter((key) => key).length;
 
 export const DynamicForm = ({
   nameValue,
   formProps,
   onSubmit,
   type,
-}: Props) => {
+}: Props): Node => {
   const [inputs, setInputs] = useState<MyInputProps[]>(
     getInputsInitialState(formProps, nameValue),
   );
@@ -147,7 +149,7 @@ export const DynamicForm = ({
 
 export default ({
   nameValue, formProps, onSubmit, type,
-}: Props) => (
+}: Props): Node => (
   <DynamicForm
     nameValue={nameValue}
     formProps={formProps}

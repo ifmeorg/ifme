@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable max-len */
 import React, { useState, type Node } from 'react';
 import Input from 'components/Input';
 import { TYPES as INPUT_TYPES } from 'components/Input/utils';
@@ -13,11 +14,11 @@ export type State = {
   errors: Errors,
 };
 
-export const hasErrors = (errors: Errors) => Object.values(errors).filter((key) => key).length;
+export const hasErrors = (errors: Errors): number => Object.values(errors).filter((key) => key).length;
 
 const getInputsInitialState = (inputs: MyInputProps[]) => inputs.filter((input) => input !== {});
 
-export const Form = ({ action, inputs: inputsProps }: Props) => {
+export const Form = ({ action, inputs: inputsProps }: Props): Node => {
   const [inputs, setInputs] = useState<MyInputProps[]>(
     getInputsInitialState(inputsProps),
   );
@@ -142,6 +143,6 @@ export const Form = ({ action, inputs: inputsProps }: Props) => {
   );
 };
 
-export default ({ action, inputs }: Props) => (
+export default ({ action, inputs }: Props): Node => (
   <Form action={action} inputs={inputs} />
 );

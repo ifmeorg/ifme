@@ -1,6 +1,6 @@
 // @flow
 import { createContext } from 'react';
 
-const ContactsContext = createContext<Object>({});
+const ContactsContext: Object = createContext<Object>({});
 
 export default ContactsContext;

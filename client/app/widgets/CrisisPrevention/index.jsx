@@ -1,12 +1,13 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { I18n } from 'libs/i18n';
 import Modal from 'components/Modal';
 import css from './CrisisPrevention.scss';
 
-const CrisisPrevention = () => (
+const CrisisPrevention = (): Node => (
   <Modal
     title={I18n.t('pages.resources.crisis_prevention.title')}
     body={(

@@ -1,8 +1,8 @@
 // @flow
 import { LogoFactory } from './LogoFactory';
 
-export const Logo = LogoFactory();
+export const Logo: any = LogoFactory();
 Logo.displayName = 'Logo';
 
-export const LogoSolid = LogoFactory('solid');
+export const LogoSolid: any = LogoFactory('solid');
 LogoSolid.displayName = 'LogoSolid';

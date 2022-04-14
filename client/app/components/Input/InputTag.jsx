@@ -1,5 +1,6 @@
 // @flow
 import React, { useState } from 'react';
+import type { Node } from 'react';
 import Autosuggest from 'react-autosuggest';
 import { Utils } from 'utils';
 import { InputCheckbox } from 'components/Input/InputCheckbox';
@@ -23,7 +24,7 @@ export function InputTag({
   checkboxes: defaultCheckboxes,
   onChange,
   onCheckboxChange,
-}: Props) {
+}: Props): Node {
   const [checkboxes, setCheckboxes] = useState<Checkbox[]>(defaultCheckboxes);
   const [suggestions, setSuggestions] = useState<Checkbox[]>(defaultCheckboxes);
   const [autocompleteLabel, setAutocompleteLabel] = useState<string>('');

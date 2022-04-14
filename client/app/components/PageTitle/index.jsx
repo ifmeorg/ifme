@@ -1,5 +1,6 @@
 // @flow
 import React, { useEffect } from 'react';
+import type { Node } from 'react';
 import { Utils } from 'utils';
 import { I18n } from 'libs/i18n';
 import globalCSS from 'styles/_global.scss';
@@ -12,8 +13,11 @@ type Props = {
 };
 
 export const PageTitle = ({
-  title, subtitle, cta, instructions,
-}: Props) => {
+  title,
+  subtitle,
+  cta,
+  instructions,
+}: Props): Node => {
   useEffect(() => {
     window.document.title = `${I18n.t('app_name')} - ${title}`;
   });

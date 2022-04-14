@@ -3,14 +3,14 @@ import axios from 'axios';
 import renderHTML from 'react-render-html';
 import { sanitize } from 'dompurify';
 
-const randomString = () => Math.random()
+const randomString = (): string => Math.random()
   .toString(36)
   .substring(2, 15)
   + Math.random()
     .toString(36)
     .substring(2, 15);
 
-const setCsrfToken = () => {
+const setCsrfToken = (): void => {
   const tokenDom = document.querySelector('meta[name=csrf-token]');
   if (tokenDom) {
     const csrfToken = tokenDom.getAttribute('content');
@@ -18,7 +18,7 @@ const setCsrfToken = () => {
   }
 };
 
-const getPusher = () => {
+const getPusher = (): Object | null => {
   if (window.Pusher) {
     const metaPusherKey = Array.from(
       window.document.getElementsByTagName('meta'),
@@ -33,7 +33,7 @@ const getPusher = () => {
   return null;
 };
 
-const renderContent = (content: string | any) => {
+const renderContent = (content: string | any): any => {
   if (typeof content === 'string') {
     return renderHTML(sanitize(content));
   }

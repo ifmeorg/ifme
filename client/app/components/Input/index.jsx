@@ -1,5 +1,6 @@
 // @flow
 import React, { useState } from 'react';
+import type { Node } from 'react';
 import { InputTextarea } from 'components/Input/InputTextarea';
 import { InputTextareaTemplate } from 'components/Input/InputTextareaTemplate';
 import { InputLabel } from 'components/Input/InputLabel';
@@ -53,7 +54,7 @@ export const Input = ({
   onError,
   copyOnClick,
   error: defaultError,
-}: Props) => {
+}: Props): Node => {
   const [error, setError] = useState<boolean>(!!defaultError);
 
   const hasError = (errorPresent: boolean) => {
@@ -353,7 +354,7 @@ export default ({
   onError,
   copyOnClick,
   error,
-}: Props) => (
+}: Props): Node => (
   <Input
     id={id}
     type={type}

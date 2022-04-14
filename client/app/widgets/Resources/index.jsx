@@ -1,5 +1,6 @@
 // @flow
 import React, { useState, useEffect } from 'react';
+import type { Node } from 'react';
 import { I18n } from 'libs/i18n';
 import { Resource } from 'components/Resource';
 import { Tag } from 'components/Tag';
@@ -135,7 +136,7 @@ export const Resources = ({
   resources,
   keywords,
   history = HistoryLib,
-}: Props) => {
+}: Props): Node => {
   const [checkboxes, setCheckboxes] = useState<Checkbox[]>(
     createCheckboxes(resources, keywords),
   );
@@ -242,6 +243,6 @@ export const Resources = ({
   );
 };
 
-export default ({ resources, keywords, history }: Props) => (
+export default ({ resources, keywords, history }: Props): Node => (
   <Resources resources={resources} keywords={keywords} history={history} />
 );

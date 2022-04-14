@@ -1,5 +1,6 @@
 // @flow
 import React, { useState } from 'react';
+import type { Node } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { I18n } from 'libs/i18n';
@@ -28,7 +29,7 @@ export function InputSwitch({
   value,
   uncheckedValue,
   checked: propChecked,
-}: Props) {
+}: Props): Node {
   const [checked, setChecked] = useState<boolean>(!!propChecked);
   const [key, setKey] = useState<string>('');
 

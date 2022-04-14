@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
 import { Utils } from 'utils';
@@ -43,7 +44,7 @@ const displayInfoLinks = (headerProfile: Profile) => {
   );
 };
 
-export const HeaderProfile = (props: Props) => {
+export const HeaderProfile = (props: Props): Node => {
   const { profile } = props;
   return (
     <div className={css.headerProfile}>

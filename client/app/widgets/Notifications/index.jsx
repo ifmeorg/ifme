@@ -1,5 +1,6 @@
 // @flow
 import React, { useState, useEffect } from 'react';
+import type { Node } from 'react';
 import axios from 'axios';
 import renderHTML from 'react-render-html';
 import { I18n } from 'libs/i18n';
@@ -18,7 +19,7 @@ export type State = {
   modalKey?: string,
 };
 
-export const Notifications = ({ element, pusher }: Props) => {
+export const Notifications = ({ element, pusher }: Props): Node => {
   const [notifications, setNotifications] = useState('');
   const [alreadyMounted, setAlreadyMounted] = useState(false);
   const [open, setOpen] = useState(false);
@@ -113,6 +114,6 @@ export const Notifications = ({ element, pusher }: Props) => {
   );
 };
 
-export default ({ element, pusher }: Props) => (
+export default ({ element, pusher }: Props): Node => (
   <Notifications element={element} pusher={pusher} />
 );

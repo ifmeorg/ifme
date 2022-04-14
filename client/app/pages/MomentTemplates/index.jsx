@@ -1,5 +1,6 @@
 // @flow
 import React, { useState } from 'react';
+import type { Node } from 'react';
 import axios from 'axios';
 import { I18n } from 'libs/i18n';
 import { PageTitle } from 'components/PageTitle';
@@ -15,7 +16,7 @@ type Props = {
   templates: Template[],
 };
 
-export const MomentTemplates = ({ templates: templatesProp }: Props) => {
+export const MomentTemplates = ({ templates: templatesProp }: Props): Node => {
   const [editableTemplate, setEditableTemplate] = useState();
   const [modalKey, setModalKey] = useState();
   const [templates, setTemplates] = useState(templatesProp || []);
@@ -132,6 +133,6 @@ export const MomentTemplates = ({ templates: templatesProp }: Props) => {
   );
 };
 
-export default ({ templates }: Props) => (
+export default ({ templates }: Props): Node => (
   <MomentTemplates templates={templates} />
 );

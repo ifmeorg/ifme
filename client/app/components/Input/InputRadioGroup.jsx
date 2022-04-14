@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import css from './InputRadioGroup.scss';
 import type { Option } from './utils';
 
@@ -9,7 +10,11 @@ export type Props = {
   value?: any,
 };
 
-export function InputRadioGroup({ name, options, value: propValue }: Props) {
+export function InputRadioGroup({
+  name,
+  options,
+  value: propValue,
+}: Props): Node {
   return (
     <div role="radiogroup" className={css.wrapper}>
       {options.map((option: Option) => (

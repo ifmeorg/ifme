@@ -1,5 +1,6 @@
 // @flow
 import React, { useState, useRef } from 'react';
+import type { Node } from 'react';
 import { I18n } from 'libs/i18n';
 import { InputSelect } from 'components/Input/InputSelect';
 import { InputTextarea } from 'components/Input/InputTextarea';
@@ -30,7 +31,7 @@ export const InputTextareaTemplate = ({
   dark,
   options: optionsProp,
   myRef,
-}: Props) => {
+}: Props): Node => {
   const [value, setValue] = useState(valueProp);
   const [textareaKey, setTextareaKey] = useState();
   const textareaRef = useRef(null);

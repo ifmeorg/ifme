@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 
 export type Props = {
   medicationStrength: Object,
@@ -45,7 +46,7 @@ export const StoryMedication = ({
   dosageUnit,
   refill,
   medicationRefill,
-}: Props) => (
+}: Props): Node => (
   <div>
     {displayStrength(medicationStrength)}
     <div>

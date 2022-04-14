@@ -1,6 +1,6 @@
 // @flow
 import { createContext } from 'react';
 
-const TemplatesContext = createContext<Object>({});
+const TemplatesContext: Object = createContext<Object>({});
 
 export default TemplatesContext;

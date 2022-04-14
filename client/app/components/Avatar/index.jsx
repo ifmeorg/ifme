@@ -1,6 +1,7 @@
 // @flow
 import LazyLoad from 'react-lazyload';
 import React from 'react';
+import type { Node } from 'react';
 import css from './Avatar.scss';
 
 export type Props = {
@@ -25,7 +26,7 @@ const getHeight = (small: ?boolean, large: ?boolean) => {
   return 100;
 };
 
-export const Avatar = (props: Props) => {
+export const Avatar = (props: Props): Node => {
   const {
     name, alt, src, small, large,
   } = props;

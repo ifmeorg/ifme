@@ -1,5 +1,6 @@
 // @flow
 import React, { useState } from 'react';
+import type { Node } from 'react';
 import LocationAutocomplete from 'location-autocomplete';
 import css from './Input.scss';
 
@@ -17,7 +18,7 @@ export function InputLocation({
   id,
   name,
   value: defaultAddress,
-}: Props) {
+}: Props): Node {
   const [address, setAddress] = useState<string>(defaultAddress || '');
 
   const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
