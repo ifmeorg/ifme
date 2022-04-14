@@ -19,12 +19,20 @@ const ChartTemplate = (args) => <Chart {...args} />;
 
 export const ChartDisplayWithAreaType = ChartTemplate.bind({});
 
-ChartDisplayWithAreaType.args = { title: 'Sample', data: sampleChartData, chartType: 'Area' };
+ChartDisplayWithAreaType.args = {
+  title: 'Sample',
+  data: sampleChartData,
+  chartType: 'Area',
+};
 ChartDisplayWithAreaType.storyName = 'ChartDisplay with area type';
 
 export const ChartDisplayWithLineType = ChartTemplate.bind({});
 
-ChartDisplayWithLineType.args = { title: 'Sample', data: sampleChartData, chartType: 'Line' };
+ChartDisplayWithLineType.args = {
+  title: 'Sample',
+  data: sampleChartData,
+  chartType: 'Line',
+};
 ChartDisplayWithLineType.storyName = 'ChartDisplay with line type';
 
 const ChartControlTemplate = (args) => <ChartControl {...args} />;

@@ -7,7 +7,9 @@ export default {
 
 const TranslationWithNoVariableTemplate = (args) => I18n.t('draft');
 
-export const TranslationWithNoVariable = TranslationWithNoVariableTemplate.bind({});
+export const TranslationWithNoVariable = TranslationWithNoVariableTemplate.bind(
+  {},
+);
 
 TranslationWithNoVariable.storyName = 'Translation with no variable';
 
