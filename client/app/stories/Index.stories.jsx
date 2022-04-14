@@ -22,22 +22,13 @@ export const Welcome = () => (
     <p style={{ marginTop: '40px' }}>
       Welcome to our official design system!
       <br />
-      <em>Components</em>
-      {' '}
-      and
-      <em>libraries</em>
-      {' '}
-      are used in React.
+      Components and libraries are used in React.
       <br />
-      The
-      {' '}
-      <em>style guide</em>
-      {' '}
-      is used across Rails and React.
+      The style guide is used across both Rails and React.
     </p>
     <p
       style={{
-        marginTop: '40px',
+        marginTop: '30px',
         display: 'flex',
       }}
     >

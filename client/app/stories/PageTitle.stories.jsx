@@ -9,23 +9,23 @@ export default {
 
 const Template = (args) => <PageTitle {...args} />;
 
-export const PageTitleWithoutCta = Template.bind({});
+export const WithoutCta = Template.bind({});
 
-PageTitleWithoutCta.args = { title: 'Title', subtitle: 'Subtitle' };
-PageTitleWithoutCta.storyName = 'PageTitle without call to action';
+WithoutCta.args = { title: 'Title', subtitle: 'Subtitle' };
+WithoutCta.storyName = 'Without call to action';
 
-export const PageTitleWithCta = Template.bind({});
+export const WithCta = Template.bind({});
 
-PageTitleWithCta.args = {
+WithCta.args = {
   title: 'Title',
   subtitle: 'Subtitle',
   cta: <button type="button">Hello</button>,
 };
-PageTitleWithCta.storyName = 'PageTitle with call to action';
+WithCta.storyName = 'With call to action';
 
-export const PageTitleWithInstructions = Template.bind({});
+export const WithInstructions = Template.bind({});
 
-PageTitleWithInstructions.args = {
+WithInstructions.args = {
   title: 'Title',
   subtitle: 'Subtitle',
   instructions: (
@@ -36,4 +36,4 @@ PageTitleWithInstructions.args = {
     </>
   ),
 };
-PageTitleWithInstructions.storyName = 'PageTitle with instructions';
+WithInstructions.storyName = 'With instructions';
