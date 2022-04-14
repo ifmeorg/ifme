@@ -1,5 +1,6 @@
----
-engines:
+version: "2"
+
+plugins:
   brakeman:
     enabled: true
   bundler-audit:
@@ -17,6 +18,7 @@ engines:
     - "client/**/__tests__/"
   eslint:
     enabled: true
+    channel: "eslint-7"
     exclude_paths:
     - public/javascripts/
     - vendor/assets/javascripts
