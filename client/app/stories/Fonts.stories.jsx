@@ -12,3 +12,13 @@ export const Fonts = () => (
     <p style={{ fontWeight: '400' }}>$font-weight-400</p>
   </>
 );
+
+Fonts.parameters = {
+  viewMode: 'story',
+  backgrounds: { default: 'white' },
+  previewTabs: {
+    'storybook/docs/panel': {
+      hidden: true,
+    },
+  },
+};
