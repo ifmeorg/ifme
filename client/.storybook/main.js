@@ -2,7 +2,10 @@ const path = require('path');
 const custom = require('../webpack.config');
 
 module.exports = {
-  stories: ['../app/stories/**/*.stories.@(jsx|mdx)'],
+  stories: [
+    '../app/stories/Index.stories.jsx',
+    '../app/stories/**/*.stories.@(jsx|mdx)',
+  ],
   addons: [
     '@storybook/addon-links',
     {

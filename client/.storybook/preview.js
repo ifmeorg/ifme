@@ -12,4 +12,5 @@ export const parameters = {
       { name: 'mulberry', value: '#6D0839' },
     ],
   },
+  viewMode: 'docs',
 };
