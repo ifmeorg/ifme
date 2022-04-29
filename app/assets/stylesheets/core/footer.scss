@@ -104,4 +104,18 @@
       }
     }
   }
+
+  &Dpga {
+    background: url('/assets/partners/dpga.svg');
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 50px;
+    background-size: 100px 50px;
+    float: right;
+
+    @media screen and (max-width: $medium) {
+      float: none;
+      margin: 0 auto;
+    }
+  }
 }
