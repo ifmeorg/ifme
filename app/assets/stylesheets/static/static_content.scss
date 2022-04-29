@@ -170,6 +170,7 @@
       border-radius: $size-4;
       width: 500px;
       height: auto;
+      background-color: $white;
 
       @media screen and (max-width: $small) {
         width: 100%;
