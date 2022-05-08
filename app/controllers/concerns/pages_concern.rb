@@ -13,8 +13,13 @@ module PagesConcern
   def modify_resources
     resources = JSON.parse(File.read('doc/pages/resources.json'))
     resources.each do |item|
-      item['tags'].map! { |tag| t("pages.resources.tags.#{tag}") }
+      pr = 'pages.resources'
+      item['tags'].map! { |tag| t("#{pr}.tags.#{tag}") }
       item['languages'].map! { |language| t("languages.#{language}") }
+      item['locations']&.map! { |location| t("#{pr}.locations.#{location}") }
+      item['tags'].sort_by!(&:downcase)
+      item['languages'].sort_by!(&:downcase)
+      item['locations']&.sort_by! { |location| location.downcase }
     end
     resources
   end

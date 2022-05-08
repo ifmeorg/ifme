@@ -18,6 +18,7 @@ type ResourceProp = {
   link: string,
   tags: string[],
   languages: string[],
+  locations?: string[],
 };
 
 export type Props = {
@@ -100,7 +101,11 @@ const createCheckboxes = (resources: ResourceProp[], keywords: string[]) => {
   const tagsList = [
     ...new Set(
       resources
-        .map((resource: ResourceProp) => resource.tags.concat(resource.languages))
+        .map((resource: ResourceProp) => [
+          ...resource.tags,
+          ...resource.languages,
+          ...(resource.locations || []),
+        ])
         .reduce((acc, val) => acc.concat(val), []),
     ),
   ];
@@ -127,7 +132,11 @@ const filterList = (
   return resources.filter((resource: ResourceProp) => {
     const tagCheck = selectedCheckboxes.map((checkbox: Checkbox) =>
       // eslint-disable-next-line implicit-arrow-linebreak
-      resource.tags.concat(resource.languages).includes(checkbox.id));
+      [
+        ...resource.tags,
+        ...resource.languages,
+        ...(resource.locations || []),
+      ].includes(checkbox.id));
     return selectedCheckboxes.length > 0 ? tagCheck.includes(true) : true;
   });
 };
@@ -213,7 +222,11 @@ export const Resources = ({
             >
               <Resource
                 tagged
-                tags={resource.languages.concat(resource.tags)}
+                tags={[
+                  ...resource.tags,
+                  ...resource.languages,
+                  ...(resource.locations || []),
+                ]}
                 title={resource.name}
                 link={resource.link}
                 updateTagFilter={(tagLabel) => {
