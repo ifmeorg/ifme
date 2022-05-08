@@ -31,6 +31,8 @@ pt-BR:
     zh-CN: 中文
     ko: 한국어
     id: Bahasa Indonesia
+    ar: اَلْعَرَبِيَّةُ
+    ru: Русские
   navigation:
     skip_to_main_content: Pular para o conteúdo principal
     main_menu: Menu do site principal
@@ -739,7 +741,6 @@ pt-BR:
         ocd: TOC
         advice: conselho
         forum: fórum
-        learning: aprender
         crisis_prevention: Prevenção de Crises
         safety_planning: Planejamento de Segurança
         suicide_prevention: Prevenção de Suicídio
@@ -806,6 +807,18 @@ pt-BR:
         breakup: romper
         indigenous: Povo indígena
         therapists: terapeutas
+        recovery: recuperação
+        advocacy: advocacia
+        trauma: trauma
+        newsletter: Boletim de Notícias
+        phobias: fobias
+      locations:
+        uk: Reino Unido
+        us: Estados Unidos
+        intl: Internacional
+        se: Suécia
+        ca: Canadá
+        ie: Irlanda
   profile:
     index:
       title: Perfil

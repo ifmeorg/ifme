@@ -31,6 +31,8 @@ ko:
     zh-CN: 中文
     ko: 한국어
     id: Bahasa Indonesia
+    ar: اَلْعَرَبِيَّةُ
+    ru: Русские
   navigation:
     skip_to_main_content: 메인 컨텐츠로 가기
     google: Google
@@ -619,7 +621,6 @@ ko:
         ocd: 강박 장애
         advice: 조언
         forum: 포럼
-        learning: 학습
         crisis_prevention: 위기 예방
         safety_planning: 안전 계획
         suicide_prevention: 자살 예방
@@ -686,6 +687,18 @@ ko:
         breakup: 붕괴
         indigenous: 원주민
         therapists: 치료사
+        recovery: 회복
+        advocacy: 옹호
+        trauma: 외상
+        newsletter: 뉴스 레터
+        phobias: 공포증
+      locations:
+        uk: 영국
+        us: 미국
+        intl: 국제적인
+        se: 스웨덴
+        ca: 캐나다
+        ie: 아일랜드
   profile:
     index:
       title: 프로필

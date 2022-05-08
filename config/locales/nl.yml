@@ -31,6 +31,8 @@ nl:
     zh-CN: 中文
     ko: 한국어
     id: Bahasa Indonesia
+    ar: اَلْعَرَبِيَّةُ
+    ru: Русские
   navigation:
     skip_to_main_content: Ga naar hoofdinhoud
     main_menu: Hoofdsitemenu
@@ -739,7 +741,6 @@ nl:
         ocd: OCS
         advice: advies
         forum: forum
-        learning: leren
         crisis_prevention: crisispreventie
         safety_planning: veiligheidsplanning
         suicide_prevention: zelfmoordpreventie
@@ -806,6 +807,18 @@ nl:
         breakup: uitmaken
         indigenous: Inheemse bevolking
         therapists: therapeuten
+        recovery: herstel
+        advocacy: belangenbehartiging
+        trauma: trauma
+        newsletter: nieuwsbrief
+        phobias: fobieën
+      locations:
+        uk: Verenigd Koninkrijk
+        us: Verenigde Staten
+        intl: Internationale
+        se: Zweden
+        ca: Canada
+        ie: Ierland
   profile:
     index:
       title: Profiel

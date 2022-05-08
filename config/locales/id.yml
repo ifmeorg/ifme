@@ -31,6 +31,8 @@ id:
     zh-CN: 中文
     ko: 한국어
     id: Bahasa Indonesia
+    ar: اَلْعَرَبِيَّةُ
+    ru: Русские
   navigation:
     skip_to_main_content: Lewati ke konten utama
     google: Google
@@ -718,7 +720,6 @@ id:
         ocd: OCD
         advice: nasihat
         forum: forum
-        learning: belajar
         crisis_prevention: pencegahan krisis
         safety_planning: perencanaan keselamatan
         suicide_prevention: pencegahan bunuh diri
@@ -785,6 +786,18 @@ id:
         breakup: putus
         indigenous: asli
         therapists: terapis
+        recovery: pemulihan
+        advocacy: pembelaan
+        trauma: trauma
+        newsletter: buletin
+        phobias: fobia
+      locations:
+        uk: Britania Raya
+        us: Amerika Serikat
+        intl: Internasional
+        se: Swedia
+        ca: Kanada
+        ie: Irlandia
   profile:
     index:
       title: Profil

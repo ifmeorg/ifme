@@ -31,6 +31,8 @@ nb:
     zh-CN: 中文
     ko: 한국어
     id: Bahasa Indonesia
+    ar: اَلْعَرَبِيَّةُ
+    ru: Русские
   navigation:
     skip_to_main_content: Hopp til hovedinnhold
     main_menu: Hovedstedmeny
@@ -701,7 +703,6 @@ nb:
         ocd: OCD
         advice: råd
         forum: forum
-        learning: læring
         crisis_prevention: kriseforhindring
         safety_planning: sikkerhetsplanlegging
         suicide_prevention: selvmordsforhindring
@@ -768,6 +769,18 @@ nb:
         breakup: slå opp
         indigenous: Urfolk
         therapists: terapeuter
+        recovery: gjenoppretting
+        advocacy: beslutningspåvirkning
+        trauma: traume
+        newsletter: nyhetsbrev
+        phobias: fobier
+      locations:
+        uk: Storbritannia
+        us: forente stater
+        intl: Internasjonal
+        se: Sverige
+        ca: Canada
+        ie: Irland
   profile:
     index:
       title: Profil

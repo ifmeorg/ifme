@@ -31,6 +31,8 @@ de:
     zh-CN: 中文
     ko: 한국어
     id: Bahasa Indonesia
+    ar: اَلْعَرَبِيَّةُ
+    ru: Русские
   navigation:
     skip_to_main_content: Zum Hauptinhalt springen
     google: Google
@@ -791,7 +793,6 @@ de:
         ocd: Zwangsstörung
         advice: Rat
         forum: Forum
-        learning: Lernen
         crisis_prevention: Krisenvorsorge
         safety_planning: Sicherheitsplanung
         suicide_prevention: Selbstmordprävention
@@ -858,6 +859,18 @@ de:
         breakup: Trennung
         indigenous: indigene Völker
         therapists: Therapeuten
+        recovery: Wiederherstellung
+        advocacy: Interessenvertretung
+        trauma: trauma
+        newsletter: newsletter
+        phobias: Phobien
+      locations:
+        uk: Großbritannien
+        us: Vereinigte Staaten
+        intl: Schweden
+        se: Schweden
+        ca: Kanada
+        ie: Irland
   profile:
     index:
       title: Profil
