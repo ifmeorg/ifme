@@ -31,6 +31,8 @@ zh-CN:
     zh-CN: 中文
     ko: 한국어
     id: Bahasa Indonesia
+    ar: اَلْعَرَبِيَّةُ
+    ru: Русские
   navigation:
     skip_to_main_content: 跳至主要内容
     main_menu: 主菜单
@@ -588,7 +590,6 @@ zh-CN:
         ocd: 强迫症
         advice: 忠告
         forum: 论坛
-        learning: 学习
         crisis_prevention: 危机预防
         safety_planning: 安全计划
         suicide_prevention: 预防自杀
@@ -655,6 +656,18 @@ zh-CN:
         breakup: 分手
         indigenous: 原住民
         therapists: 治療師
+        recovery: 恢復
+        advocacy: 倡導
+        trauma: 創傷
+        newsletter: 通訊
+        phobias: 恐懼症
+      locations:
+        uk: 英國
+        us: 美國
+        intl: 國際的
+        se: 瑞典
+        ca: 加拿大
+        ie: 愛爾蘭
   profile:
     index:
       title: 个人资料

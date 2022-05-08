@@ -31,6 +31,8 @@ hi:
     zh-CN: 中文
     ko: 한국어
     id: Bahasa Indonesia
+    ar: اَلْعَرَبِيَّةُ
+    ru: Русские
   navigation:
     skip_to_main_content: मुख्य सामग्री पर जाएं
     main_menu: मुख्य साइट मेनू
@@ -714,7 +716,6 @@ hi:
         ocd: OCD
         advice: सलाह
         forum: मंच
-        learning: सीख रहा हूँ
         crisis_prevention: संकट की रोकथाम
         safety_planning: सुरक्षा योजना
         suicide_prevention: आत्महत्या की रोकथाम
@@ -781,6 +782,18 @@ hi:
         breakup: संबंध विच्छेद
         indigenous: स्वदेशी लोग
         therapists: चिकित्सक
+        recovery: स्वास्थ्य लाभ
+        advocacy: वकालत
+        trauma: सदमा
+        newsletter: समाचार पत्रिका
+        phobias: भय
+      locations:
+        uk: यूनाइटेड किंगडम
+        us: संयुक्त राज्य अमेरिका
+        intl: अंतरराष्ट्रीय
+        se: स्वीडन
+        ca: कनाडा
+        ie: आयरलैंड
   profile:
     index:
       title: प्रोफाइल

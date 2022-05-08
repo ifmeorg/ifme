@@ -31,6 +31,8 @@ vi:
     zh-CN: 中文
     ko: 한국어
     id: Bahasa Indonesia
+    ar: اَلْعَرَبِيَّةُ
+    ru: Русские
   navigation:
     skip_to_main_content: Chuyển đến nội dung chính
     main_menu: Menu trang chính
@@ -722,7 +724,6 @@ vi:
         ocd: OCD
         advice: lời khuyên
         forum: diễn đàn
-        learning: học hỏi
         crisis_prevention: phòng chống khủng hoảng
         safety_planning: kế hoạch an toàn
         suicide_prevention: phòng chống tự tử
@@ -789,6 +790,18 @@ vi:
         breakup: chia tay
         indigenous: Người bản địa
         therapists: nhà trị liệu
+        recovery: sự hồi phục
+        advocacy: sự vận động
+        trauma: tổn thương
+        newsletter: bản tin
+        phobias: ám ảnh
+      locations:
+        uk: Vương quốc Anh
+        us: Hoa Kỳ
+        intl: Quốc tế
+        se: Thụy Điển
+        ca: Canada
+        ie: Ailen
   profile:
     index:
       title: Hồ sơ

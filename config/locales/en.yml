@@ -31,6 +31,8 @@ en:
     zh-CN: 中文
     ko: 한국어
     id: Bahasa Indonesia
+    ar: اَلْعَرَبِيَّةُ
+    ru: Русские
   navigation:
     skip_to_main_content: Skip to main content
     google: Google
@@ -691,7 +693,6 @@ en:
         ocd: OCD
         advice: advice
         forum: forum
-        learning: learning
         crisis_prevention: crisis prevention
         safety_planning: safety planning
         suicide_prevention: suicide prevention
@@ -758,6 +759,18 @@ en:
         breakup: breakup
         indigenous: indigenous
         therapists: therapists
+        recovery: recovery
+        advocacy: advocacy
+        trauma: trauma
+        newsletter: newsletter
+        phobias: phobias
+      locations:
+        uk: United Kingdom
+        us: United States
+        intl: International
+        se: Sweden
+        ca: Canada
+        ie: Ireland
   profile:
     index:
       title: Profile
