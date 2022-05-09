@@ -122,7 +122,7 @@ describe('Resources', () => {
     userEvent.click(input);
 
     // first tag selection
-    let tagText = 'android';
+    let tagText = 'texting';
     let queryOptions = { name: tagText };
 
     // click tag option
@@ -170,7 +170,7 @@ describe('Resources', () => {
     userEvent.click(input);
 
     // tag selection and expected view updates
-    const tagText = 'android';
+    const tagText = 'texting';
     const queryOptions = { name: tagText };
 
     const option = screen.getByRole('option', queryOptions);
