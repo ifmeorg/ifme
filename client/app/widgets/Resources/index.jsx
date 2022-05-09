@@ -55,7 +55,7 @@ const getPopularTags = () => {
     'domestic_violence',
     'east_asian',
     'education',
-    'goal_setting',
+    'goal_tracking',
     'ios',
     'latinx',
     'lgbt',

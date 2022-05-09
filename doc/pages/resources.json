@@ -1099,7 +1099,7 @@
   {
     "name": "Bearable",
     "link": "https://bearable.app/",
-    "tags": ["ios", "android", "free", "paid", "self_care", "blog", "mood_tracking", "goal_setting", "journaling", "communities"],
+    "tags": ["ios", "android", "free", "paid", "self_care", "blog", "mood_tracking", "goal_tracking", "journaling", "communities"],
     "languages": ["en"]
   }
 ]
