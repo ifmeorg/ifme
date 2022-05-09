@@ -70,14 +70,15 @@ class PagesController < ApplicationController
   private
 
   def filter_keywords
-    return [] if params[:filter].nil?
+    return [] if params[:filter].nil? || !params[:filter].is_a?(Array)
 
     word_tags.select { |r| params[:filter].map(&:downcase).include? r.downcase }
   end
 
   def word_tags
     @resources.reduce([]) do |arr, resource|
-      arr + resource['tags'] + resource['languages']
+      locations = resource['locations'] || []
+      arr + resource['tags'] + resource['languages'] + locations
     end.uniq
   end
 
