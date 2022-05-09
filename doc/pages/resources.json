@@ -1064,5 +1064,42 @@
     "tags": ["education", "therapy", "counseling", "directory", "paid", "workplace", "self_care"],
     "languages": ["en"],
     "locations": ["us"]
+  },
+  {
+    "name": "MoodFit",
+    "link": "https://www.getmoodfit.com/",
+    "tags": ["ios", "android", "paid", "self_care", "goal_tracking", "mood_tracking", "journaling", "cbt", "mindfulness", "meditation", "therapists", "blog"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Shine",
+    "link": "https://www.theshineapp.com/",
+    "tags": ["ios", "android", "paid", "people_of_colour", "black_people", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "indigenous", "meditation", "self_care", "education", "communities", "coaching", "podcast"],
+    "languages": ["en"]
+  },
+  {
+    "name": "PTSD Coach",
+    "link": "https://mobile.va.gov/app/ptsd-coach",
+    "tags": ["ios", "android", "free", "veterans", "ptsd"],
+    "languages": ["en"],
+    "locations": ["us"]
+  },
+  {
+    "name": "MoodMission",
+    "link": "https://moodmission.com/",
+    "tags": ["ios", "android", "paid", "stress", "anxiety", "mood_tracking", "depression", "self_care", "blog"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Sanvello",
+    "link": "https://www.sanvello.com/",
+    "tags": ["ios", "android", "free", "paid", "self_care", "blog", "coaching", "therapy", "support_groups", "cbt", "mindfulness", "meditation"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Bearable",
+    "link": "https://bearable.app/",
+    "tags": ["ios", "android", "free", "paid", "self_care", "blog", "mood_tracking", "goal_setting", "journaling", "communities"],
+    "languages": ["en"]
   }
 ]
