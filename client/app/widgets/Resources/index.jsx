@@ -51,6 +51,7 @@ const getPopularTags = () => {
     'black_people',
     'black_women',
     'communities',
+    'domestic_violence',
     'east_asian',
     'education',
     'latinx',
@@ -61,6 +62,7 @@ const getPopularTags = () => {
     'south_asian',
     'southeast_asian',
     'therapy',
+    'veterans',
     'women',
     'women_of_colour',
   ];
