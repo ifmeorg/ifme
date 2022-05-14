@@ -4,7 +4,8 @@
   text-decoration: none;
   color: $cornflower;
 
-  &:hover {
+  &:hover,
+  &:focus {
     opacity: 0.5;
   }
 }
@@ -19,7 +20,8 @@
   text-decoration: none;
   color: $blumine;
 
-  &:hover {
+  &:hover,
+  &:focus {
     opacity: 0.5;
   }
 }

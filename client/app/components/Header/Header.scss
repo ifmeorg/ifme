@@ -7,7 +7,8 @@
     color: $white;
     text-decoration: none;
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: $white;
       opacity: 0.5;
     }

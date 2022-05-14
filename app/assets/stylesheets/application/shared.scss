@@ -47,7 +47,8 @@
         text-decoration: none;
         color: $key-lime;
 
-        &:hover {
+        &:hover,
+        &:focus {
           opacity: 0.5;
         }
       }
@@ -64,33 +65,6 @@
     &Element {
       width: inherit;
       word-break: break-word;
-    }
-  }
-}
-
-.pagination {
-  @include setMargin($size-40, $size-0, $size-0, $size-0);
-
-  color: $eggplant;
-  text-align: center;
-
-  span.prev,
-  span.first {
-    @include setMargin($size-0, $size-10, $size-0, $size-0);
-  }
-
-  span.next,
-  span.last {
-    @include setMargin($size-0, $size-0, $size-0, $size-10);
-  }
-
-  a:link,
-  a:visited {
-    text-decoration: none;
-    color: $mulberry;
-
-    &:hover {
-      opacity: 0.5;
     }
   }
 }

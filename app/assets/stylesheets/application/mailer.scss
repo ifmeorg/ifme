@@ -8,6 +8,17 @@
   font-weight: $font-weight-400;
   line-height: 1.4;
   width: 100%;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: $blumine;
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+  }
 
   main {
     @include dashboardSectionLink();
@@ -42,7 +53,7 @@
 
     hr {
       width: 30%;
-      background-color: $grey;
+      border: 2px solid $mulberry;
     }
   }
 }
