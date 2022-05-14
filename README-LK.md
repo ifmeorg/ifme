@@ -1,7 +1,7 @@
 [![CircleCI](https://circleci.com/gh/ifmeorg/ifme/tree/main.svg?style=svg)](https://circleci.com/gh/ifmeorg/ifme/tree/main)
 [![Code Climate](https://codeclimate.com/github/ifmeorg/ifme/badges/gpa.svg)](https://codeclimate.com/github/ifmeorg/ifme)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f9444a4d4116720518fe/test_coverage)](https://codeclimate.com/github/ifmeorg/ifme/test_coverage)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](code-of-conduct.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.1%20adopted-ff69b4.svg)](code_of_conduct.md)
 [![Backers on Open Collective](https://opencollective.com/ifme/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 
@@ -16,7 +16,7 @@
 
 සජීවී වෙබ් අඩවිය [if-me.org](https://www.if-me.org/) වෙබ් අඩවියෙන් සොයාගත හැකිය. සජීවී සැලසුම් පද්ධති [design.if-me.org](http://design.if-me.org/) වෙතින් සොයාගත හැකිය.
 
-** අපගේ [චර්යාධර්ම පද්ධතිය](http://contributor-covenant.org) සඳහා අපූරු දායක සම්මුතිය භාවිතා කරමු. 
+** අපගේ [චර්යාධර්ම පද්ධතිය](http://contributor-covenant.org) සඳහා අපූරු දායක සම්මුතිය භාවිතා කරමු.
 අපගේ ව්‍යාපෘතියට සම්බන්ධ වීමට පෙර කරුණාකර [එය] (https://github.com/ifmeorg/ifme/blob/main/code_of_conduct.md) කියවන්න.
 
 
@@ -24,7 +24,7 @@
 
 ## ලියකියවිලි
 
-සම්පූර්ණ ලියකියවිලි සඳහා කරුණාකර අපගේ [විකිය](https://github.com/ifmeorg/ifme/wiki) බලන්න. 
+සම්පූර්ණ ලියකියවිලි සඳහා කරුණාකර අපගේ [විකිය](https://github.com/ifmeorg/ifme/wiki) බලන්න.
 
 ### ස්ථාපනය කිරීම
 
@@ -32,7 +32,7 @@
 
 ### දායකත්වය සදහා
 
-අපගේ දායක පිටුවට තමන්ව [එක් කර ගැනීමට](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb) සෑම කෙනෙකුම බෙහෙවින් දිරිමත් කරනු ලැබේ.  
+අපගේ දායක පිටුවට තමන්ව [එක් කර ගැනීමට](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb) සෑම කෙනෙකුම බෙහෙවින් දිරිමත් කරනු ලැබේ.
 
 ## පරිත්යාග කරන්න
 
@@ -55,7 +55,7 @@
 ### Sponsors
 
 අපගේ සියලුම අනුග්‍රාහකයන්ට ස්තූතියි! (කරුණාකර [අනුග්‍රාහකයෙකු වීමෙන්](https://opencollective.com/ifme#sponsor)
- මෙම විවෘත මූලාශ්‍ර ව්‍යාපෘතියට සහාය වන ලෙස ඔබේ සමාගමෙන් ඉල්ලා සිටින්න) 
+ මෙම විවෘත මූලාශ්‍ර ව්‍යාපෘතියට සහාය වන ලෙස ඔබේ සමාගමෙන් ඉල්ලා සිටින්න)
 
 <section role="presentation">
   <a href="https://opencollective.com/ifme/sponsor/0/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/0/avatar.svg"></a>
