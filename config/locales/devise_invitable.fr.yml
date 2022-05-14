@@ -23,7 +23,7 @@ fr:
     mailer:
       invitation_instructions:
         subject: 'if-me.org | %{name} vous a invité à rejoindre if-me.org!'
-        subject_nameless: Quelqu'un vous a invité à rejoindre if-me.org!
+        subject_nameless: if-me.org | Quelqu'un vous a invité à rejoindre if-me.org!
         hello: 'Salut %{email}!'
         someone_invited_you: >-
           %{name} vous a invité à rejoindre http://www.if-me.org, une communauté

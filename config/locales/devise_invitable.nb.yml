@@ -21,7 +21,7 @@ nb:
     mailer:
       invitation_instructions:
         subject: 'if-me.org | %{name} inviterte deg til å bli med i if-me.org!'
-        subject_nameless: Noen inviterte deg til å bli med i if-me.org!
+        subject_nameless: if-me.org | Noen inviterte deg til å bli med i if-me.org!
         hello: 'Hei %{email}!'
         someone_invited_you: >-
           %{name} har invitert deg til å bli med i http://www.if-me.org, et

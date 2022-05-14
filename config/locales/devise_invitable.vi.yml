@@ -19,7 +19,7 @@ vi:
     mailer:
       invitation_instructions:
         subject: 'if-me.org | %{name} đã mời bạn tham gia if-me.org!'
-        subject_nameless: Có ai đó mời bạn tham gia if-me.org!
+        subject_nameless: if-me.org | Có ai đó mời bạn tham gia if-me.org!
         hello: 'Chào %{email}!'
         someone_invited_you: >-
           %{name} đã mời bạn tham gia http://www.if-me.org, một cộng đồng để

@@ -21,7 +21,7 @@ id:
     mailer:
       invitation_instructions:
         subject: "if-me.org | %{name} mengundang Anda untuk bergabung if-me.org!"
-        subject_nameless: Seseorang mengundang Anda untuk bergabung if-me.org!
+        subject_nameless: if-me.org | Seseorang mengundang Anda untuk bergabung if-me.org!
         hello: "Hey %{email}!"
         someone_invited_you: >-
           %{name} telah mengundang Anda untuk bergabung dengan http://www.if-me.org, sebuah komunitas untuk

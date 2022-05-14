@@ -21,7 +21,7 @@ de:
     mailer:
       invitation_instructions:
         subject: 'if-me.org | %{name} hat Dich eingeladen if-me.org beizutreten!'
-        subject_nameless: 'Jemand hat Dich eingeladen, if-me.org beizutreten!'
+        subject_nameless: 'if-me.org | Jemand hat Dich eingeladen, if-me.org beizutreten!'
         hello: 'Hallo %{email}!'
         someone_invited_you: >-
           %{name} hat Dich eingeladen http://www.if-me.org beizutreten, eine

@@ -21,7 +21,7 @@ en:
       unconfirmed: You have to confirm your email address before continuing.
     mailer:
       confirmation_instructions:
-        if-me.org | Confirmation instructions
+        subject: if-me.org | Confirmation instructions
       reset_password_instructions:
         subject: if-me.org | Reset password instructions
       unlock_instructions:
