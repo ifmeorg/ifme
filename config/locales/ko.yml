@@ -247,10 +247,10 @@ ko:
         one: 알약
         other: 알약들
     reminder_mailer:
-      subject: '%{name}을(를) 복용하시는걸 잊지 마세요!'
+      subject: 'if-me.org | %{name}을(를) 복용하시는걸 잊지 마세요!'
       body: '%{name}을(를) 복용하도록 알려주는 친절한 알림입니다!'
     refill_mailer:
-      subject: '곧 %{name}을(를) 재구매 해야합니다!'
+      subject: 'if-me.org | 곧 %{name}을(를) 재구매 해야합니다!'
       body: '%{name}을(를) 재구매하도록 알려주는 친절한 알림입니다!'
     index:
       title: 의약품
@@ -280,7 +280,7 @@ ko:
         one: '%{group} 그룹 멤버의 %{count}명'
         other: '%{group} 그룹 멤버의 %{count}명'
     reminder_mailer:
-      subject: '"%{meeting_name}" 미팅이 %{time}에 있습니다!'
+      subject: 'if-me.org | "%{meeting_name}" 미팅이 %{time}에 있습니다!'
       body: '내일 %{time}에 %{location}에서 열리는 "%{meeting_name}" 미팅을 알려주는 친절한 알림입니다!'
     leave:
       error: 당신이 이 그룹의 유일한 리더이기 때문에 그룹을 떠날 수 없습니다.
@@ -796,7 +796,7 @@ ko:
         http://www.mindful.org/a-five-minute-breathing-meditation/ </i>
       instructions: 아직 어떤 계획도 만들지 않았습니다.<br />또한 사전 계획을 미리 만들고 나중에 맞춤설정할수도 있습니다.
     reminder_mailer:
-      subject: '%{name}을(를) 하는것을 잊지 마십시오!!'
+      subject: 'if-me.org | %{name}을(를) 하는것을 잊지 마십시오!!'
       body: '%{name}을(를) 수행하라는 친절한 알림메세지 입니다!'
   stats:
     total_moments: '<strong>총</strong> <strong>%{count}</strong> 개의 경험들을 작성했습니다.'
@@ -810,7 +810,7 @@ ko:
     yes_description: 글을 쓰는것은 나와 다른사람들이 더 잘 이해하는 데 도움이 됩니다.
   mailers:
     accepted_ally_request:
-      subject: 'if-me.org | %{ally_name} accepted your ally request!'
+      subject: 'if-me.org | %{ally_name} 동맹 요청을 수락했습니다!'
       message: '<p>축하합니다! 이제 경험들과 계획등을 %{ally_name}과 공유 할 수 있습니다</p>'
     new_ally_request:
       subject: 'if-me.org | %{ally_name} 이(가) 당신의 동료요청을 수락했습니다!'

@@ -22,13 +22,13 @@ vi:
       unconfirmed: Bạn phải xác nhận email trước khi tiếp tục.
     mailer:
       confirmation_instructions:
-        subject: Hướng dẫn xác nhận
+        subject: if-me.org | Hướng dẫn xác nhận
       reset_password_instructions:
-        subject: Hướng dẫn cài đặt lại mật khẩu
+        subject: if-me.org | Hướng dẫn cài đặt lại mật khẩu
       unlock_instructions:
-        subject: Hướng dẫn mở khóa
+        subject: if-me.org | Hướng dẫn mở khóa
       password_change:
-        subject: Mật khẩu đã được thay đổi
+        subject: if-me.org | Mật khẩu đã được thay đổi
     omniauth_callbacks:
       failure: 'Không thể xác thực bạn từ %{kind} bởi vì "%{reason}".'
       success: 'Chứng thực thành công từ tài khoản %{kind}.'

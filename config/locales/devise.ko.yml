@@ -16,13 +16,13 @@ ko:
       unconfirmed: 계속 진행하시려면 계정의 이메일 인증이 필요합니다.
     mailer:
       confirmation_instructions:
-        subject: 인증 지침
+        subject: if-me.org | 인증 지침
       reset_password_instructions:
-        subject: 비밀번호 재설정 지침
+        subject: if-me.org | 비밀번호 재설정 지침
       unlock_instructions:
-        subject: 잠금 해제 지침
+        subject: if-me.org | 잠금 해제 지침
       password_change:
-        subject: 비밀번호 변경
+        subject: if-me.org | 비밀번호 변경
     omniauth_callbacks:
       failure: '다음과 같은 이유로 %{kind} 계정의 인증에 실패하였습니다. "%{reason}".'
       success: '%{kind} 계정의 인증에 성공하였습니다.'

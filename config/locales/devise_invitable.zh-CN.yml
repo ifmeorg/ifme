@@ -18,7 +18,7 @@ zh-CN:
         submit_button: 设置
     mailer:
       invitation_instructions:
-        subject: '%{name}邀请你加入 if-me.org!'
+        subject: 'if-me.org | %{name}邀请你加入 if-me.org!'
         subject_nameless: 有人邀请你加入 if-me.org!
         hello: '你好，%{email}！'
         someone_invited_you: >-

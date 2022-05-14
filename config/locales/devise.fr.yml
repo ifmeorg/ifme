@@ -21,13 +21,13 @@ fr:
       unconfirmed: Vous devez confirmer votre compte par courriel.
     mailer:
       confirmation_instructions:
-        subject: Instructions de confirmation
+        subject: if-me.org | Instructions de confirmation
       reset_password_instructions:
-        subject: Instructions pour changer le mot de passe
+        subject: if-me.org | Instructions pour changer le mot de passe
       unlock_instructions:
-        subject: Instructions pour déverrouiller le compte
+        subject: if-me.org | Instructions pour déverrouiller le compte
       password_change:
-        subject: Mot de passe modifié
+        subject: if-me.org | Mot de passe modifié
     omniauth_callbacks:
       failure: >-
         Nous ne pouvons pas vous authentifier depuis %{kind} pour la raison

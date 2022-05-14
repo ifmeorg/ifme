@@ -18,13 +18,13 @@ nl:
       unconfirmed: Je moet je e-mailadres bevestigen voordat je door kunt gaan.
     mailer:
       confirmation_instructions:
-        subject: Bevestig je account
+        subject: if-me.org | Bevestig je account
       reset_password_instructions:
-        subject: Instructies om je wachtwoord te resetten
+        subject: if-me.org | Instructies om je wachtwoord te resetten
       unlock_instructions:
-        subject: Ontgrendel instructies
+        subject: if-me.org | Ontgrendel instructies
       password_change:
-        subject: Wachtwoord veranderd
+        subject: if-me.org | Wachtwoord veranderd
     omniauth_callbacks:
       failure: 'Kan je niet authenticeren via %{kind} omdat "%{reason}".'
       success: 'Succesvol geauthenticeerd via %{kind} account.'

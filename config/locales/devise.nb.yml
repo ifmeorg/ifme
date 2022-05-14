@@ -21,13 +21,13 @@ nb:
       unconfirmed: Du må bekrefte epost-adressen din før du kan fortsette.
     mailer:
       confirmation_instructions:
-        subject: Bekreftelsesinstruksjoner
+        subject: if-me.org | Bekreftelsesinstruksjoner
       reset_password_instructions:
-        subject: Instruksjoner for tilbakestilling av passord
+        subject: if-me.org | Instruksjoner for tilbakestilling av passord
       unlock_instructions:
-        subject: Oppløsningsinstruksjoner
+        subject: if-me.org | Oppløsningsinstruksjoner
       password_change:
-        subject: Passord oppdatert
+        subject: if-me.org | Passord oppdatert
     omniauth_callbacks:
       failure: 'Kunne ikke autorisere deg fra %{kind} fordi "%{reason}".'
       success: 'Vellykket autorisering fra %{kind} konto.'

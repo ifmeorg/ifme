@@ -21,13 +21,13 @@ en:
       unconfirmed: You have to confirm your email address before continuing.
     mailer:
       confirmation_instructions:
-        subject: Confirmation instructions
+        if-me.org | Confirmation instructions
       reset_password_instructions:
-        subject: Reset password instructions
+        subject: if-me.org | Reset password instructions
       unlock_instructions:
-        subject: Unlock instructions
+        subject: if-me.org | Unlock instructions
       password_change:
-        subject: Password Changed
+        subject: if-me.org | Password Changed
     omniauth_callbacks:
       failure: 'Could not authenticate you from %{kind} because "%{reason}".'
       success: 'Successfully authenticated from %{kind} account.'

@@ -263,10 +263,10 @@ vi:
         one: viên
         other: viên
     reminder_mailer:
-      subject: 'Đừng quên uống %{name}!'
+      subject: 'if-me.org | Đừng quên uống %{name}!'
       body: 'Đây là nhắc nhở bạn cần phải uống thuốc %{name}!'
     refill_mailer:
-      subject: 'Thuốc mới %{name} của bạn sẽ có sớm!'
+      subject: 'if-me.org | Thuốc mới %{name} của bạn sẽ có sớm!'
       body: 'Đây là nhắc nhở bạn cần bổ sung thuốc mới %{name} vào ngày %{refill}!'
     index:
       title: Thuốc
@@ -915,7 +915,7 @@ vi:
         Bạn chưa tạo bất kỳ chiến lược tùy chỉnh nào được nêu ra. <br />Bạn cũng
         có thể thêm chiến lược làm sẵn sau và tùy chỉnh nó một lần nữa.
     reminder_mailer:
-      subject: 'Đừng quên thể hiện %{name}!'
+      subject: 'if-me.org | Đừng quên thể hiện %{name}!'
       body: 'Đậy là nhắc nhở để thể hiện %{name}!'
   stats:
     total_moments: >-

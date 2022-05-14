@@ -259,10 +259,10 @@ id:
         one: tablet
         other: tablet
     reminder_mailer:
-      subject: 'Jangan lupa mengkonsumsi %{name}!'
+      subject: 'if-me.org | Jangan lupa mengkonsumsi %{name}!'
       body: 'Ini adalah pengingat baik untuk minum obat Anda %{name}!'
     refill_mailer:
-      subject: 'Isi ulang Anda untuk %{name} akan segera datang!'
+      subject: 'if-me.org | Isi ulang Anda untuk %{name} akan segera datang!'
       body: >-
         Ini adalah pengingat baik untuk mengisi ulang obat Anda %{name} pada
         %{refill}!
@@ -922,7 +922,7 @@ id:
         menambahkan strategi siap pakai berikut dan menyesuaikannya di lain
         waktu.
     reminder_mailer:
-      subject: 'Jangan lupa untuk melakukan %{name}!'
+      subject: 'if-me.org | Jangan lupa untuk melakukan %{name}!'
       body: 'Ini adalah pengingat untuk melakukan %{name}!'
   stats:
     total_moments: 'Anda telah menulis <strong>total</strong> <strong>%{count}</strong> momen.'

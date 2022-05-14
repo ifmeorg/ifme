@@ -18,7 +18,7 @@ ko:
         submit_button: 내 비밀번호 설정
     mailer:
       invitation_instructions:
-        subject: '%{name} 이(가) if me에 당신을 초대했습니다!'
+        subject: 'if-me.org | %{name} 이(가) if me에 당신을 초대했습니다!'
         subject_nameless: 누군가 if me에 당신을 초대했습니다!
         hello: 'Hey %{email}!'
         someone_invited_you: >-

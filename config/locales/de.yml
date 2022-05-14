@@ -272,12 +272,12 @@ de:
         one: Tablette
         other: Tabletten
     reminder_mailer:
-      subject: 'Vergiss nicht %{name} einzunehmen!'
+      subject: 'if-me.org | Vergiss nicht %{name} einzunehmen!'
       body: >-
         Dies ist eine freundliche Erinnerung zur Einnahme deines Arzneimittels
         %{name}!
     refill_mailer:
-      subject: 'Du solltest das Arzneimittel %{name} demächst auffüllen!'
+      subject: 'if-me.org | Du solltest das Arzneimittel %{name} demächst auffüllen!'
       body: >-
         Dies ist eine freundliche Erinnerung, dass Du das Arzneimittel %{name}
         am %{refill}
@@ -312,7 +312,7 @@ de:
         one: '%{count} Mitglied <strong>von</strong> %{group}'
         other: '%{count} Mitglieder <strong>von</strong> %{group}'
     reminder_mailer:
-      subject: 'Dein Meeting "%{meeting_name}" ist morgen um %{time}!'
+      subject: 'if-me.org | Dein Meeting "%{meeting_name}" ist morgen um %{time}!'
       body: >-
         Dies ist eine Erinnerung, dass dein Meeting, "%{meeting_name}", morgen
         um %{time} an folgendem Ort stattfinden wird %{location}!
@@ -997,7 +997,7 @@ de:
         die folgenden vorgefertigen Strategien verwenden und zu einem späteren
         Zeipunkt anpassen.
     reminder_mailer:
-      subject: 'Vergiss nicht, an %{name} zu denken!'
+      subject: 'if-me.org | Vergiss nicht, an %{name} zu denken!'
       body: 'Hier ist eine freundliche Erinnerung, damit Du %{name} nicht vergisst!'
   stats:
     total_moments: 'Du hast <strong>ingesamt %{count}</strong> Erlebnisse verfasst.'

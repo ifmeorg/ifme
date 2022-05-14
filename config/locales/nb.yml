@@ -259,10 +259,10 @@ nb:
         one: tablett
         other: tabletter
     reminder_mailer:
-      subject: 'Ikke glem å ta %{name}!'
+      subject: 'if-me.org | Ikke glem å ta %{name}!'
       body: 'Her er en vennlig påminnelse om å ta %{name}!'
     refill_mailer:
-      subject: 'Du må fylle opp %{name} snart!'
+      subject: 'if-me.org | Du må fylle opp %{name} snart!'
       body: 'Her er en vennlig påminnelse om å fylle opp %{name} på %{refill}!'
     index:
       title: Medisiner
@@ -292,7 +292,7 @@ nb:
         one: '%{count} Medlem av %{group}'
         other: '%{count} Medlemmer av %{group}'
     reminder_mailer:
-      subject: 'Ditt møte "%{meeting_name}" er i morgen kl %{time}!'
+      subject: 'if-me.org | Ditt møte "%{meeting_name}" er i morgen kl %{time}!'
       body: >-
         Her er en vennlig påminnelse om at møtet ditt i morgen,
         "%{meeting_name}", vil finne sted kl %{time} på %{location}!
@@ -897,7 +897,7 @@ nb:
         legge til de følgende forhåndslagde strategien og tilpasse den fra tid
         til annen.
     reminder_mailer:
-      subject: 'Ikke glem å utføre %{name}!'
+      subject: 'if-me.org | Ikke glem å utføre %{name}!'
       body: 'Her en en vennlig påminnelse om å utføre %{name}!'
   stats:
     total_moments: >-

@@ -265,10 +265,10 @@ pt-BR:
         one: tablet
         other: tablets
     reminder_mailer:
-      subject: 'Não se esqueça de tomar o medicamento %{name}!'
+      subject: 'if-me.org | Não se esqueça de tomar o medicamento %{name}!'
       body: 'Um lembrete amigo para tomar o medicamento %{name}!'
     refill_mailer:
-      subject: 'Está quase na hora de reabastecer o estoque do medicamento %{name}.'
+      subject: 'if-me.org | Está quase na hora de reabastecer o estoque do medicamento %{name}.'
       body: >-
         Aqui um lembrete amigo para reabastecer o medicamento %{name} na
         %{refill}!
@@ -303,7 +303,7 @@ pt-BR:
         one: '%{count} Membro do %{group}'
         other: '%{count} Membros do %{group}'
     reminder_mailer:
-      subject: 'A reunião "%{meeting_name}" será amanhã as: %{time}!'
+      subject: 'if-me.org | A reunião "%{meeting_name}" será amanhã as: %{time}!'
       body: >-
         Aqui um lembrete amigo sobre sua reunião que acontecerá amanhã:
         "%{meeting_name}" irá começar ás %{time} no endereço %{location}!
@@ -944,7 +944,7 @@ pt-BR:
         pode adicionar as seguintes estratégias pré-definindas e customizá-las
         depois.
     reminder_mailer:
-      subject: 'Não se esqueça de realizar %{name}!'
+      subject: 'if-me.org | Não se esqueça de realizar %{name}!'
       body: 'Aqui está um lembrete amigo para realizar %{name}!'
   stats:
     total_moments: >-

@@ -20,13 +20,13 @@ hi:
       unconfirmed: जारी रखने से पहले आपको अपने ईमेल की पुष्टि करनी होगी।
     mailer:
       confirmation_instructions:
-        subject: पुष्टि निर्देश
+        subject: if-me.org | पुष्टि निर्देश
       reset_password_instructions:
-        subject: पासवर्ड रीसेट करने के निर्देश
+        subject: if-me.org | पासवर्ड रीसेट करने के निर्देश
       unlock_instructions:
-        subject: अनलॉक करने के निर्देश
+        subject: if-me.org | अनलॉक करने के निर्देश
       password_change:
-        subject: पासवर्ड बदला गया
+        subject: if-me.org | पासवर्ड बदला गया
     omniauth_callbacks:
       failure: 'आपको %{kind} से प्रमाणित नहीं किया जा सकता क्योंकि %{reason}।'
       success: '%{reason} खाते से सफलतापूर्वक प्रमाणित किया गया।'

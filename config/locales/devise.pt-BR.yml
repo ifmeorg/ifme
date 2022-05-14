@@ -23,13 +23,13 @@ pt-BR:
       unconfirmed: Você precisa confirmar seu endereço de e-mail antes de continuar.
     mailer:
       confirmation_instructions:
-        subject: Instruções de confirmação
+        subject: if-me.org | Instruções de confirmação
       reset_password_instructions:
-        subject: Instruções de recuperação de senha
+        subject: if-me.org | Instruções de recuperação de senha
       unlock_instructions:
-        subject: Instruções de desbloqueio de conta
+        subject: if-me.org | Instruções de desbloqueio de conta
       password_change:
-        subject: Alteração da senha
+        subject: if-me.org | Alteração da senha
     omniauth_callbacks:
       failure: 'Você não pode ser autenticado em %{kind} porque "%{reason}".'
       success: 'Autenticação realizada com sucesso na conta %{kind}.'

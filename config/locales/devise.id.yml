@@ -21,13 +21,13 @@ id:
       unconfirmed: Anda perlu mengkonfirmasi alamat email anda sebelum melanjutkan.
     mailer:
       confirmation_instructions:
-        subject: Instruksi Konfirmasi
+        subject: if-me.org | Instruksi Konfirmasi
       reset_password_instructions:
-        subject: Instruksi mengatur ulang kata sandi
+        subject: if-me.org | Instruksi mengatur ulang kata sandi
       unlock_instructions:
-        subject: Instruksi membuka kunci
+        subject: if-me.org | Instruksi membuka kunci
       password_change:
-        subject: Kata sandi diubah
+        subject: if-me.org | Kata sandi diubah
     omniauth_callbacks:
       failure: 'Tidak dapat mengautentikasi anda dari %{kind} karena "%{reason}".'
       success: "Berhasil diautentikasi dari akun %{kind}."

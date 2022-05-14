@@ -258,10 +258,10 @@ nl:
         one: tablet
         other: tabletten
     reminder_mailer:
-      subject: 'Vergeet niet om %{name} in te nemen!'
+      subject: 'if-me.org | Vergeet niet om %{name} in te nemen!'
       body: 'Hierbij een vriendelijke herinnering om %{name} in te nemen!'
     refill_mailer:
-      subject: 'Het is binnenkort weer tijd om %{name} bij te vullen!'
+      subject: 'if-me.org | Het is binnenkort weer tijd om %{name} bij te vullen!'
       body: >-
         Hierbij een vriendelijke herinnering om %{name} bij te vullen voor
         %{refill}!
@@ -293,7 +293,7 @@ nl:
         one: '%{count} Lid van %{group}'
         other: '%{count} Leden van %{group}'
     reminder_mailer:
-      subject: 'Je samenkomst "%{meeting_name}" is morgen om %{time}!'
+      subject: 'if-me.org | Je samenkomst "%{meeting_name}" is morgen om %{time}!'
       body: >-
         Hierbij een vriendelijke herinnering dat je samenkomst,
         "%{meeting_name}", morgen is om %{time} bij %{location}!
@@ -931,7 +931,7 @@ nl:
         Je hebt nog geen aangepaste Strategieën gemaakt.<br />Je kunt ook de
         volgende voorgemaakte proberen en op elk later tijdstip aanpassen.
     reminder_mailer:
-      subject: 'Vergeet de uitvoering van %{name} niet!'
+      subject: 'if-me.org | Vergeet de uitvoering van %{name} niet!'
       body: 'Hier is een vriendelijke herinnering om %{name} uit te voeren!'
   stats:
     total_moments: >-

@@ -263,10 +263,10 @@ es:
         one: tableta
         other: tabletas
     reminder_mailer:
-      subject: 'No olvides tomar %{name}!'
+      subject: 'if-me.org | No olvides tomar %{name}!'
       body: '¡Te recordamos amablemente que tomes tu medicamento de %{name}!'
     refill_mailer:
-      subject: '¡Ya se acerca el momento de resurtir %{name}!'
+      subject: 'if-me.org | ¡Ya se acerca el momento de resurtir %{name}!'
       body: >-
         ¡Te recordamos amablemente que hay que rellenar tu medicamento %{name}
         en el %{refill}!
@@ -301,7 +301,7 @@ es:
         one: '%{count} Miembro de %{group}'
         other: '%{count} Miembros de %{group}'
     reminder_mailer:
-      subject: 'Tu reunión "%{meeting_name}" es mañana en horario de: %{time}!'
+      subject: 'if-me.org | Tu reunión "%{meeting_name}" es mañana en horario de: %{time}!'
       body: >-
         ¡Recuerda que tu reunión "%{meeting_name}" del día de mañana, ocurrirá
         en horario de %{time} en %{location}!
@@ -935,7 +935,7 @@ es:
         agregar la siguiente estretagia predeterminada y personalizarla en otra
         ocasión.
     reminder_mailer:
-      subject: '¡No olvides llevar a cabo %{name}!'
+      subject: 'if-me.org | ¡No olvides llevar a cabo %{name}!'
       body: '¡Recibe un amable recordatorio para llevar a cabo %{name}!'
   stats:
     total_moments: >-
