@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class NotificationMailer < ApplicationMailer
-  default from: ENV['SMTP_ADDRESS']
+  default from: ENV['SMTP_FROM']
 
   def take_medication(reminder)
     return if reminder.medication.blank?
