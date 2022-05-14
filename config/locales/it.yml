@@ -797,6 +797,8 @@ it:
         trauma: trauma
         newsletter: newsletter
         phobias: fobie
+        grief: dolore
+        bereavement: lutto
       locations:
         uk: Regno Unito
         us: stati Uniti
