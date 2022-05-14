@@ -1,5 +1,6 @@
 // @flow
 /* eslint-disable max-len */
+/* eslint-disable no-unused-vars */
 import React, { useState, type Node } from 'react';
 import Input from 'components/Input';
 import { TYPES as INPUT_TYPES } from 'components/Input/utils';
@@ -13,8 +14,6 @@ export type State = {
   inputs: MyInputProps[],
   errors: Errors,
 };
-
-export const hasErrors = (errors: Errors): number => Object.values(errors).filter((key) => key).length;
 
 const getInputsInitialState = (inputs: MyInputProps[]) => inputs.filter((input) => input !== {});
 
@@ -39,10 +38,21 @@ export const Form = ({ action, inputs: inputsProps }: Props): Node => {
       errors,
       refs: myRefs,
     });
-    if (hasErrors(newErrors) > 0) {
+    const onlyErrors = Object.entries(newErrors).filter(
+      ([key, value]) => value,
+    );
+
+    if (onlyErrors.length > 0) {
       e.preventDefault();
       setInputs(newInputs);
       setErrors(newErrors);
+
+      const labelForError = document.querySelector(
+        `label[for="${onlyErrors[0][0]}"]`,
+      );
+      if (labelForError) {
+        labelForError.scrollIntoView();
+      }
     }
   };
 
@@ -62,6 +72,8 @@ export const Form = ({ action, inputs: inputsProps }: Props): Node => {
         disabled={input.disabled}
         required={input.required}
         info={input.info}
+        min={input.min}
+        max={input.max}
         minLength={input.minLength}
         maxLength={input.maxLength}
         dark={input.dark}

@@ -84,6 +84,9 @@ sv:
       description: Beskrivning
       error_explanation: Vänligen fyll i de markerade fälten!
       empty_error: Det här fältet kan inte vara tomt!
+      min_error: Detta fält måste vara lika med eller större än %{min}!
+      max_error: Detta fält måste vara lika med eller mindre än %{max}!
+      min_max_error: Detta fält måste vara lika med eller större än %{min} och lika med eller mindre än %{max}!
       search_by_keywords: Sök med nyckelord
       template: Välj en mall
     time_ago: '%{date} sedan'

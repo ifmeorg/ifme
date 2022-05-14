@@ -84,6 +84,9 @@ it:
       description: Descrizione
       error_explanation: 'Per favore, riempi i campi indicati!'
       empty_error: Questo campo non può essere vuoto!
+      min_error: Questo campo deve essere uguale o maggiore di %{min}!
+      max_error: Questo campo deve essere uguale o inferiore a %{max}!
+      min_max_error: Questo campo deve essere uguale o maggiore di %{min} e uguale o minore di %{max}!
       search_by_keywords: Cerca per parole chiave
       template: Scegli un modello
     time_ago: '%{date} fa'

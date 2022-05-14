@@ -118,6 +118,15 @@ const inputSwitchProps = {
   uncheckedValue: false,
 };
 
+const inputNumberProps = {
+  id: 'some-number-id',
+  type: 'number',
+  name: 'some-number-name',
+  label: 'Some Number Label',
+  min: 0,
+  max: 2,
+};
+
 const inputSubmitProps = {
   id: 'some-submit-id',
   type: 'submit',
@@ -144,6 +153,7 @@ export const InputMocks = {
   inputTagProps,
   inputSwitchProps,
   inputPasswordProps,
+  inputNumberProps,
   event,
   createInput,
 };

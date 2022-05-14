@@ -84,6 +84,9 @@ fr:
       description: Description
       error_explanation: Merci de compléter les champs indiqués!
       empty_error: Ce champ ne peut pas être vide!
+      min_error: Ce champ doit être égal ou supérieur à %{min}!
+      max_error: Ce champ doit être égal ou inférieur à %{max}!
+      min_max_error: Ce champ doit être égal ou supérieur à %{min} et égal ou inférieur à %{max} !
       search_by_keywords: Recherche par mots-clés
       template: Choisissez un modèle
     time_ago: 'il y a %{date}'

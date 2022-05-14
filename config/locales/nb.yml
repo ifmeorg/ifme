@@ -84,6 +84,9 @@ nb:
       description: Beskrivelse
       error_explanation: Vennligst fyll inn de markerte feltene!
       empty_error: Dette feltet kan ikke være tomt!
+      min_error: Dette feltet må være lik eller større enn %{min}!
+      max_error: Dette feltet må være lik eller mindre enn %{max}!
+      min_max_error: Dette feltet må være lik eller større enn %{min} og lik eller mindre enn %{max}!
       search_by_keywords: Søk etter nøkkelord
       template: Velg en mal
     time_ago: '%{date} siden'

@@ -84,6 +84,9 @@ nl:
       description: Omschrijving
       error_explanation: Vul alsjeblieft de gemarkeerde velden in!
       empty_error: Dit veld kan niet leeg zijn!
+      min_error: Dit veld moet gelijk zijn aan of groter zijn dan %{min}!
+      max_error: Dit veld moet gelijk zijn aan of kleiner zijn dan %{max}!
+      min_max_error: Dit veld moet gelijk zijn aan of groter zijn dan %{min} en gelijk aan of kleiner dan %{max}!
       search_by_keywords: Zoeken op trefwoorden
       template: Kies een sjabloon
     time_ago: '%{date} geleden'

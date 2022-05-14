@@ -34,9 +34,36 @@ export const getNewInputs = ({
     const validType = REQUIRES_DEFAULT.includes(input.type)
       || input.type === 'textarea'
       || input.type === 'textareaTemplate';
-    return (
-      validType && input.required && refs[input.id] && !refs[input.id].value
-    );
+    const element = refs[input.id];
+
+    if (!validType && !element) {
+      return false;
+    }
+
+    if (
+      input.type === 'number'
+      && typeof element.value !== 'undefined'
+      && !Number.isNaN(parseInt(element.value, 10))
+    ) {
+      if (typeof input.min === 'number' && typeof input.max === 'number') {
+        return (
+          // $FlowIgnore[invalid-compare]
+          !(parseInt(element.value, 10) >= input.min)
+          // $FlowIgnore[invalid-compare]
+          || !(parseInt(element.value, 10) <= input.max)
+        );
+      }
+      if (typeof input.min === 'number') {
+        // $FlowIgnore[invalid-compare]
+        return !(parseInt(element.value, 10) >= input.min);
+      }
+      if (typeof input.max === 'number') {
+        // $FlowIgnore[invalid-compare]
+        return !(parseInt(element.value, 10) <= input.max);
+      }
+    }
+
+    return input.required && !element.value;
   };
 
   const newErrors: Errors = { ...errors };

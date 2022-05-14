@@ -84,6 +84,9 @@ id:
       description: Deskripsi
       error_explanation: Silakan isi kolom yang ditandai!
       empty_error: Kolom ini tidak boleh kosong!
+      min_error: Bidang ini harus sama atau lebih besar dari %{min}!
+      max_error: Bidang ini harus sama atau kurang dari %{max}!
+      min_max_error: Bidang ini harus sama atau lebih besar dari %{min} dan sama atau kurang dari %{max}!
       search_by_keywords: Cari berdasarkan kata kunci
       template: Pilih template
     time_ago: '%{date} yang lalu'

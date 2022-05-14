@@ -4,8 +4,8 @@ pt-BR:
   draft: Rascunho
   email: join.ifme@gmail.com
   created: 'Criada em %{created_at}'
-  edited: 'Criada em %{created_at} (edited)'
-  edited_updated_at: 'Data Criação %{created_at} (edited %{updated_at})'
+  edited: 'Criada em %{created_at} (editado)'
+  edited_updated_at: 'Data Criação %{created_at} (editado %{updated_at})'
   salutation: 'Olá, %{name},'
   click_here: clique aqui
   language: Idioma
@@ -84,6 +84,9 @@ pt-BR:
       description: Descrição
       error_explanation: 'Por favor, preencha os campos marcados!'
       empty_error: Este campo não pode estar vazio!
+      min_error: Este campo deve ser igual ou maior que %{min}!
+      max_error: Este campo deve ser igual ou menor que %{max}!
+      min_max_error: Este campo deve ser igual ou maior que %{min} e igual ou menor que %{max}!
       search_by_keywords: Pesquisar por palavras-chave
       template: Escolha um modelo
     time_ago: '%{date} atrás'

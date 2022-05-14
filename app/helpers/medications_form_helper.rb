@@ -221,7 +221,8 @@ module MedicationsFormHelper
       label: t("medications.form.#{type}"),
       value: @medication[type.to_s] || nil,
       info: t("medications.form.#{type}_hint"),
-      required: true
+      required: true,
+      min: 1
     }.merge(medication_basic_props(type))
   end
 end

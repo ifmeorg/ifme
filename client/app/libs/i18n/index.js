@@ -11,21 +11,20 @@ const missingResult = (locale: string, scope: string): string =>
   `[missing "${locale}.${scope}" translation]`;
 
 const getValue = (options, option) => {
-  const key = option.slice(1, option.length - 1);
-  if (key && typeof options !== 'undefined' && options[key]) {
-    return options[key];
+  if (option && typeof options !== 'undefined' && options[option]) {
+    return options[option];
   }
-  return `[missing ${option} value]`;
+  return `[missing {${option}} value]`;
 };
 
 export const I18n = {
   t: (scope: string, options?: Options): string => {
     const locale = Cookies.get('locale') || 'en';
     let result = translations[locale][scope] || missingResult(locale, scope);
-    const resultOptions = result.match(/{.*}/g);
+    const resultOptions = result.match(/(?<={).*?(?=})/g);
     if (resultOptions) {
       resultOptions.forEach((option: string) => {
-        result = result.replace(option, getValue(options, option));
+        result = result.replaceAll(`{${option}}`, getValue(options, option));
       });
     }
     return result;

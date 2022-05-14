@@ -1,5 +1,6 @@
 // @flow
 /* eslint-disable max-len */
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import type { Node } from 'react';
 import axios from 'axios';
@@ -54,8 +55,6 @@ const getParams = (inputs: MyInputProps[], myRefs: Object) => {
   return params;
 };
 
-export const hasErrors = (errors: Errors): number => Object.values(errors).filter((key) => key).length;
-
 export const DynamicForm = ({
   nameValue,
   formProps,
@@ -83,10 +82,20 @@ export const DynamicForm = ({
       errors,
       refs: myRefs,
     });
+    const onlyErrors = Object.entries(newErrors).filter(
+      ([key, value]) => value,
+    );
 
-    if (hasErrors(newErrors) > 0) {
+    if (onlyErrors.length > 0) {
       setInputs(newInputs);
       setErrors(newErrors);
+
+      const labelForError = document.querySelector(
+        `label[for="${onlyErrors[0][0]}"]`,
+      );
+      if (labelForError) {
+        labelForError.scrollIntoView();
+      }
     } else {
       axios[type || 'post'](formProps.action, getParams(inputs, myRefs))
         .then((response: Object) => {
@@ -118,6 +127,8 @@ export const DynamicForm = ({
         disabled={input.disabled}
         required={input.required}
         info={input.info}
+        min={input.min}
+        max={input.max}
         minLength={input.minLength}
         maxLength={input.maxLength}
         dark={input.dark}
