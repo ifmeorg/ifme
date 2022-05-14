@@ -1,6 +1,6 @@
-<div class="gridMany">
+<div style="width: fit-content; margin: 0 auto;">
   <% if notice.present? %>
-    <div role="region" aria-live="polite" class="notice <%= (user_signed_in? && !static_page?) || secret_share_path? ? 'noticeDashboard' : '' %>"><%= notice %></div>
+    <div role="region" aria-live="polite" class="notice <%= (user_signed_in? && !static_page?) || secret_share_path? ? 'noticeDashboard' : '' %> <%= alert.present? ? 'smallMarginBottom' : '' %>"><%= notice %></div>
   <% end %>
   <% if alert.present? %>
     <div role="alert" class="alert <%= (user_signed_in? && !static_page?) || secret_share_path? ? 'alertDashboard' : '' %>"><%= alert %></div>

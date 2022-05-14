@@ -103,7 +103,7 @@ jobs:
           paths:
             - codeclimate.backend.json
       # Remove ignore values when we upgrade to Ruby 3 + Rails 7
-      - run: bundle exec bundle-audit check --ignore CVE-2021-22942 CVE-2022-22577 CVE-2022-23633 CVE-2021-44528  CVE-2022-27777 CVE-2022-21831 CVE-2015-9284 --update
+      - run: bundle exec bundle-audit check --ignore CVE-2021-22942 CVE-2022-22577 CVE-2022-23633 CVE-2021-44528  CVE-2022-27777 CVE-2022-21831 --update
       - store_test_results:
           path: /tmp/circleci-test-results
       - store_artifacts:
