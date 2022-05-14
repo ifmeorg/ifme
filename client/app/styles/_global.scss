@@ -14,7 +14,8 @@ html {
 a {
   text-decoration: none;
 
-  &:hover {
+  &:hover,
+  &:focus {
     opacity: 0.5;
   }
 }

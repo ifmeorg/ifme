@@ -58,12 +58,14 @@
   &:link,
   &:visited,
   &:hover,
-  &:active {
+  &:active,
+  &:focus {
     text-decoration: none;
     border: none;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     opacity: 0.5;
   }
 

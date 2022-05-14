@@ -27,7 +27,8 @@
 }
 
 @mixin buttonHover() {
-  &:hover {
+  &:hover,
+  &:focus {
     opacity: 0.5;
   }
 }

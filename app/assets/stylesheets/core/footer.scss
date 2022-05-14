@@ -18,7 +18,8 @@
     color: $white;
     text-decoration: none;
 
-    &:hover {
+    &:hover,
+    &:focus {
       opacity: 0.5;
     }
   }

@@ -29,7 +29,8 @@
     text-decoration: none;
     color: $white;
 
-    &:hover {
+    &:hover,
+    &:focus {
       opacity: 0.5;
     }
   }

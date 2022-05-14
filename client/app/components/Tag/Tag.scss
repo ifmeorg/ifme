@@ -16,7 +16,8 @@
 
   &:link,
   &:visited,
-  &:hover {
+  &:hover,
+  &:focus {
     color: $mulberry;
   }
 
@@ -31,7 +32,8 @@
 
     &:link,
     &:visited,
-    &:hover {
+    &:hover,
+    &:focus {
       color: $white;
     }
   }
@@ -43,7 +45,8 @@
 
     &:link,
     &:visited,
-    &:hover {
+    &:hover,
+    &:focus {
       color: $white;
     }
   }
@@ -55,7 +58,8 @@
 
     &:link,
     &:visited,
-    &:hover {
+    &:hover,
+    &:focus {
       color: $black;
     }
   }
