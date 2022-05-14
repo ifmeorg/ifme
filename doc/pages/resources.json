@@ -1101,5 +1101,61 @@
     "link": "https://bearable.app/",
     "tags": ["ios", "android", "free", "paid", "self_care", "blog", "mood_tracking", "goal_tracking", "journaling", "communities"],
     "languages": ["en"]
+  },
+  {
+    "name": "Change Your Algorithm",
+    "link": "https://changealgorithm.com/",
+    "tags": ["education", "free", "communities", "newsletter", "support_groups", "youth"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Palouse Mindfulness",
+    "link": "https://palousemindfulness.com/",
+    "tags": ["education", "free", "mindfulness", "stress", "meditation"],
+    "languages": ["en", "es", "pt-BR", "zh-CN", "ru"]
+  },
+  {
+    "name": "Vitas Healthcare - Grieving Support Groups: Remote, Virtual, and Online",
+    "link": "https://www.vitas.com/family-and-caregiver-support/grief-and-bereavement/remote-grief-support-groups",
+    "tags": ["support_groups", "free", "grief", "bereavement"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Coursera - The Science of Well-Being by Yale University",
+    "link": "https://www.coursera.org/learn/the-science-of-well-being",
+    "tags": ["education", "free", "self_care", "stress", "meditation"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Bereaved Parents of the USA",
+    "link": "https://www.bereavedparentsusa.org/",
+    "tags": ["grief", "bereavement", "free", "youth", "conference", "newsletter", "support_groups"],
+    "languages": ["en"],
+    "locations": ["us"]
+  },
+  {
+    "name": "Grief Works",
+    "link": "https://griefworkscourse.com/",
+    "tags": ["grief", "bereavement", "paid", "android", "ios", "journaling", "mood_tracking", "education", "meditation"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Cope Foundation",
+    "link": "https://copefoundation.org/",
+    "tags": ["grief", "bereavement", "free", "youth", "blog", "support_groups", "hotlines"],
+    "languages": ["en"],
+    "locations": ["us"]
+  },
+  {
+    "name": "What's your grief?",
+    "link": "https://whatsyourgrief.com/",
+    "tags": ["grief", "bereavement", "free", "books", "blog", "support_groups", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Dani Donovan: ADHD Comics",
+    "link": "https://www.adhddd.com/",
+    "tags": ["adhd", "books", "education", "blog"],
+    "languages": ["en"]
   }
 ]

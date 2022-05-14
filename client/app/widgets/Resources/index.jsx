@@ -49,6 +49,7 @@ const getPopularTags = () => {
   const tags = [
     'android',
     'asian',
+    'bereavement',
     'black_people',
     'black_women',
     'communities',
@@ -56,6 +57,7 @@ const getPopularTags = () => {
     'east_asian',
     'education',
     'goal_tracking',
+    'grief',
     'ios',
     'latinx',
     'lgbt',

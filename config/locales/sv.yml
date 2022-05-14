@@ -778,6 +778,8 @@ sv:
         trauma: trauma
         newsletter: nyhetsbrev
         phobias: fobier
+        grief: sorg
+        bereavement: dödsfall
       locations:
         uk: Storbritannien
         us: Förenta staterna
