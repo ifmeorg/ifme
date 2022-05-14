@@ -18,7 +18,7 @@ vi:
         submit_button: Cài đặt mật khẩu
     mailer:
       invitation_instructions:
-        subject: '%{name} đã mời bạn tham gia if-me.org!'
+        subject: 'if-me.org | %{name} đã mời bạn tham gia if-me.org!'
         subject_nameless: Có ai đó mời bạn tham gia if-me.org!
         hello: 'Chào %{email}!'
         someone_invited_you: >-

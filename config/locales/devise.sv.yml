@@ -20,13 +20,13 @@ sv:
       unconfirmed: Du måste bekräfta din e-postadress innan du fortsätter.
     mailer:
       confirmation_instructions:
-        subject: Bekräftelsesinstruktioner
+        subject: if-me.org | Bekräftelsesinstruktioner
       reset_password_instructions:
-        subject: Instruktioner för lösenordsåterställning
+        subject: if-me.org | Instruktioner för lösenordsåterställning
       unlock_instructions:
-        subject: Upplåsningsinstruktioner
+        subject: if-me.org | Upplåsningsinstruktioner
       password_change:
-        subject: Lösenordet ändrat
+        subject: if-me.org | Lösenordet ändrat
     omniauth_callbacks:
       failure: 'Det gick inte att autentisera dig från %{kind} eftersom "%{reason}".'
       success: 'Det gick att inloggad från %{kind} konto.'

@@ -20,7 +20,7 @@ nb:
         submit_button: Sett passordet mitt
     mailer:
       invitation_instructions:
-        subject: '%{name} inviterte deg til å bli med i if-me.org!'
+        subject: 'if-me.org | %{name} inviterte deg til å bli med i if-me.org!'
         subject_nameless: Noen inviterte deg til å bli med i if-me.org!
         hello: 'Hei %{email}!'
         someone_invited_you: >-

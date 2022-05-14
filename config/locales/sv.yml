@@ -262,10 +262,10 @@ sv:
         one: tablett
         other: tabletter
     reminder_mailer:
-      subject: 'Glöm inte att ta %{name}!'
+      subject: 'if-me.org | Glöm inte att ta %{name}!'
       body: 'Här är en vänlig påminnelse att ta din medicinering %{name}!'
     refill_mailer:
-      subject: 'Din påfyllning för %{name} kommer snart!'
+      subject: 'if-me.org | Din påfyllning för %{name} kommer snart!'
       body: >-
         Här är en vänlig påminnelse om att fylla på din medicinering %{name} på
         %{refill}!
@@ -299,7 +299,7 @@ sv:
         one: '%{count} Medlem i %{group}'
         other: '%{count} Medlemmar i %{group}'
     reminder_mailer:
-      subject: 'Ditt möte "%{meeting_name}" imorgon kl %{time}!'
+      subject: 'if-me.org | Ditt möte "%{meeting_name}" imorgon kl %{time}!'
       body: >-
         Här är en vänlig påminnelse om att ditt möte imorgon, "%{meeting_name}",
         kommer att äga rum %{time} i %{location}!
@@ -901,7 +901,7 @@ sv:
         lägga till följande fördefinierade strategi och anpassa den någon annan
         gång.
     reminder_mailer:
-      subject: 'Glöm inte att utföra %{name}!'
+      subject: 'if-me.org | Glöm inte att utföra %{name}!'
       body: 'Här är en vänlig påminnelse att utföra %{name}!'
   stats:
     total_moments: >-

@@ -20,7 +20,7 @@ id:
         submit_button: Setel kata sandi saya.
     mailer:
       invitation_instructions:
-        subject: "%{name} mengundang Anda untuk bergabung if-me.org!"
+        subject: "if-me.org | %{name} mengundang Anda untuk bergabung if-me.org!"
         subject_nameless: Seseorang mengundang Anda untuk bergabung if-me.org!
         hello: "Hey %{email}!"
         someone_invited_you: >-

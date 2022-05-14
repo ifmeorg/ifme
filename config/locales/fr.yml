@@ -272,12 +272,12 @@ fr:
         one: tablette
         other: tablettes
     reminder_mailer:
-      subject: 'Noubliez pas de rendre votre %{name}!'
+      subject: 'if-me.org | Noubliez pas de rendre votre %{name}!'
       body: >-
         Voici un petit rappel pour ne pas oublier de prendre votre médicament
         %{name}!
     refill_mailer:
-      subject: 'Le renouvellement de %{name} arrive bientôt!'
+      subject: 'if-me.org | Le renouvellement de %{name} arrive bientôt!'
       body: >-
         Voici un petit rappel pour ne pas oublier de renouveler votre médication
         %{name} le %{refill}!
@@ -312,7 +312,7 @@ fr:
         one: '%{count} membre de %{group}'
         other: '%{count} membres de %{group}'
     reminder_mailer:
-      subject: 'Votre réunion "%{meeting_name}" est demain à %{time}!'
+      subject: 'if-me.org | Votre réunion "%{meeting_name}" est demain à %{time}!'
       body: >-
         Voici un petit rappel pour votre réunion demain, "%{meeting_name}", qui
         aura lieu à %{time} à %{location}!
@@ -956,7 +956,7 @@ fr:
         pouvez ajouter les stratégies pré-configurées suivantes et les
         personnaliser plus tard.
     reminder_mailer:
-      subject: 'N''oubliez pas de pratiquer %{name} !'
+      subject: 'if-me.org | N''oubliez pas de pratiquer %{name} !'
       body: 'Voici un  petit rappel afin de pratiquer %{name} !'
   stats:
     total_moments: >-

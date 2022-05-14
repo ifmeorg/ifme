@@ -16,13 +16,13 @@ zh-CN:
       unconfirmed: 你需要先确认电子邮件地址
     mailer:
       confirmation_instructions:
-        subject: 确认说明
+        subject: if-me.org | 确认说明
       reset_password_instructions:
-        subject: 重置密码说明
+        subject: if-me.org | 重置密码说明
       unlock_instructions:
-        subject: 解锁说明
+        subject: if-me.org | 解锁说明
       password_change:
-        subject: 密码已更改
+        subject: if-me.org | 密码已更改
     omniauth_callbacks:
       failure: '无法通过%{kind}对您进行身份验证，因为“%{reason}”'
       success: '已成功通过%{kind}帐户进行身份验证'

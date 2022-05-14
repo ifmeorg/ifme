@@ -21,13 +21,13 @@ es:
       unconfirmed: Tienes que confirmar tu cuenta antes de continuar.
     mailer:
       confirmation_instructions:
-        subject: Instrucciones de confirmación
+        subject: if-me.org | Instrucciones de confirmación
       reset_password_instructions:
-        subject: Instrucciones de cambio de contraseña
+        subject: if-me.org | Instrucciones de cambio de contraseña
       unlock_instructions:
-        subject: Instrucciones de desbloqueo
+        subject: if-me.org | Instrucciones de desbloqueo
       password_change:
-        subject: Contraseña modificada
+        subject: if-me.org | Contraseña modificada
     omniauth_callbacks:
       failure: >-
         No pudimos autentificar tu cuenta de %{kind} por la siguiente razón:

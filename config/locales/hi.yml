@@ -255,10 +255,10 @@ hi:
         one: गोली
         other: गोलियाँ
     reminder_mailer:
-      subject: '%{name} लेना मत भूलना!'
+      subject: 'if-me.org | %{name} लेना मत भूलना!'
       body: 'यहाँ आपकी दवा %{name} लेने के लिए एक अनुकूल अनुस्मारक है!'
     refill_mailer:
-      subject: '%{name} के लिए आपकी रिफिल जल्द ही आ रही है!'
+      subject: 'if-me.org | %{name} के लिए आपकी रिफिल जल्द ही आ रही है!'
       body: >-
         यहाँ आपके दवा %{name} को %{refill} को फिर से भरने के लिए एक अनुकूल
         अनुस्मारक है!
@@ -290,7 +290,7 @@ hi:
         one: '%{count} %{group} का सदस्य'
         other: '%{count} %{group} के सदस्य'
     reminder_mailer:
-      subject: 'आपकी मीटिंग "%{meeting_name}" कल %{time} पर है!'
+      subject: 'if-me.org | आपकी मीटिंग "%{meeting_name}" कल %{time} पर है!'
       body: >-
         यहाँ एक दोस्ताना अनुस्मारक है कि आपकी मीटिंग कल, "%{meeting_name}",
         %{time} पर %{location} पर होगी!
@@ -909,7 +909,7 @@ hi:
         आपने अभी तक कोई कस्टम रणनीति नहीं बनाई है। <br /> आप निम्न प्रीमियर
         रणनीति भी जोड़ सकते हैं और इसे दूसरी बार कस्टमाइज़ कर सकते हैं।
     reminder_mailer:
-      subject: '%{name} प्रदर्शन करना न भूलें!'
+      subject: 'if-me.org | %{name} प्रदर्शन करना न भूलें!'
       body: 'यहाँ %{name} करने के लिए एक अनुकूल अनुस्मारक है!'
   stats:
     total_moments: 'आपने <strong> कुल %{count}</strong> क्षण लिखा है।'

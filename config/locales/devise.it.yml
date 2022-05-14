@@ -26,13 +26,13 @@ it:
       unconfirmed: È necessario confermare il tuo indirizzo EMail prima di continuare.
     mailer:
       confirmation_instructions:
-        subject: Istruzioni per la Conferma
+        subject: if-me.org | Istruzioni per la Conferma
       reset_password_instructions:
-        subject: Istruzioni per il Reset della Password
+        subject: if-me.org | Istruzioni per il Reset della Password
       unlock_instructions:
-        subject: Istruzioni per lo sblocco dell’account
+        subject: if-me.org | Istruzioni per lo sblocco dell’account
       password_change:
-        subject: Password modificata
+        subject: if-me.org | Password modificata
     omniauth_callbacks:
       failure: 'Non è stato possibile autenticarti da %{kind} perché "%{reason}".'
       success: 'Autenticazione effettuata con successo da %{kind}.'

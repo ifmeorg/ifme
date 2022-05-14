@@ -252,10 +252,10 @@ en:
         one: tablet
         other: tablets
     reminder_mailer:
-      subject: 'Don''t forget to take %{name}!'
+      subject: 'if-me.org | Don''t forget to take %{name}!'
       body: 'Here''s a friendly reminder to take your medication %{name}!'
     refill_mailer:
-      subject: 'Your refill for %{name} is coming up soon!'
+      subject: 'if-me.org | Your refill for %{name} is coming up soon!'
       body: >-
         Here's a friendly reminder to refill your medication %{name} on
         %{refill}!
@@ -287,7 +287,7 @@ en:
         one: '%{count} Member of %{group}'
         other: '%{count} Members of %{group}'
     reminder_mailer:
-      subject: 'Your meeting "%{meeting_name}" is tomorrow at %{time}!'
+      subject: 'if-me.org | Your meeting "%{meeting_name}" is tomorrow at %{time}!'
       body: |-
         Here's a friendly reminder that your meeting tomorrow,
          "%{meeting_name}", will be taking place at %{time} at
@@ -883,7 +883,7 @@ en:
         You haven't created any custom strategies yet.<br />You can also add the
         following premade strategy and customize it another time.
     reminder_mailer:
-      subject: 'Don''t forget to perform %{name}!'
+      subject: 'if-me.org | Don''t forget to perform %{name}!'
       body: 'Here''s a friendly reminder to perform %{name}!'
   stats:
     total_moments: >-

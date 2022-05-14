@@ -262,10 +262,10 @@ it:
         one: pastiglia
         other: pastiglie
     reminder_mailer:
-      subject: 'Non dimenticare di prendere %{name}!'
+      subject: 'if-me.org | Non dimenticare di prendere %{name}!'
       body: 'Hey, non dimenticare di prendere %{name}!'
     refill_mailer:
-      subject: '%{name} è quasi finita, non dimenticare di prendere un refill!'
+      subject: 'if-me.org | %{name} è quasi finita, non dimenticare di prendere un refill!'
       body: 'Hey, non dimenticare di prendere un refill di %{name} il %{refill}!'
     index:
       title: Medicazioni
@@ -295,7 +295,7 @@ it:
         one: '%{count} Membro di %{group}'
         other: '%{count} Membri di %{group}'
     reminder_mailer:
-      subject: 'Il tuo raduno "%{meeting_name}" è domani all''ora %{time}!'
+      subject: 'if-me.org | Il tuo raduno "%{meeting_name}" è domani all''ora %{time}!'
       body: >-
         Hey, il tuo raduno "%{meeting_name}", si terrà domani all'ora %{time}
         presso %{location}!
@@ -920,7 +920,7 @@ it:
         scegliere una delle seguenti strategie già pronte e personalizzare più
         avanti.
     reminder_mailer:
-      subject: 'Non dimenticare di fare %{name}!'
+      subject: 'if-me.org | Non dimenticare di fare %{name}!'
       body: 'Hey, non dimenticare di fare %{name}!'
   stats:
     total_moments: >-

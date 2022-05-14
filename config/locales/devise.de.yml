@@ -23,13 +23,13 @@ de:
       unconfirmed: 'Du musst deine E-Mail-Adresse bestätigen, um fortzufahren.'
     mailer:
       confirmation_instructions:
-        subject: Anweisungen zur Bestätigung
+        subject: if-me.org | Anweisungen zur Bestätigung
       reset_password_instructions:
-        subject: Anweisungen zum Zurücksetzen des Passworts
+        subject: if-me.org | Anweisungen zum Zurücksetzen des Passworts
       unlock_instructions:
-        subject: Anweisungen zum Entsperren
+        subject: if-me.org | Anweisungen zum Entsperren
       password_change:
-        subject: Passwort geändert
+        subject: if-me.org | Passwort geändert
     omniauth_callbacks:
       failure: 'Konnte dich nicht bestätigen %{kind}, weil "%{reason}."'
       success: 'Erfolgreich bestätigt vom %{kind} Account.'

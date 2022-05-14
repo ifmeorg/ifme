@@ -245,10 +245,10 @@ zh-CN:
         one: 药片
         other: 药片
     reminder_mailer:
-      subject: '别忘了服用 %{name}!'
+      subject: 'if-me.org | 别忘了服用 %{name}!'
       body: '友情提示:你需要服 %{name} 药!'
     refill_mailer:
-      subject: '你补药 %{name} 快到了！'
+      subject: 'if-me.org | 你补药 %{name} 快到了！'
       body: '这是一个友情提示，以补充你的药物 %{name} 快到了, %{refill}!'
     index:
       title: 药物治疗
@@ -276,7 +276,7 @@ zh-CN:
         one: '小组 %{group} 会面, 总共 %{count} 成员'
         other: '小组 %{group} 会面, 总共 %{count} 成员'
     reminder_mailer:
-      subject: '你的会面 "%{meeting_name}" 明天在 %{time}!'
+      subject: 'if-me.org | 你的会面 "%{meeting_name}" 明天在 %{time}!'
       body: '提醒你，明天的"%{meeting_name}"会面, 将在 %{time} 在 %{location}!'
     leave:
       error: 你不能离开会面，你是唯一的成员。
@@ -368,15 +368,15 @@ zh-CN:
       update_meeting: '%{name} 更新了小组 "%{group_name}" 的会面: "%{meeting_name}"'
       join_meeting: '%{name} 已经加入小组 "%{group_name}" 的会面: "%{meeting_name}"'
     mailer:
-      comment_on_moment_subject: '%{user} 评论了你的日记 "%{moment}"'
-      comment_on_strategy_subject: '%{user} 评论了你的规划 "%{strategy}"'
-      comment_on_meeting_subject: '%{user} 在组中 "%{group}" - "%{meeting}" 发表了评论'
+      comment_on_moment_subject: 'if-me.org | %{user} 评论了你的日记 "%{moment}"'
+      comment_on_strategy_subject: 'if-me.org | %{user} 评论了你的规划 "%{strategy}"'
+      comment_on_meeting_subject: 'if-me.org | %{user} 在组中 "%{group}" - "%{meeting}" 发表了评论'
       comment_on_private_body: '<p>你的朋友 <strong>%{user}</strong> 的秘密分享:</p>'
       comment_on_body: '<p>你的朋友 <strong>%{user}</strong> 的分享: </p>'
       comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>阅读链接: %{link}!</p>'
-      new_group_subject: 'if-me.org 用户 %{user} 建立了一个小组 "%{group}"'
+      new_group_subject: 'if-me.org | 用户 %{user} 建立了一个小组 "%{group}"'
       new_group_body: >-
         <p>if-me.org 用户 %{user} 建立了一个小组 "%{group}":</p><p><i>
         %{description}</i></p><p>要了解更多加入信息, %{link}!</p><p>请我们的遵循准则
@@ -760,7 +760,7 @@ zh-CN:
         http://www.mindful.org/a-five-minute-breathing-meditation/ </i>
       instructions: 你尚未创建任何自定义健康规划。<br />你还可以添加以下预制健康规划， 然后再次对其进行自定义。
     reminder_mailer:
-      subject: '别忘了做一做%{name}！'
+      subject: 'if-me.org | 别忘了做一做%{name}！'
       body: '这是做一做%{name}的友好提示！'
   stats:
     total_moments: '你写了<strong>总计</strong><strong>%{count} </strong> 个日记。'
