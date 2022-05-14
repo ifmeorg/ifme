@@ -12,21 +12,21 @@ describe 'NotificationMailer' do
     subject(:email) { NotificationMailer.take_medication(medication_reminder) }
 
     it { expect(email.to).to eq(['some@user.com']) }
-    it { expect(email.subject).to eq("Don't forget to take #{medication.name}!") }
+    it { expect(email.subject).to eq("if-me.org | Don't forget to take #{medication.name}!") }
   end
 
   describe '#refill_medication' do
     subject(:email) { NotificationMailer.refill_medication(medication_reminder) }
 
     it { expect(email.to).to eq(['some@user.com']) }
-    it { expect(email.subject).to eq("Your refill for #{medication.name} is coming up soon!") }
+    it { expect(email.subject).to eq("if-me.org | Your refill for #{medication.name} is coming up soon!") }
   end
 
   describe '#perform_strategy' do
     subject(:email) { NotificationMailer.perform_strategy(strategy_reminder) }
 
     it { expect(email.to).to eq(['some@user.com']) }
-    it { expect(email.subject).to eq("Don't forget to perform Test Strategy!") }
+    it { expect(email.subject).to eq("if-me.org | Don't forget to perform Test Strategy!") }
   end
 
   describe '#meeting_reminder' do

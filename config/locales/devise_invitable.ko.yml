@@ -19,7 +19,7 @@ ko:
     mailer:
       invitation_instructions:
         subject: 'if-me.org | %{name} 이(가) if me에 당신을 초대했습니다!'
-        subject_nameless: 누군가 if me에 당신을 초대했습니다!
+        subject_nameless: if-me.org | 누군가 if me에 당신을 초대했습니다!
         hello: 'Hey %{email}!'
         someone_invited_you: >-
           %{name} 이(가) 당신을 사랑하는 사람들과 정신건강 경험을 공유하고 기분, 감성, 그리고 자기관리 등을 기록 할 수 있는

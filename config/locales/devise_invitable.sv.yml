@@ -21,7 +21,7 @@ sv:
     mailer:
       invitation_instructions:
         subject: if-me.org | Du har blivit inbjuden att gå med i if-me.org!
-        subject_nameless: Någon inbjudna dig att gå med if-me.org!
+        subject_nameless: if-me.org | Någon inbjudna dig att gå med if-me.org!
         hello: 'Hej %{email}!'
         someone_invited_you: >-
           %{name} har bjudit in dig att gå med i http://if-me.org, en gemenskap
