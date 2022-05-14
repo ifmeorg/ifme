@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class BannedMailer < ApplicationMailer
-  default from: ENV['SMTP_ADDRESS']
+  default from: ENV['SMTP_FROM']
 
   def add_ban_email(recipient)
     @recipient = recipient

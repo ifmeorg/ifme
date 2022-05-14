@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class ReportMailer < ApplicationMailer
-  default from: ENV['SMTP_ADDRESS']
+  default from: ENV['SMTP_FROM']
 
   def reported_email(recipient, reportee)
     @recipient = recipient

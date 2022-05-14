@@ -5,7 +5,7 @@ class ApplicationMailer < ActionMailer::Base
   include ApplicationMailerHelper
   include NotificationMailerHelper
   include GroupNotificationHelper
-  default from: ENV['SMTP_ADDRESS']
+  default from: ENV['SMTP_FROM']
   layout 'mailer'
   ALLY_NOTIFY_TYPES = %w[new_ally_request accepted_ally_request].freeze
 
