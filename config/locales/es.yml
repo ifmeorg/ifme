@@ -5,7 +5,7 @@ es:
   created: 'Creado %{created_at}'
   draft: Borrador
   edited: 'Creado %{created_at} (editado)'
-  edited_updated_at: 'Creado %{created_at} (edited %{updated_at})'
+  edited_updated_at: 'Creado %{created_at} (editado %{updated_at})'
   salutation: 'Hola %{name},'
   click_here: da click aquí
   language: Idioma
@@ -84,6 +84,9 @@ es:
       description: Descripción
       error_explanation: Por favor completa los campos indicados
       empty_error: ¡Este campo no puede estar vacío!
+      min_error: ¡Este campo debe ser igual o mayor que %{min}!
+      max_error: ¡Este campo debe ser igual o menor que %{max}!
+      min_max_error: ¡Este campo debe ser igual o mayor que %{min} e igual o menor que %{max}!
       search_by_keywords: Búsqueda por palabras clave
       template: Elige una plantilla
     time_ago: 'hace %{date}'

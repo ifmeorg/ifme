@@ -84,6 +84,9 @@ en:
       description: Description
       error_explanation: Please fill out the marked fields!
       empty_error: This field cannot be empty!
+      min_error: This field must be equal or greater than %{min}!
+      max_error: This field must be equal or less than %{max}!
+      min_max_error: This field must be equal or greater than %{min} and equal or less than %{max}!
       search_by_keywords: Search by keywords
       template: Choose a template
     time_ago: '%{date} ago'

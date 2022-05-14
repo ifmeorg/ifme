@@ -5,7 +5,7 @@ vi:
   created: 'Tạo %{created_at}'
   draft: Nháp
   edited: 'Tạo %{created_at} (chỉnh sửa)'
-  edited_updated_at: 'Created %{created_at} (edited %{updated_at})'
+  edited_updated_at: 'Tạo %{created_at} (chỉnh sửa %{updated_at})'
   salutation: 'Xin chào  %{name},'
   click_here: nhấn vào đây
   language: Ngôn ngữ
@@ -84,6 +84,9 @@ vi:
       description: Mô tả
       error_explanation: Vui lòng điền đầy đủ các trường được làm đậm!
       empty_error: Trường này không thể để trống!
+      min_error: Trường này phải bằng hoặc lớn hơn %{min}!
+      max_error: Trường này phải bằng hoặc nhỏ hơn %{max}!
+      min_max_error: Trường này phải bằng hoặc lớn hơn %{min} và bằng hoặc nhỏ hơn %{max}!
       search_by_keywords: Tìm kiếm theo từ khóa
       template: Chọn một mẫu
     time_ago: 'Cách đây %{date} ngày'
@@ -384,7 +387,7 @@ vi:
     plural: Thông báo
     none: Không có cái nào
     clear: Sạch sẽ
-    created_by_html: '<strong>Được tạo bởi</strong>:% {name}'
+    created_by_html: '<strong>Được tạo bởi</strong>: %{name}'
     preview: Xem thêm
     members:
       title: Danh sách thành viên
@@ -405,7 +408,7 @@ vi:
       update_meeting: '%{name} đã cập nhật "%{meeting_name}" cho "%{group_name}"'
       join_meeting: '%{name} đã tham gia "%{meeting_name}" cho "%{group_name}'
     mailer:
-      comment_on_moment_subject: 'if-me.org | % {user} đã nhận xét về thời điểm của bạn "%{moment}"'
+      comment_on_moment_subject: 'if-me.org | %{user} đã nhận xét về thời điểm của bạn "%{moment}"'
       comment_on_strategy_subject: 'if-me.org | %{user} đã nhận xét về chiến lược của bạn "%{strategy}"'
       comment_on_meeting_subject: >-
         if-me.org | %{user} đã nhận xét về cuộc họp"%{meeting} "trong
@@ -414,7 +417,7 @@ vi:
       comment_on_body: '<p>Đồng minh của bạn <strong>%{user}</strong> đã nhận xét:</p>'
       comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
       comment_text: '<p><i>%{comment}</i></p>'
-      comment_link: '<p>Để đọc nó,% {link}!</p>'
+      comment_link: '<p>Để đọc nó, %{link}!</p>'
       new_group_subject: 'if-me.org | %{user} đã tạo một nhóm "%{group}"'
       new_group_body: >-
         <p>%{user} đã tạo một nhóm "%{group}":</p><p><i>
@@ -423,7 +426,7 @@ vi:
       new_group_member_subject: 'if-me.org | %{user} đã tham gia nhóm của bạn "%{group}"'
       add_group_leader_you_subject: 'if-me.org | Bạn trở thành người lãnh đạo của "%{group}"'
       add_group_leader_subject: 'if-me.org | %{user} trở thành lãnh đạo của "%{group}"'
-      add_remove_group_leader_body: '<p>Để xem "%{group}", % {link}!</p>'
+      add_remove_group_leader_body: '<p>Để xem "%{group}", %{link}!</p>'
       remove_group_leader_you_subject: 'if-me.org | Bạn không còn là người lãnh đạo của "%{group}"'
       remove_group_leader_subject: 'if-me.org | %{user} không còn là người lãnh đạo của "%{group}"'
       update_meeting_subject: 'if-me.org | %{user} đã cập nhật cuộc họp "%{meeting}" cho "%{group}"'
@@ -434,8 +437,8 @@ vi:
         gian:</strong> %{time}</p>
       new_meeting_link: '<p>Để tìm hiểu thêm và tham dự, %{link}!</p>'
       update_meeting_link: '<p>Để tìm hiểu thêm, %{link}!</p>'
-      remove_meeting_subject: 'if-me.org | %{user} đã hủy "% {meeting}" cho "%{group}"'
-      join_meeting_subject: 'if-me.org | %{user} đã tham gia "% {meeting}" cho "%{group}"'
+      remove_meeting_subject: 'if-me.org | %{user} đã hủy "%{meeting}" cho "%{group}"'
+      join_meeting_subject: 'if-me.org | %{user} đã tham gia "%{meeting}" cho "%{group}"'
       join_meeting_body: '<p>Để xem "%{meeting}", %{link}!</p>'
       reported_user_subject: if-me.org | Bạn đã báo cáo một người dùng
       reported_user_body: 'Bạn đã báo cáo %{reported_name}. Điều này sẽ được quản trị viên xem xét.'

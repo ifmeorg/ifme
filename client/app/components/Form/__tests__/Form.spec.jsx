@@ -16,15 +16,22 @@ const getComponent = () => (
       { ...InputMocks.inputCheckboxGroupProps, required: true },
       InputMocks.inputTagProps,
       InputMocks.inputSwitchProps,
+      InputMocks.inputNumberProps,
       InputMocks.inputSubmitProps,
     ]}
   />
 );
 
 describe('Form', () => {
-  const { getByRole, queryByRole, getByPlaceholderText } = screen;
+  const {
+    getByRole,
+    queryByRole,
+    getByPlaceholderText,
+    getByLabelText,
+    getByText,
+  } = screen;
 
-  it('renders properly', () => {
+  it('renders correctly', () => {
     render(getComponent());
     expect(getByPlaceholderText('Some Text Placeholder')).toBeInTheDocument();
     expect(
@@ -32,16 +39,53 @@ describe('Form', () => {
     ).toBeInTheDocument();
   });
 
-  it('has no alert message when textfield has value and submit clicked', () => {
-    render(getComponent());
-    userEvent.type(getByPlaceholderText('Some Text Placeholder'), 'randomName');
-    userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
-    expect(queryByRole('alert')).not.toBeInTheDocument();
+  describe('for changes on the input with text type', () => {
+    it('has no errors when submit is clicked', () => {
+      render(getComponent());
+      userEvent.type(
+        getByPlaceholderText('Some Text Placeholder'),
+        'randomName',
+      );
+      userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
+      expect(queryByRole('alert')).not.toBeInTheDocument();
+    });
+
+    it('has errors when submit is clicked', () => {
+      const scrollIntoViewMock = jest.fn();
+      window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock;
+      render(getComponent());
+      userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
+      expect(getByText('This field cannot be empty!')).toBeInTheDocument();
+    });
   });
 
-  it('displays alert message on submit with empty input', () => {
-    render(getComponent());
-    userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
-    expect(getByRole('alert')).toBeInTheDocument();
+  describe('for changes on the input with number type', () => {
+    it('has no errors when submit is clicked', () => {
+      render(getComponent());
+      userEvent.type(
+        getByPlaceholderText('Some Text Placeholder'),
+        'randomName',
+      );
+      userEvent.type(getByLabelText('Some Number Label'), '2');
+      userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
+      expect(queryByRole('alert')).not.toBeInTheDocument();
+    });
+
+    it('has errors when submit is clicked', () => {
+      const scrollIntoViewMock = jest.fn();
+      window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock;
+      render(getComponent());
+      userEvent.type(
+        getByPlaceholderText('Some Text Placeholder'),
+        'randomName',
+      );
+      userEvent.type(getByLabelText('Some Number Label'), '-1');
+      userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
+      expect(
+        getByText(
+          'This field must be equal or greater than 0 and equal or less than 2!',
+        ),
+      ).toBeInTheDocument();
+    });
   });
 });

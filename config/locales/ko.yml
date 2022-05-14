@@ -84,6 +84,9 @@ ko:
       description: 설명
       error_explanation: 표시된 부분을 입력하십시오.
       empty_error: 이 부분은 필수로 작성해야 합니다.
+      min_error: 이 필드는 %{min}이상이어야 합니다!
+      max_error: 이 필드는 %{max}보다 작거나 같아야 합니다!
+      min_max_error: 이 필드는 %{min}보다 크거나 같고 %{max}보다 작거나 같아야 합니다!
       search_by_keywords: 키워드로 검색
       template: 템플릿 선택
     time_ago: '%{date} 전'

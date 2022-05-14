@@ -274,7 +274,7 @@ export const Input = ({
 
   const displayError = () => {
     if (error) {
-      return <InputError error={error} />;
+      return <InputError error={error} min={min} max={max} />;
     }
     return null;
   };

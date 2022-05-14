@@ -13,7 +13,7 @@ type CustomElement = {
 };
 
 export type Props = {
-  element?: CustomElement | Element<any>,
+  element?: CustomElement | Element<any> | any,
   elementId?: string,
   body?: string | Element<any> | any,
   title?: string,
