@@ -1,4 +1,6 @@
 version: 2
+orbs:
+  browser-tools: circleci/browser-tools@1.3
 defaults: &defaults
   working_directory: ~/ifmeorg/ifme
   parallelism: 1
@@ -8,7 +10,7 @@ defaults: &defaults
     CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
   docker:
     # List of image tags: https://circleci.com/developer/images/image/cimg/ruby#image-tags
-    - image: circleci/ruby:2.6.10-stretch-node-browsers
+    - image: cimg/ruby:2.6.10-browsers
       environment:
         PGHOST: 127.0.0.1
         PGUSER: circleci
@@ -24,7 +26,13 @@ defaults: &defaults
         # The default Redis port
         REDIS_PORT: 6379
   steps:
+    - browser-tools/install-browser-tools
     - checkout
+    - run: |
+        ruby --version
+        node --version
+        java --version
+        google-chrome --version
 jobs:
   setup-coverage:
     <<: *defaults
@@ -123,7 +131,7 @@ jobs:
             ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.total.json
   deploy:
     docker:
-      - image: buildpack-deps:trusty
+      - image: cimg/base
     steps:
       - checkout
       - run:
