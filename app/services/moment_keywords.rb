@@ -12,9 +12,7 @@ class MomentKeywords
     collect_keywords(@moment.strategies)
     @moment_keywords.push(extract(@moment.name),
                           extract(@moment.why),
-                          extract(@moment.fix || []))
-    remove_special_chars
-    downcase_keywords
+                          extract(@moment.fix))
     @moment_keywords = @moment_keywords.join(' ')
   end
 
@@ -26,22 +24,14 @@ class MomentKeywords
 
   def collect_keywords(array)
     array.each do |item|
-      @moment_keywords.push(item['name'].split,
+      @moment_keywords.push(extract(item['name']),
                             extract(item['description']))
     end
   end
 
-  def extract(array)
-    strip_html(array).split
-  end
-
-  def remove_special_chars
-    @moment_keywords = @moment_keywords.flatten.each do |keyword|
-      keyword.gsub!(/[^\p{Alpha} -]/, '')
-    end
-  end
-
-  def downcase_keywords
-    @moment_keywords = @moment_keywords.map(&:downcase)
+  def extract(str)
+    str = str || ''
+    str = strip_html(str.tr('\\', '/'))
+    str.gsub(/[^\p{Alpha} -]/, '').split.map(&:downcase)
   end
 end

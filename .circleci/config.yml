@@ -1,6 +1,4 @@
 version: 2
-orbs:
-  browser-tools: circleci/browser-tools@1.3
 defaults: &defaults
   working_directory: ~/ifmeorg/ifme
   parallelism: 1
@@ -26,13 +24,7 @@ defaults: &defaults
         # The default Redis port
         REDIS_PORT: 6379
   steps:
-    - browser-tools/install-browser-tools
     - checkout
-    - run: |
-        ruby --version
-        node --version
-        java --version
-        google-chrome --version
 jobs:
   setup-coverage:
     <<: *defaults
@@ -68,6 +60,11 @@ jobs:
       - run: gem install bundler
       - run: bundle install --path=vendor/bundle --jobs=4 --retry=3
       - run: yarn install --cache-folder ~/.cache/yarn
+      - run:
+          name: Setup Chrome
+          command: |
+            wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            sudo apt install ./google-chrome-stable_current_amd64.deb
       - save_cache:
           key: v1-dep-{{ .Branch }}-{{ epoch }}
           paths:
