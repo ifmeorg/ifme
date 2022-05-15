@@ -128,7 +128,8 @@ jobs:
             ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.total.json
   deploy:
     docker:
-      - image: cimg/base
+      # TODO: Update this to correct cimg/base
+      - image: buildpack-deps:trusty
     steps:
       - checkout
       - run:
