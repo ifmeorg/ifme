@@ -846,7 +846,8 @@ id:
     stats:
       you_are_focusing: Anda paling fokus pada
       user_is_focusing: '%{name} paling fokus pada'
-      visible_in_stats: Terlihat di statistik?
+      visible_in_stats: Terlihat di statistik
+      make_visible_in_stats: Buat terlihat di statistik?
     viewers:
       plural: Penonton
       you: Hanya Anda

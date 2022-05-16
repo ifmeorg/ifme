@@ -85,7 +85,7 @@ module StrategiesFormHelper
   def build_strategy_visible(strategy)
     build_switch_input(true, strategy.visible, false).merge(
       id: 'strategy_visible', name: 'strategy[visible]',
-      label: t('shared.stats.visible_in_stats')
+      label: t('shared.stats.make_visible_in_stats')
     )
   end
 

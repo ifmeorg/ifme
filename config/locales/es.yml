@@ -865,7 +865,8 @@ es:
     stats:
       you_are_focusing: Te concentrás principalmente en
       user_is_focusing: '%{name} se concentra principalmente en'
-      visible_in_stats: ¿Visible en las estadísticas?
+      visible_in_stats: Visible en las estadísticas
+      make_visible_in_stats: ¿Hacer visible en las estadísticas?
     viewers:
       plural: Personas observando
       you: Sólo tú

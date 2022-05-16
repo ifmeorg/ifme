@@ -27,7 +27,7 @@ describe StrategiesFormHelper do
         {
           id: 'category_visible',
           type: 'switch',
-          label: t('shared.stats.visible_in_stats'),
+          label: t('shared.stats.make_visible_in_stats'),
           dark: true,
           name: 'category[visible]',
           value: true,

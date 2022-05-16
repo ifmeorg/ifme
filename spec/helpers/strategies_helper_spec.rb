@@ -31,7 +31,7 @@ describe StrategiesHelper do
         {
           id: 'category_visible',
           type: 'switch',
-          label: t('shared.stats.visible_in_stats'),
+          label: t('shared.stats.make_visible_in_stats'),
           dark: true,
           name: 'category[visible]',
           value: true,
@@ -103,7 +103,7 @@ describe StrategiesHelper do
       },
       { id: 'strategy_visible',
         type: 'switch',
-        label: t('shared.stats.visible_in_stats'),
+        label: t('shared.stats.make_visible_in_stats'),
         dark: true,
         name: 'strategy[visible]',
         value: true,

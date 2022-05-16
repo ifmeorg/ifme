@@ -745,7 +745,8 @@ ko:
     stats:
       you_are_focusing: 당신이 가장 집중하고 있는것은
       user_is_focusing: '%{name} (이)가 가장 집중하고 있는것은'
-      visible_in_stats: 통계를 표시하겠습니까?
+      visible_in_stats: 통계에서 볼 수 있음
+      make_visible_in_stats: 통계에 표시하시겠습니까?
     viewers:
       plural: 조회자들
       you: 당신만

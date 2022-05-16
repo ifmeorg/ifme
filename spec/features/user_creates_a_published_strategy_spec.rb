@@ -72,6 +72,8 @@ feature 'UserCreatesAPublishedStrategy', type: :feature, js: true do
       expect(page).to have_content 'Daily reminder email'
       expect(page).to have_css('#comments')
       expect(page).not_to have_selector '.storyDraft'
+      find('.storyActionsVisible').hover
+      expect(page).to have_content 'Visible in stats'
 
       # EDITING
       find('.storyActionsEdit').click

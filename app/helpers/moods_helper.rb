@@ -44,7 +44,7 @@ module MoodsHelper
     {
       id: 'mood_visible',
       type: 'switch',
-      label: t('shared.stats.visible_in_stats'),
+      label: t('shared.stats.make_visible_in_stats'),
       dark: true,
       name: 'mood[visible]',
       value: true,

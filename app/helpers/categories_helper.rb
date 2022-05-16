@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 module CategoriesHelper
   include FormHelper
+  include VisibleHelper
 
   def new_category_props
     new_form_props(category_form_inputs, categories_path)
@@ -40,7 +41,8 @@ module CategoriesHelper
         name: t('common.actions.edit'),
         link: link
       },
-      delete: action_delete(url_helper)
+      delete: action_delete(url_helper),
+      visible: get_visible(element.visible)
     }
   end
 
@@ -89,7 +91,7 @@ module CategoriesHelper
     {
       id: 'category_visible',
       type: 'switch',
-      label: t('shared.stats.visible_in_stats'),
+      label: t('shared.stats.make_visible_in_stats'),
       dark: true,
       name: 'category[visible]',
       value: true,

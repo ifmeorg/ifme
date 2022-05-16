@@ -39,7 +39,8 @@
               dataMethod: 'delete',
               dataConfirm:  t('common.actions.confirm')
             },
-            viewers: get_viewer_list(@strategy.viewers, nil)
+            viewers: get_viewer_list(@strategy.viewers, nil),
+            visible: get_visible(@strategy.visible)
           }
         }) %>
       </div>

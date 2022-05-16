@@ -67,6 +67,8 @@ feature 'UserCreatesADraftStrategy', type: :feature, js: true do
       expect(page).to have_content 'Daily reminder email'
       expect(page).not_to have_css('#comments')
       expect(page).to have_selector '.storyDraft'
+      find('.storyActionsVisible').hover
+      expect(page).to have_content 'Visible in stats'
       back = current_url
 
       # TRYING TO VIEW AS ALLY
