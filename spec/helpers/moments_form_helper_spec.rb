@@ -80,7 +80,7 @@ describe MomentsFormHelper do
                   {
                     id: 'category_visible',
                     type: 'switch',
-                    label: t('shared.stats.visible_in_stats'),
+                    label: t('shared.stats.make_visible_in_stats'),
                     dark: true,
                     name: 'category[visible]',
                     value: true,
@@ -127,7 +127,7 @@ describe MomentsFormHelper do
                   {
                     dark: true,
                     id: 'mood_visible',
-                    label: t('shared.stats.visible_in_stats'),
+                    label: t('shared.stats.make_visible_in_stats'),
                     name: 'mood[visible]',
                     type: 'switch',
                     value: true,
@@ -314,7 +314,7 @@ describe MomentsFormHelper do
                   {
                     id: 'category_visible',
                     type: 'switch',
-                    label: t('shared.stats.visible_in_stats'),
+                    label: t('shared.stats.make_visible_in_stats'),
                     dark: true,
                     name: 'category[visible]',
                     value: true,
@@ -361,7 +361,7 @@ describe MomentsFormHelper do
                   {
                     dark: true,
                     id: 'mood_visible',
-                    label: t('shared.stats.visible_in_stats'),
+                    label: t('shared.stats.make_visible_in_stats'),
                     name: 'mood[visible]',
                     type: 'switch',
                     value: true,
@@ -576,7 +576,7 @@ describe MomentsFormHelper do
                   {
                     id: 'category_visible',
                     type: 'switch',
-                    label: t('shared.stats.visible_in_stats'),
+                    label: t('shared.stats.make_visible_in_stats'),
                     dark: true,
                     name: 'category[visible]',
                     value: true,
@@ -630,7 +630,7 @@ describe MomentsFormHelper do
                   {
                     dark: true,
                     id: 'mood_visible',
-                    label: t('shared.stats.visible_in_stats'),
+                    label: t('shared.stats.make_visible_in_stats'),
                     name: 'mood[visible]',
                     type: 'switch',
                     value: true,
@@ -844,7 +844,7 @@ describe MomentsFormHelper do
                   {
                     id: 'category_visible',
                     type: 'switch',
-                    label: t('shared.stats.visible_in_stats'),
+                    label: t('shared.stats.make_visible_in_stats'),
                     dark: true,
                     name: 'category[visible]',
                     value: true,
@@ -898,7 +898,7 @@ describe MomentsFormHelper do
                   {
                     dark: true,
                     id: 'mood_visible',
-                    label: t('shared.stats.visible_in_stats'),
+                    label: t('shared.stats.make_visible_in_stats'),
                     name: 'mood[visible]',
                     type: 'switch',
                     value: true,

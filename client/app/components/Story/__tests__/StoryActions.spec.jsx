@@ -25,6 +25,7 @@ describe('storyActions', () => {
             },
             report: { link: 'some-url', name: 'Report' },
             viewers: 'testViewer',
+            visible: 'testVisible',
           }}
         />,
       );
@@ -33,6 +34,7 @@ describe('storyActions', () => {
       expect(getByText('Delete')).toBeInTheDocument();
       expect(getByText('Report')).toBeInTheDocument();
       expect(getByText('testViewer')).toBeInTheDocument();
+      expect(getByText('testVisible')).toBeInTheDocument();
     });
   });
   describe('with remove google calendar action', () => {
@@ -54,6 +56,7 @@ describe('storyActions', () => {
             },
             report: { link: 'some-url', name: 'Report' },
             viewers: 'testViewer',
+            visible: 'testVisible',
           }}
         />,
       );
@@ -62,6 +65,7 @@ describe('storyActions', () => {
       expect(getByText('Delete')).toBeInTheDocument();
       expect(getByText('Report')).toBeInTheDocument();
       expect(getByText('testViewer')).toBeInTheDocument();
+      expect(getByText('testVisible')).toBeInTheDocument();
     });
   });
 });

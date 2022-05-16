@@ -30,7 +30,7 @@ class MomentKeywords
   end
 
   def extract(str)
-    str = str || ''
+    str ||= ''
     str = strip_html(str.tr('\\', '/'))
     str.gsub(/[^\p{Alpha} -]/, '').split.map(&:downcase)
   end

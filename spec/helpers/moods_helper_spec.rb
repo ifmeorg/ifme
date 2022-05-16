@@ -23,15 +23,15 @@ describe MoodsHelper do
           value: @mood.description || nil,
           dark: true
         },
-        { 
+        {
           id: 'mood_visible',
           type: 'switch',
-          label: t('shared.stats.visible_in_stats'),
+          label: t('shared.stats.make_visible_in_stats'),
           dark: true,
           name: 'mood[visible]',
           value: true,
           uncheckedValue: false,
-          checked: @mood.visible 
+          checked: @mood.visible
         }
       ]
     }

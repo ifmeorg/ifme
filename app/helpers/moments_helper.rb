@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 module MomentsHelper
   include ViewersHelper
+  include VisibleHelper
 
   def moments_data_json
     {
@@ -44,9 +45,13 @@ module MomentsHelper
   def user_actions(element, present_object, signed_in)
     return { viewers: nil, edit: nil, delete: nil } unless signed_in
 
+    model_name = element.class.name.downcase
+    is_strategy = model_name == 'strategy'
+
     { viewers: get_viewer_list(element.viewers, nil),
       edit: get_user_action('edit', present_object),
-      delete: get_user_action('delete', present_object) }
+      delete: get_user_action('delete', present_object),
+      visible: is_strategy && get_visible(element.visible) }
   end
 
   def present_moment_or_strategy(element)
@@ -82,7 +87,7 @@ module MomentsHelper
                            present_object,
                            element.user_id == current_user&.id)
     { edit: actions[:edit], delete: actions[:delete],
-      viewers: actions[:viewers] }
+      viewers: actions[:viewers], visible: actions[:visible] }
   end
 
   def story_by(element)

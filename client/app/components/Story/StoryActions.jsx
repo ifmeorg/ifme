@@ -12,6 +12,7 @@ import {
   faExclamationTriangle,
   faCalendarPlus,
   faCalendarMinus,
+  faChartLine,
 } from '@fortawesome/free-solid-svg-icons';
 import { Tooltip } from 'components/Tooltip';
 import css from './Story.scss';
@@ -33,6 +34,7 @@ export type Actions = {
   add_to_google_cal?: Action,
   remove_from_google_cal?: Action,
   viewers?: string,
+  visible?: string,
 };
 
 export type Props = {
@@ -47,6 +49,7 @@ const JOIN = 'join';
 const LEAVE = 'leave';
 const REPORT = 'report';
 const VIEWERS = 'viewers';
+const VISIBLE = 'visible';
 const ADD_TO_G_CAL = 'add_to_google_cal';
 const REMOVE_FROM_G_CAL = 'remove_from_google_cal';
 
@@ -68,6 +71,14 @@ const classMap = (dark: ?boolean) => {
         aria-label={I18n.t('shared.viewers.plural')}
       />
     ),
+    visible: (
+      <FontAwesomeIcon
+        icon={faChartLine}
+        className={className}
+        tabIndex={0}
+        aria-label={I18n.t('shared.stats.visible_in_stats')}
+      />
+    ),
     add_to_google_cal: (
       <FontAwesomeIcon icon={faCalendarPlus} className={className} />
     ),
@@ -77,21 +88,23 @@ const classMap = (dark: ?boolean) => {
   };
 };
 
-const displayViewers = (
+const displayNonLink = (
   actions: Actions,
   item: string,
   hasStory: ?boolean,
   dark: ?boolean,
-) => (
-  <div key={item} className="storyActionsViewers">
-    <Tooltip
-      className="storyActionsViewer"
-      element={classMap(dark)[item]}
-      text={actions[item]}
-      right={!!hasStory}
-    />
-  </div>
-);
+) => {
+  const capitalizeItem = item.charAt(0).toUpperCase() + item.slice(1);
+  return (
+    <div key={item} className={`storyActions${capitalizeItem}`}>
+      <Tooltip
+        element={classMap(dark)[item]}
+        text={actions[item]}
+        right={!!hasStory}
+      />
+    </div>
+  );
+};
 
 const titleItem = (item: string) => item.charAt(0).toUpperCase() + item.slice(1);
 
@@ -137,7 +150,7 @@ const displayItem = (
   hasStory: ?boolean,
   dark: ?boolean,
 ) => {
-  if (item === VIEWERS) return displayViewers(actions, item, hasStory, dark);
+  if (item === VIEWERS || item === VISIBLE) return displayNonLink(actions, item, hasStory, dark);
   return displayLink(actions, item, hasStory, dark);
 };
 
@@ -153,6 +166,7 @@ export const StoryActions = (props: Props): Node => {
         LEAVE,
         DELETE,
         REPORT,
+        VISIBLE,
         VIEWERS,
       ].map((item: string) => (actions[item] ? displayItem(actions, item, hasStory, dark) : null))}
     </div>

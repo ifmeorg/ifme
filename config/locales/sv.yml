@@ -833,7 +833,8 @@ sv:
     stats:
       you_are_focusing: Du fokuserar mest på
       user_is_focusing: '%{name} fokuserar mest på'
-      visible_in_stats: Synlig i statistik?
+      visible_in_stats: Syns i statistik
+      make_visible_in_stats: Visas i statistik?
     viewers:
       plural: Tittare
       you: Bara du

@@ -24,7 +24,8 @@
 				edit: {
 					name: t('common.actions.edit'),
 					link: edit_mood_path(@mood)
-				}
+				},
+				visible: get_visible(@mood.visible)
 			}
 		}) %>
 	</div>
