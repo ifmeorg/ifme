@@ -35,7 +35,9 @@ module StrategiesConcern
       name: t('strategies.index.premade1_name'),
       description: t('strategies.index.premade1_description'),
       category: category ? [category.id] : nil,
-      comment: false
+      comment: false,
+      visible: true,
+      published_at: Time.zone.now
     )
   end
 
