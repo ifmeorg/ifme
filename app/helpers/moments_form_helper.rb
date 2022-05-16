@@ -10,7 +10,7 @@ module MomentsFormHelper
   end
 
   def edit_moment_props
-    edit_form_props(moment_form_inputs, moment_path(@moment))
+    edit_form_props(moment_form_inputs(true), moment_path(@moment))
   end
 
   private
@@ -75,10 +75,11 @@ module MomentsFormHelper
              info: t('comment.hint'), dark: true)
   end
 
-  def moment_publishing
+  def moment_publishing(edit)
     { id: 'moment_publishing', type: 'switch',
       label: t('moments.form.draft_question'), dark: true, name: 'publishing',
-      value: '0', uncheckedValue: '1', checked: !@moment.published? }
+      value: '0', uncheckedValue: '1',
+      checked: edit ? !@moment.published? : @moment.published? }
   end
 
   def moment_bookmarked
@@ -97,12 +98,12 @@ module MomentsFormHelper
              checked: @moment.resource_recommendations, dark: true)
   end
 
-  def moment_form_inputs
+  def moment_form_inputs(edit = false)
     [
       moment_name, moment_why, moment_fix, moment_category, moment_mood,
       moment_strategy, get_viewers_input(
         @viewers, 'moment', 'moments', @moment
-      ), moment_comment, moment_publishing,
+      ), moment_comment, moment_publishing(edit),
       Rails.env.development? ? moment_bookmarked : {}, moment_display_resources
     ]
   end

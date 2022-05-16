@@ -114,6 +114,14 @@ describe StrategiesFormHelper do
       label: t('strategies.form.draft_question')
     )
   end
+  let(:build_strategy_publishing_edit_res) do
+    build_switch_input_strategy_publishing_res.merge(
+      id: 'strategy_publishing',
+      name: 'publishing',
+      label: t('strategies.form.draft_question'),
+      checked: !strategy.published?
+    )
+  end
   let(:build_strategy_bookmarked_res) do
     build_switch_input_strategy_bookmarked_res.merge(
       id: 'strategy_bookmarked',
@@ -136,7 +144,7 @@ describe StrategiesFormHelper do
       type: 'switch',
       value: '0',
       uncheckedValue: '1',
-      checked: !strategy.published?,
+      checked: strategy.published?,
       dark: true
     }
   end
@@ -214,18 +222,37 @@ describe StrategiesFormHelper do
   end
 
   describe '#build_strategy_publishing' do
-    subject { build_strategy_publishing(strategy) }
+    context 'when edit is false' do
+      subject { build_strategy_publishing(strategy, false) }
 
-    context 'when there are no custom URL params' do
-      it 'builds correct object' do
-        expect(subject).to eq(build_strategy_publishing_res)
+      context 'when there are no custom URL params' do
+        it 'builds correct object' do
+          expect(subject).to eq(build_strategy_publishing_res)
+        end
+      end
+
+      context 'when there are custom URL params' do
+        it 'builds correct object' do
+          params[:bookmarked] = true
+          expect(subject).to eq(build_strategy_publishing_res.merge(checked: false))
+        end
       end
     end
 
-    context 'when there are custom URL params' do
-      it 'builds correct object' do
-        params[:bookmarked] = true
-        expect(subject).to eq(build_strategy_publishing_res.merge(checked: false))
+    context 'when edit is true' do
+      subject { build_strategy_publishing(strategy, true) }
+
+      context 'when there are no custom URL params' do
+        it 'builds correct object' do
+          expect(subject).to eq(build_strategy_publishing_edit_res)
+        end
+      end
+
+      context 'when there are custom URL params' do
+        it 'builds correct object' do
+          params[:bookmarked] = true
+          expect(subject).to eq(build_strategy_publishing_edit_res.merge(checked: false))
+        end
       end
     end
   end
