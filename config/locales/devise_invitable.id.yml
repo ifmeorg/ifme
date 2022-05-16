@@ -2,11 +2,11 @@ id:
   devise:
     failure:
       invited: >-
-        Kamu masih memiliki undangan yang tertunda, terimalah untuk menyempurnakan pembuatan
-        akun kamu.
+        Kamu masih memiliki undangan yang tertunda, terimalah untuk
+        menyempurnakan pembuatan akun kamu.
     invitations:
-      send_instructions: "Sebuah undangan dalam bentuk email telah berhasil dikirim ke %{email}."
-      failed_send: "Terjadi suatu kesalahan. %{email} tidak bisa diundang."
+      send_instructions: 'Sebuah undangan dalam bentuk email telah berhasil dikirim ke %{email}.'
+      failed_send: 'Terjadi suatu kesalahan. %{email} tidak bisa diundang.'
       invitation_token_invalid: Token undangan yang diberikan tidak valid!
       updated: Kata sandi Anda berhasil disetel. Anda sekarang telah masuk.
       updated_not_active: Kata sandi Anda berhasil disetel.
@@ -20,17 +20,18 @@ id:
         submit_button: Setel kata sandi saya.
     mailer:
       invitation_instructions:
-        subject: "if-me.org | %{name} mengundang Anda untuk bergabung if-me.org!"
+        subject: 'if-me.org | %{name} mengundang Anda untuk bergabung if-me.org!'
         subject_nameless: if-me.org | Seseorang mengundang Anda untuk bergabung if-me.org!
-        hello: "Hey %{email}!"
+        hello: 'Hey %{email}!'
         someone_invited_you: >-
-          %{name} telah mengundang Anda untuk bergabung dengan http://www.if-me.org, sebuah komunitas untuk
-          bagikan pengalaman kesehatan mental dengan orang yang Anda cintai dan pantau
-          suasana hati Anda, obat-obatan, dan perawatan diri. Anda dapat menerima undangan
+          %{name} telah mengundang Anda untuk bergabung dengan
+          http://www.if-me.org, sebuah komunitas untuk bagikan pengalaman
+          kesehatan mental dengan orang yang Anda cintai dan pantau suasana hati
+          Anda, obat-obatan, dan perawatan diri. Anda dapat menerima undangan
           melalui tautan di bawah ini.
         accept: Menerima undangan!
-        accept_until: "Undangan ini akan kedaluwarsa pada %{due_date}."
+        accept_until: 'Undangan ini akan kedaluwarsa pada %{due_date}.'
         ignore: >-
-          Jika Anda tidak ingin menerima undangan, abaikan email ini.
-          <br/>Akun Anda tidak akan dibuat sampai Anda mengakses tautannya
+          Jika Anda tidak ingin menerima undangan, abaikan email ini. <br/>Akun
+          Anda tidak akan dibuat sampai Anda mengakses tautannya
            di atas dan atur kata sandi Anda.

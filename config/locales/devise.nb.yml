@@ -87,4 +87,7 @@ nb:
       not_saved:
         one: '1 error hindret dette %{resource} fra å lagres:'
         other: '%{count} errorer hindret denne %{resource} fra å lagres:'
-      pwned_password: "har tidligere dukket opp i et databrudd og skal aldri brukes. Hvis du noen gang har brukt den hvor som helst før, kan du endre den umiddelbart!"
+      pwned_password: >-
+        har tidligere dukket opp i et databrudd og skal aldri brukes. Hvis du
+        noen gang har brukt den hvor som helst før, kan du endre den
+        umiddelbart!

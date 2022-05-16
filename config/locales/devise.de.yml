@@ -93,4 +93,7 @@ de:
       not_saved:
         one: '1 Fehler verhinderte das Speichern von %{resource}'
         other: '%{count} Fehler verhinderten das Speichern von %{resource}'
-      pwned_password: "ist bereits in einem Datenleck vorgekommen und sollte nicht mehr verwendet werden. Wenn Du es schon einmal benutzt hast, ändere es umgehend!"
+      pwned_password: >-
+        ist bereits in einem Datenleck vorgekommen und sollte nicht mehr
+        verwendet werden. Wenn Du es schon einmal benutzt hast, ändere es
+        umgehend!

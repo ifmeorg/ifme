@@ -2,8 +2,8 @@ de:
   devise:
     failure:
       invited: >-
-        Du hast eine ausstehende Einladung, nimm sie an, um die
-        Erstellung Deines Kontos abzuschließen.
+        Du hast eine ausstehende Einladung, nimm sie an, um die Erstellung
+        Deines Kontos abzuschließen.
     invitations:
       send_instructions: 'Eine Einladungs-E-Mail wurde an %{email} gesendet.'
       failed_send: 'Ein Fehler ist aufgetreten. %{email} konnte nicht eingeladen werden.'
@@ -25,12 +25,12 @@ de:
         hello: 'Hallo %{email}!'
         someone_invited_you: >-
           %{name} hat Dich eingeladen http://www.if-me.org beizutreten, eine
-          Gemeinschaft, um Erfahrungen mit Deinen Angehörigen zu teilen und Deine
-          Stimmungen, Medikamente und Selbstfürsorge zu verfolgen. Du kannst die
-          Einladung über den folgenden Link annehmen.
+          Gemeinschaft, um Erfahrungen mit Deinen Angehörigen zu teilen und
+          Deine Stimmungen, Medikamente und Selbstfürsorge zu verfolgen. Du
+          kannst die Einladung über den folgenden Link annehmen.
         accept: Die Einladung annehmen!
         accept_until: 'Diese Einladung läuft ab am %{due_date}.'
         ignore: >-
           Wenn Du die Einladung nicht annehmen möchtest, ignoriere bitte diese
-          E-Mail.<br />Dein Konto wird nur erstellt, wenn Du den Link oben aufrufst und
-          Dein Passwort festlegst.
+          E-Mail.<br />Dein Konto wird nur erstellt, wenn Du den Link oben
+          aufrufst und Dein Passwort festlegst.
