@@ -95,4 +95,6 @@ fr:
         other: >-
           %{count} erreurs ont empêché ce (cet ou cette) %{resource} d’être
           enregistré(e):
-      pwned_password: "est déjà apparu dans une violation de données et ne doit jamais être utilisé. Si vous l'avez déjà utilisé ailleurs, changez-le immédiatement!"
+      pwned_password: >-
+        est déjà apparu dans une violation de données et ne doit jamais être
+        utilisé. Si vous l'avez déjà utilisé ailleurs, changez-le immédiatement!

@@ -93,4 +93,7 @@ it:
       not_saved:
         one: '1 errore ha impedito che questa %{resource} venisse salvata:'
         other: '%{count} errori hanno impedito che questa %{resource} venisse salvata:'
-      pwned_password: "è già apparso in precedenza in una violazione dei dati e non dovrebbe mai essere utilizzato. Se l'hai mai usato prima d'ora, cambialo immediatamente!"
+      pwned_password: >-
+        è già apparso in precedenza in una violazione dei dati e non dovrebbe
+        mai essere utilizzato. Se l'hai mai usato prima d'ora, cambialo
+        immediatamente!

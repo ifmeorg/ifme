@@ -3,19 +3,19 @@ id:
     confirmations:
       confirmed: Email anda telah berhasil dikonfirmasi.
       send_instructions: >-
-        Dalam beberapa menit lagi anda akan mendapatkan intruksi
-        tentang cara untuk mengkonfirmasi email anda.
+        Dalam beberapa menit lagi anda akan mendapatkan intruksi tentang cara
+        untuk mengkonfirmasi email anda.
       send_paranoid_instructions: >-
-        Jika email anda tersimpan di basis data kami, maka dalam
-        beberapa menit lagi anda akan mendapatkan intruksi
-        tentang cara untuk mengkonfirmasi email anda.
+        Jika email anda tersimpan di basis data kami, maka dalam beberapa menit
+        lagi anda akan mendapatkan intruksi tentang cara untuk mengkonfirmasi
+        email anda.
     failure:
       already_authenticated: Anda berhasil masuk.
       inactive: Akun anda belum diaktivasi.
-      invalid: "%{authentication_keys} atau kata sandi tidak sesuai."
+      invalid: '%{authentication_keys} atau kata sandi tidak sesuai.'
       locked: Akun anda terkunci.
       last_attempt: Anda memiliki satu kali kesempatan lagi sebelum akun anda terkunci.
-      not_found_in_database: "%{authentication_keys} atau kata sandi tidak sesuai."
+      not_found_in_database: '%{authentication_keys} atau kata sandi tidak sesuai.'
       timeout: Sesi anda telah berakhir. Mohon masuk kembali untuk melanjutkan.
       unauthenticated: Anda perlu masuk atau daftar sebelum melanjutkan.
       unconfirmed: Anda perlu mengkonfirmasi alamat email anda sebelum melanjutkan.
@@ -30,31 +30,37 @@ id:
         subject: if-me.org | Kata sandi diubah
     omniauth_callbacks:
       failure: 'Tidak dapat mengautentikasi anda dari %{kind} karena "%{reason}".'
-      success: "Berhasil diautentikasi dari akun %{kind}."
+      success: 'Berhasil diautentikasi dari akun %{kind}.'
     passwords:
       no_token: >-
-        Anda tidak dapat mengakses halaman ini tanpa melalui email reset password.
-        Jika melalui email reset password, mohon pastikan anda menggunakan URL yang telah disediakan.
+        Anda tidak dapat mengakses halaman ini tanpa melalui email reset
+        password. Jika melalui email reset password, mohon pastikan anda
+        menggunakan URL yang telah disediakan.
       send_instructions: >-
-        Anda akan menerima email instruksi untuk mengatur ulang sandi anda dalam beberapa menit.
+        Anda akan menerima email instruksi untuk mengatur ulang sandi anda dalam
+        beberapa menit.
       send_paranoid_instructions: >-
-        Jika alamat email anda terdapat pada database kami, anda akan menerima tautan untuk pemulihan sandi pada alamat email anda dalam beberapa menit.
+        Jika alamat email anda terdapat pada database kami, anda akan menerima
+        tautan untuk pemulihan sandi pada alamat email anda dalam beberapa
+        menit.
       updated: Sandi anda telah berhasil diganti. Anda sekarang telah berhasil masuk.
       updated_not_active: Sandi anda telah berhasil diganti.
     registrations:
-      destroyed: >-
-        Selamat tinggal! Akun anda telah berhasil dihapus. Sampai jumpa kembali.
+      destroyed: Selamat tinggal! Akun anda telah berhasil dihapus. Sampai jumpa kembali.
       signed_up: Selamat datang! Anda telah berhasil daftar.
       signed_up_but_inactive: >-
-        Anda telah berhasil daftar. Namun anda tidak dapat masuk karena akun anda belum diaktivasi.
+        Anda telah berhasil daftar. Namun anda tidak dapat masuk karena akun
+        anda belum diaktivasi.
       signed_up_but_locked: >-
-        Anda telah berhasil daftar. Namun anda tidak dapat masuk karena akun anda terkunci.
+        Anda telah berhasil daftar. Namun anda tidak dapat masuk karena akun
+        anda terkunci.
       signed_up_but_unconfirmed: >-
-        Sebuah pesan dengan tautan konfirmasi telah dikirim ke alamat email anda.
-        Silahkan ikuti tautan nya untuk mengaktivasi akun anda.
+        Sebuah pesan dengan tautan konfirmasi telah dikirim ke alamat email
+        anda. Silahkan ikuti tautan nya untuk mengaktivasi akun anda.
       update_needs_confirmation: >-
-        Anda telah berhasil memperbarui akun anda, namun kami perlu memverifikasi alamat email baru anda. Silahkan periksa email anda dan ikuti
-        tautan konfirmasi untuk mengkonfirmasi alamat email baru anda.
+        Anda telah berhasil memperbarui akun anda, namun kami perlu
+        memverifikasi alamat email baru anda. Silahkan periksa email anda dan
+        ikuti tautan konfirmasi untuk mengkonfirmasi alamat email baru anda.
       updated: Akun anda telah berhasil diperbarui.
     sessions:
       signed_in: Berhasil masuk.
@@ -62,19 +68,23 @@ id:
       already_signed_out: Berhasil keluar.
     unlocks:
       send_instructions: >-
-        Anda akan menerima pesan email dengan instruksi untuk membuka kunci akun anda dalam beberapa menit.
+        Anda akan menerima pesan email dengan instruksi untuk membuka kunci akun
+        anda dalam beberapa menit.
       send_paranoid_instructions: >-
         Jika akun anda benar, anda akan menerima pesan email dengan instruksi
         untuk membuka kunci akun anda dalam beberapa menit.
       unlocked: Akun anda telah berhasil dikunci. Silahkan masuk untuk melanjutkan.
   errors:
     messages:
-      already_confirmed: "telah dikonfirmasi, silahkan coba masuk"
-      confirmation_period_expired: "perlu dikonfirmasi dalam %{period}, silahkan mengajukan yang baru"
-      expired: "telah berakhir, silahkan mengajukan yang baru"
+      already_confirmed: 'telah dikonfirmasi, silahkan coba masuk'
+      confirmation_period_expired: 'perlu dikonfirmasi dalam %{period}, silahkan mengajukan yang baru'
+      expired: 'telah berakhir, silahkan mengajukan yang baru'
       not_found: tidak ditemukan
       not_locked: tidak terkunci
       not_saved:
-        one: "1 eror tidak dapat menyimpan %{resource} ini:"
-        other: "%{count} eror tidak dapat menyimpan %{resource} ini:"
-      pwned_password: "Sebelumnya telah muncul dalam pelanggaran data dan tidak boleh digunakan. Jika Anda pernah menggunakannya di mana saja sebelumnya, segera ubah!"
+        one: '1 eror tidak dapat menyimpan %{resource} ini:'
+        other: '%{count} eror tidak dapat menyimpan %{resource} ini:'
+      pwned_password: >-
+        Sebelumnya telah muncul dalam pelanggaran data dan tidak boleh
+        digunakan. Jika Anda pernah menggunakannya di mana saja sebelumnya,
+        segera ubah!

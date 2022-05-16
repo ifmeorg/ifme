@@ -58,4 +58,4 @@ zh-CN:
       not_saved:
         one: '1个错误,保存%{resource}不成功'
         other: '%{count}个错误,保存%{resource}不成功'
-      pwned_password: "以前曾出现过数据泄露事件，永远不要使用。 如果您曾经在任何地方使用过，请立即进行更改！"
+      pwned_password: 以前曾出现过数据泄露事件，永远不要使用。 如果您曾经在任何地方使用过，请立即进行更改！

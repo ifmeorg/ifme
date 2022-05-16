@@ -83,4 +83,6 @@ sv:
       not_saved:
         one: 'Ett fel hindrade denna %{resource} från att sparas:'
         other: '%{count} fel hindrade denna %{resource} från att sparas:'
-      pwned_password: "har tidigare förekommit i ett dataintrång och bör aldrig användas. Om du någonsin har använt den någonstans tidigare, ändra den omedelbart!"
+      pwned_password: >-
+        har tidigare förekommit i ett dataintrång och bör aldrig användas. Om du
+        någonsin har använt den någonstans tidigare, ändra den omedelbart!
