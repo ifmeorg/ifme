@@ -84,9 +84,9 @@ vi:
       description: Mô tả
       error_explanation: Vui lòng điền đầy đủ các trường được làm đậm!
       empty_error: Trường này không thể để trống!
-      min_error: Trường này phải bằng hoặc lớn hơn %{min}!
-      max_error: Trường này phải bằng hoặc nhỏ hơn %{max}!
-      min_max_error: Trường này phải bằng hoặc lớn hơn %{min} và bằng hoặc nhỏ hơn %{max}!
+      min_error: 'Trường này phải bằng hoặc lớn hơn %{min}!'
+      max_error: 'Trường này phải bằng hoặc nhỏ hơn %{max}!'
+      min_max_error: 'Trường này phải bằng hoặc lớn hơn %{min} và bằng hoặc nhỏ hơn %{max}!'
       search_by_keywords: Tìm kiếm theo từ khóa
       template: Chọn một mẫu
     time_ago: 'Cách đây %{date} ngày'
@@ -539,11 +539,10 @@ vi:
         những chọn lựa để tham gia vào nhóm. Bạn cũng có thể tham gia vào những
         nhóm do đồng minh của bạn tạo ra.<br /><br />Như là một nhóm trưởng, bạn
         có thể tạo ra <strong>các cuộc họp nhóm</strong>. Cuộc hóp có thời gian
-        và nơi chốn. nơi chốn diễn ra cuộc họp có thể bên ngoài thực hoặc họp
-        trên mạng qua Google Hangout. Tất cả cuộc họp sẽ cho phép bình luận. Nếu
-        bạn là nhóm trưởng, bạn không thể rời khỏi nhóm trừ khi có một nhóm
-        trưởng mới thay thế. Nhóm chỉ có thể bị hủy bỏ khi bạn là thành viên
-        nhóm duy nhất.
+        và nơi chốn. Vị trí có thể là một địa chỉ đường phố hoặc một URL hội
+        nghị truyền hình. Tất cả cuộc họp sẽ cho phép bình luận. Nếu bạn là nhóm
+        trưởng, bạn không thể rời khỏi nhóm trừ khi có một nhóm trưởng mới thay
+        thế. Nhóm chỉ có thể bị hủy bỏ khi bạn là thành viên nhóm duy nhất.
       medications_question: Làm thế nào để sử dụng chức năng thuốc?
       medications_answer: >-
         Chức năng <strong>%{medications}</strong> lá chức năng cho phép bạn liên

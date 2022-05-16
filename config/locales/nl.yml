@@ -84,9 +84,11 @@ nl:
       description: Omschrijving
       error_explanation: Vul alsjeblieft de gemarkeerde velden in!
       empty_error: Dit veld kan niet leeg zijn!
-      min_error: Dit veld moet gelijk zijn aan of groter zijn dan %{min}!
-      max_error: Dit veld moet gelijk zijn aan of kleiner zijn dan %{max}!
-      min_max_error: Dit veld moet gelijk zijn aan of groter zijn dan %{min} en gelijk aan of kleiner dan %{max}!
+      min_error: 'Dit veld moet gelijk zijn aan of groter zijn dan %{min}!'
+      max_error: 'Dit veld moet gelijk zijn aan of kleiner zijn dan %{max}!'
+      min_max_error: >-
+        Dit veld moet gelijk zijn aan of groter zijn dan %{min} en gelijk aan of
+        kleiner dan %{max}!
       search_by_keywords: Zoeken op trefwoorden
       template: Kies een sjabloon
     time_ago: '%{date} geleden'
@@ -556,11 +558,10 @@ nl:
         kunt enkel lid worden van Groepen die zijn gemaakt door jouw
         bondgenoten.<br /><br />Als een groepsleider kun je <strong>
         Samenkomsten</strong> organiseren. Samenkomsten hebben een locatie en
-        een tijd. De locatie kan een fysieke plaats zijn of een Google Hangouts
-        URL. Bij Samenkomsten kun je commentaar plaatsen. Indien je een
-        groepsleider bent, dan kun je de Groep niet verlaten tenzij er een
-        andere leider is. Groepen kunnen enkel worden verwijderd als je de enige
-        deelnemer bent.
+        een tijd. De locatie kan een adres of een videoconferentie-URL zijn. Bij
+        Samenkomsten kun je commentaar plaatsen. Indien je een groepsleider
+        bent, dan kun je de Groep niet verlaten tenzij er een andere leider is.
+        Groepen kunnen enkel worden verwijderd als je de enige deelnemer bent.
       medications_question: Hoe gebruik ik de Medicatie functie?
       medications_answer: >-
         De <strong>%{medications}</strong> functie stelt je in staat om een log

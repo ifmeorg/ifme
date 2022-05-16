@@ -84,9 +84,11 @@ es:
       description: Descripción
       error_explanation: Por favor completa los campos indicados
       empty_error: ¡Este campo no puede estar vacío!
-      min_error: ¡Este campo debe ser igual o mayor que %{min}!
-      max_error: ¡Este campo debe ser igual o menor que %{max}!
-      min_max_error: ¡Este campo debe ser igual o mayor que %{min} e igual o menor que %{max}!
+      min_error: '¡Este campo debe ser igual o mayor que %{min}!'
+      max_error: '¡Este campo debe ser igual o menor que %{max}!'
+      min_max_error: >-
+        ¡Este campo debe ser igual o mayor que %{min} e igual o menor que
+        %{max}!
       search_by_keywords: Búsqueda por palabras clave
       template: Elige una plantilla
     time_ago: 'hace %{date}'
@@ -304,7 +306,9 @@ es:
         one: '%{count} Miembro de %{group}'
         other: '%{count} Miembros de %{group}'
     reminder_mailer:
-      subject: 'if-me.org | Tu reunión "%{meeting_name}" es mañana en horario de: %{time}!'
+      subject: >-
+        if-me.org | Tu reunión "%{meeting_name}" es mañana en horario de:
+        %{time}!
       body: >-
         ¡Recuerda que tu reunión "%{meeting_name}" del día de mañana, ocurrirá
         en horario de %{time} en %{location}!
@@ -548,10 +552,11 @@ es:
         unirse. Sólo podemos unirnos a grupos que son creados por nuestros
         aliados.<br /><br />Como líder de tu Grupo, puedes crear
         <strong>Reuniones</strong>. Las Reuniones tienen una ubicación y fecha.
-        La ubicación puede ser un lugar físico o un Google Hangout. En las
-        Reuniones pueden también dejarse comentarios. Si eres líder de un Grupo,
-        no puedes abandonar el grupo a menos que haya otro líder. Los Grupos
-        sólo pueden eliminarse cuando uno mismo es el único miembro.
+        La ubicación puede ser la dirección de una calle o la URL de una
+        videoconferencia. En las Reuniones pueden también dejarse comentarios.
+        Si eres líder de un Grupo, no puedes abandonar el grupo a menos que haya
+        otro líder. Los Grupos sólo pueden eliminarse cuando uno mismo es el
+        único miembro.
       medications_question: ¿Cómo utilizar la propiedad de Medicamentos?
       medications_answer: >-
         La propiedad de <strong>%{medications}</strong> permite registrar los

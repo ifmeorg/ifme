@@ -84,9 +84,9 @@ zh-CN:
       description: 描述
       error_explanation: 请填写做记号的地方！
       empty_error: 不能为空！
-      min_error: 該字段必須等於或大於 %{min}!
-      max_error: 該字段必須等於或小於 %{max}!
-      min_max_error: 該字段必須等於或大於 %{min} 且等於或小於 %{max}！
+      min_error: '該字段必須等於或大於 %{min}!'
+      max_error: '該字段必須等於或小於 %{max}!'
+      min_max_error: '該字段必須等於或大於 %{min} 且等於或小於 %{max}！'
       search_by_keywords: 关键词搜索
       template: 選擇一個模板
     time_ago: '%{date}之前'
@@ -458,8 +458,8 @@ zh-CN:
       group_answer: >-
         一 <strong>%{group}</strong>提供有关心理健康的支持，指导和讨论. 你可以创建小组，你的好友可以选择性的加入.
         你只能加入由你的好友创建的组.<br /><br />作为小组组长， 你可以创建 <strong>Meetings</strong>.
-        会面有地点和时间.该位置可以是实际地点， 也可以是谷歌 Hangouts 网址.会面还允许发表评论. 如果你是小组组长，那么除非有其他组长，
-        否则你不能离开小组. 仅当你是唯一成员时才能删除组.
+        会面有地点和时间. 該位置可以是街道地址或視頻會議 URL。会面还允许发表评论. 如果你是小组组长，那么除非有其他组长， 否则你不能离开小组.
+        仅当你是唯一成员时才能删除组.
       medications_question: 我如何使用药物服务功能?
       medications_answer: '<strong>%{medications} </strong> 功能使你可以记录所服用的处方药。你还可以记录你的症状。'
       care_plan_question: 如何使用護理計劃功能？

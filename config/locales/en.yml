@@ -84,9 +84,11 @@ en:
       description: Description
       error_explanation: Please fill out the marked fields!
       empty_error: This field cannot be empty!
-      min_error: This field must be equal or greater than %{min}!
-      max_error: This field must be equal or less than %{max}!
-      min_max_error: This field must be equal or greater than %{min} and equal or less than %{max}!
+      min_error: 'This field must be equal or greater than %{min}!'
+      max_error: 'This field must be equal or less than %{max}!'
+      min_max_error: >-
+        This field must be equal or greater than %{min} and equal or less than
+        %{max}!
       search_by_keywords: Search by keywords
       template: Choose a template
     time_ago: '%{date} ago'
@@ -520,9 +522,9 @@ en:
         on mental health. You can create Groups and your allies have the option
         of joining. You can only join groups that are created by your allies.<br
         /><br />As a Group leader, you can create <strong>Meetings</strong>.
-        Meetings have a location and time. The location can be a physical place
-        or a Google Hangout URL. Meetings also allow for comments. If you are a
-        Group leader, you cannot leave a group unless there is another leader.
+        Meetings have a location and time. The location can be a street address
+        or a video conference URL. Meetings also allow for comments. If you are
+        a Group leader, you cannot leave a group unless there is another leader.
         Groups can only be deleted when you are the only member.
       medications_question: How do I use the Medications feature?
       medications_answer: >-

@@ -84,9 +84,11 @@ id:
       description: Deskripsi
       error_explanation: Silakan isi kolom yang ditandai!
       empty_error: Kolom ini tidak boleh kosong!
-      min_error: Bidang ini harus sama atau lebih besar dari %{min}!
-      max_error: Bidang ini harus sama atau kurang dari %{max}!
-      min_max_error: Bidang ini harus sama atau lebih besar dari %{min} dan sama atau kurang dari %{max}!
+      min_error: 'Bidang ini harus sama atau lebih besar dari %{min}!'
+      max_error: 'Bidang ini harus sama atau kurang dari %{max}!'
+      min_max_error: >-
+        Bidang ini harus sama atau lebih besar dari %{min} dan sama atau kurang
+        dari %{max}!
       search_by_keywords: Cari berdasarkan kata kunci
       template: Pilih template
     time_ago: '%{date} yang lalu'
@@ -536,11 +538,11 @@ id:
         tentang kesehatan mental. Anda dapat membuat Grup dan teman Anda
         memiliki opsi untuk bergabung. Anda hanya dapat bergabung dengan grup
         yang dibuat oleh teman.<br /><br />Sebagai pemimpin Grup, Anda dapat
-        membuat <strong>Rapat</strong>. Rapat tersebut memiliki lokasi dan
-        waktu. Lokasi dapat berupa tempat fisik atau URL Google Hangout. Rapat
-        juga memungkinkan untuk dikomentari. Jika Anda adalah pemimpin Grup,
-        Anda tidak dapat meninggalkan grup kecuali ada pemimpin lain. Grup hanya
-        dapat dihapus jika Anda adalah satu-satunya anggota.
+        membuat <strong>Rapat</strong>. Lokasi dapat berupa alamat jalan atau
+        URL konferensi video. Rapat juga memungkinkan untuk dikomentari. Jika
+        Anda adalah pemimpin Grup, Anda tidak dapat meninggalkan grup kecuali
+        ada pemimpin lain. Grup hanya dapat dihapus jika Anda adalah
+        satu-satunya anggota.
       medications_question: Bagaimana cara menggunakan fitur Obat?
       medications_answer: >-
         Fitur <strong>%{medications}</strong> memungkinkan Anda untuk mencatat
