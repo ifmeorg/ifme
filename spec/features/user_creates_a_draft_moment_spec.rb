@@ -11,6 +11,7 @@ feature 'UserCreatesADraftMoment', type: :feature, js: true do
     it 'is not successful' do
       login_as user
       visit new_moment_path
+      find('#moment_publishing_switch').click
       find('#submit').click
       expect(page).to have_content('New Moment')
       expect(page).to have_css('.labelError')
@@ -85,6 +86,7 @@ feature 'UserCreatesADraftMoment', type: :feature, js: true do
       end
 
       find('#moment_comment_switch').click
+      find('#moment_publishing_switch').click
       find('#submit').click
 
       # VIEWING AS OWNER

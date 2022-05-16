@@ -62,9 +62,12 @@ module StrategiesFormHelper
     )
   end
 
-  def build_strategy_publishing(strategy)
-    build_switch_input('0',
-                       params[:bookmarked] ? false : !strategy.published?, '1')
+  def build_strategy_publishing(strategy, edit)
+    checked = strategy.published?
+    checked = !strategy.published? if edit
+    checked = false if params[:bookmarked]
+
+    build_switch_input('0', checked, '1')
       .merge(
         id: 'strategy_publishing', name: 'publishing',
         label: t('strategies.form.draft_question')

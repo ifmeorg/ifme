@@ -228,7 +228,7 @@ describe MomentsFormHelper do
               value: true
             },
             {
-              checked: true,
+              checked: false,
               dark: true,
               id: 'moment_publishing',
               label: 'Do you want to save your moment as draft?',
@@ -462,7 +462,7 @@ describe MomentsFormHelper do
               value: true
             },
             {
-              checked: true,
+              checked: false,
               dark: true,
               id: 'moment_publishing',
               label: 'Do you want to save your moment as draft?',

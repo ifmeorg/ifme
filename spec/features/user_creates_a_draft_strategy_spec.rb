@@ -9,6 +9,7 @@ feature 'UserCreatesADraftStrategy', type: :feature, js: true do
     it 'is not successful' do
       login_as user
       visit new_strategy_path
+      find('#strategy_publishing_switch').click
       find('#submit').click
       expect(page).to have_content('New Strategy')
       expect(page).to have_css('.labelError')
@@ -55,6 +56,7 @@ feature 'UserCreatesADraftStrategy', type: :feature, js: true do
 
       find('#strategy_comment_switch').click
       find('#strategy_perform_strategy_reminder').click
+      find('#strategy_publishing_switch').click
       find('#submit').click
 
       # VIEWING
