@@ -84,9 +84,11 @@ pt-BR:
       description: Descrição
       error_explanation: 'Por favor, preencha os campos marcados!'
       empty_error: Este campo não pode estar vazio!
-      min_error: Este campo deve ser igual ou maior que %{min}!
-      max_error: Este campo deve ser igual ou menor que %{max}!
-      min_max_error: Este campo deve ser igual ou maior que %{min} e igual ou menor que %{max}!
+      min_error: 'Este campo deve ser igual ou maior que %{min}!'
+      max_error: 'Este campo deve ser igual ou menor que %{max}!'
+      min_max_error: >-
+        Este campo deve ser igual ou maior que %{min} e igual ou menor que
+        %{max}!
       search_by_keywords: Pesquisar por palavras-chave
       template: Escolha um modelo
     time_ago: '%{date} atrás'
@@ -271,7 +273,9 @@ pt-BR:
       subject: 'if-me.org | Não se esqueça de tomar o medicamento %{name}!'
       body: 'Um lembrete amigo para tomar o medicamento %{name}!'
     refill_mailer:
-      subject: 'if-me.org | Está quase na hora de reabastecer o estoque do medicamento %{name}.'
+      subject: >-
+        if-me.org | Está quase na hora de reabastecer o estoque do medicamento
+        %{name}.
       body: >-
         Aqui um lembrete amigo para reabastecer o medicamento %{name} na
         %{refill}!
@@ -548,11 +552,10 @@ pt-BR:
         juntar aos grupos que você criou. Você só pode acessar grupos que foram
         criados por seus aliados.<br /><br />Como Líder de Grupo, você pode
         criar <strong>Reuniões</strong>. Reuniões tem data e hora marcadas. O
-        endereço pode ser físico ou em algum aplicativo de reuniões online como
-        Skype ou Google Hangout. As Reuniões também permitem comentários. Se
-        você for um Líder de Grupo, você não pode sair do grupo a menos que haja
-        outro líder. Grupos só podem ser apagados apenas quando você for o único
-        participante.
+        local pode ser um endereço ou um URL de videoconferência. As Reuniões
+        também permitem comentários. Se você for um Líder de Grupo, você não
+        pode sair do grupo a menos que haja outro líder. Grupos só podem ser
+        apagados apenas quando você for o único participante.
       medications_question: Como eu uso o recurso de Medicamentos?
       medications_answer: >-
         O recurso de <strong>%{medications}</strong> permite que você tenha um

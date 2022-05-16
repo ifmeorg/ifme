@@ -84,9 +84,11 @@ it:
       description: Descrizione
       error_explanation: 'Per favore, riempi i campi indicati!'
       empty_error: Questo campo non può essere vuoto!
-      min_error: Questo campo deve essere uguale o maggiore di %{min}!
-      max_error: Questo campo deve essere uguale o inferiore a %{max}!
-      min_max_error: Questo campo deve essere uguale o maggiore di %{min} e uguale o minore di %{max}!
+      min_error: 'Questo campo deve essere uguale o maggiore di %{min}!'
+      max_error: 'Questo campo deve essere uguale o inferiore a %{max}!'
+      min_max_error: >-
+        Questo campo deve essere uguale o maggiore di %{min} e uguale o minore
+        di %{max}!
       search_by_keywords: Cerca per parole chiave
       template: Scegli un modello
     time_ago: '%{date} fa'
@@ -268,7 +270,9 @@ it:
       subject: 'if-me.org | Non dimenticare di prendere %{name}!'
       body: 'Hey, non dimenticare di prendere %{name}!'
     refill_mailer:
-      subject: 'if-me.org | %{name} è quasi finita, non dimenticare di prendere un refill!'
+      subject: >-
+        if-me.org | %{name} è quasi finita, non dimenticare di prendere un
+        refill!
       body: 'Hey, non dimenticare di prendere un refill di %{name} il %{refill}!'
     index:
       title: Medicazioni
@@ -540,10 +544,11 @@ it:
         possono unirsi. Ricorda che puoi solo unirti a gruppi che sono stati
         creati dai tuoi alleati.<br /><br />Come leader di un Gruppo, puoi
         organizzare <strong>Raduni</strong>. I Raduni hanno un luogo e un
-        orario. Il luogo può essere un luogo fisico o un URL di Google Hangout.
-        I raduni permettono anche di commentare. Se sei il leader di un gruppo,
-        non puoi lasciarlo a meno che non rimanga almeno un altro leader. I
-        Gruppi possono solo essere eliminati quando hanno un unico membro.
+        orario. La posizione può essere un indirizzo o un URL di
+        videoconferenza. I raduni permettono anche di commentare. Se sei il
+        leader di un gruppo, non puoi lasciarlo a meno che non rimanga almeno un
+        altro leader. I Gruppi possono solo essere eliminati quando hanno un
+        unico membro.
       medications_question: Come uso la funzionalità "Medicinali"?
       medications_answer: >-
         La funzionalità <strong>%{medications}</strong> ti permette di salvare e

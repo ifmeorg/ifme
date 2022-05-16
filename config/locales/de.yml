@@ -85,9 +85,11 @@ de:
       description: Beschreibung
       error_explanation: Bitte fülle die markierten Felder aus!
       empty_error: Dieses Feld darf nicht leer sein!
-      min_error: Dieses Feld muss gleich oder größer als %{min} sein!
-      max_error: Dieses Feld muss gleich oder kleiner als %{max} sein!
-      min_max_error: Dieses Feld muss gleich oder größer als %{min} und gleich oder kleiner als %{max} sein!
+      min_error: 'Dieses Feld muss gleich oder größer als %{min} sein!'
+      max_error: 'Dieses Feld muss gleich oder kleiner als %{max} sein!'
+      min_max_error: >-
+        Dieses Feld muss gleich oder größer als %{min} und gleich oder kleiner
+        als %{max} sein!
       search_by_keywords: Suche nach Schlüsselwörtern
       template: Wähle eine Vorlage
     time_ago: 'Vor %{date}'
@@ -590,10 +592,10 @@ de:
         erstellen und deinen Helfern anbieten, beizutreten. Du kannst nur
         Gruppen beitreten, die von einem deiner Helfer erstellt wurden.<br /><br
         />Als Gruppenadministrator kannst Du <strong>Meetings</strong>erstellen.
-        Meetings haben einen Ort und eine Zeit. Der Ort kann offline oder online
-        sein, wie z.B. eine Google Hangout URL. Meetings können ebenfalls
-        kommentiert werden. Wenn Du ein Gruppenadministrator bist, kannst Du
-        eine Gruppe nicht verlassen, es sei denn es gibt noch andere
+        Meetings haben einen Ort und eine Zeit. Der Standort kann eine
+        Straßenadresse oder eine Videokonferenz-URL sein. Meetings können
+        ebenfalls kommentiert werden. Wenn Du ein Gruppenadministrator bist,
+        kannst Du eine Gruppe nicht verlassen, es sei denn es gibt noch andere
         Administratoren. Gruppen können nur gelöscht werden, wenn Du das einzige
         Mitglied bist.
       medications_question: Wie benutze ich das Arzneimittel-Feature?

@@ -84,9 +84,9 @@ fr:
       description: Description
       error_explanation: Merci de compléter les champs indiqués!
       empty_error: Ce champ ne peut pas être vide!
-      min_error: Ce champ doit être égal ou supérieur à %{min}!
-      max_error: Ce champ doit être égal ou inférieur à %{max}!
-      min_max_error: Ce champ doit être égal ou supérieur à %{min} et égal ou inférieur à %{max} !
+      min_error: 'Ce champ doit être égal ou supérieur à %{min}!'
+      max_error: 'Ce champ doit être égal ou inférieur à %{max}!'
+      min_max_error: "Ce champ doit être égal ou supérieur à %{min} et égal ou inférieur à %{max}\_!"
       search_by_keywords: Recherche par mots-clés
       template: Choisissez un modèle
     time_ago: 'il y a %{date}'
@@ -559,18 +559,18 @@ fr:
         le bien-être psychique. Vous pouvez créer des groupe et vos alliés
         peuvent le rejoindre. Vous ne pouvez rejoindre que des groupes créés par
         vos alliés.<br /><br />En tant qu''animateur de groupe, vous pouvez
-        créer des <strong> réunions</strong>. Les réunions ont des lieux et
-        horaires. Le lieu peut être un endroit physique ou une adresse URL pour
-        un Hangout de Google. Les réunions permettent aussi de commenter. Si
-        vous êtes un animateur de groupe vous ne pouvez pas quitter le groupe à
-        moins qu''il n''y ait un autre animateur dans le groupe. Un groupe ne
-        peut être supprimé que si vous en êtes l''unique membre.
+        créer des <strong>réunions</strong>. Les réunions ont des lieux et
+        horaires. L'emplacement peut être une adresse postale ou une URL de
+        vidéoconférence. Les réunions permettent aussi de commenter. Si vous
+        êtes un animateur de groupe vous ne pouvez pas quitter le groupe à moins
+        qu''il n''y ait un autre animateur dans le groupe. Un groupe ne peut
+        être supprimé que si vous en êtes l''unique membre.
       medications_question: Comment utiliser la fonctionnalité de médication ?
       medications_answer: >-
         La fonction <strong>%{medications}</strong> vous permet d''enregistrer
         les médications que vous prenez. Vous ouvez aussi prendre note de vos
         symptômes.
-      care_plan_question: "Comment utiliser la fonctionnalité Plan de soins\_?"
+      care_plan_question: Comment utiliser la fonctionnalité Plan de soins ?
       care_plan_answer: >-
         La fonctionnalité <strong>%{care_plan}</strong> vous permet de conserver
         une liste des êtres chers que vous devriez contacter pendant les moments
