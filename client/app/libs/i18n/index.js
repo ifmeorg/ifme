@@ -21,10 +21,11 @@ export const I18n = {
   t: (scope: string, options?: Options): string => {
     const locale = Cookies.get('locale') || 'en';
     let result = translations[locale][scope] || missingResult(locale, scope);
-    const resultOptions = result.match(/(?<={).*?(?=})/g);
+    const resultOptions = result.match(/\{(.*?)\}/g);
     if (resultOptions) {
       resultOptions.forEach((option: string) => {
-        result = result.replaceAll(`{${option}}`, getValue(options, option));
+        const optionKey = option.replace('{', '').replace('}', '');
+        result = result.replaceAll(option, getValue(options, optionKey));
       });
     }
     return result;
