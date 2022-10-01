@@ -673,5 +673,14 @@
     "link_name": "rizkaluthfiani",
     "link": "https://github.com/rizkaluthfiani",
     "social": "github"
+  },
+  {
+    "name": "Manish Sharma",
+    "image": "/assets/contributors/manish_sharma.jpeg",
+    "profile": "I'm a self-taught full-stack developer who enjoys working with Ruby on Rails and React. I want to leverage my skills to help people live better lives by addressing their mental health.",
+    "location": "Bangalore, India",
+    "link_name": "manishsharma.ml",
+    "link": "https://manishsharma.ml",
+    "social": "globe"
   }
 ]

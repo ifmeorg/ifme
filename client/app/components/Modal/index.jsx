@@ -1,5 +1,7 @@
 // @flow
-import React, { useState, type Element, type Node } from 'react';
+import React, {
+  useState, useEffect, useRef, type Element, type Node,
+} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { I18n } from 'libs/i18n';
@@ -44,6 +46,7 @@ export const Modal = (props: Props): Node => {
 
   const [open, setOpen] = useState(!!openProps);
   const [modalHasFocus, setModalHasFocus] = useState(true);
+  const modalEl = useRef(null);
 
   const toggleOpen = () => {
     const documentBody = ((document.body: any): HTMLBodyElement);
@@ -56,6 +59,38 @@ export const Modal = (props: Props): Node => {
       openListener();
     }
     setOpen(!open);
+  };
+
+  useEffect(() => {
+    const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    const modal = modalEl.current;
+
+    if (!modal) return;
+
+    const firstFocusableElement = modal.querySelectorAll(focusableElements)[0];
+    const focusableContent = modal.querySelectorAll(focusableElements);
+    const lastFocusableElement = focusableContent[focusableContent.length - 1];
+
+    document.addEventListener('keydown', (e: any) => {
+      const isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+
+      if (!isTabPressed) {
+        return;
+      }
+
+      if (e.shiftKey && document.activeElement === firstFocusableElement) {
+        lastFocusableElement.focus();
+        e.preventDefault();
+      } else if (document.activeElement === lastFocusableElement) {
+        firstFocusableElement.focus();
+        e.preventDefault();
+      }
+    });
+  }, [open]);
+
+  const handleKeyPress = (event: SyntheticKeyboardEvent<HTMLDivElement>, keyName: string) => {
+    if (event.key !== keyName) return;
+    toggleOpen();
   };
 
   const displayModalHeader = () => (
@@ -72,7 +107,7 @@ export const Modal = (props: Props): Node => {
       <div
         className={`modalClose ${css.modalBoxHeaderClose}`}
         onClick={toggleOpen}
-        onKeyDown={toggleOpen}
+        onKeyDown={(event) => handleKeyPress(event, 'Enter')}
         role="button"
         tabIndex={0}
         aria-label={I18n.t('close')}
@@ -88,11 +123,6 @@ export const Modal = (props: Props): Node => {
     </div>
   );
 
-  const handleKeyPress = (event: SyntheticKeyboardEvent<HTMLDivElement>) => {
-    if (event.key !== 'Escape') return;
-    toggleOpen();
-  };
-
   const handleClick = () => {
     if (modalHasFocus) return;
     toggleOpen();
@@ -102,8 +132,8 @@ export const Modal = (props: Props): Node => {
     <div
       className={`modalBackdrop ${css.modalBackdrop}`}
       onClick={handleClick}
-      onKeyDown={handleKeyPress}
-      tabIndex="0"
+      onKeyDown={(event) => handleKeyPress(event, 'Escape')}
+      tabIndex={-1}
       role="button"
     >
       <div
@@ -115,6 +145,7 @@ export const Modal = (props: Props): Node => {
         onMouseLeave={() => setModalHasFocus(false)}
         onFocus={() => setModalHasFocus(true)}
         onBlur={() => setModalHasFocus(false)}
+        ref={modalEl}
       >
         {displayModalHeader()}
         {displayModalBody()}
@@ -145,7 +176,7 @@ export const Modal = (props: Props): Node => {
           id={elementId}
           className={`modalElement ${css.modalElement} ${className || ''}`}
           onClick={toggleOpen}
-          onKeyDown={toggleOpen}
+          onKeyDown={(event) => handleKeyPress(event, 'Enter')}
           role="button"
           tabIndex={0}
         >
