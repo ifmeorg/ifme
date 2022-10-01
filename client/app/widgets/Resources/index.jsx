@@ -256,6 +256,7 @@ export const Resources = ({
         key={Utils.randomString()}
         id="resourceTags"
         name="resourceTags"
+        aria-label={I18n.t('search.search_by_tags')}
         placeholder={I18n.t('search.search_by_tags')}
         checkboxes={checkboxes}
         onCheckboxChange={(box) => checkboxChange(box)}
