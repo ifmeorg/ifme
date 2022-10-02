@@ -42,6 +42,8 @@ task setup_workspace: :environment do
     end
     File.write(target, content)
   end
+
+  puts "Workspace setup completed."
 end
 
 # Run the secret task, grab the output, strip the new lines
