@@ -553,7 +553,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionview (>= 6.0.4.8)
+  actionview
   activerecord-import
   annotate (~> 2.7)
   bcrypt (= 3.1.13)
@@ -634,7 +634,7 @@ DEPENDENCIES
   webpacker (= 5.1.1)
 
 RUBY VERSION
-   ruby 2.7.0p0
+   ruby 2.6.10p210
 
 BUNDLED WITH
-   2.1.4
+   2.3.22

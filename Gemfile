@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '~> 2.7.0'
+ruby '~> 2.6.10'
 
 gem 'puma'
 gem 'rack-rewrite'
@@ -96,7 +96,7 @@ group :development, :test do
 
   gem 'webdrivers', '>= 5.0.0'
 
-  gem 'actionview', '>= 6.0.4.8'
+  gem 'actionview'
 end
 
 group :test do
