@@ -30,13 +30,9 @@ feature 'ToggleLocale', type: :feature, js: true do
         expect(page).to have_content es_root_title
         scroll_to('.footer')
 
-        change_page(
-          lambda {
-            visit about_path
-          },
-          '.pageTitle',
-          have_content('Acerca de')
-        )
+        visit about_path
+        expect(page).to have_css '.pageTitle'
+        expect(find('.pageTitle')).to have_content 'Acerca de'
 
         change_language('en')
         expect(find('.pageTitle')).to have_content 'About'
@@ -57,15 +53,8 @@ feature 'ToggleLocale', type: :feature, js: true do
 
         open_header_if_hidden
 
-        change_page(
-          lambda {
-            within '#header' do
-              click_link('Ingresar')
-            end
-          },
-          '.pageTitle',
-          have_content('Comparte tus historias ahora')
-        )
+        click_link('Ingresar')
+        expect(find('.pageTitle')).to have_content 'Comparte tus historias ahora'
 
         within '#new_user' do
           fill_in('user_email', with: user.email)
@@ -75,17 +64,8 @@ feature 'ToggleLocale', type: :feature, js: true do
 
         expect(find('.pageTitle')).to have_content es_signed_in_root_title
 
-        sleep(5)
-
-        change_page(
-          lambda {
-            within '.dashboardSection' do
-              click_link('Momentos')
-            end
-          },
-          '.pageTitle',
-          have_content('Momentos')
-        )
+        click_link('Momentos')
+        expect(find('.dashboardSection')).to have_content 'Momentos'
       end
     end
 
@@ -124,15 +104,8 @@ feature 'ToggleLocale', type: :feature, js: true do
         change_language('es')
         expect(find('.pageTitle')).to have_content es_signed_in_root_title
 
-        change_page(
-          lambda {
-            within '.dashboardSection' do
-              click_link('Estrategias')
-            end
-          },
-          '.pageTitle',
-          have_content('Estrategias')
-        )
+        click_link('Estrategias')
+        expect(find('.dashboardSection')).to have_content 'Estrategias'
       end
     end
   end
