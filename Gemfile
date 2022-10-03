@@ -5,7 +5,7 @@ ruby '~> 2.6.10'
 
 gem 'puma'
 gem 'rack-rewrite'
-gem 'rails', '~> 6.0.3.3'
+gem 'rails', '~> 6.0.4.8'
 
 gem 'activerecord-import'
 gem 'bcrypt', '3.1.13'
@@ -96,7 +96,7 @@ group :development, :test do
 
   gem 'webdrivers', '>= 5.0.0'
 
-  gem 'actionview', '>= 6.0.3.7'
+  gem 'actionview'
 end
 
 group :test do

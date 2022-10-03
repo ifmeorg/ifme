@@ -25,22 +25,29 @@ end
 
 desc 'Automate the Config Setup for New Environments'
 task setup_workspace: :environment do
-  SECRETS = {
-    SECRET_KEY_BASE: generate_secret,
-    DEVISE_SECRET_KEY: generate_secret
-  }.freeze
+  begin
+    SECRETS = {
+      SECRET_KEY_BASE: generate_secret,
+      DEVISE_SECRET_KEY: generate_secret
+    }.freeze
 
-  %w[development test].each do |environment|
-    example = Rails.root.join('config', 'env', "#{environment}.example.env")
-    target = Rails.root.join('config', 'env', "#{environment}.env")
-    FileUtils.cp(example, target)
+    %w[development test].each do |environment|
+      example = Rails.root.join('config', 'env', "#{environment}.example.env")
+      target = Rails.root.join('config', 'env', "#{environment}.env")
+      FileUtils.cp(example, target)
 
-    # insert the secrets into the file
-    content = File.read(target)
-    %w[SECRET_KEY_BASE DEVISE_SECRET_KEY].each do |key|
-      content.sub!(%(#{key}=""), %(#{key}="#{SECRETS[key.to_sym]}"))
+      # insert the secrets into the file
+      content = File.read(target)
+      %w[SECRET_KEY_BASE DEVISE_SECRET_KEY].each do |key|
+        content.sub!(%(#{key}=""), %(#{key}="#{SECRETS[key.to_sym]}"))
+      end
+      File.write(target, content)
     end
-    File.write(target, content)
+
+    puts "Workspace setup completed successfully 🎉"
+  rescue StandardError => e
+    puts "Exception Occurred #{e.class}. Message: #{e.message}. Backtrace:  \n #{e.backtrace.join("\n")}"
+    Rails.logger.error "Exception Occurred #{e.class}. Message: #{e.message}. Backtrace:  \n #{e.backtrace.join("\n")}"
   end
 end
 
