@@ -35,7 +35,7 @@ Please check out our [Wiki](https://github.com/ifmeorg/ifme/wiki) for full docum
 
 ### Installation
 
-Information about installing and configuring the app [here](https://github.com/ifmeorg/ifme/wiki/Installation). Test, development, and production instances are covered.
+[These are the instructions](https://github.com/ifmeorg/ifme/wiki/Installation) for setting up and installing the app. Test, development, and production instances are covered.
 
 ### Contributor Blurb
 

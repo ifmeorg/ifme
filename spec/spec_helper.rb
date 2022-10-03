@@ -37,7 +37,7 @@ if ENV['SELENIUM_REMOTE_HOST']
   ip = `/sbin/ip route|awk '/scope/ { print $9 }'`.delete("\n")
   Capybara.server_host = ip
 else
-  Capybara.javascript_driver = :selenium_chrome
+  Capybara.javascript_driver = :selenium_chrome_headless
 end
 
 RSpec.configure do |config|
