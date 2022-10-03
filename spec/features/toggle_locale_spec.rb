@@ -30,13 +30,9 @@ feature 'ToggleLocale', type: :feature, js: true do
         expect(page).to have_content es_root_title
         scroll_to('.footer')
 
-        change_page(
-          lambda {
-            visit about_path
-          },
-          '.pageTitle',
-          have_content('Acerca de')
-        )
+        visit about_path
+        expect(page).to have_css '.pageTitle'
+        expect(find('.pageTitle')).to have_content 'Acerca de'
 
         change_language('en')
         expect(find('.pageTitle')).to have_content 'About'
