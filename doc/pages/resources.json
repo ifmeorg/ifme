@@ -552,7 +552,7 @@
   {
     "name": "Online SOS",
     "link": "https://www.onlinesosnetwork.org",
-    "tags": ["cyberbullying", "harassment", "free", "counseling"],
+    "tags": ["cyberbullying", "harassment", "free", "education"],
     "languages": ["en"]
   },
   {
@@ -724,7 +724,7 @@
   {
     "name": "Callisto",
     "link": "https://www.projectcallisto.org/",
-    "tags": ["sexual_assault_survivors", "harassment", "reporting"],
+    "tags": ["sexual_assault_survivors", "harassment", "cyberbullying", "reporting"],
     "languages": ["en"],
     "locations": ["us"]
   },
@@ -940,7 +940,7 @@
   {
     "name": "Asians Do Therapy",
     "link": "https://asiansdotherapy.com/",
-    "tags": ["asian", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "communities", "education"],
+    "tags": ["asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "communities", "education"],
     "languages": ["en"]
   },
   {
@@ -1156,6 +1156,38 @@
     "name": "Dani Donovan: ADHD Comics",
     "link": "https://www.adhddd.com/",
     "tags": ["adhd", "books", "education", "blog"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Unpacking",
+    "link": "https://www.unpackinggame.com/",
+    "tags": ["game", "paid", "self_care", "stress"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Hope Recovery",
+    "link": "https://www.hope4-recovery.org/",
+    "tags": ["domestic_violence", "counseling", "education", "communities", "support_groups", "newsletter", "free"],
+    "languages": ["en"],
+    "locations": ["us"]
+  },
+  {
+    "name": "Fort Refuge",
+    "link": "http://www.fortrefuge.com/",
+    "tags": ["domestic_violence", "forum", "education", "communities", "support_groups", "blog", "free"],
+    "languages": ["en", "hi"]
+  },
+  {
+    "name": "Check it Out",
+    "link": "https://check.areyouok.org.nz/",
+    "tags": ["domestic_violence", "quiz", "education", "free", "twenty_four_seven", "free", "anonymous", "hotlines"],
+    "languages": ["en"],
+    "locations": ["nz"]
+  },
+  {
+    "name": "Self-Care Fundamentals",
+    "link": "https://selfcarefundamentals.com/",
+    "tags": ["blog", "self_care", "education", "relationships", "stress", "anxiety", "depression"],
     "languages": ["en"]
   }
 ]
