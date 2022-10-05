@@ -370,7 +370,7 @@
   {
     "name": "Teen Addiction - The Recovery Village",
     "link": "https://www.therecoveryvillage.com/teen-addiction/",
-    "tags": ["youth", "addiction", "rehabilitation", "education"],
+    "tags": ["youth", "teen", "addiction", "rehabilitation", "education"],
     "languages": ["en"]
   },
   {
@@ -420,7 +420,7 @@
   {
     "name": "Rise",
     "link": "http://www.risenow.us/",
-    "tags": ["sexual_assault_survivors", "political_movement", "education"],
+    "tags": ["sexual_assault_survivors", "political_movement", "social_justice", "education"],
     "languages": ["en"]
   },
   {
@@ -497,14 +497,14 @@
   {
     "name": "Loveisrespect",
     "link": "http://www.loveisrespect.org",
-    "tags": ["youth", "dating_violence", "domestic_violence", "twenty_four_seven", "free", "anonymous", "hotlines"],
+    "tags": ["youth", "teen", "dating_violence", "domestic_violence", "twenty_four_seven", "free", "anonymous", "hotlines"],
     "languages": ["en", "es"],
     "locations": ["us"]
   },
   {
     "name": "The Trevor Project",
     "link": "http://www.thetrevorproject.org",
-    "tags": ["crisis_prevention", "suicide_prevention", "lgbt", "youth", "twenty_four_seven", "free", "anonymous", "hotlines"],
+    "tags": ["crisis_prevention", "suicide_prevention", "lgbt", "youth", "teen", "twenty_four_seven", "free", "anonymous", "hotlines"],
     "languages": ["en"],
     "locations": ["us"]
   },
@@ -1189,5 +1189,26 @@
     "link": "https://selfcarefundamentals.com/",
     "tags": ["blog", "self_care", "education", "relationships", "stress", "anxiety", "depression"],
     "languages": ["en"]
+  },
+  {
+    "name": "FreeFrom",
+    "link": "https://www.freefrom.org/",
+    "tags": ["domestic_violence", "education", "people_of_colour", "women_of_colour", "lgbt", "social_justice", "political_movement", "communities", "support_groups", "conference", "newsletter"],
+    "languages": ["en"],
+    "locations": ["us"]
+  },
+  {
+    "name": "Domestic Shelters",
+    "link": "https://www.domesticshelters.org/",
+    "tags": ["domestic_violence", "harassment", "cyberbullying", "communities", "support_groups", "newsletter", "blog", "videos"],
+    "languages": ["en"],
+    "locations": ["us", "ca"]
+  },
+  {
+    "name": "Support Network for Indigenous Women & Women of Colour (SNIWWOC)",
+    "link": "https://www.sniwwoc.ca/",
+    "tags": ["people_of_colour", "women_of_colour", "black_people", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "indigenous", "lgbt", "education", "social_justice", "political_movement", "communities", "support_groups", "counseling", "podcast"],
+    "languages": ["en"],
+    "locations": ["ca"]
   }
 ]
