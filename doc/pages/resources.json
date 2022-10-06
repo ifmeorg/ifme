@@ -8,7 +8,7 @@
   {
     "name": "Brown Sisters Speak",
     "link": "https://www.facebook.com/Brownsistersspeak",
-    "tags": ["women_of_colour", "black_women", "self_care", "domestic_violence", "support_groups", "communities"],
+    "tags": ["women_of_colour", "black_women", "self_care", "support_groups", "communities"],
     "languages": ["en", "es"]
   },
   {
@@ -26,13 +26,7 @@
   {
     "name": "Lemonaid",
     "link": "http://lemonaid.io",
-    "tags": ["women", "self_care", "domestic_violence", "anonymous", "support_groups", "communities"],
-    "languages": ["en"]
-  },
-  {
-    "name": "Tessera Collective",
-    "link": "https://www.facebook.com/tesseracollective",
-    "tags": ["women_of_colour", "black_women", "self_care", "domestic_violence", "support_groups", "communities"],
+    "tags": ["women", "self_care", "support_groups", "communities"],
     "languages": ["en"]
   },
   {
