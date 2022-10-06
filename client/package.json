@@ -92,7 +92,7 @@
     "file-loader": "^6.0.0",
     "flow-bin": "^0.176.1",
     "flow-typed": "^3.7.0",
-    "glob": "^7.1.4",
+    "glob": "^8.0.3",
     "identity-obj-proxy": "^3.0.0",
     "imports-loader": "^0.8.0",
     "jest": "^26.2.2",
@@ -128,14 +128,14 @@
     }
   },
   "resolutions": {
-    "minimist": "^0.2.1",
+    "minimist": "^1.2.6",
     "marked": ">=0.6.2",
     "braces": ">=2.3.1",
     "https-proxy-agent": "^2.2.3",
     "dot-prop": "^5.1.1",
-    "elliptic": "6.5.3",
+    "elliptic": "6.5.4",
     "serialize-javascript": "^3.1.0",
-    "node-fetch": ">=2.6.1",
+    "node-fetch": ">=3.2.10",
     "react-dom": "^17.0.2",
     "react": "^17.0.2"
   },
