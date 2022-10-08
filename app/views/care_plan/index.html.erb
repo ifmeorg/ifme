@@ -32,3 +32,25 @@
     <% end %>
   </div>
 <% end %>
+
+<div class="pageSubtitle">
+  <h2><%= t('moments.plural') %></h2>
+  <div class="pageSubtitleRight">
+    <%= link_to(t('moments.new'), new_moment_path(bookmarked: true), class: 'buttonS') %>
+  </div>
+</div>
+
+<%= t('moments.form.bookmarked_info') %>
+
+<% if @bookmarked_moments.any? %>
+  <div class="gridTwo marginTop">
+    <% @bookmarked_moments.each do |moment| %>
+      <div class="gridTwoItemBoxLight">
+        <%= react_component('Story', html_options: html_options, props: {
+          name: moment.name,
+          link: moment_path(moment)
+        }) %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
