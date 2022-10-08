@@ -309,6 +309,7 @@ ko:
       expires_at: 만료 날짜
       cancel_secret_share: 비밀 공유 취소
       link_copied: 클립보드에 복사된 비밀 공유 링크
+      link_info: 비밀 공유 링크 생성됨
       info: 이 링크가있는 모든 사용자가이 페이지를 볼 수 있습니다.
       info_public: 비공개 링크를 통해보고 있습니다. 저자의 동의없이이 페이지를 공유하지 마십시오.
     form:

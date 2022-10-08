@@ -351,6 +351,7 @@ de:
       expires_at: Läuft ab am
       cancel_secret_share: Geheime Freigabe beenden
       link_copied: Link zur geheimen Freigabe in die Zwischenablage kopiert
+      link_info: Geheimer Freigabelink erstellt
       info: Jeder mit diesem Link kann diese Seite sehen
       info_public: >-
         Du siest dies über einen privaten Link. Bitte teile diese Seite nicht

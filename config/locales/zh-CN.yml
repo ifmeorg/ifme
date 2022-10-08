@@ -305,6 +305,7 @@ zh-CN:
       expires_at: 到期
       cancel_secret_share: 取消秘密分享
       link_copied: 秘密共享链接已复制到剪贴板
+      link_info: 已创建秘密分享链接
       info: 知道此鏈接的任何人都可以看到此頁面
       info_public: 您正在通過私人鏈接查看此內容。 未經作者同意，請勿分享本頁面。
     form:

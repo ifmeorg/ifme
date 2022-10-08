@@ -325,6 +325,7 @@ nb:
       expires_at: Utløper
       cancel_secret_share: Avbryt Hemmelig deling
       link_copied: Hemmelig sharelink kopiert til utklippstavlen
+      link_info: Link til hemmelig deling opprettet
       info: Alle med denne lenken kan se denne siden
       info_public: >-
         Du ser på dette via en privat lenke. Ikke del denne siden uten

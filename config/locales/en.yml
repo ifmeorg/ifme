@@ -321,6 +321,7 @@ en:
       expires_at: Expire at
       cancel_secret_share: Cancel Secret Share
       link_copied: Secret Share link copied to clipboard
+      link_info: Secret Share link created
       info: Anyone with this link can see this page
       info_public: >-
         You are viewing this through a private link. Please do not share this

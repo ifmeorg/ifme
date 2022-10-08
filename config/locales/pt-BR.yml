@@ -338,6 +338,7 @@ pt-BR:
       expires_at: Expirar em
       cancel_secret_share: Cancelar compartilhar segredo
       link_copied: Link de compartilhamento secreto copiado para a área de transferência
+      link_info: Link de compartilhamento secreto criado
       info: Qualquer pessoa com este link pode ver esta página
       info_public: >-
         Você está vendo isso através de um link privado. Por favor, não

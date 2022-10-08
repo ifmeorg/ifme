@@ -26,6 +26,7 @@ describe('storyActions', () => {
             report: { link: 'some-url', name: 'Report' },
             viewers: 'testViewer',
             visible: 'testVisible',
+            share_link_info: 'testSecretLinkCreated',
           }}
         />,
       );
@@ -35,6 +36,7 @@ describe('storyActions', () => {
       expect(getByText('Report')).toBeInTheDocument();
       expect(getByText('testViewer')).toBeInTheDocument();
       expect(getByText('testVisible')).toBeInTheDocument();
+      expect(getByText('testSecretLinkCreated')).toBeInTheDocument();
     });
   });
   describe('with remove google calendar action', () => {
