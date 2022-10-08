@@ -118,6 +118,8 @@ de:
     allow_comments: Kommentare erlauben?
     hint: Nur Du und Betrachter können kommentieren
     control: 'Kontrolliere, wer dies sehen und kommentieren kann'
+    report_comment_by: 'Kommentar melden von %{name}'
+    delete_comment_by: 'Kommentar löschen von %{name}'
   account:
     singular: Konto
     sign_in: Einloggen

@@ -86,7 +86,7 @@ describe('Comments', () => {
       expect(
         screen.getByRole('button', { name: 'Submit' }),
       ).toBeInTheDocument();
-      expect(screen.getByRole('link', { name: 'Report' })).toBeInTheDocument();
+      expect(screen.getByRole('link', { name: `Report comment by ${getComment().commentByName}` })).toBeInTheDocument();
     });
 
     it('add and delete a comment', async () => {
@@ -106,7 +106,7 @@ describe('Comments', () => {
       await waitFor(() => expect(screen.getByRole('article')).toBeInTheDocument());
       expect(screen.getByRole('article')).toHaveTextContent('Hey');
 
-      await userEvent.click(screen.getByRole('link', { name: 'Delete' }));
+      await userEvent.click(screen.getByRole('link', { name: `Delete comment by ${getComment().commentByName}` }));
 
       await waitFor(() => expect(screen.queryByRole('article')).not.toBeInTheDocument());
     });
@@ -147,7 +147,7 @@ describe('Comments', () => {
       await waitFor(() => expect(screen.getByRole('article')).toBeInTheDocument());
       expect(screen.getByRole('article')).toHaveTextContent('Hey');
 
-      await userEvent.click(screen.getByRole('link', { name: 'Delete' }));
+      await userEvent.click(screen.getByRole('link', { name: `Delete comment by ${getComment().commentByName}` }));
 
       await waitFor(() => expect(screen.queryByRole('article')).not.toBeInTheDocument());
     });

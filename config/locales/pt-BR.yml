@@ -117,6 +117,8 @@ pt-BR:
     allow_comments: Permitir comentários?
     hint: Apenas você e seus espectadores podem podem comentar
     control: Controlar quem pode ver e comentar
+    report_comment_by: 'Denunciar comentário de %{name}'
+    delete_comment_by: 'Excluir comentário por %{name}'
   account:
     singular: Conta
     sign_in: Entrar

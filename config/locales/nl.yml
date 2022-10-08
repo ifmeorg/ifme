@@ -117,6 +117,8 @@ nl:
     allow_comments: Commentaren toestaan?
     hint: Alleen jij en kijkers kunnen commentaar plaatsen
     control: Beheer wie kan bekijken en commentaar kan plaatsen
+    report_comment_by: 'Reactie melden door %{name}'
+    delete_comment_by: 'Reactie verwijderen door %{name}'
   account:
     singular: Account
     sign_in: Inloggen

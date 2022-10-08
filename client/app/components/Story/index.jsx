@@ -45,12 +45,15 @@ const renderHeader = (
         {draft && <StoryDraft draft={draft} />}
         <StoryName name={name} link={link} onClick={onClick} />
       </div>
-      {condensed && actions && <StoryActions actions={actions} hasStory />}
+      {condensed && actions && (
+        <StoryActions actions={actions} hasStory storyName={name} />
+      )}
     </div>
   </div>
 );
 
 const renderInfo = (
+  name: string,
   storyBy: ?StoryByProps,
   storyType: ?string,
   actions: ?Actions,
@@ -61,7 +64,9 @@ const renderInfo = (
       <StoryBy author={storyBy.author} avatar={storyBy.avatar} />
       <div className={css.infoRight}>
         <div className={css.storyType}>{storyType}</div>
-        {actions && <StoryActions actions={actions} hasStory />}
+        {actions && (
+          <StoryActions actions={actions} hasStory storyName={name} />
+        )}
       </div>
     </div>
   );
@@ -88,6 +93,7 @@ const renderMedicationBody = ({
 );
 
 const renderFooter = (
+  name: string,
   categories: ?(Category[]),
   moods: ?(Mood[]),
   storyBy: ?StoryByProps,
@@ -97,7 +103,7 @@ const renderFooter = (
   <div className={css.footer}>
     {categories && <StoryCategories categories={categories} />}
     {moods && <StoryMoods moods={moods} />}
-    {renderInfo(storyBy, storyType, actions)}
+    {renderInfo(name, storyBy, storyType, actions)}
   </div>
 );
 
@@ -122,7 +128,7 @@ export const Story = ({
       {date && <StoryDate date={date} />}
       {body && <div className={css.body}>{Utils.renderContent(body)}</div>}
       {medicationBody && renderMedicationBody(medicationBody)}
-      {renderFooter(categories, moods, storyBy, storyType, actions)}
+      {renderFooter(name, categories, moods, storyBy, storyType, actions)}
     </div>
   );
 };

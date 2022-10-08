@@ -117,6 +117,8 @@ nb:
     allow_comments: Tillat kommentarer?
     hint: Kun deg og seere kan kommentere
     control: Kontroller hvem som kan se og kommentere
+    report_comment_by: 'Rapporter kommentar av %{name}'
+    delete_comment_by: 'Slett kommentar av %{name}'
   account:
     singular: Konto
     sign_in: Logg inn

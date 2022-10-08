@@ -9,7 +9,7 @@ feature 'UserDeletesACarePlanContact', type: :feature, js: true do
     expect(page).to have_content('Lovely Person')
 
     within '.story' do
-      find('a[aria-label="Delete"]').click
+      find('a[aria-label="Delete Lovely Person"]').click
     end
 
     page.driver.browser.switch_to.alert.accept

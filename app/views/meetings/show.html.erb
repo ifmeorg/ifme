@@ -27,7 +27,8 @@
             dataConfirm: t('common.actions.confirm'),
             dataMethod: 'delete'
           }
-        }.merge(google_cal_actions(@meeting))
+        }.merge(google_cal_actions(@meeting)),
+        storyName: @meeting.name
       }) %>
     </div>
   </div>
