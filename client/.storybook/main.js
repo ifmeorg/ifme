@@ -2,6 +2,9 @@ const path = require('path');
 const custom = require('../webpack.config');
 
 module.exports = {
+  core: {
+    builder: 'webpack5',
+  },
   stories: [
     '../app/stories/Index.stories.jsx',
     '../app/stories/**/*.stories.@(jsx|mdx)',

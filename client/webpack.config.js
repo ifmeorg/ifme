@@ -9,7 +9,7 @@ const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
-const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 
