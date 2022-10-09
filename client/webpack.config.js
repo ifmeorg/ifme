@@ -6,16 +6,17 @@ const glob = require('glob');
 const { resolve } = require('path');
 const CompressionPlugin = require('compression-webpack-plugin');
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
-const ManifestPlugin = require('webpack-manifest-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
 const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 
 const configPath = resolve('..', 'config');
 const devOrTestMode = process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test';
 const { output } = webpackConfigLoader(configPath);
-const outputFilename = `[name]${devOrTestMode ? '-[hash]' : ''}`;
+const outputFilename = `[name]${devOrTestMode ? '-[contenthash]' : ''}`;
 
 const cssLoaderWithModules = {
   loader: 'css-loader',
@@ -74,9 +75,8 @@ const config = {
       maxAsyncRequests: 5,
       maxInitialRequests: 3,
       automaticNameDelimiter: '~',
-      name: true,
       cacheGroups: {
-        vendors: {
+        defaultVendors: {
           test: /[\\/]node_modules[\\/]/,
           priority: -10,
         },
@@ -96,7 +96,7 @@ const config = {
         },
       }),
       new CompressionPlugin({
-        filename: '[path].gz[query]',
+        filename: '[path][base].gz[query]',
         algorithm: 'gzip',
         test: /\.(js|css|html)$/,
         threshold: 10240,
@@ -112,9 +112,10 @@ const config = {
       chunkFilename: `${outputFilename}.chunk.css`,
       hot: !!devOrTestMode,
     }),
-    new ManifestPlugin({ publicPath: output.publicPath, writeToFileEmit: true }),
+    new WebpackManifestPlugin({ publicPath: output.publicPath, writeToFileEmit: true }),
     // only load moment.js data for locales we support (see config/locale.rb)
     new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en|es|de|it|nb|nl|pt-BR|sv|vi|fr/),
+    new NodePolyfillPlugin(),
   ],
 
   module: {
@@ -195,7 +196,7 @@ const config = {
             loader: 'url-loader',
             options: {
               limit: 8000,
-              name: 'images/[hash]-[name].[ext]',
+              name: 'images/[contenthash]-[name].[ext]',
             },
           },
         ],
@@ -207,7 +208,7 @@ const config = {
           {
             loader: 'file-loader',
             options: {
-              name: 'fonts/[hash]-[name].[ext]',
+              name: 'fonts/[contenthash]-[name].[ext]',
             },
           },
         ],
