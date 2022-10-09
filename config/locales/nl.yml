@@ -330,6 +330,7 @@ nl:
       expires_at: Verloopt op
       cancel_secret_share: Geheim Delen annuleren
       link_copied: Geheime share-link gekopieerd naar klembord
+      link_info: Geheime Share-link gemaakt
       info: Iedereen met deze link kan deze pagina zien
       info_public: >-
         Je bekijkt dit via een privélink. Deel deze pagina niet zonder

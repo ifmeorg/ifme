@@ -13,6 +13,7 @@ import {
   faCalendarPlus,
   faCalendarMinus,
   faChartLine,
+  faKey,
 } from '@fortawesome/free-solid-svg-icons';
 import { Tooltip } from 'components/Tooltip';
 import css from './Story.scss';
@@ -52,6 +53,7 @@ const VIEWERS = 'viewers';
 const VISIBLE = 'visible';
 const ADD_TO_G_CAL = 'add_to_google_cal';
 const REMOVE_FROM_G_CAL = 'remove_from_google_cal';
+const SHARE_LINK_INFO = 'share_link_info';
 
 const classMap = (dark: ?boolean) => {
   const className = dark ? css.actionDark : css.action;
@@ -85,6 +87,7 @@ const classMap = (dark: ?boolean) => {
     remove_from_google_cal: (
       <FontAwesomeIcon icon={faCalendarMinus} className={className} />
     ),
+    share_link_info: <FontAwesomeIcon icon={faKey} className={className} />,
   };
 };
 
@@ -150,7 +153,9 @@ const displayItem = (
   hasStory: ?boolean,
   dark: ?boolean,
 ) => {
-  if (item === VIEWERS || item === VISIBLE) return displayNonLink(actions, item, hasStory, dark);
+  if (item === VIEWERS || item === VISIBLE || item === SHARE_LINK_INFO) {
+    return displayNonLink(actions, item, hasStory, dark);
+  }
   return displayLink(actions, item, hasStory, dark);
 };
 
@@ -168,6 +173,7 @@ export const StoryActions = (props: Props): Node => {
         REPORT,
         VISIBLE,
         VIEWERS,
+        SHARE_LINK_INFO,
       ].map((item: string) => (actions[item] ? displayItem(actions, item, hasStory, dark) : null))}
     </div>
   );

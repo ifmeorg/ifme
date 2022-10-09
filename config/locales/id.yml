@@ -328,6 +328,7 @@ id:
       expires_at: Kedaluwarsa pada
       cancel_secret_share: Batalkan Berbagi Rahasia
       link_copied: Tautan Berbagi Rahasia disalin ke papan klip
+      link_info: Tautan Berbagi Rahasia dibuat
       info: Siapa pun yang memiliki tautan ini dapat melihat halaman ini
       info_public: >-
         Anda melihat ini melalui tautan pribadi. Tolong jangan bagikan halaman

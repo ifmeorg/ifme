@@ -334,6 +334,7 @@ it:
       expires_at: Scadenza
       cancel_secret_share: Annulla Condivisione Segreta
       link_copied: Link Condividi segreta copiato negli appunti
+      link_info: Collegamento di condivisione segreta creato
       info: Chiunque abbia questo link può vedere questa pagina
       info_public: >-
         Lo stai visualizzando tramite un link privato. Si prega di non

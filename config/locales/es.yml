@@ -336,6 +336,7 @@ es:
       expires_at: Caduca en
       cancel_secret_share: Cancelar Compartir en Secreto
       link_copied: Secreto Compartir enlace copiado al portapapeles
+      link_info: Se ha creado un vínculo para compartir secretos
       info: Cualquiera con este enlace puede ver esta página
       info_public: >-
         Estás viendo esto a través de un enlace privado. No comparta esta página

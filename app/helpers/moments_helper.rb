@@ -43,7 +43,10 @@ module MomentsHelper
   end
 
   def user_actions(element, present_object, signed_in)
-    return { viewers: nil, edit: nil, delete: nil } unless signed_in
+    actions = {
+      viewers: nil, edit: nil, delete: nil, share_link_info: nil
+    }
+    return actions unless signed_in
 
     model_name = element.class.name.downcase
     is_strategy = model_name == 'strategy'
@@ -51,6 +54,7 @@ module MomentsHelper
     { viewers: get_viewer_list(element.viewers, nil),
       edit: get_user_action('edit', present_object),
       delete: get_user_action('delete', present_object),
+      share_link_info: get_share_link_info(is_strategy, element),
       visible: is_strategy && get_visible(element.visible) }
   end
 
@@ -87,7 +91,8 @@ module MomentsHelper
                            present_object,
                            element.user_id == current_user&.id)
     { edit: actions[:edit], delete: actions[:delete],
-      viewers: actions[:viewers], visible: actions[:visible] }
+      viewers: actions[:viewers], visible: actions[:visible],
+      share_link_info: actions[:share_link_info] }
   end
 
   def story_by(element)
@@ -120,5 +125,11 @@ module MomentsHelper
       story_type: t("#{model_name.pluralize}.singular"),
       moods: element&.mood_names_and_slugs
     }
+  end
+
+  def get_share_link_info(is_strategy, element)
+    return if is_strategy || element.secret_share_identifier.blank?
+
+    t('moments.secret_share.link_info')
   end
 end

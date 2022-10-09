@@ -347,6 +347,7 @@ fr:
       expires_at: Expire le
       cancel_secret_share: Annuler le partage de secret
       link_copied: Lien de partage secret copié dans le Presse-papiers
+      link_info: Lien de partage secret créé
       info: Toute personne disposant de ce lien peut voir cette page
       info_public: >-
         Vous le visualisez via un lien privé. Merci de ne pas partager cette

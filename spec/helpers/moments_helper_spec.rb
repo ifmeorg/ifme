@@ -45,6 +45,17 @@ describe MomentsHelper, type: :controller do
         expect(subject[:name]).to eq(strategy[:name])
       end
     end
+
+    context 'for a moment with secret share enabled' do
+      before {
+        allow(controller).to receive('current_user').and_return(user)
+      }
+      let(:moment) { create(:moment, :with_secret_share, user: user) }
+      subject { controller.present_moment_or_strategy(moment) }
+      it 'return secret shared link created' do
+        expect(subject[:actions][:share_link_info]).to eq('Secret Share link created')
+      end
+    end
   end
 
   describe '#get_resources_data' do
