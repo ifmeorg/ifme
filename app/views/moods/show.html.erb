@@ -12,22 +12,41 @@
 <div class="gridItemBoxDark gridRowSpaceBetween smallMarginTop">
 	<div class="gridRowSpaceBetween">
 		<div class="smallMarginRight tinyTitle"><%= t('common.actions.plural') %></div>
-		<%= react_component('StoryActions', props: {
-			dark: true,
-			actions: {
-				delete: {
-					name: t('common.actions.delete'),
-					link: url_for(@mood),
-					dataConfirm: t('common.actions.confirm'),
-					dataMethod: 'delete'
-				},
-				edit: {
-					name: t('common.actions.edit'),
-					link: edit_mood_path(@mood)
-				},
-				visible: get_visible(@mood.visible)
-			}
-		}) %>
+		<% if @mood.visible %>
+			<%= react_component('StoryActions', props: {
+				dark: true,
+				actions: {
+					delete: {
+						name: t('common.actions.delete'),
+						link: url_for(@mood),
+						dataConfirm: t('common.actions.confirm'),
+						dataMethod: 'delete'
+					},
+					edit: {
+						name: t('common.actions.edit'),
+						link: edit_mood_path(@mood)
+					},
+					visible: get_visible(@mood.visible)
+				}
+			}) %>
+		<% else %>
+			<%= react_component('StoryActions', props: {
+				dark: true,
+				actions: {
+					delete: {
+						name: t('common.actions.delete'),
+						link: url_for(@mood),
+						dataConfirm: t('common.actions.confirm'),
+						dataMethod: 'delete'
+					},
+					edit: {
+						name: t('common.actions.edit'),
+						link: edit_mood_path(@mood)
+					},
+					not_visible: get_visible(@mood.visible)
+				}
+			}) %>
+		<% end %>
 	</div>
 </div>
 <%= render partial: '/tag_usage/index' %>

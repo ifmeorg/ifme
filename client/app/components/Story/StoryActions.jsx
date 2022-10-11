@@ -37,6 +37,7 @@ export type Actions = {
   remove_from_google_cal?: Action,
   viewers?: string,
   visible?: string,
+  not_visible?: string,
 };
 
 export type Props = {
@@ -52,6 +53,7 @@ const LEAVE = 'leave';
 const REPORT = 'report';
 const VIEWERS = 'viewers';
 const VISIBLE = 'visible';
+const NOT_VISIBLE = 'not_visible'
 const ADD_TO_G_CAL = 'add_to_google_cal';
 const REMOVE_FROM_G_CAL = 'remove_from_google_cal';
 const SHARE_LINK_INFO = 'share_link_info';
@@ -82,6 +84,14 @@ const classMap = (dark: ?boolean) => {
         aria-label={I18n.t('shared.stats.visible_in_stats')}
       />
     ),
+    not_visible: (
+      <FontAwesomeIcon
+        icon={faEyeSlash}
+        className={className}
+        tabIndex={0}
+        aria-label={I18n.t('shared.stats.not_visible_in_stats')}
+      />
+    ),
     add_to_google_cal: (
       <FontAwesomeIcon icon={faCalendarPlus} className={className} />
     ),
@@ -91,6 +101,8 @@ const classMap = (dark: ?boolean) => {
     share_link_info: <FontAwesomeIcon icon={faKey} className={className} />,
   };
 };
+
+console.log(self)
 
 const displayNonLink = (
   actions: Actions,
@@ -154,7 +166,7 @@ const displayItem = (
   hasStory: ?boolean,
   dark: ?boolean,
 ) => {
-  if (item === VIEWERS || item === VISIBLE || item === SHARE_LINK_INFO) {
+  if (item === VIEWERS || item === VISIBLE || item === NOT_VISIBLE || item === SHARE_LINK_INFO) {
     return displayNonLink(actions, item, hasStory, dark);
   }
   return displayLink(actions, item, hasStory, dark);
@@ -173,6 +185,7 @@ export const StoryActions = (props: Props): Node => {
         DELETE,
         REPORT,
         VISIBLE,
+        NOT_VISIBLE,
         VIEWERS,
         SHARE_LINK_INFO,
       ].map((item: string) => (actions[item] ? displayItem(actions, item, hasStory, dark) : null))}
