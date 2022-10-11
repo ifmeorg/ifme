@@ -832,7 +832,7 @@ nb:
       you_are_focusing: Du fokuserer mest på
       user_is_focusing: '%{name} fokuserer mest på'
       visible_in_stats: Synlig i statistikk
-      make_visible_in_stats: Gjøre synlig i statistikk?
+      make_visible_in_stats: Gjøre synlig for å merke og vise i profilstatistikk?
     viewers:
       plural: Seere
       you: Kun deg

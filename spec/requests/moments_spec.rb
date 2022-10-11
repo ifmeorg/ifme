@@ -50,6 +50,15 @@ describe 'Moments', type: :request do
       expect(response.body).to include(category2.name)
       expect(response.body).not_to include(category1.name)
     end
+
+    it 'does not show not_visible strategies in dropdown' do
+      strategy1 = create(:strategy, name: 'Invisible Strategy', user: user, visible: false)
+      strategy2 = create(:strategy, name: 'Visible Strategy', user: user, visible: true)
+
+      get new_moment_path
+      expect(response.body).to include(strategy2.name)
+      expect(response.body).not_to include(strategy1.name)
+    end
   end
 
   describe '#edit' do
@@ -82,6 +91,15 @@ describe 'Moments', type: :request do
           get edit_moment_path(moment1.id)
           expect(response.body).to include(category2.name)
           expect(response.body).not_to include(category1.name)
+        end
+
+        it 'does not show not_visible strategies in dropdown' do
+          strategy1 = create(:strategy, name: 'Invisible Strategy', user: user, visible: false)
+          strategy2 = create(:strategy, name: 'Visible Strategy', user: user, visible: true)
+    
+          get edit_moment_path(moment1.id)
+          expect(response.body).to include(strategy2.name)
+          expect(response.body).not_to include(strategy1.name)
         end
       end
 
