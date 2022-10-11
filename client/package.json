@@ -72,9 +72,9 @@
     "@storybook/builder-webpack5": "^6.5.12",
     "@storybook/manager-webpack5": "^6.5.12",
     "@storybook/react": "^6.5.12",
-    "@testing-library/jest-dom": "^5.10.0",
-    "@testing-library/react": "^11.0.4",
-    "@testing-library/user-event": "^12.1.7",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^14.4.3",
     "babel-cli": "^6.24.1",
     "babel-jest": "^26.2.2",
     "babel-loader": "^8.0.6",
@@ -144,5 +144,6 @@
   },
   "browserslist": [
     "defaults"
-  ]
+  ],
+  "packageManager": "yarn@1.22.19"
 }
