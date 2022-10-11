@@ -47,6 +47,15 @@ describe 'Moments', type: :request do
           get edit_moment_path(moment1.id)
           expect(response).to render_template('edit')
         end
+
+        it 'does not show not_visible moods in dropdown' do
+          mood1 = create(:mood, name: 'Invisible Mood', user: user, visible: false)
+          mood2 = create(:mood, name: 'Visible Mood', user: user, visible: true)
+
+          get edit_moment_path(moment1.id)
+          expect(response.body).to include(mood2.name)
+          expect(response.body).not_to include(mood1.name)
+        end
       end
 
       context 'when the moment does not belong to the current user' do
@@ -60,7 +69,7 @@ describe 'Moments', type: :request do
           get edit_moment_path(moment2.id), headers: headers
           expect(response.body).to be_empty
         end
-      end
+      end      
     end
 
     context 'when the user is not logged in' do
