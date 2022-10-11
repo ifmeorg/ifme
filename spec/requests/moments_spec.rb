@@ -32,6 +32,24 @@ describe 'Moments', type: :request do
       expect { post moments_path, params: { moment: moment.attributes } }
         .to(change(Moment, :count).by(1))
     end
+
+    it 'does not show not_visible moods in dropdown' do
+      mood1 = create(:mood, name: 'Invisible Mood', user: user, visible: false)
+      mood2 = create(:mood, name: 'Visible Mood', user: user, visible: true)
+
+      get new_moment_path
+      expect(response.body).to include(mood2.name)
+      expect(response.body).not_to include(mood1.name)
+    end
+
+    it 'does not show not_visible categories in dropdown' do
+      category1 = create(:mood, name: 'Invisible Category', user: user, visible: false)
+      category2 = create(:mood, name: 'Visible Category', user: user, visible: true)
+
+      get new_moment_path
+      expect(response.body).to include(category2.name)
+      expect(response.body).not_to include(category1.name)
+    end
   end
 
   describe '#edit' do
@@ -55,6 +73,15 @@ describe 'Moments', type: :request do
           get edit_moment_path(moment1.id)
           expect(response.body).to include(mood2.name)
           expect(response.body).not_to include(mood1.name)
+        end
+        
+        it 'does not show not_visible categories in dropdown' do
+          category1 = create(:mood, name: 'Invisible Category', user: user, visible: false)
+          category2 = create(:mood, name: 'Visible Category', user: user, visible: true)
+    
+          get edit_moment_path(moment1.id)
+          expect(response.body).to include(category2.name)
+          expect(response.body).not_to include(category1.name)
         end
       end
 

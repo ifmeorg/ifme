@@ -119,6 +119,15 @@ describe 'Strategy', type: :request do
         get new_strategy_path
         expect(response).to render_template('new')
       end
+      
+      it 'does not show not_visible category in dropdown' do
+        category1 = create(:category, name: 'Invisible Category', user: user, visible: false)
+        category2 = create(:category, name: 'Visible Category', user: user, visible: true)
+  
+        get new_strategy_path
+        expect(response.body).to include(category2.name)
+        expect(response.body).not_to include(category1.name)
+      end
     end
 
     context 'when the user is not logged in' do

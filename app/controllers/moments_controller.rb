@@ -109,7 +109,7 @@ class MomentsController < ApplicationController
   end
 
   def set_association_variables!
-    @categories = current_user.categories.order(created_at: :desc)
+    @categories = current_user.categories.is_visible.order(created_at: :desc)
     @category = Category.new
     @moods = current_user.moods.is_visible.order(created_at: :desc)
     @mood = Mood.new
@@ -127,6 +127,6 @@ class MomentsController < ApplicationController
     Strategy.where(user: @viewers).each do |strategy|
       strategy_ids << strategy.id if strategy.viewer?(current_user)
     end
-    Strategy.where(id: strategy_ids).order(created_at: :desc)
+    Strategy.is_visible.where(id: strategy_ids).order(created_at: :desc)
   end
 end

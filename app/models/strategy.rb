@@ -18,6 +18,7 @@
 #
 
 class Strategy < ApplicationRecord
+  include IsVisible
   include Viewer
   include CommonMethods
   extend FriendlyId
