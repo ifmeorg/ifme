@@ -48,20 +48,25 @@ describe('CarePlanContacts', () => {
       const editLink = container.querySelector('a[aria-label="Edit"]');
       expect(screen.queryByText('Edit Contact')).not.toBeInTheDocument();
 
-      userEvent.click(editLink);
+      await userEvent.click(editLink);
       expect(screen.getByText('Edit Contact')).toBeInTheDocument();
       expect(screen.getByLabelText('Name')).toHaveDisplayValue(
-        contacts[0].name,
+        contacts[0].name
       );
       expect(screen.getByLabelText('Phone number')).toHaveDisplayValue('');
 
-      userEvent.type(screen.getByLabelText('Phone number'), newPhoneNumber);
+      await userEvent.type(
+        screen.getByLabelText('Phone number'),
+        newPhoneNumber
+      );
       expect(screen.getByLabelText('Phone number')).toHaveDisplayValue(
-        newPhoneNumber,
+        newPhoneNumber
       );
 
-      userEvent.click(screen.getByText('Submit'));
-      await waitFor(() => expect(screen.getByText(newPhoneNumber)).toBeInTheDocument());
+      await userEvent.click(screen.getByText('Submit'));
+      await waitFor(() =>
+        expect(screen.getByText(newPhoneNumber)).toBeInTheDocument()
+      );
     });
 
     it('opens a modal and does not submit the form successfully', async () => {
@@ -72,14 +77,14 @@ describe('CarePlanContacts', () => {
       const editLink = container.querySelector('a[aria-label="Edit"]');
       expect(screen.queryByText('Edit Contact')).not.toBeInTheDocument();
 
-      userEvent.click(editLink);
+      await userEvent.click(editLink);
       expect(screen.getByText('Edit Contact')).toBeInTheDocument();
       expect(screen.getByLabelText('Name')).toHaveDisplayValue(
-        contacts[0].name,
+        contacts[0].name
       );
       expect(screen.getByLabelText('Phone number')).toHaveDisplayValue('');
 
-      userEvent.click(screen.getByText('Submit'));
+      await userEvent.click(screen.getByText('Submit'));
       await waitFor(() => expect(axiosPostSpy()).rejects.toEqual(error));
       expect(screen.queryByText('Error: Error')).toBeInTheDocument();
     });
@@ -98,15 +103,15 @@ describe('CarePlanContacts', () => {
       });
       render(<CarePlanContacts />);
 
-      userEvent.click(screen.getByText('New Contact'));
+      await userEvent.click(screen.getByText('New Contact'));
       const nameField = screen.getByLabelText('Name');
       const phoneNumberField = screen.getByLabelText('Phone number');
       expect(nameField).toHaveDisplayValue('');
       expect(phoneNumberField).toHaveDisplayValue('');
 
-      userEvent.type(nameField, newName);
-      userEvent.type(phoneNumberField, newPhoneNumber);
-      userEvent.click(screen.getByText('Submit'));
+      await userEvent.type(nameField, newName);
+      await userEvent.type(phoneNumberField, newPhoneNumber);
+      await userEvent.click(screen.getByText('Submit'));
       await waitFor(() => {
         expect(screen.getByText(newName)).toBeInTheDocument();
         expect(screen.getByText(newPhoneNumber)).toBeInTheDocument();
@@ -120,13 +125,13 @@ describe('CarePlanContacts', () => {
       const axiosPostSpy = jest.spyOn(axios, 'post').mockRejectedValue(error);
       render(<CarePlanContacts />);
 
-      userEvent.click(screen.getByText('New Contact'));
+      await userEvent.click(screen.getByText('New Contact'));
       const nameField = screen.getByLabelText('Name');
       const phoneNumberField = screen.getByLabelText('Phone number');
 
-      userEvent.type(nameField, newName);
-      userEvent.type(phoneNumberField, newPhoneNumber);
-      userEvent.click(screen.getByText('Submit'));
+      await userEvent.type(nameField, newName);
+      await userEvent.type(phoneNumberField, newPhoneNumber);
+      await userEvent.click(screen.getByText('Submit'));
       await waitFor(() => expect(axiosPostSpy()).rejects.toEqual(error));
       expect(screen.queryByText('Error: Error')).toBeInTheDocument();
     });

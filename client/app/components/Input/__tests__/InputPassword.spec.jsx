@@ -8,7 +8,7 @@ import { InputPassword } from 'components/Input/InputPassword';
 const { id, name, label } = InputMocks.inputPasswordProps;
 
 describe('InputPassword', () => {
-  it('toggles show password button correctly', () => {
+  it('toggles show password button correctly', async () => {
     const component = InputMocks.createInput(InputMocks.inputPasswordProps);
     render(component);
 
@@ -19,10 +19,10 @@ describe('InputPassword', () => {
     const button = screen.getByRole('button', { name: 'Show password' });
     expect(button).toBeInTheDocument();
 
-    userEvent.click(button);
+    await userEvent.click(button);
     expect(input).toHaveAttribute('type', 'text');
     expect(
-      screen.getByRole('button', { name: 'Hide password' }),
+      screen.getByRole('button', { name: 'Hide password' })
     ).toBeInTheDocument();
   });
 
@@ -47,10 +47,10 @@ describe('InputPassword', () => {
     });
 
     describe('on input focus', () => {
-      it('has no error', () => {
+      it('has no error', async () => {
         render(component);
         const input = screen.getByLabelText(label);
-        userEvent.click(input);
+        await userEvent.click(input);
         expect(window.alert).not.toHaveBeenCalled();
       });
     });
@@ -60,19 +60,19 @@ describe('InputPassword', () => {
         jest.clearAllMocks();
       });
 
-      it('has an error when there is no value', () => {
+      it('has an error when there is no value', async () => {
         render(component);
         const input = screen.getByLabelText(label);
-        userEvent.clear(input);
-        userEvent.tab();
+        await userEvent.clear(input);
+        await userEvent.tab();
         expect(window.alert).not.toHaveBeenCalled();
       });
 
-      it('has no error when there is a value', () => {
+      it('has no error when there is a value', async () => {
         render(component);
         const input = screen.getByLabelText(label);
-        userEvent.type(input, 'Some value');
-        userEvent.tab();
+        await userEvent.type(input, 'Some value');
+        await userEvent.tab();
         expect(window.alert).not.toHaveBeenCalled();
       });
     });
@@ -100,10 +100,10 @@ describe('InputPassword', () => {
     });
 
     describe('on input focus', () => {
-      it('has no error', () => {
+      it('has no error', async () => {
         render(component);
         const input = screen.getByLabelText(label);
-        userEvent.click(input);
+        await userEvent.click(input);
         expect(window.alert).toHaveBeenCalledWith(false);
       });
     });
@@ -113,19 +113,19 @@ describe('InputPassword', () => {
         jest.clearAllMocks();
       });
 
-      it('has an error when there is no value', () => {
+      it('has an error when there is no value', async () => {
         render(component);
         const input = screen.getByLabelText(label);
-        userEvent.clear(input);
-        userEvent.tab();
+        await userEvent.clear(input);
+        await userEvent.tab();
         expect(window.alert).toHaveBeenCalledWith(true);
       });
 
-      it('has no error when there is a value', () => {
+      it('has no error when there is a value', async () => {
         render(component);
         const input = screen.getByLabelText(label);
-        userEvent.type(input, 'Some value');
-        userEvent.tab();
+        await userEvent.type(input, 'Some value');
+        await userEvent.tab();
         expect(window.alert).toHaveBeenCalledWith(false);
       });
     });

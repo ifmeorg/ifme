@@ -13,7 +13,7 @@ describe('InputTextarea', () => {
 
   it('renders correctly', () => {
     const component = InputMocks.createInput(
-      InputMocks.inputTextareaTemplateProps,
+      InputMocks.inputTextareaTemplateProps
     );
     const { container } = render(component);
 
@@ -32,24 +32,24 @@ describe('InputTextarea', () => {
   describe('editor', () => {
     it('initializes on mount', () => {
       const component = InputMocks.createInput(
-        InputMocks.inputTextareaTemplateProps,
+        InputMocks.inputTextareaTemplateProps
       );
       const { container } = render(component);
       const editor = container.querySelector('.editor');
       expect(pell.init).toHaveBeenCalledWith(
-        expect.objectContaining({ element: editor }),
+        expect.objectContaining({ element: editor })
       );
     });
 
-    it('has a tab index and focuses', () => {
+    it('has a tab index and focuses', async () => {
       const component = InputMocks.createInput(
-        InputMocks.inputTextareaTemplateProps,
+        InputMocks.inputTextareaTemplateProps
       );
       render(component);
       // first tab should focus the editor textarea
       const textarea = screen.getByRole('textbox');
-      userEvent.tab();
-      userEvent.tab();
+      await userEvent.tab();
+      await userEvent.tab();
       expect(textarea).toHaveFocus();
     });
 
@@ -66,42 +66,42 @@ describe('InputTextarea', () => {
           onError.mockClear();
         });
 
-        it('handles error when empty', () => {
+        it('handles error when empty', async () => {
           const component = InputMocks.createInput(
             InputMocks.inputTextareaTemplateProps,
-            { required: true, onError },
+            { required: true, onError }
           );
           render(component);
           const textarea = screen.getByRole('textbox');
-          userEvent.click(textarea);
-          userEvent.tab();
+          await userEvent.click(textarea);
+          await userEvent.tab();
 
           expect(onError).toHaveBeenCalledWith(id, true);
         });
 
-        it('does not handle error when a value exists', () => {
+        it('does not handle error when a value exists', async () => {
           const component = InputMocks.createInput(
             InputMocks.inputTextareaTemplateProps,
-            { required: true, onError, value: 'Some value' },
+            { required: true, onError, value: 'Some value' }
           );
           render(component);
           const textarea = screen.getByRole('textbox');
-          userEvent.click(textarea);
-          userEvent.tab();
+          await userEvent.click(textarea);
+          await userEvent.tab();
 
           expect(onError).toHaveBeenCalledWith(id, false);
         });
       });
 
-      it('on focusing resets error', () => {
+      it('on focusing resets error', async () => {
         const component = InputMocks.createInput(
           InputMocks.inputTextareaTemplateProps,
-          { required: true, onError },
+          { required: true, onError }
         );
         render(component);
         // triggers focus
         const textarea = screen.getByRole('textbox');
-        userEvent.click(textarea);
+        await userEvent.click(textarea);
         expect(onError).toHaveBeenCalledWith(id, false);
       });
     });
@@ -118,34 +118,34 @@ describe('InputTextarea', () => {
           onError.mockClear();
         });
 
-        it('does not handle error', () => {
+        it('does not handle error', async () => {
           const component = InputMocks.createInput(
             InputMocks.inputTextareaTemplateProps,
-            { required: false, onError },
+            { required: false, onError }
           );
           render(component);
           // triggers focus, then blur
           const textarea = screen.getByRole('textbox');
-          userEvent.click(textarea);
-          userEvent.tab();
+          await userEvent.click(textarea);
+          await userEvent.tab();
           expect(onError).not.toHaveBeenCalled();
         });
       });
 
-      it('on focusing does not reset error', () => {
+      it('on focusing does not reset error', async () => {
         const component = InputMocks.createInput(
           InputMocks.inputTextareaTemplateProps,
-          { required: false, onError },
+          { required: false, onError }
         );
         render(component);
         // triggers focus
         const textarea = screen.getByRole('textbox');
-        userEvent.click(textarea);
+        await userEvent.click(textarea);
         expect(onError).not.toHaveBeenCalled();
       });
     });
 
-    it('handles formatting actions', () => {
+    it('handles formatting actions', async () => {
       const sampleUrl = 'sample-url';
       jest.spyOn(pell, 'exec');
       // mocks prompting the user for link url
@@ -161,11 +161,12 @@ describe('InputTextarea', () => {
         { title: 'Unordered List', expectedArgs: ['insertUnorderedList'] },
       ];
 
-      buttons.forEach(({ title, expectedArgs }) => {
-        const button = screen.getByTitle(title);
-        userEvent.click(button);
+      for (const button of buttons) {
+        const { title, expectedArgs } = button;
+        const buttonElement = screen.getByTitle(title);
+        await userEvent.click(buttonElement);
         expect(pell.exec).toHaveBeenCalledWith(...expectedArgs);
-      });
+      }
     });
   });
 });

@@ -23,11 +23,11 @@ describe('LoadMoreButton', () => {
       expect(screen).not.toBeNull();
     });
 
-    it('triggers function passed in through onClick prop when button is clicked', () => {
+    it('triggers function passed in through onClick prop when button is clicked', async () => {
       const { queryByRole } = render(<LoadMoreButton onClick={onClick} />);
       const button = queryByRole('button');
       expect(button).toBeInTheDocument();
-      userEvent.click(button);
+      await userEvent.click(button);
       expect(onClick).toHaveBeenCalledTimes(1);
     });
   });

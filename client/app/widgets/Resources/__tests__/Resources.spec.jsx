@@ -40,7 +40,7 @@ const getComponent = ({ history } = {}) => (
   - and check that the view updates
  */
 describe('Resources', () => {
-  it('adds tags to filter when tag labels are clicked', () => {
+  it('adds tags to filter when tag labels are clicked', async () => {
     render(getComponent());
 
     // Check that an article exists for each resource in the initial render
@@ -65,7 +65,7 @@ describe('Resources', () => {
     expect(selectedTags).toHaveLength(1);
     // select the tag to filter resources
     let [selectedTag] = selectedTags;
-    userEvent.click(selectedTag);
+    await userEvent.click(selectedTag);
 
     /*
      * Expected view updates:
@@ -92,7 +92,7 @@ describe('Resources', () => {
     expect(selectedTags).toHaveLength(1);
     [selectedTag] = selectedTags;
     // select the new tag
-    userEvent.click(selectedTag);
+    await userEvent.click(selectedTag);
 
     // observe the expected view updates for the newly selected 'ios' tag
     resourcesArticles = screen.getAllByRole('article');
@@ -107,7 +107,7 @@ describe('Resources', () => {
     expect(checkbox).toBeInTheDocument();
   });
 
-  it('filters when tags are selected', () => {
+  it('filters when tags are selected', async () => {
     render(getComponent());
     // initial render has select menu and resources
     const combobox = screen.getByRole('combobox');
@@ -119,7 +119,7 @@ describe('Resources', () => {
 
     // focuses the InputTag select
     let input = screen.getByRole('textbox');
-    userEvent.click(input);
+    await userEvent.click(input);
 
     // first tag selection
     let tagText = 'texting';
@@ -127,7 +127,7 @@ describe('Resources', () => {
 
     // click tag option
     let option = screen.getByRole('option', queryOptions);
-    userEvent.click(option);
+    await userEvent.click(option);
 
     // expected view updates:
     // test resources count
@@ -142,14 +142,14 @@ describe('Resources', () => {
     expect(checkbox).toBeInTheDocument();
     // re-query input as its key prop has been refreshed
     input = screen.getByRole('textbox');
-    userEvent.click(input);
+    await userEvent.click(input);
 
     // check second tag selection
     // and expected view updates
     tagText = 'colouring';
     queryOptions = { name: tagText };
     option = screen.getByRole('option', queryOptions);
-    userEvent.click(option);
+    await userEvent.click(option);
 
     resourcesArticles = screen.getAllByRole('article');
     expect(resourcesArticles).toHaveLength(2);
@@ -160,21 +160,21 @@ describe('Resources', () => {
     expect(checkbox).toBeInTheDocument();
   });
 
-  it('unfilters when a tag is unselected', () => {
+  it('unfilters when a tag is unselected', async () => {
     render(getComponent());
     let resourcesArticles = screen.getAllByRole('article');
     expect(resourcesArticles).toHaveLength(3);
     expect(screen.getByText(new RegExp(`${3} of ${3}`))).toBeInTheDocument();
 
     const input = screen.getByRole('textbox');
-    userEvent.click(input);
+    await userEvent.click(input);
 
     // tag selection and expected view updates
     const tagText = 'texting';
     const queryOptions = { name: tagText };
 
     const option = screen.getByRole('option', queryOptions);
-    userEvent.click(option);
+    await userEvent.click(option);
 
     resourcesArticles = screen.getAllByRole('article');
     expect(resourcesArticles).toHaveLength(1);
@@ -185,7 +185,7 @@ describe('Resources', () => {
     expect(checkbox).toBeInTheDocument();
 
     // unselect selected tag via its checkbox
-    userEvent.click(checkbox);
+    await userEvent.click(checkbox);
 
     resourcesArticles = screen.getAllByRole('article');
     expect(resourcesArticles).toHaveLength(3);
@@ -205,12 +205,16 @@ describe('Resources', () => {
     });
 
     describe('and the resources are being filtered', () => {
-      it('sends the selected tags to the URL', () => {
+      it('sends the selected tags to the URL', async () => {
         render(getComponent({ history }));
 
         // choose two filters at once and expect the search string to update accordingly
-        userEvent.click(screen.getAllByRole('button', { name: 'ios' })[0]);
-        userEvent.click(screen.getByRole('button', { name: 'counseling' }));
+        await userEvent.click(
+          screen.getAllByRole('button', { name: 'ios' })[0]
+        );
+        await userEvent.click(
+          screen.getByRole('button', { name: 'counseling' })
+        );
 
         expect(historyMock).toHaveBeenCalledWith({
           pathname: '/resources',

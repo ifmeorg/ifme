@@ -13,16 +13,16 @@ describe('InputSwitch', () => {
   });
 
   describe('with mouse', () => {
-    it('toggles correctly', () => {
+    it('toggles correctly', async () => {
       render(component);
       const inputSwitch = screen.getByRole('switch');
 
       expect(screen.getByRole('checkbox')).not.toBeChecked();
 
-      userEvent.click(inputSwitch);
+      await userEvent.click(inputSwitch);
       expect(screen.getByRole('checkbox')).toBeChecked();
 
-      userEvent.click(inputSwitch);
+      await userEvent.click(inputSwitch);
       expect(screen.getByRole('checkbox')).not.toBeChecked();
     });
   });
@@ -35,7 +35,7 @@ describe('InputSwitch', () => {
       expect(screen.getByRole('checkbox')).not.toBeChecked();
 
       /**
-       * TODO: Follow up on `userEvent.type(inputSwitch, '{enter}')` in v12.1.7.
+       * TODO: Follow up on `await userEvent.type(inputSwitch, '{enter}')` in v12.1.7.
        * Temporarily including `fireEvent` from RTL, for which the switch must have focus first:
        * https://github.com/testing-library/react-testing-library/issues/376#issuecomment-541242684
        */

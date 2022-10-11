@@ -24,7 +24,7 @@ describe('InputCheckbox', () => {
   });
 
   describe('has no uncheckedValue prop', () => {
-    it('toggles checkbox correctly', () => {
+    it('toggles checkbox correctly', async () => {
       render(
         <InputCheckbox
           id={id}
@@ -34,19 +34,19 @@ describe('InputCheckbox', () => {
           label={label}
           info={info}
           onChange={someEvent}
-        />,
+        />
       );
       const checkbox = screen.getByRole('checkbox', { name: label });
       expect(checkbox).toBeChecked();
-      userEvent.click(checkbox);
+      await userEvent.click(checkbox);
       expect(window.alert).toHaveBeenCalledWith('Checkbox some-id is false');
-      userEvent.click(checkbox);
+      await userEvent.click(checkbox);
       expect(window.alert).toHaveBeenCalledWith('Checkbox some-id is true');
     });
   });
 
   describe('has a uncheckedValue prop', () => {
-    it('toggles checkbox correctly', () => {
+    it('toggles checkbox correctly', async () => {
       const { container } = render(
         <InputCheckbox
           id={id}
@@ -57,7 +57,7 @@ describe('InputCheckbox', () => {
           label={label}
           info={info}
           onChange={someEvent}
-        />,
+        />
       );
 
       // ensures the input for the uncheckedValue is hidden
@@ -70,9 +70,9 @@ describe('InputCheckbox', () => {
       // validates checkbox behavior
       const checkbox = screen.getByRole('checkbox', { name: label });
       expect(checkbox).toBeChecked();
-      userEvent.click(checkbox);
+      await userEvent.click(checkbox);
       expect(window.alert).toHaveBeenCalledWith('Checkbox some-id is false');
-      userEvent.click(checkbox);
+      await userEvent.click(checkbox);
       expect(window.alert).toHaveBeenCalledWith('Checkbox some-id is true');
     });
   });
