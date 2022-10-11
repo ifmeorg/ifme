@@ -836,6 +836,7 @@ sv:
       you_are_focusing: Du fokuserar mest på
       user_is_focusing: '%{name} fokuserar mest på'
       visible_in_stats: Syns i statistik
+      not_visible_in_stats: Nematomas pažymėti ir rodyti profilio statistikoje
       make_visible_in_stats: Padaryti matomą, kad būtų galima pažymėti ir rodyti profilio statistikoje?
     viewers:
       plural: Tittare
