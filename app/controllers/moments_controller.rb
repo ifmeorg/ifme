@@ -111,7 +111,7 @@ class MomentsController < ApplicationController
   def set_association_variables!
     @categories = current_user.categories.order(created_at: :desc)
     @category = Category.new
-    @moods = current_user.moods.order(created_at: :desc)
+    @moods = current_user.moods.is_visible.order(created_at: :desc)
     @mood = Mood.new
     @strategies = associated_strategies
     @strategy = Strategy.new

@@ -31,4 +31,6 @@ class Mood < ApplicationRecord
 
   has_many :moments_moods, dependent: :destroy
   validates :visible, inclusion: [true, false]
+  
+  scope :is_visible, -> { where(visible: true) }
 end
