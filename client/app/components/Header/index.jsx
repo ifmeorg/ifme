@@ -1,5 +1,5 @@
 // @flow
-import React, { useState, type Node } from 'react';
+import React, { useState, useRef, type Node } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import renderHTML from 'react-render-html';
@@ -8,6 +8,7 @@ import { Logo } from 'components/Logo';
 import { HeaderProfile } from 'components/Header/HeaderProfile';
 import type { Profile, Link } from './types';
 import css from './Header.scss';
+import {} from 'react';
 
 export type Props = {
   home: Link,
@@ -22,12 +23,43 @@ export type State = {
 
 export const Header = ({ home, links, mobileOnly, profile }: Props): Node => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const navigationRef = useRef(null);
+
+  const handleNavigationKeyDown = (
+    event: SyntheticKeyboardEvent<HTMLElement>
+  ): void => {
+    if (mobileNavOpen) {
+      // Let's trap the focus
+      if (navigationRef.current) {
+        const focusableElements = navigationRef.current.querySelectorAll(
+          'a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        const firstFocusableElement = focusableElements[0];
+        const lastFocusableElement =
+          focusableElements[focusableElements.length - 1];
+
+        if (event.key === 'Tab') {
+          if (event.shiftKey) {
+            if (document.activeElement === firstFocusableElement) {
+              lastFocusableElement.focus();
+              event.preventDefault();
+            }
+          } else if (document.activeElement === lastFocusableElement) {
+            firstFocusableElement.focus();
+            event.preventDefault();
+          }
+        }
+      }
+    }
+  };
 
   const toggle = (): void => {
     setMobileNavOpen((currentNavValue) => !currentNavValue);
   };
 
-  const handleKeyDown = (event: SyntheticKeyboardEvent<HTMLElement>): void => {
+  const handleHamburgerKeyDown = (
+    event: SyntheticKeyboardEvent<HTMLElement>
+  ): void => {
     // Only toggle the menu if the user presses the Enter key or the space bar
     if (['Enter', ' '].includes(event.key)) {
       /**
@@ -78,14 +110,16 @@ export const Header = ({ home, links, mobileOnly, profile }: Props): Node => {
           id="headerHamburger"
           className={css.headerHamburger}
           onClick={toggle}
-          onKeyDown={handleKeyDown}
+          onKeyDown={handleHamburgerKeyDown}
           role="button"
           tabIndex="0"
           aria-label={mobileNavOpen ? I18n.t('close') : I18n.t('expand_menu')}
         >
           {displayToggle()}
         </div>
-        <div className={css.headerDesktopNavLinks}>{displayLinks()}</div>
+        {mobileNavOpen ? null : (
+          <div className={css.headerDesktopNavLinks}>{displayLinks()}</div>
+        )}
       </div>
     </div>
   );
@@ -105,7 +139,11 @@ export const Header = ({ home, links, mobileOnly, profile }: Props): Node => {
       id="header"
       className={`${css.header} ${mobileNavOpen ? css.headerMobile : ''}`}
     >
-      <div className={`${mobileNavOpen ? css.headerMobileBg : ''}`}>
+      <div
+        onKeyDown={handleNavigationKeyDown}
+        ref={navigationRef}
+        className={`${mobileNavOpen ? css.headerMobileBg : ''}`}
+      >
         {displayDesktop()}
         {mobileNavOpen ? displayMobile() : null}
       </div>
