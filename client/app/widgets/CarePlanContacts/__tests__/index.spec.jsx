@@ -51,22 +51,20 @@ describe('CarePlanContacts', () => {
       await userEvent.click(editLink);
       expect(screen.getByText('Edit Contact')).toBeInTheDocument();
       expect(screen.getByLabelText('Name')).toHaveDisplayValue(
-        contacts[0].name
+        contacts[0].name,
       );
       expect(screen.getByLabelText('Phone number')).toHaveDisplayValue('');
 
       await userEvent.type(
         screen.getByLabelText('Phone number'),
-        newPhoneNumber
+        newPhoneNumber,
       );
       expect(screen.getByLabelText('Phone number')).toHaveDisplayValue(
-        newPhoneNumber
+        newPhoneNumber,
       );
 
       await userEvent.click(screen.getByText('Submit'));
-      await waitFor(() =>
-        expect(screen.getByText(newPhoneNumber)).toBeInTheDocument()
-      );
+      await waitFor(() => expect(screen.getByText(newPhoneNumber)).toBeInTheDocument());
     });
 
     it('opens a modal and does not submit the form successfully', async () => {
@@ -80,7 +78,7 @@ describe('CarePlanContacts', () => {
       await userEvent.click(editLink);
       expect(screen.getByText('Edit Contact')).toBeInTheDocument();
       expect(screen.getByLabelText('Name')).toHaveDisplayValue(
-        contacts[0].name
+        contacts[0].name,
       );
       expect(screen.getByLabelText('Phone number')).toHaveDisplayValue('');
 

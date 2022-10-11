@@ -34,7 +34,7 @@ describe('ChartControl', () => {
             },
           },
         }}
-      />
+      />,
     );
 
     const button = screen.getByRole('button', { name: 'Moments' });
@@ -68,13 +68,13 @@ describe('ChartControl', () => {
           type: 'Moments',
           data,
         }}
-      />
+      />,
     );
 
     // checks that the initial data is passed down to the mock chart component
     expect(AreaChart).toHaveBeenCalledWith(
       expect.objectContaining({ data: data.Moments }),
-      {} // ignore: forwardRef argument
+      {}, // ignore: forwardRef argument
     );
 
     // simulates a button click for the specified type
@@ -84,7 +84,7 @@ describe('ChartControl', () => {
     // checks that the correct data for the updated type is passed down
     expect(AreaChart).toHaveBeenCalledWith(
       expect.objectContaining({ data: data.Categories }),
-      {} // ignore: forwardRef argument
+      {}, // ignore: forwardRef argument
     );
   });
 });

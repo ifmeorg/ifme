@@ -131,9 +131,7 @@ const InputTextareaWithAccordionTemplate = (args) => (
   </>
 );
 
-export const InputTextareaWithAccordion = InputTextareaWithAccordionTemplate.bind(
-  {},
-);
+export const InputTextareaWithAccordion = InputTextareaWithAccordionTemplate.bind({});
 
 InputTextareaWithAccordion.storyName = 'InputTextarea with accordion';
 
@@ -187,9 +185,7 @@ const InputTextareaTemplateWithAccordionTemplate = (args) => (
   </>
 );
 
-export const InputTextareaTemplateWithAccordion = InputTextareaTemplateWithAccordionTemplate.bind(
-  {},
-);
+export const InputTextareaTemplateWithAccordion = InputTextareaTemplateWithAccordionTemplate.bind({});
 
 InputTextareaTemplateWithAccordion.storyName = 'InputTextareaTemplate with accordion';
 
@@ -298,9 +294,7 @@ const CheckboxGroupWithAccordionTemplate = (args) => (
   </>
 );
 
-export const CheckboxGroupWithAccordion = CheckboxGroupWithAccordionTemplate.bind(
-  {},
-);
+export const CheckboxGroupWithAccordion = CheckboxGroupWithAccordionTemplate.bind({});
 
 CheckboxGroupWithAccordion.storyName = 'CheckboxGroup with accordion';
 

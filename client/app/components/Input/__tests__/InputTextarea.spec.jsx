@@ -33,7 +33,7 @@ describe('InputTextarea', () => {
       const { container } = render(component);
       const editor = container.querySelector('.editor');
       expect(pell.init).toHaveBeenCalledWith(
-        expect.objectContaining({ element: editor })
+        expect.objectContaining({ element: editor }),
       );
     });
 
@@ -62,7 +62,7 @@ describe('InputTextarea', () => {
         it('handles error when empty', async () => {
           const component = InputMocks.createInput(
             InputMocks.inputTextareaProps,
-            { required: true, onError }
+            { required: true, onError },
           );
           render(component);
           const textarea = screen.getByRole('textbox');
@@ -75,7 +75,7 @@ describe('InputTextarea', () => {
         it('does not handle error when a value exists', async () => {
           const component = InputMocks.createInput(
             InputMocks.inputTextareaProps,
-            { required: true, onError, value: 'Some value' }
+            { required: true, onError, value: 'Some value' },
           );
           render(component);
           const textarea = screen.getByRole('textbox');
@@ -89,7 +89,7 @@ describe('InputTextarea', () => {
       it('on focusing resets error', async () => {
         const component = InputMocks.createInput(
           InputMocks.inputTextareaProps,
-          { required: true, onError }
+          { required: true, onError },
         );
         render(component);
         // triggers focus
@@ -114,7 +114,7 @@ describe('InputTextarea', () => {
         it('does not handle error', async () => {
           const component = InputMocks.createInput(
             InputMocks.inputTextareaProps,
-            { required: false, onError }
+            { required: false, onError },
           );
           render(component);
           // triggers focus, then blur
@@ -128,7 +128,7 @@ describe('InputTextarea', () => {
       it('on focusing does not reset error', async () => {
         const component = InputMocks.createInput(
           InputMocks.inputTextareaProps,
-          { required: false, onError }
+          { required: false, onError },
         );
         render(component);
         // triggers focus
@@ -140,6 +140,7 @@ describe('InputTextarea', () => {
 
     it('handles formatting actions', async () => {
       const sampleUrl = 'sample-url';
+      const user = await userEvent.setup();
       jest.spyOn(pell, 'exec');
       // mocks prompting the user for link url
       jest.spyOn(window, 'prompt').mockImplementationOnce(() => sampleUrl);
@@ -154,12 +155,13 @@ describe('InputTextarea', () => {
         { title: 'Unordered List', expectedArgs: ['insertUnorderedList'] },
       ];
 
-      for (const button of buttons) {
-        const { title, expectedArgs } = button;
-        const buttonElement = screen.getByTitle(title);
-        await userEvent.click(buttonElement);
-        expect(pell.exec).toHaveBeenCalledWith(...expectedArgs);
-      }
+      await Promise.all(
+        buttons.map(async ({ title, expectedArgs }) => {
+          const buttonElement = screen.getByTitle(title);
+          await user.click(buttonElement);
+          expect(pell.exec).toHaveBeenCalledWith(...expectedArgs);
+        }),
+      );
     });
   });
 });

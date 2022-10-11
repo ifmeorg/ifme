@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { render, screen, getByRole } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Header from 'components/Header';
 
@@ -30,7 +30,7 @@ describe('Header', () => {
     expect(screen.getByRole('link', { name: /home/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /link 1/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /link 1/i })).toHaveClass(
-      'headerActiveLink'
+      'headerActiveLink',
     );
     expect(screen.getByRole('link', { name: /link 2/i })).toBeInTheDocument();
   });

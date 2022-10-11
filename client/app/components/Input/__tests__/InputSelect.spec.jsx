@@ -5,7 +5,9 @@ import userEvent from '@testing-library/user-event';
 import { InputMocks } from 'mocks/InputMocks';
 import { InputSelect } from 'components/Input/InputSelect';
 
-const { id, name, ariaLabel, value, options } = InputMocks.inputSelectProps;
+const {
+  id, name, ariaLabel, value, options,
+} = InputMocks.inputSelectProps;
 const someEvent = InputMocks.event;
 
 describe('InputSelect', () => {
@@ -26,7 +28,7 @@ describe('InputSelect', () => {
         value={value}
         options={options}
         onChange={someEvent}
-      />
+      />,
     );
     const select = screen.getByRole('combobox', { name: ariaLabel });
     expect(select).toBeInTheDocument();
@@ -43,13 +45,13 @@ describe('InputSelect', () => {
         value={value}
         options={options}
         onChange={someEvent}
-      />
+      />,
     );
     // toggle the first value
     const select = screen.getByRole('combobox', { name: ariaLabel });
     await userEvent.selectOptions(
       select,
-      screen.getByRole('option', { name: options[0].label })
+      screen.getByRole('option', { name: options[0].label }),
     );
     expect(window.alert).toHaveBeenCalled();
     expect(select.value).toEqual(`${options[0].value}`);
@@ -57,7 +59,7 @@ describe('InputSelect', () => {
     // update the value
     await userEvent.selectOptions(
       select,
-      screen.getByRole('option', { name: options[1].label })
+      screen.getByRole('option', { name: options[1].label }),
     );
     expect(window.alert).toHaveBeenCalled();
     expect(select.value).toEqual(`${options[1].value}`);

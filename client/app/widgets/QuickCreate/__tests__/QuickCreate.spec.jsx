@@ -48,7 +48,7 @@ describe('QuickCreate', () => {
           ],
           action: 'https://if-me.org/quick-create',
         }}
-      />
+      />,
     );
   });
 
@@ -60,7 +60,7 @@ describe('QuickCreate', () => {
     it('renders an input with a label with the accordion closed', () => {
       expect(screen.getByRole('button')).toHaveAttribute(
         'aria-expanded',
-        'false'
+        'false',
       );
       expect(screen.getByText('label')).toBeInTheDocument();
     });
@@ -70,7 +70,7 @@ describe('QuickCreate', () => {
     it('it opens and the user can interact with the textbox', async () => {
       expect(screen.getByRole('button')).toHaveAttribute(
         'aria-expanded',
-        'false'
+        'false',
       );
       const quickCreateButton = screen.getByRole('button');
       // user clicks on the button to open accordion
@@ -78,7 +78,7 @@ describe('QuickCreate', () => {
       // accordion reflects open state
       expect(screen.getByRole('button')).toHaveAttribute(
         'aria-expanded',
-        'true'
+        'true',
       );
       const userInput = 'my input text';
       // User enters some text
@@ -132,14 +132,14 @@ describe('QuickCreate', () => {
       expect(
         screen.queryByRole('checkbox', {
           name: label,
-        })
+        }),
       ).not.toBeInTheDocument();
       // type a value that already exists
       await userEvent.type(screen.getByRole('textbox'), `${label}{enter}`);
       expect(
         screen.getByRole('checkbox', {
           name: label,
-        })
+        }),
       ).toBeInTheDocument();
       // modal should not be open
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
@@ -187,13 +187,13 @@ describe('QuickCreate', () => {
       // accordion is still open
       expect(screen.getByRole('button')).toHaveAttribute(
         'aria-expanded',
-        'true'
+        'true',
       );
       // newly created checkbox is checked
       expect(
         screen.getByRole('checkbox', {
           name: 'new checkbox',
-        })
+        }),
       ).toBeChecked();
     });
 
@@ -238,7 +238,7 @@ describe('QuickCreate', () => {
     it('addToCheckboxes shallow copies an array of checkboxes, pushes a new checkbox, and sorts them', () => {
       const result = addToCheckboxes(
         { name: 'a', id: 'a', slug: 'a' },
-        checkboxes
+        checkboxes,
       );
       expect(result[0].label).toEqual('a');
       expect(result).not.toBe(checkboxes);

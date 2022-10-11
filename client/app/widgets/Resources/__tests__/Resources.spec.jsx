@@ -210,10 +210,10 @@ describe('Resources', () => {
 
         // choose two filters at once and expect the search string to update accordingly
         await userEvent.click(
-          screen.getAllByRole('button', { name: 'ios' })[0]
+          screen.getAllByRole('button', { name: 'ios' })[0],
         );
         await userEvent.click(
-          screen.getByRole('button', { name: 'counseling' })
+          screen.getByRole('button', { name: 'counseling' }),
         );
 
         expect(historyMock).toHaveBeenCalledWith({

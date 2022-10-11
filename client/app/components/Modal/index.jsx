@@ -1,6 +1,10 @@
 // @flow
 import React, {
-  useState, useEffect, useRef, type Element, type Node,
+  useState,
+  useEffect,
+  useRef,
+  type Element,
+  type Node,
 } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -88,7 +92,10 @@ export const Modal = (props: Props): Node => {
     });
   }, [open]);
 
-  const handleKeyPress = (event: SyntheticKeyboardEvent<HTMLDivElement>, keyName: string) => {
+  const handleKeyPress = (
+    event: SyntheticKeyboardEvent<HTMLDivElement>,
+    keyName: string,
+  ) => {
     if (event.key !== keyName) return;
     toggleOpen();
   };

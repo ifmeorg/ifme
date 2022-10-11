@@ -43,7 +43,7 @@ describe('InputCheckboxGroup', () => {
   describe('has no required prop', () => {
     it('does not call hasError prop when all checkboxes are unchecked', async () => {
       render(
-        <InputCheckboxGroup checkboxes={checkboxes} hasError={someEvent} />
+        <InputCheckboxGroup checkboxes={checkboxes} hasError={someEvent} />,
       );
       const checkbox = screen.getByRole('checkbox', { name: label });
       const otherCheckbox = screen.getByRole('checkbox', { name: labelTwo });
@@ -64,7 +64,7 @@ describe('InputCheckboxGroup', () => {
           checkboxes={checkboxes}
           hasError={someEvent}
           required
-        />
+        />,
       );
       const checkbox = screen.getByRole('checkbox', { name: label });
       const otherCheckbox = screen.getByRole('checkbox', { name: labelTwo });
