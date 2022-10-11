@@ -18,23 +18,29 @@ export type Props = {
 
 export type State = {
   mobileNavOpen: boolean,
-  toggled: boolean,
 };
 
-export const Header = ({
-  home, links, mobileOnly, profile,
-}: Props): Node => {
+export const Header = ({ home, links, mobileOnly, profile }: Props): Node => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
-  const [toggled, setToggled] = useState(true);
 
   const toggle = (): void => {
-    setMobileNavOpen(!mobileNavOpen);
-    setToggled(true);
+    setMobileNavOpen((currentNavValue) => !currentNavValue);
+  };
+
+  const handleKeyDown = (event: SyntheticKeyboardEvent<HTMLElement>): void => {
+    // Only toggle the menu if the user presses the Enter key or the space bar
+    if (['Enter', ' '].includes(event.key)) {
+      /**
+       * Prevent the default action to stop scrolling when space is pressed
+       */
+      event.preventDefault();
+      toggle();
+    }
   };
 
   const displayToggle = (): Node => {
     const body = ((document.body: any): HTMLBodyElement);
-    if (toggled && mobileNavOpen) {
+    if (mobileNavOpen) {
       body.classList.add('bodyHeaderOpen');
       return <FontAwesomeIcon icon={faTimes} />;
     }
@@ -42,20 +48,21 @@ export const Header = ({
     return <FontAwesomeIcon icon={faBars} />;
   };
 
-  const displayLinks = (): Node[] => links.map((link: Link) => (
-    <div className={css.headerLink} key={link.name}>
-      <a
-        href={link.url}
-        className={`${link.active ? css.headerActiveLink : ''} ${
-          link.hideInMobile ? css.headerHideInMobile : ''
-        }`}
-        data-method={`${link.dataMethod || ''}`}
-        rel={`${link.dataMethod ? 'nofollow' : ''}`}
-      >
-        {link.name}
-      </a>
-    </div>
-  ));
+  const displayLinks = (): Node[] =>
+    links.map((link: Link) => (
+      <div className={css.headerLink} key={link.name}>
+        <a
+          href={link.url}
+          className={`${link.active ? css.headerActiveLink : ''} ${
+            link.hideInMobile ? css.headerHideInMobile : ''
+          }`}
+          data-method={`${link.dataMethod || ''}`}
+          rel={`${link.dataMethod ? 'nofollow' : ''}`}
+        >
+          {link.name}
+        </a>
+      </div>
+    ));
 
   const displayDesktop = (): Node => (
     <div
@@ -71,7 +78,7 @@ export const Header = ({
           id="headerHamburger"
           className={css.headerHamburger}
           onClick={toggle}
-          onKeyDown={toggle}
+          onKeyDown={handleKeyDown}
           role="button"
           tabIndex="0"
           aria-label={mobileNavOpen ? I18n.t('close') : I18n.t('expand_menu')}
@@ -106,8 +113,6 @@ export const Header = ({
   );
 };
 
-export default ({
-  home, links, mobileOnly, profile,
-}: Props): Node => (
+export default ({ home, links, mobileOnly, profile }: Props): Node => (
   <Header home={home} links={links} mobileOnly={mobileOnly} profile={profile} />
 );
