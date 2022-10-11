@@ -4,8 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { InputMocks } from 'mocks/InputMocks';
 
 const { inputTagProps, createInput } = InputMocks;
-const getComponent = (extraProps = {}) =>
-  createInput(inputTagProps, extraProps);
+const getComponent = (extraProps = {}) => createInput(inputTagProps, extraProps);
 // baseline for most tests
 const component = getComponent();
 const { checkboxes } = inputTagProps;
@@ -94,18 +93,18 @@ describe('InputTag', () => {
     const input = screen.getByRole('textbox');
 
     const queryOptions = { name: labelOne };
-    let checkbox = screen.getByRole('checkbox', queryOptions);
+    const checkbox = screen.getByRole('checkbox', queryOptions);
     // unselect checkbox for the test first
     await user.click(checkbox);
     expect(
-      screen.queryByRole('checkbox', queryOptions)
+      screen.queryByRole('checkbox', queryOptions),
     ).not.toBeInTheDocument();
 
     await user.tab();
     // expect first item to be highlighted, so it can be selected
     expect(screen.getByRole('option', queryOptions)).toHaveAttribute(
       'aria-selected',
-      'true'
+      'true',
     );
     expect(input).toHaveFocus();
 
@@ -136,7 +135,7 @@ describe('InputTag', () => {
     expect(onChange).toHaveBeenCalledWith(
       expect.objectContaining({
         label: 'Three',
-      })
+      }),
     );
   });
 });

@@ -3,12 +3,8 @@ import axios from 'axios';
 import renderHTML from 'react-render-html';
 import { sanitize } from 'dompurify';
 
-const randomString = (): string => Math.random()
-  .toString(36)
-  .substring(2, 15)
-  + Math.random()
-    .toString(36)
-    .substring(2, 15);
+const randomString = (): string => Math.random().toString(36).substring(2, 15)
+  + Math.random().toString(36).substring(2, 15);
 
 const setCsrfToken = (): void => {
   const tokenDom = document.querySelector('meta[name=csrf-token]');

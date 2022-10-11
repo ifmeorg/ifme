@@ -34,7 +34,7 @@ describe('InputCheckbox', () => {
           label={label}
           info={info}
           onChange={someEvent}
-        />
+        />,
       );
       const checkbox = screen.getByRole('checkbox', { name: label });
       expect(checkbox).toBeChecked();
@@ -57,7 +57,7 @@ describe('InputCheckbox', () => {
           label={label}
           info={info}
           onChange={someEvent}
-        />
+        />,
       );
 
       // ensures the input for the uncheckedValue is hidden

@@ -21,7 +21,7 @@ describe('Input', () => {
         render(
           InputMocks.createInput(InputMocks.inputTextProps, {
             accordion: true,
-          })
+          }),
         );
 
         const input = screen.getByRole('textbox');
@@ -49,7 +49,7 @@ describe('Input', () => {
         render(
           InputMocks.createInput(InputMocks.inputCheckboxGroupProps, {
             accordion: true,
-          })
+          }),
         );
 
         const checkbox = screen.getByRole('checkbox', { name: label });
@@ -74,7 +74,7 @@ describe('Input', () => {
         render(
           InputMocks.createInput(InputMocks.inputSelectProps, {
             accordion: true,
-          })
+          }),
         );
 
         const combobox = screen.getByRole('combobox');
@@ -99,7 +99,7 @@ describe('Input', () => {
         render(
           InputMocks.createInput(InputMocks.inputTagProps, {
             accordion: true,
-          })
+          }),
         );
 
         const combobox = screen.getByRole('combobox');
@@ -124,7 +124,7 @@ describe('Input', () => {
         render(
           InputMocks.createInput(InputMocks.inputSwitchProps, {
             accordion: true,
-          })
+          }),
         );
 
         const switchInput = screen.getByRole('switch');

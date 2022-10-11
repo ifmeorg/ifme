@@ -22,7 +22,7 @@ describe('InputPassword', () => {
     await userEvent.click(button);
     expect(input).toHaveAttribute('type', 'text');
     expect(
-      screen.getByRole('button', { name: 'Hide password' })
+      screen.getByRole('button', { name: 'Hide password' }),
     ).toBeInTheDocument();
   });
 

@@ -8,7 +8,7 @@ describe('InputLocation', () => {
   describe('has no initialized value', () => {
     it('updates the value of the input', async () => {
       render(
-        <InputLocation placeholder="Location" apiKey="fakeKey" id="fakeId" />
+        <InputLocation placeholder="Location" apiKey="fakeKey" id="fakeId" />,
       );
       const value = 'Test Location';
       const autocomplete = screen.getByRole('textbox');
@@ -26,7 +26,7 @@ describe('InputLocation', () => {
           apiKey="fakeKey"
           id="fakeId"
           value={initializedValue}
-        />
+        />,
       );
       const autocomplete = screen.getByDisplayValue(initializedValue);
       expect(autocomplete).toBeInTheDocument();

@@ -35,7 +35,7 @@ describe('InputDefault', () => {
           required
           info={info}
           hasError={someEvent}
-        />
+        />,
       );
       expect(screen.queryByLabelText(label)).not.toBeInTheDocument();
     });
@@ -53,7 +53,7 @@ describe('InputDefault', () => {
           required
           info={info}
           hasError={someEvent}
-        />
+        />,
       );
       const textInput = screen.getByRole('textbox', { name: label });
       expect(textInput).toBeInTheDocument();
@@ -84,7 +84,7 @@ describe('InputDefault', () => {
           name={name}
           label={label}
           copyOnClick={copyOnClick}
-        />
+        />,
       );
       const textInput = screen.getByRole('textbox', { name: label });
       await userEvent.type(textInput, 'test');

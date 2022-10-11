@@ -50,8 +50,8 @@ export function InputTag({
   const checkboxChange = (checkbox: { checked: boolean, id: string }) => {
     const { checked, id: inputId } = checkbox;
     if (
-      !checked &&
-      checkboxes.filter((item: Checkbox) => item.id === inputId && item.checked)
+      !checked
+      && checkboxes.filter((item: Checkbox) => item.id === inputId && item.checked)
         .length
     ) {
       check(inputId, false);
@@ -61,18 +61,15 @@ export function InputTag({
   const getSuggestions = (label: string) => {
     const inputValue = label.trim().toLowerCase();
     const inputLength = inputValue.length;
-    const newSuggestions: Checkbox[] =
-      inputLength === 0
-        ? checkboxes
-        : checkboxes.filter(
-            (checkbox: Checkbox) =>
-              checkbox.label.toLowerCase().indexOf(inputValue) > -1
-          );
+    const newSuggestions: Checkbox[] = inputLength === 0
+      ? checkboxes
+      : checkboxes.filter(
+        (checkbox: Checkbox) => checkbox.label.toLowerCase().indexOf(inputValue) > -1,
+      );
     return newSuggestions;
   };
 
-  const getSuggestionValue = ({ label }: Checkbox) =>
-    label === autocompleteLabel ? label : '';
+  const getSuggestionValue = ({ label }: Checkbox) => (label === autocompleteLabel ? label : '');
 
   const onSuggestionsFetchRequested = (valueProp: { value: string }) => {
     const { value } = valueProp;
@@ -87,23 +84,22 @@ export function InputTag({
   const labelExistsUnchecked = (label: string) => {
     if (!label.length) return null;
     const checkboxWithLabel = checkboxes.filter(
-      (checkbox: Checkbox) =>
-        checkbox.label.toLowerCase() === label.toLowerCase() &&
-        !checkbox.checked
+      (checkbox: Checkbox) => checkbox.label.toLowerCase() === label.toLowerCase()
+        && !checkbox.checked,
     );
     return checkboxWithLabel.length && checkboxWithLabel[0].id;
   };
 
   const onAutocompleteChange = (
     e: SyntheticEvent<HTMLInputElement>,
-    { newValue }: { newValue: string }
+    { newValue }: { newValue: string },
   ) => {
     setAutocompleteLabel(newValue);
   };
 
   const onSelect = (
     event: SyntheticEvent<HTMLInputElement>,
-    { suggestion, method }: { suggestion: Checkbox, method: string }
+    { suggestion, method }: { suggestion: Checkbox, method: string },
   ) => {
     if (method === 'enter') {
       event.preventDefault();

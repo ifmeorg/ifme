@@ -69,10 +69,10 @@ describe('MomentTemplates', () => {
         expect(screen.getByText(premadeOne.name)).toBeInTheDocument();
         expect(screen.getByText(premadeTwo.name)).toBeInTheDocument();
         expect(
-          container.querySelectorAll('a[aria-label="Edit"]').length
+          container.querySelectorAll('a[aria-label="Edit"]').length,
         ).toEqual(2);
         expect(
-          container.querySelectorAll('a[aria-label="Delete"]').length
+          container.querySelectorAll('a[aria-label="Delete"]').length,
         ).toEqual(2);
       });
     });

@@ -35,7 +35,7 @@ describe('Form', () => {
     render(getComponent());
     expect(getByPlaceholderText('Some Text Placeholder')).toBeInTheDocument();
     expect(
-      getByRole('button', { name: 'Some Submit Value' })
+      getByRole('button', { name: 'Some Submit Value' }),
     ).toBeInTheDocument();
   });
 
@@ -44,7 +44,7 @@ describe('Form', () => {
       render(getComponent());
       await userEvent.type(
         getByPlaceholderText('Some Text Placeholder'),
-        'randomName'
+        'randomName',
       );
       await userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
       expect(queryByRole('alert')).not.toBeInTheDocument();
@@ -64,7 +64,7 @@ describe('Form', () => {
       render(getComponent());
       await userEvent.type(
         getByPlaceholderText('Some Text Placeholder'),
-        'randomName'
+        'randomName',
       );
       await userEvent.type(getByLabelText('Some Number Label'), '2');
       await userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
@@ -77,14 +77,14 @@ describe('Form', () => {
       render(getComponent());
       await userEvent.type(
         getByPlaceholderText('Some Text Placeholder'),
-        'randomName'
+        'randomName',
       );
       await userEvent.type(getByLabelText('Some Number Label'), '-1');
       await userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
       expect(
         getByText(
-          'This field must be equal or greater than 0 and equal or less than 2!'
-        )
+          'This field must be equal or greater than 0 and equal or less than 2!',
+        ),
       ).toBeInTheDocument();
     });
   });
