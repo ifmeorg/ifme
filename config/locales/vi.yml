@@ -344,6 +344,7 @@ vi:
       viewers_hint: Những đồng minh có thể xem bình luận của bạn
       draft_question: Bạn có muốn lưu lại khoản khắc này như một bản nháp không?
       bookmarked_question: Đánh dấu thời điểm này?
+      bookmarked_info: Những khoảnh khắc được đánh dấu sẽ xuất hiện trong Kế hoạch chăm sóc của bạn
       resource_recommendations_question: Hiển thị tài nguyên được đề xuất?
     index:
       subtitle: >-

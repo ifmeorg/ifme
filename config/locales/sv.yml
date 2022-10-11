@@ -345,6 +345,7 @@ sv:
       viewers_hint: Allierade som kan se ditt ögonblick
       draft_question: Vill du spara ditt ögonblick som ett utkast?
       bookmarked_question: Bokmärk det här ögonblicket?
+      bookmarked_info: Bokmärkta ögonblick visas i din vårdplan
       resource_recommendations_question: Visa rekommenderade resurser?
     index:
       subtitle: >-

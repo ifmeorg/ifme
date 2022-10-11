@@ -338,6 +338,7 @@ nb:
       viewers_hint: Allierte som kan se øyeblikket ditt
       draft_question: Vil du lagre øyeblikket ditt som ett utkast?
       bookmarked_question: Bokmerke dette øyeblikket?
+      bookmarked_info: Bokmerkede øyeblikk vises i pleieplanen din
       resource_recommendations_question: Vise anbefalte ressurser?
     index:
       subtitle: >-
