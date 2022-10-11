@@ -6,19 +6,19 @@ import { InputLocation } from 'components/Input/InputLocation';
 
 describe('InputLocation', () => {
   describe('has no initialized value', () => {
-    it('updates the value of the input', () => {
+    it('updates the value of the input', async () => {
       render(
-        <InputLocation placeholder="Location" apiKey="fakeKey" id="fakeId" />,
+        <InputLocation placeholder="Location" apiKey="fakeKey" id="fakeId" />
       );
       const value = 'Test Location';
       const autocomplete = screen.getByRole('textbox');
-      userEvent.type(autocomplete, value);
+      await userEvent.type(autocomplete, value);
       expect(autocomplete).toHaveValue(value);
     });
   });
 
   describe('has an initialized value', () => {
-    it('updates the value of the input', () => {
+    it('updates the value of the input', async () => {
       const initializedValue = 'Hey';
       render(
         <InputLocation
@@ -26,13 +26,13 @@ describe('InputLocation', () => {
           apiKey="fakeKey"
           id="fakeId"
           value={initializedValue}
-        />,
+        />
       );
       const autocomplete = screen.getByDisplayValue(initializedValue);
       expect(autocomplete).toBeInTheDocument();
-      userEvent.clear(autocomplete);
+      await userEvent.clear(autocomplete);
       const value = 'Test Location';
-      userEvent.type(autocomplete, value);
+      await userEvent.type(autocomplete, value);
       expect(autocomplete).toHaveValue(value);
     });
   });

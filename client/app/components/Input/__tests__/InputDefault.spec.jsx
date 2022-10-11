@@ -35,14 +35,14 @@ describe('InputDefault', () => {
           required
           info={info}
           hasError={someEvent}
-        />,
+        />
       );
       expect(screen.queryByLabelText(label)).not.toBeInTheDocument();
     });
   });
 
   describe('has valid type prop', () => {
-    it('calls hasError prop when value prop is empty', () => {
+    it('calls hasError prop when value prop is empty', async () => {
       render(
         <InputDefault
           id={id}
@@ -53,15 +53,15 @@ describe('InputDefault', () => {
           required
           info={info}
           hasError={someEvent}
-        />,
+        />
       );
       const textInput = screen.getByRole('textbox', { name: label });
       expect(textInput).toBeInTheDocument();
-      userEvent.type(textInput, 'Some Value');
-      userEvent.tab();
+      await userEvent.type(textInput, 'Some Value');
+      await userEvent.tab();
       expect(window.alert).toHaveBeenCalledWith('Error is false');
-      userEvent.clear(textInput);
-      userEvent.tab();
+      await userEvent.clear(textInput);
+      await userEvent.tab();
       expect(window.alert).toHaveBeenCalledWith('Error is true');
     });
   });
@@ -75,7 +75,7 @@ describe('InputDefault', () => {
       window.document.execCommand.mockRestore();
     });
 
-    it('copies to clipboard when input is clicked', () => {
+    it('copies to clipboard when input is clicked', async () => {
       const copyOnClick = 'Some message';
       render(
         <InputDefault
@@ -84,11 +84,11 @@ describe('InputDefault', () => {
           name={name}
           label={label}
           copyOnClick={copyOnClick}
-        />,
+        />
       );
       const textInput = screen.getByRole('textbox', { name: label });
-      userEvent.type(textInput, 'test');
-      userEvent.click(textInput);
+      await userEvent.type(textInput, 'test');
+      await userEvent.click(textInput);
       expect(window.document.execCommand).toHaveBeenCalledWith('copy');
       expect(window.alert).toHaveBeenCalledWith(copyOnClick);
     });

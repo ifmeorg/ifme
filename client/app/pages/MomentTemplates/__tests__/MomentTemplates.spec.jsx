@@ -52,27 +52,27 @@ describe('MomentTemplates', () => {
 
       const basic = screen.getByText(premadeOne.name);
       expect(basic).toBeInTheDocument();
-      userEvent.click(basic);
+      await userEvent.click(basic);
       expect(screen.getByRole('dialog')).toBeInTheDocument();
-      userEvent.click(container.querySelector('div[aria-label="close"]'));
+      await userEvent.click(container.querySelector('div[aria-label="close"]'));
 
       const gratitude = screen.getByText(premadeTwo.name);
       expect(gratitude).toBeInTheDocument();
-      userEvent.click(gratitude);
+      await userEvent.click(gratitude);
       expect(screen.getByRole('dialog')).toBeInTheDocument();
-      userEvent.click(container.querySelector('div[aria-label="close"]'));
+      await userEvent.click(container.querySelector('div[aria-label="close"]'));
 
-      userEvent.click(screen.getByText('Add all'));
+      await userEvent.click(screen.getByText('Add all'));
 
       await waitFor(() => {
         expect(screen.queryByText('Add all')).toBeNull();
         expect(screen.getByText(premadeOne.name)).toBeInTheDocument();
         expect(screen.getByText(premadeTwo.name)).toBeInTheDocument();
         expect(
-          container.querySelectorAll('a[aria-label="Edit"]').length,
+          container.querySelectorAll('a[aria-label="Edit"]').length
         ).toEqual(2);
         expect(
-          container.querySelectorAll('a[aria-label="Delete"]').length,
+          container.querySelectorAll('a[aria-label="Delete"]').length
         ).toEqual(2);
       });
     });

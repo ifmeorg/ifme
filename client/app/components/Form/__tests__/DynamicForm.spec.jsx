@@ -53,16 +53,14 @@ const getComponent = (options = {}) => {
 };
 
 describe('DynamicForm', () => {
-  const {
-    getByRole, getByText, getByPlaceholderText, getByLabelText,
-  } = screen;
+  const { getByRole, getByText, getByPlaceholderText, getByLabelText } = screen;
 
   describe('when name value does not exist', () => {
     it('renders correctly', () => {
       render(getComponent());
       expect(getByPlaceholderText('Some Text Placeholder')).toBeInTheDocument();
       expect(
-        getByRole('button', { name: 'Some Submit Value' }),
+        getByRole('button', { name: 'Some Submit Value' })
       ).toBeInTheDocument();
     });
 
@@ -70,8 +68,13 @@ describe('DynamicForm', () => {
       it('has no errors when submit is clicked', async () => {
         const axiosPostSpy = jest.spyOn(axios, 'post').mockResolvedValue({});
         render(getComponent());
-        userEvent.type(getByPlaceholderText('Some Text Placeholder'), 'bye');
-        userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
+        await userEvent.type(
+          getByPlaceholderText('Some Text Placeholder'),
+          'bye'
+        );
+        await userEvent.click(
+          getByRole('button', { name: 'Some Submit Value' })
+        );
         await waitFor(() => expect(axiosPostSpy).toBeCalled());
       });
 
@@ -82,7 +85,9 @@ describe('DynamicForm', () => {
           .spyOn(axios, 'post')
           .mockRejectedValue({ error });
         render(getComponent());
-        userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
+        await userEvent.click(
+          getByRole('button', { name: 'Some Submit Value' })
+        );
         await waitFor(() => expect(axiosPostSpy()).rejects.toEqual({ error }));
         expect(getByRole('alert')).toBeInTheDocument();
       });
@@ -92,9 +97,14 @@ describe('DynamicForm', () => {
       it('has no errors when submit is clicked', async () => {
         const axiosPostSpy = jest.spyOn(axios, 'post').mockResolvedValue({});
         render(getComponent());
-        userEvent.type(getByPlaceholderText('Some Text Placeholder'), 'bye');
-        userEvent.type(getByLabelText('Some Number Label'), '2');
-        userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
+        await userEvent.type(
+          getByPlaceholderText('Some Text Placeholder'),
+          'bye'
+        );
+        await userEvent.type(getByLabelText('Some Number Label'), '2');
+        await userEvent.click(
+          getByRole('button', { name: 'Some Submit Value' })
+        );
         await waitFor(() => expect(axiosPostSpy).toBeCalled());
       });
 
@@ -105,9 +115,14 @@ describe('DynamicForm', () => {
           .spyOn(axios, 'post')
           .mockRejectedValue({ error });
         render(getComponent());
-        userEvent.type(getByPlaceholderText('Some Text Placeholder'), 'bye');
-        userEvent.type(getByLabelText('Some Number Label'), '-1');
-        userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
+        await userEvent.type(
+          getByPlaceholderText('Some Text Placeholder'),
+          'bye'
+        );
+        await userEvent.type(getByLabelText('Some Number Label'), '-1');
+        await userEvent.click(
+          getByRole('button', { name: 'Some Submit Value' })
+        );
         await waitFor(() => expect(axiosPostSpy()).rejects.toEqual({ error }));
         expect(getByRole('alert')).toBeInTheDocument();
       });
@@ -120,7 +135,7 @@ describe('DynamicForm', () => {
       expect(getByText('Name')).toBeInTheDocument();
       expect(getByPlaceholderText('Some Text Placeholder')).toBeInTheDocument();
       expect(
-        getByRole('button', { name: 'Some Submit Value' }),
+        getByRole('button', { name: 'Some Submit Value' })
       ).toBeInTheDocument();
     });
 
@@ -128,9 +143,14 @@ describe('DynamicForm', () => {
       it('has no errors when submit is clicked', async () => {
         const axiosPostSpy = jest.spyOn(axios, 'post').mockResolvedValue({});
         render(getComponent({ nameValue: 'name' }));
-        userEvent.type(getByText('Name'), 'hi');
-        userEvent.type(getByPlaceholderText('Some Text Placeholder'), 'bye');
-        userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
+        await userEvent.type(getByText('Name'), 'hi');
+        await userEvent.type(
+          getByPlaceholderText('Some Text Placeholder'),
+          'bye'
+        );
+        await userEvent.click(
+          getByRole('button', { name: 'Some Submit Value' })
+        );
         await waitFor(() => expect(axiosPostSpy).toBeCalled());
       });
 
@@ -141,7 +161,9 @@ describe('DynamicForm', () => {
           .spyOn(axios, 'post')
           .mockRejectedValue({ error });
         render(getComponent({ nameValue: 'name' }));
-        userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
+        await userEvent.click(
+          getByRole('button', { name: 'Some Submit Value' })
+        );
         await waitFor(() => expect(axiosPostSpy()).rejects.toEqual({ error }));
         expect(getByText('This field cannot be empty!')).toBeInTheDocument();
       });
@@ -151,10 +173,15 @@ describe('DynamicForm', () => {
       it('has no errors when submit is clicked', async () => {
         const axiosPostSpy = jest.spyOn(axios, 'post').mockResolvedValue({});
         render(getComponent({ nameValue: 'name' }));
-        userEvent.type(getByText('Name'), 'hi');
-        userEvent.type(getByPlaceholderText('Some Text Placeholder'), 'bye');
-        userEvent.type(getByLabelText('Some Number Label'), '2');
-        userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
+        await userEvent.type(getByText('Name'), 'hi');
+        await userEvent.type(
+          getByPlaceholderText('Some Text Placeholder'),
+          'bye'
+        );
+        await userEvent.type(getByLabelText('Some Number Label'), '2');
+        await userEvent.click(
+          getByRole('button', { name: 'Some Submit Value' })
+        );
         await waitFor(() => expect(axiosPostSpy).toBeCalled());
       });
 
@@ -165,14 +192,19 @@ describe('DynamicForm', () => {
           .spyOn(axios, 'post')
           .mockRejectedValue({ error });
         render(getComponent({ nameValue: 'name' }));
-        userEvent.type(getByPlaceholderText('Some Text Placeholder'), 'bye');
-        userEvent.type(getByLabelText('Some Number Label'), '-1');
-        userEvent.click(getByRole('button', { name: 'Some Submit Value' }));
+        await userEvent.type(
+          getByPlaceholderText('Some Text Placeholder'),
+          'bye'
+        );
+        await userEvent.type(getByLabelText('Some Number Label'), '-1');
+        await userEvent.click(
+          getByRole('button', { name: 'Some Submit Value' })
+        );
         await waitFor(() => expect(axiosPostSpy()).rejects.toEqual({ error }));
         expect(
           getByText(
-            'This field must be equal or greater than 0 and equal or less than 2!',
-          ),
+            'This field must be equal or greater than 0 and equal or less than 2!'
+          )
         ).toBeInTheDocument();
       });
     });
