@@ -6,7 +6,8 @@
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 [![Awesome Humane Tech](https://raw.githubusercontent.com/humanetech-community/awesome-humane-tech/main/humane-tech-badge.svg?sanitize=true)](https://github.com/humanetech-community/awesome-humane-tech)
 
-README in: [영어](https://github.com/ifmeorg/ifme/blob/main/README.md), [스페인어](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [포르투갈어](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [프랑스어](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [인도네시아 인](https://github.com/ifmeorg/ifme/blob/main/README-ID.md), [터키어](https://github.com/ifmeorg/ifme/blob/main/README-TR.md), [신할라](https://github.com/ifmeorg/ifme/blob/main/README-LK.md), [중국인](https://github.com/ifmeorg/ifme/blob/main/README-CN.md)
+README in: [영어](https://github.com/ifmeorg/ifme/blob/main/README.md), [스페인어](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [포르투갈어](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [프랑스어](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [인도네시아 인](https://github.com/ifmeorg/ifme/blob/main/README-ID.md), [터키어](https://github.com/ifmeorg/ifme/blob/main/README-TR.md), [신할라](https://github.com/ifmeorg/ifme/blob/main/README-LK.md), [중국인](https://github.com/ifmeorg/ifme/blob/main/README-CN.md), 
+[힌디 어](https://github.com/ifmeorg/ifme/blob/main/README-HI.md)  
 
 # if me
 
