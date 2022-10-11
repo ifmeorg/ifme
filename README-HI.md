@@ -53,9 +53,9 @@ if me की लाइव साइट [if-me.org](https://www.if-me.org/) प�
 
 ### समर्थक
 
-हमारे Patreon समर्थकों को धन्यवाद [Rob Drimmie](https://www.patreon.com/user?u=3251857),
+हमारे Patreon समर्थकों [Rob Drimmie](https://www.patreon.com/user?u=3251857),
 [Joseph D. Marhee](https://www.patreon.com/user?u=2899171), और
-[Carol Willing!](https://www.patreon.com/user?u=202458)
+[Carol Willing!](https://www.patreon.com/user?u=202458) को धन्यवाद।
 
 हमारे सभी Open Collective समर्थको को धन्यवाद!
 [एक समर्थक बनें!](https://opencollective.com/ifme#backer)  
