@@ -10,6 +10,7 @@ import {
   faDoorOpen,
   faDoorClosed,
   faExclamationTriangle,
+  faEyeSlash,
   faCalendarPlus,
   faCalendarMinus,
   faChartLine,
