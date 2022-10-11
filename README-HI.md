@@ -6,11 +6,11 @@
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 [![Awesome Humane Tech](https://raw.githubusercontent.com/humanetech-community/awesome-humane-tech/main/humane-tech-badge.svg?sanitize=true)](https://github.com/humanetech-community/awesome-humane-tech)  
 
-README in: [Spanish](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [Portuguese](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), 
-[French](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [Korean](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), 
-[Indonesian](https://github.com/ifmeorg/ifme/blob/main/README-ID.md), [Turkish](https://github.com/ifmeorg/ifme/blob/main/README-TR.md), 
-[Sinhala](https://github.com/ifmeorg/ifme/blob/main/README-LK.md), [Chinese](https://github.com/ifmeorg/ifme/blob/main/README-CN.md), 
-[Hindi](https://github.com/ifmeorg/ifme/blob/main/README-HI.md)  
+README in: [स्पैनिश](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [पुर्तगाली](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), 
+[फ्रेंच](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [कोरियन](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), 
+[इन्डोनेशियन](https://github.com/ifmeorg/ifme/blob/main/README-ID.md), [तुर्की](https://github.com/ifmeorg/ifme/blob/main/README-TR.md), 
+[सिंहली](https://github.com/ifmeorg/ifme/blob/main/README-LK.md), [चीनी](https://github.com/ifmeorg/ifme/blob/main/README-CN.md), 
+[हिन्दी](https://github.com/ifmeorg/ifme/blob/main/README-HI.md)  
 
 # if-me.org  
 
