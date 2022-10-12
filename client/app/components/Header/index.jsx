@@ -116,7 +116,7 @@ export const Header = ({
         >
           {displayToggle()}
         </div>
-        {mobileNavOpen ? null : (
+        {!mobileNavOpen && <div className={css.headerDesktopNavLinks}>{displayLinks()}</div>}
           <div className={css.headerDesktopNavLinks}>{displayLinks()}</div>
         )}
       </div>
