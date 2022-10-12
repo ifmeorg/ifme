@@ -10,12 +10,13 @@ export const useFocusTrap = (
     const element = ref.current;
     if (!element) return;
 
-    const firstFocusableElement = element.querySelectorAll(
-      focusableElements,
-    )[0];
     const focusableContent = element.querySelectorAll(focusableElements);
-    const lastFocusableElement = focusableContent[focusableContent.length - 1];
+    const visibleContent = Array.from(focusableContent).filter(
+      (node) => window.getComputedStyle(node).display !== 'none',
+    );
 
+    const firstFocusableElement = visibleContent[0];
+    const lastFocusableElement = visibleContent[visibleContent.length - 1];
     const isTabPressed = e.key === 'Tab' || e.keyCode === 9;
 
     if (!isTabPressed) {

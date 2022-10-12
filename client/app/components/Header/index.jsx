@@ -56,26 +56,20 @@ export const Header = ({
     return <FontAwesomeIcon icon={faBars} />;
   };
 
-  const displayLinks = (): Node[] => links
-    .filter((link: Link) => {
-      if (mobileNavOpen && link.hideInMobile) {
-        return false;
-      }
-
-      return true;
-    })
-    .map((link: Link) => (
-      <div className={css.headerLink} key={link.name}>
-        <a
-          href={link.url}
-          className={`${link.active ? css.headerActiveLink : ''}`}
-          data-method={`${link.dataMethod || ''}`}
-          rel={`${link.dataMethod ? 'nofollow' : ''}`}
-        >
-          {link.name}
-        </a>
-      </div>
-    ));
+  const displayLinks = (): Node[] => links.map((link: Link) => (
+    <div className={css.headerLink} key={link.name}>
+      <a
+        href={link.url}
+        className={`${link.active ? css.headerActiveLink : ''} ${
+          link.hideInMobile ? css.headerHideInMobile : ''
+        }`}
+        data-method={`${link.dataMethod || ''}`}
+        rel={`${link.dataMethod ? 'nofollow' : ''}`}
+      >
+        {link.name}
+      </a>
+    </div>
+  ));
 
   const displayDesktop = (): Node => (
     <div
