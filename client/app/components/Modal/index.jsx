@@ -1,16 +1,13 @@
 // @flow
 import React, {
-  useState,
-  useEffect,
-  useRef,
-  type Element,
-  type Node,
+  useState, useRef, type Element, type Node,
 } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { I18n } from 'libs/i18n';
 import { Utils } from 'utils';
 import { Avatar } from 'components/Avatar';
+import { useFocusTrap } from '../../hooks';
 import css from './Modal.scss';
 
 type CustomElement = {
@@ -65,32 +62,7 @@ export const Modal = (props: Props): Node => {
     setOpen(!open);
   };
 
-  useEffect(() => {
-    const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-    const modal = modalEl.current;
-
-    if (!modal) return;
-
-    const firstFocusableElement = modal.querySelectorAll(focusableElements)[0];
-    const focusableContent = modal.querySelectorAll(focusableElements);
-    const lastFocusableElement = focusableContent[focusableContent.length - 1];
-
-    document.addEventListener('keydown', (e: any) => {
-      const isTabPressed = e.key === 'Tab' || e.keyCode === 9;
-
-      if (!isTabPressed) {
-        return;
-      }
-
-      if (e.shiftKey && document.activeElement === firstFocusableElement) {
-        lastFocusableElement.focus();
-        e.preventDefault();
-      } else if (document.activeElement === lastFocusableElement) {
-        firstFocusableElement.focus();
-        e.preventDefault();
-      }
-    });
-  }, [open]);
+  useFocusTrap(modalEl, open);
 
   const handleKeyPress = (
     event: SyntheticKeyboardEvent<HTMLDivElement>,

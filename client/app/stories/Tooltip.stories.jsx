@@ -49,7 +49,9 @@ const ElementIsTextAndTooltipIsPositionedRightTemplate = (args) => (
   </center>
 );
 
-export const ElementIsTextAndTooltipIsPositionedRight = ElementIsTextAndTooltipIsPositionedRightTemplate.bind({});
+export const ElementIsTextAndTooltipIsPositionedRight = ElementIsTextAndTooltipIsPositionedRightTemplate.bind(
+  {},
+);
 
 ElementIsTextAndTooltipIsPositionedRight.storyName = 'Element is text and tooltip is positioned right';
 
@@ -62,7 +64,9 @@ const ElementIsHtmlAndTooltipIsPositionedRightTemplate = (args) => (
   </center>
 );
 
-export const ElementIsHtmlAndTooltipIsPositionedRight = ElementIsHtmlAndTooltipIsPositionedRightTemplate.bind({});
+export const ElementIsHtmlAndTooltipIsPositionedRight = ElementIsHtmlAndTooltipIsPositionedRightTemplate.bind(
+  {},
+);
 
 ElementIsHtmlAndTooltipIsPositionedRight.storyName = 'Element is HTML and tooltip is positioned right';
 ElementIsHtmlAndTooltipIsPositionedRight.parameters = {
@@ -78,7 +82,9 @@ const ElementIsTextAndTooltipIsPositionedCenterTemplate = (args) => (
   </center>
 );
 
-export const ElementIsTextAndTooltipIsPositionedCenter = ElementIsTextAndTooltipIsPositionedCenterTemplate.bind({});
+export const ElementIsTextAndTooltipIsPositionedCenter = ElementIsTextAndTooltipIsPositionedCenterTemplate.bind(
+  {},
+);
 
 ElementIsTextAndTooltipIsPositionedCenter.storyName = 'Element is text and tooltip is positioned center';
 
@@ -91,7 +97,9 @@ const ElementIsHtmlAndTooltipIsPositionedCenterTemplate = (args) => (
   </center>
 );
 
-export const ElementIsHtmlAndTooltipIsPositionedCenter = ElementIsHtmlAndTooltipIsPositionedCenterTemplate.bind({});
+export const ElementIsHtmlAndTooltipIsPositionedCenter = ElementIsHtmlAndTooltipIsPositionedCenterTemplate.bind(
+  {},
+);
 
 ElementIsHtmlAndTooltipIsPositionedCenter.storyName = 'Element is HTML and tooltip is positioned center';
 ElementIsHtmlAndTooltipIsPositionedCenter.parameters = {

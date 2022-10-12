@@ -8,6 +8,7 @@ import { Logo } from 'components/Logo';
 import { HeaderProfile } from 'components/Header/HeaderProfile';
 import type { Profile, Link } from './types';
 import css from './Header.scss';
+import { useFocusTrap } from '../../hooks';
 
 export type Props = {
   home: Link,
@@ -26,32 +27,7 @@ export const Header = ({
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const navigationRef = useRef(null);
 
-  const handleNavigationKeyDown = (
-    event: SyntheticKeyboardEvent<HTMLElement>,
-  ): void => {
-    if (mobileNavOpen) {
-      // Let's trap the focus
-      if (navigationRef.current) {
-        const focusableElements = navigationRef.current.querySelectorAll(
-          'a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])',
-        );
-        const firstFocusableElement = focusableElements[0];
-        const lastFocusableElement = focusableElements[focusableElements.length - 1];
-
-        if (event.key === 'Tab') {
-          if (event.shiftKey) {
-            if (document.activeElement === firstFocusableElement) {
-              lastFocusableElement.focus();
-              event.preventDefault();
-            }
-          } else if (document.activeElement === lastFocusableElement) {
-            firstFocusableElement.focus();
-            event.preventDefault();
-          }
-        }
-      }
-    }
-  };
+  useFocusTrap(navigationRef, mobileNavOpen);
 
   const toggle = (): void => {
     setMobileNavOpen((currentNavValue) => !currentNavValue);
@@ -80,20 +56,26 @@ export const Header = ({
     return <FontAwesomeIcon icon={faBars} />;
   };
 
-  const displayLinks = (): Node[] => links.map((link: Link) => (
-    <div className={css.headerLink} key={link.name}>
-      <a
-        href={link.url}
-        className={`${link.active ? css.headerActiveLink : ''} ${
-          link.hideInMobile ? css.headerHideInMobile : ''
-        }`}
-        data-method={`${link.dataMethod || ''}`}
-        rel={`${link.dataMethod ? 'nofollow' : ''}`}
-      >
-        {link.name}
-      </a>
-    </div>
-  ));
+  const displayLinks = (): Node[] => links
+    .filter((link: Link) => {
+      if (mobileNavOpen && link.hideInMobile) {
+        return false;
+      }
+
+      return true;
+    })
+    .map((link: Link) => (
+      <div className={css.headerLink} key={link.name}>
+        <a
+          href={link.url}
+          className={`${link.active ? css.headerActiveLink : ''}`}
+          data-method={`${link.dataMethod || ''}`}
+          rel={`${link.dataMethod ? 'nofollow' : ''}`}
+        >
+          {link.name}
+        </a>
+      </div>
+    ));
 
   const displayDesktop = (): Node => (
     <div
@@ -116,7 +98,7 @@ export const Header = ({
         >
           {displayToggle()}
         </div>
-        {!mobileNavOpen && <div className={css.headerDesktopNavLinks}>{displayLinks()}</div>}
+        {!mobileNavOpen && (
           <div className={css.headerDesktopNavLinks}>{displayLinks()}</div>
         )}
       </div>
@@ -139,7 +121,6 @@ export const Header = ({
       className={`${css.header} ${mobileNavOpen ? css.headerMobile : ''}`}
     >
       <div
-        onKeyDown={handleNavigationKeyDown}
         ref={navigationRef}
         className={`${mobileNavOpen ? css.headerMobileBg : ''}`}
         role="menu"
