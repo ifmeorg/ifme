@@ -15,7 +15,12 @@ export type Props = {
 };
 
 const notificationsElement = (notifications) => (
-  <button type="button" className="buttonGhostXS" aria-label={notifications} tabIndex={-1}>
+  <button
+    type="button"
+    className="buttonGhostXS"
+    aria-label={notifications}
+    tabIndex={-1}
+  >
     <FontAwesomeIcon icon={faBell} />
   </button>
 );

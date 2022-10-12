@@ -106,7 +106,7 @@ const displayNonLink = (
   actions: Actions,
   item: string,
   hasStory: ?boolean,
-  dark: ?boolean
+  dark: ?boolean,
 ) => {
   const capitalizeItem = item.charAt(0).toUpperCase() + item.slice(1);
   return (
@@ -120,11 +120,12 @@ const displayNonLink = (
   );
 };
 
-const titleItem = (item: string) =>
-  item.charAt(0).toUpperCase() + item.slice(1);
+const titleItem = (item: string) => item.charAt(0).toUpperCase() + item.slice(1);
 
 const tooltipElement = (item: string, actions: Actions, dark: ?boolean) => {
-  const { link, dataMethod, dataConfirm, name, onClick } = actions[item];
+  const {
+    link, dataMethod, dataConfirm, name, onClick,
+  } = actions[item];
   return (
     <a
       href={link}
@@ -146,7 +147,7 @@ const displayLink = (
   actions: Actions,
   item: string,
   hasStory: ?boolean,
-  dark: ?boolean
+  dark: ?boolean,
 ) => (
   <div key={item} className={`storyActions${titleItem(item)}`}>
     <Tooltip
@@ -161,13 +162,13 @@ const displayItem = (
   actions: Actions,
   item: string,
   hasStory: ?boolean,
-  dark: ?boolean
+  dark: ?boolean,
 ) => {
   if (
-    item === VIEWERS ||
-    item === VISIBLE ||
-    item === NOT_VISIBLE ||
-    item === SHARE_LINK_INFO
+    item === VIEWERS
+    || item === VISIBLE
+    || item === NOT_VISIBLE
+    || item === SHARE_LINK_INFO
   ) {
     return displayNonLink(actions, item, hasStory, dark);
   }
@@ -190,9 +191,7 @@ export const StoryActions = (props: Props): Node => {
         NOT_VISIBLE,
         VIEWERS,
         SHARE_LINK_INFO,
-      ].map((item: string) =>
-        actions[item] ? displayItem(actions, item, hasStory, dark) : null
-      )}
+      ].map((item: string) => (actions[item] ? displayItem(actions, item, hasStory, dark) : null))}
     </div>
   );
 };

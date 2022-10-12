@@ -475,9 +475,7 @@ describe('Modal', () => {
         fireEvent.keyDown(container.querySelector('.modalElement'), {
           key: 'Enter',
         });
-        expect(
-          container.querySelector('.modalBackdrop'),
-        ).toBeInTheDocument();
+        expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
       });
     });
