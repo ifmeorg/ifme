@@ -63,7 +63,7 @@ module MomentsHelper
     { name: element.name,
       link: present_object[:url_helper],
       date: TimeAgo.created_or_edited(element),
-      actions: moment_or_strategy_actions(element, present_object),
+      actions: element_actions(element, present_object),
       draft: !element.published? ? t('draft') : nil,
       categories: element.category_names_and_slugs,
       moods: present_object[:moods],
@@ -86,13 +86,19 @@ module MomentsHelper
 
   private
 
-  def moment_or_strategy_actions(element, present_object)
+  def element_actions(element, present_object)
     actions = user_actions(element,
                            present_object,
                            element.user_id == current_user&.id)
-    { edit: actions[:edit], delete: actions[:delete],
-      viewers: actions[:viewers], visible: actions[:visible],
-      share_link_info: actions[:share_link_info] }
+    if element.is_a?(Moment) || element.visible
+      { edit: actions[:edit], delete: actions[:delete],
+        viewers: actions[:viewers], visible: actions[:visible],
+        share_link_info: actions[:share_link_info] }
+    else
+      { edit: actions[:edit], delete: actions[:delete],
+        viewers: actions[:viewers], not_visible: actions[:visible],
+        share_link_info: actions[:share_link_info] }
+    end
   end
 
   def story_by(element)

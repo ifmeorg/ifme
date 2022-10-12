@@ -36,14 +36,25 @@ module CategoriesHelper
   def actions_setup(element, url_helper)
     link = edit_mood_path(element)
     link = edit_category_path(element) if element.instance_of?(Category)
-    {
-      edit: {
-        name: t('common.actions.edit'),
-        link: link
-      },
-      delete: action_delete(url_helper),
-      visible: get_visible(element.visible)
-    }
+    if element.visible
+      {
+        edit: {
+          name: t('common.actions.edit'),
+          link: link
+        },
+        delete: action_delete(url_helper),
+        visible: get_visible(element.visible)
+      }
+    else
+      {
+        edit: {
+          name: t('common.actions.edit'),
+          link: link
+        },
+        delete: action_delete(url_helper),
+        not_visible: get_visible(element.visible)
+      }
+    end
   end
 
   def action_delete(url_helper)
