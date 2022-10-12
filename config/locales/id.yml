@@ -341,6 +341,7 @@ id:
       viewers_hint: Teman yang dapat melihat momen Anda
       draft_question: Apakah Anda ingin menyimpan momen Anda sebagai draf?
       bookmarked_question: Tandai momen ini?
+      bookmarked_info: Momen yang ditandai muncul di Rencana Perawatan Anda
       resource_recommendations_question: Tampilkan Rekomendasi Sumber Daya?
     index:
       subtitle: >-

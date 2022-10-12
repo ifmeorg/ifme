@@ -320,6 +320,7 @@ ko:
       viewers_hint: 당신의 경험들을 볼 수 있는 공유자
       draft_question: 이대로 경험을 저장하시겠습니까?
       bookmarked_question: 이 경험을 북마크 하시겠습니까?
+      bookmarked_info: 북마크된 순간은 케어 플랜에 나타납니다.
       resource_recommendations_question: 리소스 권장사항 표시
     index:
       subtitle: '여러분의 정신 건강에 영향을 미치는 사건들과 상황들, 경험들을 깊이 파고드세요.'

@@ -682,5 +682,14 @@
     "link_name": "manishsharma.ml",
     "link": "https://manishsharma.ml",
     "social": "globe"
+  },
+  {
+    "name": "Chibuzor Efedigbue",
+    "image": "/assets/contributors/chibuzor_efedigbue.jpeg",
+    "profile": "I am a software engineer from Nigeria and I want to leverage my skill to help solve real world problems",
+    "location": "Ibadan, Nigeria",
+    "link_name": "uzorjchibuzor",
+    "link": "https://github.com/uzorjchibuzor",
+    "social": "github"
   }
 ]

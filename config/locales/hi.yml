@@ -338,6 +338,7 @@ hi:
       viewers_hint: सहयोगी जो आपके पल को देख सकते हैं
       draft_question: क्या आप अपने पल को ड्राफ्ट के रूप में सहेजना चाहते हैं?
       bookmarked_question: इस पल को बुकमार्क करें?
+      bookmarked_info: बुकमार्क किए गए क्षण आपकी देखभाल योजना में दिखाई देते हैं
       resource_recommendations_question: अनुशंसित संसाधन प्रदर्शित करें?
     index:
       subtitle: >-

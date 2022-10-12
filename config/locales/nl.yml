@@ -343,6 +343,7 @@ nl:
       viewers_hint: Bondgenoten die je moment kunnen bekijken
       draft_question: Wil je je moment als concept opslaan?
       bookmarked_question: Bookmark dit moment?
+      bookmarked_info: Gemarkeerde momenten verschijnen in uw zorgplan
       resource_recommendations_question: Aanbevolen bronnen weergeven?
     index:
       subtitle: >-

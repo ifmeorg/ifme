@@ -364,6 +364,7 @@ de:
       viewers_hint: 'Helfer, die Dein Ereignis sehen können'
       draft_question: Möchtest Du Dein Ereignis als Entwurf speichern?
       bookmarked_question: Lesezeichen für dieses Ereignis anlegen?
+      bookmarked_info: Markierte Momente erscheinen in Ihrem Behandlungsplan
       resource_recommendations_question: Empfohlene Ressourcen anzeigen?
     index:
       subtitle: >-

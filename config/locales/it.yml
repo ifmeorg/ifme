@@ -347,6 +347,7 @@ it:
       viewers_hint: Alleati che possono vedere il tuo momento
       draft_question: Vuoi salvare il tuo momento come una bozza?
       bookmarked_question: Aggiungi questo momento ai segnalibri?
+      bookmarked_info: I momenti contrassegnati vengono visualizzati nel tuo Piano di assistenza
       resource_recommendations_question: Mostra raccomandazione sulle risorse?
     index:
       subtitle: >-
