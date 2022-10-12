@@ -49,7 +49,14 @@ const displayCheckbox = (id, name, value, checked, onChange, label) => (
 
 export const InputCheckbox = (props: Props): Node => {
   const {
-    id, name, value, label, uncheckedValue, checked, info, onChange,
+    id,
+    name,
+    value,
+    label,
+    uncheckedValue,
+    checked,
+    info,
+    onChange,
   } = props;
   return (
     <div className={`${css.checkbox} ${globalCss.gridRowSpaceBetween}`}>
