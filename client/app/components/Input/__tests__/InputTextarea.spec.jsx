@@ -1,5 +1,5 @@
 // @flow
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import * as pell from 'pell';
 import { InputMocks } from 'mocks/InputMocks';
@@ -140,7 +140,6 @@ describe('InputTextarea', () => {
 
     it('handles formatting actions', async () => {
       const sampleUrl = 'sample-url';
-      const user = await userEvent.setup();
       jest.spyOn(pell, 'exec');
       // mocks prompting the user for link url
       jest.spyOn(window, 'prompt').mockImplementationOnce(() => sampleUrl);
@@ -155,13 +154,11 @@ describe('InputTextarea', () => {
         { title: 'Unordered List', expectedArgs: ['insertUnorderedList'] },
       ];
 
-      await Promise.all(
-        buttons.map(async ({ title, expectedArgs }) => {
-          const buttonElement = screen.getByTitle(title);
-          await user.click(buttonElement);
-          expect(pell.exec).toHaveBeenCalledWith(...expectedArgs);
-        }),
-      );
+      buttons.forEach(async ({ title, expectedArgs }) => {
+        const button = screen.getByTitle(title);
+        userEvent.click(button);
+        await waitFor(() => expect(pell.exec).toHaveBeenCalledWith(...expectedArgs));
+      });
     });
   });
 });
