@@ -37,7 +37,8 @@ module ViewersHelper
             name: t('common.actions.edit'),
             link: url_for([:edit, element])
           },
-          visible: get_visible(element.visible)
+          visible: get_visible(element.visible),
+          viewers: get_viewer_list(element.viewers, nil),
         }
       }
     else
@@ -54,7 +55,8 @@ module ViewersHelper
             name: t('common.actions.edit'),
             link: url_for([:edit, element])
           },
-          not_visible: get_visible(element.visible)
+          not_visible: get_visible(element.visible),
+          viewers: get_viewer_list(element.viewers, nil)
         }
       }
     end
