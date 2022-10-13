@@ -2,7 +2,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Chart } from 'components/Chart/index';
-import 'jest-canvas-mock';
 
 const renderComponent = ({ chartType }) => render(
   <Chart
