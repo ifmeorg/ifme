@@ -23,42 +23,80 @@ module ViewersHelper
   end
 
   def element_visibility_based_props(element)
-    if element.visible
-      {
-        dark: true,
-        actions: {
-          delete: {
-            name: t('common.actions.delete'),
-            link: url_for(element),
-            dataConfirm: t('common.actions.confirm'),
-            dataMethod: 'delete'
-          },
-          edit: {
-            name: t('common.actions.edit'),
-            link: url_for([:edit, element])
-          },
-          visible: get_visible(element.visible),
-          viewers: get_viewer_list(element.viewers, nil),
+    if element.respond_to?(:viewers)
+      if element.visible
+        {
+          dark: true,
+          actions: {
+            delete: {
+              name: t('common.actions.delete'),
+              link: url_for(element),
+              dataConfirm: t('common.actions.confirm'),
+              dataMethod: 'delete'
+            },
+            edit: {
+              name: t('common.actions.edit'),
+              link: url_for([:edit, element])
+            },
+            visible: get_visible(element.visible),
+            viewers: get_viewer_list(element.viewers, nil)
+          }
         }
-      }
+      else
+        {
+          dark: true,
+          actions: {
+            delete: {
+              name: t('common.actions.delete'),
+              link: url_for(element),
+              dataConfirm: t('common.actions.confirm'),
+              dataMethod: 'delete'
+            },
+            edit: {
+              name: t('common.actions.edit'),
+              link: url_for([:edit, element])
+            },
+            not_visible: get_visible(element.visible),
+            viewers: get_viewer_list(element.viewers, nil)
+          }
+        }
+      end
     else
-      {
-        dark: true,
-        actions: {
-          delete: {
-            name: t('common.actions.delete'),
-            link: url_for(element),
-            dataConfirm: t('common.actions.confirm'),
-            dataMethod: 'delete'
-          },
-          edit: {
-            name: t('common.actions.edit'),
-            link: url_for([:edit, element])
-          },
-          not_visible: get_visible(element.visible),
-          viewers: get_viewer_list(element.viewers, nil)
+      if element.visible
+        {
+          dark: true,
+          actions: {
+            delete: {
+              name: t('common.actions.delete'),
+              link: url_for(element),
+              dataConfirm: t('common.actions.confirm'),
+              dataMethod: 'delete'
+            },
+            edit: {
+              name: t('common.actions.edit'),
+              link: url_for([:edit, element])
+            },
+            visible: get_visible(element.visible),
+          }
         }
-      }
+      else
+        {
+          dark: true,
+          actions: {
+            delete: {
+              name: t('common.actions.delete'),
+              link: url_for(element),
+              dataConfirm: t('common.actions.confirm'),
+              dataMethod: 'delete'
+            },
+            edit: {
+              name: t('common.actions.edit'),
+              link: url_for([:edit, element])
+            },
+            not_visible: get_visible(element.visible),
+          }
+        }
+      end
     end
   end
 
