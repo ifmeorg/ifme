@@ -351,6 +351,7 @@ pt-BR:
       viewers_hint: 'Aliados que podem ver esse seu momento:'
       draft_question: Você quer salvar seu momento com um rascunho?
       bookmarked_question: Marcar este momento como favorito?
+      bookmarked_info: Momentos marcados aparecem no seu Plano de Cuidados
       resource_recommendations_question: Mostrar recomendação de recursos?
     index:
       subtitle: >-

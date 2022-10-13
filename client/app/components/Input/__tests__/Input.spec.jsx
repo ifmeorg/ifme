@@ -16,7 +16,7 @@ import css from '../Input.scss';
 describe('Input', () => {
   describe('InputDefault', () => {
     describe('with accordion prop', () => {
-      it('toggles correctly', () => {
+      it('toggles correctly', async () => {
         const { label } = InputMocks.inputTextProps;
         render(
           InputMocks.createInput(InputMocks.inputTextProps, {
@@ -31,9 +31,9 @@ describe('Input', () => {
         expect(input).toBeInTheDocument();
 
         expect(accordionContainer).toHaveClass(css.accordionClose);
-        userEvent.click(button);
+        await userEvent.click(button);
         expect(accordionContainer).not.toHaveClass(css.accordionClose);
-        userEvent.click(button);
+        await userEvent.click(button);
         expect(accordionContainer).toHaveClass(css.accordionClose);
       });
     });
@@ -41,7 +41,7 @@ describe('Input', () => {
 
   describe('CheckboxGroup', () => {
     describe('with accordion prop', () => {
-      it('toggles correctly', () => {
+      it('toggles correctly', async () => {
         const {
           label: groupLabel,
           checkboxes: [{ label }],
@@ -59,9 +59,9 @@ describe('Input', () => {
         expect(checkbox).toBeInTheDocument();
 
         expect(accordionContainer).toHaveClass(css.accordionClose);
-        userEvent.click(button);
+        await userEvent.click(button);
         expect(accordionContainer).not.toHaveClass(css.accordionClose);
-        userEvent.click(button);
+        await userEvent.click(button);
         expect(accordionContainer).toHaveClass(css.accordionClose);
       });
     });
@@ -69,7 +69,7 @@ describe('Input', () => {
 
   describe('Select', () => {
     describe('with accordion prop', () => {
-      it('toggles correctly', () => {
+      it('toggles correctly', async () => {
         const { label } = InputMocks.inputSelectProps;
         render(
           InputMocks.createInput(InputMocks.inputSelectProps, {
@@ -84,9 +84,9 @@ describe('Input', () => {
         expect(combobox).toBeInTheDocument();
 
         expect(accordionContainer).toHaveClass(css.accordionClose);
-        userEvent.click(button);
+        await userEvent.click(button);
         expect(accordionContainer).not.toHaveClass(css.accordionClose);
-        userEvent.click(button);
+        await userEvent.click(button);
         expect(accordionContainer).toHaveClass(css.accordionClose);
       });
     });
@@ -94,7 +94,7 @@ describe('Input', () => {
 
   describe('Tag', () => {
     describe('with accordion prop', () => {
-      it('toggles correctly', () => {
+      it('toggles correctly', async () => {
         const { label } = InputMocks.inputTagProps;
         render(
           InputMocks.createInput(InputMocks.inputTagProps, {
@@ -109,9 +109,9 @@ describe('Input', () => {
         expect(combobox).toBeInTheDocument();
 
         expect(accordionContainer).toHaveClass(css.accordionClose);
-        userEvent.click(button);
+        await userEvent.click(button);
         expect(accordionContainer).not.toHaveClass(css.accordionClose);
-        userEvent.click(button);
+        await userEvent.click(button);
         expect(accordionContainer).toHaveClass(css.accordionClose);
       });
     });
@@ -119,7 +119,7 @@ describe('Input', () => {
 
   describe('Switch', () => {
     describe('with accordion prop', () => {
-      it('toggles correctly', () => {
+      it('toggles correctly', async () => {
         const { label } = InputMocks.inputSwitchProps;
         render(
           InputMocks.createInput(InputMocks.inputSwitchProps, {
@@ -134,9 +134,9 @@ describe('Input', () => {
         expect(switchInput).toBeInTheDocument();
 
         expect(accordionContainer).toHaveClass(css.accordionClose);
-        userEvent.click(button);
+        await userEvent.click(button);
         expect(accordionContainer).not.toHaveClass(css.accordionClose);
-        userEvent.click(button);
+        await userEvent.click(button);
         expect(accordionContainer).toHaveClass(css.accordionClose);
       });
     });

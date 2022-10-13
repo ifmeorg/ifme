@@ -99,14 +99,14 @@ describe('Comments', () => {
       render(<Comments formProps={formProps} />);
       expect(screen.queryByRole('article')).not.toBeInTheDocument();
 
-      userEvent.type(screen.getByRole('textbox'));
-      userEvent.selectOptions(screen.getByRole('combobox'), 'private');
-      userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+      screen.getByRole('textbox').click();
+      await userEvent.selectOptions(screen.getByRole('combobox'), 'private');
+      await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
       await waitFor(() => expect(screen.getByRole('article')).toBeInTheDocument());
       expect(screen.getByRole('article')).toHaveTextContent('Hey');
 
-      userEvent.click(screen.getByRole('link', { name: 'Delete' }));
+      await userEvent.click(screen.getByRole('link', { name: 'Delete' }));
 
       await waitFor(() => expect(screen.queryByRole('article')).not.toBeInTheDocument());
     });
@@ -140,14 +140,14 @@ describe('Comments', () => {
       render(<Comments formProps={formProps} />);
       expect(screen.queryByRole('article')).not.toBeInTheDocument();
 
-      userEvent.type(screen.getByRole('textbox'));
-      userEvent.selectOptions(screen.getByRole('combobox'), 'private');
-      userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+      screen.getByRole('textbox').click();
+      await userEvent.selectOptions(screen.getByRole('combobox'), 'private');
+      await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
       await waitFor(() => expect(screen.getByRole('article')).toBeInTheDocument());
       expect(screen.getByRole('article')).toHaveTextContent('Hey');
 
-      userEvent.click(screen.getByRole('link', { name: 'Delete' }));
+      await userEvent.click(screen.getByRole('link', { name: 'Delete' }));
 
       await waitFor(() => expect(screen.queryByRole('article')).not.toBeInTheDocument());
     });

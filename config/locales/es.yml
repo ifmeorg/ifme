@@ -349,6 +349,7 @@ es:
       viewers_hint: 'Aliados que pueden ver tu momento:'
       draft_question: ¿Quieres guardar tu momento como borrador?
       bookmarked_question: Marcar este momento?
+      bookmarked_info: Los momentos marcados aparecen en su plan de cuidados
       resource_recommendations_question: ¿Mostrar recomendación de recursos?
     index:
       subtitle: >-

@@ -87,7 +87,9 @@ module MomentsFormHelper
       'bookmarked', 'switch', 'moments.form.bookmarked_question'
     ).merge(
       value: true, uncheckedValue: false,
-      checked: @moment.bookmarked, dark: true
+      checked: params[:bookmarked] ? true : @moment.bookmarked, 
+      dark: true,
+      info: t('moments.form.bookmarked_info')
     )
   end
 

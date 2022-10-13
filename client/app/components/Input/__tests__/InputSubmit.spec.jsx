@@ -18,19 +18,19 @@ describe('InputSubmit', () => {
     jest.clearAllMocks();
   });
 
-  it('toggles clicking correctly', () => {
+  it('toggles clicking correctly', async () => {
     render(<InputSubmit id={id} onClick={someEvent} value={value} />);
     const button = screen.getByRole('button', { name: value });
-    userEvent.click(button);
+    await userEvent.click(button);
     expect(window.alert).toHaveBeenCalled();
-    userEvent.click(button);
+    await userEvent.click(button);
     expect(window.alert).toHaveBeenCalled();
   });
 
-  it('does not toggle if disabled', () => {
+  it('does not toggle if disabled', async () => {
     render(<InputSubmit id={id} onClick={someEvent} value={value} disabled />);
     const button = screen.getByRole('button', { name: value });
-    userEvent.click(button);
+    await userEvent.click(button);
     expect(window.alert).not.toHaveBeenCalled();
   });
 });

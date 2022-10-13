@@ -36,7 +36,7 @@ describe('InputSelect', () => {
     expect(screen.getByRole('presentation')).toBeInTheDocument();
   });
 
-  it('toggles options correctly', () => {
+  it('toggles options correctly', async () => {
     render(
       <InputSelect
         name={name}
@@ -49,7 +49,7 @@ describe('InputSelect', () => {
     );
     // toggle the first value
     const select = screen.getByRole('combobox', { name: ariaLabel });
-    userEvent.selectOptions(
+    await userEvent.selectOptions(
       select,
       screen.getByRole('option', { name: options[0].label }),
     );
@@ -57,7 +57,7 @@ describe('InputSelect', () => {
     expect(select.value).toEqual(`${options[0].value}`);
 
     // update the value
-    userEvent.selectOptions(
+    await userEvent.selectOptions(
       select,
       screen.getByRole('option', { name: options[1].label }),
     );

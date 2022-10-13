@@ -334,6 +334,7 @@ en:
       viewers_hint: Allies who can view your moment
       draft_question: Do you want to save your moment as draft?
       bookmarked_question: Bookmark this moment?
+      bookmarked_info: Bookmarked moments appear in your Care Plan
       resource_recommendations_question: Display Resource Recommendations?
     index:
       subtitle: >-

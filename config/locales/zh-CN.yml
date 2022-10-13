@@ -316,6 +316,7 @@ zh-CN:
       viewers_hint: 可以看到你日记的好友
       draft_question: 你想将自己的日记分享保存为草稿吗？
       bookmarked_question: 将日记加上个书签?
+      bookmarked_info: 书签时刻出现在您的护理计划中
       resource_recommendations_question: 显示资源推荐？
     index:
       subtitle: 深入分析影响你心理健康的事件和情况。

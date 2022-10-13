@@ -46,7 +46,7 @@ describe('Modal', () => {
 
   describe('has open prop as false', () => {
     describe('has text values for element and body', () => {
-      it('toggles correctly', () => {
+      it('toggles correctly', async () => {
         const { container } = render(
           <Modal element="Hello" body={bodyText} title={title} />,
         );
@@ -55,11 +55,11 @@ describe('Modal', () => {
         ).not.toBeInTheDocument();
         expect(screen.queryByRole('dialog')).toBeNull();
 
-        userEvent.click(screen.getByRole('button', { name: 'Hello' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Hello' }));
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
 
-        userEvent.click(screen.getByRole('button', { name: 'close' }));
+        await userEvent.click(screen.getByRole('button', { name: 'close' }));
         expect(
           container.querySelector('.modalBackdrop'),
         ).not.toBeInTheDocument();
@@ -68,7 +68,7 @@ describe('Modal', () => {
     });
 
     describe('has text values for element and body with openListener', () => {
-      it('toggles correctly', () => {
+      it('toggles correctly', async () => {
         const component = (
           <Modal
             element="Hello"
@@ -83,12 +83,12 @@ describe('Modal', () => {
         ).not.toBeInTheDocument();
         expect(screen.queryByRole('dialog')).toBeNull();
 
-        userEvent.click(screen.getByRole('button', { name: 'Hello' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Hello' }));
         expect(window.alert).toHaveBeenCalledWith("Hey look it's listening");
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
 
-        userEvent.click(screen.getByRole('button', { name: 'close' }));
+        await userEvent.click(screen.getByRole('button', { name: 'close' }));
         expect(window.alert).toHaveBeenCalledWith("Hey look it's listening");
         expect(
           container.querySelector('.modalBackdrop'),
@@ -98,7 +98,7 @@ describe('Modal', () => {
     });
 
     describe('has HTML values for element and body', () => {
-      it('toggles correctly', () => {
+      it('toggles correctly', async () => {
         const component = (
           <Modal
             element={<button type="button">Hello</button>}
@@ -112,11 +112,13 @@ describe('Modal', () => {
         ).not.toBeInTheDocument();
         expect(screen.queryByRole('dialog')).toBeNull();
 
-        userEvent.click(screen.getAllByRole('button', { name: 'Hello' })[1]);
+        await userEvent.click(
+          screen.getAllByRole('button', { name: 'Hello' })[1],
+        );
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
 
-        userEvent.click(screen.getByRole('button', { name: 'close' }));
+        await userEvent.click(screen.getByRole('button', { name: 'close' }));
         expect(
           container.querySelector('.modalBackdrop'),
         ).not.toBeInTheDocument();
@@ -125,7 +127,7 @@ describe('Modal', () => {
     });
 
     describe('has HTML values for element and body with openListener', () => {
-      it('toggles correctly', () => {
+      it('toggles correctly', async () => {
         const component = (
           <Modal
             element={<button type="button">Hello</button>}
@@ -140,12 +142,14 @@ describe('Modal', () => {
         ).not.toBeInTheDocument();
         expect(screen.queryByRole('dialog')).toBeNull();
 
-        userEvent.click(screen.getAllByRole('button', { name: 'Hello' })[1]);
+        await userEvent.click(
+          screen.getAllByRole('button', { name: 'Hello' })[1],
+        );
         expect(window.alert).toHaveBeenCalledWith("Hey look it's listening");
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
 
-        userEvent.click(screen.getByRole('button', { name: 'close' }));
+        await userEvent.click(screen.getByRole('button', { name: 'close' }));
         expect(window.alert).toHaveBeenCalledWith("Hey look it's listening");
         expect(
           container.querySelector('.modalBackdrop'),
@@ -164,14 +168,14 @@ describe('Modal', () => {
           onKeyPress={handleKeyPress}
         />
       );
-      it('toggles correctly', () => {
+      it('toggles correctly', async () => {
         const { container } = render(component);
         expect(
           container.querySelector('.modalBackdrop'),
         ).not.toBeInTheDocument();
         expect(screen.queryByRole('dialog')).toBeNull();
 
-        userEvent.click(screen.getByRole('button', { name: 'Hello' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Hello' }));
         expect(window.alert).toHaveBeenCalledWith("Hey look it's listening");
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
@@ -197,20 +201,20 @@ describe('Modal', () => {
           onClick={handleOnClick}
         />
       );
-      it('toggles correctly', () => {
+      it('toggles correctly', async () => {
         const { container } = render(component);
         expect(
           container.querySelector('.modalBackdrop'),
         ).not.toBeInTheDocument();
         expect(screen.queryByRole('dialog')).toBeNull();
 
-        userEvent.click(screen.getByRole('button', { name: 'Hello' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Hello' }));
         expect(window.alert).toHaveBeenCalledWith("Hey look it's listening");
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
 
-        userEvent.unhover(screen.getByRole('dialog'));
-        userEvent.click(container.querySelector('.modalBackdrop'));
+        await userEvent.unhover(screen.getByRole('dialog'));
+        await userEvent.click(container.querySelector('.modalBackdrop'));
         expect(
           container.querySelector('.modalBackdrop'),
         ).not.toBeInTheDocument();
@@ -231,19 +235,19 @@ describe('Modal', () => {
           onClick={handleOnClick}
         />
       );
-      it('toggles correctly', () => {
+      it('toggles correctly', async () => {
         const { container } = render(component);
         expect(
           container.querySelector('.modalBackdrop'),
         ).not.toBeInTheDocument();
         expect(screen.queryByRole('dialog')).toBeNull();
 
-        userEvent.click(screen.getByRole('button', { name: 'Hello' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Hello' }));
         expect(window.alert).toHaveBeenCalledWith("Hey look it's listening");
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
 
-        userEvent.click(screen.getByRole('dialog'));
+        await userEvent.click(screen.getByRole('dialog'));
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
       });
@@ -255,25 +259,25 @@ describe('Modal', () => {
       const component = (
         <Modal element="Hello" body={bodyText} title={title} open />
       );
-      it('toggles correctly', () => {
+      it('toggles correctly', async () => {
         const { container } = render(component);
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
 
-        userEvent.click(screen.getByRole('button', { name: 'close' }));
+        await userEvent.click(screen.getByRole('button', { name: 'close' }));
         expect(
           container.querySelector('.modalBackdrop'),
         ).not.toBeInTheDocument();
         expect(screen.queryByRole('dialog')).toBeNull();
 
-        userEvent.click(screen.getByRole('button', { name: 'Hello' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Hello' }));
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
       });
     });
 
     describe('has text values for element and body with openListener', () => {
-      it('toggles correctly', () => {
+      it('toggles correctly', async () => {
         const component = (
           <Modal
             element="Hello"
@@ -287,13 +291,13 @@ describe('Modal', () => {
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
 
-        userEvent.click(screen.getByRole('button', { name: 'close' }));
+        await userEvent.click(screen.getByRole('button', { name: 'close' }));
         expect(
           container.querySelector('.modalBackdrop'),
         ).not.toBeInTheDocument();
         expect(screen.queryByRole('dialog')).toBeNull();
 
-        userEvent.click(screen.getByRole('button', { name: 'Hello' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Hello' }));
         expect(window.alert).toHaveBeenCalledWith("Hey look it's listening");
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
@@ -301,7 +305,7 @@ describe('Modal', () => {
     });
 
     describe('has HTML values for element and body', () => {
-      it('toggles correctly', () => {
+      it('toggles correctly', async () => {
         const component = (
           <Modal
             element={<button type="button">Hello</button>}
@@ -314,20 +318,22 @@ describe('Modal', () => {
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
 
-        userEvent.click(screen.getByRole('button', { name: 'close' }));
+        await userEvent.click(screen.getByRole('button', { name: 'close' }));
         expect(
           container.querySelector('.modalBackdrop'),
         ).not.toBeInTheDocument();
         expect(screen.queryByRole('dialog')).toBeNull();
 
-        userEvent.click(screen.getAllByRole('button', { name: 'Hello' })[1]);
+        await userEvent.click(
+          screen.getAllByRole('button', { name: 'Hello' })[1],
+        );
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
       });
     });
 
     describe('has HTML values for element and body with openListener', () => {
-      it('toggles correctly', () => {
+      it('toggles correctly', async () => {
         const component = (
           <Modal
             element={<button type="button">Hello</button>}
@@ -341,13 +347,15 @@ describe('Modal', () => {
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
 
-        userEvent.click(screen.getByRole('button', { name: 'close' }));
+        await userEvent.click(screen.getByRole('button', { name: 'close' }));
         expect(
           container.querySelector('.modalBackdrop'),
         ).not.toBeInTheDocument();
         expect(screen.queryByRole('dialog')).toBeNull();
 
-        userEvent.click(screen.getAllByRole('button', { name: 'Hello' })[1]);
+        await userEvent.click(
+          screen.getAllByRole('button', { name: 'Hello' })[1],
+        );
         expect(window.alert).toHaveBeenCalledWith("Hey look it's listening");
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
@@ -355,7 +363,7 @@ describe('Modal', () => {
     });
 
     describe('uses an Avatar component for an element and HTML values for the body', () => {
-      it('renders correctly', () => {
+      it('renders correctly', async () => {
         const component = (
           <Modal
             element={{
@@ -369,7 +377,7 @@ describe('Modal', () => {
 
         const { container } = render(component);
         expect(container.querySelector('.avatar')).toBeInTheDocument();
-        userEvent.click(container.querySelector('.avatar'));
+        await userEvent.click(container.querySelector('.avatar'));
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
       });
@@ -415,13 +423,13 @@ describe('Modal', () => {
           open
         />
       );
-      it('toggles correctly', () => {
+      it('toggles correctly', async () => {
         const { container } = render(component);
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
 
-        userEvent.unhover(screen.getByRole('dialog'));
-        userEvent.click(container.querySelector('.modalBackdrop'));
+        await userEvent.unhover(screen.getByRole('dialog'));
+        await userEvent.click(container.querySelector('.modalBackdrop'));
         expect(
           container.querySelector('.modalBackdrop'),
         ).not.toBeInTheDocument();
@@ -443,13 +451,13 @@ describe('Modal', () => {
           open
         />
       );
-      it('toggles correctly', () => {
+      it('toggles correctly', async () => {
         const { container } = render(component);
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
-        userEvent.hover(screen.getByRole('dialog'));
+        await userEvent.hover(screen.getByRole('dialog'));
 
-        userEvent.click(container.querySelector('.modalBackdrop'));
+        await userEvent.click(container.querySelector('.modalBackdrop'));
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
       });

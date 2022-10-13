@@ -19,6 +19,17 @@ describe "Care Plan", type: :request do
           expect(response.body).to include(strategy.name)
         end
       end
+
+      context 'when there are bookmarked moments' do
+        let!(:moment_bm) { create(:moment, user: user, bookmarked: true) }
+        let!(:moment_no_bm) { create(:moment, name: 'Not bookmarked', user: user) }
+
+        it 'assigns bookmarked_strategies' do
+          get care_plan_path
+          expect(response.body).to include(moment_bm.name)
+          expect(response.body).to_not include(moment_no_bm.name)
+        end
+      end
     end
 
     context 'when user is not signed in' do

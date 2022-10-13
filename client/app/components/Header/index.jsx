@@ -1,5 +1,5 @@
 // @flow
-import React, { useState, type Node } from 'react';
+import React, { useState, useRef, type Node } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import renderHTML from 'react-render-html';
@@ -8,6 +8,7 @@ import { Logo } from 'components/Logo';
 import { HeaderProfile } from 'components/Header/HeaderProfile';
 import type { Profile, Link } from './types';
 import css from './Header.scss';
+import { useFocusTrap } from '../../hooks';
 
 export type Props = {
   home: Link,
@@ -18,23 +19,36 @@ export type Props = {
 
 export type State = {
   mobileNavOpen: boolean,
-  toggled: boolean,
 };
 
 export const Header = ({
   home, links, mobileOnly, profile,
 }: Props): Node => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
-  const [toggled, setToggled] = useState(true);
+  const navigationRef = useRef(null);
+
+  useFocusTrap(navigationRef, mobileNavOpen);
 
   const toggle = (): void => {
-    setMobileNavOpen(!mobileNavOpen);
-    setToggled(true);
+    setMobileNavOpen((currentNavValue) => !currentNavValue);
+  };
+
+  const handleHamburgerKeyDown = (
+    event: SyntheticKeyboardEvent<HTMLElement>,
+  ): void => {
+    // Only toggle the menu if the user presses the Enter key or the space bar
+    if (['Enter', ' '].includes(event.key)) {
+      /**
+       * Prevent the default action to stop scrolling when space is pressed
+       */
+      event.preventDefault();
+      toggle();
+    }
   };
 
   const displayToggle = (): Node => {
     const body = ((document.body: any): HTMLBodyElement);
-    if (toggled && mobileNavOpen) {
+    if (mobileNavOpen) {
       body.classList.add('bodyHeaderOpen');
       return <FontAwesomeIcon icon={faTimes} />;
     }
@@ -60,8 +74,8 @@ export const Header = ({
   const displayDesktop = (): Node => (
     <div
       className={css.headerDesktop}
-      role="navigation"
       aria-label={I18n.t('navigation.main_menu')}
+      role="navigation"
     >
       <div className={css.headerDesktopHome}>
         <Logo sm link={home.url} />
@@ -71,14 +85,16 @@ export const Header = ({
           id="headerHamburger"
           className={css.headerHamburger}
           onClick={toggle}
-          onKeyDown={toggle}
+          onKeyDown={handleHamburgerKeyDown}
           role="button"
           tabIndex="0"
           aria-label={mobileNavOpen ? I18n.t('close') : I18n.t('expand_menu')}
         >
           {displayToggle()}
         </div>
-        <div className={css.headerDesktopNavLinks}>{displayLinks()}</div>
+        {!mobileNavOpen && (
+          <div className={css.headerDesktopNavLinks}>{displayLinks()}</div>
+        )}
       </div>
     </div>
   );
@@ -98,7 +114,12 @@ export const Header = ({
       id="header"
       className={`${css.header} ${mobileNavOpen ? css.headerMobile : ''}`}
     >
-      <div className={`${mobileNavOpen ? css.headerMobileBg : ''}`}>
+      <div
+        ref={navigationRef}
+        className={`${mobileNavOpen ? css.headerMobileBg : ''}`}
+        role="menu"
+        tabIndex="-1"
+      >
         {displayDesktop()}
         {mobileNavOpen ? displayMobile() : null}
       </div>

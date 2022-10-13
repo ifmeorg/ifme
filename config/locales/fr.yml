@@ -360,6 +360,7 @@ fr:
       viewers_hint: Alliés qui peuvent visualiser ce moment
       draft_question: Voulez-vous conserver ce moment comme brouillon ?
       bookmarked_question: Ajouter ce moment aux favoris?
+      bookmarked_info: Les moments marqués apparaissent dans votre plan de soins
       resource_recommendations_question: Voulez-vous afficher la recommandation de ressource?
     index:
       subtitle: >-
