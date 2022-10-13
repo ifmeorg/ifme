@@ -1,5 +1,5 @@
 // @flow
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { InputMocks } from 'mocks/InputMocks';
 
@@ -28,22 +28,19 @@ describe('InputSwitch', () => {
   });
 
   describe('with keyboard', () => {
-    it('toggles correctly', () => {
+    it('toggles correctly', async () => {
       render(component);
       const inputSwitch = screen.getByRole('switch');
+      const user = await userEvent.setup();
 
       expect(screen.getByRole('checkbox')).not.toBeChecked();
 
-      /**
-       * TODO: Follow up on `await userEvent.type(inputSwitch, '{enter}')` in v12.1.7.
-       * Temporarily including `fireEvent` from RTL, for which the switch must have focus first:
-       * https://github.com/testing-library/react-testing-library/issues/376#issuecomment-541242684
-       */
-      fireEvent.focus(inputSwitch);
-      fireEvent.keyDown(inputSwitch, { key: 'Enter' });
+      await user.tab();
+      expect(inputSwitch).toHaveFocus();
+      await user.keyboard('{Enter}');
       expect(screen.getByRole('checkbox')).toBeChecked();
 
-      fireEvent.keyDown(inputSwitch, { key: 'Enter' });
+      await user.keyboard('{Enter}');
       expect(screen.getByRole('checkbox')).not.toBeChecked();
     });
   });
