@@ -90,15 +90,16 @@ module MomentsHelper
     actions = user_actions(element,
                            present_object,
                            element.user_id == current_user&.id)
-    if element.is_a?(Moment) || element.visible
-      { edit: actions[:edit], delete: actions[:delete],
-        viewers: actions[:viewers], visible: actions[:visible],
-        share_link_info: actions[:share_link_info] }
-    else
-      { edit: actions[:edit], delete: actions[:delete],
-        viewers: actions[:viewers], not_visible: actions[:visible],
-        share_link_info: actions[:share_link_info] }
-    end
+    {
+      edit: actions[:edit],
+      delete: actions[:delete],
+      viewers: actions[:viewers],
+      not_visible: (!element.is_a?(Moment) &&
+      !element.visible) &&
+        actions[:visible],
+      visible: (element.is_a?(Moment) || element.visible) && actions[:visible],
+      share_link_info: actions[:share_link_info]
+    }
   end
 
   def story_by(element)
