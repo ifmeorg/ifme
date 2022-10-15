@@ -238,6 +238,17 @@ describe MomentsFormHelper do
               value: '0'
             },
             {
+              id: 'moment_bookmarked',
+              checked: false,
+              dark: true,
+              info: 'Bookmarked moments appear in your Care Plan',
+              label: 'Bookmark this moment?',
+              name: 'moment[bookmarked]',
+              type: 'switch',
+              uncheckedValue: false,
+              value: true
+            },
+            {
               id: 'moment_resource_recommendations',
               type: 'switch',
               name: 'moment[resource_recommendations]',
@@ -470,6 +481,17 @@ describe MomentsFormHelper do
               type: 'switch',
               uncheckedValue: '1',
               value: '0'
+            },
+            {
+              id: 'moment_bookmarked',
+              checked: false,
+              dark: true,
+              info: 'Bookmarked moments appear in your Care Plan',
+              label: 'Bookmark this moment?',
+              name: 'moment[bookmarked]',
+              type: 'switch',
+              uncheckedValue: false,
+              value: true
             },
             {
               id: 'moment_resource_recommendations',
@@ -746,6 +768,17 @@ describe MomentsFormHelper do
               checked: true
             },
             {
+              id: 'moment_bookmarked',
+              checked: false,
+              dark: true,
+              info: 'Bookmarked moments appear in your Care Plan',
+              label: 'Bookmark this moment?',
+              name: 'moment[bookmarked]',
+              type: 'switch',
+              uncheckedValue: false,
+              value: true
+            },
+            {
               id: 'moment_resource_recommendations',
               type: 'switch',
               name: 'moment[resource_recommendations]',
@@ -1012,6 +1045,17 @@ describe MomentsFormHelper do
               value: '0',
               uncheckedValue: '1',
               checked: true
+            },
+            {
+              id: 'moment_bookmarked',
+              checked: false,
+              dark: true,
+              info: 'Bookmarked moments appear in your Care Plan',
+              label: 'Bookmark this moment?',
+              name: 'moment[bookmarked]',
+              type: 'switch',
+              uncheckedValue: false,
+              value: true
             },
             {
               id: 'moment_resource_recommendations',

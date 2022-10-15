@@ -87,7 +87,7 @@ module MomentsFormHelper
       'bookmarked', 'switch', 'moments.form.bookmarked_question'
     ).merge(
       value: true, uncheckedValue: false,
-      checked: params[:bookmarked] ? true : @moment.bookmarked, 
+      checked: params[:bookmarked] ? true : @moment.bookmarked,
       dark: true,
       info: t('moments.form.bookmarked_info')
     )
@@ -105,8 +105,8 @@ module MomentsFormHelper
       moment_name, moment_why, moment_fix, moment_category, moment_mood,
       moment_strategy, get_viewers_input(
         @viewers, 'moment', 'moments', @moment
-      ), moment_comment, moment_publishing(edit),
-      Rails.env.development? ? moment_bookmarked : {}, moment_display_resources
+      ), moment_comment, moment_publishing(edit), moment_bookmarked,
+      moment_display_resources
     ]
   end
 
