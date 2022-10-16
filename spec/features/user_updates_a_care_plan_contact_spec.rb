@@ -9,7 +9,7 @@ feature 'UserUpdatesACarePlanContact', type: :feature, js: true do
     expect(page).to have_content('Lovely Person')
 
     within '.story' do
-      find('a[aria-label="Edit"]').click
+      find('a[aria-label="Edit Lovely Person"]').click
     end
 
     find('input[aria-label="Name"]').set('')
@@ -25,7 +25,7 @@ feature 'UserUpdatesACarePlanContact', type: :feature, js: true do
     expect(page).to have_content('Lovely Person')
 
     within '.story' do
-      find('a[aria-label="Edit"]').click
+      find('a[aria-label="Edit Lovely Person"]').click
     end
 
     find('input[aria-label="Name"]').set('Silly Person')

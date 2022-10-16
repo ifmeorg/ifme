@@ -117,6 +117,8 @@ en:
     allow_comments: Allow Comments?
     hint: Only you and viewers can comment
     control: Control who can view and comment
+    report_comment_by: 'Report comment by %{name}'
+    delete_comment_by: 'Delete comment by %{name}'
   account:
     singular: Account
     sign_in: Sign in

@@ -117,6 +117,8 @@ hi:
     allow_comments: टिप्पणियों की अनुमति दें?
     hint: केवल आप और दर्शक टिप्पणी कर सकते हैं
     control: नियंत्रण जो देख सकता है और टिप्पणी कर सकता है
+    report_comment_by: 'टिप्पणी रिपोर्ट द्वारा %{name}'
+    delete_comment_by: 'टिप्पणी मिटाई द्वारा %{name}'
   account:
     singular: लेखा
     sign_in: दाखिल करना
