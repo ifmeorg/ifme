@@ -115,6 +115,8 @@ ko:
     allow_comments: 댓글을 허용하시겠습니까?
     hint: 당신과 조회한 사람들만이 댓글을 작성할 수 있습니다.
     control: 누가 볼 수 있고 댓글을 작성할 수 있는지 설정
+    report_comment_by: '댓글 신고 %{name}'
+    delete_comment_by: '댓글 삭제 %{name}'
   account:
     singular: 계정
     sign_in: 로그인

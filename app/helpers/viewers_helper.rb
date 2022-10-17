@@ -40,7 +40,8 @@ module ViewersHelper
         viewers: element.respond_to?(:viewers) &&
           get_viewer_list(element.viewers, nil),
         visible: element.visible && get_visible(element.visible)
-      }.delete_if { |key, value| value == false }
+      }.delete_if { |key, value| value == false },
+      storyName: element.name
     }
   end
 

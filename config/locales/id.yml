@@ -117,6 +117,8 @@ id:
     allow_comments: Allow Comments?
     hint: Hanya Anda dan pemirsa yang dapat berkomentar
     control: Kontrol siapa yang dapat melihat dan berkomentar
+    report_comment_by: 'Laporkan komentar oleh %{name}'
+    delete_comment_by: 'Hapus komentar dengan %{name}'
   account:
     singular: Akun
     sign_in: Masuk

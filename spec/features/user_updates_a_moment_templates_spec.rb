@@ -9,7 +9,7 @@ feature 'UserUpdatesAMomentTemplate', type: :feature, js: true do
     expect(page).to have_content('Test Moment Template Name')
 
     within '.story' do
-      find('a[aria-label="Edit"]').click
+      find('a[aria-label="Edit Test Moment Template Name"]').click
     end
 
     find('input[aria-label="Name"]').set('')
@@ -25,7 +25,7 @@ feature 'UserUpdatesAMomentTemplate', type: :feature, js: true do
     expect(page).to have_content('Test Moment Template Name')
 
     within '.story' do
-      find('a[aria-label="Edit"]').click
+      find('a[aria-label="Edit Test Moment Template Name"]').click
     end
 
     find('input[aria-label="Name"]').set('Template Name')

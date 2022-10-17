@@ -115,6 +115,8 @@ zh-CN:
     allow_comments: 允许评论？
     hint: 只有你和观众可以发表评论
     control: 控制哪些人可以查看和评论
+    report_comment_by: '报告评论者 %{name}'
+    delete_comment_by: '删除评论 %{name}'
   account:
     singular: 帐户
     sign_in: 登入

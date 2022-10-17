@@ -117,6 +117,8 @@ it:
     allow_comments: Permetti commenti?
     hint: Solo tu e i visualizzatori potete commentare
     control: Decidi chi può vedere e commentare
+    report_comment_by: 'Segnala commento di %{name}'
+    delete_comment_by: 'Elimina commento di %{name}'
   account:
     singular: Account
     sign_in: Accedi

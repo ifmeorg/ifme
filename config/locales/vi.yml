@@ -115,6 +115,8 @@ vi:
     allow_comments: Cho phép bình luận?
     hint: Chỉ có bạn và người xem có thể bình luận
     control: Quản lý ai có thể xem và bình luận
+    report_comment_by: 'Báo cáo bình luận của %{name}'
+    delete_comment_by: 'Xóa nhận xét của %{name}'
   account:
     singular: Tài khoản
     sign_in: Đăng nhập

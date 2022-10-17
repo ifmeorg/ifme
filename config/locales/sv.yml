@@ -117,6 +117,8 @@ sv:
     allow_comments: Tillåt kommentarer?
     hint: Bara du och tittare kan kommentera
     control: Bestäm vem som kan visa och kommentera
+    report_comment_by: 'Anmäl kommentar av %{name}'
+    delete_comment_by: 'Ta bort kommentar av %{name}'
   account:
     singular: Konto
     sign_in: Logga in

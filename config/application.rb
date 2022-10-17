@@ -57,6 +57,8 @@ module Ifme
     config.i18n.available_locales = Locale.available_locales.sort_by(&:swapcase).map &:to_sym
     config.i18n.default_locale = :en
 
+    config.action_view.sanitized_allowed_tags = Rails::Html::Sanitizer.white_list_sanitizer.allowed_tags + ['strike', 'u']
+
     config.to_prepare do
       Devise::Mailer.layout 'mailer'
     end

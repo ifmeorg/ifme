@@ -9,7 +9,7 @@ feature 'UserDeletesAMomentTemplate', type: :feature, js: true do
     expect(page).to have_content('Test Moment Template Name')
 
     within '.story' do
-      find('a[aria-label="Delete"]').click
+      find('a[aria-label="Delete Test Moment Template Name"]').click
     end
 
     page.driver.browser.switch_to.alert.accept

@@ -115,6 +115,8 @@ fr:
     allow_comments: Autoriser les commentaires ?
     hint: Seulement vous et les lecteurs peuvent ajouter des commentaires
     control: Contrôler qui peut lire et ajouter des commentaires
+    report_comment_by: 'Signaler un commentaire par %{name}'
+    delete_comment_by: 'Supprimer le commentaire par %{name}'
   account:
     singular: Compte
     sign_in: S'identifier

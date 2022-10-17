@@ -698,7 +698,15 @@
     "profile": "I am a self-taught front-end developer from India, currently learning full-stack development. I am looking to contribute to communities where people can be open about their mental health.",
     "location": "Delhi, India",
     "link_name": "Sourabh358",
-    "link": "https://github.com/SOURABH358",
+    "link": "https://github.com/SOURABH358"
+  },
+  {
+    "name": "Nikhil Bhatt",
+    "image": "/assets/contributors/nikhil_bhatt.jpg",
+    "profile": "Techie, who loves to solve the real world problems using code. Currently, I'm working as a Full stack developer in Ruby on Rails and React",
+    "location": "Bengaluru, India",
+    "link_name": "nikhilbhatt",
+    "link": "https://github.com/nikhilbhatt",
     "social": "github"
   }
 ]

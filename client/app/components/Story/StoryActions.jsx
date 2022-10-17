@@ -25,6 +25,7 @@ export type Action = {
   dataMethod?: string,
   dataConfirm?: string,
   onClick?: Function,
+  commentBy?: string,
 };
 
 export type Actions = {
@@ -42,6 +43,7 @@ export type Actions = {
 
 export type Props = {
   actions: Actions,
+  storyName?: string,
   hasStory?: boolean,
   dark?: boolean,
 };
@@ -122,16 +124,24 @@ const displayNonLink = (
 
 const titleItem = (item: string) => item.charAt(0).toUpperCase() + item.slice(1);
 
-const tooltipElement = (item: string, actions: Actions, dark: ?boolean) => {
+const tooltipElement = (
+  item: string,
+  actions: Actions,
+  storyName: ?string,
+  dark: ?boolean,
+) => {
   const {
-    link, dataMethod, dataConfirm, name, onClick,
+    link, dataMethod, dataConfirm, name, onClick, commentBy,
   } = actions[item];
+
+  const ariaLabel = commentBy || `${name} ${storyName || ''}`;
+
   return (
     <a
       href={link}
       data-method={dataMethod}
       data-confirm={dataConfirm}
-      aria-label={name}
+      aria-label={ariaLabel}
       onClick={
         onClick
           ? (e: SyntheticEvent<HTMLInputElement>) => onClick(e, link)
@@ -146,12 +156,13 @@ const tooltipElement = (item: string, actions: Actions, dark: ?boolean) => {
 const displayLink = (
   actions: Actions,
   item: string,
+  storyName: ?string,
   hasStory: ?boolean,
   dark: ?boolean,
 ) => (
   <div key={item} className={`storyActions${titleItem(item)}`}>
     <Tooltip
-      element={tooltipElement(item, actions, dark)}
+      element={tooltipElement(item, actions, storyName, dark)}
       text={actions[item].name}
       right={!!hasStory}
     />
@@ -161,6 +172,7 @@ const displayLink = (
 const displayItem = (
   actions: Actions,
   item: string,
+  storyName: ?string,
   hasStory: ?boolean,
   dark: ?boolean,
 ) => {
@@ -172,11 +184,13 @@ const displayItem = (
   ) {
     return displayNonLink(actions, item, hasStory, dark);
   }
-  return displayLink(actions, item, hasStory, dark);
+  return displayLink(actions, item, storyName, hasStory, dark);
 };
 
 export const StoryActions = (props: Props): Node => {
-  const { actions, hasStory, dark } = props;
+  const {
+    actions, hasStory, dark, storyName,
+  } = props;
   return (
     <div className={css.actions}>
       {[
@@ -191,7 +205,9 @@ export const StoryActions = (props: Props): Node => {
         NOT_VISIBLE,
         VIEWERS,
         SHARE_LINK_INFO,
-      ].map((item: string) => (actions[item] ? displayItem(actions, item, hasStory, dark) : null))}
+      ].map((item: string) => (actions[item]
+        ? displayItem(actions, item, storyName, hasStory, dark)
+        : null))}
     </div>
   );
 };

@@ -117,6 +117,8 @@ es:
     allow_comments: ¿Permitir comentarios?
     hint: Solo tú y tu audiencia pueden comentar
     control: Controla quiénes pueden ver y comentar
+    report_comment_by: 'Reportar comentario por %{name}'
+    delete_comment_by: 'Eliminar comentario de %{name}'
   account:
     singular: Cuenta
     sign_in: Ingresar
