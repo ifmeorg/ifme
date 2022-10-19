@@ -69,11 +69,17 @@ describe('MomentTemplates', () => {
         expect(screen.getByText(premadeOne.name)).toBeInTheDocument();
         expect(screen.getByText(premadeTwo.name)).toBeInTheDocument();
         expect(
-          container.querySelectorAll('a[aria-label="Edit"]').length,
-        ).toEqual(2);
+          container.querySelectorAll('a[aria-label="Edit Basic"]').length,
+        ).toEqual(1);
         expect(
-          container.querySelectorAll('a[aria-label="Delete"]').length,
-        ).toEqual(2);
+          container.querySelectorAll('a[aria-label="Delete Basic"]').length,
+        ).toEqual(1);
+        expect(
+          container.querySelectorAll('a[aria-label="Edit Gratitude"]').length,
+        ).toEqual(1);
+        expect(
+          container.querySelectorAll('a[aria-label="Delete Gratitude"]').length,
+        ).toEqual(1);
       });
     });
   });

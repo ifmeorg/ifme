@@ -59,9 +59,10 @@ export const Comments = ({ comments, formProps }: Props): Node => {
     });
   };
 
-  const reportAction = (uid: string, id: number) => ({
+  const reportAction = (uid: string, id: number, commentByName: string) => ({
     name: I18n.t('common.actions.report'),
     link: `/reports/new?uid=${uid}&comment_id=${id}`,
+    commentBy: I18n.t('comment.report_comment_by', { name: commentByName }),
   });
 
   const getActions = (
@@ -71,10 +72,11 @@ export const Comments = ({ comments, formProps }: Props): Node => {
     uid: string,
     id: number,
     commentByAdmin: Boolean,
+    commentByName: string,
   ) => {
     const actions = {};
     if (currentUserUid !== uid && !commentByAdmin) {
-      actions.report = reportAction(uid, id);
+      actions.report = reportAction(uid, id, commentByName);
     }
     if (viewers) {
       actions.viewers = viewers;
@@ -85,6 +87,7 @@ export const Comments = ({ comments, formProps }: Props): Node => {
         link: deleteAction,
         dataConfirm: I18n.t('common.actions.confirm'),
         onClick: onDeleteClick,
+        commentBy: I18n.t('comment.delete_comment_by', { name: commentByName }),
       };
     }
     return actions;
@@ -118,6 +121,7 @@ export const Comments = ({ comments, formProps }: Props): Node => {
               commentByUid,
               id,
               commentByAdmin,
+              commentByName,
             )}
             hasStory
           />

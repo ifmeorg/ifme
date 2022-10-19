@@ -89,7 +89,8 @@
               dataConfirm:  t('common.actions.confirm')
             },
             viewers: get_viewer_list(@moment.viewers, nil)
-          }
+          },
+          storyName: @moment.name
         }) %>
       </div>
       <% if @moment.shared? %>

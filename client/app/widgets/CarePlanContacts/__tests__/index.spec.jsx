@@ -45,7 +45,7 @@ describe('CarePlanContacts', () => {
       });
       const { container } = render(component);
 
-      const editLink = container.querySelector('a[aria-label="Edit"]');
+      const editLink = container.querySelector('a[aria-label="Edit Test1 Lastname"]');
       expect(screen.queryByText('Edit Contact')).not.toBeInTheDocument();
 
       await userEvent.click(editLink);
@@ -72,7 +72,7 @@ describe('CarePlanContacts', () => {
       const axiosPostSpy = jest.spyOn(axios, 'patch').mockRejectedValue(error);
       const { container } = render(component);
 
-      const editLink = container.querySelector('a[aria-label="Edit"]');
+      const editLink = container.querySelector('a[aria-label="Edit Test1 Lastname"]');
       expect(screen.queryByText('Edit Contact')).not.toBeInTheDocument();
 
       await userEvent.click(editLink);
