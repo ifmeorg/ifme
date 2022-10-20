@@ -75,7 +75,7 @@ describe 'Moments', type: :request do
           expect(response).to render_template('edit')
         end
 
-        it 'reders associated moods in dropdown regardless of visibility status' do
+        it 'renders associated moods in dropdown regardless of visibility status' do
           mood1 = create(:mood, name: 'Invisible Mood', user: user, visible: false)
           mood2 = create(:mood, name: 'Visible Mood', user: user, visible: true)
           mood3 = create(:mood, name: 'Invisible but Associated Mood', user: user, visible: false)
@@ -87,7 +87,7 @@ describe 'Moments', type: :request do
           expect(response.body).to include(mood3.name)
         end
         
-        it 'reders associated category in dropdown regardless of visibility status' do
+        it 'renders associated category in dropdown regardless of visibility status' do
           category1 = create(:category, name: 'Invisible Category', user: user, visible: false)
           category2 = create(:category, name: 'Visible Category', user: user, visible: true)
           category3 = create(:category, name: 'Invisible but associated Category', user: user, visible: false)
@@ -99,7 +99,7 @@ describe 'Moments', type: :request do
           expect(response.body).to include(category3.name)
         end
 
-        it 'reders associated strategies in dropdown regardless of visibility status' do
+        it 'renders associated strategies in dropdown regardless of visibility status' do
           strategy1 = create(:strategy, name: 'Invisible Strategy', user: user, visible: false)
           strategy2 = create(:strategy, name: 'Visible Strategy', user: user, visible: true)
           strategy3 = create(:strategy, name: 'Invisible but associated Strategy', user: user, visible: true)

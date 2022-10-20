@@ -151,7 +151,7 @@ describe 'Strategy', type: :request do
         end
       end
 
-      it 'reders associated category in dropdown regardless of visibility status' do
+      it 'renders associated category in dropdown regardless of visibility status' do
         category1 = create(:category, name: 'Invisible Category', user: user, visible: false)
         strategy_category = StrategiesCategory.create(category_id: category1.id, strategy_id: strategy1.id)
         category2 = create(:category, name: 'Visible Category', user: user, visible: true)
