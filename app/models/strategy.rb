@@ -74,13 +74,6 @@ class Strategy < ApplicationRecord
     self.viewers = viewers.collect(&:to_i) if viewers.is_a?(Array)
   end
 
-  # def category_array_data
-  #   return unless category.is_a?(Array)
-
-  #   category_ids = category.collect(&:to_i)
-  #   self.categories = Category.where(user_id: user_id, id: category_ids)
-  # end
-
   def published?
     published_at.present?
   end
