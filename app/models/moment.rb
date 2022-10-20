@@ -45,10 +45,10 @@ class Moment < ApplicationRecord
   friendly_id :name
   serialize :viewers, Array
 
-  before_save :category_array_data
+  before_save do
+    elements_array_data(%w[category mood strategy])
+  end
   before_save :viewers_array_data
-  before_save :mood_array_data
-  before_save :strategy_array_data
 
   belongs_to :user
 

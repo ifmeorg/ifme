@@ -52,7 +52,9 @@ class StrategiesController < ApplicationController
       redirect_to_path(strategy_path(@strategy))
     end
     @viewers = current_user.allies_by_status(:accepted)
-    @categories = current_user.categories.is_visible.or(Category.where(id: @strategy.category_ids)).order('created_at DESC')
+    @categories = current_user.categories.is_visible
+                              .or(Category.where(id: @strategy.category_ids))
+                              .order('created_at DESC')
     @category = Category.new
     PerformStrategyReminder.find_or_initialize_by(strategy_id: @strategy.id)
   end

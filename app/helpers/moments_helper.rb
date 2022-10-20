@@ -99,7 +99,7 @@ module MomentsHelper
         actions[:visible],
       visible: (element.is_a?(Moment) || element.visible) && actions[:visible],
       share_link_info: actions[:share_link_info]
-    }.delete_if { |key, value| value == false }
+    }.delete_if { |_, value| value == false }
   end
 
   def story_by(element)
