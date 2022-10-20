@@ -119,6 +119,15 @@ describe 'Strategy', type: :request do
         get new_strategy_path
         expect(response).to render_template('new')
       end
+      
+      it 'does not show not_visible category in dropdown' do
+        category1 = create(:category, name: 'Invisible Category', user: user, visible: false)
+        category2 = create(:category, name: 'Visible Category', user: user, visible: true)
+  
+        get new_strategy_path
+        expect(response.body).to include(category2.name)
+        expect(response.body).not_to include(category1.name)
+      end
     end
 
     context 'when the user is not logged in' do
@@ -140,6 +149,18 @@ describe 'Strategy', type: :request do
           get edit_strategy_path(strategy1), params: { id: strategy1.id }
           expect(response).to render_template('edit')
         end
+      end
+
+      it 'renders associated category in dropdown regardless of visibility status' do
+        category1 = create(:category, name: 'Invisible Category', user: user, visible: false)
+        strategy_category = StrategiesCategory.create(category_id: category1.id, strategy_id: strategy1.id)
+        category2 = create(:category, name: 'Visible Category', user: user, visible: true)
+        category3 = create(:category, name: 'Invisible Category 3', user: user, visible: false)
+  
+        get edit_strategy_path(strategy1), params: { id: strategy1.id }
+        expect(response.body).to include(category2.name)
+        expect(response.body).to include(category1.name)
+        expect(response.body).not_to include(category3.name)
       end
 
       context 'when the strategy does not belong to the current user' do

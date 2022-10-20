@@ -22,6 +22,29 @@ module ViewersHelper
     result.uniq
   end
 
+  def element_visibility_based_props(element)
+    {
+      dark: true,
+      actions: {
+        delete: {
+          name: t('common.actions.delete'),
+          link: url_for(element),
+          dataConfirm: t('common.actions.confirm'),
+          dataMethod: 'delete'
+        },
+        edit: {
+          name: t('common.actions.edit'),
+          link: url_for([:edit, element])
+        },
+        not_visible: !element.visible && get_visible(element.visible),
+        viewers: element.respond_to?(:viewers) &&
+          get_viewer_list(element.viewers, nil),
+        visible: element.visible && get_visible(element.visible)
+      }.delete_if { |_, value| value == false },
+      storyName: element.name
+    }
+  end
+
   private
 
   def get_link(link)

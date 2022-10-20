@@ -45,10 +45,10 @@ class Moment < ApplicationRecord
   friendly_id :name
   serialize :viewers, Array
 
-  before_save :category_array_data
+  before_save do
+    elements_array_data(%w[category mood strategy])
+  end
   before_save :viewers_array_data
-  before_save :mood_array_data
-  before_save :strategy_array_data
 
   belongs_to :user
 
@@ -80,29 +80,8 @@ class Moment < ApplicationRecord
     )
   end
 
-  def category_array_data
-    return unless category.is_a?(Array)
-
-    category_ids = category.collect(&:to_i)
-    self.categories = Category.where(user_id: user_id, id: category_ids)
-  end
-
   def viewers_array_data
     self.viewers = viewers.collect(&:to_i) if viewers.is_a?(Array)
-  end
-
-  def mood_array_data
-    return unless mood.is_a?(Array)
-
-    mood_ids = mood.collect(&:to_i)
-    self.moods = Mood.where(user_id: user_id, id: mood_ids)
-  end
-
-  def strategy_array_data
-    return unless strategy.is_a?(Array)
-
-    strategy_ids = strategy.collect(&:to_i)
-    self.strategies = Strategy.where(user_id: user_id, id: strategy_ids)
   end
 
   def owned_by?(user)

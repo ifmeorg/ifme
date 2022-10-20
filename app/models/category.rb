@@ -14,6 +14,7 @@
 #
 
 class Category < ApplicationRecord
+  include IsVisibleConcern
   extend FriendlyId
 
   friendly_id :name

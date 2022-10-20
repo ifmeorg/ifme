@@ -872,7 +872,8 @@ nl:
       you_are_focusing: Je focust het meest op
       user_is_focusing: '%{name} is het meest gefocust op'
       visible_in_stats: Zichtbaar in statistieken
-      make_visible_in_stats: Zichtbaar maken in statistieken?
+      not_visible_in_stats: Niet zichtbaar om te taggen en weer te geven in profielstatistieken
+      make_visible_in_stats: Zichtbaar maken voor tag en weergave in profielstatistieken?
     viewers:
       plural: Kijkers
       you: Alleen jij

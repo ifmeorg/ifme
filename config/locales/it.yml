@@ -861,7 +861,8 @@ it:
       you_are_focusing: Ti stai concentrando specialmente su
       user_is_focusing: '%{name} si sta concentrando specialmente su'
       visible_in_stats: Visibile nelle statistiche
-      make_visible_in_stats: Rendi visibile nelle statistiche?
+      not_visible_in_stats: Non visibile per taggare e visualizzare nelle statistiche del profilo
+      make_visible_in_stats: Rendere visibile per taggare e visualizzare nelle statistiche del profilo?
     viewers:
       plural: Visualizzatori
       you: Solo tu

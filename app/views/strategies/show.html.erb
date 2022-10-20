@@ -26,24 +26,7 @@
     <div class="gridRowSpaceBetween">
       <div class="gridRowSpaceBetween">
         <div class="smallMarginRight tinyTitle"><%= t('common.actions.plural') %></div>
-        <%= react_component('StoryActions', props: {
-          dark: true,
-          actions: {
-            edit: {
-              link: edit_strategy_path(@strategy),
-              name: t('common.actions.edit')
-            },
-            delete: {
-              name: t('common.actions.delete'),
-              link: url_for(@strategy),
-              dataMethod: 'delete',
-              dataConfirm:  t('common.actions.confirm')
-            },
-            viewers: get_viewer_list(@strategy.viewers, nil),
-            visible: get_visible(@strategy.visible)
-          },
-          storyName: @strategy.name
-        }) %>
+        <%= react_component('StoryActions', props: element_visibility_based_props(@strategy)) %>
       </div>
       <%= print_reminders(@strategy) %>
     </div>

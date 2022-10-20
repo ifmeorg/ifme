@@ -884,7 +884,8 @@ fr:
       you_are_focusing: Vous vous concentrez le plus
       user_is_focusing: '%{name} se concentre le plus'
       visible_in_stats: Visible dans les statistiques
-      make_visible_in_stats: Rendre visible dans les statistiques ?
+      not_visible_in_stats: Non visible pour taguer et afficher dans les statistiques de profil
+      make_visible_in_stats: Rendre visible pour taguer et afficher dans les statistiques de profil ?
     viewers:
       plural: lecteurs
       you: Seulment vous

@@ -825,7 +825,8 @@ en:
       you_are_focusing: You are focusing the most on
       user_is_focusing: '%{name} is focusing the most on'
       visible_in_stats: Visible in stats
-      make_visible_in_stats: Make visible in stats?
+      not_visible_in_stats: Not visible to tag and display in profile stats
+      make_visible_in_stats: Make visible to tag and display in profile stats?
     viewers:
       plural: Viewers
       you: Only you
