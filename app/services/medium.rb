@@ -16,7 +16,7 @@ class Medium
 
   def content
     content = ''
-    open('https://medium.com/ifme?format=json') do |file|
+    URI.open('https://medium.com/ifme?format=json') do |file|
       file.each_line { |line| content += line }
     end
     content
