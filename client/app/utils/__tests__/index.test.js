@@ -1,5 +1,4 @@
-import { JSDOM } from 'jsdom';
-import { randomString, setCsrfToken, getPusher } from '../index';
+const { randomString, getPusher } = require('../index');
 
 describe('Utils', () => {
   describe('randomString ', () => {
@@ -8,32 +7,15 @@ describe('Utils', () => {
     });
   });
 
-  describe('setCsrfToken', () => {
-    it('should be equal to pusher key and cluster when getPusher is called', () => {
-      const dom = new JSDOM(`
-        <html>
-          <head>
-            <meta name="pusher-key" content="pusher-key">
-            <meta name="pusher-cluster" content="pusher-cluster">
-          </head>
-          <body>
-          </body>
-        </html>
-      `);
-
-      const metaPusherKey = Array.from(
-        dom.window.document.getElementsByTagName('meta'),
-      ).filter((item) => item.getAttribute('name') === 'pusher-key')[0];
-      const metaPusherCluster = Array.from(
-        dom.window.document.getElementsByTagName('meta'),
-      ).filter((item) => item.getAttribute('name') === 'pusher-cluster')[0];
-
+  describe('getPusher', () => {
+    it('should return null if window.Pusher is not defined', () => {
       const pusher = getPusher();
-
-      expect(pusher.key).toBe(metaPusherKey.getAttribute('content'));
-      expect(pusher.config.cluster).toBe(
-        metaPusherCluster.getAttribute('content'),
-      );
+      expect(pusher).toBe(null);
+    });
+    it('should return new window.Pusher if window.Pusher is defined', () => {
+      window.Pusher = jest.fn();
+      const pusher = getPusher();
+      expect(pusher).toBeInstanceOf(window.Pusher);
     });
   });
 });
