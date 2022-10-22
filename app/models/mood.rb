@@ -14,6 +14,8 @@
 #
 
 class Mood < ApplicationRecord
+  include IsVisibleConcern
+
   USER_DATA_ATTRIBUTES = %w[
     id
     name

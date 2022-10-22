@@ -42,7 +42,8 @@ module CategoriesHelper
         link: link
       },
       delete: action_delete(url_helper),
-      visible: get_visible(element.visible)
+      not_visible: !element.visible && get_visible(element.visible),
+      visible: element.visible && get_visible(element.visible)
     }
   end
 

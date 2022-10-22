@@ -18,6 +18,7 @@
 #
 
 class Strategy < ApplicationRecord
+  include IsVisibleConcern
   include Viewer
   include CommonMethods
   extend FriendlyId
@@ -39,7 +40,10 @@ class Strategy < ApplicationRecord
   friendly_id :name
   serialize :viewers, Array
 
-  before_save :category_array_data
+  before_save do
+    elements_array_data(['category'])
+  end
+
   before_save :viewers_array_data
 
   belongs_to :user
@@ -68,13 +72,6 @@ class Strategy < ApplicationRecord
 
   def viewers_array_data
     self.viewers = viewers.collect(&:to_i) if viewers.is_a?(Array)
-  end
-
-  def category_array_data
-    return unless category.is_a?(Array)
-
-    category_ids = category.collect(&:to_i)
-    self.categories = Category.where(user_id: user_id, id: category_ids)
   end
 
   def published?

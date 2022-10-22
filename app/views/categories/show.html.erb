@@ -12,23 +12,7 @@
 <div class="gridItemBoxDark gridRowSpaceBetween smallMarginTop">
 	<div class="gridRowSpaceBetween">
 		<div class="smallMarginRight tinyTitle"><%= t('common.actions.plural') %></div>
-		<%= react_component('StoryActions', props: {
-			dark: true,
-			actions: {
-				delete: {
-					name: t('common.actions.delete'),
-					link: url_for(@category),
-					dataConfirm: t('common.actions.confirm'),
-					dataMethod: 'delete'
-				},
-				edit: {
-					name: t('common.actions.edit'),
-					link: edit_category_path(@category)
-				},
-				visible: get_visible(@category.visible)
-			},
-			storyName: @category.name
-		}) %>
+		<%= react_component('StoryActions', props: element_visibility_based_props(@category))%>
 	</div>
 </div>
 <%= render partial: '/tag_usage/index' %>

@@ -10,7 +10,7 @@ describe VisibleHelper do
 
     context 'when visible is false' do
       it 'returns text' do
-        expect(get_visible(false)).to be_nil
+        expect(get_visible(false)).to eq(t('shared.stats.not_visible_in_stats'))
       end
     end
   end

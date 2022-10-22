@@ -874,7 +874,8 @@ pt-BR:
       you_are_focusing: Você está focando demais em
       user_is_focusing: '%{name} está focando demais em'
       visible_in_stats: Visível nas estatísticas
-      make_visible_in_stats: Tornar visível nas estatísticas?
+      not_visible_in_stats: Não visível para marcar e exibir nas estatísticas do perfil
+      make_visible_in_stats: Tornar visível para marcar e exibir nas estatísticas do perfil?
     viewers:
       plural: Visualizadores
       you: Apenas você

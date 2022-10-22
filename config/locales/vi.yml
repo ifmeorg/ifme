@@ -853,7 +853,8 @@ vi:
       you_are_focusing: Bạn tập trung vào nhất
       user_is_focusing: '%{name} đang tập trung nhiều nhất vào'
       visible_in_stats: Hiển thị trong số liệu thống kê
-      make_visible_in_stats: Hiển thị trong số liệu thống kê?
+      not_visible_in_stats: Không hiển thị để gắn thẻ và hiển thị trong thống kê hồ sơ
+      make_visible_in_stats: Hiển thị để gắn thẻ và hiển thị trong thống kê hồ sơ?
     viewers:
       plural: Người xem
       you: Duy nhất có bạn

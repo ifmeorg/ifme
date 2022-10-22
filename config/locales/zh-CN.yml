@@ -720,7 +720,8 @@ zh-CN:
       you_are_focusing: 你最关注的是
       user_is_focusing: '%{name}最关注'
       visible_in_stats: 在統計中可見
-      make_visible_in_stats: 在統計數據中顯示？
+      not_visible_in_stats: 在配置文件統計中標記和顯示不可見
+      make_visible_in_stats: 使標記可見並顯示在個人資料統計信息中？
     viewers:
       plural: 读者
       you: 只有你
