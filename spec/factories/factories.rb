@@ -100,7 +100,7 @@ FactoryBot.define do
   end
 
   factory :comment do
-    commentable_type { 'moment' }
+    commentable_type { 'Moment' }
     comment { 'Test Comment' }
     visibility { 'all' }
   end

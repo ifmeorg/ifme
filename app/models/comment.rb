@@ -48,7 +48,7 @@ class Comment < ApplicationRecord
     def comments_from(data)
       Comment.where(
         commentable_id: data.id,
-        commentable_type: data.class.name.downcase
+        commentable_type: data.class.name
       )
     end
   end
