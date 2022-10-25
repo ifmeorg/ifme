@@ -7,9 +7,9 @@
 </div>
 
 <div class="messageBody">
-  <%= raw t('pages.about.main_message_one', {
+  <%= raw t('pages.about.main_message_one', 
     app_name: t('app_name')
-  }) %>
+  ) %>
   <p>
     <%= t('pages.about.message_text_one') %>
   </p>
@@ -32,17 +32,17 @@
 </div>
 
 <div class="messageBody">
-  <%= raw t('pages.contribute.message_text_one', {
+  <%= raw t('pages.contribute.message_text_one', 
     email_link: link_to(t('common.write_to_us'), "https://github.com/ifmeorg/ifme/wiki/Join-Our-Slack"),
     slack_link: link_to(t('pages.contribute.slack'), 'https://ifme.slack.com', target: 'blank'),
     github_link: link_to(t('navigation.github'), 'https://github.com/ifmeorg/ifme', target: 'blank')
-    })
+    )
   %>
   <p>
-    <%= raw t('pages.about.message_text_three', {
+    <%= raw t('pages.about.message_text_three', 
       fund_club_link: link_to(t('pages.about.fund_club'), 'http://joinfundclub.com', target: 'blank'),
       open_collective_link: link_to(t('navigation.open_collective'), 'https://opencollective.com/ifme', target: 'blank')
-    }) %>
+    ) %>
   </p>
 </div>
 

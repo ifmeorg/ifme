@@ -10,11 +10,11 @@
   </div>
   <div>
     <div class="title"><%= t('pages.home.signed_in_empty.main_message_two') %></div>
-    <%= raw t('pages.home.signed_in_empty.cell_one', {
+    <%= raw t('pages.home.signed_in_empty.cell_one', 
       profile: link_to(t('profile.index.title'), edit_user_registration_path),
       moods: link_to(t('moods.plural'), moods_path),
       allies: link_to(t('allies.index.title'), allies_path)
-    }) %>
+    ) %>
   </div>
 </div>
 
@@ -26,10 +26,10 @@
   </div>
   <div>
     <div class="title"><%= t('pages.home.signed_in_empty.main_message_three') %></div>
-    <%= raw t('pages.home.signed_in_empty.cell_two', {
+    <%= raw t('pages.home.signed_in_empty.cell_two', 
       categories: link_to(t('categories.plural'), categories_path),
       moments: link_to(t('moments.plural'), moments_path)
-    }) %>
+    ) %>
   </div>
 </div>
 
@@ -41,18 +41,18 @@
   </div>
   <div>
     <div class="title"><%= t('pages.home.signed_in_empty.main_message_four') %></div>
-    <%= raw t('pages.home.signed_in_empty.cell_three', {
+    <%= raw t('pages.home.signed_in_empty.cell_three', 
       strategize: link_to(t('pages.home.signed_in_empty.strategize'), strategies_path),
       medications: link_to(t('medications.index.title'), medications_path),
       group: link_to(t('groups.singular'), groups_path)
-    }) %>
+    ) %>
   </div>
 </div>
 
 <div class="marginTop">
   <div class="title"><%= t('pages.home.signed_in_empty.main_message_five') %></div>
-  <%= raw t('pages.home.signed_in_empty.message_text_three', {
+  <%= raw t('pages.home.signed_in_empty.message_text_three', 
     faq: link_to(t('navigation.faq'), faq_path),
     email_link: link_to(t('common.write_to_us'), "mailto:#{t('email')}")
-  }) %>
+  ) %>
 </div>

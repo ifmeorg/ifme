@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '~> 2.7.2'
+ruby '~> 3.0.3'
 
-gem 'puma'
+gem 'puma', '5.6.4'  # Latest capybara doesn't work with 6.0 at the moment.
 gem 'rack-rewrite'
 gem 'rails', '~> 6.0.4.8'
 
@@ -59,6 +59,7 @@ gem 'sidekiq', '6.4.0'
 gem 'sidekiq-middleware'
 gem 'sidekiq-failures'
 gem "sidekiq-cron", "~> 1.1"
+gem 'psych', '< 4' # any version greater than this does not load the database.yml file
 
 group :development, :test do
   gem 'bundler-audit'
@@ -76,7 +77,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rack-mini-profiler'
 
-  gem 'capybara', '~> 3.24.0'
+  gem 'capybara', '~> 3.37.0'
   gem 'factory_bot_rails'
   gem 'rspec-collection_matchers', '~> 1.1.3'
   gem 'rspec-html-matchers', '~> 0.9.0'
@@ -103,7 +104,7 @@ group :test do
   gem 'database_cleaner'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers'
-  gem 'simplecov', '0.16.1'
+  gem 'simplecov', '~> 0.21.0'
 end
 
 group :production do

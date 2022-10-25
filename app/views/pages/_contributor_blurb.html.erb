@@ -4,9 +4,9 @@
       component: 'Avatar',
       props: {
         src: ProfilePicture.normalize_url(contributor_blurb["image"]),
-        alt: t('pages.contribute.contributor_avatar_alt', {
+        alt: t('pages.contribute.contributor_avatar_alt',
           name: contributor_blurb['name']
-        })
+        )
       }
     },
     body: <<~HEREDOC
