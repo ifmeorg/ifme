@@ -5,7 +5,7 @@ ruby '~> 3.1.2'
 
 gem 'puma', '5.6.4'  # Latest capybara doesn't work with 6.0 at the moment.
 gem 'rack-rewrite'
-gem 'rails', '~> 6.1.0'
+gem 'rails', '~> 7.0.4'
 
 gem 'activerecord-import'
 gem 'bcrypt', '3.1.13'
@@ -38,7 +38,7 @@ gem 'omniauth-google-oauth2', '~> 1.0.1'
 gem 'omniauth-rails_csrf_protection', '~> 1.0.1'
 gem 'premailer-rails'
 gem 'pusher', '1.3.3'
-gem 'rails-i18n', '~> 6.0.0'
+gem 'rails-i18n', '~> 7.0.5'
 
 gem 'friendly_id', '~> 5.2.5'
 gem 'sdoc', '1.0.0', group: :doc
@@ -68,7 +68,7 @@ group :development, :test do
 
   gem 'spring'
 
-  gem 'annotate', '~> 2.7'
+  gem 'annotate', '~> 3.2.0'
   gem 'railroady', '1.5.3'
   gem 'rails-erd', '~> 1.6'
 
