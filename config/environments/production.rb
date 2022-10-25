@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "active_support/core_ext/integer/time"
 primary_domain = 'www.if-me.org'
 
 Rails.application.configure do
@@ -24,7 +25,7 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  # config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
 
   # Compress JavaScript and CSS using a preprocessor.
   config.assets.js_compressor = :uglifier
@@ -34,7 +35,7 @@ Rails.application.configure do
   config.assets.compile = false
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.action_controller.asset_host = 'http://assets.example.com'
+  # config.asset_host = "http://assets.example.com"
 
   # Generate digests for assets URLs.
   config.assets.digest = true
@@ -44,7 +45,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  # config.active_storage.service = :local
+  config.active_storage.service = :local
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
@@ -66,7 +67,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "ifme_#{Rails.env}"
+  # config.active_job.queue_name_prefix = "ifme_production"
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
@@ -78,7 +79,7 @@ Rails.application.configure do
   config.i18n.fallbacks = true
 
   # Send deprecation notices to registered listeners.
-  config.active_support.deprecation = :notify
+  config.active_support.report_deprecations = false
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new

@@ -46,7 +46,7 @@ gem 'sdoc', '1.0.0', group: :doc
 gem 'font-awesome-sass'
 gem 'inline_svg'
 
-gem 'groupdate', '4.1.2'
+gem 'groupdate', '~> 6.1'
 
 gem 'react_on_rails', '12.0.1'
 gem 'webpacker'
@@ -59,8 +59,8 @@ gem 'sidekiq'
 gem 'sidekiq-middleware'
 gem 'sidekiq-failures'
 gem "sidekiq-cron", "~> 1.1"
-# gem 'psych', '< 4' # any version greater than this does not load the database.yml file
 gem 'net-smtp', require: false # this is a rails 6 fix and will go away soon.
+gem "sprockets-rails", "~> 3.4"
 
 group :development, :test do
   gem 'bundler-audit'
