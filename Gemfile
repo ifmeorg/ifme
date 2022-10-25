@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '~> 3.0.3'
+ruby '~> 3.1.2'
 
 gem 'puma', '5.6.4'  # Latest capybara doesn't work with 6.0 at the moment.
 gem 'rack-rewrite'
-gem 'rails', '~> 6.0.4.8'
+gem 'rails', '~> 6.0.6'
 
 gem 'activerecord-import'
 gem 'bcrypt', '3.1.13'
@@ -60,6 +60,7 @@ gem 'sidekiq-middleware'
 gem 'sidekiq-failures'
 gem "sidekiq-cron", "~> 1.1"
 gem 'psych', '< 4' # any version greater than this does not load the database.yml file
+gem 'net-smtp', require: false # this is a rails 6 fix and will go away soon.
 
 group :development, :test do
   gem 'bundler-audit'
