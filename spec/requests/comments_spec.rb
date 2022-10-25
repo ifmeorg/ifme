@@ -41,7 +41,7 @@ describe 'Comments', type: :request do
         let(:comment_params) do
           attributes_for(
             :comment,
-            commentable_type: 'moment',
+            commentable_type: 'Moment',
             comment_by: user.id
           ).merge(relational_args)
         end
@@ -63,7 +63,7 @@ describe 'Comments', type: :request do
         let(:comment_params) do
           attributes_for(
             :comment,
-            commentable_type: 'strategy',
+            commentable_type: 'Strategy',
             comment_by: user.id
           ).merge(relational_args)
         end
@@ -86,7 +86,7 @@ describe 'Comments', type: :request do
           attributes_for(
             :comment,
             commentable_type:
-            'meeting',
+            'Meeting',
             comment_by: user.id
           ).merge(relational_args)
         end
@@ -150,7 +150,7 @@ describe 'Comments', type: :request do
           create(
             :comment,
             commentable_id: moment.id,
-            commentable_type: 'moment',
+            commentable_type: 'Moment',
             comment_by: current_user.id
           ).id
         end
@@ -202,7 +202,7 @@ describe 'Comments', type: :request do
           create(
             :comment,
             commentable_id: strategy.id,
-            commentable_type: 'strategy',
+            commentable_type: 'Strategy',
             comment_by: current_user.id
           ).id
         end
@@ -263,7 +263,7 @@ describe 'Comments', type: :request do
           create(
             :comment,
             commentable_id: meeting.id,
-            commentable_type: 'meeting',
+            commentable_type: 'Meeting',
             comment_by: current_user.id
           ).id
         end

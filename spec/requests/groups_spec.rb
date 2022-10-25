@@ -9,7 +9,7 @@ describe 'Groups', type: :request do
 
       it 'renders page with groups that the user belongs to' do
         group = create :group_with_member, user_id: user.id, name: 'group one'
-        other_user = build_stubbed(:user2)
+        other_user = create(:user2)
         other_group = create :group_with_member,
                              user_id: other_user.id,
                              name: 'group two'

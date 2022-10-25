@@ -8,8 +8,8 @@ class CommentNotificationsService
     @model_name = model_name
   end
 
-  def self.remove(args = {})
-    new(args).remove
+  def self.remove(**args)
+    new(**args).remove
   end
 
   def remove

@@ -24,10 +24,10 @@ class CommentsController < ApplicationController
   private
 
   def remove_meeting_notification!(comment_id)
-    CommentNotificationsService.new(
+    CommentNotificationsService.remove(
       comment_id: comment_id,
       model_name: 'Meeting'
-    ).remove
+    )
   end
 
   def remove_meeting_notification(comment, meeting)
@@ -51,10 +51,10 @@ class CommentsController < ApplicationController
         comment, current_user
       )
 
-      CommentNotificationsService.new(
+      CommentNotificationsService.remove(
         comment_id: comment.id,
         model_name: comment.commentable_type
-      ).remove
+      )
     elsif comment.commentable_type == 'Meeting'
       meeting = Meeting.find(comment.commentable_id)
       remove_meeting_notification(comment, meeting)

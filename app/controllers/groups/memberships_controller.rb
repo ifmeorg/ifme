@@ -13,7 +13,7 @@ module Groups
 
       flash[:notice] = t('groups.join.success')
       redirect_to_group
-    rescue NoMethodError
+    rescue
       flash[:alert] = t('groups.join.group_not_exists')
       redirect_to groups_path
     end
