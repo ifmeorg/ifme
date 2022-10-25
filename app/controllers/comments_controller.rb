@@ -24,10 +24,10 @@ class CommentsController < ApplicationController
   private
 
   def remove_meeting_notification!(comment_id)
-    CommentNotificationsService.remove(
+    CommentNotificationsService.new(
       comment_id: comment_id,
-      model_name: 'meeting'
-    )
+      model_name: 'Meeting'
+    ).remove
   end
 
   def remove_meeting_notification(comment, meeting)
@@ -46,16 +46,16 @@ class CommentsController < ApplicationController
   end
 
   def handle_delete(comment)
-    if %w[moment strategy].include?(comment.commentable_type)
+    if %w[Moment Strategy].include?(comment.commentable_type)
       raise RuntimeError unless CommentViewersService.deletable?(
         comment, current_user
       )
 
-      CommentNotificationsService.remove(
+      CommentNotificationsService.new(
         comment_id: comment.id,
         model_name: comment.commentable_type
-      )
-    elsif comment.commentable_type == 'meeting'
+      ).remove
+    elsif comment.commentable_type == 'Meeting'
       meeting = Meeting.find(comment.commentable_id)
       remove_meeting_notification(comment, meeting)
     end

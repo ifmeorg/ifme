@@ -27,5 +27,5 @@ class MeetingMember < ApplicationRecord
 
   belongs_to :meeting, foreign_key: :meeting_id
   belongs_to :user, foreign_key: :user_id
-  belongs_to :group_member, foreign_key: :user_id
+  belongs_to :group_member, foreign_key: :user_id, optional: true
 end

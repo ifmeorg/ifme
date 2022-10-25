@@ -19,7 +19,7 @@ class Comment < ApplicationRecord
   belongs_to :commentable, polymorphic: true
 
   validates :comment, length: { minimum: 0, maximum: 1000 }, presence: true
-  validates :commentable_type, inclusion: %w[moment strategy meeting]
+  validates :commentable_type, inclusion: %w[Moment Strategy Meeting]
   validates :commentable_id, :comment_by, presence: true
   validates :visibility, inclusion: %w[all private]
 
@@ -56,7 +56,7 @@ class Comment < ApplicationRecord
   # Notify commentable_id user that they have a new comment
   def notify_of_creation!(creator)
     association = associated_record
-    return handle_meeting(association, creator) if commentable_type == 'meeting'
+    return handle_meeting(association, creator) if commentable_type == 'Meeting'
     return unless notify_of_creation?(association)
 
     send_notification!(creator, association, user_to_notify(association))
