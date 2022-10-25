@@ -207,11 +207,13 @@ class User < ApplicationRecord
       data_request = data_requests
                      .where(status_id: Users::DataRequest::STATUS[:enqueued])
                      .first_or_initialize
-      return data_request.request_id if data_request.request_id.present?
-
-      data_request.request_id = SecureRandom.uuid
-      data_request.save!
-      return data_request.request_id
+      if data_request.request_id.present?
+        data_request.request_id 
+      else
+        data_request.request_id = SecureRandom.uuid
+        data_request.save!
+      end
+      data_request.request_id
     end
   end
 

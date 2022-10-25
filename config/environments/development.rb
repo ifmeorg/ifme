@@ -52,8 +52,8 @@ Rails.application.configure do
   config.assets.quiet = true
 
   # Raises error for missing translations.
-  config.action_view.raise_on_missing_translations = true
-
+  config.i18n.raise_on_missing_translations = true
+  
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
