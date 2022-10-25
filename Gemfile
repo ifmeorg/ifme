@@ -5,7 +5,7 @@ ruby '~> 3.1.2'
 
 gem 'puma', '5.6.4'  # Latest capybara doesn't work with 6.0 at the moment.
 gem 'rack-rewrite'
-gem 'rails', '~> 6.0.6'
+gem 'rails', '~> 6.1.0'
 
 gem 'activerecord-import'
 gem 'bcrypt', '3.1.13'
@@ -29,7 +29,7 @@ gem 'carrierwave', '~> 1.3.1'
 gem 'certified', '1.0.0'
 gem 'chronic', '0.10.2'
 gem 'cloudinary', '~> 1.21.0'
-gem 'figaro', '1.1.1'
+gem 'figaro'
 gem 'google-api-client', '~> 0.53.0'
 gem 'kaminari', '1.2.1'
 gem 'omniauth', '~> 2.0'
@@ -49,17 +49,17 @@ gem 'inline_svg'
 gem 'groupdate', '4.1.2'
 
 gem 'react_on_rails', '12.0.1'
-gem 'webpacker', '5.1.1'
+gem 'webpacker'
 
 gem 'selenium-webdriver', '~> 4.1.0'
 
 gem 'rubyzip', '~> 1.3.0'
 
-gem 'sidekiq', '6.4.0'
+gem 'sidekiq'
 gem 'sidekiq-middleware'
 gem 'sidekiq-failures'
 gem "sidekiq-cron", "~> 1.1"
-gem 'psych', '< 4' # any version greater than this does not load the database.yml file
+# gem 'psych', '< 4' # any version greater than this does not load the database.yml file
 gem 'net-smtp', require: false # this is a rails 6 fix and will go away soon.
 
 group :development, :test do
@@ -87,7 +87,7 @@ group :development, :test do
   gem 'letter_opener'
   gem 'rspec_junit_formatter'
 
-  gem 'rubocop', '~> 0.80.1'
+  gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
