@@ -15,7 +15,7 @@
 class Report < ApplicationRecord
   belongs_to :reporter, class_name: 'User'
   belongs_to :reportee, class_name: 'User'
-  belongs_to :comment, class_name: 'Comment'
+  belongs_to :comment, class_name: 'Comment', optional: true
   validates :reportee_id, presence: true
   validates :reporter_id, presence: true
   validates :reasons, presence: true
