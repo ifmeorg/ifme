@@ -159,8 +159,6 @@ GEM
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.1)
     ffi (1.15.5)
-    figaro (1.2.0)
-      thor (>= 0.14.0, < 2)
     font-awesome-sass (6.2.0)
       sassc (~> 2.0)
     foreman (0.87.2)
@@ -606,7 +604,6 @@ DEPENDENCIES
   devise_uid
   dotenv-rails (~> 2.7.2)
   factory_bot_rails
-  figaro
   font-awesome-sass
   foreman
   friendly_id (~> 5.2.5)
