@@ -6,7 +6,7 @@
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 [![Awesome Humane Tech](https://raw.githubusercontent.com/humanetech-community/awesome-humane-tech/main/humane-tech-badge.svg?sanitize=true)](https://github.com/humanetech-community/awesome-humane-tech)
 
-README in: [西班牙语](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [葡萄牙语](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [法语](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [韩语](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), [印度尼西亚语](https://github.com/ifmeorg/ifme/blob/main/README-ID.md), [土耳其语](https://github.com/ifmeorg/ifme/blob/main/README-TR.md), [僧伽罗语](https://github.com/ifmeorg/ifme/blob/main/README-LK.md), [印地语](https://github.com/ifmeorg/ifme/blob/main/README-HI.md),[阿拉伯语-阿拉伯语](https://github.com/ifmeorg/ifme/blob/main/README-Ar.md)
+README in: [西班牙语](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [葡萄牙语](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [法语](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [韩语](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), [印度尼西亚语](https://github.com/ifmeorg/ifme/blob/main/README-ID.md), [土耳其语](https://github.com/ifmeorg/ifme/blob/main/README-TR.md), [僧伽罗语](https://github.com/ifmeorg/ifme/blob/main/README-LK.md), [印地语](https://github.com/ifmeorg/ifme/blob/main/README-HI.md),[阿拉伯语-阿拉伯语](https://github.com/ifmeorg/ifme/blob/main/README-AR.md)
 
 # if-me.org
 
