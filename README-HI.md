@@ -9,7 +9,7 @@
 README in: [स्पैनिश](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [पुर्तगाली](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), 
 [फ्रेंच](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [कोरियन](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), 
 [इन्डोनेशियन](https://github.com/ifmeorg/ifme/blob/main/README-ID.md), [तुर्की](https://github.com/ifmeorg/ifme/blob/main/README-TR.md), 
-[सिंहली](https://github.com/ifmeorg/ifme/blob/main/README-LK.md), [चीनी](https://github.com/ifmeorg/ifme/blob/main/README-CN.md), 
+[सिंहली](https://github.com/ifmeorg/ifme/blob/main/README-LK.md), [चीनी](https://github.com/ifmeorg/ifme/blob/main/README-CN.md), [अरबी](https://github.com/ifmeorg/ifme/blob/main/README-Ar.md)
 
 # if-me.org  
 
