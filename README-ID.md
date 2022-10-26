@@ -7,7 +7,7 @@
 [![Awesome Humane Tech](https://raw.githubusercontent.com/humanetech-community/awesome-humane-tech/main/humane-tech-badge.svg?sanitize=true)](https://github.com/humanetech-community/awesome-humane-tech)
 
 README dalam bahasa lainnya: [Inggris](https://github.com/ifmeorg/ifme/blob/main/README.md), [Spanyol](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [Portugis](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [Perancis](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [Korea](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), [Turki](https://github.com/ifmeorg/ifme/blob/main/README-TR.md), [Sinhala](https://github.com/ifmeorg/ifme/blob/main/README-LK.md), [Cina](https://github.com/ifmeorg/ifme/blob/main/README-CN.md), 
-[Hindi](https://github.com/ifmeorg/ifme/blob/main/README-HI.md)
+[Hindi](https://github.com/ifmeorg/ifme/blob/main/README-HI.md), [Arab](https://github.com/ifmeorg/ifme/blob/main/README-Ar.md)
 
 # if-me.org
 
