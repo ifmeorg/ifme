@@ -708,5 +708,14 @@
     "link_name": "nikhilbhatt",
     "link": "https://github.com/nikhilbhatt",
     "social": "github"
+  },
+  {
+    "name": "Ghada AbdulWahab",
+    "image": "/assets/contributors/Ghada_AbdulWahab.png",
+    "profile": "I am a computer science student at Benha University in Egypt. I love open source!",
+    "location": "Tukh, Egypt",
+    "link_name": "puregeek",
+    "link": "https://github.com/puregeek",
+    "social": "github"
   }
 ]
