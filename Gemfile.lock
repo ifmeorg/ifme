@@ -659,7 +659,7 @@ DEPENDENCIES
   sidekiq-middleware
   simplecov (~> 0.21.0)
   spring
-  sprockets-rails (~> 3.4)
+  sprockets-rails
   turbolinks (~> 5.2.0)
   uglifier (~> 4.1.20)
   webdrivers (>= 5.0.0)

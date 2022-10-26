@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 ruby '~> 3.1.2'
 
-gem 'puma', '5.6.4'  # Latest capybara doesn't work with 6.0 at the moment.
+gem 'puma', '5.6.4'  # Latest capybara doesn't work with puma 6.0 at the moment.
 gem 'rack-rewrite'
 gem 'rails', '~> 7.0.4'
 
@@ -59,7 +59,7 @@ gem 'sidekiq-middleware'
 gem 'sidekiq-failures'
 gem "sidekiq-cron", "~> 1.1"
 gem 'net-smtp', require: false # this is a rails 6 fix and will go away soon.
-gem "sprockets-rails", "~> 3.4"
+gem "sprockets-rails"
 
 group :development, :test do
   gem 'bundler-audit'

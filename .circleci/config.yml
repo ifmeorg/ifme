@@ -55,7 +55,6 @@ jobs:
       - run:
           name: Update to Node v16.14.2
           command: |
-            curl -sSL "https://nodejs.org/dist/v16.14.2/node-v16.14.2-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v16.14.2-linux-x64/bin/node
             curl https://www.npmjs.com/install.sh | sudo bash
       - run: gem install bundler
       - run: bundle install --path=vendor/bundle --jobs=4 --retry=3
