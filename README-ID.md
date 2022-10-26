@@ -19,9 +19,7 @@ Situs yang aktif bisa diakses melalui [if-me.org](https://www.if-me.org/). Siste
 
 Kami menggunakan [Contributor Covenant](http://contributor-covenant.org) yang luar biasa sebagai kode etik kami. Harap membacanya sebelum bergabung dengan proyek kami.
 
-
 **Baca tentang tujuan proyek kami dan cara berkontribusi (tidak terbatas hanya untuk pengembang) [di sini](https://github.com/ifmeorg/ifme/blob/main/CONTRIBUTING.md).**
-
 
 ## Dokumentasi
 

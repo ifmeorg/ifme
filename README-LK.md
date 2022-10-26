@@ -6,7 +6,7 @@
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 
 කියවුමට : [ස්පාඤ්ඤ](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [පෘතුගීසි](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [ප්‍රංශ](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [
-කොරියානු](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), [ඉන්දුනීසියානු](https://github.com/ifmeorg/ifme/blob/main/README-ID.md), [චීන](https://github.com/ifmeorg/ifme/blob/main/README-CN.md), [හින්දි](https://github.com/ifmeorg/ifme/blob/main/README-HI.md),[අරාබි](https://github.com/ifmeorg/ifme/blob/main/README-AR.md)
+කොරියානු](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), [ඉන්දුනීසියානු](https://github.com/ifmeorg/ifme/blob/main/README-ID.md), [චීන](https://github.com/ifmeorg/ifme/blob/main/README-CN.md), [හින්දි](https://github.com/ifmeorg/ifme/blob/main/README-HI.md), [අරාබි](https://github.com/ifmeorg/ifme/blob/main/README-AR.md)
 
 # if-me.org
 
@@ -18,9 +18,6 @@
 
 ** අපගේ [චර්යාධර්ම පද්ධතිය](http://contributor-covenant.org) සඳහා අපූරු දායක සම්මුතිය භාවිතා කරමු.
 අපගේ ව්‍යාපෘතියට සම්බන්ධ වීමට පෙර කරුණාකර [එය] (https://github.com/ifmeorg/ifme/blob/main/code_of_conduct.md) කියවන්න.
-
-
-
 
 ## ලියකියවිලි
 
@@ -38,15 +35,12 @@
 
 අපගේ විවෘත සාමූහිකය සඳහා පූර්ණ විනිවිදභාවයකින් යුතුව මූල්‍ය දායකත්වය ද අපි සාදරයෙන් පිළිගනිමු. ඕනෑම කෙනෙකුට [පරිත්යාග](https://opencollective.com/ifme) ගොනු කළ හැකිය. ප්‍රජාවගේ සංවර්ධනය සඳහා වියදම අර්ථවත් නම්, එය අපගේ විවෘත සාමූහිකයේ ලෙජරයේ මූලික දායකයින් විසින් “ඒකාබද්ධ” කරනු ලබන අතර වියදම ගොනු කළ තැනැත්තාට ප්‍රතිපූරණය කරනු ලැබේ.
 
-
 ඔබට මාසිකව පරිත්‍යාග කළ හැකි ප[Patreon](https://www.patreon.com/ifme) පිටුවක් ද අප සතුව ඇත.
-
 
 ### Backers
 
 අපගේ පැට්රියන් ආධාරකරුවන් වන [Rob Drimmie](https://www.patreon.com/user?u=3251857),[Joseph D. Marhee](https://www.patreon.com/user?u=2899171). [Carol Willing](https://www.patreon.com/user?u=202458) ස්තූතියි.
 !
-
 
 [අනුග්‍රාහකයෙකු වන්න!](https://opencollective.com/ifme#backer)
 
