@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 class ApplicationController < ActionController::Base
-  include ActionView::Helpers::UrlHelper
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::TextHelper
   include PageRedirectConcern
