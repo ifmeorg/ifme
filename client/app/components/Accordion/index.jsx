@@ -43,7 +43,7 @@ export const Accordion = ({
     setOpen(!open);
   };
 
-  const openToggle = (event: any) => {
+  const openToggle = (event: SyntheticKeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'Enter') {
       setOpen(!open);
     }
