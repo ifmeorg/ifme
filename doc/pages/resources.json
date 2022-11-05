@@ -1204,5 +1204,12 @@
     "tags": ["people_of_colour", "women_of_colour", "black_people", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "indigenous", "lgbt", "education", "social_justice", "political_movement", "communities", "support_groups", "counseling", "podcast"],
     "languages": ["en"],
     "locations": ["ca"]
+  },
+  {
+    "name": "Don't Call the Police",
+    "link": "https://dontcallthepolice.com/",
+    "tags": ["crisis_prevention", "suicide_prevention", "domestic_violence", "twenty_four_seven", "free", "hotlines", "directory", "communities", "social_justice"],
+    "languages": ["en"],
+    "locations": ["us", "ca"]
   }
 ]
