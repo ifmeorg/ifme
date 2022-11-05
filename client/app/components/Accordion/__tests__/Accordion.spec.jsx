@@ -68,5 +68,5 @@ describe('Accordion', () => {
       fireEvent.click(accordionBtn);
       expect(accordionContent).toHaveClass('accordionContent');
     });
-  })
+  });
 });
