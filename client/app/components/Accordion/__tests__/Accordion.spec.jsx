@@ -51,8 +51,8 @@ describe('Accordion', () => {
 
   describe('open when enter key is pressed', () => {
     it('toggles correctly', () => {
-      const component  = (
-        <Accordion  id={id} title={title} onKeyDown={openToggle}>
+      const component = (
+        <Accordion id={id} title={title} onKeyDown={openToggle}>
           {children}
         </Accordion>
       );
