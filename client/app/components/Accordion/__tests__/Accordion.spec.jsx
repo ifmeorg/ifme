@@ -60,11 +60,11 @@ describe('Accordion', () => {
 
       const accordionContent = getByRole('region');
       const accordionBtn = getByRole('button');
-      fireEvent.keyDown(accordionContent, {
+      fireEvent.keyDown(accordionBtn, {
         key: 'Enter',
       });
 
-      expect(accordionContent).toHaveClass('accordionClose');
+      expect(accordionContent).toHaveClass('accordionContent');
       fireEvent.click(accordionBtn);
       expect(accordionContent).toHaveClass('accordionContent');
     });
