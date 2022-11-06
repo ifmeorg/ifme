@@ -66,7 +66,7 @@ describe('Accordion', () => {
 
       expect(accordionContent).toHaveClass('accordionContent');
       fireEvent.click(accordionBtn);
-      expect(accordionContent).toHaveClass('accordionContent');
+      expect(accordionContent).toHaveClass('accordionClose');
     });
   });
 });
