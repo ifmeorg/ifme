@@ -43,6 +43,11 @@ export const Accordion = ({
     setOpen(!open);
   };
 
+  const openToggle = (event: SyntheticKeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Enter') {
+      setOpen(!open);
+    }
+  };
   const inputClassNames = () => `${dark ? css.dark : ''} ${large ? css.large : ''}`;
 
   return (
@@ -50,7 +55,7 @@ export const Accordion = ({
       <div
         className={`accordion ${globalCss.gridRowSpaceBetween} ${css.accordion}`}
         onClick={toggleOpen}
-        onKeyDown={toggleOpen}
+        onKeyDown={openToggle}
         role="button"
         tabIndex="0"
         aria-expanded={open}

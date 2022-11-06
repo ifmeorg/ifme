@@ -6,6 +6,9 @@ import { Accordion } from 'components/Accordion';
 const id = 'some-id';
 const title = 'Accordions have pianos';
 const children = <strong>Hello</strong>;
+const openToggle = (e: SyntheticKeyboardEvent<HTMLDivElement>) => {
+  window.alert('Key pressed', e);
+};
 
 describe('Accordion', () => {
   describe('open props is undefined', () => {
@@ -43,6 +46,27 @@ describe('Accordion', () => {
       expect(accordionContent).toHaveClass('accordionClose');
       fireEvent.click(accordionBtn);
       expect(accordionContent).toHaveClass('accordionContent');
+    });
+  });
+
+  describe('open when enter key is pressed', () => {
+    it('toggles correctly', () => {
+      const component = (
+        <Accordion id={id} title={title} onKeyDown={openToggle}>
+          {children}
+        </Accordion>
+      );
+      const { getByRole } = render(component);
+
+      const accordionContent = getByRole('region');
+      const accordionBtn = getByRole('button');
+      fireEvent.keyDown(accordionBtn, {
+        key: 'Enter',
+      });
+
+      expect(accordionContent).toHaveClass('accordionContent');
+      fireEvent.click(accordionBtn);
+      expect(accordionContent).toHaveClass('accordionClose');
     });
   });
 });
