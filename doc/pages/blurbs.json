@@ -717,5 +717,14 @@
     "link_name": "puregeek",
     "link": "https://github.com/puregeek",
     "social": "github"
+  },
+  {
+    "name": "Muhammad Aakash",
+    "image": "/assets/contributors/mohammad_aakash.jpg",
+    "profile": "I am a front-end developer from Pakistan and love 💜 to help community whether through open source or in any other way.",
+    "location": "Lahore, Pakistan",
+    "link_name": "MuhammadAakash",
+    "link": "https://github.com/MuhammadAakash",
+    "social": "github"
   }
 ]
