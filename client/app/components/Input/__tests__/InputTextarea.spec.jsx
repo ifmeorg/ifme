@@ -150,6 +150,7 @@ describe('InputTextarea', () => {
         { title: 'Bold', expectedArgs: ['bold'] },
         // overridden actions
         { title: 'Link', expectedArgs: ['createLink', sampleUrl] },
+        { title: 'Image', expectedArgs: ['insertImage', sampleUrl] },
         { title: 'Ordered List', expectedArgs: ['insertOrderedList'] },
         { title: 'Unordered List', expectedArgs: ['insertUnorderedList'] },
       ];
