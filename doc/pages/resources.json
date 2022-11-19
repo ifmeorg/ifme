@@ -1211,5 +1211,19 @@
     "tags": ["crisis_prevention", "suicide_prevention", "domestic_violence", "twenty_four_seven", "free", "hotlines", "directory", "communities", "social_justice"],
     "languages": ["en"],
     "locations": ["us", "ca"]
+  },
+  {
+    "name": "Helping Survivors of Sexual Abuse & Assault",
+    "link": "https://helpingsurvivors.org/",
+    "tags": ["sexual_assault_survivors", "domestic_violence", "dating_violence", "education"],
+    "languages": ["en"],
+    "locations": ["us"]
+  },
+  {
+    "name": "The National Sexual Assault Hotline",
+    "link": "https://www.rainn.org/",
+    "tags": ["sexual_assault_survivors", "domestic_violence", "dating_violence", "crisis_prevention", "twenty_four_seven", "free", "anonymous", "hotlines"],
+    "languages": ["en", "es"],
+    "locations": ["us"]
   }
 ]
