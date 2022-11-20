@@ -18,8 +18,8 @@ const handleResult = (type: string) => {
     }
     case 'image': {
       const src = window.prompt('Please provide a link to your image.');
-      if(src) exec('insertImage',src);
-      break
+      if (src) exec('insertImage', src);
+      break;
     }
     case 'olist':
       exec('insertOrderedList');
