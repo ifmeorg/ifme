@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: log into DockerHub
+      run: docker login --username=${{ secrets.DOCKERHUB_UNAME }} --password=${{ secrests.DOCKERHUB_PW }}
+    - name: Build the Docker image
+      run: docker build --file Dockerfile --tag kingmant/ifmeorg:$(date +%s)
+    - name: Push the Docker image to DockerHub
