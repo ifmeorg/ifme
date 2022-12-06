@@ -17,5 +17,6 @@ jobs:
     - name: log into DockerHub
       run: docker login --username=${{ secrets.DOCKERHUB_UNAME }} --password=${{ secrests.DOCKERHUB_PW }}
     - name: Build the Docker image
-      run: docker build --file Dockerfile --tag kingmant/ifmeorg:$(date +%s)
+      run: docker build --file Dockerfile --tag kingmant/ifmeorg:latest
     - name: Push the Docker image to DockerHub
+      run: docker push kingmant/ifmeorg:latest
