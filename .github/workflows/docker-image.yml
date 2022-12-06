@@ -19,6 +19,6 @@ jobs:
     - name: Build the Docker image
       run: docker-compose build
     - name: Change the tag of the image created
-      run: docker tag ifme-app:latest kingmant/ifmeorg:latest
+      run: docker tag ifme_app:latest kingmant/ifmeorg:latest
     - name: Push the Docker image to DockerHub
       run: docker push kingmant/ifmeorg:latest
