@@ -27,3 +27,4 @@ jobs:
     - name: Push the app image to DockerHub
       run: docker push kingmant/ifmeorg:latest
     - name: Push the db image to DockerHub
+      run: docker push kingmant/ifme-db:latest
