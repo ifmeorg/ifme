@@ -19,7 +19,7 @@ jobs:
     - name: Build the Docker image
       run: docker-compose build
     - name: Build application DB
-      run: docker-compose run app rake db:create db:migrate db:seed
+      run: docker-compose run app rake RAILS_ENV=test db:create db:migrate db:seed
     - name: Change the tag of the app image
       run: docker tag ifme_app:latest kingmant/ifmeorg:latest
     - name: Change the tag of the db image
