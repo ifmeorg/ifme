@@ -12,14 +12,14 @@ const Template = (args) => <Toast {...args} />;
 export const noticeToast = Template.bind({});
 
 noticeToast.args = {
- notice: 'Login successful.',
- appendDashboardClass: 'true'
+  notice: 'Login successful.',
+  appendDashboardClass: 'true',
 };
 noticeToast.storyName = 'Toast Type: Notice';
 
 export const alertToast = Template.bind({});
 
 alertToast.args = {
-  alert: 'Login failed.'
+  alert: 'Login failed.',
 };
 alertToast.storyName = 'Toast Type: Alert';

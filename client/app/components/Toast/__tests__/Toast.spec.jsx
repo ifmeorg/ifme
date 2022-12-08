@@ -8,8 +8,8 @@ describe('Toast', () => {
     it('renders correctly', () => {
       render(
         <Toast
-        alert='Invalid username or password.'
-        appendDashboardClass='true'
+          alert="Invalid username or password."
+          appendDashboardClass="true"
         />,
       );
       expect(screen).not.toBeNull();
@@ -20,7 +20,7 @@ describe('Toast', () => {
     it('renders correctly', () => {
       render(
         <Toast
-        notice='Login successful.'
+          notice="Login successful."
         />,
       );
       expect(screen).not.toBeNull();
