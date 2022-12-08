@@ -34,7 +34,7 @@ export const Toast = ({
   }
   return (
     <>
-      <div id='toast-notice' aria-label={showNotice ? I18n.t('alert_auto_hide') : ''} style={{ visibility: showNotice ? 'visible' : 'hidden' }} role="region" aria-live="polite" aria-atomic="true" className={`${showNotice ? 'notice' : ''} ${css.toast} ${showNotice && (showAlert || appendDashboardClass) ? 'smallMarginBottom' : ''}`}>
+      <div id="toast-notice" aria-label={showNotice ? I18n.t('alert_auto_hide') : ''} style={{ visibility: showNotice ? 'visible' : 'hidden' }} role="region" aria-live="polite" aria-atomic="true" className={`${showNotice ? 'notice' : ''} ${css.toast} ${showNotice && (showAlert || appendDashboardClass) ? 'smallMarginBottom' : ''}`}>
         {showNotice && (
           <>
             <div>
@@ -48,7 +48,7 @@ export const Toast = ({
           </>
         )}
       </div>
-      <div id='toast-alert' aria-label={showAlert ? I18n.t('alert_auto_hide') : ''} style={{ visibility: showAlert ? 'visible' : 'hidden' }} role="alert" aria-live="assertive" aria-atomic="true" className={`${showAlert ? 'alert' : ''} ${css.toast} ${showAlert && appendDashboardClass ? 'smallMarginBottom' : ''}`}>
+      <div id="toast-alert" aria-label={showAlert ? I18n.t('alert_auto_hide') : ''} style={{ visibility: showAlert ? 'visible' : 'hidden' }} role="alert" aria-live="assertive" aria-atomic="true" className={`${showAlert ? 'alert' : ''} ${css.toast} ${showAlert && appendDashboardClass ? 'smallMarginBottom' : ''}`}>
         {showAlert && (
           <>
             <div>
