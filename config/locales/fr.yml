@@ -13,6 +13,7 @@ fr:
   no_text: non
   expand_menu: dérouler le menu
   close: fermer
+  alert_auto_hide: Cette alerte sera masquée automatiquement
   load_more: Charger plus
   of: de
   languages:

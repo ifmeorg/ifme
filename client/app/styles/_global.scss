@@ -19,5 +19,7 @@ a {
     opacity: 0.5;
   }
 }
-
+.clr-white {
+  color: white;
+}
 @include dashboardSectionStyles();

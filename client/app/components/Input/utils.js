@@ -52,6 +52,7 @@ export type Checkbox = {
   checked?: boolean,
   uncheckedValue?: any,
   label: string,
+  labelClass?: string,
   onChange?: Function,
   info?: string,
 };
@@ -80,6 +81,7 @@ export type Props = {
     | 'textareaTemplate',
   name: string,
   label?: string,
+  labelClass?: string,
   placeholder?: string,
   error?: boolean,
   dark?: boolean,

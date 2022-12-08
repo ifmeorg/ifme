@@ -13,6 +13,7 @@ en:
   no_text: 'no'
   expand_menu: expand menu
   close: close
+  alert_auto_hide: This alert will be hidden automatically
   load_more: Load more
   of: of
   languages:

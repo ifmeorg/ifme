@@ -27,6 +27,7 @@ export const Input = ({
   info,
   value,
   label,
+  labelClass,
   ariaLabel,
   placeholder,
   readOnly,
@@ -84,6 +85,7 @@ export const Input = ({
         hasError={(errorPresent: boolean) => hasError(errorPresent)}
         myRef={myRef}
         label={label}
+        labelClass={labelClass}
         copyOnClick={copyOnClick}
       />
     );
@@ -149,6 +151,7 @@ export const Input = ({
           checked={checked}
           uncheckedValue={uncheckedValue}
           label={label}
+          labelClass={labelClass}
           info={info}
           onChange={onChange}
         />
@@ -328,6 +331,7 @@ export default ({
   info,
   value,
   label,
+  labelClass,
   ariaLabel,
   placeholder,
   readOnly,
@@ -362,6 +366,7 @@ export default ({
     info={info}
     value={value}
     label={label}
+    labelClass={labelClass}
     ariaLabel={ariaLabel}
     placeholder={placeholder}
     readOnly={readOnly}

@@ -151,7 +151,9 @@
     text-transform: capitalize;
   }
 }
-
+.clr-white {
+  color: $white;
+}
 .default,
 .tagAutocomplete,
 .password,

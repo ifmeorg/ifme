@@ -1,0 +1,22 @@
+@import "~styles/_global.scss";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+.toast {
+  display: flex;
+  justify-content: space-between;
+  width: fit-content; 
+  margin: 0 auto;
+
+  button {
+    display: flex;
+    align-self: end;
+    background: transparent;
+    color: #fff;
+    opacity: 0.5;
+    border: 0;
+    &:hover {
+      border: 0;
+      opacity: 1;
+    }
+  }
+}
