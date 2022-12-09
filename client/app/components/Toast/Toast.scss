@@ -1,5 +1,4 @@
 @import "~styles/_global.scss";
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 .toast {
   display: flex;
@@ -8,10 +7,8 @@
   margin: 0 auto;
 
   button {
-    display: flex;
-    align-self: end;
     background: transparent;
-    color: #fff;
+    color: $white;
     opacity: 0.5;
     border: 0;
     &:hover {

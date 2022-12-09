@@ -33,7 +33,7 @@ export const Toast = ({
     }, 7000);
   }
   return (
-    <>
+    <div>
       <div id="toast-notice" aria-label={showNotice ? I18n.t('alert_auto_hide') : ''} style={{ visibility: showNotice ? 'visible' : 'hidden' }} role="region" aria-live="polite" aria-atomic="true" className={`${showNotice ? 'notice' : ''} ${css.toast} ${showNotice && (showAlert || appendDashboardClass) ? 'smallMarginBottom' : ''}`}>
         {showNotice && (
           <>
@@ -62,7 +62,7 @@ export const Toast = ({
           </>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

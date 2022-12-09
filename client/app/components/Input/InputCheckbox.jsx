@@ -53,20 +53,18 @@ export const InputCheckbox = (props: Props): Node => {
     name,
     value,
     label,
-    labelClass,
     uncheckedValue,
     checked,
     info,
     onChange,
   } = props;
-  const labelCustomClasses = labelClass?.split(' ').map((className) => globalCss[className]).join(' ');
   return (
     <div className={`${css.checkbox} ${globalCss.gridRowSpaceBetween}`}>
       <div>
         {typeof uncheckedValue !== 'undefined'
           && displayUnchecked(name, uncheckedValue)}
         {displayCheckbox(id, name, value, checked, onChange, label)}
-        <label className={`${css.checkboxLabel} ${labelCustomClasses ?? ''}`} htmlFor={id}>{renderHTML(label)}</label>
+        <label className={`${css.checkboxLabel}`} htmlFor={id}>{renderHTML(label)}</label>
       </div>
       {displayInfo(info)}
     </div>
