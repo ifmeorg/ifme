@@ -26,4 +26,15 @@ describe('Toast', () => {
       expect(screen).not.toBeNull();
     });
   });
+
+  describe('Toast Type: Notice', () => {
+    it('renders correctly', () => {
+      render(
+        <Toast
+          notice="Signed out successfully."
+        />,
+      );
+      expect(screen).not.toBeNull();
+    });
+  });
 });
