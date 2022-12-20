@@ -19,7 +19,13 @@ a {
     opacity: 0.5;
   }
 }
-.clr-white {
-  color: white;
+
+.invisible {
+  visibility: hidden;
 }
+
+.visible {
+  visibility: visible;
+}
+
 @include dashboardSectionStyles();
