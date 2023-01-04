@@ -9,11 +9,12 @@
   button {
     background: transparent;
     color: $white;
-    opacity: 0.5;
-    border: 0;
+    opacity: 1;
+    border: none;
+
     &:hover {
-      border: 0;
-      opacity: 1;
+      border: none;
+      opacity: 0.8;
     }
   }
 }
