@@ -5,9 +5,7 @@ import userEvent from '@testing-library/user-event';
 import { InputMocks } from 'mocks/InputMocks';
 import { InputSelect } from 'components/Input/InputSelect';
 
-const {
-  id, name, ariaLabel, value, options,
-} = InputMocks.inputSelectProps;
+const { id, name, ariaLabel, value, options } = InputMocks.inputSelectProps;
 const someEvent = InputMocks.event;
 
 describe('InputSelect', () => {

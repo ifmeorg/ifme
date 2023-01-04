@@ -6,7 +6,8 @@ import photo from 'app/assets/images/contributors/ingrid_garcia.jpg';
 
 const title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
 
-const bodyText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo erat quis ipsum sodales condimentum. Vestibulum nec posuere lorem. Nulla condimentum, dui et sagittis hendrerit, enim sapien luctus orci, non vehicula nibh massa vel risus. Nunc vitae aliquam lacus. Donec dolor velit, blandit eu erat luctus, aliquam congue augue. Curabitur interdum leo id orci porttitor, eget dictum nibh gravida. Praesent facilisis, justo non convallis consectetur, tellus est egestas erat, quis commodo risus tellus consequat est. Curabitur quis massa non est pharetra mollis. Proin finibus ipsum massa, et semper ipsum ultricies vel. Mauris dignissim auctor egestas. Aenean elit ante, egestas eu ligula a, tincidunt suscipit diam. Nulla ultrices tempus turpis ac cursus. Suspendisse congue sem nec ex vehicula, in vestibulum leo ultricies. Morbi ac faucibus lorem. Donec vitae tellus id quam aliquet iaculis. Nam aliquet quis ante faucibus convallis.';
+const bodyText =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo erat quis ipsum sodales condimentum. Vestibulum nec posuere lorem. Nulla condimentum, dui et sagittis hendrerit, enim sapien luctus orci, non vehicula nibh massa vel risus. Nunc vitae aliquam lacus. Donec dolor velit, blandit eu erat luctus, aliquam congue augue. Curabitur interdum leo id orci porttitor, eget dictum nibh gravida. Praesent facilisis, justo non convallis consectetur, tellus est egestas erat, quis commodo risus tellus consequat est. Curabitur quis massa non est pharetra mollis. Proin finibus ipsum massa, et semper ipsum ultricies vel. Mauris dignissim auctor egestas. Aenean elit ante, egestas eu ligula a, tincidunt suscipit diam. Nulla ultrices tempus turpis ac cursus. Suspendisse congue sem nec ex vehicula, in vestibulum leo ultricies. Morbi ac faucibus lorem. Donec vitae tellus id quam aliquet iaculis. Nam aliquet quis ante faucibus convallis.';
 
 const longBodyText = `${bodyText} ${bodyText} ${bodyText}`;
 
@@ -26,7 +27,7 @@ export default {
   component: Modal,
 };
 
-const Template = (args) => <Modal {...args} />;
+const Template = args => <Modal {...args} />;
 
 export const TextValuesForElementAndBody = Template.bind({});
 
@@ -44,7 +45,8 @@ LongTextValueForcingBodyToScroll.args = {
   body: longBodyText,
   title,
 };
-LongTextValueForcingBodyToScroll.storyName = 'Long text value forcing body to scroll';
+LongTextValueForcingBodyToScroll.storyName =
+  'Long text value forcing body to scroll';
 
 export const TextValuesForElementAndBodyWithOpenListener = Template.bind({});
 
@@ -54,7 +56,8 @@ TextValuesForElementAndBodyWithOpenListener.args = {
   title,
   openListener,
 };
-TextValuesForElementAndBodyWithOpenListener.storyName = 'Text values for element and body with openListener';
+TextValuesForElementAndBodyWithOpenListener.storyName =
+  'Text values for element and body with openListener';
 
 export const HtmlValuesForElementAndBody = Template.bind({});
 
@@ -73,7 +76,8 @@ HtmlValuesForElementAndBodyWithOpenListener.args = {
   title,
   openListener,
 };
-HtmlValuesForElementAndBodyWithOpenListener.storyName = 'HTML values for element and body with openListener';
+HtmlValuesForElementAndBodyWithOpenListener.storyName =
+  'HTML values for element and body with openListener';
 
 export const AvatarComponentAsTheElement = Template.bind({});
 

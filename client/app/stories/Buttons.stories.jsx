@@ -8,7 +8,7 @@ const rowStyle = {
   justifyContent: 'space-evenly',
 };
 
-const getButton = (className) => (
+const getButton = className => (
   <p>
     <button type="button" className={`${css[className]} ${className}`}>
       {`${className}`}
@@ -20,7 +20,7 @@ export default {
   title: 'Style Guide/Buttons',
 };
 
-const LightBackgroundTemplate = (args) => (
+const LightBackgroundTemplate = args => (
   <div style={rowStyle}>
     <div>
       <h1>Regular</h1>
@@ -43,7 +43,7 @@ export const ButtonsOnLightBackground = LightBackgroundTemplate.bind({});
 
 ButtonsOnLightBackground.storyName = 'Buttons on light background';
 
-const DarkBackgroundTemplate = (args) => (
+const DarkBackgroundTemplate = args => (
   <div style={rowStyle}>
     <div>
       <h1 style={{ color: '#FFFFFF' }}>Regular</h1>

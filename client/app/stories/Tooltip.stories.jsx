@@ -4,14 +4,15 @@ import React from 'react';
 import { Tooltip } from 'components/Tooltip';
 import { Logo } from 'components/Logo';
 
-const longText = 'Heya this is a tooltip with a lot of fun text. Blah blah blah. Hover boards!';
+const longText =
+  'Heya this is a tooltip with a lot of fun text. Blah blah blah. Hover boards!';
 const shortText = 'Heya this is a tooltip.';
 
 export default {
   title: 'Components/Tooltip',
 };
 
-const ElementIsTextTemplate = (args) => (
+const ElementIsTextTemplate = args => (
   <center>
     <Tooltip element="Hello" text={longText} />
     <br />
@@ -24,7 +25,7 @@ export const ElementIsText = ElementIsTextTemplate.bind({});
 
 ElementIsText.storyName = 'Element is text';
 
-const ElementIsHtmlTemplate = (args) => (
+const ElementIsHtmlTemplate = args => (
   <center>
     <Tooltip element={<Logo lg />} text={longText} />
     <br />
@@ -40,7 +41,7 @@ ElementIsHtml.parameters = {
   backgrounds: { default: 'mulberry' },
 };
 
-const ElementIsTextAndTooltipIsPositionedRightTemplate = (args) => (
+const ElementIsTextAndTooltipIsPositionedRightTemplate = args => (
   <center>
     <Tooltip element="Hello" text={longText} right />
     <br />
@@ -53,9 +54,10 @@ export const ElementIsTextAndTooltipIsPositionedRight = ElementIsTextAndTooltipI
   {},
 );
 
-ElementIsTextAndTooltipIsPositionedRight.storyName = 'Element is text and tooltip is positioned right';
+ElementIsTextAndTooltipIsPositionedRight.storyName =
+  'Element is text and tooltip is positioned right';
 
-const ElementIsHtmlAndTooltipIsPositionedRightTemplate = (args) => (
+const ElementIsHtmlAndTooltipIsPositionedRightTemplate = args => (
   <center>
     <Tooltip element={<Logo lg />} text={longText} right />
     <br />
@@ -68,12 +70,13 @@ export const ElementIsHtmlAndTooltipIsPositionedRight = ElementIsHtmlAndTooltipI
   {},
 );
 
-ElementIsHtmlAndTooltipIsPositionedRight.storyName = 'Element is HTML and tooltip is positioned right';
+ElementIsHtmlAndTooltipIsPositionedRight.storyName =
+  'Element is HTML and tooltip is positioned right';
 ElementIsHtmlAndTooltipIsPositionedRight.parameters = {
   backgrounds: { default: 'mulberry' },
 };
 
-const ElementIsTextAndTooltipIsPositionedCenterTemplate = (args) => (
+const ElementIsTextAndTooltipIsPositionedCenterTemplate = args => (
   <center>
     <Tooltip element="Hello" text={longText} center />
     <br />
@@ -86,9 +89,10 @@ export const ElementIsTextAndTooltipIsPositionedCenter = ElementIsTextAndTooltip
   {},
 );
 
-ElementIsTextAndTooltipIsPositionedCenter.storyName = 'Element is text and tooltip is positioned center';
+ElementIsTextAndTooltipIsPositionedCenter.storyName =
+  'Element is text and tooltip is positioned center';
 
-const ElementIsHtmlAndTooltipIsPositionedCenterTemplate = (args) => (
+const ElementIsHtmlAndTooltipIsPositionedCenterTemplate = args => (
   <center>
     <Tooltip element={<Logo lg />} text={longText} center />
     <br />
@@ -101,7 +105,8 @@ export const ElementIsHtmlAndTooltipIsPositionedCenter = ElementIsHtmlAndTooltip
   {},
 );
 
-ElementIsHtmlAndTooltipIsPositionedCenter.storyName = 'Element is HTML and tooltip is positioned center';
+ElementIsHtmlAndTooltipIsPositionedCenter.storyName =
+  'Element is HTML and tooltip is positioned center';
 ElementIsHtmlAndTooltipIsPositionedCenter.parameters = {
   backgrounds: { default: 'mulberry' },
 };

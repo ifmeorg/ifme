@@ -26,7 +26,7 @@ export function InputCheckboxGroup({
       return newItem;
     });
     if (required && hasError) {
-      hasError(newCheckboxes.filter((item) => item.checked).length === 0);
+      hasError(newCheckboxes.filter(item => item.checked).length === 0);
     }
     setCheckboxes(newCheckboxes);
   };

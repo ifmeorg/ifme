@@ -23,18 +23,14 @@ const medicDosage = ({
   }
   return (
     <div>
-      <strong>{dosageWeekly}</strong>
-      {' '}
-      {weeklyDosageMap}
+      <strong>{dosageWeekly}</strong> {weeklyDosageMap}
     </div>
   );
 };
 
 const displayStrength = ({ strength, strengthUnits }: Object) => (
   <div>
-    <strong>{strength}</strong>
-    {' '}
-    {strengthUnits}
+    <strong>{strength}</strong> {strengthUnits}
   </div>
 );
 
@@ -50,17 +46,11 @@ export const StoryMedication = ({
   <div>
     {displayStrength(medicationStrength)}
     <div>
-      <strong>{quantity}</strong>
-      {' '}
-      {totalUnits}
+      <strong>{quantity}</strong> {totalUnits}
     </div>
-    {medicDosage(medicationDosages)}
-    {' '}
-    {dosageUnit}
+    {medicDosage(medicationDosages)} {dosageUnit}
     <div>
-      <strong>{refill}</strong>
-      {' '}
-      {medicationRefill}
+      <strong>{refill}</strong> {medicationRefill}
     </div>
   </div>
 );

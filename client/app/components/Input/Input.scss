@@ -147,10 +147,12 @@
 
   &Label {
     @include setMargin($size-0, $size-0, $size-0, $size-8);
+
     color: $white;
     text-transform: capitalize;
   }
 }
+
 .default,
 .tagAutocomplete,
 .password,

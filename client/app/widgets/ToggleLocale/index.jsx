@@ -12,7 +12,7 @@ export type Props = {
   locales: string[],
 };
 
-const options = (locales) => {
+const options = locales => {
   const result = [];
   locales.forEach((locale: string) => {
     result.push({

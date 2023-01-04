@@ -41,31 +41,25 @@ describe('Toast', () => {
 
       const toastContent = getByRole('alert');
       expect(toastContent).toHaveClass('toastElementVisible');
-      await waitFor(() => {
-        expect(toastContent).toHaveClass('toastElementHidden');
-      }, 
-      { 
-        timeout: 7000
-      });
+      await waitFor(
+        () => {
+          expect(toastContent).toHaveClass('toastElementHidden');
+        },
+        {
+          timeout: 7000,
+        },
+      );
     });
   });
 
   describe('Toast Type: Notice', () => {
     it('renders correctly', () => {
-      render(
-        <Toast
-          notice="Login successful."
-        />,
-      );
+      render(<Toast notice="Login successful." />);
       expect(screen).not.toBeNull();
     });
 
     it('closes correctly on button click', () => {
-      const { getByRole } = render(
-        <Toast
-          notice="Login successful."
-        />,
-      );
+      const { getByRole } = render(<Toast notice="Login successful." />);
 
       const toastContent = getByRole('region');
       const toastBtn = getByRole('button');
@@ -76,30 +70,24 @@ describe('Toast', () => {
     });
 
     it('closes automatically after 7 seconds', async () => {
-      const { getByRole } = render(
-        <Toast
-          notice="Login successful."
-        />,
-      );
+      const { getByRole } = render(<Toast notice="Login successful." />);
 
       const toastContent = getByRole('region');
       expect(toastContent).toHaveClass('toastElementVisible');
-      await waitFor(() => {
-        expect(toastContent).toHaveClass('toastElementHidden');
-      }, 
-      { 
-        timeout: 7000
-      });
+      await waitFor(
+        () => {
+          expect(toastContent).toHaveClass('toastElementHidden');
+        },
+        {
+          timeout: 7000,
+        },
+      );
     });
   });
 
   describe('Toast Type: Notice', () => {
     it('renders correctly', () => {
-      render(
-        <Toast
-          notice="Signed out successfully."
-        />,
-      );
+      render(<Toast notice="Signed out successfully." />);
       expect(screen).not.toBeNull();
     });
   });

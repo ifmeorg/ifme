@@ -10,7 +10,7 @@ export type Props = {
 
 const StoryContainer = ({ data }: Props): Node => (
   <div className="gridTwo">
-    {data.map((storyProps) => (
+    {data.map(storyProps => (
       <div className="gridTwoItemBoxLight" key={storyProps.link}>
         <Story
           date={storyProps.date}

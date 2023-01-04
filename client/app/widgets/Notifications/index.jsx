@@ -40,17 +40,18 @@ export const Notifications = ({ element, pusher }: Props): Node => {
     window.document.title = count === 0 ? title : `(${count}) ${title}`;
   };
 
-  const fetchNotifications = () => axios.get('/notifications/fetch_notifications').then((response: any) => {
-    if (response && response.data && response.data.fetch_notifications) {
-      changeTitle(response.data.fetch_notifications.length);
-      setBody(response.data.fetch_notifications);
-      if (!alreadyMounted && response.data.fetch_notifications.length > 0) {
-        setAlreadyMounted(true);
-        setOpen(true);
-        setModalKey(Utils.randomString());
+  const fetchNotifications = () =>
+    axios.get('/notifications/fetch_notifications').then((response: any) => {
+      if (response && response.data && response.data.fetch_notifications) {
+        changeTitle(response.data.fetch_notifications.length);
+        setBody(response.data.fetch_notifications);
+        if (!alreadyMounted && response.data.fetch_notifications.length > 0) {
+          setAlreadyMounted(true);
+          setOpen(true);
+          setModalKey(Utils.randomString());
+        }
       }
-    }
-  });
+    });
 
   const fetchData = () => {
     Utils.setCsrfToken();

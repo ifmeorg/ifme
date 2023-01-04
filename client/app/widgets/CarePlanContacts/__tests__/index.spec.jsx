@@ -45,7 +45,9 @@ describe('CarePlanContacts', () => {
       });
       const { container } = render(component);
 
-      const editLink = container.querySelector('a[aria-label="Edit Test1 Lastname"]');
+      const editLink = container.querySelector(
+        'a[aria-label="Edit Test1 Lastname"]',
+      );
       expect(screen.queryByText('Edit Contact')).not.toBeInTheDocument();
 
       await userEvent.click(editLink);
@@ -64,7 +66,9 @@ describe('CarePlanContacts', () => {
       );
 
       await userEvent.click(screen.getByText('Submit'));
-      await waitFor(() => expect(screen.getByText(newPhoneNumber)).toBeInTheDocument());
+      await waitFor(() =>
+        expect(screen.getByText(newPhoneNumber)).toBeInTheDocument(),
+      );
     });
 
     it('opens a modal and does not submit the form successfully', async () => {
@@ -72,7 +76,9 @@ describe('CarePlanContacts', () => {
       const axiosPostSpy = jest.spyOn(axios, 'patch').mockRejectedValue(error);
       const { container } = render(component);
 
-      const editLink = container.querySelector('a[aria-label="Edit Test1 Lastname"]');
+      const editLink = container.querySelector(
+        'a[aria-label="Edit Test1 Lastname"]',
+      );
       expect(screen.queryByText('Edit Contact')).not.toBeInTheDocument();
 
       await userEvent.click(editLink);

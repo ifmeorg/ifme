@@ -4,7 +4,8 @@ import userEvent from '@testing-library/user-event';
 import { InputMocks } from 'mocks/InputMocks';
 
 const { inputTagProps, createInput } = InputMocks;
-const getComponent = (extraProps = {}) => createInput(inputTagProps, extraProps);
+const getComponent = (extraProps = {}) =>
+  createInput(inputTagProps, extraProps);
 // baseline for most tests
 const component = getComponent();
 const { checkboxes } = inputTagProps;
