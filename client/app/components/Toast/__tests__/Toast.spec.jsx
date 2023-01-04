@@ -45,6 +45,7 @@ describe('Toast', () => {
         expect(toastContent).toHaveClass('toastElementHidden');
       }, {timeout: 7000});
     });
+  });
 
   describe('Toast Type: Notice', () => {
     it('renders correctly', () => {
