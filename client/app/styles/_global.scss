@@ -20,12 +20,4 @@ a {
   }
 }
 
-.invisible {
-  visibility: hidden;
-}
-
-.visible {
-  visibility: visible;
-}
-
 @include dashboardSectionStyles();

@@ -34,7 +34,7 @@ export const Toast = ({
   }
   return (
     <>
-      <div id="toast-notice" aria-label={showNotice ? I18n.t('alert_auto_hide') : ''} role="region" aria-live="polite" aria-atomic="true" className={`${showNotice ? 'notice visible' : 'invisible'} ${css.toast} ${showNotice && (showAlert || appendDashboardClass) ? 'smallMarginBottom' : ''}`}>
+      <div id="toast-notice" aria-label={showNotice ? I18n.t('alert_auto_hide') : ''} role="region" aria-live="polite" aria-atomic="true" className={`${showNotice ? 'notice toastElementVisible' : 'toastElementHidden'} ${css.toast} ${showNotice && (showAlert || appendDashboardClass) ? 'smallMarginBottom' : ''}`}>
         {showNotice && (
           <>
             <div>
@@ -48,7 +48,7 @@ export const Toast = ({
           </>
         )}
       </div>
-      <div id="toast-alert" aria-label={showAlert ? I18n.t('alert_auto_hide') : ''} role="alert" className={`${showAlert ? 'alert visible' : 'invisible'} ${css.toast} ${showAlert && appendDashboardClass ? 'smallMarginBottom' : ''}`}>
+      <div id="toast-alert" aria-label={showAlert ? I18n.t('alert_auto_hide') : ''} role="alert" className={`${showAlert ? 'alert toastElementVisible' : 'toastElementHidden'} ${css.toast} ${showAlert && appendDashboardClass ? 'smallMarginBottom' : ''}`}>
         {showAlert && (
           <>
             <div>
