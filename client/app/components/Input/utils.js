@@ -58,7 +58,8 @@ export type Checkbox = {
 
 export type Props = {
   id: string,
-  type: | 'text'
+  type:
+    | 'text'
     | 'textarea'
     | 'submit'
     | 'checkbox'
@@ -115,7 +116,7 @@ export type Props = {
 export const mergeRefs = (...refs: any): Function => (
   element: HTMLInputElement,
 ): Function => {
-  refs.forEach((ref) => {
+  refs.forEach(ref => {
     if (typeof ref === 'function') {
       ref(element);
     } else if (ref) {

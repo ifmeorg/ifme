@@ -7,7 +7,7 @@ export default {
   component: Blockquote,
 };
 
-const Template = (args) => <Blockquote {...args} />;
+const Template = args => <Blockquote {...args} />;
 
 export const Default = Template.bind({});
 

@@ -21,17 +21,17 @@ const taggedResources = (tags: ?(string[]), updateTagFilter) => {
   if (tags) {
     return (
       <div className="tags">
-        {tags.map((tag) => (
+        {tags.map(tag => (
           <Tag
             normal
             label={tag}
             key={Utils.randomString()}
             onClick={
               updateTagFilter
-                ? (tagLabel) => {
-                  updateTagFilter(tagLabel);
-                  scrollUp();
-                }
+                ? tagLabel => {
+                    updateTagFilter(tagLabel);
+                    scrollUp();
+                  }
                 : null
             }
           />
@@ -48,9 +48,7 @@ const authorRes = (author: ?string) => {
 };
 
 export const Resource = (props: Props): Node => {
-  const {
-    author, link, tags = [], title, updateTagFilter,
-  } = props;
+  const { author, link, tags = [], title, updateTagFilter } = props;
   return (
     <div className={`resource ${css.resource}`}>
       <a

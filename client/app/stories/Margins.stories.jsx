@@ -8,7 +8,7 @@ const rowStyle = {
   justifyContent: 'space-evenly',
 };
 
-const getMargin = (className) => (
+const getMargin = className => (
   <div style={{ ...rowStyle, padding: '10px' }}>
     <div>{`${className}`}</div>
     <div
@@ -26,7 +26,7 @@ export default {
   title: 'Style Guide/Margins',
 };
 
-const MarginsTemplate = (args) => (
+const MarginsTemplate = args => (
   <>
     {getMargin('marginRight')}
     {getMargin('smallMarginRight')}

@@ -8,7 +8,7 @@ export default {
   component: Form,
 };
 
-const Template = (args) => <Form {...args} />;
+const Template = args => <Form {...args} />;
 
 export const Default = Template.bind({});
 

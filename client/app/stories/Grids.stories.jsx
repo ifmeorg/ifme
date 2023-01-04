@@ -23,7 +23,7 @@ export default {
   title: 'Style Guide/Grids',
 };
 
-const Template = (args) => (
+const Template = args => (
   <>
     {getGrid('gridTwo', 'ItemBoxDark')}
     {getGrid('gridTwo', 'ItemBoxGhost')}

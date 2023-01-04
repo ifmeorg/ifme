@@ -17,7 +17,7 @@ export const StoryMoods = (props: Props): Node => {
   const { moods } = props;
   return (
     <div className={`storyMoods ${css.moods}`}>
-      {moods.map((value) => (
+      {moods.map(value => (
         <Tag key={value.name} dark label={value.name} href={value.slug} />
       ))}
     </div>

@@ -7,7 +7,7 @@ export default {
   component: Tag,
 };
 
-const Template = (args) => <Tag {...args} />;
+const Template = args => <Tag {...args} />;
 
 export const NormalStyle = Template.bind({});
 

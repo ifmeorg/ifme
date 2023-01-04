@@ -51,9 +51,11 @@ export const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
 export const labelExists = (
   checkboxes: Checkbox[],
   compareLabel: string,
-): boolean => checkboxes.filter(
-  (checkbox: Checkbox) => checkbox.label.toLowerCase() === compareLabel.toLowerCase(),
-).length > 0;
+): boolean =>
+  checkboxes.filter(
+    (checkbox: Checkbox) =>
+      checkbox.label.toLowerCase() === compareLabel.toLowerCase(),
+  ).length > 0;
 
 export const addToCheckboxes = (
   { name, id, slug }: CheckboxData,
@@ -122,14 +124,12 @@ export const QuickCreate = ({
   formProps,
 }: Props): Node => {
   const [
-    {
-      checkboxes, accordionOpen, tagKey, body, open, modalKey,
-    },
+    { checkboxes, accordionOpen, tagKey, body, open, modalKey },
     dispatch,
   ] = useReducer(quickCreateReducer, {
     checkboxes: checkboxesProp,
     open: false,
-    accordionOpen: checkboxesProp.some((cb) => cb.checked),
+    accordionOpen: checkboxesProp.some(cb => cb.checked),
     modalKey: undefined,
     tagKey: undefined,
     body: undefined,

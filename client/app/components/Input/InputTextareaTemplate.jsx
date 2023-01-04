@@ -36,9 +36,10 @@ export const InputTextareaTemplate = ({
   const [textareaKey, setTextareaKey] = useState();
   const textareaRef = useRef(null);
 
-  const options = optionsProp
-    && optionsProp.length > 0
-    && [
+  const options =
+    optionsProp &&
+    optionsProp.length > 0 &&
+    [
       {
         id: 'default',
         label: I18n.t('common.form.template'),
@@ -52,7 +53,7 @@ export const InputTextareaTemplate = ({
       updatedTextareaValue = textareaRef.current.value;
 
       if (options && options.length > 0) {
-        options.forEach((option) => {
+        options.forEach(option => {
           updatedTextareaValue = updatedTextareaValue.replace(option.value, '');
         });
       }

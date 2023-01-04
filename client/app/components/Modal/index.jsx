@@ -1,7 +1,5 @@
 // @flow
-import React, {
-  useState, useRef, type Element, type Node,
-} from 'react';
+import React, { useState, useRef, type Element, type Node } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { I18n } from 'libs/i18n';
@@ -86,7 +84,7 @@ export const Modal = (props: Props): Node => {
       <div
         className={`modalClose ${css.modalBoxHeaderClose}`}
         onClick={toggleOpen}
-        onKeyDown={(event) => handleKeyPress(event, 'Enter')}
+        onKeyDown={event => handleKeyPress(event, 'Enter')}
         role="button"
         tabIndex={0}
         aria-label={I18n.t('close')}
@@ -111,7 +109,7 @@ export const Modal = (props: Props): Node => {
     <div
       className={`modalBackdrop ${css.modalBackdrop}`}
       onClick={handleClick}
-      onKeyDown={(event) => handleKeyPress(event, 'Escape')}
+      onKeyDown={event => handleKeyPress(event, 'Escape')}
       tabIndex={-1}
       role="button"
     >
@@ -155,7 +153,7 @@ export const Modal = (props: Props): Node => {
           id={elementId}
           className={`modalElement ${css.modalElement} ${className || ''}`}
           onClick={toggleOpen}
-          onKeyDown={(event) => handleKeyPress(event, 'Enter')}
+          onKeyDown={event => handleKeyPress(event, 'Enter')}
           role="button"
           tabIndex={0}
         >

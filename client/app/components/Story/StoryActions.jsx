@@ -122,7 +122,8 @@ const displayNonLink = (
   );
 };
 
-const titleItem = (item: string) => item.charAt(0).toUpperCase() + item.slice(1);
+const titleItem = (item: string) =>
+  item.charAt(0).toUpperCase() + item.slice(1);
 
 const tooltipElement = (
   item: string,
@@ -130,9 +131,9 @@ const tooltipElement = (
   storyName: ?string,
   dark: ?boolean,
 ) => {
-  const {
-    link, dataMethod, dataConfirm, name, onClick, commentBy,
-  } = actions[item];
+  const { link, dataMethod, dataConfirm, name, onClick, commentBy } = actions[
+    item
+  ];
 
   const ariaLabel = commentBy || `${name} ${storyName || ''}`;
 
@@ -177,10 +178,10 @@ const displayItem = (
   dark: ?boolean,
 ) => {
   if (
-    item === VIEWERS
-    || item === VISIBLE
-    || item === NOT_VISIBLE
-    || item === SHARE_LINK_INFO
+    item === VIEWERS ||
+    item === VISIBLE ||
+    item === NOT_VISIBLE ||
+    item === SHARE_LINK_INFO
   ) {
     return displayNonLink(actions, item, hasStory, dark);
   }
@@ -188,9 +189,7 @@ const displayItem = (
 };
 
 export const StoryActions = (props: Props): Node => {
-  const {
-    actions, hasStory, dark, storyName,
-  } = props;
+  const { actions, hasStory, dark, storyName } = props;
   return (
     <div className={css.actions}>
       {[
@@ -205,9 +204,11 @@ export const StoryActions = (props: Props): Node => {
         NOT_VISIBLE,
         VIEWERS,
         SHARE_LINK_INFO,
-      ].map((item: string) => (actions[item]
-        ? displayItem(actions, item, storyName, hasStory, dark)
-        : null))}
+      ].map((item: string) =>
+        actions[item]
+          ? displayItem(actions, item, storyName, hasStory, dark)
+          : null,
+      )}
     </div>
   );
 };

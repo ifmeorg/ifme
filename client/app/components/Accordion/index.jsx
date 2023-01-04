@@ -48,7 +48,8 @@ export const Accordion = ({
       setOpen(!open);
     }
   };
-  const inputClassNames = () => `${dark ? css.dark : ''} ${large ? css.large : ''}`;
+  const inputClassNames = () =>
+    `${dark ? css.dark : ''} ${large ? css.large : ''}`;
 
   return (
     <div id={`${id}_accordion`} className={inputClassNames()}>
