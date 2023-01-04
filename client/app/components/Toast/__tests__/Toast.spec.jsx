@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { Toast } from 'components/Toast';
 
 describe('Toast', () => {
@@ -43,7 +43,7 @@ describe('Toast', () => {
       expect(toastContent).toHaveClass('toastElementVisible');
       await waitFor(() => {
         expect(toastContent).toHaveClass('toastElementHidden');
-      }, {timeout: 7000});
+      }, { timeout: 7000 });
     });
   });
 
@@ -83,7 +83,7 @@ describe('Toast', () => {
       expect(toastContent).toHaveClass('toastElementVisible');
       await waitFor(() => {
         expect(toastContent).toHaveClass('toastElementHidden');
-      }, {timeout: 7000});
+      }, { timeout: 7000 });
     });
   });
 
