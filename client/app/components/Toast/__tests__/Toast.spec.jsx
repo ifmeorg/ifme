@@ -43,7 +43,10 @@ describe('Toast', () => {
       expect(toastContent).toHaveClass('toastElementVisible');
       await waitFor(() => {
         expect(toastContent).toHaveClass('toastElementHidden');
-      }, { timeout: 7000 });
+      }, 
+      { 
+        timeout: 7000
+      });
     });
   });
 
@@ -83,7 +86,10 @@ describe('Toast', () => {
       expect(toastContent).toHaveClass('toastElementVisible');
       await waitFor(() => {
         expect(toastContent).toHaveClass('toastElementHidden');
-      }, { timeout: 7000 });
+      }, 
+      { 
+        timeout: 7000
+      });
     });
   });
 
