@@ -41,7 +41,7 @@ export const MomentTemplatesForm = ({ template }: Props): Node => {
     } else {
       let newTemplates = [...templates];
       if (template) {
-        newTemplates = newTemplates.filter(c => c.id !== template.id);
+        newTemplates = newTemplates.filter((c) => c.id !== template.id);
       }
       newTemplates.push(response.data);
       setTemplates(newTemplates.sort((a, b) => a.name.localeCompare(b.name)));
@@ -53,7 +53,7 @@ export const MomentTemplatesForm = ({ template }: Props): Node => {
 
   return (
     <TemplatesContext.Consumer>
-      {context => (
+      {(context) => (
         <>
           <DynamicForm
             type={template ? 'patch' : 'post'}
@@ -87,7 +87,7 @@ export const MomentTemplatesForm = ({ template }: Props): Node => {
                 },
               ],
             }}
-            onSubmit={response => onSubmit(response, context)}
+            onSubmit={(response) => onSubmit(response, context)}
           />
           {error && (
             <div

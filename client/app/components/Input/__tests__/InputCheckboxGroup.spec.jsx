@@ -10,7 +10,7 @@ const label = 'Some Label';
 const idTwo = 'some-other-id';
 const nameTwo = 'some-other-name';
 const labelTwo = 'Some Other Label';
-const someEvent = hasError => {
+const someEvent = (hasError) => {
   if (!hasError) return;
   window.alert('Error');
 };

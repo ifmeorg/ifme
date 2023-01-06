@@ -14,7 +14,7 @@ export type Props = {
   profile: Profile,
 };
 
-const notificationsElement = notifications => (
+const notificationsElement = (notifications) => (
   <button
     type="button"
     className="buttonGhostXS"

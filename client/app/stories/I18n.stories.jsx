@@ -5,7 +5,7 @@ export default {
   title: 'Libraries/I18n',
 };
 
-const TranslationWithNoVariableTemplate = args => I18n.t('draft');
+const TranslationWithNoVariableTemplate = (args) => I18n.t('draft');
 
 export const TranslationWithNoVariable = TranslationWithNoVariableTemplate.bind(
   {},
@@ -13,8 +13,7 @@ export const TranslationWithNoVariable = TranslationWithNoVariableTemplate.bind(
 
 TranslationWithNoVariable.storyName = 'Translation with no variable';
 
-const TranslationWithVariableTemplate = args =>
-  I18n.t('created', { created_at: 'Blah' });
+const TranslationWithVariableTemplate = (args) => I18n.t('created', { created_at: 'Blah' });
 
 export const TranslationWithVariable = TranslationWithVariableTemplate.bind({});
 

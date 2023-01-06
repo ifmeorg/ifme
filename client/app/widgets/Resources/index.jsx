@@ -76,7 +76,7 @@ const getPopularTags = () => {
     'women_of_colour',
   ];
 
-  return tags.map(tag => (
+  return tags.map((tag) => (
     <Tag
       normal
       label={I18n.t(`pages.resources.tags.${tag}`)}
@@ -127,7 +127,7 @@ const createCheckboxes = (resources: ResourceProp[], keywords: string[]) => {
       value: tag,
       label: tag,
       checked: keywords.some(
-        keyword => keyword.toLowerCase() === tag.toLowerCase(),
+        (keyword) => keyword.toLowerCase() === tag.toLowerCase(),
       ),
     })),
   );
@@ -147,8 +147,7 @@ const filterList = (
         ...resource.tags,
         ...resource.languages,
         ...(resource.locations || []),
-      ].includes(checkbox.id),
-    );
+      ].includes(checkbox.id));
     return selectedCheckboxes.length > 0 ? tagCheck.includes(true) : true;
   });
 };
@@ -173,10 +172,10 @@ export const Resources = ({
 
   useEffect(() => {
     setFilteredResources(filterList(checkboxes, resources));
-    const checkedCheckboxes = checkboxes.filter(checkbox => checkbox.checked);
+    const checkedCheckboxes = checkboxes.filter((checkbox) => checkbox.checked);
 
     if (checkedCheckboxes.length > 0) {
-      const tags = checkedCheckboxes.map(checkbox => checkbox.value);
+      const tags = checkedCheckboxes.map((checkbox) => checkbox.value);
 
       history.replace({
         pathname: '/resources',
@@ -196,24 +195,22 @@ export const Resources = ({
 
   const checkboxChange = (box: Checkbox) => {
     setCheckboxes(
-      checkboxes.filter(checkbox => checkbox.id !== box.id).concat(box),
+      checkboxes.filter((checkbox) => checkbox.id !== box.id).concat(box),
     );
   };
 
   const updateTagFilter = (tagLabel: String) => {
-    const updatedBoxes = checkboxes.map(box =>
+    const updatedBoxes = checkboxes.map((box) =>
       // eslint-disable-next-line implicit-arrow-linebreak
-      box.label === tagLabel ? { ...box, checked: true } : box,
-    );
+      (box.label === tagLabel ? { ...box, checked: true } : box));
     setCheckboxes(updatedBoxes);
   };
 
   const onClick = () => {
-    const updatedResourcesDisplayed =
-      Math.min(
-        filteredResources.length - resourcesDisplayed,
-        RESOURCES_PER_PAGE,
-      ) + resourcesDisplayed;
+    const updatedResourcesDisplayed = Math.min(
+      filteredResources.length - resourcesDisplayed,
+      RESOURCES_PER_PAGE,
+    ) + resourcesDisplayed;
 
     setResourcesDisplayed(updatedResourcesDisplayed);
     setLastPage(filteredResources.length === updatedResourcesDisplayed);
@@ -243,7 +240,7 @@ export const Resources = ({
                 ]}
                 title={resource.name}
                 link={resource.link}
-                updateTagFilter={tagLabel => {
+                updateTagFilter={(tagLabel) => {
                   updateTagFilter(tagLabel);
                 }}
               />
@@ -264,7 +261,7 @@ export const Resources = ({
         aria-label={I18n.t('search.search_by_tags')}
         placeholder={I18n.t('search.search_by_tags')}
         checkboxes={checkboxes}
-        onCheckboxChange={box => checkboxChange(box)}
+        onCheckboxChange={(box) => checkboxChange(box)}
       />
       {displayTags()}
     </>

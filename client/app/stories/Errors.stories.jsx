@@ -6,7 +6,7 @@ export default {
   title: 'Style Guide/Errors',
 };
 
-const Template = args => (
+const Template = (args) => (
   <div className={`${css.errorField} errorField`}>
     <h2 className={`${css.errorText} errorText`}>errors</h2>
     <ul className={`${css.errorText} errorText`}>

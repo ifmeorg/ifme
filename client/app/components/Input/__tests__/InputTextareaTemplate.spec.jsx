@@ -164,9 +164,7 @@ describe('InputTextareaTemplate', () => {
       buttons.forEach(async ({ title, expectedArgs }) => {
         const button = screen.getByTitle(title);
         userEvent.click(button);
-        await waitFor(() =>
-          expect(pell.exec).toHaveBeenCalledWith(...expectedArgs),
-        );
+        await waitFor(() => expect(pell.exec).toHaveBeenCalledWith(...expectedArgs));
       });
     });
   });

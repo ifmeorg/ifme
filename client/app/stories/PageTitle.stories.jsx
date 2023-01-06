@@ -7,7 +7,7 @@ export default {
   component: PageTitle,
 };
 
-const Template = args => <PageTitle {...args} />;
+const Template = (args) => <PageTitle {...args} />;
 
 export const WithoutCta = Template.bind({});
 
@@ -30,7 +30,9 @@ WithInstructions.args = {
   subtitle: 'Subtitle',
   instructions: (
     <>
-      These are instructions with a button: <button type="button">Hello</button>
+      These are instructions with a button:
+      {' '}
+      <button type="button">Hello</button>
     </>
   ),
 };

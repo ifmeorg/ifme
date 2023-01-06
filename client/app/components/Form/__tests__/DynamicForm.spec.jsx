@@ -18,7 +18,7 @@ const defaultMockInputs = [
   InputMocks.inputSubmitProps,
 ];
 
-const getMockInputs = nameValue => {
+const getMockInputs = (nameValue) => {
   if (nameValue) {
     return [
       {
@@ -53,7 +53,9 @@ const getComponent = (options = {}) => {
 };
 
 describe('DynamicForm', () => {
-  const { getByRole, getByText, getByPlaceholderText, getByLabelText } = screen;
+  const {
+    getByRole, getByText, getByPlaceholderText, getByLabelText,
+  } = screen;
 
   describe('when name value does not exist', () => {
     it('renders correctly', () => {

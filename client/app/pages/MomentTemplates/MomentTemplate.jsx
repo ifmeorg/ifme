@@ -35,17 +35,17 @@ export const MomentTemplate = ({ template, editTemplate }: Props): Node => {
         actions={
           editTemplate && id
             ? {
-                delete: {
-                  name: I18n.t('common.actions.delete'),
-                  link: `/moment_templates/destroy?id=${id}`,
-                  dataConfirm: I18n.t('common.actions.confirm'),
-                  dataMethod: 'delete',
-                },
-                edit: {
-                  name: I18n.t('common.actions.edit'),
-                  onClick: () => editTemplate(template),
-                },
-              }
+              delete: {
+                name: I18n.t('common.actions.delete'),
+                link: `/moment_templates/destroy?id=${id}`,
+                dataConfirm: I18n.t('common.actions.confirm'),
+                dataMethod: 'delete',
+              },
+              edit: {
+                name: I18n.t('common.actions.edit'),
+                onClick: () => editTemplate(template),
+              },
+            }
             : undefined
         }
       />

@@ -103,7 +103,7 @@ export const DynamicForm = ({
             onSubmit(response);
           }
         })
-        .catch(error => {
+        .catch((error) => {
           if (onSubmit) {
             onSubmit({ error: error.toString() });
           }
@@ -140,7 +140,7 @@ export const DynamicForm = ({
         accordion={input.accordion}
         onClick={input.type === 'submit' ? onHandleSubmit : undefined}
         onError={input.type !== 'submit' ? handleError : undefined}
-        myRef={element => {
+        myRef={(element) => {
           myRefs[input.id] = element;
         }}
         formNoValidate={input.type === 'submit'}
@@ -148,18 +148,19 @@ export const DynamicForm = ({
     </div>
   );
 
-  const displayInputs = () =>
-    inputs.map((input: MyInputProps) => {
-      if (INPUT_TYPES.includes(input.type)) {
-        return displayInput(input);
-      }
-      return null;
-    });
+  const displayInputs = () => inputs.map((input: MyInputProps) => {
+    if (INPUT_TYPES.includes(input.type)) {
+      return displayInput(input);
+    }
+    return null;
+  });
 
   return <div className={css.form}>{displayInputs()}</div>;
 };
 
-export default ({ nameValue, formProps, onSubmit, type }: Props): Node => (
+export default ({
+  nameValue, formProps, onSubmit, type,
+}: Props): Node => (
   <DynamicForm
     nameValue={nameValue}
     formProps={formProps}

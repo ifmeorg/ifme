@@ -7,7 +7,7 @@ export default {
   component: OAuthButton,
 };
 
-const Template = args => <OAuthButton {...args} />;
+const Template = (args) => <OAuthButton {...args} />;
 
 export const SignInWithGoogle = Template.bind({});
 

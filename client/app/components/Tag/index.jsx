@@ -12,10 +12,11 @@ type Props = {
   href?: string,
 };
 
-const labelClassNames = ({ dark, normal, secondary, onClick } = {}) =>
-  `tag ${css.tag} ${dark ? css.dark : ''} ${normal ? css.normal : ''} ${
-    secondary ? css.secondary : ''
-  } ${onClick ? css.clickable : ''}`;
+const labelClassNames = ({
+  dark, normal, secondary, onClick,
+} = {}) => `tag ${css.tag} ${dark ? css.dark : ''} ${normal ? css.normal : ''} ${
+  secondary ? css.secondary : ''
+} ${onClick ? css.clickable : ''}`;
 
 export const Tag = ({
   dark,

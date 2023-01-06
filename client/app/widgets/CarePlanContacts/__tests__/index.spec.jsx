@@ -66,9 +66,7 @@ describe('CarePlanContacts', () => {
       );
 
       await userEvent.click(screen.getByText('Submit'));
-      await waitFor(() =>
-        expect(screen.getByText(newPhoneNumber)).toBeInTheDocument(),
-      );
+      await waitFor(() => expect(screen.getByText(newPhoneNumber)).toBeInTheDocument());
     });
 
     it('opens a modal and does not submit the form successfully', async () => {

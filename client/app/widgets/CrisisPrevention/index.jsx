@@ -10,7 +10,7 @@ import css from './CrisisPrevention.scss';
 const CrisisPrevention = (): Node => (
   <Modal
     title={I18n.t('pages.resources.crisis_prevention.title')}
-    body={
+    body={(
       <>
         <a
           href={`/resources?filter[]=${I18n.t(
@@ -20,7 +20,8 @@ const CrisisPrevention = (): Node => (
           {I18n.t('pages.resources.emergency')}
         </a>
         <p>
-          {I18n.t('pages.resources.crisis_prevention.description')}{' '}
+          {I18n.t('pages.resources.crisis_prevention.description')}
+          {' '}
           <FontAwesomeIcon
             icon={faHeart}
             className={css.heart}
@@ -28,7 +29,7 @@ const CrisisPrevention = (): Node => (
           />
         </p>
       </>
-    }
+    )}
     open
   />
 );

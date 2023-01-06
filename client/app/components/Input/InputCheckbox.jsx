@@ -42,9 +42,7 @@ const displayCheckbox = (id, name, value, checked, onChange, label) => (
     type="checkbox"
     value={value}
     defaultChecked={checked}
-    onChange={(e: SyntheticEvent<HTMLInputElement>) =>
-      handleOnChange(e, onChange, id)
-    }
+    onChange={(e: SyntheticEvent<HTMLInputElement>) => handleOnChange(e, onChange, id)}
     aria-label={label.replace(/<\/?[^>]+(>|$)/g, '')}
   />
 );
@@ -63,8 +61,8 @@ export const InputCheckbox = (props: Props): Node => {
   return (
     <div className={`${css.checkbox} ${globalCss.gridRowSpaceBetween}`}>
       <div>
-        {typeof uncheckedValue !== 'undefined' &&
-          displayUnchecked(name, uncheckedValue)}
+        {typeof uncheckedValue !== 'undefined'
+          && displayUnchecked(name, uncheckedValue)}
         {displayCheckbox(id, name, value, checked, onChange, label)}
         <label className={`${css.checkboxLabel}`} htmlFor={id}>
           {renderHTML(label)}

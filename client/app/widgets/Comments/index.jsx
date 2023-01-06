@@ -39,8 +39,7 @@ export type Props = {
 
 export const Comments = ({ comments, formProps }: Props): Node => {
   const [commentsState, setCommentsState] = useState<(Comment | any)[]>(
-    comments || [],
-  );
+    comments || []);
   const [key, setKey] = useState<string>('');
 
   const onDeleteClick = (

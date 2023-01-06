@@ -53,7 +53,7 @@ describe('Resources', () => {
     // both resource.languages and resource.tags are displayed among related tags
     resourcesData
       .flatMap(({ languages, tags }) => [...languages, ...tags])
-      .forEach(tag => {
+      .forEach((tag) => {
         expect(screen.getAllByText(tag)).not.toHaveLength(0);
       });
 
