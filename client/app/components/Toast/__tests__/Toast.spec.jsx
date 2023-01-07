@@ -26,7 +26,7 @@ describe('Toast', () => {
       );
 
       const toastContent = getByRole('alert');
-      const toastBtn = container.querySelectorAll('#btn-close-toast-alert');
+      const toastBtn = container.querySelector('#btn-close-toast-alert');
 
       expect(toastContent).toHaveClass('toastElementVisible');
       fireEvent.click(toastBtn);
@@ -64,7 +64,7 @@ describe('Toast', () => {
       const { getByRole, container } = render(<Toast notice="Login successful." />);
 
       const toastContent = getByRole('region');
-      const toastBtn = container.querySelectorAll('#btn-close-toast-notice');
+      const toastBtn = container.querySelector('#btn-close-toast-notice');
 
       expect(toastContent).toHaveClass('toastElementVisible');
       fireEvent.click(toastBtn);
