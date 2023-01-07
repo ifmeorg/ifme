@@ -107,9 +107,7 @@ describe('Comments', () => {
       await userEvent.selectOptions(screen.getByRole('combobox'), 'private');
       await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
-      await waitFor(() =>
-        expect(screen.getByRole('article')).toBeInTheDocument(),
-      );
+      await waitFor(() => expect(screen.getByRole('article')).toBeInTheDocument());
       expect(screen.getByRole('article')).toHaveTextContent('Hey');
 
       await userEvent.click(
@@ -118,9 +116,7 @@ describe('Comments', () => {
         }),
       );
 
-      await waitFor(() =>
-        expect(screen.queryByRole('article')).not.toBeInTheDocument(),
-      );
+      await waitFor(() => expect(screen.queryByRole('article')).not.toBeInTheDocument());
     });
   });
 
@@ -156,9 +152,7 @@ describe('Comments', () => {
       await userEvent.selectOptions(screen.getByRole('combobox'), 'private');
       await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
-      await waitFor(() =>
-        expect(screen.getByRole('article')).toBeInTheDocument(),
-      );
+      await waitFor(() => expect(screen.getByRole('article')).toBeInTheDocument());
       expect(screen.getByRole('article')).toHaveTextContent('Hey');
 
       await userEvent.click(
@@ -167,9 +161,7 @@ describe('Comments', () => {
         }),
       );
 
-      await waitFor(() =>
-        expect(screen.queryByRole('article')).not.toBeInTheDocument(),
-      );
+      await waitFor(() => expect(screen.queryByRole('article')).not.toBeInTheDocument());
     });
   });
 });

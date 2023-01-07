@@ -31,10 +31,9 @@ export const getNewInputs = ({
   errors,
 }: GetNewInputsArgs): GetNewInputsReturn => {
   const isInputError = (input: MyInputProps) => {
-    const validType =
-      REQUIRES_DEFAULT.includes(input.type) ||
-      input.type === 'textarea' ||
-      input.type === 'textareaTemplate';
+    const validType = REQUIRES_DEFAULT.includes(input.type)
+      || input.type === 'textarea'
+      || input.type === 'textareaTemplate';
     const element = refs[input.id];
 
     if (!validType && !element) {
@@ -42,16 +41,16 @@ export const getNewInputs = ({
     }
 
     if (
-      input.type === 'number' &&
-      typeof element.value !== 'undefined' &&
-      !Number.isNaN(parseInt(element.value, 10))
+      input.type === 'number'
+      && typeof element.value !== 'undefined'
+      && !Number.isNaN(parseInt(element.value, 10))
     ) {
       if (typeof input.min === 'number' && typeof input.max === 'number') {
         return (
           // $FlowIgnore[invalid-compare]
-          !(parseInt(element.value, 10) >= input.min) ||
+          !(parseInt(element.value, 10) >= input.min)
           // $FlowIgnore[invalid-compare]
-          !(parseInt(element.value, 10) <= input.max)
+          || !(parseInt(element.value, 10) <= input.max)
         );
       }
       if (typeof input.min === 'number') {

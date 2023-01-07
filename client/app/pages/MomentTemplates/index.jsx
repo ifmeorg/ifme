@@ -33,7 +33,7 @@ export const MomentTemplates = ({ templates: templatesProp }: Props): Node => {
     },
   ];
 
-  const editTemplate = template => {
+  const editTemplate = (template) => {
     setEditableTemplate(template);
     setOpenModal(true);
     setModalKey(Utils.randomString());
@@ -52,9 +52,9 @@ export const MomentTemplates = ({ templates: templatesProp }: Props): Node => {
       })
       .then((response: Object) => response);
 
-    Promise.all([premadeOne, premadeTwo]).then(values => {
+    Promise.all([premadeOne, premadeTwo]).then((values) => {
       const newTemplates = [];
-      values.forEach(value => {
+      values.forEach((value) => {
         newTemplates.push(value.data);
       });
       setTemplates(newTemplates.sort((a, b) => a.name.localeCompare(b.name)));
@@ -74,14 +74,14 @@ export const MomentTemplates = ({ templates: templatesProp }: Props): Node => {
       <PageTitle
         title={I18n.t('moment_templates.index.title')}
         subtitle={I18n.t('moment_templates.index.subtitle')}
-        cta={
+        cta={(
           <Modal
             className={css.newTemplate}
-            element={
+            element={(
               <button type="button" className={css.buttonM}>
                 {I18n.t('moment_templates.index.new_template')}
               </button>
-            }
+            )}
             title={I18n.t(
               `moment_templates.index.${
                 editableTemplate ? 'edit' : 'new'
@@ -91,10 +91,10 @@ export const MomentTemplates = ({ templates: templatesProp }: Props): Node => {
             open={openModal}
             modalKey={modalKey}
           />
-        }
+        )}
         instructions={
-          templates.length === 0 &&
-          I18n.t('moment_templates.index.instructions')
+          templates.length === 0
+          && I18n.t('moment_templates.index.instructions')
         }
       />
       {templates.length === 0 && (
@@ -109,7 +109,7 @@ export const MomentTemplates = ({ templates: templatesProp }: Props): Node => {
             </button>
           </div>
           <div className="gridTwo marginTop">
-            {premadeTemplates.map(template => (
+            {premadeTemplates.map((template) => (
               <MomentTemplate key={template.name} template={template} />
             ))}
           </div>
@@ -117,7 +117,7 @@ export const MomentTemplates = ({ templates: templatesProp }: Props): Node => {
       )}
       {templates.length > 0 && (
         <div className="gridTwo marginTop">
-          {templates.map(template => {
+          {templates.map((template) => {
             const { id } = template;
             return (
               <MomentTemplate

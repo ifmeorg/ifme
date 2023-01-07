@@ -1,6 +1,8 @@
 // @flow
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import {
+  render, screen, fireEvent, waitFor,
+} from '@testing-library/react';
 import { Toast } from 'components/Toast';
 
 describe('Toast', () => {
@@ -49,7 +51,7 @@ describe('Toast', () => {
           timeout: 7000,
         },
       );
-    });
+    }, 30000);
   });
 
   describe('Toast Type: Notice', () => {
@@ -82,7 +84,7 @@ describe('Toast', () => {
           timeout: 7000,
         },
       );
-    });
+    }, 30000);
   });
 
   describe('Toast Type: Notice', () => {

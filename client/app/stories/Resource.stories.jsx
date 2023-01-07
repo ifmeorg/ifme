@@ -16,7 +16,7 @@ export default {
   component: Resource,
 };
 
-const Template = args => <Resource {...args} />;
+const Template = (args) => <Resource {...args} />;
 
 export const WithTags = Template.bind({});
 

@@ -64,7 +64,9 @@ export type Props = {
 };
 
 export function InputTextarea(props: Props): Node {
-  const { id, name, value: propValue, required, hasError, myRef, dark } = props;
+  const {
+    id, name, value: propValue, required, hasError, myRef, dark,
+  } = props;
   const [value, setValue] = useState<string>(sanitize(propValue) || '');
   const editorRef = useRef(null);
   const editor = useRef(null);
@@ -88,11 +90,10 @@ export function InputTextarea(props: Props): Node {
     }
   };
 
-  const onPaste = e => {
+  const onPaste = (e) => {
     e.preventDefault();
 
-    const text =
-      (e.originalEvent || e).clipboardData.getData('text/plain') ?? '';
+    const text = (e.originalEvent || e).clipboardData.getData('text/plain') ?? '';
 
     document.execCommand('insertHTML', false, sanitize(text));
   };

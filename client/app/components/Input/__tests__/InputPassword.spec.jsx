@@ -32,7 +32,7 @@ describe('InputPassword', () => {
         id={id}
         name={name}
         label={label}
-        hasError={error => {
+        hasError={(error) => {
           window.alert(error);
         }}
       />
@@ -84,7 +84,7 @@ describe('InputPassword', () => {
         id={id}
         name={name}
         label={label}
-        hasError={error => {
+        hasError={(error) => {
           window.alert(error);
         }}
         required

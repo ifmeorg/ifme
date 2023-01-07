@@ -15,7 +15,7 @@ export default {
   },
 };
 
-const ChartTemplate = args => <Chart {...args} />;
+const ChartTemplate = (args) => <Chart {...args} />;
 
 export const ChartDisplayWithAreaType = ChartTemplate.bind({});
 
@@ -35,7 +35,7 @@ ChartDisplayWithLineType.args = {
 };
 ChartDisplayWithLineType.storyName = 'ChartDisplay with line type';
 
-const ChartControlTemplate = args => <ChartControl {...args} />;
+const ChartControlTemplate = (args) => <ChartControl {...args} />;
 
 export const MyChartControl = ChartControlTemplate.bind({});
 

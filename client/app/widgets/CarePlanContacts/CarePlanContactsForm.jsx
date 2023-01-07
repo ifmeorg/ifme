@@ -41,7 +41,7 @@ export const CarePlanContactsForm = ({ contact }: Props): Node => {
     } else {
       let newContacts = [...contacts];
       if (contact) {
-        newContacts = newContacts.filter(c => c.id !== contact.id);
+        newContacts = newContacts.filter((c) => c.id !== contact.id);
       }
       newContacts.push(response.data);
       setTemplates(newContacts.sort((a, b) => a.name.localeCompare(b.name)));
@@ -53,7 +53,7 @@ export const CarePlanContactsForm = ({ contact }: Props): Node => {
 
   return (
     <ContactsContext.Consumer>
-      {context => (
+      {(context) => (
         <>
           <DynamicForm
             type={contact ? 'patch' : 'post'}
@@ -86,7 +86,7 @@ export const CarePlanContactsForm = ({ contact }: Props): Node => {
                 },
               ],
             }}
-            onSubmit={response => onSubmit(response, context)}
+            onSubmit={(response) => onSubmit(response, context)}
           />
           {error && (
             <div

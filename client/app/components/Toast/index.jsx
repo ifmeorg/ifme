@@ -9,17 +9,23 @@ import css from './Toast.scss';
 type Props = {
   alert?: string,
   notice?: string,
-  appendDashboardClass?: boolean
+  appendDashboardClass?: boolean,
 };
 export type State = {
   showToast: boolean,
 };
 
-export const Toast = ({
-  alert, notice, appendDashboardClass,
-}: Props): Node => {
-  const [showAlert, setShowAlert] = useState<boolean>(alert !== null && alert !== '' && !document.documentElement?.hasAttribute('data-turbolinks-preview'));
-  const [showNotice, setShowNotice] = useState<boolean>(notice !== null && notice !== '' && !document.documentElement?.hasAttribute('data-turbolinks-preview'));
+export const Toast = ({ alert, notice, appendDashboardClass }: Props): Node => {
+  const [showAlert, setShowAlert] = useState<boolean>(
+    alert !== null
+      && alert !== ''
+      && !document.documentElement?.hasAttribute('data-turbolinks-preview'),
+  );
+  const [showNotice, setShowNotice] = useState<boolean>(
+    notice !== null
+      && notice !== ''
+      && !document.documentElement?.hasAttribute('data-turbolinks-preview'),
+  );
   const hideNotice = () => {
     setShowNotice(false);
   };
@@ -34,7 +40,20 @@ export const Toast = ({
   }
   return (
     <>
-      <div id="toast-notice" aria-label={showNotice ? I18n.t('alert_auto_hide') : ''} role="region" aria-live="polite" aria-atomic="true" className={`${showNotice ? 'notice toastElementVisible' : 'toastElementHidden'} ${css.toast} ${showNotice && (showAlert || appendDashboardClass) ? 'smallMarginBottom' : ''}`}>
+      <div
+        id="toast-notice"
+        aria-label={showNotice ? I18n.t('alert_auto_hide') : ''}
+        role="region"
+        aria-live="polite"
+        aria-atomic="true"
+        className={`${
+          showNotice ? 'notice toastElementVisible' : 'toastElementHidden'
+        } ${css.toast} ${
+          showNotice && (showAlert || appendDashboardClass)
+            ? 'smallMarginBottom'
+            : ''
+        }`}
+      >
         {showNotice && (
           <>
             <div>
@@ -48,7 +67,16 @@ export const Toast = ({
           </>
         )}
       </div>
-      <div id="toast-alert" aria-label={showAlert ? I18n.t('alert_auto_hide') : ''} role="alert" className={`${showAlert ? 'alert toastElementVisible' : 'toastElementHidden'} ${css.toast} ${showAlert && appendDashboardClass ? 'smallMarginBottom' : ''}`}>
+      <div
+        id="toast-alert"
+        aria-label={showAlert ? I18n.t('alert_auto_hide') : ''}
+        role="alert"
+        className={`${
+          showAlert ? 'alert toastElementVisible' : 'toastElementHidden'
+        } ${css.toast} ${
+          showAlert && appendDashboardClass ? 'smallMarginBottom' : ''
+        }`}
+      >
         {showAlert && (
           <>
             <div>
@@ -66,8 +94,10 @@ export const Toast = ({
   );
 };
 
-export default ({
-  alert, notice, appendDashboardClass,
-}: Props): Node => (
-  <Toast alert={alert} notice={notice} appendDashboardClass={appendDashboardClass} />
+export default ({ alert, notice, appendDashboardClass }: Props): Node => (
+  <Toast
+    alert={alert}
+    notice={notice}
+    appendDashboardClass={appendDashboardClass}
+  />
 );

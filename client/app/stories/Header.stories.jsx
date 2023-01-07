@@ -7,7 +7,7 @@ export default {
   component: Header,
 };
 
-const Template = args => <Header {...args} />;
+const Template = (args) => <Header {...args} />;
 
 export const NoActiveLink = Template.bind({});
 

@@ -27,7 +27,9 @@ const getHeight = (small: ?boolean, large: ?boolean) => {
 };
 
 export const Avatar = (props: Props): Node => {
-  const { name, alt, src, small, large } = props;
+  const {
+    name, alt, src, small, large,
+  } = props;
   const height = getHeight(small, large);
   return (
     <div

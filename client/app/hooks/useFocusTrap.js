@@ -6,14 +6,13 @@ export const useFocusTrap = (
   isOpen: boolean,
 ) => {
   const handleKeyDown = (e: any) => {
-    const focusableElements =
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
     const element = ref.current;
     if (!element) return;
 
     const focusableContent = element.querySelectorAll(focusableElements);
     const visibleContent = Array.from(focusableContent).filter(
-      node => window.getComputedStyle(node).display !== 'none',
+      (node) => window.getComputedStyle(node).display !== 'none',
     );
 
     const firstFocusableElement = visibleContent[0];

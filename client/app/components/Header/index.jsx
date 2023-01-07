@@ -21,14 +21,16 @@ export type State = {
   mobileNavOpen: boolean,
 };
 
-export const Header = ({ home, links, mobileOnly, profile }: Props): Node => {
+export const Header = ({
+  home, links, mobileOnly, profile,
+}: Props): Node => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const navigationRef = useRef(null);
 
   useFocusTrap(navigationRef, mobileNavOpen);
 
   const toggle = (): void => {
-    setMobileNavOpen(currentNavValue => !currentNavValue);
+    setMobileNavOpen((currentNavValue) => !currentNavValue);
   };
 
   const handleHamburgerKeyDown = (
@@ -54,21 +56,20 @@ export const Header = ({ home, links, mobileOnly, profile }: Props): Node => {
     return <FontAwesomeIcon icon={faBars} />;
   };
 
-  const displayLinks = (): Node[] =>
-    links.map((link: Link) => (
-      <div className={css.headerLink} key={link.name}>
-        <a
-          href={link.url}
-          className={`${link.active ? css.headerActiveLink : ''} ${
-            link.hideInMobile ? css.headerHideInMobile : ''
-          }`}
-          data-method={`${link.dataMethod || ''}`}
-          rel={`${link.dataMethod ? 'nofollow' : ''}`}
-        >
-          {link.name}
-        </a>
-      </div>
-    ));
+  const displayLinks = (): Node[] => links.map((link: Link) => (
+    <div className={css.headerLink} key={link.name}>
+      <a
+        href={link.url}
+        className={`${link.active ? css.headerActiveLink : ''} ${
+          link.hideInMobile ? css.headerHideInMobile : ''
+        }`}
+        data-method={`${link.dataMethod || ''}`}
+        rel={`${link.dataMethod ? 'nofollow' : ''}`}
+      >
+        {link.name}
+      </a>
+    </div>
+  ));
 
   const displayDesktop = (): Node => (
     <div
@@ -126,6 +127,8 @@ export const Header = ({ home, links, mobileOnly, profile }: Props): Node => {
   );
 };
 
-export default ({ home, links, mobileOnly, profile }: Props): Node => (
+export default ({
+  home, links, mobileOnly, profile,
+}: Props): Node => (
   <Header home={home} links={links} mobileOnly={mobileOnly} profile={profile} />
 );

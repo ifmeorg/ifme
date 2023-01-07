@@ -10,7 +10,7 @@ const value = 'Some Value';
 const info = 'Some Info';
 const label = 'Some Label';
 const uncheckedValue = 'Some Other Value';
-const someEvent = checkbox => {
+const someEvent = (checkbox) => {
   window.alert(`Checkbox ${checkbox.id} is ${checkbox.checked}`);
 };
 

@@ -8,7 +8,7 @@ export default {
   title: 'Components/Story',
 };
 
-const NoPropsTemplate = args => (
+const NoPropsTemplate = (args) => (
   <div className={`${css.gridTwoItemBoxLight} gridTwoItemBoxLight`}>
     <Story name="Real Moment" link="some-url" />
   </div>
@@ -18,7 +18,7 @@ export const NoProps = NoPropsTemplate.bind({});
 
 NoProps.storyName = 'No props';
 
-const AllPropsTemplate = args => (
+const AllPropsTemplate = (args) => (
   <div className={`${css.gridTwoItemBoxLight} gridTwoItemBoxLight`}>
     <Story
       actions={{

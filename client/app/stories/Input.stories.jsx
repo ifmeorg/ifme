@@ -7,7 +7,7 @@ export default {
   title: 'Components/Input',
 };
 
-const InputTextTemplate = args => (
+const InputTextTemplate = (args) => (
   <>
     {InputMocks.createInput(InputMocks.inputTextProps, {
       required: true,
@@ -41,7 +41,7 @@ export const InputText = InputTextTemplate.bind({});
 
 InputText.storyName = 'InputText';
 
-const InputTextWithAccordionTemplate = args => (
+const InputTextWithAccordionTemplate = (args) => (
   <>
     {InputMocks.createInput(InputMocks.inputTextProps, {
       required: true,
@@ -81,7 +81,7 @@ export const InputTextWithAccordion = InputTextWithAccordionTemplate.bind({});
 
 InputTextWithAccordion.storyName = 'InputText with accordion';
 
-const MyInputTextareaTemplate = args => (
+const MyInputTextareaTemplate = (args) => (
   <>
     {InputMocks.createInput(InputMocks.inputTextareaProps, {
       required: true,
@@ -106,7 +106,7 @@ export const InputTextarea = MyInputTextareaTemplate.bind({});
 
 InputTextarea.storyName = 'InputTextarea';
 
-const InputTextareaWithAccordionTemplate = args => (
+const InputTextareaWithAccordionTemplate = (args) => (
   <>
     {InputMocks.createInput(InputMocks.inputTextareaProps, {
       required: true,
@@ -137,7 +137,7 @@ export const InputTextareaWithAccordion = InputTextareaWithAccordionTemplate.bin
 
 InputTextareaWithAccordion.storyName = 'InputTextarea with accordion';
 
-const InputTextareaTemplateTemplate = args => (
+const InputTextareaTemplateTemplate = (args) => (
   <>
     {InputMocks.createInput(InputMocks.inputTextareaTemplateProps, {
       required: true,
@@ -162,7 +162,7 @@ export const InputTextareaTemplate = InputTextareaTemplateTemplate.bind({});
 
 InputTextareaTemplate.storyName = 'InputTextareaTemplate';
 
-const InputTextareaTemplateWithAccordionTemplate = args => (
+const InputTextareaTemplateWithAccordionTemplate = (args) => (
   <>
     {InputMocks.createInput(InputMocks.inputTextareaTemplateProps, {
       required: true,
@@ -191,10 +191,9 @@ export const InputTextareaTemplateWithAccordion = InputTextareaTemplateWithAccor
   {},
 );
 
-InputTextareaTemplateWithAccordion.storyName =
-  'InputTextareaTemplate with accordion';
+InputTextareaTemplateWithAccordion.storyName = 'InputTextareaTemplate with accordion';
 
-const SubmitTemplate = args => (
+const SubmitTemplate = (args) => (
   <>
     {InputMocks.createInput(InputMocks.inputSubmitProps, {
       onClick: InputMocks.event,
@@ -226,7 +225,7 @@ const SubmitTemplate = args => (
 
 export const Submit = SubmitTemplate.bind({});
 
-const CheckboxTemplate = args => (
+const CheckboxTemplate = (args) => (
   <>
     {InputMocks.createInput(InputMocks.inputCheckboxProps, {
       onChange: InputMocks.event,
@@ -249,7 +248,7 @@ const CheckboxTemplate = args => (
 
 export const Checkbox = CheckboxTemplate.bind({});
 
-const CheckboxGroupTemplate = args => (
+const CheckboxGroupTemplate = (args) => (
   <>
     {InputMocks.createInput(InputMocks.inputCheckboxGroupProps, {
       required: true,
@@ -274,7 +273,7 @@ export const CheckboxGroup = CheckboxTemplate.bind({});
 
 CheckboxGroup.storyName = 'CheckboxGroup';
 
-const CheckboxGroupWithAccordionTemplate = args => (
+const CheckboxGroupWithAccordionTemplate = (args) => (
   <>
     {InputMocks.createInput(InputMocks.inputCheckboxGroupProps, {
       required: true,
@@ -305,7 +304,7 @@ export const CheckboxGroupWithAccordion = CheckboxGroupWithAccordionTemplate.bin
 
 CheckboxGroupWithAccordion.storyName = 'CheckboxGroup with accordion';
 
-const SelectTemplate = args => (
+const SelectTemplate = (args) => (
   <>
     {InputMocks.createInput(InputMocks.inputSelectProps, {
       onChange: InputMocks.event,
@@ -337,7 +336,7 @@ const SelectTemplate = args => (
 
 export const Select = SelectTemplate.bind({});
 
-const SelectWithAccordionTemplate = args => (
+const SelectWithAccordionTemplate = (args) => (
   <>
     {InputMocks.createInput(InputMocks.inputSelectProps, {
       onChange: InputMocks.event,
@@ -377,7 +376,7 @@ export const SelectWithAccordion = SelectWithAccordionTemplate.bind({});
 
 SelectWithAccordion.storyName = 'Select with accordion';
 
-const TagTemplate = args => (
+const TagTemplate = (args) => (
   <>
     {InputMocks.createInput(InputMocks.inputTagProps, { small: true })}
     {InputMocks.createInput(InputMocks.inputTagProps)}
@@ -400,7 +399,7 @@ const TagTemplate = args => (
 
 export const Tag = TagTemplate.bind({});
 
-const TagWithAccordionTemplate = args => (
+const TagWithAccordionTemplate = (args) => (
   <>
     {InputMocks.createInput(InputMocks.inputTagProps, {
       small: true,
@@ -432,7 +431,7 @@ export const TagWithAccordion = TagWithAccordionTemplate.bind({});
 
 TagWithAccordion.storyName = 'Tag with accordion';
 
-const SwitchTemplate = args => (
+const SwitchTemplate = (args) => (
   <>
     {InputMocks.createInput(InputMocks.inputSwitchProps)}
     {InputMocks.createInput(InputMocks.inputSwitchProps, {
@@ -450,7 +449,7 @@ const SwitchTemplate = args => (
 
 export const Switch = SwitchTemplate.bind({});
 
-const SwitchWithAccordionTemplate = args => (
+const SwitchWithAccordionTemplate = (args) => (
   <>
     {InputMocks.createInput(InputMocks.inputSwitchProps, { accordion: true })}
     {InputMocks.createInput(InputMocks.inputSwitchProps, {
@@ -472,7 +471,7 @@ const SwitchWithAccordionTemplate = args => (
 export const SwitchWithAccordion = SwitchWithAccordionTemplate.bind({});
 SwitchWithAccordion.storyName = 'Switch with accordion';
 
-const PasswordTemplate = args => (
+const PasswordTemplate = (args) => (
   <>
     {InputMocks.createInput(InputMocks.inputPasswordProps)}
     {InputMocks.createInput(InputMocks.inputPasswordProps, {
@@ -490,7 +489,7 @@ const PasswordTemplate = args => (
 
 export const Password = PasswordTemplate.bind({});
 
-const PasswordWithAccordionTemplate = args => (
+const PasswordWithAccordionTemplate = (args) => (
   <>
     {InputMocks.createInput(InputMocks.inputPasswordProps, {
       accordion: true,

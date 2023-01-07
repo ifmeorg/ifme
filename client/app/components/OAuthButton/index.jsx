@@ -13,7 +13,9 @@ type Props = {
   token: string,
 };
 
-export const OAuthButton = ({ signIn, type, action, token }: Props): Node => {
+export const OAuthButton = ({
+  signIn, type, action, token,
+}: Props): Node => {
   const buttonText = I18n.t(
     `devise.shared.sign_${signIn ? 'in' : 'up'}_${type}`,
   );
@@ -39,6 +41,8 @@ export const OAuthButton = ({ signIn, type, action, token }: Props): Node => {
   );
 };
 
-export default ({ signIn, type, action, token }: Props): Node => (
+export default ({
+  signIn, type, action, token,
+}: Props): Node => (
   <OAuthButton signIn={signIn} type={type} action={action} token={token} />
 );
