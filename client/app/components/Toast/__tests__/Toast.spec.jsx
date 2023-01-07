@@ -16,7 +16,7 @@ describe('Toast', () => {
     });
 
     it('closes correctly on button click', () => {
-      const { getByRole } = render(
+      const { getByRole, container } = render(
         <Toast
           alert="Invalid username or password."
           appendDashboardClass="true"
@@ -24,7 +24,7 @@ describe('Toast', () => {
       );
 
       const toastContent = getByRole('alert');
-      const toastBtn = getByRole('button');
+      const toastBtn = container.querySelectorAll('#btn-close-toast-alert');
 
       expect(toastContent).toHaveClass('toastElementVisible');
       fireEvent.click(toastBtn);
@@ -59,10 +59,10 @@ describe('Toast', () => {
     });
 
     it('closes correctly on button click', () => {
-      const { getByRole } = render(<Toast notice="Login successful." />);
+      const { getByRole, container } = render(<Toast notice="Login successful." />);
 
       const toastContent = getByRole('region');
-      const toastBtn = getByRole('button');
+      const toastBtn = container.querySelectorAll('#btn-close-toast-notice');
 
       expect(toastContent).toHaveClass('toastElementVisible');
       fireEvent.click(toastBtn);
