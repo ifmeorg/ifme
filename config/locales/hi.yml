@@ -13,6 +13,7 @@ hi:
   no_text: नहीं
   expand_menu: मेनू का विस्तार करें
   close: बंद करे
+  alert_auto_hide: यह अलर्ट अपने आप छिप जाएगा
   load_more: और लोड करें
   of: का
   languages:

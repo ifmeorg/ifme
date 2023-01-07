@@ -132,7 +132,9 @@ const tooltipElement = (
 ) => {
   const {
     link, dataMethod, dataConfirm, name, onClick, commentBy,
-  } = actions[item];
+  } = actions[
+    item
+  ];
 
   const ariaLabel = commentBy || `${name} ${storyName || ''}`;
 
