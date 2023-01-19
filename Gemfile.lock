@@ -152,7 +152,7 @@ GEM
       et-orbi (~> 1.1, >= 1.1.8)
       raabro (~> 1.3)
     gems (1.2.0)
-    globalid (1.0.0)
+    globalid (1.0.1)
       activesupport (>= 5.0)
     google-api-client (0.53.0)
       google-apis-core (~> 0.1)
