@@ -97,6 +97,11 @@
   }
 
   &Desktop {
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    position:fixed;
     width: 100%;
     padding: 25px $size-34;
     box-sizing: border-box;
@@ -108,11 +113,11 @@
 
     @media screen and (max-width: $medium) {
       padding: 15px $size-10;
+      position: relative;
     }
 
     &Home {
       @include linkStyle();
-
       font-size: $size-30;
     }
 
