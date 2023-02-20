@@ -63,8 +63,11 @@ jobs:
       - run:
           name: Setup Chrome
           command: |
+            sudo apt-get update
+            sudo apt-get install libu2f-udev
             wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-            sudo apt install ./google-chrome-stable_current_amd64.deb
+            sudo dpkg -i ./google-chrome*.deb
+            sudo apt-get install
       - save_cache:
           key: v1-dep-{{ .Branch }}-{{ epoch }}
           paths:
