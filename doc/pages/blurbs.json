@@ -728,6 +728,15 @@
     "social": "github"
   },
   {
+    "name": "Zeeshan Sarwar",
+    "image": "/assets/contributors/Zeeshan_Sarwar.png",
+    "profile": "I am a software engineer from Pakistan and I love to learn & work with different technologies. I also strongly believe in improving mental health and it's an honor to contribute to such open source project which helps people dealing with depression and other problems related to mental health.",
+    "location": "Islamabad, Pakistan",
+    "link_name": "zeeshansarwar38",
+    "link": "https://github.com/zeeshansarwar38",
+    "social": "github"
+  },
+  {
     "name": "Olivia Robinson",
     "image": "/assets/contributors/Olivia_Robinson.jpg",
     "profile": "I'm a Software Engineer based in the Chicago area. I'm passionate about mental health and helping others. I'm excited to contribute to this project and help others.✨",
@@ -736,5 +745,4 @@
     "link": "https://github.com/lvcg",
     "social": "github"
   }
-
 ]
