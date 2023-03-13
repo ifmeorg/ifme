@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class ApplicationController < ActionController::Base
+class ApplicationController < ActionController::API
   include ActionView::Helpers::UrlHelper
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::TextHelper

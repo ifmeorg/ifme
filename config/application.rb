@@ -10,6 +10,8 @@ Bundler.require(*Rails.groups)
 
 module Ifme
   class Application < Rails::Application
+    # Configuration needed for changing an existing Rails app to API server
+    config.api_only = true
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
