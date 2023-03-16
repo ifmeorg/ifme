@@ -299,7 +299,7 @@ GEM
     pwned (2.0.2)
     raabro (1.4.0)
     racc (1.6.2)
-    rack (2.2.6.2)
+    rack (2.2.6.4)
     rack-mini-profiler (2.1.0)
       rack (>= 1.2.0)
     rack-protection (3.0.4)
