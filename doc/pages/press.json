@@ -80,8 +80,18 @@
     "author": "By: Julia Nguyen, Talk for QCon SF 2019"
   },
   {
+    "link_name": "Ethical Collaboration in Open Source Communities",
+    "link": "https://ethicalsource.dev/publications/ethical-collaboration/",
+    "author": "By: Tianna Mañon, Organization for Ethical Source"
+  },
+  {
     "link_name": "Volunteer on digital public goods for Hacktoberfest 2022!",
     "link": "https://socialimpact.github.com/insights/hacktoberfest2022-dpg-volunteer-opportunities/",
     "author": "By: Mala Kumar, Cynthia Lo, Sean Marcia, and Admas Kanyagia, GitHub"
+  },
+  {
+    "link_name": "Introducing Activating Developers and the new Digital Public Goods Open Source Community Manager Program",
+    "link": "https://github.blog/2023-03-13-introducing-activating-developers-and-the-new-digital-public-goods-open-source-community-manager-program/",
+    "author": "By: Mala Kumar, GitHub"
   }
 ]
