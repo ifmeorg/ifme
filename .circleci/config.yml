@@ -62,6 +62,8 @@ jobs:
       - run:
           name: Setup Chrome
           command: |
+            wget http://archive.ubuntu.com/ubuntu/pool/main/libu/libu2f-host/libu2f-udev_1.1.4-1_all.deb
+            sudo dpkg -i libu2f-udev_1.1.4-1_all.deb
             wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
             sudo apt install ./google-chrome-stable_current_amd64.deb
       - save_cache:
@@ -78,6 +80,7 @@ jobs:
             RACK_ENV: test
       - run: RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run: RAILS_ENV=test bundle exec rake react_on_rails:locale
+      - run: RAILS_ENV=test bundle exec rails assets:precompile
       - run:
           name: Run React Jest Tests
           command: |

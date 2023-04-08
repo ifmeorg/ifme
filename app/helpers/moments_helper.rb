@@ -2,6 +2,7 @@
 module MomentsHelper
   include ViewersHelper
   include VisibleHelper
+  include ActionView::Helpers::UrlHelper
 
   def moments_data_json
     {
@@ -14,7 +15,7 @@ module MomentsHelper
     return unless current_user
 
     # +1 day buffer to ensure we include today as well
-    start_date = 1.week.ago.to_date 
+    start_date = 1.week.ago.to_date
     end_date = Date.tomorrow
     range = start_date..end_date
     @react_moments = current_user.moments

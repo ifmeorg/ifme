@@ -28,7 +28,7 @@ gem 'uglifier', '~> 4.1.20'
 gem 'carrierwave', '~> 1.3.1'
 gem 'certified', '1.0.0'
 gem 'chronic', '0.10.2'
-gem 'cloudinary', '~> 1.21.0'
+gem 'cloudinary', '~> 1.25.0'
 gem 'google-api-client', '~> 0.53.0'
 gem 'kaminari', '1.2.1'
 gem 'omniauth', '~> 2.0'
@@ -103,7 +103,7 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'rails-controller-testing'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '~> 5.3.0'
   gem 'simplecov', '~> 0.21.0'
 end
 
