@@ -47,6 +47,7 @@ const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
 
 const getPopularTags = () => {
   const tags = [
+    'addiction',
     'android',
     'asian',
     'bereavement',
@@ -66,6 +67,7 @@ const getPopularTags = () => {
     'pacific_islander',
     'people_of_colour',
     'self_care',
+    'sexual_assault_survivors',
     'south_asian',
     'southeast_asian',
     'therapy',

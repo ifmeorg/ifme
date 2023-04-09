@@ -708,5 +708,41 @@
     "link_name": "nikhilbhatt",
     "link": "https://github.com/nikhilbhatt",
     "social": "github"
+  },
+  {
+    "name": "Ghada AbdulWahab",
+    "image": "/assets/contributors/Ghada_AbdulWahab.png",
+    "profile": "I am a computer science student at Benha University in Egypt. I love open source!",
+    "location": "Tukh, Egypt",
+    "link_name": "puregeek",
+    "link": "https://github.com/puregeek",
+    "social": "github"
+  },
+  {
+    "name": "Muhammad Aakash",
+    "image": "/assets/contributors/mohammad_aakash.jpg",
+    "profile": "I am a front-end developer from Pakistan and love 💜 to help community whether through open source or in any other way.",
+    "location": "Lahore, Pakistan",
+    "link_name": "MuhammadAakash",
+    "link": "https://github.com/MuhammadAakash",
+    "social": "github"
+  },
+  {
+    "name": "Zeeshan Sarwar",
+    "image": "/assets/contributors/Zeeshan_Sarwar.png",
+    "profile": "I am a software engineer from Pakistan and I love to learn & work with different technologies. I also strongly believe in improving mental health and it's an honor to contribute to such open source project which helps people dealing with depression and other problems related to mental health.",
+    "location": "Islamabad, Pakistan",
+    "link_name": "zeeshansarwar38",
+    "link": "https://github.com/zeeshansarwar38",
+    "social": "github"
+  },
+  {
+    "name": "Olivia Robinson",
+    "image": "/assets/contributors/Olivia_Robinson.jpg",
+    "profile": "I'm a Software Engineer based in the Chicago area. I'm passionate about mental health and helping others. I'm excited to contribute to this project and help others.✨",
+    "location": "Chicago, Illinois",
+    "link_name": "LVCG",
+    "link": "https://github.com/lvcg",
+    "social": "github"
   }
 ]

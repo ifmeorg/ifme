@@ -6,8 +6,8 @@
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 [![Awesome Humane Tech](https://raw.githubusercontent.com/humanetech-community/awesome-humane-tech/main/humane-tech-badge.svg?sanitize=true)](https://github.com/humanetech-community/awesome-humane-tech)
 
-README dalam bahasa lainnya: [Inggris](https://github.com/ifmeorg/ifme/blob/main/README.md), [Spanyol](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [Portugis](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [Perancis](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [Korea](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), [Turki](https://github.com/ifmeorg/ifme/blob/main/README-TR.md), [Sinhala](https://github.com/ifmeorg/ifme/blob/main/README-LK.md), [Cina](https://github.com/ifmeorg/ifme/blob/main/README-CN.md), 
-[Hindi](https://github.com/ifmeorg/ifme/blob/main/README-HI.md)
+README dalam bahasa lainnya: [Italia](https://github.com/ifmeorg/ifme/blob/main/README-IT.md), [Inggris](https://github.com/ifmeorg/ifme/blob/main/README.md), [Spanyol](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [Portugis](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [Perancis](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [Korea](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), [Turki](https://github.com/ifmeorg/ifme/blob/main/README-TR.md), [Sinhala](https://github.com/ifmeorg/ifme/blob/main/README-LK.md), [Cina](https://github.com/ifmeorg/ifme/blob/main/README-CN.md),
+[Hindi](https://github.com/ifmeorg/ifme/blob/main/README-HI.md), [Arab](https://github.com/ifmeorg/ifme/blob/main/README-AR.md)
 
 # if-me.org
 
@@ -19,9 +19,7 @@ Situs yang aktif bisa diakses melalui [if-me.org](https://www.if-me.org/). Siste
 
 Kami menggunakan [Contributor Covenant](http://contributor-covenant.org) yang luar biasa sebagai kode etik kami. Harap membacanya sebelum bergabung dengan proyek kami.
 
-
 **Baca tentang tujuan proyek kami dan cara berkontribusi (tidak terbatas hanya untuk pengembang) [di sini](https://github.com/ifmeorg/ifme/blob/main/CONTRIBUTING.md).**
-
 
 ## Dokumentasi
 

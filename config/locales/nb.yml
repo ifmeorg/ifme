@@ -13,6 +13,7 @@ nb:
   no_text: nei
   expand_menu: utvide menyen
   close: lukk
+  alert_auto_hide: Dette varselet vil bli skjult automatisk
   load_more: Last mer
   of: av
   languages:

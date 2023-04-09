@@ -1,0 +1,28 @@
+@import "~styles/_global.scss";
+
+.toast {
+  display: flex;
+  justify-content: space-between;
+  width: fit-content;
+  margin: 0 auto;
+
+  button {
+    background: transparent;
+    color: $white;
+    opacity: 1;
+    border: none;
+
+    &:hover {
+      border: none;
+      opacity: 0.8;
+    }
+  }
+}
+
+.toastElementHidden {
+  visibility: hidden;
+}
+
+.toastElementVisible {
+  visibility: visible;
+}

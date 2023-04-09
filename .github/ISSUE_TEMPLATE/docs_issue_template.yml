@@ -1,0 +1,60 @@
+name: 📄 Documentation Change
+description: Fix and add to the app's documentation
+title: "[DOCS]: <title>"
+body:
+- type: markdown
+  attributes:
+    value: |
+      # Thank you for taking the time to help us improve the app!
+- type: checkboxes
+  attributes:
+    label: Is there an existing request for this change?
+    description: Please search to see if a request already exists for the documentation change you'd like to implement.
+    options:
+    - label: I have searched the existing issues
+      required: true
+- type: textarea
+  attributes:
+    label: Context for documentation change
+    description: Explain the conditions which led you to write this issue
+    placeholder: |
+      I noticed unclear explanation of build and install and encountered a few issues while attempting it myself. This could confuse other contributors.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Proposed solution
+    description: What would the solution and its criteria look like?
+    placeholder: |
+      Contributing needs an expanded section detailing how to install and a section for troubleshooting. Be as specific as you need to be.
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: Resources that can help
+    description: |
+      Include any documents, images, tutorials, etc that can help the problem be solved.
+
+      Tip: You can attach images or log files by clicking this area to highlight it and then dragging files in.
+    placeholder: |
+      - A link to a stack overflow thread describing the issue.
+      - A screenshot of the error and how people can work through it.
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: Collaborators
+    description: |
+      Include anyone who may be relevant to the discussion by mentioning them via their GitHub user name.
+    placeholder: |
+      @some-user do you have any thoughts here?
+  validations:
+    required: false
+- type: checkboxes
+  id: terms
+  attributes:
+    label: Code of Conduct
+    description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/ifmeorg/ifme/blob/main/code_of_conduct.md)
+    options:
+      - label: I've read the Code of Conduct and understand my responsibilities as a member of the if-me community
+        required: true

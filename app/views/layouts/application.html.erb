@@ -52,7 +52,10 @@
     <%= react_component('SkipToContent', props: { id: 'mainContent' })%>
     <%= react_component('Header', props: header_props) %>
     <main>
-      <%= render partial: 'shared/alerts' %>
+      <%= react_component('Toast', props: { 
+        notice: notice.present? ? notice : '', 
+        alert: alert.present? ? alert : '' ,
+        appendDashboardClass: (user_signed_in? && !static_page?) || secret_share_path? }) %>
       <% if user_signed_in? && !static_page? %>
         <div class="dashboardContent">
           <div class="dashboardNav" role="navigation" aria-label="<%= t('navigation.user_menu') %>">

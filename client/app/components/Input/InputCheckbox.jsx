@@ -64,7 +64,9 @@ export const InputCheckbox = (props: Props): Node => {
         {typeof uncheckedValue !== 'undefined'
           && displayUnchecked(name, uncheckedValue)}
         {displayCheckbox(id, name, value, checked, onChange, label)}
-        <div className={css.checkboxLabel}>{renderHTML(label)}</div>
+        <label className={`${css.checkboxLabel}`} htmlFor={id}>
+          {renderHTML(label)}
+        </label>
       </div>
       {displayInfo(info)}
     </div>

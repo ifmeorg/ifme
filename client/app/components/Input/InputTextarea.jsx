@@ -5,7 +5,7 @@ import { sanitize } from 'dompurify';
 import ReactDOMServer from 'react-dom/server';
 import { init, exec } from 'pell';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLink } from '@fortawesome/free-solid-svg-icons';
+import { faImage, faLink } from '@fortawesome/free-solid-svg-icons';
 import css from './InputTextarea.scss';
 import inputCss from './Input.scss';
 
@@ -14,6 +14,11 @@ const handleResult = (type: string) => {
     case 'link': {
       const url = window.prompt('URL');
       if (url) exec('createLink', url);
+      break;
+    }
+    case 'image': {
+      const src = window.prompt('Please provide a link to your image.');
+      if (src) exec('insertImage', src);
       break;
     }
     case 'olist':
@@ -44,6 +49,10 @@ const actions = [
   {
     ...action('link'),
     icon: ReactDOMServer.renderToString(<FontAwesomeIcon icon={faLink} />),
+  },
+  {
+    ...action('image'),
+    icon: ReactDOMServer.renderToString(<FontAwesomeIcon icon={faImage} />),
   },
 ];
 

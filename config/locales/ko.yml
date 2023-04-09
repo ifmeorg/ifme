@@ -13,6 +13,7 @@ ko:
   no_text: 아니오
   expand_menu: 추가 메뉴
   close: 종료
+  alert_auto_hide: 이 알림은 자동으로 숨겨집니다.
   load_more: 더 보기
   of: of
   languages:
