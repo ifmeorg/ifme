@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '~> 3.1.2'
+ruby '~> 3.1.4'
 
 gem 'puma', '5.6.4'  # Latest capybara doesn't work with puma 6.0 at the moment.
 gem 'rack-rewrite'
-gem 'rails', '~> 7.0.4'
+gem 'rails', '~> 7.0.4.3'
 
 gem 'activerecord-import'
 gem 'bcrypt', '3.1.13'
@@ -104,7 +104,7 @@ group :test do
   gem 'database_cleaner'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers', '~> 5.3.0'
-  gem 'simplecov', '~> 0.21.0'
+  gem 'simplecov', '~> 0.17.0'
 end
 
 group :production do
