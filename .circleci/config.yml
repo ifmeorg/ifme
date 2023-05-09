@@ -86,8 +86,8 @@ jobs:
       - run:
           name: Download libssl1.1
           command: |
-            wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.17_amd64.deb
-            sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.17_amd64.deb
+            wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.18_amd64.deb
+            sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.18_amd64.deb
       - run:
           command: bundle exec rake db:create db:schema:load --trace
           environment:
