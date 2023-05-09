@@ -127,9 +127,8 @@ Rails.application.configure do
   config.action_controller.default_url_options = { host: primary_domain }
   config.action_controller.asset_host = primary_domain
     
-  Raven.configure do |config|
+  Sentry.init do |config|
     config.dsn = ENV['SENTRY_DSN']
-    config.sanitize_fields = Rails.application.config.filter_parameters.map(&:to_s)
   end
 
   # Inserts middleware to perform automatic connection switching.
