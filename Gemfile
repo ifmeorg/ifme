@@ -23,7 +23,6 @@ gem 'jbuilder', '~> 2.9.1'
 gem 'jquery-rails', '4.4.0'
 gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 gem 'turbolinks', '~> 5.2.0'
-gem 'uglifier', '~> 4.1.20'
 
 gem 'carrierwave', '~> 1.3.1'
 gem 'certified', '1.0.0'
@@ -112,3 +111,5 @@ group :production do
   gem 'rails_12factor', '0.0.3'
   gem 'sentry-ruby'
 end
+
+gem "terser", "~> 1.1"

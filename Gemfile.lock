@@ -547,6 +547,8 @@ GEM
       sprockets (>= 3.0.0)
     ssrf_filter (1.1.1)
     stringio (3.0.2)
+    terser (1.1.14)
+      execjs (>= 0.3.0, < 3)
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.0)
@@ -557,8 +559,6 @@ GEM
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     uber (0.1.0)
-    uglifier (4.1.20)
-      execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
@@ -669,8 +669,8 @@ DEPENDENCIES
   simplecov (~> 0.17.0)
   spring
   sprockets-rails
+  terser (~> 1.1)
   turbolinks (~> 5.2.0)
-  uglifier (~> 4.1.20)
   webdrivers (>= 5.0.0)
   webpacker
 
