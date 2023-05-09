@@ -269,6 +269,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.14.3-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.14.3-x86_64-linux)
+      racc (~> 1.4)
     oauth2 (1.4.11)
       faraday (>= 0.17.3, < 3.0)
       jwt (>= 1.0, < 3.0)
@@ -505,8 +507,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
-    sentry-raven (3.1.2)
-      faraday (>= 1.0)
+    sentry-ruby (5.9.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     shoulda-matchers (5.3.0)
       activesupport (>= 5.2.0)
     sidekiq (6.5.7)
@@ -658,7 +660,7 @@ DEPENDENCIES
   sass-rails (~> 5.0, >= 5.0.6)
   sdoc (= 1.0.0)
   selenium-webdriver (~> 4.1.0)
-  sentry-raven
+  sentry-ruby
   shoulda-matchers (~> 5.3.0)
   sidekiq
   sidekiq-cron (~> 1.1)
