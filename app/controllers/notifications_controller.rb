@@ -10,7 +10,7 @@ class NotificationsController < ApplicationController
     @notification.destroy if @notification.present?
 
     respond_to do |format|
-      format.html { redirect_back(fallback_location: notifications_path) }
+      format.html { redirect_back_or_to notifications_path }
       format.json { head :no_content }
     end
   end

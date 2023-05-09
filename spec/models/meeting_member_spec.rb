@@ -21,7 +21,7 @@ describe MeetingMember do
   context 'with relations' do
     it { is_expected.to belong_to :meeting }
     it { is_expected.to belong_to :user }
-    it { is_expected.to belong_to :group_member }
+    it { is_expected.to belong_to(:group_member).optional }
   end
 
   it 'has a valid factory' do

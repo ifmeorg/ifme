@@ -111,7 +111,7 @@ class User < ApplicationRecord
   # rubocop:disable Layout/LineLength
   has_many :data_requests, class_name: 'Users::DataRequest', foreign_key: :user_id
   # rubocop:enable Layout/LineLength
-  belongs_to :invited_by, class_name: 'User'
+  belongs_to :invited_by, class_name: 'User', optional: true
 
   after_initialize :set_defaults, unless: :persisted?
   before_save :remove_leading_trailing_whitespace
@@ -207,11 +207,13 @@ class User < ApplicationRecord
       data_request = data_requests
                      .where(status_id: Users::DataRequest::STATUS[:enqueued])
                      .first_or_initialize
-      return data_request.request_id if data_request.request_id.present?
-
-      data_request.request_id = SecureRandom.uuid
-      data_request.save!
-      return data_request.request_id
+      if data_request.request_id.present?
+        data_request.request_id 
+      else
+        data_request.request_id = SecureRandom.uuid
+        data_request.save!
+      end
+      data_request.request_id
     end
   end
 

@@ -14,10 +14,10 @@
     <%= t('pages.faq.moment_question') %>
   </h1>
   <p class="articleContent">
-    <%= raw t('pages.faq.moment_answer', {
+    <%= raw t('pages.faq.moment_answer',
       moment: link_to(t('moments.singular'), moments_path),
       moment_templates: link_to(t('moment_templates.index.title'), moment_templates_path)
-    }) %>
+    ) %>
   </p>
 </article>
 
@@ -87,8 +87,8 @@
 <article class="article">
   <h1 class="articleHeading"><%= t('pages.faq.email_notifications_question') %></h1>
   <p class="articleContent noMarginBottom">
-    <%= raw t('pages.faq.email_notifications_answer', {
+    <%= raw t('pages.faq.email_notifications_answer',
         accounts: link_to(t('account.singular'), edit_user_registration_path )
-    }) %>
+    ) %>
   </p>
 </article>

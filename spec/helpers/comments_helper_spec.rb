@@ -25,7 +25,7 @@ describe CommentsHelper, type: :controller do
         end
 
         it 'generates a valid comment object when visibility is all' do
-          new_comment = create(:comment, comment: comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user1.id, visibility: 'all')
+          new_comment = create(:comment, comment: comment, commentable_type: 'Moment', commentable_id: new_moment.id, comment_by: user1.id, visibility: 'all')
           expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
                                                                                           id: new_comment.id,
                                                                                           currentUserUid: user1.uid,
@@ -41,7 +41,7 @@ describe CommentsHelper, type: :controller do
         end
 
         it 'generates a valid comment object when visbility is private' do
-          new_comment = create(:comment, comment: comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user1.id, visibility: 'private', viewers: [user2.id])
+          new_comment = create(:comment, comment: comment, commentable_type: 'Moment', commentable_id: new_moment.id, comment_by: user1.id, visibility: 'private', viewers: [user2.id])
           expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
                                                                                           id: new_comment.id,
                                                                                           currentUserUid: user1.uid,
@@ -63,7 +63,7 @@ describe CommentsHelper, type: :controller do
         end
 
         it 'generates a valid comment object when visibility is all' do
-          new_comment = create(:comment, comment: comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user2.id, visibility: 'all')
+          new_comment = create(:comment, comment: comment, commentable_type: 'Moment', commentable_id: new_moment.id, comment_by: user2.id, visibility: 'all')
           expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
                                                                                           id: new_comment.id,
                                                                                           currentUserUid: user2.uid,
@@ -79,7 +79,7 @@ describe CommentsHelper, type: :controller do
         end
 
         it 'generates a valid comment object when visibility is private' do
-          new_comment = create(:comment, comment: comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user2.id, visibility: 'private', viewers: [user1.id])
+          new_comment = create(:comment, comment: comment, commentable_type: 'Moment', commentable_id: new_moment.id, comment_by: user2.id, visibility: 'private', viewers: [user1.id])
           expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
                                                                                           id: new_comment.id,
                                                                                           currentUserUid: user2.uid,
@@ -105,7 +105,7 @@ describe CommentsHelper, type: :controller do
         end
 
         it 'generates a valid comment object when visibility is all' do
-          new_comment = create(:comment, comment: comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user1.id, visibility: 'all')
+          new_comment = create(:comment, comment: comment, commentable_type: 'Strategy', commentable_id: new_strategy.id, comment_by: user1.id, visibility: 'all')
           expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
                                                                                           id: new_comment.id,
                                                                                           currentUserUid: user1.uid,
@@ -121,7 +121,7 @@ describe CommentsHelper, type: :controller do
         end
 
         it 'generates a valid comment object when visibility is private' do
-          new_comment = create(:comment, comment: comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user1.id, visibility: 'private', viewers: [user2.id])
+          new_comment = create(:comment, comment: comment, commentable_type: 'Strategy', commentable_id: new_strategy.id, comment_by: user1.id, visibility: 'private', viewers: [user2.id])
           expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
                                                                                           id: new_comment.id,
                                                                                           currentUserUid: user1.uid,
@@ -143,7 +143,7 @@ describe CommentsHelper, type: :controller do
         end
 
         it 'generates a valid comment object when visibility is all' do
-          new_comment = create(:comment, comment: comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user2.id, visibility: 'all')
+          new_comment = create(:comment, comment: comment, commentable_type: 'Strategy', commentable_id: new_strategy.id, comment_by: user2.id, visibility: 'all')
           expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
                                                                                           id: new_comment.id,
                                                                                           currentUserUid: user2.uid,
@@ -159,7 +159,7 @@ describe CommentsHelper, type: :controller do
         end
 
         it 'generates a valid comment object when visibility is private' do
-          new_comment = create(:comment, comment: comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user2.id, visibility: 'private', viewers: [user1.id])
+          new_comment = create(:comment, comment: comment, commentable_type: 'Strategy', commentable_id: new_strategy.id, comment_by: user2.id, visibility: 'private', viewers: [user1.id])
           expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
                                                                                           id: new_comment.id,
                                                                                           currentUserUid: user2.uid,
@@ -187,7 +187,7 @@ describe CommentsHelper, type: :controller do
       context 'Comment posted by Meeting creator who is logged in' do
         it 'generates a valid comment object' do
           sign_in user1
-          new_comment = create(:comment, comment: comment, commentable_type: 'meeting', commentable_id: new_meeting.id, comment_by: user1.id, visibility: 'all')
+          new_comment = create(:comment, comment: comment, commentable_type: 'Meeting', commentable_id: new_meeting.id, comment_by: user1.id, visibility: 'all')
           expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
                                                                                           id: new_comment.id,
                                                                                           currentUserUid: user1.uid,
@@ -206,7 +206,7 @@ describe CommentsHelper, type: :controller do
       context 'Comment posted by Meeting member who is logged in' do
         it 'generates a valid comment object' do
           sign_in user2
-          new_comment = create(:comment, comment: comment, commentable_type: 'meeting', commentable_id: new_meeting.id, comment_by: user2.id, visibility: 'all')
+          new_comment = create(:comment, comment: comment, commentable_type: 'Meeting', commentable_id: new_meeting.id, comment_by: user2.id, visibility: 'all')
           expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
                                                                                           id: new_comment.id,
                                                                                           currentUserUid: user2.uid,

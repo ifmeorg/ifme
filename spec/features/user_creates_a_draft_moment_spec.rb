@@ -108,6 +108,7 @@ feature 'UserCreatesADraftMoment', type: :feature, js: true do
       # TRYING TO VIEW AS ALLY
       login_as ally
       visit back
+      
       expect(find('.pageTitle')).not_to have_content 'My New Moment'
       login_as user
       visit back

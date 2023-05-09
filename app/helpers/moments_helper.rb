@@ -2,6 +2,7 @@
 module MomentsHelper
   include ViewersHelper
   include VisibleHelper
+  include ActionView::Helpers::UrlHelper
 
   def moments_data_json
     {
@@ -14,14 +15,14 @@ module MomentsHelper
     return unless current_user
 
     # +1 day buffer to ensure we include today as well
-    end_date = Date.current + 1.day
-    start_date = end_date - 1.week
+    start_date = 1.week.ago.to_date
+    end_date = Date.tomorrow
     range = start_date..end_date
     @react_moments = current_user.moments
-                                 .group_by_period('day',
-                                                  :created_at,
-                                                  range: range)
-                                 .count
+                                 .where(updated_at: range)
+                                 .group_by_period(:day,
+                                                  :created_at)
+                                 .count if current_user.moments.exists?
   end
 
   def moments_or_strategy_props(elements)

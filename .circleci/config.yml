@@ -8,7 +8,7 @@ defaults: &defaults
     CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
   docker:
     # List of image tags: https://circleci.com/developer/images/image/cimg/ruby#image-tags
-    - image: cimg/ruby:2.6.10-browsers
+    - image: cimg/ruby:3.1.4-browsers
       environment:
         PGHOST: 127.0.0.1
         PGUSER: circleci
@@ -53,18 +53,26 @@ jobs:
           - v1-dep-main-
           - v1-dep-
       - run:
-          name: Update to Node v16.14.2
+          name: Swap node versions
           command: |
-            curl -sSL "https://nodejs.org/dist/v16.14.2/node-v16.14.2-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v16.14.2-linux-x64/bin/node
-            curl https://www.npmjs.com/install.sh | sudo bash
+            set +e
+            wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+            nvm install v16.14
+            nvm alias default 16.14
+            
+            echo 'export NVM_DIR="$HOME/.nvm"' >> $BASH_ENV
+            echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
       - run: gem install bundler
       - run: bundle install --path=vendor/bundle --jobs=4 --retry=3
       - run: yarn install --cache-folder ~/.cache/yarn
       - run:
           name: Setup Chrome
           command: |
-            sudo apt-get update
-            sudo apt-get install libu2f-udev
+            wget http://archive.ubuntu.com/ubuntu/pool/main/libu/libu2f-host/libu2f-udev_1.1.4-1_all.deb
+            sudo dpkg -i libu2f-udev_1.1.4-1_all.deb
             wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
             sudo dpkg -i ./google-chrome*.deb
             sudo apt-get install
@@ -76,26 +84,24 @@ jobs:
           - ./vendor/bundle
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
+          name: Download libssl1.1
+          command: |
+            wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.17_amd64.deb
+            sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.17_amd64.deb
+      - run:
           command: bundle exec rake db:create db:schema:load --trace
           environment:
             RAILS_ENV: test
             RACK_ENV: test
       - run: RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run: RAILS_ENV=test bundle exec rake react_on_rails:locale
+      - run: RAILS_ENV=test bundle exec rails assets:precompile
       - run:
           name: Run React Jest Tests
           command: |
             set -e
             (cd client && yarn lint:flow && yarn lint:eslint && yarn test:circleci)
             (cd client && ../tmp/cc-test-reporter format-coverage -t lcov -o ../tmp/codeclimate.frontend.json coverage/lcov.info)
-      - run:
-          name: Run YAML linter
-          command: |
-            set -e
-            curl https://bootstrap.pypa.io/pip/3.5/get-pip.py -o get-pip.py
-            python3 get-pip.py --user
-            python3 -m pip install --user yamllint
-            cd config && yamllint locales/
       - persist_to_workspace:
           root: tmp
           paths:

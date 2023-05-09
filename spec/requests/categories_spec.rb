@@ -2,6 +2,7 @@
 
 describe 'Categories', type: :request do
   let(:user) { create(:user) }
+  let(:user1) { create(:user1) }
   let(:category) { create(:category, user_id: user.id) }
 
   describe '#index' do
@@ -89,7 +90,7 @@ describe 'Categories', type: :request do
       end
 
       context 'user is trying to edit a category another user created' do
-        let(:other_category) { create(:category, user_id: user.id + 1) }
+        let(:other_category) { create(:category, user_id: user1.id) }
         before { get edit_category_path(other_category.id) }
 
         it 'redirects to the category path' do

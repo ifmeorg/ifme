@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe 'Notification', type: :request do
-  let(:previous_page) { 'http://example.com/previous' }
+  let(:previous_page) { 'http://www.example.com/notifications' }
   let(:format) { 'text/html' }
   let(:headers) do
     {

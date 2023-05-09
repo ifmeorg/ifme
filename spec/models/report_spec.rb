@@ -16,7 +16,7 @@ describe Report do
   context 'with relations' do
     it { is_expected.to belong_to :reporter }
     it { is_expected.to belong_to :reportee }
-    it { is_expected.to belong_to :comment }
+    it { is_expected.to belong_to(:comment).optional }
   end
 
   context 'with validations' do

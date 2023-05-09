@@ -8,11 +8,11 @@ describe CommentViewersService do
   let(:moment) { create(:moment, user_id: owner.id) }
   let(:commentable) do
     {
-      strategy: strategy,
-      moment: moment
+      Strategy: strategy,
+      Moment: moment
     }
   end
-  %i[strategy moment].each do |commentable_name|
+  %i[Strategy Moment].each do |commentable_name|
     let(:my_commentable) { commentable[commentable_name] }
     let(:comment) do
       Comment.create!(commentable_type: commentable_name,

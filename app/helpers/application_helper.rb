@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 module ApplicationHelper
   include ViewersHelper
+  include AssetsHelper
 
   def html_options
     { class: 'htmlOptions' }
@@ -17,6 +18,34 @@ module ApplicationHelper
     devise_page?(new_user_session_path, 'sessions', 'new')
   end
 
+  def page_title
+    t('app_name') +
+    if sign_in_path?
+      " | " + t('account.sign_in')
+    elsif join_path?
+      " | " + t('account.sign_up')
+    elsif forgot_password_path?
+      " | " + t('account.forgot_password')
+    elsif update_account_path?
+      " | " + t('account.singular')
+    elsif current_page?(root_path)
+      " | " + t('app_description')
+    elsif send_ally_invitation_path?
+      " | " + t('devise.invitations.new.header')
+    elsif ally_accept_invitation_path?
+      " | " + t('devise.invitations.edit.header')
+    elsif reset_password_path?
+      " | " + t('layouts.title.reset_password')
+    elsif new_user_confirmation_path?
+      " | " + t('devise.confirmations.resend_confirmation')
+    else
+      " | " + title_content
+    end
+  end
+
+  def title_content
+    content_for(:title) || 'a community for mental health experiences'
+  end
   def join_path?
     path = new_user_registration_path
     devise_page?(path, 'registrations', 'create') ||

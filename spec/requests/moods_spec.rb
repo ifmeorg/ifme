@@ -2,8 +2,9 @@
 
 describe 'Moods', type: :request do
   let(:user)                { create(:user1) }
+  let(:another_user)        { create(:user) }
   let(:user_mood)           { create(:mood, user_id: user.id) }
-  let(:other_mood)          { create(:mood, user_id: user.id + 1) }
+  let(:other_mood)          { create(:mood, user_id: another_user.id) }
   let(:valid_mood_params)   { attributes_for(:mood) }
   let(:invalid_mood_params) { { name: nil, description: nil } }
   let(:json_header)         { { "ACCEPT" => "application/json" } }

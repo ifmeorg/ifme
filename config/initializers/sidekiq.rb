@@ -11,4 +11,4 @@ Sidekiq.configure_server do |config|
   end
 end
 
-Sidekiq.default_worker_options = { :backtrace => true, :unique => :all, :failures => true }
+Sidekiq.default_job_options = { :backtrace => true, :unique => :all, :failures => true }

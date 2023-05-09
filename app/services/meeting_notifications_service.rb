@@ -10,8 +10,8 @@ class MeetingNotificationsService
     @uniqueid = "#{type}_#{current_user.id}"
   end
 
-  def self.handle_members(args = {})
-    new(args).handle_members
+  def self.handle_members(**args)
+    new(**args).handle_members
   end
 
   def handle_members
