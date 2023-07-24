@@ -54,6 +54,16 @@ html {
   }
 }
 
+#headerContainer {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.stickyHeader {
+  background-color: $black-90;
+}
+
 .content {
   margin: 0 auto;
   padding: 0;

@@ -50,7 +50,8 @@
 
   <body class="content <%= (user_signed_in? && !static_page?) || secret_share_path? ? 'dashboard' : 'static' %>">
     <%= react_component('SkipToContent', props: { id: 'mainContent' })%>
-    <%= react_component('Header', props: header_props) %>
+    <div id="headerContainerTop"></div>
+    <div id="headerContainer"><%= react_component('Header', props: header_props) %></div>
     <main>
       <%= react_component('Toast', props: { 
         notice: notice.present? ? notice : '', 

@@ -9,6 +9,7 @@ import { HeaderProfile } from 'components/Header/HeaderProfile';
 import type { Profile, Link } from './types';
 import css from './Header.scss';
 import { useFocusTrap } from '../../hooks';
+import { stickyHeader } from '../../hooks';
 
 export type Props = {
   home: Link,
@@ -121,6 +122,7 @@ export const Header = ({
         tabIndex="-1"
       >
         {displayDesktop()}
+        {stickyHeader()}
         {mobileNavOpen ? displayMobile() : null}
       </div>
     </header>
