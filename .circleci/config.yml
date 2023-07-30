@@ -71,8 +71,8 @@ jobs:
       - run:
           name: Setup Chrome
           command: |
-            wget http://archive.ubuntu.com/ubuntu/pool/main/libu/libu2f-host/libu2f-udev_1.1.4-1_all.deb
-            sudo dpkg -i libu2f-udev_1.1.4-1_all.deb
+            wget http://archive.ubuntu.com/ubuntu/pool/main/libu/libu2f-host/libu2f-udev_1.1.10-1_all.deb
+            sudo dpkg -i libu2f-udev_1.1.10-1_all.deb
             wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
             sudo dpkg -i ./google-chrome*.deb
             sudo apt-get install
