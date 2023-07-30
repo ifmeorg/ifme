@@ -49,7 +49,7 @@ gem 'groupdate', '~> 6.1'
 gem 'react_on_rails', '12.0.1'
 gem 'webpacker'
 
-gem 'selenium-webdriver', '~> 4.1.0'
+gem 'selenium-webdriver', '~> 4.11.0'
 
 gem 'rubyzip', '~> 1.3.0'
 
@@ -76,7 +76,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rack-mini-profiler'
 
-  gem 'capybara', '~> 3.37.0'
+  gem 'capybara', '~> 3.39.2'
   gem 'factory_bot_rails'
   gem 'rspec-collection_matchers', '~> 1.1.3'
   gem 'rspec-html-matchers', '~> 0.9.0'
@@ -93,8 +93,6 @@ group :development, :test do
   gem 'foreman'
 
   gem 'bullet'
-
-  gem 'webdrivers', '>= 5.0.0'
 
   gem 'actionview'
 end
