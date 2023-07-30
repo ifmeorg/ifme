@@ -99,7 +99,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_214533) do
   create_table "medications", force: :cascade do |t|
     t.string "name"
     t.integer "dosage"
-    t.datetime "refill", precision: nil
+    t.timestamptz "refill"
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil
     t.integer "user_id"

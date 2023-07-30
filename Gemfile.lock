@@ -88,7 +88,7 @@ GEM
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
     byebug (11.1.3)
-    capybara (3.37.1)
+    capybara (3.39.2)
       addressable
       matrix
       mini_mime (>= 0.1.3)
@@ -103,7 +103,6 @@ GEM
       mime-types (>= 1.16)
       ssrf_filter (~> 1.0)
     certified (1.0.0)
-    childprocess (4.1.0)
     choice (0.2.0)
     chronic (0.10.2)
     cloudinary (1.25.0)
@@ -430,7 +429,7 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     retriable (3.1.2)
-    rexml (3.2.5)
+    rexml (3.2.6)
     rspec (3.11.0)
       rspec-core (~> 3.11.0)
       rspec-expectations (~> 3.11.0)
@@ -502,10 +501,10 @@ GEM
       ffi (~> 1.9)
     sdoc (1.0.0)
       rdoc (>= 5.0)
-    selenium-webdriver (4.1.0)
-      childprocess (>= 0.5, < 5.0)
+    selenium-webdriver (4.11.0)
       rexml (~> 3.2, >= 3.2.5)
-      rubyzip (>= 1.2.2)
+      rubyzip (>= 1.2.2, < 3.0)
+      websocket (~> 1.0)
     semantic_range (3.0.0)
     sentry-ruby (5.9.0)
       concurrent-ruby (~> 1.0, >= 1.0.2)
@@ -568,16 +567,13 @@ GEM
       rack (>= 1.0.0)
     warden (1.2.9)
       rack (>= 2.0.9)
-    webdrivers (5.2.0)
-      nokogiri (~> 1.6)
-      rubyzip (>= 1.3.0)
-      selenium-webdriver (~> 4.0)
     webpacker (5.4.3)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
       semantic_range (>= 2.3.0)
     webrick (1.7.0)
+    websocket (1.2.9)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -601,7 +597,7 @@ DEPENDENCIES
   bullet
   bundler-audit
   byebug
-  capybara (~> 3.37.0)
+  capybara (~> 3.39.2)
   carrierwave (~> 1.3.1)
   certified (= 1.0.0)
   chronic (= 0.10.2)
@@ -659,7 +655,7 @@ DEPENDENCIES
   rubyzip (~> 1.3.0)
   sass-rails (~> 5.0, >= 5.0.6)
   sdoc (= 1.0.0)
-  selenium-webdriver (~> 4.1.0)
+  selenium-webdriver (~> 4.11.0)
   sentry-ruby
   shoulda-matchers (~> 5.3.0)
   sidekiq
@@ -671,7 +667,6 @@ DEPENDENCIES
   sprockets-rails
   terser (~> 1.1)
   turbolinks (~> 5.2.0)
-  webdrivers (>= 5.0.0)
   webpacker
 
 RUBY VERSION
