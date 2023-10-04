@@ -5,7 +5,7 @@ ruby '~> 3.1.4'
 
 gem 'puma', '5.6.7'  # Latest capybara doesn't work with puma 6.0 at the moment.
 gem 'rack-rewrite'
-gem 'rails', '~> 7.0.6'
+gem 'rails', '~> 7.0.8'
 
 gem 'activerecord-import'
 gem 'bcrypt', '3.1.13'
@@ -53,7 +53,7 @@ gem 'selenium-webdriver', '~> 4.11.0'
 
 gem 'rubyzip', '~> 1.3.0'
 
-gem 'sidekiq'
+gem 'sidekiq', '6.5.10'
 gem 'sidekiq-middleware'
 gem 'sidekiq-failures'
 gem "sidekiq-cron", "~> 1.1"
