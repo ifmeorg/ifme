@@ -1225,5 +1225,43 @@
     "tags": ["sexual_assault_survivors", "domestic_violence", "dating_violence", "crisis_prevention", "twenty_four_seven", "free", "anonymous", "hotlines"],
     "languages": ["en", "es"],
     "locations": ["us"]
+  },
+  {
+    "name": "Peer Support Space",
+    "link": "https://peersupportspace.org/",
+    "tags": ["support_groups", "communities", "free", "lgbt", "people_of_colour", "black_people", "latinx", "education", "services", "advocacy"],
+    "languages": ["en"],
+    "locations": ["us"]
+  },
+  {
+    "name": "Resilience1220",
+    "link": "https://www.resilience1220.org/",
+    "tags": ["youth", "therapy", "counseling", "free", "support_groups"],
+    "languages": ["en"],
+    "locations": ["us"]
+  },
+  {
+    "name": "Finch Care",
+    "link": "https://finchcare.com/",
+    "tags": ["game", "journaling", "mood_tracking", "self_care", "android", "ios"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Medito App",
+    "link": "https://meditofoundation.org/medito-app",
+    "tags": ["free", "meditation", "mindfulness", "android", "ios"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Greater Good in Action",
+    "link": "https://ggia.berkeley.edu/",
+    "tags": ["education", "free", "stress", "self_care", "mindfulness", "talks" ],
+    "languages": ["en"]
+  },
+  {
+    "name": "Action for Happiness",
+    "link": "https://actionforhappiness.org/",
+    "tags": ["support_groups", "free", "stress", "self_care", "mindfulness", "coaching", "communities", "ios", "android", "talks", "podcast"],
+    "languages": ["en"]
   }
 ]
