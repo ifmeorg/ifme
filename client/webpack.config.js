@@ -121,16 +121,6 @@ const config = {
   module: {
     rules: [
       {
-        test: require.resolve('react'),
-        use: {
-          loader: 'imports-loader',
-          options: {
-            shim: 'es5-shim/es5-shim',
-            sham: 'es5-shim/es5-sham',
-          },
-        },
-      },
-      {
         test: /\.jsx?$/,
         use: 'babel-loader',
         exclude: /node_modules/,
