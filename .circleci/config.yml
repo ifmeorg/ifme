@@ -62,7 +62,7 @@ jobs:
             [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
             nvm install v16.14
             nvm alias default 16.14
-            
+
             echo 'export NVM_DIR="$HOME/.nvm"' >> $BASH_ENV
             echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
       - run: gem install bundler
@@ -110,8 +110,10 @@ jobs:
           name: Run Rails Rspec Tests
           command: |
             set -e
-            bundle exec rspec --format progress --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec.xml
+            $MY_ENV_VAR bundle exec rspec --format progress --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec.xml
             cd ~/ifmeorg/ifme/tmp && ./cc-test-reporter format-coverage -t simplecov -o codeclimate.backend.json ../coverage/.resultset.json
+          environment:
+            CC_TEST_REPORTER_ID: $CC_TEST_REPORTER_ID
       - persist_to_workspace:
           root: tmp
           paths:
