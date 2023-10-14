@@ -18,9 +18,9 @@ class AllyshipCreator
 
     setup_allyship
     remove_request
-    notifier.perform(pusher_type: pusher_type,
-                     current_user: current_user,
-                     ally_id: ally_id)
+    notifier.perform(pusher_type:,
+                     current_user:,
+                     ally_id:)
   end
 
   private
@@ -28,7 +28,7 @@ class AllyshipCreator
   def allyship
     return @allyship if defined?(@allyship)
 
-    @allyship = Allyship.find_by(ally_id: ally_id, user_id: current_user.id)
+    @allyship = Allyship.find_by(ally_id:, user_id: current_user.id)
   end
 
   def valid?
@@ -44,7 +44,7 @@ class AllyshipCreator
   def create_allyship
     Allyship.create(
       user_id: current_user.id,
-      ally_id: ally_id,
+      ally_id:,
       status: :pending_from_ally
     )
   end

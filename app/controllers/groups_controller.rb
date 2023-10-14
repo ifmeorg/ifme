@@ -19,9 +19,7 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
-    if @group.members.include? current_user
-      @meetings = @group.meetings.includes(:leaders)
-    end
+    @meetings = @group.meetings.includes(:leaders) if @group.members.include? current_user
 
     @page_new = t('meetings.new') if @group.led_by?(current_user)
   end

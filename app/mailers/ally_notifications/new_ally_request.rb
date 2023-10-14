@@ -19,7 +19,7 @@ module AllyNotifications
     end
 
     def message
-      I18n.t('mailers.new_ally_request.message', allies_url: allies_url)
+      I18n.t('mailers.new_ally_request.message', allies_url:)
     end
   end
 end

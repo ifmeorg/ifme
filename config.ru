@@ -8,5 +8,5 @@ use Rack::Rewrite do
   r301(/.*/, 'https://www.if-me.org$&', host: 'if-me.org')
 end
 
-require ::File.expand_path('../config/environment', __FILE__)
+require File.expand_path('config/environment', __dir__)
 run Rails.application

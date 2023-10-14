@@ -5,7 +5,7 @@ module HeaderHelper
     {
       home: { name: t('app_name'), url: root_path },
       profile: user_signed_in? ? profile : nil,
-      links: links,
+      links:,
       mobileOnly: user_signed_in? ? mobile_only : nil
     }
   end
@@ -41,8 +41,8 @@ module HeaderHelper
         name: t('profile.index.title'),
         url: profile_index_path(uid: current_user.uid)
       },
-      account: account,
-      notifications: notifications
+      account:,
+      notifications:
     }
   end
 

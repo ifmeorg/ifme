@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
 
   def remove_meeting_notification!(comment_id)
     CommentNotificationsService.remove(
-      comment_id: comment_id,
+      comment_id:,
       model_name: 'Meeting'
     )
   end

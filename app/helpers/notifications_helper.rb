@@ -61,9 +61,7 @@ module NotificationsHelper
 
   def request_accept(user_id)
     add = "/allies/add?ally_id=#{user_id}"
-    # rubocop:disable Layout/LineLength
     "<a rel=\"nofollow\" data-method=\"post\" href=\"#{add}\">#{t('allies.accept')}</a>"
-    # rubocop:enable Layout/LineLength
   end
 
   def request_reject(user_id)

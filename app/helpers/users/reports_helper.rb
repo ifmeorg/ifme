@@ -10,10 +10,8 @@ module Users
     def fetch_request_status_helper(user, request_id)
       return 400, { error: "Request id can't be blank." } if request_id.blank?
 
-      data_request = user.data_requests.find_by(request_id: request_id)
-      if data_request.blank?
-        return 404, { error: 'No such request exists for current user.' }
-      end
+      data_request = user.data_requests.find_by(request_id:)
+      return 404, { error: 'No such request exists for current user.' } if data_request.blank?
 
       [200, { current_status: data_request.status_id }]
     end
@@ -22,7 +20,7 @@ module Users
       return 400, { error: "Request id can't be blank." } if request_id.blank?
 
       data_request = user.data_requests.find_by(
-        request_id: request_id,
+        request_id:,
         status_id: Users::DataRequest::STATUS[:success]
       )
       if data_request.blank? || !File.exist?(data_request.file_path.to_s)

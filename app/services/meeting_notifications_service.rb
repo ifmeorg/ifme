@@ -27,8 +27,8 @@ class MeetingNotificationsService
   def get_notifications(member, data)
     Notification.create!(
       user_id: member.id,
-      uniqueid: uniqueid,
-      data: data
+      uniqueid:,
+      data:
     )
     Notification.where(user_id: member.id)
                 .order('created_at ASC').all
@@ -49,8 +49,8 @@ class MeetingNotificationsService
       group_id: meeting.group_id,
       group: meeting.group.name,
       typename: meeting.name,
-      type: type,
-      uniqueid: uniqueid
+      type:,
+      uniqueid:
     }.to_json
   end
 
@@ -61,8 +61,8 @@ class MeetingNotificationsService
       typeid: meeting.id,
       group: meeting.group.name,
       typename: meeting.name,
-      type: type,
-      uniqueid: uniqueid
+      type:,
+      uniqueid:
     }.to_json
   end
 

@@ -28,9 +28,7 @@ module Users
         AllyshipCreator.perform(ally_id: resource.id,
                                 current_user: resource.invited_by)
         if resource.class.allow_insecure_sign_in_after_accept
-          # rubocop:disable Layout/LineLength
           flash_message = resource.active_for_authentication? ? :updated : :updated_not_active
-          # rubocop:enable Layout/LineLength
           set_flash_message :notice, flash_message if is_flashing_format?
           sign_in(resource_name, resource)
           respond_with resource, location: after_accept_path_for(resource)

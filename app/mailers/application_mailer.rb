@@ -5,7 +5,7 @@ class ApplicationMailer < ActionMailer::Base
   include ApplicationMailerHelper
   include NotificationMailerHelper
   include GroupNotificationHelper
-  default from: ENV['SMTP_FROM']
+  default from: ENV.fetch('SMTP_FROM', nil)
   layout 'mailer'
   ALLY_NOTIFY_TYPES = %w[new_ally_request accepted_ally_request].freeze
 
@@ -15,7 +15,7 @@ class ApplicationMailer < ActionMailer::Base
     @model = model
     @user = @model.user
     subject = I18n.t(subject_text, name: @model.name)
-    mail(to: @user.email, subject: subject)
+    mail(to: @user.email, subject:)
   end
 
   def can_comment_notify(data, recipient)
@@ -26,7 +26,7 @@ class ApplicationMailer < ActionMailer::Base
     subject = extract_comment_notify_subject(data)
     generate_comment_notify_message(data)
     @recipient = recipient
-    mail(to: recipient.email, subject: subject)
+    mail(to: recipient.email, subject:)
   end
 
   def can_ally_notify(data, recipient)

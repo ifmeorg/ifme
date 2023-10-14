@@ -4,9 +4,7 @@ module ReminderHelper
     return '' unless reminders?(data)
 
     names_arr = data.active_reminders.map(&:name)
-    if data[:add_to_google_cal]
-      names_arr.push(t('medications.form.add_to_google_cal'))
-    end
+    names_arr.push(t('medications.form.add_to_google_cal')) if data[:add_to_google_cal]
     format_reminders(names_arr).html_safe
   end
 

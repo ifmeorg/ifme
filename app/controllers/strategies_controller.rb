@@ -48,9 +48,7 @@ class StrategiesController < ApplicationController
 
   # GET /strategies/1/edit
   def edit
-    unless @strategy.user_id == current_user.id
-      redirect_to_path(strategy_path(@strategy))
-    end
+    redirect_to_path(strategy_path(@strategy)) unless @strategy.user_id == current_user.id
     @viewers = current_user.allies_by_status(:accepted)
     @categories = current_user.categories.is_visible
                               .or(Category.where(id: @strategy.category_ids))
@@ -75,7 +73,7 @@ class StrategiesController < ApplicationController
     strategy = premade_strategy
     respond_to do |format|
       if strategy.save
-        PerformStrategyReminder.create!(strategy: strategy, active: false)
+        PerformStrategyReminder.create!(strategy:, active: false)
         format.json { head :no_content }
       else
         format.json { render_errors(strategy) }
@@ -124,7 +122,7 @@ class StrategiesController < ApplicationController
   end
 
   def quick_create_params(viewers)
-    { user_id: current_user.id, comment: true, viewers: viewers, visible: true,
+    { user_id: current_user.id, comment: true, viewers:, visible: true,
       description: params[:strategy][:description], published_at: Time.zone.now,
       category: params[:strategy][:category], name: params[:strategy][:name] }
   end

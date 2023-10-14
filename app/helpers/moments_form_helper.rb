@@ -16,13 +16,13 @@ module MomentsFormHelper
   private
 
   def moment_input_props(field, type, label, group = false)
-    { id: "moment_#{field}", type: type,
+    { id: "moment_#{field}", type:,
       name: "moment[#{field}]#{group ? '[]' : ''}", label: t(label) }
   end
 
   def moment_text_input_props(field, type, label, required = false)
     moment_input_props(field, type, label)
-      .merge(value: @moment[field] || nil, required: required, dark: true)
+      .merge(value: @moment[field] || nil, required:, dark: true)
   end
 
   def moment_name

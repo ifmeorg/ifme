@@ -18,14 +18,14 @@ class AlliesController < ApplicationController
 
   def add
     AllyshipCreator.perform(ally_id: params[:ally_id],
-                            current_user: current_user)
+                            current_user:)
     redirect_to_path(allies_path)
   end
 
   def remove
     user_id = current_user.id
     ally_id = params[:ally_id].to_i
-    Allyship.where(user_id: user_id, ally_id: ally_id).destroy_all
+    Allyship.where(user_id:, ally_id:).destroy_all
     redirect_to_path(allies_path)
   end
 end

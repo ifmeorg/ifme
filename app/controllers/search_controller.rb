@@ -23,7 +23,7 @@ class SearchController < ApplicationController
   private
 
   def search_by_email(email)
-    User.where(email: email)
+    User.where(email:)
         .where.not(id: current_user.id)
         .where.not(banned: true)
   end

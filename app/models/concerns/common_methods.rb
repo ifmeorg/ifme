@@ -21,7 +21,7 @@ module CommonMethods
       if send(element).is_a?(Array)
         element_ids = send(element).collect(&:to_i)
         send("#{associated_elements}=",
-             klass.where(user_id: user_id, id: element_ids))
+             klass.where(user_id:, id: element_ids))
       else
         send("#{associated_elements}=", klass.none)
       end
@@ -31,6 +31,6 @@ module CommonMethods
   private
 
   def names_and_slugs_hash(data, model_name)
-    data.map { |name, slug| { name: name, slug: "/#{model_name}/#{slug}" } }
+    data.map { |name, slug| { name:, slug: "/#{model_name}/#{slug}" } }
   end
 end

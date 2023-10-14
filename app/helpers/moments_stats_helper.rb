@@ -6,9 +6,7 @@ module MomentsStatsHelper
 
     result = '<div class="center stats">'
     result += total_moment
-    if moment_count[:total] != moment_count[:monthly]
-      result += " #{monthly_moment}"
-    end
+    result += " #{monthly_moment}" if moment_count[:total] != moment_count[:monthly]
     result + '</div>'
   end
 

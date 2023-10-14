@@ -97,20 +97,18 @@ class User < ApplicationRecord
 
   has_many :allyships
   has_many :allies, through: :allyships
-  has_many :group_members, foreign_key: :user_id
+  has_many :group_members
   has_many :groups, through: :group_members
-  has_many :meeting_members, foreign_key: :user_id
-  has_many :medications, foreign_key: :user_id
+  has_many :meeting_members
+  has_many :medications
   has_many :strategies
-  has_many :notifications, foreign_key: :user_id
+  has_many :notifications
   has_many :moods
   has_many :moments
   has_many :categories
   has_many :care_plan_contacts
   has_many :moment_templates
-  # rubocop:disable Layout/LineLength
-  has_many :data_requests, class_name: 'Users::DataRequest', foreign_key: :user_id
-  # rubocop:enable Layout/LineLength
+  has_many :data_requests, class_name: 'Users::DataRequest'
   belongs_to :invited_by, class_name: 'User', optional: true
 
   after_initialize :set_defaults, unless: :persisted?
@@ -139,14 +137,14 @@ class User < ApplicationRecord
     user = find_or_initialize_by(email: auth.info.email)
     user.name ||= auth.info.name
     user.password ||= Devise.friendly_token[0, 20]
-    update_access_token_fields(user: user, access_token: auth)
+    update_access_token_fields(user:, access_token: auth)
     user
   end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider,
           uid: auth.provider + auth.uid).first_or_create do |user|
-      UserBuilder::Builder.build(user: user, auth: auth)
+      UserBuilder::Builder.build(user:, auth:)
     end
   end
 
@@ -172,8 +170,8 @@ class User < ApplicationRecord
 
   def update_access_token
     params = { 'refresh_token' => refresh_token,
-               'client_id' => ENV['GOOGLE_CLIENT_ID'],
-               'client_secret' => ENV['GOOGLE_CLIENT_SECRET'],
+               'client_id' => ENV.fetch('GOOGLE_CLIENT_ID', nil),
+               'client_secret' => ENV.fetch('GOOGLE_CLIENT_SECRET', nil),
                'grant_type' => 'refresh_token' }
     response = Net::HTTP.post_form(URI.parse(OAUTH_TOKEN_URL), params)
     decoded_response = JSON.parse(response.body)
@@ -208,7 +206,7 @@ class User < ApplicationRecord
                      .where(status_id: Users::DataRequest::STATUS[:enqueued])
                      .first_or_initialize
       if data_request.request_id.present?
-        data_request.request_id 
+        data_request.request_id
       else
         data_request.request_id = SecureRandom.uuid
         data_request.save!

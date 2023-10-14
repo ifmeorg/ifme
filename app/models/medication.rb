@@ -46,7 +46,7 @@ class Medication < ApplicationRecord
 
   extend FriendlyId
   friendly_id :name
-  belongs_to :user, foreign_key: :user_id
+  belongs_to :user
   has_one :take_medication_reminder, dependent: :destroy
   has_one :refill_reminder, dependent: :destroy
   accepts_nested_attributes_for :take_medication_reminder

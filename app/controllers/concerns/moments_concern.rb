@@ -17,9 +17,7 @@ module MomentsConcern
 
   def empty_array_for(*symbols)
     symbols.each do |symbol|
-      if moment_params[symbol].nil? && @moment.has_attribute?(symbol)
-        @moment[symbol] = []
-      end
+      @moment[symbol] = [] if moment_params[symbol].nil? && @moment.has_attribute?(symbol)
     end
   end
 end

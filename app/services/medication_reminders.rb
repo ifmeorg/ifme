@@ -22,6 +22,6 @@ class MedicationReminders
   end
 
   def one_week_from_now_as_string
-    (Time.current + 1.week).strftime('%m/%d/%Y')
+    1.week.from_now.strftime('%m/%d/%Y')
   end
 end

@@ -29,9 +29,9 @@ module MedicationsFormHelper
       id: "medication_#{field}",
       type: 'checkbox',
       label: label || t("medications.#{field}"),
-      info: info,
+      info:,
       name: "medication[#{field}][active]",
-      checked: checked
+      checked:
     }.merge(dark: true, uncheckedValue: false, value: true)
   end
 
@@ -78,7 +78,7 @@ module MedicationsFormHelper
       id: "medication_#{field}_id",
       name: "medication[#{field}][id]",
       type: 'hidden',
-      value: value
+      value:
     }
   end
 
