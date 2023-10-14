@@ -14,7 +14,7 @@ class CalendarUploader
   def upload_event(summary, date)
     parsed_date = date.to_time.iso8601
 
-    event = { summary: summary,
+    event = { summary:,
               start: { date_time: parsed_date },
               end: { date_time: parsed_date } }
 

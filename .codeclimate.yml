@@ -27,7 +27,7 @@ plugins:
     enabled: false
   rubocop:
     enabled: true
-    channel: rubocop-0-71
+    channel: rubocop-1-56-3
 ratings:
   paths:
   - Gemfile.lock

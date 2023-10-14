@@ -18,11 +18,13 @@ module MomentsHelper
     start_date = 1.week.ago.to_date
     end_date = Date.tomorrow
     range = start_date..end_date
+    return unless current_user.moments.exists?
+
     @react_moments = current_user.moments
                                  .where(updated_at: range)
                                  .group_by_period(:day,
                                                   :created_at)
-                                 .count if current_user.moments.exists?
+                                 .count
   end
 
   def moments_or_strategy_props(elements)
@@ -65,7 +67,7 @@ module MomentsHelper
       link: present_object[:url_helper],
       date: TimeAgo.created_or_edited(element),
       actions: element_actions(element, present_object),
-      draft: !element.published? ? t('draft') : nil,
+      draft: element.published? ? nil : t('draft'),
       categories: element.category_names_and_slugs,
       moods: present_object[:moods],
       storyBy: story_by(element),
@@ -75,7 +77,7 @@ module MomentsHelper
   def get_resources_data(moment, current_user)
     unless moment.shared?
       r = ResourceRecommendations.new(
-        moment: moment, current_user: current_user
+        moment:, current_user:
       )
       tags = r.matched_tags.uniq.map do |t|
         "filter[]=#{t}&"

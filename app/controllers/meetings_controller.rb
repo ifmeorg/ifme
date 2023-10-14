@@ -66,12 +66,12 @@ class MeetingsController < ApplicationController
     # Cannot leave When you are the only leader
     if meeting.led_by?(current_user) && meeting.leaders.count == 1
       redirect_to(group_path(meeting.group_id),
-                  alert: t('meetings.leave.error'))
+                  alert: t('.error'))
     else
       # Remove user from meeting
       meeting.meeting_members.find_by(user_id: current_user.id).destroy
       redirect_to(group_path(meeting.group_id),
-                  notice: t('meetings.leave.success', meeting: meeting.name))
+                  notice: t('.success', meeting: meeting.name))
     end
   end
 
@@ -107,10 +107,10 @@ class MeetingsController < ApplicationController
 
   def send_notification(meeting, members, type)
     MeetingNotificationsService.handle_members(
-      current_user: current_user,
-      meeting: meeting,
-      type: type,
-      members: members
+      current_user:,
+      meeting:,
+      type:,
+      members:
     )
   end
 

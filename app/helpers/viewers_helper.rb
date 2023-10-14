@@ -15,9 +15,7 @@ module ViewersHelper
     result = []
     if data && %w[categories moods strategies].include?(data_type)
       result += get_viewers(data, data_type, Moment)
-      if data_type == 'categories'
-        result += get_viewers(data, data_type, Strategy)
-      end
+      result += get_viewers(data, data_type, Strategy) if data_type == 'categories'
     end
     result.uniq
   end
@@ -61,7 +59,7 @@ module ViewersHelper
   def get_viewer_list(data, link)
     return only_you_as_viewer(link) if data.blank?
 
-    names = data.to_a.map { |id| User.find_by(id: id).name }.to_sentence
+    names = data.to_a.map { |id| User.find_by(id:).name }.to_sentence
     link ? t('shared.viewers.many', viewers: names) : names
   end
 

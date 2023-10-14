@@ -59,7 +59,7 @@ module GroupsFormHelper
       id: 'group_leader',
       name: 'group[leader]',
       type: 'checkboxGroup',
-      checkboxes: checkboxes,
+      checkboxes:,
       label: t('groups.form.leaders'),
       dark: true,
       required: true

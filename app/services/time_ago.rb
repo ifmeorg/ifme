@@ -18,10 +18,10 @@ class TimeAgo
       formatted_created = formatted_ago(model.created_at)
       formatted_updated = formatted_ago(model.updated_at)
 
-      if model.created_at != model.updated_at
-        edited(formatted_created, formatted_updated)
-      else
+      if model.created_at == model.updated_at
         I18n.t('created', created_at: formatted_created).html_safe
+      else
+        edited(formatted_created, formatted_updated)
       end
     end
 

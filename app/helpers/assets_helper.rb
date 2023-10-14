@@ -20,11 +20,11 @@ module AssetsHelper
 
   def inline_file(path, css = false)
     if css && path == 'webpack_bundle.css'
-      File.read(Rails.root.join('public', webpack_folder, path))
+      File.read(Rails.public_path.join(webpack_folder, path))
     elsif Rails.application.assets
       get_application_asset(path)
     else
-      File.read(Rails.root.join('public', asset_path(path)))
+      File.read(Rails.public_path.join(asset_path(path)))
     end
   end
 

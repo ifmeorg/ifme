@@ -15,7 +15,7 @@ class ProfilePicture
         src: normalize_url(path),
         small: options[:small] || nil,
         large: options[:large] || nil,
-        alt: alt
+        alt:
       }
     end
 
@@ -49,7 +49,7 @@ class ProfilePicture
     end
 
     def claudinary_params(type)
-      { type: type,
+      { type:,
         format: 'jpg',
         quality: 'auto:good',
         width: DEFAULT_SIZE,
@@ -61,8 +61,8 @@ class ProfilePicture
     end
 
     def get_local_url(path)
-      "#{Rails.application.config.force_ssl ? 'https' : 'http'}://"\
-      "#{Rails.application.config.action_controller.asset_host}#{path}"
+      "#{Rails.application.config.force_ssl ? 'https' : 'http'}://" \
+        "#{Rails.application.config.action_controller.asset_host}#{path}"
     end
   end
 end

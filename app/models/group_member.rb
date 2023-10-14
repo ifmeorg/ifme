@@ -26,7 +26,7 @@ class GroupMember < ApplicationRecord
   validates :leader, inclusion: [true, false]
 
   belongs_to :group
-  belongs_to :user, foreign_key: :user_id
+  belongs_to :user
 
   has_many :meetings, through: :group
   has_many :meeting_memberships,

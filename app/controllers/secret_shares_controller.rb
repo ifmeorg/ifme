@@ -3,6 +3,12 @@
 class SecretSharesController < ApplicationController
   skip_before_action :if_not_signed_in, only: [:show]
 
+  def show
+    @moment = Moment.find_secret_share!(params[:id])
+    @page_author = User.find(@moment.user_id)
+    render 'moments/show'
+  end
+
   def create
     # Authorisation check will automatically raise ActiveRecord::RecordNotFound
     moment = Moment.where(user: current_user).friendly.find(params[:moment])
@@ -11,12 +17,6 @@ class SecretSharesController < ApplicationController
       secret_share_expires_at: 1.day.from_now
     )
     redirect_to moment_path(moment, anchor: 'secretShare')
-  end
-
-  def show
-    @moment = Moment.find_secret_share!(params[:id])
-    @page_author = User.find(@moment.user_id)
-    render 'moments/show'
   end
 
   def destroy

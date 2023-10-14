@@ -34,16 +34,16 @@ module Users
       meeting_members
     ].freeze
 
-    DEFAULT_FILE_PATH = Rails.root.join('tmp', 'csv_data')
+    DEFAULT_FILE_PATH = Rails.root.join('tmp/csv_data')
 
-    belongs_to :user, class_name: '::User', foreign_key: 'user_id'
+    belongs_to :user, class_name: '::User'
 
     after_commit :after_commit_tasks
 
     validates :user_id, uniqueness: {
-      scope: :status_id,
-      message: 'There is already a request enqueued for this user.'
-    },
+                          scope: :status_id,
+                          message: 'There is already a request enqueued for this user.'
+                        },
                         if: -> { status_id == STATUS[:enqueued] }
 
     validates :request_id, uniqueness: {
@@ -51,9 +51,9 @@ module Users
     }
 
     validates :status_id, inclusion: {
-      in: STATUS.values,
-      message: proc { |request| "'#{request.status_id}' is not valid." }
-    },
+                            in: STATUS.values,
+                            message: proc { |request| "'#{request.status_id}' is not valid." }
+                          },
                           presence: true
 
     validates :request_id, presence: true

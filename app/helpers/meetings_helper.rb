@@ -77,9 +77,7 @@ module MeetingsHelper
   def generate_google_cal_actions_hash(meeting)
     return {} unless (meeting_member = meeting.meeting_member(current_user))
 
-    if meeting_member.google_cal_event_id
-      return remove_from_google_cal_hash(meeting)
-    end
+    return remove_from_google_cal_hash(meeting) if meeting_member.google_cal_event_id
 
     add_to_google_cal_hash(meeting)
   end

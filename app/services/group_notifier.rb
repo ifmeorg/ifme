@@ -25,14 +25,14 @@ class GroupNotifier
     notifications = Notification.where(user_id: recipient.id)
                                 .order('created_at ASC')
     Pusher["private-#{recipient.id}"]
-      .trigger('new_notification', notifications: notifications)
+      .trigger('new_notification', notifications:)
   end
 
   def create_notification(recipient)
     Notification.create(
       user_id: recipient.id,
-      uniqueid: uniqueid,
-      data: data
+      uniqueid:,
+      data:
     )
   end
 
@@ -43,7 +43,7 @@ class GroupNotifier
       group_id: @group.id,
       group: @group.name,
       type: @type,
-      uniqueid: uniqueid
+      uniqueid:
     }.to_json
   end
 

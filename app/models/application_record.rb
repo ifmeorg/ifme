@@ -8,8 +8,8 @@ class ApplicationRecord < ActiveRecord::Base
 
     klass = objects.klass
     data = [["#{klass.name.underscore}_info"]]
-    attributes = if klass.const_defined?('USER_DATA_ATTRIBUTES')
-                   klass.const_get('USER_DATA_ATTRIBUTES')
+    attributes = if klass.const_defined?(:USER_DATA_ATTRIBUTES)
+                   klass.const_get(:USER_DATA_ATTRIBUTES)
                  else
                    klass.column_names
                  end

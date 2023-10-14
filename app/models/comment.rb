@@ -41,7 +41,7 @@ class Comment < ApplicationRecord
         comment_by: params[:comment_by],
         comment: params[:comment],
         visibility: viewers.any? ? 'private' : params[:visibility],
-        viewers: viewers
+        viewers:
       )
     end
 
@@ -86,7 +86,7 @@ class Comment < ApplicationRecord
       commentid: id,
       comment: comment[0..80],
       cutoff: comment.length > 80,
-      type: type,
+      type:,
       typeid: association.id,
       uniqueid: unique_id,
       typename: association.name
@@ -95,11 +95,11 @@ class Comment < ApplicationRecord
 
   def notifications!(data, user_id)
     Notification.create!(
-      user_id: user_id,
+      user_id:,
       uniqueid: unique_id(type),
-      data: data
+      data:
     )
-    model_data = Notification.where(user_id: user_id)
+    model_data = Notification.where(user_id:)
     model_data.order('created_at')
   end
 
@@ -111,7 +111,7 @@ class Comment < ApplicationRecord
 
   def send_notification(data, notifications, user_id)
     Pusher["private-#{user_id}"]
-      .trigger('new_notification', notifications: notifications)
+      .trigger('new_notification', notifications:)
     NotificationMailer.notification_email(user_id, data).deliver_now
   end
 

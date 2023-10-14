@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class NotificationMailer < ApplicationMailer
-  default from: ENV['SMTP_FROM']
+  default from: ENV.fetch('SMTP_FROM', nil)
 
   def take_medication(reminder)
     return if reminder.medication.blank?
@@ -31,7 +31,7 @@ class NotificationMailer < ApplicationMailer
       time: @meeting.time
     )
 
-    mail(to: @member.email, subject: subject)
+    mail(to: @member.email, subject:)
   end
 
   def notification_email(recipientid, data)

@@ -5,7 +5,7 @@ module ReportsHelper
   def new_report_props(uid, comment_id = nil)
     new_form_props(
       report_form_inputs,
-      reports_path(uid: uid, comment_id: comment_id)
+      reports_path(uid:, comment_id:)
     )
   end
 

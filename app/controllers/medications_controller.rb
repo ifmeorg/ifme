@@ -54,7 +54,7 @@ class MedicationsController < ApplicationController
     dosage = @medication&.dosage || medication[:dosage]
     no_of_days = total.to_i / dosage.to_i
     no_of_weeks = no_of_days.to_i / weekly_dosage.length
-    days = 7 * no_of_weeks + (no_of_days % weekly_dosage.length)
+    days = (7 * no_of_weeks) + (no_of_days % weekly_dosage.length)
     Time.zone.now.strftime('%d/%m/%Y').to_date + days - 1
   end
 

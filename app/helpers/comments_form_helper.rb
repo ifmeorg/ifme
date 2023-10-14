@@ -17,9 +17,7 @@ module CommentsFormHelper
 
   def basic_props_overrides(props, input_type)
     props = props.merge(dark: true) if input_type != 'hidden'
-    if input_type == 'textarea'
-      props = props.merge(required: true, label: t('comment.singular'))
-    end
+    props = props.merge(required: true, label: t('comment.singular')) if input_type == 'textarea'
     props
   end
 
@@ -28,7 +26,7 @@ module CommentsFormHelper
       id: "comment_#{field}",
       name: "comment[#{field}]",
       type: input_type,
-      value: value
+      value:
     }
     basic_props_overrides(props, input_type)
   end
@@ -36,8 +34,8 @@ module CommentsFormHelper
   def comment_visibility_option(value, label)
     {
       id: "comment_visibility_#{value}",
-      label: label,
-      value: value
+      label:,
+      value:
     }
   end
 
@@ -63,8 +61,8 @@ module CommentsFormHelper
   def comment_viewers_option(field, label, value = nil)
     {
       id: "comment_viewers_#{field}",
-      label: label,
-      value: value
+      label:,
+      value:
     }
   end
 

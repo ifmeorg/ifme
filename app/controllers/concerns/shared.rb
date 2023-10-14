@@ -88,7 +88,7 @@ module Shared
     path = show_path(model_object)
     format.html { redirect_to path }
     status = is_update ? :ok : :created
-    format.json { render :show, status: status, location: model_object }
+    format.json { render :show, status:, location: model_object }
   end
 
   def format_failure(format, model_object, is_update)

@@ -28,7 +28,7 @@ module FormHelper
   private
 
   def form_props(inputs, action)
-    props = { inputs: inputs }
+    props = { inputs: }
     props[:action] = action
     props
   end

@@ -15,7 +15,7 @@ module MeetingsFormHelper
   def meeting_input_props(field, type, label, value)
     {
       id: "meeting_#{field}",
-      type: type,
+      type:,
       name: "meeting[#{field}]",
       label: t(label),
       value: value || nil,

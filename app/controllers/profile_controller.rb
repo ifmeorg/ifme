@@ -29,7 +29,7 @@ class ProfileController < ApplicationController
   private
 
   def update_and_email(user, banned)
-    user.update(banned: banned)
+    user.update(banned:)
     if banned
       BannedMailer.add_ban_email(user).deliver_now
     else
@@ -53,8 +53,8 @@ class ProfileController < ApplicationController
 
   def notice_or_alert(user, notice)
     name = user&.name || params[:user_id]
-    return { notice: t("reports.#{notice}", name: name) } if user.present?
+    return { notice: t("reports.#{notice}", name:) } if user.present?
 
-    { alert: t("reports.#{notice}_error", name: name) }
+    { alert: t("reports.#{notice}_error", name:) }
   end
 end

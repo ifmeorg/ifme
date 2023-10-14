@@ -23,7 +23,7 @@ class CloudinaryService
     end
 
     def fetch(public_id)
-      ENV['CLOUDINARY_SECURE_URL'] + public_id
+      ENV.fetch('CLOUDINARY_SECURE_URL', nil) + public_id
     end
 
     def delete(public_id, options = {})

@@ -27,10 +27,10 @@ class Allyship < ApplicationRecord
   belongs_to :user
   belongs_to :ally, class_name: 'User'
 
-  before_destroy :remove_activities_between_users
-
   after_create :create_inverse, unless: :inverse?
   after_update :approve_inverse, if: :inverse_unapproved?
+  before_destroy :remove_activities_between_users
+
   after_destroy :destroy_inverses, if: :inverse?
 
   def approve_inverse

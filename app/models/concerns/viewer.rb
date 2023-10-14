@@ -10,12 +10,12 @@ module Viewer
 
   class_methods do
     def destroy_viewer(user_id, viewer_id)
-      where(user_id: user_id).find_each do |instance|
+      where(user_id:).find_each do |instance|
         viewers = instance.viewers
 
         if viewers.include?(viewer_id)
           viewers.delete(viewer_id)
-          update(instance.id, viewers: viewers)
+          update(instance.id, viewers:)
         end
       end
     end

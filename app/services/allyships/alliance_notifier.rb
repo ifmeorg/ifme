@@ -36,7 +36,7 @@ module Allyships
 
     def trigger_pusher
       Pusher["private-#{ally_id}"]
-        .trigger('new_notification', notifications: notifications)
+        .trigger('new_notification', notifications:)
     end
 
     def create_notification

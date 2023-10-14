@@ -39,7 +39,7 @@ module CategoriesHelper
     {
       edit: {
         name: t('common.actions.edit'),
-        link: link
+        link:
       },
       delete: action_delete(url_helper),
       not_visible: !element.visible && get_visible(element.visible),

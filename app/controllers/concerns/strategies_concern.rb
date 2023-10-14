@@ -22,9 +22,7 @@ module StrategiesConcern
 
   def empty_array_for(*symbols)
     symbols.each do |symbol|
-      if strategy_params[symbol].nil? && @strategy.has_attribute?(symbol)
-        @strategy[symbol] = []
-      end
+      @strategy[symbol] = [] if strategy_params[symbol].nil? && @strategy.has_attribute?(symbol)
     end
   end
 

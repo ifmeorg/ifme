@@ -96,9 +96,9 @@ module StrategiesFormHelper
 
   def build_switch_input(value, checked, unchecked_value)
     {
-      type: 'switch', value: value,
+      type: 'switch', value:,
       uncheckedValue: unchecked_value,
-      checked: checked,
+      checked:,
       dark: true
     }
   end

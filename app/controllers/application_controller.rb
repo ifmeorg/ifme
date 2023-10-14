@@ -17,9 +17,9 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def with_timezone
+  def with_timezone(&)
     timezone = Time.find_zone(cookies[:timezone])
-    Time.use_zone(timezone) { yield }
+    Time.use_zone(timezone, &)
   end
 
   def set_locale
@@ -64,9 +64,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if resource.respond_to?(:pwned?) && resource.pwned?
-      cookies[:pwned] = { value: true, expires: Time.current + 10.minutes }
-    end
+    cookies[:pwned] = { value: true, expires: 10.minutes.from_now } if resource.respond_to?(:pwned?) && resource.pwned?
 
     super
   end
