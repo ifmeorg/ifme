@@ -194,19 +194,19 @@ describe MomentsFormHelper do
                 {
                   checked: false,
                   id: "moment_viewers_#{viewers[0].id}",
-                  label: 'Ally 0',
+                  label: viewers[0].name,
                   value: viewers[0].id
                 },
                 {
                   checked: false,
                   id: "moment_viewers_#{viewers[1].id}",
-                  label: 'Ally 1',
+                  label: viewers[1].name,
                   value: viewers[1].id
                 },
                 {
                   checked: false,
                   id: "moment_viewers_#{viewers[2].id}",
-                  label: 'Ally 2',
+                  label: viewers[2].name,
                   value: viewers[2].id
                 }
               ],
@@ -439,19 +439,19 @@ describe MomentsFormHelper do
                 {
                   checked: false,
                   id: "moment_viewers_#{viewers[0].id}",
-                  label: 'Ally 0',
+                  label: viewers[0].name,
                   value: viewers[0].id
                 },
                 {
                   checked: false,
                   id: "moment_viewers_#{viewers[1].id}",
-                  label: 'Ally 1',
+                  label: viewers[1].name,
                   value: viewers[1].id
                 },
                 {
                   checked: false,
                   id: "moment_viewers_#{viewers[2].id}",
-                  label: 'Ally 2',
+                  label: viewers[2].name,
                   value: viewers[2].id
                 }
               ],
@@ -726,19 +726,19 @@ describe MomentsFormHelper do
                   id: "moment_viewers_#{viewers[0].id}",
                   value: viewers[0].id,
                   checked: false,
-                  label: 'Ally 0'
+                  label: viewers[0].name,
                 },
                 {
                   id: "moment_viewers_#{viewers[1].id}",
                   value: viewers[1].id,
                   checked: false,
-                  label: 'Ally 1'
+                  label: viewers[1].name,
                 },
                 {
                   id: "moment_viewers_#{viewers[2].id}",
                   value: viewers[2].id,
                   checked: false,
-                  label: 'Ally 2'
+                  label: viewers[2].name,
                 }
               ],
               label: 'Viewers',
@@ -1005,19 +1005,19 @@ describe MomentsFormHelper do
                   id: "moment_viewers_#{viewers[0].id}",
                   value: viewers[0].id,
                   checked: false,
-                  label: 'Ally 0'
+                  label: viewers[0].name,
                 },
                 {
                   id: "moment_viewers_#{viewers[1].id}",
                   value: viewers[1].id,
                   checked: false,
-                  label: 'Ally 1'
+                  label: viewers[1].name,
                 },
                 {
                   id: "moment_viewers_#{viewers[2].id}",
                   value: viewers[2].id,
                   checked: false,
-                  label: 'Ally 2'
+                  label: viewers[2].name,
                 }
               ],
               label: 'Viewers',
