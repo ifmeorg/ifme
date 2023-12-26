@@ -117,7 +117,8 @@
   "jest": {
     "moduleNameMapper": {
       "\\.scss$": "identity-obj-proxy",
-      "^.+\\.svg$": "<rootDir>/jest/svgTransform.js"
+      "^.+\\.svg$": "<rootDir>/jest/svgTransform.js",
+      "axios": "axios/dist/node/axios.cjs"
     },
     "setupFiles": [
       "./app/libs/testHelper.js",
