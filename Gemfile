@@ -15,7 +15,7 @@ gem 'devise-pwned_password'
 gem 'devise_uid'
 gem 'pg', '1.1.4'
 gem "recaptcha"
-gem 'resque', '2.0.0'
+gem 'resque', '2.6.0'
 gem 'resque-scheduler', '4.10.2'
 gem 'resque_mailer', '2.4.3'
 
