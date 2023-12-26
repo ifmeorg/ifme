@@ -97,16 +97,16 @@ class PagesController < ApplicationController
   end
 
   def parse_author(post)
-    post[1]['content']['subtitle'] || ''
+    post['author']
   end
 
   def fetch_posts
-    medium = Medium.new
+    medium_posts = Medium.new.posts
     posts = []
-    medium.posts.each do |post|
+    medium_posts.each do |post|
       posts.push(
-        link_name: post[1]['title'],
-        link: "https://medium.com/ifme/#{post[1]['uniqueSlug']}",
+        link_name: post['title'],
+        link: post['link'],
         author: parse_author(post)
       )
     end
