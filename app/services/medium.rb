@@ -11,12 +11,12 @@ class Medium
   private
 
   def content_hash
-    JSON.parse(content[16..-1])
+    JSON.parse(content[16..])
   end
 
   def content
     content = ''
-    URI.open('https://medium.com/ifme?format=json') do |file|
+    URI.open('https://medium.com/ifme?format=json', 'User-Agent' => 'if-me.org') do |file|
       file.each_line { |line| content += line }
     end
     content
