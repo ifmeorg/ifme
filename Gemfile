@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 ruby '~> 3.1.4'
 
-gem 'puma', '5.6.7'  # Latest capybara doesn't work with puma 6.0 at the moment.
+gem 'puma', '5.6.8'  # Latest capybara doesn't work with puma 6.0 at the moment.
 gem 'rack-rewrite'
 gem 'rails', '~> 7.0.8'
 
