@@ -7,7 +7,7 @@
 [![Awesome Humane Tech](https://raw.githubusercontent.com/humanetech-community/awesome-humane-tech/main/humane-tech-badge.svg?sanitize=true)](https://github.com/humanetech-community/awesome-humane-tech)
 
 README in: [Inglese](https://github.com/ifmeorg/ifme/blob/main/README.md), [Spagnolo](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [Portoghese](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [Francese](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [Coreano](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), [Indonesiano](https://github.com/ifmeorg/ifme/blob/main/README-ID.md), [Turco](https://github.com/ifmeorg/ifme/blob/main/README-TR.md), [Cingalese](https://github.com/ifmeorg/ifme/blob/main/README-LK.md), [Cinese](https://github.com/ifmeorg/ifme/blob/main/README-CN.md),
-[Hindi](https://github.com/ifmeorg/ifme/blob/main/README-HI.md), [Arabo](https://github.com/ifmeorg/ifme/blob/main/README-AR.md)
+[Hindi](https://github.com/ifmeorg/ifme/blob/main/README-HI.md), [Arabo](https://github.com/ifmeorg/ifme/blob/main/README-AR.md), [Vietnamita](https://github.com/ifmeorg/ifme/blob/main/README-VI.md)
 
 # if-me.org
 

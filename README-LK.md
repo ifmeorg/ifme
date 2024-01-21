@@ -6,7 +6,7 @@
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 
 කියවුමට : [ඉතාලි](https://github.com/ifmeorg/ifme/blob/main/README-IT.md), [ස්පාඤ්ඤ](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [පෘතුගීසි](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [ප්‍රංශ](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [
-කොරියානු](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), [ඉන්දුනීසියානු](https://github.com/ifmeorg/ifme/blob/main/README-ID.md), [චීන](https://github.com/ifmeorg/ifme/blob/main/README-CN.md), [හින්දි](https://github.com/ifmeorg/ifme/blob/main/README-HI.md), [අරාබි](https://github.com/ifmeorg/ifme/blob/main/README-AR.md)
+කොරියානු](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), [ඉන්දුනීසියානු](https://github.com/ifmeorg/ifme/blob/main/README-ID.md), [චීන](https://github.com/ifmeorg/ifme/blob/main/README-CN.md), [හින්දි](https://github.com/ifmeorg/ifme/blob/main/README-HI.md), [අරාබි](https://github.com/ifmeorg/ifme/blob/main/README-AR.md), [වියට්නාම](https://github.com/ifmeorg/ifme/blob/main/README-VI.md)
 
 # if-me.org
 
