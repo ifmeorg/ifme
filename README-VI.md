@@ -17,49 +17,46 @@ Những đồng minh hay bạn bè thân tín là những người có liên h�
 
 Giải quyết các vấn đề về sức khỏe tâm thần làm nên con người chúng ta. Nhưng nhiều người trong chúng ta đắn đo khi mở lòng để chia sẻ những điều đó. Không phải ai cũng là nhà tư vấn tâm lý hay trị liệu. Những người có liên hệ với cuộc sống chúng ta mỗi ngày chính là những người làm nên cảm xúc và cách cư xử của chúng ta. Mời gọi họ tham gia vào các phương pháp trị liệu sức khỏe tâm thần sẽ là chìa khóa giúp ta hồi phục.
 
-Trang web trực tuyến có thể được truy cập tại [if-me.org](https://www.if-me.org/). Hệ thống thiết kế trực tuyến có thể được tìm tại [design.if-me.org](http://design.if-me.org/).
+Trang web trực tuyến có thể được truy cập tại [if-me.org](https://www.if-me.org/). Hệ thống thiết kế trực tuyến có thể được truy cập tại [design.if-me.org](http://design.if-me.org/).
 
 Chúng tôi sử dụng [Hiệp định Người đóng góp](http://contributor-covenant.org) cho quy tắc ứng xử. Hãy
 [đọc kĩ](https://github.com/ifmeorg/ifme/blob/main/code_of_conduct.md)
 trước khi bạn đóng góp vào dự án của chúng tôi.
 
-**Đọc về các mục tiêu của dự án và cách để đóng góp (không chỉ với lập trình viên) tại [đây](https://github.com/ifmeorg/ifme/blob/main/CONTRIBUTING.md).**
+**Đọc về các mục tiêu của dự án và cách để đóng góp (không chỉ đối với lập trình viên) tại [đây](https://github.com/ifmeorg/ifme/blob/main/CONTRIBUTING.md).**
 
-## Documentation
+## Tài liệu hướng dẫn
 
-Please check out our [Wiki](https://github.com/ifmeorg/ifme/wiki) for full documentation.
+Hãy xem [Wiki](https://github.com/ifmeorg/ifme/wiki) để có tài liệu hướng dẫn đầy đủ.
 
-### Installation
+### Cài đặt
 
-[These are the instructions](https://github.com/ifmeorg/ifme/wiki/Installation) for setting up and installing the app. Test, development, and production instances are covered.
+[Đây là hướng dẫn](https://github.com/ifmeorg/ifme/wiki/Installation) để thiết lập và cài đặt ứng dụng. Các bản test, phát triển và sản xuất đều đã được bao gồm.
 
-### Contributor Blurb
+### Mô tả cho người đóng góp
 
-Everyone is highly encouraged to [add themselves](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb) to our Contribute page.
+Rất khuyến khích tất cả mọi người để [tự thêm mình](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb) vào trang đóng góp (Contribute) của chúng tôi.
 
-## Donate
+## Quyên góp
 
-We also welcome financial contributions in full transparency on our
+Chúng tôi cũng hoan nghênh các đóng góp tài chính với minh bạch đầy đủ trên 
 [Open Collective](https://opencollective.com/ifme).
-Anyone can file an expense. If the expense makes sense for the development of
-the community, it will be "merged" in the ledger of our Open Collective by the
-core contributors and the person who filed the expense will be reimbursed.
+Bất cứ ai cũng có thể  đề xuất chi phí. Nếu chi phí đó hợp lý với sự phát triển của cộng đồng, nó sẽ được hợp nhất vào sổ cái trên Open Collective của chúng tôi bởi những người đóng góp chủ chốt và người đề xuất sẽ được hoàn lại chi phí.
 
-### Backers
+### Những hỗ trợ tài chính
 
-Thank you to our Patreon backers [Rob Drimmie](https://www.patreon.com/user?u=3251857),
+Cảm ơn những người đã ủng hộ qua Patreon [Rob Drimmie](https://www.patreon.com/user?u=3251857),
 [Joseph D. Marhee](https://www.patreon.com/user?u=2899171), and
 [Carol Willing](https://www.patreon.com/user?u=202458)!
 
-Thank you to all our Open Collective backers!
-[Become a backer!](https://opencollective.com/ifme#backer)
+Cảm ơn tất cả những người đã ủng hộ qua Open Collective!
+[Trở thành người ủng hộ!](https://opencollective.com/ifme#backer)
 
 <a href="https://opencollective.com/ifme#backers" target="_blank"><img src="https://opencollective.com/ifme/backers.svg?width=890"></a>
 
-### Sponsors
+### Nhà tài trợ
 
-Thank you to all our sponsors! (please ask your company to also support this
-open source project by [becoming a sponsor](https://opencollective.com/ifme#sponsor))
+Cảm ơn tất cả các nhà tài trợ! (vui lòng hỏi công ty của bạn để cũng hỗ trợ dự án với mã nguồn mở này bằng cách [trở thành nhà tài trợ](https://opencollective.com/ifme#sponsor))
 
 <section role="presentation">
   <a href="https://opencollective.com/ifme/sponsor/0/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/0/avatar.svg"></a>
@@ -74,8 +71,8 @@ open source project by [becoming a sponsor](https://opencollective.com/ifme#spon
   <a href="https://opencollective.com/ifme/sponsor/9/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/9/avatar.svg"></a>
 </section>
 
-## License
+## Giấy phép
 
-The source code is licensed under GNU AGPLv3. For more information see
-http://www.gnu.org/licenses/agpl-3.0.txt or
+Mã nguồn được cấp phép theo GNU AGPLv3. Để biết thêm thông tin chi tiết hãy truy cập
+http://www.gnu.org/licenses/agpl-3.0.txt hoặc
 [LICENSE.txt](https://github.com/ifmeorg/ifme/blob/main/LICENSE.txt).
