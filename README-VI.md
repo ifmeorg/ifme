@@ -20,7 +20,7 @@ Giải quyết các vấn đề về sức khỏe tâm thần làm nên con ngư
 Trang web trực tuyến có thể được truy cập tại [if-me.org](https://www.if-me.org/). Hệ thống thiết kế trực tuyến có thể được truy cập tại [design.if-me.org](http://design.if-me.org/).
 
 Chúng tôi sử dụng [Hiệp định Người đóng góp](http://contributor-covenant.org) cho quy tắc ứng xử. Hãy
-[đọc kĩ](https://github.com/ifmeorg/ifme/blob/main/code_of_conduct.md)
+[đọc](https://github.com/ifmeorg/ifme/blob/main/code_of_conduct.md)
 trước khi bạn đóng góp vào dự án của chúng tôi.
 
 **Đọc về các mục tiêu của dự án và cách để đóng góp (không chỉ đối với lập trình viên) tại [đây](https://github.com/ifmeorg/ifme/blob/main/CONTRIBUTING.md).**
@@ -35,7 +35,7 @@ Hãy xem [Wiki](https://github.com/ifmeorg/ifme/wiki) để có tài liệu hư�
 
 ### Mô tả cho người đóng góp
 
-Rất khuyến khích tất cả mọi người để [tự thêm mình](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb) vào trang đóng góp (Contribute) của chúng tôi.
+Rất khuyến khích tất cả mọi người [tự thêm mình](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb) vào trang Đóng góp của chúng tôi.
 
 ## Quyên góp
 
@@ -45,11 +45,11 @@ Bất cứ ai cũng có thể  đề xuất chi phí. Nếu chi phí đó hợp 
 
 ### Những hỗ trợ tài chính
 
-Cảm ơn những người đã ủng hộ qua Patreon [Rob Drimmie](https://www.patreon.com/user?u=3251857),
+Cảm ơn những người đã ủng hộ trên Patreon [Rob Drimmie](https://www.patreon.com/user?u=3251857),
 [Joseph D. Marhee](https://www.patreon.com/user?u=2899171), and
 [Carol Willing](https://www.patreon.com/user?u=202458)!
 
-Cảm ơn tất cả những người đã ủng hộ qua Open Collective!
+Cảm ơn tất cả những người đã ủng hộ trên Open Collective!
 [Trở thành người ủng hộ!](https://opencollective.com/ifme#backer)
 
 <a href="https://opencollective.com/ifme#backers" target="_blank"><img src="https://opencollective.com/ifme/backers.svg?width=890"></a>
