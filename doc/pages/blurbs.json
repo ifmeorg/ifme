@@ -744,5 +744,14 @@
     "link_name": "LVCG",
     "link": "https://github.com/lvcg",
     "social": "github"
+  },
+  {
+    "name": "Ikegah Oliver",
+    "image": "app/assets/images/contributors/Ikegah_Oliver.jpg",
+    "profile": "I'm a Software Engineer based in Lagos, Nigeria. I acknowledge people go through mental health issues and I am passionate to help as much as I can. It would be a great pleasure to contribute to this project.",
+    "location": "Lagos, Nigeria",
+    "link_name": "oliverTwist2",
+    "link": "https://github.com/oliverTwist2",
+    "social": "github"
   }
 ]
