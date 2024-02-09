@@ -1,5 +1,5 @@
 // @flow
-import React, { useState, useRef, type Node } from 'react';
+import React, { useState, useEffect, useRef, type Node } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import renderHTML from 'react-render-html';
