@@ -109,10 +109,29 @@ export const Header = ({
     </div>
   );
 
+  const [isSticky, setSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setSticky(true);
+      } else {
+        setSticky(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <header
       id="header"
-      className={`${css.header} ${mobileNavOpen ? css.headerMobile : ''}`}
+      className={`${css.header} ${isSticky ? 'sticky' : ''} ${mobileNavOpen ? css.headerMobile : ''}`}
     >
       <div
         ref={navigationRef}
