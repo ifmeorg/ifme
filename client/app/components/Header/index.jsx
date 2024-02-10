@@ -25,6 +25,7 @@ export const Header = ({
   home, links, mobileOnly, profile,
 }: Props): Node => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [isSticky, setSticky] = useState(false);
   const navigationRef = useRef(null);
 
   useFocusTrap(navigationRef, mobileNavOpen);
