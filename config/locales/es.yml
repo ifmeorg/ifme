@@ -519,9 +519,10 @@ es:
         La información no se brinda a ni es accesible a ningún tercero. Eliminar
         tu cuenta borrará toda tu información.<br /><br />La información del
         usuario es analizada dentro de la aplicación para proveer
-        recomendaciones personalizadas.<br /><br />Si un usuario se autentica a
-        través de Facebook o Google, su foto de perfil y su nombre se utilizarán
-        en su cuenta.
+        recomendaciones personalizadas.<br /><br />Es necesario recopilar el
+        nombre y la dirección de correo electrónico para crear una cuenta de
+        usuario.Si un usuario se autentica a través de Facebook o Google, su
+        foto de perfil y su nombre se utilizarán en su cuenta.
       moment_question: ¿Qué es un Momento?
       moment_answer: >-
         Un <strong>%{moment}</strong> es un evento o situación que afecta
@@ -651,12 +652,35 @@ es:
       user_data_description: >-
         <p>Nuestra página %{faq_link} tiene más información sobre las funciones
         de este sitio web.</p>
+      data_protection_rights: Derechos de Protección de Datos
+      data_protection_rights_answer: >-
+        <p>Todo usuario tiene derecho a lo siguiente:</p><p>Derecho de acceso:
+        los usuarios tienen derecho a solicitarnos copias de sus datos
+        personales. Es posible que cobremos una pequeña tarifa por este
+        servicio.</p><p>El derecho de rectificación: los usuarios tienen derecho
+        a solicitar que corrijamos cualquier información que consideren
+        inexacta. También tienen derecho a solicitarnos que completemos la
+        información que consideren incompleta.</p><p>El derecho de eliminación:
+        los usuarios tienen derecho a solicitar que eliminemos sus datos
+        personales, bajo ciertas condiciones.</p> <p>El derecho a restringir el
+        procesamiento: los usuarios tienen derecho a solicitar que restrinjamos
+        el procesamiento de sus datos personales, bajo ciertas
+        condiciones.</p><p>El derecho a oponerse al procesamiento: tienen
+        derecho a oponerse a nuestro procesamiento de sus datos personales, bajo
+        ciertas condiciones.</p><p>El derecho a la portabilidad de los datos:
+        los usuarios tienen derecho a solicitar que transfiramos los datos que
+        hemos recopilado a otra organización, o directamente a ellos, bajo
+        ciertas condiciones. condiciones.</p><p>Si se realiza una solicitud,
+        tenemos un mes para responderle.</p>
       cookies: Uso de Cookies
       cookies_description: >-
-        <p> Este sitio de internet emplea cookies para mejorar la experiencia
-        del usuario en sus visitas al mismo. Cuando pertinente, el sitio emplea
-        un sistema de control de cookies que permite al usuario permitir o
-        denegar el uso de cookies en su computadora o aparato desde la primera
+        <p>Este sitio de internet emplea cookies para mejorar la experiencia del
+        usuario en sus visitas al mismo. Las cookies de funcionalidad se
+        utilizan para la autenticación y para recordar las preferencias
+        seleccionadas previamente. Estos podrían incluir el idioma que prefiere
+        y la ubicación en la que se encuentra. Cuando pertinente, el sitio
+        emplea un sistema de control de cookies que permite al usuario permitir
+        o denegar el uso de cookies en su computadora o aparato desde la primera
         visita. </p><p>Las cookies son pequeños archivos que se guardan en el
         disco duro de la computadora del usuario para rastrear, guardar, y
         almacenar información sobre las interacciones y uso del sitio por parte
@@ -673,6 +697,14 @@ es:
         de plataformas de redes sociales externas en las que participa este
         sitio de internet están adscritas los t'rminos y condiciones de cada red
         social en cuestión.</p>
+      changes: Cambios
+      changes_description: >-
+        <p>Revisamos periódicamente nuestra política de privacidad y publicamos
+        todas las actualizaciones en esta página web. Nos aseguramos de cumplir
+        con la Ley de Documentos Electrónicos de Protección de Información
+        Personal (PIPEDA) en Canadá y el Reglamento General de Protección de
+        Datos de la UE (GDPR UE) en la Unión Europea.</p><p>Esta política de
+        privacidad se actualizó por última vez el 11 de febrero , 2024.</p>
       contact: Contacto
       contact_description: >-
         <p class="no_margin_bottom">Por favor, %{email_link} si tienes dudas,

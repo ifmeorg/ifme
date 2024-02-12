@@ -87,7 +87,9 @@ fr:
       empty_error: Ce champ ne peut pas être vide!
       min_error: 'Ce champ doit être égal ou supérieur à %{min}!'
       max_error: 'Ce champ doit être égal ou inférieur à %{max}!'
-      min_max_error: "Ce champ doit être égal ou supérieur à %{min} et égal ou inférieur à %{max}\_!"
+      min_max_error: >-
+        Ce champ doit être égal ou supérieur à %{min} et égal ou inférieur à
+        %{max} !
       search_by_keywords: Recherche par mots-clés
       template: Choisissez un modèle
     time_ago: 'il y a %{date}'
@@ -526,9 +528,10 @@ fr:
         Aucune donnée n''est transmise ou rendue accessible à des tiers.
         Supprimer votre compte supprime toutes vos données.<br /><br />Les
         données des utilisateurs sont uniquement analysées dans le cadre de
-        l''application afin de fournir des recommendations.<br /><br />Si un
-        utilisateur est authentifié via Facebook ou Google, sa photo de profil
-        et son nom seront utilisés dans son compte.
+        l''application afin de fournir des recommendations.<br /><br />La
+        collecte du nom et de l'adresse e-mail est requise pour créer un compte
+        utilisateur.Si un utilisateur est authentifié via Facebook ou Google, sa
+        photo de profil et son nom seront utilisés dans son compte.
       moment_question: Qu'est-ce qu'un moment ?
       moment_answer: >-
         Un <strong>%{moment}</strong> est un évènement ou situation qui affecte
@@ -663,13 +666,18 @@ fr:
       user_data_description: >-
         <p>Notre page %{faq_link} contient plus d'informations sur les
         fonctionnalités de ce site Web.</p>
+      data_protection_rights: Droits de protection des données
+      data_protection_rights_answer: "<p>Chaque utilisateur a droit aux éléments suivants\_:</p><p>Le droit d'accès\_–\_Les utilisateurs ont le droit de nous demander des copies de leurs données personnelles. Nous pouvons facturer une somme modique pour ce service.</p><p>Le droit de rectification – Les utilisateurs ont le droit de demander que nous corrigions toute information qu'ils jugent inexacte. Ils ont également le droit de nous demander de compléter les informations qu'ils jugent incomplètes.</p><p>Droit à l'effacement – Les utilisateurs ont le droit de demander que nous effacions leurs données personnelles, sous certaines conditions.</p> <p>Le droit de limiter le traitement\_– Les utilisateurs ont le droit de demander que nous limitions le traitement de leurs données personnelles, sous certaines conditions.</p><p>Le droit de s'opposer au traitement\_– ils ont le droit de s'opposer à notre traitement de leurs données personnelles, sous certaines conditions.</p><p>Le droit à la portabilité des données – Les utilisateurs ont le droit de demander que nous transférions les données que nous avons collectées à une autre organisation, ou directement à elle, sous certaines conditions. conditions.</p><p>Si une demande est formulée, nous avons un mois pour vous répondre.</p>"
       cookies: Utilisation des cookies
       cookies_description: >-
         <p>Ce site Internet utilise des cookies pour améliorer l''expérience des
-        utilisateurs qui visite notre site. Lorsque c''est possible ce site
-        Internet utilise un système de contrôle permettant aux utilisateurs lors
-        de leur première visite d''autoriser ou non l''usage de cookies sur leur
-        ordinateur/appareil.</p><p>Les cookies sont de petits fichiers
+        utilisateurs qui visite notre site. Les cookies de fonctionnalité sont
+        utilisés pour l'authentification et pour mémoriser les préférences
+        précédemment sélectionnées. Ceux-ci peuvent inclure la langue que vous
+        préférez et l’endroit où vous vous trouvez. Lorsque c''est possible ce
+        site Internet utilise un système de contrôle permettant aux utilisateurs
+        lors de leur première visite d''autoriser ou non l''usage de cookies sur
+        leur ordinateur/appareil.</p><p>Les cookies sont de petits fichiers
         sauvegardés sur le disque dur de l''ordinateur de l''utilisateur afin de
         suivre et sauvegarder des informations concernant les interactions et
         usages du site Internet. Ceci permet au site Internet via son serveur de
@@ -686,6 +694,8 @@ fr:
         sociales externes auxquelles se site Internet participe sont soumises
         aux conditions d''utilisation et aux politiques de confidentialité
         respective mise en place par chacune de ces plateformes sociales.</p>
+      changes: Changements
+      changes_description: "<p>Nous révisons régulièrement notre politique de confidentialité et publions toutes les mises à jour sur cette page Web. Nous veillons à ce que nous soyons conformes à la Loi sur les documents électroniques sur la protection des informations personnelles (LPRPDE) au Canada et au Règlement général sur la protection des données de l'UE (RGPD UE) dans l'Union européenne.</p><p>Cette politique de confidentialité a été mise à jour pour la dernière fois le 11\_février. , 2024.</p>"
       contact: Nous contacter
       contact_description: >-
         <p class="no_margin_bottom">Merci d''envoyer vos questions et requêtes à
@@ -886,7 +896,7 @@ fr:
       user_is_focusing: '%{name} se concentre le plus'
       visible_in_stats: Visible dans les statistiques
       not_visible_in_stats: Non visible pour taguer et afficher dans les statistiques de profil
-      make_visible_in_stats: Rendre visible pour taguer et afficher dans les statistiques de profil ?
+      make_visible_in_stats: Rendre visible pour taguer et afficher dans les statistiques de profil ?
     viewers:
       plural: lecteurs
       you: Seulment vous

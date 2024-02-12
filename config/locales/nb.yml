@@ -501,7 +501,8 @@ nb:
         Informasjon er ikke delt eller offentliggjort til noen tredjepart.
         Slettelse av kontoen din vil fjerne all informasjonen din.<br /><br
         />Brukerdata er analysert innenfor applikasjonen for å gi tilpassede
-        anbefalinger.<br /><br />Hvis en bruker er autentisert gjennom Facebook
+        anbefalinger.<br /><br />Innsamling av navn og e-postadresse kreves for
+        å opprette en brukerkonto.Hvis en bruker er autentisert gjennom Facebook
         eller Google, vil vedkommendes profilbilde og navn bli brukt i kontoen.
       moment_question: Hva er ett øyeblikk?
       moment_answer: >-
@@ -617,26 +618,54 @@ nb:
       user_data_description: >-
         <p>Vår %{faq_link}-side har mer informasjon om funksjonene til dette
         nettstedet.</p>
+      data_protection_rights: Databeskyttelsesrettigheter
+      data_protection_rights_answer: >-
+        <p>Enhver bruker har rett til følgende:</p><p>Retten til tilgang –
+        Brukere har rett til å be oss om kopier av deres personlige data. Vi kan
+        kreve et lite gebyr for denne tjenesten.</p><p>Retten til korrigering –
+        Brukere har rett til å be om at vi korrigerer all informasjon de mener
+        er unøyaktig. De har også rett til å be oss om å fullføre informasjonen
+        de mener er ufullstendig.</p><p>Retten til sletting – Brukere har rett
+        til å be om at vi sletter personopplysningene deres, under visse
+        betingelser.</p> <p>Retten til å begrense behandlingen – Brukere har
+        rett til å be om at vi begrenser behandlingen av deres
+        personopplysninger, under visse betingelser.</p><p>Retten til å
+        protestere mot behandlingen – de har rett til å motsette seg vår
+        behandling av deres personopplysninger, under visse
+        betingelser.</p><p>Retten til dataportabilitet – Brukere har rett til å
+        be om at vi overfører dataene som vi har samlet inn til en annen
+        organisasjon, eller direkte til dem, under visse betingelser.</p><p>Hvis
+        en forespørsel kommer, har vi én måned på oss til å svare deg.</p>
       cookies: Bruk av cookies
       cookies_description: >-
         <p>Denne nettsiden bruker cookies for å bedre brukeropplevelsen når man
-        besøker siden. Der det er egnet bruker nettsiden ett cookie
-        kontrolleringssystem som tillater brukeren ved forste besøk å tillate
-        eller forby cookies på computeren/enheten.</p><p>Cookies er små filer
-        lagret på brukerens computers hard drive som sporer, lagrer informasjon
-        om brukerens interaksjoner og bruk av nettsiden. Dette tillater
-        nettsiden, gjennom serveren å tilby brukere en skreddersydd opplevelse
-        innenfor nettsiden.</p><p>Brukere rådes at hvis de ønsker å benekte
-        bruken og lagringen av cookies fra denne nettsiden på deres datamaskins
-        hard drive at de bør ta nødvendige steg innenfor deres nettlesers
-        sikkerhetsinstillinger for å blokkere alle cookies fra denne nettsiden
-        og dens eksterne serverings leverandører.</p>
+        besøker siden. Funksjonalitetskapsler brukes til autentisering og for å
+        huske tidligere valgte preferanser. Disse kan inkludere hvilket språk du
+        foretrekker og hvor du befinner deg. Der det er egnet bruker nettsiden
+        ett cookie kontrolleringssystem som tillater brukeren ved forste besøk å
+        tillate eller forby cookies på computeren/enheten.</p><p>Cookies er små
+        filer lagret på brukerens computers hard drive som sporer, lagrer
+        informasjon om brukerens interaksjoner og bruk av nettsiden. Dette
+        tillater nettsiden, gjennom serveren å tilby brukere en skreddersydd
+        opplevelse innenfor nettsiden.</p><p>Brukere rådes at hvis de ønsker å
+        benekte bruken og lagringen av cookies fra denne nettsiden på deres
+        datamaskins hard drive at de bør ta nødvendige steg innenfor deres
+        nettlesers sikkerhetsinstillinger for å blokkere alle cookies fra denne
+        nettsiden og dens eksterne serverings leverandører.</p>
       social_media: Sosiale medier platformer
       social_media_description: >-
         <p>Kommunikasjon, engasjement og handlinger tatt gjennom eksterne
         sosiale medie platformer som denne nettsiden deltar på er tilpasset
         vilkårene og betingelsene i tillegg til personvernserklæringene holdt
         med de ulike sosiale mediene.</p>
+      changes: Endringer
+      changes_description: >-
+        <p>Vi holder personvernreglene våre under regelmessig gjennomgang og
+        legger ut eventuelle oppdateringer på denne nettsiden. Vi sikrer at vi
+        overholder loven om elektroniske dokumenter om personopplysninger
+        (PIPEDA) i Canada og den generelle databeskyttelsesforordningen EU (GDPR
+        EU) i EU.</p><p>Denne personvernreglene ble sist oppdatert 11. februar ,
+        2024.</p>
       contact: Kontakt oss
       contact_description: >-
         <p class="no_margin_bottom">Vennligst %{email_link} hvis du har noen

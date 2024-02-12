@@ -525,9 +525,10 @@ nl:
       data_access_answer: >-
         Data wordt niet doorgegeven aan en wordt niet toegankelijk gemaakt voor
         derden.<br /><br />Gebruikersdata wordt geanalyseerd binnen de
-        applicatie voor persoonlijke aanbevelingen.<br /><br />Als een gebruiker
-        is geverifieerd via Facebook of Google, worden hun profielfoto en naam
-        in hun account gebruikt.
+        applicatie voor persoonlijke aanbevelingen.<br /><br />Het verzamelen
+        van naam en e-mailadres is vereist om een gebruikersaccount aan te
+        maken. Als een gebruiker is geverifieerd via Facebook of Google, worden
+        hun profielfoto en naam in hun account gebruikt.
       moment_question: Wat is een Moment?
       moment_answer: >-
         Een <strong>%{moment}</strong> is een gebeurtenis of situatie die je
@@ -654,15 +655,40 @@ nl:
       user_data_description: >-
         <p>Onze %{faq_link} pagina bevat meer informatie over de functies van
         deze website.</p>
+      data_protection_rights: Gegevensbeschermingsrechten
+      data_protection_rights_answer: >-
+        <p>Elke gebruiker heeft recht op het volgende:</p><p>Het recht op
+        toegang – Gebruikers hebben het recht om ons om kopieën van hun
+        persoonlijke gegevens te verzoeken. We kunnen voor deze service een
+        kleine vergoeding in rekening brengen.</p><p>Het recht op rectificatie –
+        Gebruikers hebben het recht om te verzoeken dat we alle informatie
+        corrigeren waarvan zij denken dat deze onjuist is. Ze hebben ook het
+        recht om ons te verzoeken de informatie aan te vullen waarvan zij denken
+        dat deze onvolledig is.</p><p>Het recht op verwijdering – Gebruikers
+        hebben het recht om ons te verzoeken hun persoonlijke gegevens te
+        wissen, onder bepaalde voorwaarden.</p> <p>Het recht om de verwerking te
+        beperken – Gebruikers hebben het recht om te verzoeken dat we de
+        verwerking van hun persoonlijke gegevens beperken, onder bepaalde
+        voorwaarden.</p><p>Het recht om bezwaar te maken tegen de verwerking –
+        zij hebben het recht om bezwaar te maken tegen onze verwerking van hun
+        persoonlijke gegevens, onder bepaalde voorwaarden.</p><p>Het recht op
+        gegevensportabiliteit – Gebruikers hebben het recht om te verzoeken dat
+        we de gegevens die we hebben verzameld overdragen aan een andere
+        organisatie, of rechtstreeks aan hen, onder bepaalde voorwaarden
+        voorwaarden.</p><p>Als er een verzoek wordt gedaan, hebben we één maand
+        de tijd om op u te reageren.</p>
       cookies: Gebruik van Cookues
       cookies_description: >-
         <p>Deze website gebruikt cookies om de gebruikerservaring te verbeteren.
-        Waar van toepassing gebruikt deze website een cookie controlesysteem om
-        de gebruiker op zijn eerste bezoek te vragen om cookies toe te staan
-        voor zijn/haar apparaat.</p><p>Cookies zijn kleine bestanden op de harde
-        schijf van de gebruiker die je volgen, en informatie opslaan over de
-        gebruiker zijn/haar interactie en het gebruik van de website. Dit staat
-        de website toe, en de server, de gebruiker een ervaring op maat te
+        Functionaliteitscookies worden gebruikt voor authenticatie en om eerder
+        geselecteerde voorkeuren te onthouden. Deze kunnen omvatten welke taal u
+        verkiest en de locatie waar u zich bevindt. Waar van toepassing gebruikt
+        deze website een cookie controlesysteem om de gebruiker op zijn eerste
+        bezoek te vragen om cookies toe te staan voor zijn/haar
+        apparaat.</p><p>Cookies zijn kleine bestanden op de harde schijf van de
+        gebruiker die je volgen, en informatie opslaan over de gebruiker
+        zijn/haar interactie en het gebruik van de website. Dit staat de website
+        toe, en de server, de gebruiker een ervaring op maat te
         geven.</p><p>Gebruikers wordt geadviseerd om, indien ze geen cookies
         willen gebruiken voor deze website, de nodige stappen te ondernemen
         binnen de webbrowser haar beveiligings instellingen om alle Cookies te
@@ -673,6 +699,14 @@ nl:
         platformen waar deze website in participeert zijn onderhevig aan de
         voorwaarden en privacy policies van deze respectievelijke
         platformen.</p>
+      changes: Veranderingen
+      changes_description: >-
+        <p>We evalueren ons privacybeleid regelmatig en plaatsen eventuele
+        updates op deze webpagina. We zorgen ervoor dat we voldoen aan de
+        Personal Information Protection Electronic Documents Act (PIPEDA) in
+        Canada en de General Data Protection Regulation EU (GDPR EU) in de
+        Europese Unie.</p><p>Dit privacybeleid is voor het laatst bijgewerkt op
+        11 februari , 2024.</p>
       contact: Neem contact met ons op
       contact_description: >-
         <p class="no_margin_bottom">%{email_link} indien je vragen of
