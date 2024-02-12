@@ -347,7 +347,9 @@ vi:
       viewers_hint: Những đồng minh có thể xem bình luận của bạn
       draft_question: Bạn có muốn lưu lại khoản khắc này như một bản nháp không?
       bookmarked_question: Đánh dấu thời điểm này?
-      bookmarked_info: Những khoảnh khắc được đánh dấu sẽ xuất hiện trong Kế hoạch chăm sóc của bạn
+      bookmarked_info: >-
+        Những khoảnh khắc được đánh dấu sẽ xuất hiện trong Kế hoạch chăm sóc của
+        bạn
       resource_recommendations_question: Hiển thị tài nguyên được đề xuất?
     index:
       subtitle: >-
@@ -507,9 +509,10 @@ vi:
         Dữ liệu sẽ không bị cung cấp hay xâm nhập bởi một bên thứ ba nào khác.
         Xóa bỏ tài khoản của bạn sẽ có nghĩa là xóa bỏ tất cả những dữ liệu
         trong tài khoản đó.<br /><br />Xóa bỏ tài khoản của bạn sẽ có nghĩa là
-        xóa bỏ tất cả những dữ liệu trong tài khoản đó.<br /><br />Nếu người
-        dùng được xác thực thông qua Facebook hoặc Google, ảnh hồ sơ và tên của
-        họ sẽ được sử dụng trong tài khoản của họ.
+        xóa bỏ tất cả những dữ liệu trong tài khoản đó.<br /><br />Cần phải thu
+        thập tên và địa chỉ email để tạo tài khoản người dùng. Nếu người dùng
+        được xác thực thông qua Facebook hoặc Google, ảnh hồ sơ và tên của họ sẽ
+        được sử dụng trong tài khoản của họ.
       moment_question: Khoản khắc là gì?
       moment_answer: >-
         <strong>%{moment}</strong> là sự kiện hay tình huống đã làm ảnh hưởng
@@ -634,12 +637,31 @@ vi:
       user_data_description: >-
         <p>Trang %{faq_link} của chúng tôi có thêm thông tin về các tính năng
         của trang web này. </p>
+      data_protection_rights: Quyền bảo vệ dữ liệu
+      data_protection_rights_answer: >-
+        <p>Mọi người dùng đều có các quyền sau:</p><p>Quyền truy cập – Người
+        dùng có quyền yêu cầu chúng tôi cung cấp bản sao dữ liệu cá nhân của họ.
+        Chúng tôi có thể tính một khoản phí nhỏ cho dịch vụ này.</p><p>Quyền cải
+        chính – Người dùng có quyền yêu cầu chúng tôi sửa bất kỳ thông tin nào
+        mà họ cho là không chính xác. Họ cũng có quyền yêu cầu chúng tôi hoàn
+        thành thông tin mà họ cho là chưa đầy đủ.</p><p>Quyền xóa – Người dùng
+        có quyền yêu cầu chúng tôi xóa dữ liệu cá nhân của họ, trong một số điều
+        kiện nhất định.</p> <p>Quyền hạn chế xử lý – Người dùng có quyền yêu cầu
+        chúng tôi hạn chế xử lý dữ liệu cá nhân của họ, trong một số điều kiện
+        nhất định.</p><p>Quyền phản đối việc xử lý – họ có quyền phản đối việc
+        chúng tôi xử lý dữ liệu cá nhân của họ theo những điều kiện nhất
+        định.</p><p>Quyền di chuyển dữ liệu – Người dùng có quyền yêu cầu chúng
+        tôi chuyển dữ liệu mà chúng tôi đã thu thập sang tổ chức khác hoặc trực
+        tiếp cho họ, theo một số điều kiện nhất định điều kiện.</p><p>Nếu bạn
+        đưa ra yêu cầu, chúng tôi có một tháng để trả lời bạn.</p>
       cookies: Sử dụng văn bản ghi thông tin
       cookies_description: >-
         <p>Trang web này sử dụng cookie để cải thiện trải nghiệm người dùng khi
-        truy cập trang web. Trường hợp trang web này sử dụng hệ thống kiểm soát
-        cookie cho phép người dùng truy cập vào trang web lần đầu tiên để cho
-        phép hoặc không cho phép sử dụng cookie trên máy tính / thiết
+        truy cập trang web. Cookie chức năng được sử dụng để xác thực và ghi nhớ
+        các tùy chọn đã chọn trước đó. Chúng có thể bao gồm ngôn ngữ bạn thích
+        và vị trí bạn đang ở. Trường hợp trang web này sử dụng hệ thống kiểm
+        soát cookie cho phép người dùng truy cập vào trang web lần đầu tiên để
+        cho phép hoặc không cho phép sử dụng cookie trên máy tính / thiết
         bị.</p><p>Cookie là các tệp nhỏ được lưu vào máy tính của người dùng lái
         xe theo dõi, lưu và lưu trữ thông tin về tương tác của người dùng và
         cách sử dụng trang web. Điều này cho phép trang web thông qua máy chủ
@@ -655,6 +677,14 @@ vi:
         phương tiện truyền thông xã hội bên ngoài mà trang web này tham gia là
         tùy chỉnh theo các điều khoản và điều kiện cũng như các chính sách bảo
         mật được tổ chức với từng nền tảng truyền thông xã hội tương ứng.</p>
+      changes: Thay đổi
+      changes_description: >-
+        <p>Chúng tôi luôn xem xét chính sách quyền riêng tư của mình và cập nhật
+        mọi thông tin cập nhật trên trang web này. Chúng tôi đảm bảo tuân thủ
+        Đạo luật tài liệu điện tử bảo vệ thông tin cá nhân (PIPEDA) ở Canada và
+        Quy định chung về bảo vệ dữ liệu của EU (GDPR EU) ở Liên minh châu
+        Âu.</p><p>Chính sách quyền riêng tư này được cập nhật lần cuối vào ngày
+        11 tháng 2 , 2024.</p>
       contact: Liên hệ với chúng tôi
       contact_description: >-
         <p class="no_margin_bottom">Vui lòng %{email_link} nếu bạn có bất kỳ câu

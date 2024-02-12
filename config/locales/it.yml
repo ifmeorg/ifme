@@ -350,7 +350,9 @@ it:
       viewers_hint: Alleati che possono vedere il tuo momento
       draft_question: Vuoi salvare il tuo momento come una bozza?
       bookmarked_question: Aggiungi questo momento ai segnalibri?
-      bookmarked_info: I momenti contrassegnati vengono visualizzati nel tuo Piano di assistenza
+      bookmarked_info: >-
+        I momenti contrassegnati vengono visualizzati nel tuo Piano di
+        assistenza
       resource_recommendations_question: Mostra raccomandazione sulle risorse?
     index:
       subtitle: >-
@@ -513,9 +515,10 @@ it:
         I tuoi dati non sono dati o resi accessibili a terzi. Eliminare il tuo
         account li rimuoverà completamente.<br /><br />I dati degli utenti sono
         analizzati internamente dall'app in modo da fornire esperienze
-        personalizzate.<br /><br />Se un utente viene autenticato tramite
-        Facebook o Google, la sua immagine del profilo e il nome verranno
-        utilizzati nel suo account.
+        personalizzate.<br /><br />Per creare un account utente sono necessari
+        il nome e l'indirizzo e-mail per la raccolta. Se un utente viene
+        autenticato tramite Facebook o Google, la sua immagine del profilo e il
+        nome verranno utilizzati nel suo account.
       moment_question: Co'è un Momento?
       moment_answer: >-
         Un <strong>%{moment}</strong> è un evento o una situazione che ha
@@ -644,10 +647,33 @@ it:
       user_data_description: >-
         <p>La nostra pagina %{faq_link} contiene ulteriori informazioni sulle
         funzionalità di questo sito Web.</p>
+      data_protection_rights: Diritti di protezione dei dati
+      data_protection_rights_answer: >-
+        <p>Ogni utente ha diritto a quanto segue:</p><p>Il diritto di accesso:
+        gli utenti hanno il diritto di richiederci copie dei loro dati
+        personali. Potremmo addebitare una piccola tariffa per questo
+        servizio.</p><p>Il diritto di rettifica: gli utenti hanno il diritto di
+        richiederci di correggere qualsiasi informazione che ritengono
+        inaccurata. Hanno anche il diritto di chiederci di completare le
+        informazioni che ritengono incomplete.</p><p>Diritto alla cancellazione:
+        gli utenti hanno il diritto di richiederci di cancellare i propri dati
+        personali, a determinate condizioni.</p> <p>Il diritto di limitare il
+        trattamento: gli utenti hanno il diritto di richiederci di limitare il
+        trattamento dei loro dati personali, a determinate condizioni.</p><p>Il
+        diritto di opporsi al trattamento: hanno il diritto di opporsi il nostro
+        trattamento dei loro dati personali, a determinate condizioni.</p><p>Il
+        diritto alla portabilità dei dati: gli utenti hanno il diritto di
+        richiederci di trasferire i dati che abbiamo raccolto a un'altra
+        organizzazione, o direttamente a loro, in determinate condizioni.
+        condizioni.</p><p>Se viene effettuata una richiesta, abbiamo un mese per
+        risponderti.</p>
       cookies: Utilizzo di Cookie
       cookies_description: >-
         <p>Questo sito utilizza cookie al fine di fornire l'esperienza migliore
-        possibile ai propri utenti. Quando possibile il sito fornisce un sistema
+        possibile ai propri utenti. I cookie di funzionalità vengono utilizzati
+        per l'autenticazione e per ricordare le preferenze selezionate in
+        precedenza. Questi potrebbero includere la lingua che preferisci e la
+        località in cui ti trovi. Quando possibile il sito fornisce un sistema
         di controllo cookie permettendo all'utente di abilitare o disabilitare
         l'utiizzo dei cookie alla prima visita / visita da un nuovo
         dispositivo.</p><p>I cookie sono piccoli file salvati sul dispositivo
@@ -663,6 +689,14 @@ it:
       social_media_description: >-
         <p>Comunicazioni ed azioni effettuare su piattaforme social esterne a
         questo sito sono soggette ai Termini e Condizioni delle stesse.</p>
+      changes: I cambiamenti
+      changes_description: >-
+        <p>Manteniamo la nostra politica sulla privacy sotto regolare revisione
+        e inseriamo eventuali aggiornamenti in questa pagina web. Ci assicuriamo
+        di rispettare il Personal Information Protection Electronic Documents
+        Act (PIPEDA) in Canada e il Regolamento generale sulla protezione dei
+        dati UE (GDPR UE) nell'Unione europea.</p><p>Questa informativa sulla
+        privacy è stata aggiornata l'ultima volta l'11 febbraio , 2024.</p>
       contact: Contattaci
       contact_description: >-
         <p class="no_margin_bottom">Per favore, inviaci una EMail su
@@ -863,7 +897,9 @@ it:
       user_is_focusing: '%{name} si sta concentrando specialmente su'
       visible_in_stats: Visibile nelle statistiche
       not_visible_in_stats: Non visibile per taggare e visualizzare nelle statistiche del profilo
-      make_visible_in_stats: Rendere visibile per taggare e visualizzare nelle statistiche del profilo?
+      make_visible_in_stats: >-
+        Rendere visibile per taggare e visualizzare nelle statistiche del
+        profilo?
     viewers:
       plural: Visualizzatori
       you: Solo tu

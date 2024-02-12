@@ -556,8 +556,10 @@ de:
       data_access_question: Wer hat Zugriff auf meine Daten?
       data_access_answer: >-
         Daten werden nicht an Dritte weitergegeben. Wenn du dein Konto löschst,
-        werden alle deine Daten entfernt.<br /><br />Benutzerdaten werden in der
-        App analysiert, um persönliche Empfehlungen zu erstellen.
+        werden alle deine Daten entfernt.<br /><br />Für die Erstellung eines
+        Benutzerkontos ist die Erfassung von Name und E-Mail-Adresse
+        erforderlich.Benutzerdaten werden in der App analysiert, um persönliche
+        Empfehlungen zu erstellen.
       moment_question: >-
         Was ist ein Erlebnis?<br /><br />Wenn ein Benutzer über Facebook oder
         Google authentifiziert wird, werden sein Profilbild und sein Name in
@@ -700,11 +702,32 @@ de:
       user_data_description: >-
         <p>Auf unserer %{faq_link}-Seite finden Sie weitere Informationen zu den
         Funktionen dieser Website.</p>
+      data_protection_rights: Datenschutzrechte
+      data_protection_rights_answer: >-
+        <p>Jeder Benutzer hat Anspruch auf Folgendes:</p><p>Das Recht auf
+        Zugriff – Benutzer haben das Recht, von uns Kopien ihrer persönlichen
+        Daten anzufordern. Für diesen Service erheben wir möglicherweise eine
+        geringe Gebühr.</p><p>Das Recht auf Berichtigung – Benutzer haben das
+        Recht, von uns die Berichtigung von Informationen zu verlangen, die
+        ihrer Meinung nach unrichtig sind. Sie haben außerdem das Recht, von uns
+        die Vervollständigung der Informationen zu verlangen, die ihrer Meinung
+        nach unvollständig sind.</p><p>Das Recht auf Löschung – Benutzer haben
+        das Recht, unter bestimmten Bedingungen die Löschung ihrer
+        personenbezogenen Daten durch uns zu verlangen.</p> <p>Das Recht, die
+        Verarbeitung einzuschränken – Benutzer haben das Recht, unter bestimmten
+        Bedingungen zu verlangen, dass wir die Verarbeitung ihrer
+        personenbezogenen Daten einschränken.</p><p>Das Recht, der Verarbeitung
+        zu widersprechen – sie haben das Recht, Widerspruch einzulegen unsere
+        Verarbeitung ihrer personenbezogenen Daten unter bestimmten
+        Bedingungen.</p><p>Das Recht auf Datenübertragbarkeit – Benutzer haben
+        das Recht zu verlangen, dass wir die von uns gesammelten Daten an eine
+        andere Organisation oder unter bestimmten Bedingungen direkt an sie
+        übertragen Bedingungen.</p><p>Wenn eine Anfrage gestellt wird, haben wir
+        einen Monat Zeit, um Ihnen zu antworten.</p>
       cookies: Verwendung von Cookies
       cookies_description: |-
         <p>Diese Webseite benutzt Cookies, um die
-         Benutzererfahrung auf dieser Webseite zu verbessern.
-         Wo es angemessen ist, verwendet diese Webseite ein
+         Benutzererfahrung auf dieser Webseite zu verbessern. Funktionalitätscookies werden zur Authentifizierung und zur Erinnerung an zuvor ausgewählte Präferenzen verwendet. Dazu könnte gehören, welche Sprache Sie bevorzugen und an welchem Ort Sie sich befinden. Wo es angemessen ist, verwendet diese Webseite ein
          Cookie Kontrollsystem, das es Benutzern bei ihrem
          ersten Besuch ermöglicht, die Benutzung von Cookies
          auf diesem Computer/Gerät zuzulassen oder abzulehnen.
@@ -726,6 +749,15 @@ de:
         eine externe Social Media-Plattform durchgeführt wird, die von dieser
         Webseite ausgeht beruhen auf den allgemeinen Geschäftsbedingungen sowie
         der Datenschutzrichtlinien der jeweiligen Plattform.</p>
+      changes: Änderungen
+      changes_description: >-
+        <p>Wir überprüfen unsere Datenschutzrichtlinien regelmäßig und
+        veröffentlichen alle Aktualisierungen auf dieser Webseite. Wir stellen
+        sicher, dass wir den Personal Information Protection Electronic
+        Documents Act (PIPEDA) in Kanada und die EU-Datenschutz-Grundverordnung
+        (DSGVO) in der Europäischen Union einhalten.</p><p>Diese
+        Datenschutzrichtlinie wurde zuletzt am 11. Februar aktualisiert ,
+        2024.</p>
       contact: Kontaktiere uns
       contact_description: >-
         <p class="no_margin_bottom">Bitte %{email_link}, wenn du irgendwelche
@@ -927,7 +959,9 @@ de:
       user_is_focusing: '%{name} konzentriert sich am meisten auf'
       visible_in_stats: Sichtbar in Statistiken
       not_visible_in_stats: Nicht sichtbar zum Markieren und Anzeigen in Profilstatistiken
-      make_visible_in_stats: Sichtbar machen, um sie zu markieren und in den Profilstatistiken anzuzeigen?
+      make_visible_in_stats: >-
+        Sichtbar machen, um sie zu markieren und in den Profilstatistiken
+        anzuzeigen?
     viewers:
       plural: Betrachter
       you: Nur du

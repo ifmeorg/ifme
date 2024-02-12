@@ -520,8 +520,10 @@ pt-BR:
         Os dados não são distribu;idos ou visualizados por grupos terceiros. Ao
         excluir sua conta, todos os seus dados serão removidos.<br /><br />Os
         dados de usuários são analisados pelo aplicativo para criar experiências
-        personalizadas.<br /><br />Se um usuário for autenticado pelo Facebook
-        ou Google, sua foto de perfil e nome serão usados em sua conta.
+        personalizadas.<br /><br />A coleta de nome e endereço de e-mail é
+        necessária para criar uma conta de usuário. Se um usuário for
+        autenticado pelo Facebook ou Google, sua foto de perfil e nome serão
+        usados em sua conta.
       moment_question: O que é um Momento?
       moment_answer: >-
         Um <strong>%{moment}</strong> é um evento ou situação que afeta sua
@@ -654,28 +656,59 @@ pt-BR:
       user_data_description: >-
         <p>Nossa página %{faq_link} tem mais informações sobre os recursos deste
         site.</p>
+      data_protection_rights: Direitos de proteção de dados
+      data_protection_rights_answer: >-
+        <p>Todo usuário tem direito ao seguinte:</p><p>O direito de acesso – Os
+        usuários têm o direito de nos solicitar cópias de seus dados pessoais.
+        Poderemos cobrar uma pequena taxa por este serviço.</p><p>Direito à
+        retificação – Os usuários têm o direito de solicitar que corrijamos
+        qualquer informação que considerem imprecisa. Eles também têm o direito
+        de solicitar que completemos as informações que acreditam estar
+        incompletas.</p><p>O direito ao apagamento – Os usuários têm o direito
+        de solicitar que apaguemos seus dados pessoais, sob certas
+        condições.</p> <p>O direito de restringir o processamento – Os usuários
+        têm o direito de solicitar que restrinjamos o processamento de seus
+        dados pessoais, sob certas condições.</p><p>O direito de se opor ao
+        processamento – eles têm o direito de se opor ao nosso processamento de
+        seus dados pessoais, sob certas condições.</p><p>O direito à
+        portabilidade dos dados – Os usuários têm o direito de solicitar que
+        transfiramos os dados que coletamos para outra organização, ou
+        diretamente para eles, sob certas condições.</p><p>Se uma solicitação
+        for feita, teremos um mês para responder a você.</p>
       cookies: Uso de Cookies
       cookies_description: >-
         <p>Esta página web utiliza cookies para melhorar a experiência do
-        usuário enquanto visita o mesmo. Quando necessário, esta página web
-        utiliza o recurso do controle do cookie para perguntar ao usuário se ele
-        permite ou não o uso de cookies em seu computador / dispositivo
-        móvel.</p><p>Cookies são pequenos arquivos salvos no disco rígido do
-        computador do usuário que permitem rastreio e armazenamento de
-        informações sobre o usuário, salva e armazena informações sobre como o
-        usuário interage e utiliza a página web. Essa ação permite que a página
-        web, através de seus servidores, possa dar ao usuário uma experiência
-        personalizada enquanto a visita.</p><p>Usuários receberão uma
-        notificação de que caso optem por não utilizar cookies enquanto navegam
-        nesta página web, os próprios usuários deverão configurar seus
-        navegadores para que os todos os cookies desta página web sejam
-        bloqueados, incluindo suas dependências externas.</p>
+        usuário enquanto visita o mesmo. Os cookies de funcionalidade são
+        utilizados para autenticação e para lembrar preferências previamente
+        selecionadas. Isso pode incluir o idioma de sua preferência e o local em
+        que você está. Quando necessário, esta página web utiliza o recurso do
+        controle do cookie para perguntar ao usuário se ele permite ou não o uso
+        de cookies em seu computador / dispositivo móvel.</p><p>Cookies são
+        pequenos arquivos salvos no disco rígido do computador do usuário que
+        permitem rastreio e armazenamento de informações sobre o usuário, salva
+        e armazena informações sobre como o usuário interage e utiliza a página
+        web. Essa ação permite que a página web, através de seus servidores,
+        possa dar ao usuário uma experiência personalizada enquanto a
+        visita.</p><p>Usuários receberão uma notificação de que caso optem por
+        não utilizar cookies enquanto navegam nesta página web, os próprios
+        usuários deverão configurar seus navegadores para que os todos os
+        cookies desta página web sejam bloqueados, incluindo suas dependências
+        externas.</p>
       social_media: Plataformas de Mídia Social
       social_media_description: >-
         <p>Comunicação, engajamento e ações tomadas através de plataformas de
         rede social das quais esta página web participa operam sobre termos e
         condições personalizadas à seus respectivos proprietários, bem como suas
         políticas de privacidade</p>
+      changes: Mudanças
+      changes_description: >-
+        <p>Mantemos nossa política de privacidade sob revisão regular e
+        colocamos quaisquer atualizações nesta página da web. Garantimos que
+        estamos em conformidade com a Lei de Documentos Eletrônicos de Proteção
+        de Informações Pessoais (PIPEDA) no Canadá e com o Regulamento Geral de
+        Proteção de Dados da UE (GDPR EU) na União Europeia.</p><p>Esta política
+        de privacidade foi atualizada pela última vez em 11 de fevereiro. ,
+        2024.</p>
       contact: Entre em contato conosco
       contact_description: >-
         <p class="no_margin_bottom">Envie um e-mail para o endereço

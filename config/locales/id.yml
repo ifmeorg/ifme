@@ -507,8 +507,9 @@ id:
         Data tidak diberikan atau diakses oleh pihak ketiga mana pun. Menghapus
         akun Anda akan menghapus semua data Anda.<br /><br />Data pengguna dalam
         aplikasi dianalisis untuk memberikan rekomendasi yang disesuaikan. <br
-        /><br />Jika pengguna diautentikasi melalui Facebook atau Google, gambar
-        profil dan nama mereka akan digunakan di akun mereka.
+        /><br />Mengumpulkan nama dan alamat email diperlukan untuk membuat akun
+        pengguna. Jika pengguna diautentikasi melalui Facebook atau Google,
+        gambar profil dan nama mereka akan digunakan di akun mereka.
       moment_question: Apa itu Momen?
       moment_answer: >-
         <strong>%{moment}</strong> adalah peristiwa dan situasi yang
@@ -632,28 +633,57 @@ id:
       user_data_description: >-
         <p>Halaman %{faq_link} kami memiliki informasi lebih lanjut tentang
         fitur situs web ini.</p>
+      data_protection_rights: Hak Perlindungan Data
+      data_protection_rights_answer: >-
+        <p>Setiap pengguna berhak atas hal-hal berikut:</p><p>Hak untuk
+        mengakses – Pengguna berhak meminta salinan data pribadi mereka kepada
+        kami. Kami mungkin mengenakan sedikit biaya untuk layanan ini.</p><p>Hak
+        atas perbaikan – Pengguna berhak meminta kami mengoreksi informasi apa
+        pun yang mereka yakini tidak akurat. Mereka juga berhak meminta kami
+        melengkapi informasi yang mereka yakini tidak lengkap.</p><p>Hak atas
+        penghapusan – Pengguna berhak meminta kami menghapus data pribadi
+        mereka, dalam kondisi tertentu.</p> <p>Hak untuk membatasi pemrosesan –
+        Pengguna berhak meminta kami membatasi pemrosesan data pribadi mereka,
+        dalam kondisi tertentu.</p><p>Hak untuk menolak pemrosesan – mereka
+        berhak menolak pemrosesan data pribadi mereka oleh kami, dalam kondisi
+        tertentu.</p><p>Hak atas portabilitas data – Pengguna berhak meminta
+        agar kami mentransfer data yang telah kami kumpulkan ke organisasi lain,
+        atau langsung kepada mereka, dalam kondisi tertentu
+        ketentuan.</p><p>Jika permintaan dibuat, kami memiliki waktu satu bulan
+        untuk menanggapi Anda.</p>
       cookies: Penggunaan Cookie
       cookies_description: >-
         <p>Situs web ini menggunakan cookie untuk meningkatkan pengalaman
-        pengguna saat mengunjungi situs web. Jika berlaku, situs web ini
-        menggunakan sistem kontrol cookie yang memungkinkan pengguna pada
-        kunjungan pertama mereka ke situs web untuk mengizinkan atau melarang
-        penggunaan cookie di komputer/perangkat mereka. </p><p>Cookie adalah
-        file kecil yang disimpan ke perangkat keras komputer pengguna yang
-        melacak dan menyimpan informasi tentang interaksi pengguna dengan
-        penggunaan situs web. Ini memungkinkan situs web, melalui servernya
-        untuk memberikan pengalaman yang disesuaikan kepada pengguna dalam situs
-        web ini.</p><p> Pengguna disarankan bahwa jika mereka ingin menolak
-        penggunaan dan penyimpanan cookie dari situs web ini ke perangkat
-        komputer mereka, mereka harus mengambil langkah-langkah yang diperlukan
-        dalam pengaturan keamanan browser web mereka untuk memblokir semua
-        cookie dari situs web ini dan vendor layanan eksternalnya.</p>
+        pengguna saat mengunjungi situs web. Cookie fungsionalitas digunakan
+        untuk otentikasi dan mengingat preferensi yang dipilih sebelumnya. Ini
+        dapat mencakup bahasa yang Anda sukai dan lokasi Anda berada. Jika
+        berlaku, situs web ini menggunakan sistem kontrol cookie yang
+        memungkinkan pengguna pada kunjungan pertama mereka ke situs web untuk
+        mengizinkan atau melarang penggunaan cookie di komputer/perangkat
+        mereka. </p><p>Cookie adalah file kecil yang disimpan ke perangkat keras
+        komputer pengguna yang melacak dan menyimpan informasi tentang interaksi
+        pengguna dengan penggunaan situs web. Ini memungkinkan situs web,
+        melalui servernya untuk memberikan pengalaman yang disesuaikan kepada
+        pengguna dalam situs web ini.</p><p> Pengguna disarankan bahwa jika
+        mereka ingin menolak penggunaan dan penyimpanan cookie dari situs web
+        ini ke perangkat komputer mereka, mereka harus mengambil langkah-langkah
+        yang diperlukan dalam pengaturan keamanan browser web mereka untuk
+        memblokir semua cookie dari situs web ini dan vendor layanan
+        eksternalnya.</p>
       social_media: Social Media Platforms
       social_media_description: >-
         <p>Komunikasi, engagement dan tindakan yang diambil melalui platform
         media sosial eksternal yang diikuti oleh situs web ini disesuaikan
         dengan syarat dan ketentuan serta kebijakan privasi yang dimiliki
         masing-masing platform media sosial.</p>
+      changes: Perubahan
+      changes_description: >-
+        <p>Kami selalu meninjau kebijakan privasi kami secara berkala dan
+        memperbarui setiap pembaruan di halaman web ini. Kami memastikan bahwa
+        kami mematuhi Undang-Undang Dokumen Elektronik Perlindungan Informasi
+        Pribadi (PIPEDA) di Kanada dan Peraturan Perlindungan Data Umum UE (GDPR
+        UE) di Uni Eropa.</p><p>Kebijakan privasi ini terakhir diperbarui pada
+        11 Februari , 2024.</p>
       contact: Kontak Kami
       contact_description: >-
         <p class="no_margin_bottom">Silakan %{email_link}jika Anda memiliki

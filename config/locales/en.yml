@@ -493,9 +493,10 @@ en:
       data_access_answer: >-
         Data is not given or made accessible to any third party. Deleting your
         account will remove all of your data.<br /><br />User data is analyzed
-        within the website to provide customized recommendations.<br /><br />If
-        a user is authenticated through Facebook or Google, their profile
-        picture and name will be used in their account.
+        within the website to provide customized recommendations.<br /><br
+        />Collecting name and email address are required to create a user
+        account. If a user is authenticated through Facebook or Google, their
+        profile picture and name will be used in their account.
       moment_question: What is a Moment?
       moment_answer: >-
         A <strong>%{moment}</strong> is an event and situation that affects your
@@ -607,26 +608,55 @@ en:
       user_data_description: >-
         <p>Our %{faq_link} page has more information on this website's
         features.</p>
+      data_protection_rights: Data Protection Rights
+      data_protection_rights_answer: >-
+        <p>Every user is entitled to the following:</p><p>The right to access –
+        Users have the right to request us for copies of their personal data. We
+        may charge a small fee for this service.</p><p>The right to
+        rectification – Users have the right to request that we correct any
+        information they believe is inaccurate. They also have the right to
+        request we to complete the information they believe is
+        incomplete.</p><p>The right to erasure – Users have the right to request
+        that we erase their personal data, under certain conditions.</p><p>The
+        right to restrict processing – Users have the right to request that we
+        restrict the processing of their personal data, under certain
+        conditions.</p><p>The right to object to processing – they have the
+        right to object to our processing of their personal data, under certain
+        conditions.</p><p>The right to data portability – Users have the right
+        to request that we transfer the data that we have collected to another
+        organization, or directly to them, under certain conditions.</p><p>If a
+        request is made, we have one month to respond to you.</p>
       cookies: Use of Cookies
       cookies_description: >-
         <p>This website uses cookies to better the users experience while
-        visiting the website. Where applicable this website use a cookie control
-        system allowing the user on their first visit to the website to allow or
-        disallow the use of cookies on their computer / device.</p><p>Cookies
-        are small files saved to the user's computers hard drive that track,
-        save and store information about the user's interactions and usage of
-        the website. This allows the website, through its server to provide the
-        users with a tailored experience within this website.</p><p> Users are
-        advised that if they wish to deny the use and saving of cookies from
-        this website onto their computers hard drive they should take necessary
-        steps within their web browsers security settings to block all cookies
-        from this website and its external serving vendors.</p>
+        visiting the website. Functionality cookies are used for authentication
+        and to remember previously selected preferences. These could include
+        what language you prefer and location you are in. Where applicable this
+        website use a cookie control system allowing the user on their first
+        visit to the website to allow or disallow the use of cookies on their
+        computer / device.</p><p>Cookies are small files saved to the user's
+        computers hard drive that track, save and store information about the
+        user's interactions and usage of the website. This allows the website,
+        through its server to provide the users with a tailored experience
+        within this website.</p><p> Users are advised that if they wish to deny
+        the use and saving of cookies from this website onto their computers
+        hard drive they should take necessary steps within their web browsers
+        security settings to block all cookies from this website and its
+        external serving vendors.</p>
       social_media: Social Media Platforms
       social_media_description: >-
         <p>Communication, engagement, and actions taken through external social
         media platforms that this website participates on are custom to the
         terms and conditions as well as the privacy policies held with each
         social media platform respectively.</p>
+      changes: Changes
+      changes_description: >-
+        <p>We keep our privacy policy under regular review and places any
+        updates on this web page. We ensure we are compliant with the Personal
+        Information Protection Electronic Documents Act (PIPEDA) in Canada and
+        the General Data Protection Regulation EU (GDPR EU) in the European
+        Union.</p><p>This privacy policy was last updated on February 11,
+        2024.</p>
       contact: Contact Us
       contact_description: >-
         <p class="noMarginBottom">Please %{email_link} if you have any questions

@@ -504,7 +504,8 @@ sv:
       data_access_answer: >-
         Data ges inte till eller görs tillgänglig för någon tredje part. Om du
         tar bort ditt konto tas alla data bort.<br /><br />Användaruppgifter
-        analyseras i appen för att ge anpassade rekommendationer.<br /><br />Om
+        analyseras i appen för att ge anpassade rekommendationer.<br /><br
+        />Samla namn och e-postadress krävs för att skapa ett användarkonto.Om
         en användare är autentiserad via Facebook eller Google kommer deras
         profilbild och namn att användas i deras konto.
       moment_question: Vad är ett Ögonblick?
@@ -620,27 +621,56 @@ sv:
       user_data_description: >-
         <p>Vår %{faq_link}-sida har mer information om den här webbplatsens
         funktioner.</p>
+      data_protection_rights: Dataskyddsrättigheter
+      data_protection_rights_answer: >-
+        <p>Varje användare har rätt till följande:</p><p>Rätten till åtkomst –
+        Användare har rätt att begära kopior av sina personuppgifter från oss.
+        Vi kan ta ut en liten avgift för denna tjänst.</p><p>Rätten till
+        rättelse – Användare har rätt att begära att vi korrigerar all
+        information som de anser är felaktig. De har också rätt att begära att
+        vi kompletterar den information de anser är ofullständig.</p><p>Rätten
+        till radering – Användare har rätt att begära att vi raderar deras
+        personuppgifter, under vissa villkor.</p> <p>Rätten att begränsa
+        behandlingen – Användare har rätt att begära att vi begränsar
+        behandlingen av deras personuppgifter, under vissa
+        förutsättningar.</p><p>Rätten att invända mot behandling – de har rätt
+        att invända mot behandlingen vår behandling av deras personuppgifter,
+        under vissa villkor.</p><p>Rätten till dataportabilitet – Användare har
+        rätt att begära att vi överför de uppgifter som vi har samlat in till en
+        annan organisation, eller direkt till dem, under vissa villkor.</p><p>Om
+        en begäran görs har vi en månad på oss att svara dig.</p>
       cookies: Användning av Kakor
       cookies_description: >-
         <p>Denna webbplats använder cookies för att bättre uppleva användarna
-        när de besöker webbplatsen. I tillämpliga fall använder denna webbplats
-        ett cookie-kontrollsystem som gör att användaren vid första besöket på
-        webbplatsen tillåter eller tillåter användning av cookies på sin
-        dator/enhet.</p><p>Cookies är små filer som sparas på användarens dators
-        hårddisk som spårar, sparar och lagrar information om användarens
-        interaktioner och användning av webbplatsen. Detta gör att webbplatsen,
-        via sin server, kan ge användarna en skräddarsydd upplevelse på denna
-        webbplats.</p><p>Användare rekommenderas att om de vill förneka
-        användningen och lagring av cookies från den här webbplatsen på sin
-        dators hårddisk, bör de vidta nödvändiga steg i säkerhetsinställningarna
-        för webbläsare för att blockera alla cookies från den här webbplatsen
-        och dess externa hostingleverantörer.</p>
+        när de besöker webbplatsen. Funktionscookies används för autentisering
+        och för att komma ihåg tidigare valda inställningar. Dessa kan inkludera
+        vilket språk du föredrar och var du befinner dig. I tillämpliga fall
+        använder denna webbplats ett cookie-kontrollsystem som gör att
+        användaren vid första besöket på webbplatsen tillåter eller tillåter
+        användning av cookies på sin dator/enhet.</p><p>Cookies är små filer som
+        sparas på användarens dators hårddisk som spårar, sparar och lagrar
+        information om användarens interaktioner och användning av webbplatsen.
+        Detta gör att webbplatsen, via sin server, kan ge användarna en
+        skräddarsydd upplevelse på denna webbplats.</p><p>Användare
+        rekommenderas att om de vill förneka användningen och lagring av cookies
+        från den här webbplatsen på sin dators hårddisk, bör de vidta nödvändiga
+        steg i säkerhetsinställningarna för webbläsare för att blockera alla
+        cookies från den här webbplatsen och dess externa
+        hostingleverantörer.</p>
       social_media: Sociala medieplattformar
       social_media_description: >-
         <p>Kommunikation, engagemang och åtgärder som vidtas via externa sociala
         medieplattformar som den här webbplatsen deltar på är anpassade till
         villkoren samt de sekretesspolicyer som hölls med respektive sociala
         medieplattform.</p>
+      changes: Ändringar
+      changes_description: >-
+        <p>Vi granskar vår integritetspolicy regelbundet och lägger ut
+        eventuella uppdateringar på denna webbsida. Vi säkerställer att vi
+        följer lagen om elektroniska dokument om personlig information (PIPEDA)
+        i Kanada och den allmänna dataskyddsförordningen EU (GDPR EU) i
+        Europeiska unionen.</p><p>Denna integritetspolicy uppdaterades senast
+        den 11 februari , 2024.</p>
       contact: Kontakta Oss
       contact_description: >-
         <p class="no_margin_bottom">Vänligen %{email_link} om du har några
@@ -841,7 +871,9 @@ sv:
       user_is_focusing: '%{name} fokuserar mest på'
       visible_in_stats: Syns i statistik
       not_visible_in_stats: Nematomas pažymėti ir rodyti profilio statistikoje
-      make_visible_in_stats: Padaryti matomą, kad būtų galima pažymėti ir rodyti profilio statistikoje?
+      make_visible_in_stats: >-
+        Padaryti matomą, kad būtų galima pažymėti ir rodyti profilio
+        statistikoje?
     viewers:
       plural: Tittare
       you: Bara du
