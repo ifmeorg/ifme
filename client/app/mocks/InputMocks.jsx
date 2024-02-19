@@ -65,7 +65,7 @@ const inputSelectProps = {
 };
 
 const inputMultiSelectProps = {
-  type: 'multi_select',
+  type: 'multiSelect',
   ariaLabel: 'some-select-label',
   id: 'some-select-id',
   label: 'some-select-arialabel',

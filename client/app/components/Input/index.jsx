@@ -188,7 +188,7 @@ export const Input = ({
   };
 
   const displayMultiSelect = () => {
-    if (type === 'multi_select' && options) {
+    if (type === 'multiSelect' && options) {
       return (
         <InputMultiSelect
           name={name}
