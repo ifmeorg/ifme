@@ -1,34 +1,33 @@
 @import "~styles/_global.scss";
 
-.panelParent {
-  width:100%;
-  position: relative;
-}
+.multiSelect {
+  &Button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
 
-.panel {
-  width: 100%;
-  background-color: white !important;
-  position: absolute;
-  box-shadow: 3px 7px 18px -3px $black-60;
-  padding-block-end: 1%;
-  z-index: 99;
-}
+  &Checkboxes{
+    @include setPadding($size-6, $size-6, $size-6, $size-6);
+    @include fadeIn(0.8s);
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: $z-index-front;
+    font-weight: $font-weight-400;
+    text-transform: none;
+    letter-spacing: normal;
+    color: $black;
+    box-shadow: $size-0 $size-2 $size-10 $black-10;
+    border-radius: $size-4;
+    background: $white;
+    max-height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
 
-.fullWidth {
-  width: 100%;
-}
-
-.hidden {
-  display: none;
-}
-
-.checkMultiSelect {
-  width: 100%;
-  cursor: pointer;
-  padding: 3%;
-  display: block;
-}
-.checkMultiSelect:hover {
-  width: 94%;
-  background-color: $mulberry-50;
+    &Wrapper {
+      width: 100%;
+      position: relative;
+    }
+  }
 }

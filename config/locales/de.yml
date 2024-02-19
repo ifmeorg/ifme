@@ -389,7 +389,7 @@ de:
       secret_share: Geheime Freigabe Aktiviert
       no_viewers: Keine Zuschauer
       one_viewer: Mindestens ein Betrachter
-      coments_enabled: Kommentare Aktiviert
+      comments_enabled: Kommentare Aktiviert
       draft_enabled: Entwurf Aktiviert
       published: veröffentlicht
   moods:
@@ -933,7 +933,7 @@ de:
     label: Suche
     search_by_name: Nach Namen suchen
     search_by_tags: Nach Tags suchen
-    filter_by: Filtern nach...
+    filter_by: Filtern nach
     form:
       search_by_location: Nach Orten suchen
       search_by_email: Nach E-Mails suchen

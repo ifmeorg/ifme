@@ -14,11 +14,10 @@
         <div class="searchInputMultiSelect">
           <%= react_component 'Input', props: {
               type: 'multiSelect',
-              ariaLabel: t('search.filter_by'),
-              id: 'selected_filters',
+              id: 'search_filters',
+              name: 'search[filters]',
               label: t('search.filter_by'),
-              name: 'selected_filters',
-              options: @options_for_multiselect
+              checkboxes: @multiselect_checkboxes
             } %>
         </div>
       <% end %>

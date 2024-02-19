@@ -188,15 +188,12 @@ export const Input = ({
   };
 
   const displayMultiSelect = () => {
-    if (type === 'multiSelect' && options) {
+    if (type === 'multiSelect' && checkboxes) {
       return (
         <InputMultiSelect
-          name={name}
           id={id}
-          ariaLabel={ariaLabel}
           label={label}
-          value={value}
-          options={options}
+          checkboxes={checkboxes}
         />
       );
     }

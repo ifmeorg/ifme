@@ -66,11 +66,10 @@ const inputSelectProps = {
 
 const inputMultiSelectProps = {
   type: 'multiSelect',
-  ariaLabel: 'some-select-label',
-  id: 'some-select-id',
-  label: 'some-select-arialabel',
-  name: 'some-select-label',
-  options,
+  id: 'some-multiselect-id',
+  label: 'some-multiselect-label',
+  name: 'some-multiselect-label',
+  checkboxes,
 };
 
 const inputRadioProps = {

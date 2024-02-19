@@ -374,7 +374,7 @@ es:
       secret_share: Secreto Activado
       no_viewers: Sin Observadores
       one_viewer: Al Menos Un Observador
-      coments_enabled: Comentarios Habilitados
+      comments_enabled: Comentarios Habilitados
       draft_enabled: Borrador Habilitado
       published: Publicado
   moods:
@@ -879,7 +879,7 @@ es:
     label: Búsqueda
     search_by_name: Búsqueda por nombre
     search_by_tags: Buscar por etiquetas
-    filter_by: Filtrar por...
+    filter_by: Filtrar por
     form:
       search_by_location: Búsqueda por ubicación
       search_by_email: Búsqueda por correo electrónico

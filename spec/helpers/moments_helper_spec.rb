@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 describe MomentsHelper, type: :controller do
   let(:user) { create(:user1) }
-  let(:moment) { FactoryBot.create(:moment, :with_secret_share, user: user) }
 
   controller(MomentsController) do
   end
 
   describe '#secret_share_props' do
+    let!(:moment) { create(:moment, :with_secret_share, user: user) }
     it 'returns the correct input' do
       input = { inputs: [
         {
@@ -492,14 +492,61 @@ describe MomentsHelper, type: :controller do
     end
   end
 
-  describe '#hash_for_multiselect' do
-    subject { controller.hash_for_multiselect }
-    it 'contains the 6 options' do
-      expect(subject[:options].size).to eq(6)
+  describe '#multiselect_hash' do
+    subject { controller.multiselect_hash }
+
+    context 'when there are no moments and no filter params' do
+      it 'contains the correct checkboxes' do
+        allow(controller).to receive(:current_user).and_return(user)
+        expect(subject[:checkboxes]).to eq([])
+      end
     end
 
-    it 'contains the 6 filters' do
-      expect(subject[:filters].size).to eq(6)
+    context 'when there are no moments and filter params' do
+      it 'contains the correct checkboxes' do
+        allow(controller).to receive(:current_user).and_return(user)
+        allow(controller).to receive(:params).and_return({ filters: ['secret_share'] })
+        expect(subject[:checkboxes]).to eq([])
+      end
+    end
+
+    context 'when there are moments and no filter params' do
+      let!(:moment) { create(:moment, :with_secret_share, user: user) }
+      it 'contains the correct checkboxes' do
+        allow(controller).to receive(:current_user).and_return(user)
+        expect(subject[:checkboxes]).to eq([
+          { id: 'search_filters_0', name: 'search[filters][]', label: I18n.t('moments.filters.secret_share'), value: 'secret_share', checked: false },
+          { id: 'search_filters_1', name: 'search[filters][]', label: I18n.t('moments.filters.no_viewers'), value: 'no_viewers', checked: false },
+          { id: 'search_filters_2', name: 'search[filters][]', label: I18n.t('moments.filters.comments_enabled'), value: 'comments_enabled', checked: false },
+          { id: 'search_filters_3', name: 'search[filters][]', label: I18n.t('moments.filters.draft_enabled'), value: 'draft_enabled', checked: false }
+        ])
+      end
+    end
+
+    context 'when there are moments and filter params' do
+      let!(:moment) { create(:moment, :with_secret_share, user: user) }
+      it 'contains the correct checkboxes' do
+        allow(controller).to receive(:current_user).and_return(user)
+        allow(controller).to receive(:params).and_return({ filters: ['secret_share'] })
+        expect(subject[:checkboxes]).to eq([
+          { id: 'search_filters_0', name: 'search[filters][]', label: I18n.t('moments.filters.secret_share'), value: 'secret_share', checked: true },
+          { id: 'search_filters_1', name: 'search[filters][]', label: I18n.t('moments.filters.no_viewers'), value: 'no_viewers', checked: false },
+          { id: 'search_filters_2', name: 'search[filters][]', label: I18n.t('moments.filters.comments_enabled'), value: 'comments_enabled', checked: false },
+          { id: 'search_filters_3', name: 'search[filters][]', label: I18n.t('moments.filters.draft_enabled'), value: 'draft_enabled', checked: false }
+        ])
+      end
+    end
+
+    it 'contains the correct filters' do
+      allow(controller).to receive(:current_user).and_return(user)
+      expect(subject[:filters]).to eq({
+        "comments_enabled" => { comment: true },
+        "draft_enabled" => { published_at: nil },
+        "no_viewers" => { viewers: [] },
+        "one_viewer" => "length(viewers) > 0",
+        "published" => "published_at IS NOT NULL",
+        "secret_share" => "secret_share_identifier IS NOT NULL",
+      })
     end
   end
 end

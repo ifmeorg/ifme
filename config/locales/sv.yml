@@ -369,7 +369,7 @@ sv:
       secret_share: Hemlig andel aktiverad
       no_viewers: Inga tittare
       one_viewer: Minst en tittare
-      coments_enabled: Kommentarer aktiverade
+      comments_enabled: Kommentarer aktiverade
       draft_enabled: Utkast aktiverat
       published: Publicerad
   moods:
@@ -845,7 +845,7 @@ sv:
     label: Sök
     search_by_name: Sök på namn
     search_by_tags: Sök efter taggar
-    filter_by: filtrera efter...
+    filter_by: Filtrera efter
     form:
       search_by_location: Sök efter plats
       search_by_email: Sök via e-post

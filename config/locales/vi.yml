@@ -371,7 +371,7 @@ vi:
       secret_share: Đã bật Chia sẻ Bí mật
       no_viewers: Không có người xem
       one_viewer: Ít nhất một người xem
-      coments_enabled: Đã bật nhận xét
+      comments_enabled: Đã bật nhận xét
       draft_enabled: Bản nháp đã Bật
       published: Được phát hành
   moods:
@@ -859,7 +859,7 @@ vi:
     label: Tìm kiếm
     search_by_name: Tìm kiêm bằng tên
     search_by_tags: Tìm kiếm theo thẻ
-    filter_by: lọc bởi...
+    filter_by: Lọc bởi
     form:
       search_by_location: Tìm kiếm bằng nơi chốn
       search_by_email: Tìm kiếm bằng email

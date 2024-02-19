@@ -14,7 +14,7 @@ class MomentsController < ApplicationController
   # GET /moments
   # GET /moments.json
   def index
-    page_collection('@moments', 'moment', hash_for_multiselect)
+    page_collection('@moments', 'moment', multiselect_hash)
     respond_to do |format|
       format.json { render json: moments_data_json }
       format.html { moments_data_html }

@@ -87,8 +87,8 @@ module MomentsHelper
       show_crisis_prevention: r.nil? ? false : r.show_crisis_prevention }
   end
 
-  def hash_for_multiselect
-    { options: options_for_multiselect, filters: filters_of_multiselect }
+  def multiselect_hash
+    { checkboxes: multiselect_checkboxes, filters: multiselect_filters }
   end
 
   private
@@ -147,27 +147,40 @@ module MomentsHelper
     t('moments.secret_share.link_info')
   end
 
-  def filters_of_multiselect
-    ['secret_share_identifier IS NOT NULL', { viewers: [] },
-     'length(viewers) > 0', { comment: true },
-     { published_at: nil }, 'published_at IS NOT NULL']
+  def multiselect_filters
+    {
+      'secret_share' => 'secret_share_identifier IS NOT NULL',
+      'no_viewers' => { viewers: [] },
+      'one_viewer' => 'length(viewers) > 0',
+      'comments_enabled' => { comment: true },
+      'draft_enabled' => { published_at: nil },
+      'published' => 'published_at IS NOT NULL'
+    }
   end
 
-  def options_for_multiselect
-    options = [t('moments.filters.secret_share'),
-               t('moments.filters.no_viewers'),
-               t('moments.filters.one_viewer'),
-               t('moments.filters.coments_enabled'),
-               t('moments.filters.draft_enabled'),
-               t('moments.filters.published')]
-    options_hash = []
-    options.each_with_index do |element, index|
-      options_hash.push({
-                          id: element,
-                          label: element,
-                          value: index
-                        })
+  def is_checked(value)
+    return params[:filters].include?(value) if params[:filters]
+
+    false
+  end
+
+  def multiselect_checkboxes
+    values = %w[secret_share no_viewers one_viewer comments_enabled draft_enabled published]
+    checkboxes = []
+    index = 0
+    values.each do |value|
+      moment = current_user.moments.where(multiselect_filters[value])
+      next unless moment.count > 0
+
+      checkboxes.push({
+                        id: "search_filters_#{index}",
+                        name: 'search[filters][]',
+                        label: I18n.t("moments.filters.#{value}"),
+                        value:,
+                        checked: is_checked(value)
+                      })
+      index += 1
     end
-    options_hash
+    checkboxes
   end
 end
