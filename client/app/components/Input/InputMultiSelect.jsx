@@ -23,14 +23,14 @@ export function InputMultiSelect({
   label,
   value: propValue,
 }: Props) {
-  const [value, setValue] = useState<any>([]);
-  const [opened, setOpened] = useState<any>(false);
+  const [value, setValue] = useState([]);
+  const [opened, setOpened] = useState<boolean>(false);
 
   const toggleValue = (e: SyntheticEvent<HTMLInputElement>) => {
-    const checkeds = e.target.closest(`.${css.panel}`).querySelectorAll('input:checked');
+    const checked = e.target.closest(`.${css.panel}`).querySelectorAll('input:checked');
     let actualValues = [];
 
-    checkeds.forEach(check => {
+    checked.forEach(check => {
       actualValues.push(check.value);
     });
     setValue(actualValues);
