@@ -145,6 +145,7 @@ module MomentsHelper
     return if is_strategy || element.secret_share_identifier.blank?
 
     t('moments.secret_share.link_info')
+  end
 
   def filters_of_multiselect
     ['secret_share_identifier IS NOT NULL', { viewers: [] },
