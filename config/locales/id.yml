@@ -851,6 +851,7 @@ id:
     label: Cari
     search_by_name: Cari berdasarkan nama
     search_by_tags: Cari berdasarkan tag
+    filter_by: Saring berdasarkan
     form:
       search_by_location: Cari berdasarkan lokasi
       search_by_email: Cari berdasarkan email

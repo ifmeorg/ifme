@@ -368,7 +368,7 @@ nl:
       secret_share: Geheim delen ingeschakeld
       no_viewers: Geen kijkers
       one_viewer: Ten minste één kijker
-      coments_enabled: Opmerkingen ingeschakeld
+      comments_enabled: Opmerkingen ingeschakeld
       draft_enabled: Concept ingeschakeld
       published: gepubliceerd
   moods:
@@ -882,7 +882,7 @@ nl:
     label: Zoeken
     search_by_name: Zoeken op naam
     search_by_tags: Zoeken op tags
-    filter_by: filteren op...
+    filter_by: Filteren op
     form:
       search_by_location: Zoeken op locatie
       search_by_email: Zoeken op e-mail

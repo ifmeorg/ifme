@@ -336,7 +336,7 @@ zh-CN:
       secret_share: 启用了秘密共享
       no_viewers: 没有观众
       one_viewer: 至少有一位观众
-      coments_enabled: 评论已启用
+      comments_enabled: 评论已启用
       draft_enabled: 已启用的草案
       published: 已出版
   moods:
@@ -711,7 +711,7 @@ zh-CN:
     label: 搜索
     search_by_name: 按名称搜索
     search_by_tags: 按標籤搜索
-    filter_by: 通过过滤...
+    filter_by: 通过过滤
     form:
       search_by_location: 按位置搜索
       search_by_email: 通过电子邮件搜索

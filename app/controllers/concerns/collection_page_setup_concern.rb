@@ -8,7 +8,7 @@ module CollectionPageSetupConcern
 
   def page_collection(collection, model_name, filters_model = {})
     name = params[:search]
-    selected_filters = params[:filters]
+    search_filters = params[:filters]
     model = Object.const_get(model_name.capitalize)
     search = model.where(
       'name ilike ? AND user_id = ?',
@@ -16,11 +16,9 @@ module CollectionPageSetupConcern
       current_user.id
     ).all
     user = model.where(user_id: current_user.id)
-    if selected_filters.present?
-      user = apply_filters(user, selected_filters, filters_model[:filters])
-    end
+    user = apply_filters(user, search_filters, filters_model[:filters]) if search_filters.present?
     setup_collection(collection, user, search, name)
-    @options_for_multiselect = filters_model[:options]
+    @multiselect_checkboxes = filters_model[:checkboxes]
     @page_new = t("#{model_name.pluralize}.new")
   end
 
@@ -34,12 +32,11 @@ module CollectionPageSetupConcern
 
   private
 
-  def apply_filters(user, selected_filters, filters_model)
-    filters_list = selected_filters.split(',')
-
-    filters_list.each do |filter|
-      user = user.where(filters_model[filter.to_i])
+  def apply_filters(user, search_filters, filters_model)
+    filtered_user = user
+    search_filters.each do |filter|
+      filtered_user = filtered_user.where(filters_model[filter])
     end
-    user
+    filtered_user.count > 0 ? filtered_user : user
   end
 end

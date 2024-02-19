@@ -340,6 +340,8 @@ export const MultiSelect = () => (
   </>
 );
 
+MultiSelect.storyName = 'MultiSelect';
+
 export const SelectWithAccordion = () => (
   <>
     {InputMocks.createInput(InputMocks.inputSelectProps, {

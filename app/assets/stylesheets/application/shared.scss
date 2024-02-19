@@ -100,26 +100,12 @@
     display: flex;
     flex-direction: row;
     margin-left: $size-8;
-    width: 30%;
-
-    @media screen and (max-width: $large) {
-      width: 40%;
-    }
+    width: 25%;
 
     @media screen and (max-width: $medium) {
       flex-direction: column;
       margin-left: $size-0;
       width: 100%;
     }
-
-    div[class*="checkboxLabel"]{
-      flex-grow: 1;
-      margin: $size-0 $size-8 $size-0 $size-8;
-
-      @media screen and (max-width: $medium) {
-        margin: $size-2 $size-0 $size-0 $size-8;
-      }
-    }
-
   }
 }

@@ -363,7 +363,7 @@ hi:
       secret_share: गुप्त शेयर सक्षम
       no_viewers: कोई दर्शक नहीं
       one_viewer: कम से कम एक दर्शक
-      coments_enabled: टिप्पणियाँ सक्षम
+      comments_enabled: टिप्पणियाँ सक्षम
       draft_enabled: ड्राफ्ट सक्षम
       published: प्रकाशित
   moods:
@@ -854,7 +854,7 @@ hi:
     label: खोज
     search_by_name: नाम से खोजें
     search_by_tags: टैग द्वारा खोजें
-    filter_by: फिल्टर के द्वारा...
+    filter_by: फिल्टर के द्वारा
     form:
       search_by_location: स्थान के आधार पर खोजें
       search_by_email: ईमेल द्वारा खोजें

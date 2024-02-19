@@ -5,59 +5,34 @@ import userEvent from '@testing-library/user-event';
 import { InputMocks } from 'mocks/InputMocks';
 import { InputMultiSelect } from 'components/Input/InputMultiSelect';
 
-const {
-  id, name, ariaLabel, value, options,
-} = InputMocks.inputSelectProps;
-const someEvent = InputMocks.event;
-
 describe('InputMultiSelect', () => {
-  beforeEach(() => {
-    jest.spyOn(window, 'alert');
-  });
+  const {
+    id, name, label, checkboxes,
+  } = InputMocks.inputMultiSelectProps;
 
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
-
-  it('renders correctly', () => {
+  it('renders correctly when the component is closed', () => {
     render(
       <InputMultiSelect
         name={name}
         id={id}
-        ariaLabel={ariaLabel}
-        value={value}
-        options={options}
+        checkboxes={checkboxes}
+        label={label}
       />,
     );
-    const multiSelect = screen.getByRole('button', { className: 'buttonL' });
-    expect(multiSelect).toBeInTheDocument();
-    expect(screen.getAllByRole('checkbox').length).toEqual(2);
+    expect(screen.getByRole('button', { value: label })).toBeVisible();
+    expect(screen.getByTestId('multiSelectCheckboxes')).not.toBeVisible();
   });
 
-  it('toggles options correctly', () => {
+  it('renders correctly when the component is opened', async () => {
     render(
       <InputMultiSelect
         name={name}
         id={id}
-        ariaLabel={ariaLabel}
-        options={options}
+        label={label}
+        checkboxes={checkboxes}
       />,
     );
-    // toggle the first value
-    const multiSelect = screen.getByRole('componentValue', { hidden: true });
-    const checkbox = screen.getByRole('checkbox', { name: options[0].label });
-    const checkbox2 = screen.getByRole('checkbox', { name: options[1].label });
-
-    userEvent.click(checkbox);
-    expect(multiSelect.value).toEqual(`${options[0].value}`);
-
-    // update the value
-    userEvent.click(checkbox2);
-    expect(multiSelect.value).toEqual(`${options[0].value},${options[1].value}`);
-
-    // update the value by unchecking
-    userEvent.click(checkbox);
-    expect(multiSelect.value).toEqual(`${options[1].value}`);
-
+    await userEvent.click(screen.getByRole('button', { value: label }));
+    expect(screen.getByTestId('multiSelectCheckboxes')).toBeVisible();
   });
 });
