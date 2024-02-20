@@ -362,6 +362,13 @@ id:
     show:
       strategies: Strategi apa yang akan membantu?
       resources: Sumber daya apa yang dapat membantu?
+    filters:
+      secret_share: Berbagi Rahasia Diaktifkan
+      no_viewers: Tidak Ada Pemirsa
+      one_viewer: Setidaknya Satu Penonton
+      comments_enabled: Komentar Diaktifkan
+      draft_enabled: Draf Diaktifkan
+      published: Diterbitkan
   moods:
     singular: Suasana Hati
     plural: Suasana Hati
