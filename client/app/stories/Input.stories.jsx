@@ -335,9 +335,7 @@ const SelectTemplate = (args) => (
 );
 
 export const MultiSelect = () => (
-  <>
-    {InputMocks.createInput(InputMocks.inputMultiSelectProps)}
-  </>
+  <>{InputMocks.createInput(InputMocks.inputMultiSelectProps)}</>
 );
 
 MultiSelect.storyName = 'MultiSelect';

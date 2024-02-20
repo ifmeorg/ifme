@@ -56,10 +56,13 @@ export const Toast = ({ alert, notice, appendDashboardClass }: Props): Node => {
       >
         {showNotice && (
           <>
-            <div>
-              {notice}
-            </div>
-            <button id="btn-close-toast-notice" type="button" onClick={hideNotice} aria-label={I18n.t('close')}>
+            <div>{notice}</div>
+            <button
+              id="btn-close-toast-notice"
+              type="button"
+              onClick={hideNotice}
+              aria-label={I18n.t('close')}
+            >
               <span aria-hidden="true">
                 <FontAwesomeIcon icon={faTimes} />
               </span>
@@ -79,10 +82,13 @@ export const Toast = ({ alert, notice, appendDashboardClass }: Props): Node => {
       >
         {showAlert && (
           <>
-            <div>
-              {alert}
-            </div>
-            <button id="btn-close-toast-alert" type="button" onClick={hideAlert} aria-label={I18n.t('close')}>
+            <div>{alert}</div>
+            <button
+              id="btn-close-toast-alert"
+              type="button"
+              onClick={hideAlert}
+              aria-label={I18n.t('close')}
+            >
               <span aria-hidden="true">
                 <FontAwesomeIcon icon={faTimes} />
               </span>

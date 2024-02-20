@@ -61,7 +61,9 @@ describe('Toast', () => {
     });
 
     it('closes correctly on button click', () => {
-      const { getByRole, container } = render(<Toast notice="Login successful." />);
+      const { getByRole, container } = render(
+        <Toast notice="Login successful." />,
+      );
 
       const toastContent = getByRole('region');
       const toastBtn = container.querySelector('#btn-close-toast-notice');
