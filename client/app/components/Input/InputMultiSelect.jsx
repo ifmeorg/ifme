@@ -1,28 +1,19 @@
 // @flow
 import React, { useState, useEffect, useRef } from 'react';
-import renderHTML from 'react-render-html';
+import type { Node } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretUp, faCaretDown} from '@fortawesome/free-solid-svg-icons';
-import css from './InputMultiSelect.scss';
-import Input from 'components/Input';
-import type { Option } from './utils';
-import type { Checkbox } from './utils';
+import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { InputCheckbox } from 'components/Input/InputCheckbox';
-import inputCss from './Input.scss';
+import css from './InputMultiSelect.scss';
+import type { Checkbox } from './utils';
 
 export type Props = {
   id: string,
-  ariaLabel?: string,
   label?: string,
-  value?: any,
   checkboxes: Checkbox[],
 };
 
-export function InputMultiSelect({
-  id,
-  checkboxes,
-  label
-}: Props) {
+export function InputMultiSelect({ id, checkboxes, label }: Props): Node {
   const [opened, setOpened] = useState<boolean>(false);
   const ref = useRef(null);
 
@@ -31,15 +22,15 @@ export function InputMultiSelect({
   };
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: any) => {
       if (ref.current && !ref.current.contains(event.target)) {
         setOpened(false);
       }
-    }
+    };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [ref]);
 
@@ -51,11 +42,9 @@ export function InputMultiSelect({
         onClick={handleOnClick}
         id={id}
       >
+        <div>{label}</div>
         <div>
-          {label}
-        </div>
-        <div>
-          <FontAwesomeIcon icon={opened ? faCaretUp : faCaretDown }/>
+          <FontAwesomeIcon icon={opened ? faCaretUp : faCaretDown} />
         </div>
       </button>
       <div
@@ -63,7 +52,7 @@ export function InputMultiSelect({
         aria-labelledby={id}
         className={css.multiSelectCheckboxesWrapper}
         role="listbox"
-        style={{ display: opened ? 'block' : 'none '}}
+        style={{ display: opened ? 'block' : 'none ' }}
       >
         <div className={css.multiSelectCheckboxes}>
           {checkboxes.map((checkbox) => (

@@ -8,28 +8,6 @@
   }
 }
 
-.select select {
-  @include setFontSize($size-18);
-  @include setPadding($size-24, $size-0, $size-24, $size-24);
-  @include paddingForSelectIcon($size-24);
-
-  color: $white;
-  font-weight: $font-weight-400;
-  width: 100%;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  box-sizing: border-box;
-  background-color: $white-10;
-  border-radius: $size-4;
-  box-shadow: $size-0 $size-2 $size-10 $black-10;
-  border: none;
-
-  &:focus {
-    background-color: $white-20;
-  }
-}
-
 .select {
   position: relative;
 

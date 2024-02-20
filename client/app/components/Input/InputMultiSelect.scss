@@ -7,9 +7,10 @@
     justify-content: space-between;
   }
 
-  &Checkboxes{
+  &Checkboxes {
     @include setPadding($size-6, $size-6, $size-6, $size-6);
     @include fadeIn(0.8s);
+
     width: 100%;
     box-sizing: border-box;
     position: absolute;

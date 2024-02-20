@@ -189,13 +189,7 @@ export const Input = ({
 
   const displayMultiSelect = () => {
     if (type === 'multiSelect' && checkboxes) {
-      return (
-        <InputMultiSelect
-          id={id}
-          label={label}
-          checkboxes={checkboxes}
-        />
-      );
+      return <InputMultiSelect id={id} label={label} checkboxes={checkboxes} />;
     }
     return null;
   };
