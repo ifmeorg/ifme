@@ -24,7 +24,7 @@ gem 'jquery-rails', '4.4.0'
 gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 gem 'turbolinks', '~> 5.2.0'
 
-gem 'carrierwave', '~> 2.2.5'
+gem 'carrierwave', '~> 2.2.6'
 gem 'certified', '1.0.0'
 gem 'chronic', '0.10.2'
 gem 'cloudinary', '~> 1.25.0'
