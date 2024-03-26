@@ -1,5 +1,5 @@
 // @flow
-import React, { useState, useRef, type Node } from 'react';
+import React, { useState, useEffect, useRef, type Node } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import renderHTML from 'react-render-html';
@@ -25,6 +25,7 @@ export const Header = ({
   home, links, mobileOnly, profile,
 }: Props): Node => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [isSticky, setSticky] = useState(false);
   const navigationRef = useRef(null);
 
   useFocusTrap(navigationRef, mobileNavOpen);
@@ -109,10 +110,29 @@ export const Header = ({
     </div>
   );
 
+  const [isSticky, setSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setSticky(true);
+      } else {
+        setSticky(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <header
       id="header"
-      className={`${css.header} ${mobileNavOpen ? css.headerMobile : ''}`}
+      className={`${css.header} ${isSticky ? 'sticky' : ''} ${mobileNavOpen ? css.headerMobile : ''}`}
     >
       <div
         ref={navigationRef}
