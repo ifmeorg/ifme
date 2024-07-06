@@ -49,7 +49,7 @@ gem 'groupdate', '~> 6.1'
 gem 'react_on_rails', '12.0.1'
 gem 'webpacker'
 
-gem 'selenium-webdriver', '~> 4.11.0'
+gem 'selenium-webdriver', '~> 4.22.0'
 
 gem 'rubyzip', '~> 1.3.0'
 
