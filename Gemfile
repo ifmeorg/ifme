@@ -5,7 +5,7 @@ ruby '~> 3.1.4'
 
 gem 'puma', '5.6.8'  # Latest capybara doesn't work with puma 6.0 at the moment.
 gem 'rack-rewrite'
-gem 'rails', '~> 7.0.8'
+gem 'rails', '~> 7.0.8.4'
 
 gem 'activerecord-import'
 gem 'bcrypt', '3.1.13'
