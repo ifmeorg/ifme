@@ -1,6 +1,10 @@
 // @flow
 import React, {
-  useState, useRef, type Element, type Node,
+  useState,
+  useRef,
+  type Element,
+  type Node,
+  useEffect,
 } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -63,6 +67,11 @@ export const Modal = (props: Props): Node => {
   };
 
   useFocusTrap(modalEl, open);
+
+  useEffect(() => () => {
+    const documentBody = ((document.body: any): HTMLBodyElement);
+    documentBody.classList.remove('bodyModalOpen');
+  }, []);
 
   const handleKeyPress = (
     event: SyntheticKeyboardEvent<HTMLDivElement>,
