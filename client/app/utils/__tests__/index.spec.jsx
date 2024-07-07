@@ -19,7 +19,9 @@ describe('Utils', () => {
       metaElementTwo.setAttribute('name', 'pusher-cluster');
       metaElementTwo.setAttribute('content', 'sample-cluster');
 
-      jest.spyOn(document, 'getElementsByTagName').mockImplementation(() => [metaElementOne, metaElementTwo]);
+      jest
+        .spyOn(document, 'getElementsByTagName')
+        .mockImplementation(() => [metaElementOne, metaElementTwo]);
     });
 
     it('should return null if window.Pusher is not defined', () => {
@@ -30,7 +32,9 @@ describe('Utils', () => {
       window.Pusher = jest.fn();
       const pusher = Utils.getPusher();
       expect(pusher).toBeInstanceOf(window.Pusher);
-      expect(window.Pusher).toHaveBeenCalledWith('sample content', { cluster: 'sample-cluster' });
+      expect(window.Pusher).toHaveBeenCalledWith('sample content', {
+        cluster: 'sample-cluster',
+      });
     });
   });
 
@@ -45,10 +49,14 @@ describe('Utils', () => {
       metaElementOne.setAttribute('name', 'csrf-token');
       metaElementOne.setAttribute('content', 'TOKEN-TEST-VALUE');
 
-      jest.spyOn(document, 'getElementsByTagName').mockImplementation(() => [metaElementOne]);
+      jest
+        .spyOn(document, 'getElementsByTagName')
+        .mockImplementation(() => [metaElementOne]);
 
       Utils.setCsrfToken();
-      expect(axios.defaults.headers.common['X-CSRF-Token']).toBe('TOKEN-TEST-VALUE');
+      expect(axios.defaults.headers.common['X-CSRF-Token']).toBe(
+        'TOKEN-TEST-VALUE',
+      );
     });
   });
 
