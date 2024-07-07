@@ -34,9 +34,7 @@
     border-radius: $size-4;
     background: $white;
     width: 90vw;
-    max-width: 910px;
-    height: 65vh;
-    max-height: 440px;
+    height: 90vh;
     z-index: $z-index-front;
 
     @media screen and (max-width: $small) {
