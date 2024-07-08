@@ -58,7 +58,7 @@ describe NotificationsHelper do
         uid: 'uid',
         user_id: 1
       }
-      expect(new_ally_request_link(uniqueid, data)).to eq('<div id="uniqueid"><div>&lt;a href=&quot;/profile?uid=uid&quot;&gt;Julia Nguyen&lt;/a&gt; sent an ally request!</div><div><a rel="nofollow" data-method="post" href="/allies/add?ally_id=1">Accept</a> | <a data-confirm="Are you sure?" rel="nofollow" data-method="post" href="/allies/remove?ally_id=1">Reject</a></div></div>')
+      expect(new_ally_request_link(uniqueid, data)).to eq('<div id="uniqueid"><div><a href="/profile?uid=uid">Julia Nguyen</a> sent an ally request!</div><div><a rel="nofollow" data-method="post" href="/allies/add?ally_id=1">Accept</a> | <a data-confirm="Are you sure?" rel="nofollow" data-method="post" href="/allies/remove?ally_id=1">Reject</a></div></div>')
     end
 
     it 'sanitizes and returns the correct link' do
@@ -68,7 +68,7 @@ describe NotificationsHelper do
         uid: 'uid',
         user_id: 1
       }
-      expect(new_ally_request_link(uniqueid, data)).to eq('<div id="uniqueid"><div>&lt;a href=&quot;/profile?uid=uid&quot;&gt;julia@example.com&lt;/a&gt; sent an ally request!</div><div><a rel="nofollow" data-method="post" href="/allies/add?ally_id=1">Accept</a> | <a data-confirm="Are you sure?" rel="nofollow" data-method="post" href="/allies/remove?ally_id=1">Reject</a></div></div>')
+      expect(new_ally_request_link(uniqueid, data)).to eq('<div id="uniqueid"><div><a href="/profile?uid=uid">julia@example.com</a> sent an ally request!</div><div><a rel="nofollow" data-method="post" href="/allies/add?ally_id=1">Accept</a> | <a data-confirm="Are you sure?" rel="nofollow" data-method="post" href="/allies/remove?ally_id=1">Reject</a></div></div>')
     end
   end
 
