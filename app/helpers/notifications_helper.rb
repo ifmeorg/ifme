@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'cgi'
 
 module NotificationsHelper
   def comment_link(uniqueid, data)
@@ -26,7 +27,7 @@ module NotificationsHelper
     link = "/profile?uid=#{data[:uid]}"
     link_html = "<a href=\"#{link}\">#{name_or_email(data)}</a>"
     # rubocop:disable Layout/LineLength
-    "<div id=\"#{uniqueid}\"><div>#{t('notifications.ally.sent_html', link_to_user: link_html)}</div>#{request_actions(data[:user_id])}</div>"
+    CGI.unescapeHTML("<div id=\"#{uniqueid}\"><div>#{t('notifications.ally.sent_html', link_to_user: link_html)}</div>#{request_actions(data[:user_id])}</div>")
     # rubocop:enable Layout/LineLength
   end
 
