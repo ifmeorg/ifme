@@ -1263,5 +1263,17 @@
     "link": "https://actionforhappiness.org/",
     "tags": ["support_groups", "free", "stress", "self_care", "mindfulness", "coaching", "communities", "ios", "android", "talks", "podcast"],
     "languages": ["en"]
+  },
+  {
+    "name": "HealGrief",
+    "link": "https://healgrief.org/",
+    "tags": ["grief", "bereavement", "free", "android", "ios", "education", "meditation", "videos", "communities", "support_groups", "forum"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Surviving Grief",
+    "link": "https://www.survivinggrief.org",
+    "tags": ["grief", "bereavement", "free", "directory"],
+    "languages": ["en"]
   }
 ]
