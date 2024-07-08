@@ -4,9 +4,11 @@
   padding: $size-0 25px 50px 25px;
   display: flex;
   flex-direction: row;
+  margin-top: 86px;
 
   @media screen and (max-width: $medium) {
     flex-direction: column;
     padding: 0;
+    margin-top: 0;
   }
 }
