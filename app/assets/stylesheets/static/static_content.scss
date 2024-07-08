@@ -5,10 +5,11 @@
   box-sizing: border-box;
   padding: $size-40 34px;
   scroll-behavior: smooth;
-  margin: 0 auto;
+  margin: 86px auto 0 auto;
 
   @media screen and (max-width: $medium) {
     padding: $size-20;
+    margin: 0 auto;
   }
 
   @media screen and (max-width: $small) {

@@ -1,5 +1,7 @@
 // @flow
-import React, { useState, useRef, type Node } from 'react';
+import React, {
+  useState, useRef, useEffect, type Node,
+} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import renderHTML from 'react-render-html';
@@ -25,6 +27,7 @@ export const Header = ({
   home, links, mobileOnly, profile,
 }: Props): Node => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const navigationRef = useRef(null);
 
   useFocusTrap(navigationRef, mobileNavOpen);
@@ -73,7 +76,7 @@ export const Header = ({
 
   const displayDesktop = (): Node => (
     <div
-      className={css.headerDesktop}
+      className={`${css.headerDesktop} ${scrolled ? css.headerScroll : ''}`}
       aria-label={I18n.t('navigation.main_menu')}
       role="navigation"
     >
@@ -108,6 +111,22 @@ export const Header = ({
       </div>
     </div>
   );
+
+  useEffect(() => {
+    const handleScroll = (event) => {
+      if (event.currentTarget.scrollY > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    if (!mobileNavOpen) {
+      window.addEventListener('scroll', handleScroll);
+    }
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [mobileNavOpen]);
 
   return (
     <header

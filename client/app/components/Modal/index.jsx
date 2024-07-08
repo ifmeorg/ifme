@@ -68,10 +68,13 @@ export const Modal = (props: Props): Node => {
 
   useFocusTrap(modalEl, open);
 
-  useEffect(() => () => {
-    const documentBody = ((document.body: any): HTMLBodyElement);
-    documentBody.classList.remove('bodyModalOpen');
-  }, []);
+  useEffect(
+    () => () => {
+      const documentBody = ((document.body: any): HTMLBodyElement);
+      documentBody.classList.remove('bodyModalOpen');
+    },
+    [],
+  );
 
   const handleKeyPress = (
     event: SyntheticKeyboardEvent<HTMLDivElement>,
