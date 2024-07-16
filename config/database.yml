@@ -13,6 +13,9 @@ development:
 test:
   <<: *default
   database: ifme_test
+  host: <%= ENV['PSQL_HOST'] || 'localhost' %>
+  username: <%= ENV['PSQL_USERNAME'] %>
+  password: <%= ENV['PSQL_PASSWORD'] %>
   min_messages: error
 production:
   <<: *default
