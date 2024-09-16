@@ -7,10 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Users
-user1 = User.create(name: 'Test1 Lastname', email: 'test1@example.com', password: 'passworD@99', confirmed_at: Time.zone.now, location: 'Toronto, ON, Canada', about: 'Hi my name is Test1! I want to use the site so that I can improve the way I handle my anxiety.')
-user2 = User.create(name: 'Test2 Lastname', email: 'test2@example.com', password: 'passworD@99', confirmed_at: Time.zone.now, location: 'Toronto, ON, Canada')
-user3 = User.create(name: 'Test3 Two-Lastnames', email: 'test3@example.com', password: 'passworD@99', confirmed_at: Time.zone.now, location: 'San Francisco, CA, United States')
-user4 = User.create(name: 'Admin User', email: 'admin@example.com', password: 'passworD@99', confirmed_at: Time.zone.now, location: 'San Francisco, CA, United States', admin: true)
+user1 = User.new(name: 'Test1 Lastname', email: 'test1@example.com', password: 'passworD@99', confirmed_at: Time.zone.now, location: 'Toronto, ON, Canada', about: 'Hi my name is Test1! I want to use the site so that I can improve the way I handle my anxiety.')
+user2 = User.new(name: 'Test2 Lastname', email: 'test2@example.com', password: 'passworD@99', confirmed_at: Time.zone.now, location: 'Toronto, ON, Canada')
+user3 = User.new(name: 'Test3 Two-Lastnames', email: 'test3@example.com', password: 'passworD@99', confirmed_at: Time.zone.now, location: 'San Francisco, CA, United States')
+user4 = User.new(name: 'Admin User', email: 'admin@example.com', password: 'passworD@99', confirmed_at: Time.zone.now, location: 'San Francisco, CA, United States', admin: true)
+
+## Save with validate: false to bypass pwned_password data breach check for seeding users
+[user1, user2, user3, user4].each { |user| user.save!(validate: false) }
 
 # Allies
 Allyship.create(user_id: user1.id, ally_id: user2.id, status: :accepted)

@@ -28,6 +28,7 @@
 .idea/
 .tags
 *.swp
+.tool-versions
 
 # Ignore coverage results
 /coverage
