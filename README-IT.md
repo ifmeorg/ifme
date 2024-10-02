@@ -19,7 +19,7 @@ Il sito live può essere trovato su [if-me.org](https://www.if-me.org/). Il sist
 
 Usiamo il meraviglioso [Contributor Covenant](http://contributor-covenant.org) per il nostro codice di condotta. [Leggilo](https://github.com/ifmeorg/ifme/blob/main/code_of_conduct.md) prima di unirti al nostro progetto.
 
-**Read about our project goals and how to contribute (not just as a developer) [here](https://github.com/ifmeorg/ifme/blob/main/CONTRIBUTING.md).**
+
 **Leggi a proposito dei nostri obiettivi e su come contribuire (non solo come sviluppatore) [qui](https://github.com/ifmeorg/ifme/blob/main/CONTRIBUTING.md).**
 
 ## Documentazione
@@ -28,7 +28,7 @@ Controlla la nostra [Wiki](https://github.com/ifmeorg/ifme/wiki) per la document
 
 ### Installazione
 
-[These are the instructions](https://github.com/ifmeorg/ifme/wiki/Installation) for setting up and installing the app. Test, development, and production instances are covered.
+
 [Queste sono le istruzioni](https://github.com/ifmeorg/ifme/wiki/Installation) per impostare ed installare l'app. Vengono coperte le istanze di test, sviluppo e produzione.
 
 ### Contributor Blurb
