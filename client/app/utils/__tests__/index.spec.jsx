@@ -1,4 +1,5 @@
 import axios from 'axios';
+import React from 'react';
 import { Utils } from '../index';
 
 describe('Utils', () => {
@@ -101,6 +102,21 @@ describe('Utils', () => {
       expect(imageObject.type).toEqual('img');
       expect(imageObject.props.src).toEqual('img.jpg');
       expect(imageObject.props.onError).toBe(undefined);
+    });
+
+    it('should apply attributes to React elements', () => {
+      const reactElement = React.createElement('div', { className: 'test' }, 'Test content');
+      const attributes = { 'aria-labelledby': 'test-id' };
+      const renderedContent = Utils.renderContent(reactElement, attributes);
+      expect(renderedContent.props['aria-labelledby']).toEqual('test-id');
+      expect(renderedContent.props.className).toEqual('test');
+    });
+
+    it('should not modify non-string, non-React element content when attributes are provided', () => {
+      const content = { key: 'value' };
+      const attributes = { 'aria-labelledby': 'test-id' };
+      const renderedContent = Utils.renderContent(content, attributes);
+      expect(renderedContent).toEqual(content);
     });
   });
 });
