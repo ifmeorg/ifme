@@ -26,8 +26,8 @@ export const Tooltip = (props: Props): Node => {
   const tooltipId = id || `tooltip${Utils.randomString()}`;
   return (
     <div className={css.tooltipWrapper}>
-      <div className={css.tooltipElement} aria-labelledby={tooltipId}>
-        {Utils.renderContent(element)}
+      <div className={css.tooltipElement}>
+        {Utils.renderContent(element, { 'aria-labelledby': tooltipId })}
       </div>
       <div
         id={tooltipId}
