@@ -87,9 +87,7 @@ describe('Comments', () => {
         screen.getByRole('button', { name: 'Submit' }),
       ).toBeInTheDocument();
       expect(
-        screen.getByRole('link', {
-          name: `Report comment by ${getComment().commentByName}`,
-        }),
+        screen.getByLabelText(`Report comment by ${getComment().commentByName}`)
       ).toBeInTheDocument();
     });
 
@@ -111,9 +109,7 @@ describe('Comments', () => {
       expect(screen.getByRole('article')).toHaveTextContent('Hey');
 
       await userEvent.click(
-        screen.getByRole('link', {
-          name: `Delete comment by ${getComment().commentByName}`,
-        }),
+        screen.getByLabelText(`Delete comment by ${getComment().commentByName}`)
       );
 
       await waitFor(() => expect(screen.queryByRole('article')).not.toBeInTheDocument());
@@ -156,9 +152,7 @@ describe('Comments', () => {
       expect(screen.getByRole('article')).toHaveTextContent('Hey');
 
       await userEvent.click(
-        screen.getByRole('link', {
-          name: `Delete comment by ${getComment().commentByName}`,
-        }),
+        screen.getByLabelText(`Delete comment by ${getComment().commentByName}`)
       );
 
       await waitFor(() => expect(screen.queryByRole('article')).not.toBeInTheDocument());
