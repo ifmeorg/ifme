@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import type { Node } from 'react';
 import axios from 'axios';
-import renderHTML from 'react-render-html';
 import { I18n } from 'libs/i18n';
 import Modal from 'components/Modal';
 import { Utils } from 'utils';
@@ -82,7 +81,7 @@ export const Notifications = ({ element, pusher }: Props): Node => {
 
   const displayNotifications = () => (
     <div aria-live="polite">
-      {renderHTML(notifications)}
+      {Utils.renderContent(notifications)}
       <button
         type="button"
         className="buttonDarkS smallMarginTop"

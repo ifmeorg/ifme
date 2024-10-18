@@ -1,11 +1,11 @@
 // @flow
-import React from 'react';
-import type { Node } from 'react';
-import renderHTML from 'react-render-html';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestion } from '@fortawesome/free-solid-svg-icons';
-import globalCss from 'styles/_global.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Tooltip } from 'components/Tooltip';
+import type { Node } from 'react';
+import React from 'react';
+import globalCss from 'styles/_global.scss';
+import { Utils } from 'utils';
 import css from './Input.scss';
 import type { Checkbox as Props } from './utils';
 
@@ -65,7 +65,7 @@ export const InputCheckbox = (props: Props): Node => {
           && displayUnchecked(name, uncheckedValue)}
         {displayCheckbox(id, name, value, checked, onChange, label)}
         <label className={`${css.checkboxLabel}`} htmlFor={id}>
-          {renderHTML(label)}
+          {Utils.renderContent(label)}
         </label>
       </div>
       {displayInfo(info)}
