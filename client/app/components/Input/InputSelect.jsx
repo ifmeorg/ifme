@@ -1,9 +1,9 @@
 // @flow
-import React, { useState } from 'react';
-import type { Node } from 'react';
-import renderHTML from 'react-render-html';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import type { Node } from 'react';
+import React, { useState } from 'react';
+import { Utils } from 'utils';
 import css from './Input.scss';
 import type { Option } from './utils';
 
@@ -49,7 +49,7 @@ export function InputSelect({
       >
         {options.map((option: Option) => (
           <option id={option.id} value={option.value} key={option.value}>
-            {renderHTML(option.label)}
+            {Utils.renderContent(option.label)}
           </option>
         ))}
       </select>

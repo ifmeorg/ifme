@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { sanitize } from 'dompurify';
 import React from 'react';
-import renderHTML from 'react-render-html';
+import parse from 'html-react-parser';
 
 const randomString = (): string => Math.random()
   .toString(36)
@@ -36,7 +36,7 @@ const getPusher = (): Object | null => {
 
 const renderContent = (content: string | any, attributes: Object = {}): any => {
   if (typeof content === 'string') {
-    return renderHTML(sanitize(content));
+    return parse(sanitize(content));
   }
   if (React.isValidElement(content)) {
     return React.cloneElement(content, attributes);

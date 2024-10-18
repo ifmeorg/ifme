@@ -93,7 +93,8 @@ describe('Utils', () => {
       const h1Object = Utils.renderContent(h1HeadingString);
       expect(h1Object.type).toEqual('h1');
       expect(h1Object.props.id).toEqual('main-heading');
-      expect(h1Object.props.children[0]).toEqual('THIS IS A HEADING');
+
+      expect(h1Object.props.children).toEqual('THIS IS A HEADING');
     });
 
     it('should verify that for html strings with vulnerable code, it gets sanitized in object representation', () => {
