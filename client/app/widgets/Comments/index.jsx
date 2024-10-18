@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import type { Node } from 'react';
 import axios from 'axios';
-import renderHTML from 'react-render-html';
 import { I18n } from 'libs/i18n';
 import { StoryBy } from 'components/Story/StoryBy';
 import { StoryDate } from 'components/Story/StoryDate';
@@ -109,7 +108,7 @@ export const Comments = ({ comments, formProps }: Props): Node => {
     const author = <a href={`/profile?uid=${commentByUid}`}>{commentByName}</a>;
     return (
       <article key={id} className={`comment ${css.comment}`}>
-        <div className={css.commentContent}>{renderHTML(comment)}</div>
+        <div className={css.commentContent}>{Utils.renderContent(comment)}</div>
         <StoryDate date={createdAt} />
         <div className={css.commentInfo}>
           <StoryBy avatar={commentByAvatar} author={author} />

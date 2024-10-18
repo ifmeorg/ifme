@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import renderHTML from 'react-render-html';
+import { Utils } from 'utils';
 import { I18n } from 'libs/i18n';
 import { Logo } from 'components/Logo';
 import { HeaderProfile } from 'components/Header/HeaderProfile';
@@ -106,7 +106,7 @@ export const Header = ({
     <div id="headerMobile" className={css.headerMobileNav}>
       <div>
         {profile ? <HeaderProfile profile={profile} /> : null}
-        {mobileOnly ? renderHTML(mobileOnly) : null}
+        {mobileOnly ? Utils.renderContent(mobileOnly) : null}
         {displayLinks()}
       </div>
     </div>
