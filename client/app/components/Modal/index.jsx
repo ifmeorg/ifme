@@ -155,12 +155,19 @@ export const Modal = (props: Props): Node => {
 
   const resolveElement = () => {
     let renderComponent;
+    let isInteractive = false; // To determine if the element is interactive
+    
     if (element && element.component) {
       const { component, props: elementProps } = element;
       renderComponent = React.createElement(resolveComponent(component), {
         ...elementProps,
       });
+      // Check if the component is interactive (has onClick or explicit role)
+      isInteractive = elementProps.onClick || elementProps.role;
+    } else if (element && typeof element === 'object' && element.type === 'button') {
+      isInteractive = true;  // Button is inherently interactive
     }
+  
     if (element) {
       return (
         <div
@@ -168,8 +175,9 @@ export const Modal = (props: Props): Node => {
           className={`modalElement ${css.modalElement} ${className || ''}`}
           onClick={toggleOpen}
           onKeyDown={(event) => handleKeyPress(event, 'Enter')}
-          role="button"
-          tabIndex={0}
+          // Apply role and tabIndex only if the content is not interactive
+          role={!isInteractive ? 'button' : undefined}
+          tabIndex={!isInteractive ? 0 : undefined}
         >
           {renderComponent || Utils.renderContent(element)}
         </div>
@@ -177,6 +185,7 @@ export const Modal = (props: Props): Node => {
     }
     return null;
   };
+  
 
   return (
     <>
