@@ -10,7 +10,7 @@ README in: [Bangla](https://github.com/ifmeorg/ifme/blob/main/README-BN.md), [�
 [फ्रेंच](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [कोरियन](https://github.com/ifmeorg/ifme/blob/main/README-KO.md),
 [इन्डोनेशियन](https://github.com/ifmeorg/ifme/blob/main/README-ID.md), [तुर्की](https://github.com/ifmeorg/ifme/blob/main/README-TR.md),
 [सिंहली](https://github.com/ifmeorg/ifme/blob/main/README-LK.md), [चीनी](https://github.com/ifmeorg/ifme/blob/main/README-CN.md), [अरबी](https://github.com/ifmeorg/ifme/blob/main/README-AR.md), [वियतनामी](https://github.com/ifmeorg/ifme/blob/main/README-VI.md)
-
+, [फ़ारसी](https://github.com/ifmeorg/ifme/blob/main/README-FA.md)
 # if-me.org
 
 [if-me.org](https://www.if-me.org/) मानसिक स्वास्थ्य के अनुभवों के लिए एक समुदाय है
