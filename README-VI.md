@@ -7,7 +7,7 @@
 [![Awesome Humane Tech](https://raw.githubusercontent.com/humanetech-community/awesome-humane-tech/main/humane-tech-badge.svg?sanitize=true)](https://github.com/humanetech-community/awesome-humane-tech)
 
 README trong các ngôn ngữ khác: [Bangla](https://github.com/ifmeorg/ifme/blob/main/README-BN.md), [Tiếng Ý](https://github.com/ifmeorg/ifme/blob/main/README-IT.md), [Tiếng Anh](https://github.com/ifmeorg/ifme/blob/main/README.md), [Tiếng Tây Ban Nha](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [Tiếng Bồ Đào Nha](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [Tiếng Pháp](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [Tiếng Hàn](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), [Tiếng Indonesia](https://github.com/ifmeorg/ifme/blob/main/README-ID.md), [Tiếng Thổ Nhĩ Kì](https://github.com/ifmeorg/ifme/blob/main/README-TR.md), [Tiếng Sinhala](https://github.com/ifmeorg/ifme/blob/main/README-LK.md), [Tiếng Trung](https://github.com/ifmeorg/ifme/blob/main/README-CN.md),
-[Tiếng Hindi](https://github.com/ifmeorg/ifme/blob/main/README-HI.md), [Tiếng Ả Rập](https://github.com/ifmeorg/ifme/blob/main/README-AR.md)
+[Tiếng Hindi](https://github.com/ifmeorg/ifme/blob/main/README-HI.md), [Tiếng Ả Rập](https://github.com/ifmeorg/ifme/blob/main/README-AR.md), [Tiếng Ba Tư](https://github.com/ifmeorg/ifme/blob/main/README-FA.md)
 
 # if-me.org
 
