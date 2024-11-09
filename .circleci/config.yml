@@ -111,7 +111,8 @@ jobs:
           root: tmp
           paths:
             - codeclimate.backend.json
-      - run: bundle exec bundle-audit check --update
+        # Wait for Sinatra be upgraded to fix security issue
+      - run: bundle exec bundle-audit check --update --ignore CVE-2024-21510
       - store_test_results:
           path: /tmp/circleci-test-results
       - store_artifacts:
