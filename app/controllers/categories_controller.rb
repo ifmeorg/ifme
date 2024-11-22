@@ -28,6 +28,10 @@ class CategoriesController < ApplicationController
   def show
     setup_stories
     redirect_to_path(categories_path) if @category.user_id != current_user.id
+    @page_new_buttons = [
+      { text: t('moments.new'), path: new_moment_path(category: @category.slug) },
+      { text: t('strategies.new'), path: new_strategy_path(category: @category.slug) }
+    ]
   end
 
   # GET /categories/new
