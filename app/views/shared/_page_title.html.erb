@@ -23,6 +23,15 @@
     <div class="pageTitleRight">
       <%= link_to @page_new, yield(:page_new), class: 'buttonM' %>
     </div>
+  <% elsif @page_new_buttons.present? %>
+    <div>
+      <%= yield(:title) %>
+    </div>
+    <div class="pageTitleRight">
+      <% @page_new_buttons.each_with_index do |button, index| %>
+        <%= link_to button[:text], button[:path], class: "buttonM #{index > 0 ? 'marginLeft' : ''}" %>
+      <% end %>
+    </div>
   <% elsif @page_author.present? %>
     <div>
       <%= yield(:title) %>
