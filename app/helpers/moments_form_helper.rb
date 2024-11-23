@@ -122,7 +122,12 @@ module MomentsFormHelper
   def data_for(item)
     case item.class.name
     when 'Category'
-      @moment.categories.pluck(:id)
+      ids = @moment.categories.pluck(:id)
+      if params[:category].present? && ids.empty?
+        category = Category.friendly.find_by(slug: params[:category])
+        ids << category.id if category
+      end
+      ids
     when 'Mood'
       @moment.moods.pluck(:id)
     when 'Strategy'
