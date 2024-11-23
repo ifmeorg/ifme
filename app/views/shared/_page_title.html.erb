@@ -29,7 +29,7 @@
     </div>
     <div class="pageTitleRight">
       <% @page_new_buttons.each_with_index do |button, index| %>
-        <%= link_to button[:text], button[:path], class: "buttonM #{index > 0 ? 'marginLeft' : ''}" %>
+        <%= link_to button[:text], button[:path], class: "buttonM" %>
       <% end %>
     </div>
   <% elsif @page_author.present? %>
