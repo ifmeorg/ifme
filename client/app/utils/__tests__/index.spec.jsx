@@ -106,7 +106,11 @@ describe('Utils', () => {
     });
 
     it('should apply attributes to React elements', () => {
-      const reactElement = React.createElement('div', { className: 'test' }, 'Test content');
+      const reactElement = React.createElement(
+        'div',
+        { className: 'test' },
+        'Test content',
+      );
       const attributes = { 'aria-labelledby': 'test-id' };
       const renderedContent = Utils.renderContent(reactElement, attributes);
       expect(renderedContent.props['aria-labelledby']).toEqual('test-id');

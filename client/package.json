@@ -91,6 +91,7 @@
     "eslint-plugin-jest": "^24.0.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^5.0.0",
     "extract-css-chunks-webpack-plugin": "^4.9.0",
     "file-loader": "^6.0.0",
     "flow-bin": "^0.176.1",

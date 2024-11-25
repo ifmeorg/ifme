@@ -184,7 +184,7 @@ export const Resources = ({
     } else {
       history.replace({ pathname: '/resources', search: '' });
     }
-  }, [checkboxes]);
+  }, [history, resources, checkboxes]);
 
   useEffect(() => {
     setLastPage(filteredResources.length <= RESOURCES_PER_PAGE);

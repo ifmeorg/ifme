@@ -117,7 +117,7 @@ export function InputTextarea(props: Props): Node {
       });
       editor.current.content.innerHTML = value;
     }
-  }, []);
+  }, [value]);
 
   return (
     <div

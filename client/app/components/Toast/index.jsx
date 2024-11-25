@@ -1,5 +1,5 @@
 // @flow
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { Node } from 'react';
 import { I18n } from 'libs/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -32,12 +32,16 @@ export const Toast = ({ alert, notice, appendDashboardClass }: Props): Node => {
   const hideAlert = () => {
     setShowAlert(false);
   };
-  if (showAlert || showNotice) {
-    setTimeout(() => {
-      hideNotice();
-      hideAlert();
-    }, 7000);
-  }
+
+  useEffect(() => {
+    if (showAlert || showNotice) {
+      setTimeout(() => {
+        hideNotice();
+        hideAlert();
+      }, 7000);
+    }
+  }, [showAlert, showNotice]);
+
   return (
     <>
       <div
