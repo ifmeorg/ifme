@@ -50,6 +50,7 @@ export const Modal = (props: Props): Node => {
   } = props;
 
   const [open, setOpen] = useState(!!openProps);
+  const [isInteractive, setIsInteractive] = useState(false);
   const [modalHasFocus, setModalHasFocus] = useState(true);
   const modalEl = useRef(null);
 
@@ -153,24 +154,20 @@ export const Modal = (props: Props): Node => {
     }
   };
 
-  const resolveElement = () => {
-    let renderComponent;
-    let isInteractive = false;
-
+  useEffect(() => {
     if (element && element.component) {
-      const { component, props: elementProps } = element;
-      renderComponent = React.createElement(resolveComponent(component), {
-        ...elementProps,
-      });
-      isInteractive = !!elementProps.onClick || !!elementProps.role;
+      const { props: elementProps } = element;
+      setIsInteractive(!!elementProps.onClick);
     } else if (
       element
       && typeof element === 'object'
       && element.type === 'button'
     ) {
-      isInteractive = true;
+      setIsInteractive(true);
     }
+  }, [element]);
 
+  const resolveElement = () => {
     if (element) {
       return (
         <div
@@ -183,7 +180,25 @@ export const Modal = (props: Props): Node => {
             !isInteractive ? (event) => handleKeyPress(event, 'Enter') : undefined
           }
         >
-          {renderComponent || Utils.renderContent(element)}
+          {element && element.component
+            ? React.createElement(resolveComponent(element.component), {
+              ...element.props,
+              tabIndex: !isInteractive ? 0 : undefined,
+              onClick: !isInteractive ? toggleOpen : undefined,
+              onKeyDown: !isInteractive
+                ? (event) => handleKeyPress(event, 'Enter')
+                : undefined,
+            })
+            : Utils.renderContent(
+              element,
+              typeof element === 'object' && element.type === 'button'
+                ? {
+                  tabIndex: 0,
+                  onClick: toggleOpen,
+                  onKeyDown: (event) => handleKeyPress(event, 'Enter'),
+                }
+                : {},
+            )}
         </div>
       );
     }

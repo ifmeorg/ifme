@@ -112,9 +112,7 @@ describe('Modal', () => {
         ).not.toBeInTheDocument();
         expect(screen.queryByRole('dialog')).toBeNull();
 
-        await userEvent.click(
-          screen.getAllByRole('button', { name: 'Hello' })[1],
-        );
+        await userEvent.click(screen.getByRole('button', { name: 'Hello' }));
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
 
@@ -142,9 +140,7 @@ describe('Modal', () => {
         ).not.toBeInTheDocument();
         expect(screen.queryByRole('dialog')).toBeNull();
 
-        await userEvent.click(
-          screen.getAllByRole('button', { name: 'Hello' })[1],
-        );
+        await userEvent.click(screen.getByRole('button', { name: 'Hello' }));
         expect(window.alert).toHaveBeenCalledWith("Hey look it's listening");
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
@@ -324,9 +320,7 @@ describe('Modal', () => {
         ).not.toBeInTheDocument();
         expect(screen.queryByRole('dialog')).toBeNull();
 
-        await userEvent.click(
-          screen.getAllByRole('button', { name: 'Hello' })[1],
-        );
+        await userEvent.click(screen.getByRole('button', { name: 'Hello' }));
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
       });
@@ -353,9 +347,7 @@ describe('Modal', () => {
         ).not.toBeInTheDocument();
         expect(screen.queryByRole('dialog')).toBeNull();
 
-        await userEvent.click(
-          screen.getAllByRole('button', { name: 'Hello' })[1],
-        );
+        await userEvent.click(screen.getByRole('button', { name: 'Hello' }));
         expect(window.alert).toHaveBeenCalledWith("Hey look it's listening");
         expect(container.querySelector('.modalBackdrop')).toBeInTheDocument();
         expect(screen.getByRole('dialog')).toBeInTheDocument();
