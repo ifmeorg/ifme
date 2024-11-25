@@ -16,14 +16,18 @@ describe('ToggleLocale', () => {
   });
 
   it('does nothing if the previous locale is the same as the selected', async () => {
-    const axiosPostSpy = jest.spyOn(axios, 'post').mockImplementation(() => Promise.resolve());
+    const axiosPostSpy = jest
+      .spyOn(axios, 'post')
+      .mockImplementation(() => Promise.resolve());
     render(component);
     await userEvent.selectOptions(screen.getByRole('combobox'), 'en');
     expect(axiosPostSpy).not.toHaveBeenCalled();
   });
 
   it('sets the locale cookie and makes a post request if the selected locale is different from the previous', async () => {
-    const axiosPostSpy = jest.spyOn(axios, 'post').mockImplementation(() => Promise.resolve());
+    const axiosPostSpy = jest
+      .spyOn(axios, 'post')
+      .mockImplementation(() => Promise.resolve());
     render(component);
     await userEvent.selectOptions(screen.getByRole('combobox'), 'es');
     expect(Cookies.set).toHaveBeenCalledWith('locale', 'es');
