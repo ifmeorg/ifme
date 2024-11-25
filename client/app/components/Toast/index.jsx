@@ -34,12 +34,16 @@ export const Toast = ({ alert, notice, appendDashboardClass }: Props): Node => {
   };
 
   useEffect(() => {
+    let timer;
     if (showAlert || showNotice) {
-      setTimeout(() => {
+      timer = setTimeout(() => {
         hideNotice();
         hideAlert();
       }, 7000);
     }
+    return () => {
+      clearTimeout(timer);
+    };
   }, [showAlert, showNotice]);
 
   return (

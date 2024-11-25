@@ -13,7 +13,7 @@ export const noticeToast = Template.bind({});
 
 noticeToast.args = {
   notice: 'Login successful.',
-  appendDashboardClass: 'true',
+  appendDashboardClass: true,
 };
 noticeToast.storyName = 'Toast Type: Notice';
 

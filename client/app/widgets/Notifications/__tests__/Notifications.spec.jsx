@@ -10,21 +10,22 @@ const button = <button type="button">Notifications</button>;
 
 describe('Notifications', () => {
   it('gets notifications and clears them', async (done) => {
-    jest
+    const axiosGetSpy = jest
       .spyOn(axios, 'get')
       .mockReturnValueOnce(Promise.resolve({ data: { signed_in: 1 } }))
       .mockReturnValueOnce(
         Promise.resolve({ data: { fetch_notifications: ['Hello'] } }),
-      );
+      )
+      .mockReturnValue(Promise.resolve());
     jest
       .spyOn(axios, 'delete')
       .mockReturnValue(Promise.resolve({ data: { ok: true } }));
     render(<Notifications element={button} />);
-    await waitFor(() => expect(axios.get).toHaveBeenCalledWith('/notifications/signed_in'));
-    await waitFor(() => expect(axios.get).toHaveBeenCalledWith(
+    await waitFor(() => expect(axiosGetSpy).toHaveBeenCalledWith('/notifications/signed_in'));
+    await waitFor(() => expect(axiosGetSpy).toHaveBeenCalledWith(
       '/notifications/fetch_notifications',
     ));
-    expect(axios.get).toHaveBeenCalledTimes(3);
+    expect(axiosGetSpy).toHaveBeenCalledTimes(3);
     expect(screen.getByText('Hello')).toBeInTheDocument();
     fireEvent.click(screen.getByText('Clear'));
     await waitFor(() => {

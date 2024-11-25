@@ -9,20 +9,14 @@ describe('Toast', () => {
   describe('Toast Type: Alert', () => {
     it('renders correctly', () => {
       render(
-        <Toast
-          alert="Invalid username or password."
-          appendDashboardClass="true"
-        />,
+        <Toast alert="Invalid username or password." appendDashboardClass />,
       );
       expect(screen).not.toBeNull();
     });
 
     it('closes correctly on button click', () => {
       const { getByRole, container } = render(
-        <Toast
-          alert="Invalid username or password."
-          appendDashboardClass="true"
-        />,
+        <Toast alert="Invalid username or password." appendDashboardClass />,
       );
 
       const toastContent = getByRole('alert');
@@ -35,10 +29,7 @@ describe('Toast', () => {
 
     it('closes automatically after 7 seconds', async () => {
       const { getByRole } = render(
-        <Toast
-          alert="Invalid username or password."
-          appendDashboardClass="true"
-        />,
+        <Toast alert="Invalid username or password." appendDashboardClass />,
       );
 
       const toastContent = getByRole('alert');
