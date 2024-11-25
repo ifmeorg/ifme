@@ -1,6 +1,6 @@
 {
   "plugins": ["flowtype", "jest", "react", "ft-flow"],
-  "extends": ["airbnb", "plugin:flowtype/recommended"],
+  "extends": ["airbnb", "plugin:flowtype/recommended", "plugin:react-hooks/recommended"],
   "parser": "@babel/eslint-parser",
   "parserOptions": {
     "requireConfigFile": false

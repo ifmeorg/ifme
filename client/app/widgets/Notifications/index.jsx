@@ -1,5 +1,5 @@
 // @flow
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import type { Node } from 'react';
 import axios from 'axios';
 import { I18n } from 'libs/i18n';
@@ -39,34 +39,19 @@ export const Notifications = ({ element, pusher }: Props): Node => {
     window.document.title = count === 0 ? title : `(${count}) ${title}`;
   };
 
-  const fetchNotifications = () => axios.get('/notifications/fetch_notifications').then((response: any) => {
-    if (response && response.data && response.data.fetch_notifications) {
-      changeTitle(response.data.fetch_notifications.length);
-      setBody(response.data.fetch_notifications);
-      if (!alreadyMounted && response.data.fetch_notifications.length > 0) {
-        setAlreadyMounted(true);
-        setOpen(true);
-        setModalKey(Utils.randomString());
-      }
-    }
-  });
-
-  const fetchData = () => {
-    Utils.setCsrfToken();
-    return axios.get('/notifications/signed_in').then((response: any) => {
-      if (response && response.data && !!response.data.signed_in) {
-        if (pusher) {
-          const channel = pusher.subscribe(
-            `private-${response.data.signed_in}`,
-          );
-          channel.bind('new_notification', () => {
-            fetchNotifications();
-          });
+  const fetchNotifications = useCallback(() => {
+    axios.get('/notifications/fetch_notifications').then((response: any) => {
+      if (response && response.data && response.data.fetch_notifications) {
+        changeTitle(response.data.fetch_notifications.length);
+        setBody(response.data.fetch_notifications);
+        if (!alreadyMounted && response.data.fetch_notifications.length > 0) {
+          setAlreadyMounted(true);
+          setOpen(true);
+          setModalKey(Utils.randomString());
         }
-        fetchNotifications();
       }
     });
-  };
+  }, [alreadyMounted]);
 
   const clearNotifications = () => {
     axios.delete('/notifications/clear').then((response: any) => {
@@ -93,8 +78,24 @@ export const Notifications = ({ element, pusher }: Props): Node => {
   );
 
   useEffect(() => {
+    const fetchData = () => {
+      Utils.setCsrfToken();
+      return axios.get('/notifications/signed_in').then((response: any) => {
+        if (response && response.data && !!response.data.signed_in) {
+          if (pusher) {
+            const channel = pusher.subscribe(
+              `private-${response.data.signed_in}`,
+            );
+            channel.bind('new_notification', () => {
+              fetchNotifications();
+            });
+          }
+          fetchNotifications();
+        }
+      });
+    };
     fetchData();
-  }, []);
+  }, [fetchNotifications, pusher]);
 
   return (
     <Modal

@@ -24,7 +24,7 @@ describe('Notifications', () => {
     await waitFor(() => expect(axios.get).toHaveBeenCalledWith(
       '/notifications/fetch_notifications',
     ));
-    expect(axios.get).toHaveBeenCalledTimes(2);
+    expect(axios.get).toHaveBeenCalledTimes(3);
     expect(screen.getByText('Hello')).toBeInTheDocument();
     fireEvent.click(screen.getByText('Clear'));
     await waitFor(() => {
