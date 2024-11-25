@@ -45,7 +45,7 @@
     </div>
   </div>
 <% end %>
-<% if @accepted_allies.present? %>
+<% if @accepted_allies.exists? %>
   <div class="marginTop">
     <div class="title"><%= t('allies.index.title') %></div>
     <div class="gridThree">
@@ -67,7 +67,7 @@
   </div>
 <% end %>
 
-<% if @outgoing_ally_requests.empty? && @incoming_ally_requests.empty? && @accepted_allies.count == 0 %>
+<% if @outgoing_ally_requests.empty? && @incoming_ally_requests.empty? && @accepted_allies.empty? %>
   <div class="marginTop">
     <%= t('allies.index.none') %>
   </div>

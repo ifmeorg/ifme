@@ -6,11 +6,11 @@ class AlliesController < ApplicationController
   def index
     @page_search = true
     @accepted_allies = current_user.allies_by_status(:accepted)
-                                   .sort_by! { |n| n.name.downcase }
+                                   .order('LOWER(name)')
     @incoming_ally_requests = current_user.allies_by_status(:pending_from_user)
-                                          .sort_by! { |n| n.name.downcase }
+                                          .order('LOWER(name)')
     @outgoing_ally_requests = current_user.allies_by_status(:pending_from_ally)
-                                          .sort_by! { |n| n.name.downcase }
+                                          .order('LOWER(name)')
     @invited_allies = User.where(
       invited_by_id: current_user.id, invitation_accepted_at: nil
     )
