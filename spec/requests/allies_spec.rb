@@ -20,9 +20,12 @@ describe AlliesController do
       end
 
       it 'correctly includes pending and accepted allies' do
-        allow(user).to receive(:allies_by_status).with(:accepted).and_return([ally])
-        allow(user).to receive(:allies_by_status).with(:pending_from_user).and_return([incoming_ally])
-        allow(user).to receive(:allies_by_status).with(:pending_from_ally).and_return([outgoing_ally])
+        allow(user).to receive(:allies_by_status).with(:accepted)
+                                                 .and_return(User.where(id: ally.id))
+        allow(user).to receive(:allies_by_status).with(:pending_from_user)
+                                                 .and_return(User.where(id: incoming_ally.id))
+        allow(user).to receive(:allies_by_status).with(:pending_from_ally)
+                                                 .and_return(User.where(id: outgoing_ally.id))
         subject
         expect(response.body).to include('Stella') && include('Marco') && include('Sam')
       end
