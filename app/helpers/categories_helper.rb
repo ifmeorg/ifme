@@ -56,6 +56,11 @@ module CategoriesHelper
     }
   end
 
+  def category_input_props(field, type, label, group = false)
+    { id: "moment_#{field}", type:,
+      name: "moment[#{field}]#{group ? '[]' : ''}", label: t(label) }
+  end
+
   def category_form_inputs
     [
       category_name(@category&.name),
@@ -99,5 +104,21 @@ module CategoriesHelper
       uncheckedValue: false,
       checked: visible
     }
+  end
+
+  def quick_create_props(model_relation, form_props)
+    model_name = model_relation.name.downcase
+    category_input_props(
+      model_name, 'quickCreate', "#{model_name.pluralize}.plural", true
+    ).merge(placeholder: t('common.form.search_by_keywords'),
+            checkboxes: checkboxes_for(model_relation), formProps: form_props)
+  end
+
+  def category_moment
+    quick_create_props(@moments, quick_create_moment_props)
+  end
+
+  def category_strategy
+    quick_create_props(@strategies, quick_create_strategy_props)
   end
 end

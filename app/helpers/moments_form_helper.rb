@@ -9,6 +9,12 @@ module MomentsFormHelper
     new_form_props(moment_form_inputs, moments_path)
   end
 
+  def quick_create_moment_props
+    quick_create_form_props(
+      moment_form_inputs, quick_create_moments_path
+    )
+  end
+
   def edit_moment_props
     edit_form_props(moment_form_inputs(true), moment_path(@moment))
   end
