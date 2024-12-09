@@ -26,19 +26,28 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 if ENV['SELENIUM_REMOTE_HOST']
+  # Set up remote Firefox for Capybara
   Capybara.javascript_driver = :selenium_remote_firefox
-  Capybara.register_driver 'selenium_remote_firefox'.to_sym do |app|
+
+  Capybara.register_driver :selenium_remote_firefox do |app|
+    options = Selenium::WebDriver::Firefox::Options.new
+    options.args << '--headless' # Optional: Run Firefox in headless mode
+
+    # Create the remote driver with options set
     Capybara::Selenium::Driver.new(
       app,
       browser: :remote,
       url: "http://#{ENV['SELENIUM_REMOTE_HOST']}:4444/wd/hub",
-      desired_capabilities: :firefox,
+      options: options,  # Ensure options are passed here
       timeout: 60
     )
   end
+
+  # Get container's IP address (if needed for server_host setup)
   ip = `/sbin/ip route|awk '/scope/ { print $9 }'`.delete("\n")
   Capybara.server_host = ip
 else
+  # Fallback if not using remote Selenium
   Capybara.javascript_driver = :selenium_chrome_headless
 end
 
@@ -112,3 +121,5 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+DatabaseCleaner.allow_remote_database_url = true

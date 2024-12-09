@@ -1,12 +1,56 @@
 version: '3'
 services:
   app:
+    build:
+      context: .
+    volumes:
+      - .:/app
+      - node_cache:/app/client/node_modules
+      - bundle_cache:/bundle
     depends_on:
       - selenium
+      - db
     environment:
       - SELENIUM_REMOTE_HOST=selenium
+      - BUNDLE_PATH=/bundle/vendor
       - RAILS_ENV=test
-      - RACK_ENV=test
+      - NODE_ENV=test
+      - DATABASE_URL=postgres://postgres:password@db:5432/ifme_test
+      - GITHUB_CLIENT_ID=
+      - GITHUB_CLIENT_SECRET=
+      - GOOGLE_CLIENT_ID=
+      - GOOGLE_CLIENT_SECRET=
+    tty: true
+    stdin_open: true
+    command: /bin/sh -c "wait-for-it db:5432 --timeout=30 -- bundle exec rspec"
+
+  db:
+    image: postgres:9.6-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=ifme_test
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "ifme_test", "-h", "localhost"]
+      interval: 5s
+      retries: 5
+      start_period: 5s
+      timeout: 5s
+
   selenium:
     image: selenium/standalone-firefox
     container_name: selenium
+    environment:
+      - SE_NODE_MAX_INSTANCES=1
+      - SE_NODE_PORT=5555
+      - SE_NODE_SESSION_TIMEOUT=300
+      - SE_NODE_CLEAN_UP_CYCLE=5000
+
+volumes:
+  bundle_cache:
+  postgres_volume:
+  node_cache:
