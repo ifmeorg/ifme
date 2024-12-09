@@ -11,6 +11,8 @@ require 'rspec/rails'
 require 'rspec/collection_matchers'
 require 'capybara/rails'
 require 'capybara/rspec'
+require 'shoulda/matchers'
+require 'database_cleaner'
 
 include Warden::Test::Helpers
 Warden.test_mode!

@@ -100,7 +100,7 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'rails-controller-testing'
-  gem 'shoulda-matchers', '~> 5.3.0'
+  gem 'shoulda-matchers', '~> 6.0'
   gem 'simplecov', '~> 0.17.0'
 end
 

@@ -538,7 +538,7 @@ GEM
     semantic_range (3.0.0)
     sentry-ruby (5.9.0)
       concurrent-ruby (~> 1.0, >= 1.0.2)
-    shoulda-matchers (5.3.0)
+    shoulda-matchers (6.4.0)
       activesupport (>= 5.2.0)
     sidekiq (6.5.10)
       connection_pool (>= 2.2.5, < 3)
@@ -686,7 +686,7 @@ DEPENDENCIES
   sdoc (= 1.0.0)
   selenium-webdriver (~> 4.22.0)
   sentry-ruby
-  shoulda-matchers (~> 5.3.0)
+  shoulda-matchers (~> 6.0)
   sidekiq (= 6.5.10)
   sidekiq-cron (~> 1.1)
   sidekiq-failures
