@@ -15,6 +15,11 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -\
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# Install the postgresql client
+RUN apt-get update -qq && apt-get install -y postgresql-client
+
+RUN apt-get update && apt-get install -y iproute2
+
 RUN mkdir /app
 WORKDIR /app
 

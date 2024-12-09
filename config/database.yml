@@ -17,6 +17,7 @@ test:
   username: <%= ENV['PSQL_USERNAME'] %>
   password: <%= ENV['PSQL_PASSWORD'] %>
   min_messages: error
+  url: <%= ENV['DATABASE_URL'] %>
 production:
   <<: *default
   database: ifme_production
