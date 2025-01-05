@@ -117,7 +117,8 @@ export function InputTextarea(props: Props): Node {
       });
       editor.current.content.innerHTML = value;
     }
-  }, [value]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div
