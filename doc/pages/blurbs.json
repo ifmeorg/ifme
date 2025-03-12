@@ -2,7 +2,7 @@
   {
     "name": "Julia Nguyen",
     "image": "/assets/contributors/julia_nguyen.jpg",
-    "profile": "Being open and honest about my journey with obsessive-compulsive disorder (OCD), complex post-traumatic stress disorder (C-PTSD), and depression helps me to accept myself and reach out for support. My hope is to encourage others to feel more comfortable about sharing their experiences. Growing up as a daughter in a Việt refugee family, it was difficult to talk about mental illness openly. I created if-me.org as a tool to engage loved ones in mental health conversations. Working on this for many years has helped me explore and reclaim my own mental health 💜",
+    "profile": "Being open and honest about my journey with obsessive-compulsive disorder (OCD), complex post-traumatic stress disorder (C-PTSD), and depression helps me to accept myself and reach out for support. My hope is to encourage others to feel more comfortable about sharing their experiences. Growing up as a child in a Việt refugee family, it was difficult to talk about mental illness openly. I created if-me.org as a tool to engage loved ones in mental health conversations. Working on this for many years has helped me explore and reclaim my own mental health 💜",
     "location": "Toronto, Canada",
     "link_name": "julia.tech",
     "link": "http://julia.tech",
@@ -209,7 +209,7 @@
   {
     "name": "Maribel Duran",
     "image": "/assets/contributors/maribel_duran.jpg",
-    "profile": "My mission is to inspire others to be healthy, kind, adventurous, and to celebrate life which is why I am contributing to applications that empower and motivate lives. I am so grateful to be part of this open source project that empowers people struggling with mental health to talk about their experiences.<br /><br />To me, mental health means being able to cultivate energy, inner peace, and wellbeing. This the most important gift we can give to ourselves. However, in the pressured societies we live in, we are constantly surrounded by stress, threat, and other difficulties. It is easier to give into these negative feelings, but we can overcome this by fighting to think positive and promote mental health awareness. It’s not an easy battle, but it’s worth the fight :)",
+    "profile": "My mission is to inspire others to be healthy, kind, adventurous, and to celebrate life which is why I am contributing to applications that empower and motivate lives. I am so grateful to be part of this open source project that empowers people struggling with mental health to talk about their experiences.<br /><br />To me, mental health means being able to cultivate energy, inner peace, and wellbeing. This the most important gift we can give to ourselves. However, in the pressured societies we live in, we are constantly surrounded by stress, threat, and other difficulties. It is easier to give into these negative feelings, but we can overcome this by fighting to think positive and promote mental health awareness. It's not an easy battle, but it's worth the fight :)",
     "location": "Danville, USA",
     "link_name": "maribelduran",
     "link": "http://github.com/maribelduran",
@@ -380,7 +380,7 @@
   {
     "name": "Kelly Sousa",
     "image": "/assets/contributors/kelly_sousa.png",
-    "profile": "I spent years running away from the things that were bothering me in hopes that distractions would make them disappear. As a person who would normally not accept or express the need for help, I realized by not mourning the lives and relationships of those no longer in my life, I had eventually pent up so much negative energy that my life began to quickly unravel.  Soon after, I was diagnosed with dysthymia and I started going to therapy and figuring out what medications I would need to slowly start getting my shit together. I am not over the hump and understand that this could be lifelong. I’ve had to take a break from therapy for financial reasons but I know I owe it to myself to go back and continue to grow. I’m thrilled to be able to contribute to if-me.org and help normalize the discussion of mental health. I really believe it’s critical to have open-source communities and share and learn from each others’ experiences",
+    "profile": "I spent years running away from the things that were bothering me in hopes that distractions would make them disappear. As a person who would normally not accept or express the need for help, I realized by not mourning the lives and relationships of those no longer in my life, I had eventually pent up so much negative energy that my life began to quickly unravel.  Soon after, I was diagnosed with dysthymia and I started going to therapy and figuring out what medications I would need to slowly start getting my shit together. I am not over the hump and understand that this could be lifelong. I've had to take a break from therapy for financial reasons but I know I owe it to myself to go back and continue to grow. I'm thrilled to be able to contribute to if-me.org and help normalize the discussion of mental health. I really believe it's critical to have open-source communities and share and learn from each others' experiences",
     "location": "San Francisco, CA",
     "link_name": "Kell_Stack",
     "link": "https://twitter.com/kell_stack",
@@ -407,7 +407,7 @@
   {
     "name": "Yuridia Larios",
     "image": "/assets/contributors/yuri.jpg",
-    "profile": "I’m Yuridia Larios current Software Engineering apprentice at Techtonica, an intensive technology training program for women of color and women with low incomes. I’m passionate about Building and designing web-apps and games, my focus right now is full-stack javascript and I am interested in future technologies such as VR prototyping. I love coding and design because I can think of things and I can build them and bring them to real life. Prior Techtonica, I studied Java and Android programming as part of the engineering and computer science program. At the same time, I attended Mission Techies in San Francisco, an intensive technical training program where I worked with IT essentials of hardware, software, networking and coding.",
+    "profile": "I'm Yuridia Larios current Software Engineering apprentice at Techtonica, an intensive technology training program for women of color and women with low incomes. I'm passionate about Building and designing web-apps and games, my focus right now is full-stack javascript and I am interested in future technologies such as VR prototyping. I love coding and design because I can think of things and I can build them and bring them to real life. Prior Techtonica, I studied Java and Android programming as part of the engineering and computer science program. At the same time, I attended Mission Techies in San Francisco, an intensive technical training program where I worked with IT essentials of hardware, software, networking and coding.",
     "location": "San Francisco, CA",
     "link_name": "YuridiaLarios",
     "link": "https://github.com/YuridiaLarios",
@@ -452,7 +452,7 @@
   {
     "name": "Valeria Kolisnyk",
     "image": "/assets/contributors/valeria_kolisnyk.jpg",
-    "profile": "I’ve been struggling with attacks of aggression and periods of depression for several years now, so I understand how important it is to develop this application. This is my first pull-request to an open-source project and I glad that I contributed to ifme.",
+    "profile": "I've been struggling with attacks of aggression and periods of depression for several years now, so I understand how important it is to develop this application. This is my first pull-request to an open-source project and I glad that I contributed to ifme.",
     "location": "Dnipro, Ukraine",
     "link_name": "kolisnyklera",
     "link": "https://github.com/kolisnyklera",
@@ -753,5 +753,14 @@
     "link_name": "oliverTwist2",
     "link": "https://github.com/oliverTwist2",
     "social": "github"
+  },
+  {
+    "name": "Irmak Aytekin",
+    "image": "/assets/contributors/irmak_aytekin.jpg",
+    "profile": "I'm a student researcher exploring how artificial intelligence can improve mental health support and care at the University of Toronto. I'm passionate about leveraging AI to create accessible, proactive, and personalized interventions for people navigating mental health challenges. I believe that thoughtful, ethically designed AI has the potential to bridge gaps in mental health services and reach individuals who might otherwise struggle in silence. By joining this project, I hope to collaborate, learn, and contribute toward more empathetic and inclusive AI solutions that empower our global community.",
+    "location": "Toronto, Canada",
+    "link_name": "LinkedIn",
+    "link": "https://www.linkedin.com/in/irmak-mavi-aytekin-593774207",
+    "social": "linkedin"
   }
 ]
