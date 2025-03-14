@@ -13,29 +13,35 @@ plugins:
       languages:
         ruby: {}
         javascript:
-          mass_threshold: 80
+          mass_threshold: 40
     exclude_paths:
-    - "client/**/__tests__/"
+      - "client/**/__tests__/"
   eslint:
     enabled: true
-    channel: "eslint-7"
+    channel: "stable"
     exclude_paths:
-    - public/javascripts/
-    - vendor/assets/javascripts
-    - client/flow/
+      - public/javascripts/
+      - vendor/assets/javascripts/
+      - client/flow/
   fixme:
     enabled: false
   rubocop:
     enabled: true
-    channel: rubocop-1-56-3
+    channel: "stable"
 ratings:
   paths:
-  - Gemfile.lock
-  - "**.erb"
-  - "**.rb"
-  - "**.css"
-  - "**.js"
+    - "**.rb"
+    - "**.erb"
+    - "**.css"
+    - "**.js"
+engines:
+  duplication:
+    enabled: true
+  rubocop:
+    enabled: true
+  csslint:
+    enabled: true
 exclude_paths:
-- config/
-- db/
-- spec/
+  - config/
+  - db/
+  - spec/
