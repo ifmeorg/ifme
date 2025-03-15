@@ -2,7 +2,7 @@
 import React from 'react';
 import { Modal } from 'components/Modal';
 /* eslint-disable import/no-extraneous-dependencies */
-import photo from 'app/assets/images/contributors/ingrid_garcia.webp';
+import photo from 'app/assets/images/contributors/ingrid_garcia.jpg';
 
 const title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
 

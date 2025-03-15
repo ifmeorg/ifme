@@ -9,7 +9,7 @@ jest.mock('widgets/Notifications', () => ({
 }));
 
 const profileWithAvatar = {
-  avatar: '//congue.volutpat/sollicitudin.webp',
+  avatar: '//congue.volutpat/sollicitudin.jpg',
   name: 'Sollicitudin',
   profile: {
     name: 'Name One',
