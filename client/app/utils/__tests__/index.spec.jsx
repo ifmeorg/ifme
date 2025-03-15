@@ -98,10 +98,10 @@ describe('Utils', () => {
     });
 
     it('should verify that for html strings with vulnerable code, it gets sanitized in object representation', () => {
-      const imageHTMLString = '<img src=img.jpg onerror=alert(1)>';
+      const imageHTMLString = '<img src=img.webp onerror=alert(1)>';
       const imageObject = Utils.renderContent(imageHTMLString);
       expect(imageObject.type).toEqual('img');
-      expect(imageObject.props.src).toEqual('img.jpg');
+      expect(imageObject.props.src).toEqual('img.webp');
       expect(imageObject.props.onError).toBe(undefined);
     });
 

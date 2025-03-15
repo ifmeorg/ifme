@@ -2,7 +2,7 @@
 import React from 'react';
 import { Avatar } from 'components/Avatar';
 /* eslint-disable import/no-extraneous-dependencies */
-import photo from 'app/assets/images/contributors/ingrid_garcia.jpg';
+import photo from 'app/assets/images/contributors/ingrid_garcia.webp';
 
 const name = 'Name';
 

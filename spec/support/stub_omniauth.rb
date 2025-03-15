@@ -8,7 +8,7 @@ module StubOmniauth
       info: {
         email: email,
         name: 'Test User',
-        image: 'http://example.com/image.jpg'
+        image: 'http://example.com/image.webp'
       },
       credentials: {
         token: token,

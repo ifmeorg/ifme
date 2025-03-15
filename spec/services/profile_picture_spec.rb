@@ -2,10 +2,10 @@
 
 COMPONENT_NAME = 'Avatar'
 ALT = 'Profile picture'
-LOCAL_ASSET = '/assets/contributors/ABC123.jpg'
+LOCAL_ASSET = '/assets/contributors/ABC123.webp'
 CLOUDINARY_HOST = 'res.cloudinary.com'
 CLOUDINARY_ASSET_ID = 'XYZ789'
-CLOUDINARY_ASSET_URL = "https://#{CLOUDINARY_HOST}/image/upload/#{CLOUDINARY_ASSET_ID}.jpg"
+CLOUDINARY_ASSET_URL = "https://#{CLOUDINARY_HOST}/image/upload/#{CLOUDINARY_ASSET_ID}.webp"
 OPTIONS = { large: true, alt: 'Hello' }.freeze
 
 describe ProfilePicture do
