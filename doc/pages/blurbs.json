@@ -762,5 +762,14 @@
     "link_name": "LinkedIn",
     "link": "https://www.linkedin.com/in/irmak-mavi-aytekin-593774207",
     "social": "linkedin"
+  },
+  {
+    "name": "Angel Quesada",
+    "image": "/assets/contributors/angel_quesada.jpg",
+    "profile": "I'm a software developer living in Granada, Spain, and like many, I've been navigating challenges with mental health. I want to contribute my part to help.",
+    "location": "Granada, Spain",
+    "link_name": "AngelQuesada",
+    "link": "https://github.com/AngelQuesada",
+    "social": "github"
   }
 ]
