@@ -49,15 +49,15 @@ class MomentsController < ApplicationController
   # POST /moments.json
   def create
     @moment = current_user.moments.build(moment_params)
-    @moment.published_at = Time.zone.now if publishing?
+    @moment.published_at = params[:moment][:publishing] == '1' ? Time.zone.now : nil  # Use unfiltered params
     shared_create(@moment)
   end
 
   # PATCH/PUT /moments/1
   # PATCH/PUT /moments/1.json
   def update
-    if (publishing? && !@moment.published?) || saving_as_draft?
-      @moment.published_at = !saving_as_draft? && Time.zone.now
+    if params[:moment][:publishing]  
+      @moment.published_at = params[:moment][:publishing] == '1' ? Time.zone.now : nil
     end
     empty_array_for :viewers, :mood, :strategy, :category
     shared_update(@moment, moment_params)
