@@ -764,12 +764,12 @@
     "social": "linkedin"
   },
   {
-    "name": "Miguel Angel",
-    "image": "/assets/contributors/miguel_navarrete.png",
-    "profile": "I am a Computer Engineer, a graduate of Duoc UC, and I am passionate about helping the entire community through technology. This project has been a great opportunity to contribute and put my knowledge to the service of those who need it the most. I am motivated to create innovative solutions that can improve people's quality of life, and I believe technology has the power to make a positive impact on society. By joining this project, I hope to collaborate, learn, and contribute to initiatives that promote the well-being of all, fostering a more inclusive and accessible environment for everyone.",
-    "location": "Santiago, Chile",
-    "link_name": "LinkedIn",
-    "link": "https://linkedin.com/in/miguel-navarrete-carrera-0b79091b9",
-    "social": "linkedin"
+    "name": "Angel Quesada",
+    "image": "/assets/contributors/angel_quesada.jpg",
+    "profile": "I'm a software developer living in Granada, Spain, and like many, I've been navigating challenges with mental health. I want to contribute my part to help.",
+    "location": "Granada, Spain",
+    "link_name": "AngelQuesada",
+    "link": "https://github.com/AngelQuesada",
+    "social": "github"
   }
 ]
