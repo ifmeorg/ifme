@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'erb'
 
 # Adapted from https://gist.github.com/Dagnan/175168c456629a4ad1acdba8e0cdedb9
 module AssetsHelper
@@ -13,7 +14,7 @@ module AssetsHelper
     content = inline_file(path, true)
     return nil unless content
 
-    "<style media=\"all\">#{content}</style>".html_safe
+    "<style media=\"all\">#{ERB::Util.html_escape(content)}</style>"
   end
 
   private
