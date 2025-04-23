@@ -33,8 +33,8 @@ module MomentsFormHelper
   def switch_input_props(field, label, options = {})
     switch = base_input_props(field, 'switch', label)
       .with_attributes(
-        value: '1',          # Checked state
-        unchecked_value: '0', # Unchecked state
+        value: '0',          # Checked state
+        unchecked_value: '1', # Unchecked state
         checked: options[:checked],
         dark: true,
         info: options[:info]
@@ -95,7 +95,7 @@ module MomentsFormHelper
     switch_input_props('publishing', 'moments.form.draft_question',
       checked: edit ? !@moment.published? : true  
     ).map do |input|
-      input.with_attributes(value: '1', unchecked_value: '0') 
+      input.with_attributes(value: '0', unchecked_value: '1') 
     end
   end
 
