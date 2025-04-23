@@ -48,8 +48,12 @@ class MeetingsController < ApplicationController
 
   def join
     meeting = Meeting.find(params[:meeting_id])
-    meeting.join(current_user)
-    redirect_to(meeting_path(meeting.id), notice: t('meetings.join_success'))
+    if meeting.member?(current_user)
+      redirect_to group_path(meeting.group_id)
+    else
+      meeting.join(current_user)
+      redirect_to(meeting_path(meeting.id), notice: t('meetings.join_success'))
+    end
   end
 
   def leave
