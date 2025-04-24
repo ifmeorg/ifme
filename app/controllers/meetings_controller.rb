@@ -51,11 +51,7 @@ class MeetingsController < ApplicationController
     if meeting.member?(current_user)
       redirect_to group_path(meeting.group_id)
     else
-      @meeting_member = meeting.meeting_members.create!(
-        user_id: current_user.id, leader: false
-      )
-      send_notification(meeting, meeting.leaders, 'join_meeting')
-
+      meeting.join(current_user)
       redirect_to(meeting_path(meeting.id), notice: t('meetings.join_success'))
     end
   end
