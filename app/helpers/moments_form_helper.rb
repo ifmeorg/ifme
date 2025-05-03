@@ -15,107 +15,124 @@ module MomentsFormHelper
 
   private
 
-  def moment_input_props(field, type, label, group = false)
-    { id: "moment_#{field}", type:,
-      name: "moment[#{field}]#{group ? '[]' : ''}", label: t(label) }
+  def base_input_props(field, type, label, group: false)
+    FormInput.new(
+      id: "moment_#{field}",
+      type: type,
+      name: "moment[#{field}]#{group ? '[]' : ''}",
+      label: t(label)
+    )
   end
 
-  def moment_text_input_props(field, type, label, required = false)
-    moment_input_props(field, type, label)
-      .merge(value: @moment[field] || nil, required:, dark: true)
+  def text_input_props(field, type, label, required: false)
+    base_input_props(field, type, label)
+      .with_value(@moment[field])
+      .with_attributes(required: required, dark: true)
+  end
+
+  def switch_input_props(field, label, options = {})
+    switch = base_input_props(field, 'switch', label)
+      .with_attributes(
+        value: '0',          # Checked state
+        unchecked_value: '1', # Unchecked state
+        checked: options[:checked],
+        dark: true,
+        info: options[:info]
+      )
+    hidden = FormInput.new(
+      id: "moment_#{field}_hidden",
+      type: 'hidden',
+      name: "moment[#{field}]",
+      label: nil
+    ).with_attributes(value: '0')
+    [hidden, switch]
+  end
+
+  def quick_create_input_props(model_relation, form_props)
+    model_name = model_relation.name.downcase
+    base_input_props(model_name, 'quickCreate', "#{model_name.pluralize}.plural", group: true)
+      .with_attributes(
+        placeholder: t('common.form.search_by_keywords'),
+        checkboxes: checkboxes_for(model_relation),
+        form_props: form_props
+      )
   end
 
   def moment_name
-    moment_text_input_props('name', 'text', 'common.name', true)
+    text_input_props('name', 'text', 'common.name', required: true)
   end
 
   def moment_why
-    props = moment_text_input_props(
-      'why', 'textareaTemplate',
-      "moments.form.#{@moment.fix.present? ? 'why_legacy' : 'why'}", true
-    )
-
-    return props if @moment.fix.present?
-
-    props.merge(options: options_for_templates(current_user.moment_templates))
+    label_key = @moment.fix.present? ? 'why_legacy' : 'why'
+    input = text_input_props('why', 'textareaTemplate', "moments.form.#{label_key}", required: true)
+    @moment.fix.present? ? input : input.with_attributes(options: options_for_templates(current_user.moment_templates))
   end
 
   def moment_fix
-    if @moment.fix.present?
-      return moment_text_input_props(
-        'fix', 'textarea', 'moments.form.fix_legacy'
-      )
-    end
-    {}
-  end
-
-  def quick_create_props(model_relation, form_props)
-    model_name = model_relation.name.downcase
-    moment_input_props(
-      model_name, 'quickCreate', "#{model_name.pluralize}.plural", true
-    ).merge(placeholder: t('common.form.search_by_keywords'),
-            checkboxes: checkboxes_for(model_relation), formProps: form_props)
+    @moment.fix.present? ? text_input_props('fix', 'textarea', 'moments.form.fix_legacy') : FormInput.empty
   end
 
   def moment_category
-    quick_create_props(@categories, quick_create_category_props)
+    quick_create_input_props(@categories, quick_create_category_props)
   end
 
   def moment_mood
-    quick_create_props(@moods, quick_create_mood_props)
+    quick_create_input_props(@moods, quick_create_mood_props)
   end
 
   def moment_strategy
-    quick_create_props(@strategies, quick_create_strategy_props)
+    quick_create_input_props(@strategies, quick_create_strategy_props)
   end
 
   def moment_comment
-    moment_input_props('comment', 'switch', 'comment.allow_comments')
-      .merge(value: true, uncheckedValue: false, checked: @moment.comment,
-             info: t('comment.hint'), dark: true)
+    switch_input_props('comment', 'comment.allow_comments',
+      checked: @moment.comment,
+      info: t('comment.hint')
+    )
   end
 
   def moment_publishing(edit)
-    { id: 'moment_publishing', type: 'switch',
-      label: t('moments.form.draft_question'), dark: true, name: 'publishing',
-      value: '0', uncheckedValue: '1',
-      checked: edit ? !@moment.published? : @moment.published? }
+    switch_input_props('publishing', 'moments.form.draft_question',
+      checked: edit ? !@moment.published? : true  
+    ).map do |input|
+      input.with_attributes(value: '0', unchecked_value: '1') 
+    end
   end
 
   def moment_bookmarked
-    moment_input_props(
-      'bookmarked', 'switch', 'moments.form.bookmarked_question'
-    ).merge(
-      value: true, uncheckedValue: false,
-      checked: params[:bookmarked] ? true : @moment.bookmarked,
-      dark: true,
+    checked = params[:bookmarked] ? true : @moment.bookmarked
+    switch_input_props('bookmarked', 'moments.form.bookmarked_question',
+      checked: checked,
       info: t('moments.form.bookmarked_info')
     )
   end
 
   def moment_display_resources
-    moment_input_props('resource_recommendations', 'switch',
-                       'moments.form.resource_recommendations_question')
-      .merge(value: true, uncheckedValue: false,
-             checked: @moment.resource_recommendations, dark: true)
+    switch_input_props('resource_recommendations', 'moments.form.resource_recommendations_question',
+      checked: @moment.resource_recommendations
+    )
   end
 
   def moment_form_inputs(edit = false)
-    [
-      moment_name, moment_why, moment_fix, moment_category, moment_mood,
-      moment_strategy, get_viewers_input(
-        @viewers, 'moment', 'moments', @moment
-      ), moment_comment, moment_publishing(edit), moment_bookmarked,
+    inputs = [
+      moment_name,
+      moment_why,
+      moment_fix,
+      moment_category,
+      moment_mood,
+      moment_strategy,
+      get_viewers_input(@viewers, 'moment', 'moments', @moment),
+      moment_comment,
+      moment_publishing(edit),
+      moment_bookmarked,
       moment_display_resources
     ]
+    inputs.flatten.map(&:to_h)
   end
 
   def checkboxes_for(data)
     data.map do |item|
-      {
-        id: item.slug, label: item.name, value: item.id,
-        checked: data_for(item)&.include?(item.id)
-      }
+      { id: item.slug, label: item.name, value: item.id, checked: data_for(item)&.include?(item.id) }
     end
   end
 
@@ -136,8 +153,36 @@ module MomentsFormHelper
   end
 
   def options_for_templates(data)
-    data.map do |item|
-      { id: item.slug, label: item.name, value: item.description }
-    end
+    data.map { |item| { id: item.slug, label: item.name, value: item.description } }
+  end
+end
+
+class FormInput
+  attr_reader :attributes
+
+  def self.empty
+    new(id: nil, type: nil, name: nil, label: nil).freeze
+  end
+
+  def initialize(id:, type:, name:, label:, attributes: {})
+    @attributes = { id: id, type: type, name: name, label: label }.merge(attributes)
+  end
+
+  def with_value(value)
+    with_attributes(value: value || nil)
+  end
+
+  def with_attributes(new_attrs)
+    self.class.new(
+      id: @attributes[:id],
+      type: @attributes[:type],
+      name: @attributes[:name],
+      label: @attributes[:label],
+      attributes: @attributes.merge(new_attrs)
+    )
+  end
+
+  def to_h
+    @attributes
   end
 end
