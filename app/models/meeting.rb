@@ -45,6 +45,22 @@ class Meeting < ApplicationRecord
     Comment.comments_from(self)
   end
 
+  def join(user)
+    return if member?(user)
+
+    meeting_members.create!(user_id: user.id, leader: false)
+    notify_leaders_of_join(user)
+  end
+
+  def notify_leaders_of_join(user)
+    MeetingNotificationsService.handle_members(
+      current_user: user,
+      meeting: self,
+      type: 'join_meeting',
+      members: leaders
+    )
+  end
+
   def date_time
     return if (date = self.date).blank? || (time = self.time).blank?
 

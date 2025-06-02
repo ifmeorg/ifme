@@ -107,12 +107,23 @@ class MomentsController < ApplicationController
   end
 
   def set_association_variables!
-    @categories = current_user.categories.is_visible
-                              .or(Category.where(id: @moment.category_ids))
-                              .order(created_at: :desc)
+    visible_categories = current_user.categories.is_visible
+    extra_categories = Category.where(id: @moment.category_ids)
+
+    @categories = Category.where(id: visible_categories.select(:id))
+                      .or(extra_categories)
+                      .includes(:moments_categories)
+                      .order(created_at: :desc)
+
     @category = Category.new
-    @moods = current_user.moods.is_visible.or(Mood.where(id: @moment.mood_ids))
-                         .order(created_at: :desc)
+    visible_moods = current_user.moods.is_visible
+    extra_moods = Mood.where(id: @moment.mood_ids)
+
+    @moods = Mood.where(id: visible_moods.select(:id))
+                .or(extra_moods)
+                .includes(:moments_moods)
+                .order(created_at: :desc)
+
     @mood = Mood.new
     @strategies = associated_strategies
     @strategy = Strategy.new
