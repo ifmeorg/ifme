@@ -11,6 +11,8 @@ import { HeaderProfile } from 'components/Header/HeaderProfile';
 import type { Profile, Link } from './types';
 import css from './Header.scss';
 import { useFocusTrap } from '../../hooks';
+import { ToggleLocale } from '../../widgets/ToggleLocale';
+
 
 export type Props = {
   home: Link,
@@ -24,8 +26,15 @@ export type State = {
 };
 
 export const Header = ({
-  home, links, mobileOnly, profile,
+  home,
+  links,
+  mobileOnly,
+  profile,
+  locale,
+  locales,
 }: Props): Node => {
+  console.log("Locale props:", locale, locales);
+
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const navigationRef = useRef(null);
@@ -75,6 +84,7 @@ export const Header = ({
   ));
 
   const displayDesktop = (): Node => (
+
     <div
       className={`${css.headerDesktop} ${scrolled ? css.headerScroll : ''}`}
       aria-label={I18n.t('navigation.main_menu')}
@@ -95,9 +105,12 @@ export const Header = ({
         >
           {displayToggle()}
         </div>
-        {!mobileNavOpen && (
-          <div className={css.headerDesktopNavLinks}>{displayLinks()}</div>
-        )}
+      {!mobileNavOpen && (
+        <div className={css.headerDesktopNavLinks}>
+          {displayLinks()}
+          <ToggleLocale locale={locale} locales={locales} />
+        </div>
+      )}
       </div>
     </div>
   );
@@ -147,7 +160,19 @@ export const Header = ({
 };
 
 export default ({
-  home, links, mobileOnly, profile,
+  home,
+  links,
+  mobileOnly,
+  profile,
+  locale,
+  locales,
 }: Props): Node => (
-  <Header home={home} links={links} mobileOnly={mobileOnly} profile={profile} />
+  <Header
+    home={home}
+    links={links}
+    mobileOnly={mobileOnly}
+    profile={profile}
+    locale={locale}
+    locales={locales}
+  />
 );

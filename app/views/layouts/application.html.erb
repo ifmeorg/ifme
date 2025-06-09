@@ -50,7 +50,10 @@
 
   <body class="content <%= (user_signed_in? && !static_page?) || secret_share_path? ? 'dashboard' : 'static' %>">
     <%= react_component('SkipToContent', props: { id: 'mainContent' })%>
-    <%= react_component('Header', props: header_props) %>
+    <%= react_component('Header', props: header_props.merge(
+      locale: @locale.to_s,
+      locales: @locales.map(&:to_s)
+    )) %>
     <main>
       <%= react_component('Toast', props: {
         notice: notice.present? ? notice : '',
