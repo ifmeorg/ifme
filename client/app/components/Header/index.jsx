@@ -108,7 +108,9 @@ export const Header = ({
       {!mobileNavOpen && (
         <div className={css.headerDesktopNavLinks}>
           {displayLinks()}
+        <div style={{ transform: 'scale(0.88)', transformOrigin: 'left center', marginTop: '-15px'}}>
           <ToggleLocale locale={locale} locales={locales} />
+        </div>
         </div>
       )}
       </div>
