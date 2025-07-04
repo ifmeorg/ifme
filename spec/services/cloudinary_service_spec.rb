@@ -1,5 +1,5 @@
-# frozen_string_literal: true
-FILENAME = "moment.jpeg"
+﻿# frozen_string_literal: true
+FILENAME = "moment.webp"
 FILE_PATH = "/spec/uploads/"
 
 describe CloudinaryService do
@@ -66,3 +66,4 @@ describe CloudinaryService do
     end
   end
 end
+
