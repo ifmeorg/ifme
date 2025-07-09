@@ -13,12 +13,13 @@ import css from './Header.scss';
 import { useFocusTrap } from '../../hooks';
 import { ToggleLocale } from '../../widgets/ToggleLocale';
 
-
 export type Props = {
   home: Link,
   links: Link[],
   mobileOnly?: any,
   profile?: Profile,
+  locale: string,
+  locales: string[],
 };
 
 export type State = {
@@ -33,7 +34,7 @@ export const Header = ({
   locale,
   locales,
 }: Props): Node => {
-  console.log("Locale props:", locale, locales);
+  console.log('Locale props:', locale, locales);
 
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -84,7 +85,6 @@ export const Header = ({
   ));
 
   const displayDesktop = (): Node => (
-
     <div
       className={`${css.headerDesktop} ${scrolled ? css.headerScroll : ''}`}
       aria-label={I18n.t('navigation.main_menu')}
@@ -105,14 +105,20 @@ export const Header = ({
         >
           {displayToggle()}
         </div>
-      {!mobileNavOpen && (
-        <div className={css.headerDesktopNavLinks}>
-          {displayLinks()}
-        <div style={{ transform: 'scale(0.88)', transformOrigin: 'left center', marginTop: '-15px'}}>
-          <ToggleLocale locale={locale} locales={locales} />
-        </div>
-        </div>
-      )}
+        {!mobileNavOpen && (
+          <div className={css.headerDesktopNavLinks}>
+            {displayLinks()}
+            <div
+              style={{
+                transform: 'scale(0.88)',
+                transformOrigin: 'left center',
+                marginTop: '-15px',
+              }}
+            >
+              <ToggleLocale locale={locale} locales={locales} />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
