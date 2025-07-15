@@ -11,12 +11,15 @@ import { HeaderProfile } from 'components/Header/HeaderProfile';
 import type { Profile, Link } from './types';
 import css from './Header.scss';
 import { useFocusTrap } from '../../hooks';
+import { ToggleLocale } from '../../widgets/ToggleLocale';
 
 export type Props = {
   home: Link,
   links: Link[],
   mobileOnly?: any,
   profile?: Profile,
+  locale: string,
+  locales: string[],
 };
 
 export type State = {
@@ -24,8 +27,15 @@ export type State = {
 };
 
 export const Header = ({
-  home, links, mobileOnly, profile,
+  home,
+  links,
+  mobileOnly,
+  profile,
+  locale,
+  locales,
 }: Props): Node => {
+  console.log('Locale props:', locale, locales);
+
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const navigationRef = useRef(null);
@@ -96,7 +106,18 @@ export const Header = ({
           {displayToggle()}
         </div>
         {!mobileNavOpen && (
-          <div className={css.headerDesktopNavLinks}>{displayLinks()}</div>
+          <div className={css.headerDesktopNavLinks}>
+            {displayLinks()}
+            <div
+              style={{
+                transform: 'scale(0.88)',
+                transformOrigin: 'left center',
+                marginTop: '-15px',
+              }}
+            >
+              <ToggleLocale locale={locale} locales={locales} />
+            </div>
+          </div>
         )}
       </div>
     </div>
@@ -147,7 +168,19 @@ export const Header = ({
 };
 
 export default ({
-  home, links, mobileOnly, profile,
+  home,
+  links,
+  mobileOnly,
+  profile,
+  locale,
+  locales,
 }: Props): Node => (
-  <Header home={home} links={links} mobileOnly={mobileOnly} profile={profile} />
+  <Header
+    home={home}
+    links={links}
+    mobileOnly={mobileOnly}
+    profile={profile}
+    locale={locale}
+    locales={locales}
+  />
 );
