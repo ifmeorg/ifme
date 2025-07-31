@@ -45,10 +45,10 @@ class ProfilePicture
     def get_cloudinary_url(path, type)
       id_or_url = get_cloudinary_image_id(path)
       type == 'fetch' && id_or_url = get_local_url(path)
-      cl_image_path(id_or_url, claudinary_params(type))
+      cl_image_path(id_or_url, cloudinary_params(type))
     end
 
-    def claudinary_params(type)
+    def cloudinary_params(type)
       { type:,
         format: 'jpg',
         quality: 'auto:good',
