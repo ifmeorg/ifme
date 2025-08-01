@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+﻿# frozen_string_literal: true
 
 require 'spec_helper'
 
@@ -18,7 +18,7 @@ describe CustomDeviseMailer do
       it 'adds logo to email attachments' do
         User.invite!({ email: recipient }, inviter)
         email.deliver
-        expect(email.attachments[0].filename).to eq('logo@2x.png')
+        expect(email.attachments[0].filename).to eq('logo@2x.webp')
       end
     end
 
@@ -31,8 +31,9 @@ describe CustomDeviseMailer do
       it 'adds logo to email attachments' do
         User.invite!(email: recipient)
         email.deliver
-        expect(email.attachments[0].filename).to eq('logo@2x.png')
+        expect(email.attachments[0].filename).to eq('logo@2x.webp')
       end
     end
   end
 end
+

@@ -1,8 +1,8 @@
-/* eslint-disable react/jsx-props-no-spreading */
+﻿/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Modal } from 'components/Modal';
 /* eslint-disable import/no-extraneous-dependencies */
-import photo from 'app/assets/images/contributors/ingrid_garcia.jpg';
+import photo from 'app/assets/images/contributors/ingrid_garcia.webp';
 
 const title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
 
