@@ -30,7 +30,6 @@
     <%= link_to(t('pages.resources.emergency'), "/resources?filter[]=#{t('pages.resources.tags.hotlines')}") %>
   </div>
   <div class="footerExtras">
-    <%= react_component('ToggleLocale', props: { locale: @locale, locales: @locales }) %>
     <div>
       <%= sanitize t('shared.footer.licence_subtitle',
         licence: link_to(t('shared.footer.licence'), 'https://github.com/ifmeorg/ifme/blob/main/LICENSE.txt', target: '_blank'))

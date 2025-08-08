@@ -13,7 +13,7 @@ gem 'devise', '~> 4.8.1'
 gem 'devise_invitable', '~> 2.0.9'
 gem 'devise-pwned_password'
 gem 'devise_uid'
-gem 'pg', '1.1.4'
+gem 'pg', '>= 1.4'
 gem "recaptcha"
 gem 'resque', '2.6.0'
 gem 'resque-scheduler', '4.10.2'
