@@ -780,5 +780,14 @@
     "link_name": "LinkedIn",
     "link": "https://linkedin.com/in/miguel-navarrete-carrera-0b79091b9",
     "social": "linkedin"
+  },
+  {
+    "name": "Melina Marjani",
+    "image": "/assets/contributors/melina_marjani.jpg",
+    "profile": "I am a driven Software Engineer specializing in ML/AI with Full Stack Web App Dev expertise. I am committed to innovative problem-solving and efficient project execution, seeking chances to improve the human experience through cross-disciplinary solutions.",
+    "location": "NC, USA",
+    "link_name": "LinkedIn",
+    "link": "https://linkedin.com/in/melinamarjani",
+    "social": "linkedin"
   }
 ]
