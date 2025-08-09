@@ -1,4 +1,8 @@
-version: 2
+version: 2.1
+
+orbs:
+  qlty: qltysh/qlty-orb@0.0
+
 defaults: &defaults
   working_directory: ~/ifmeorg/ifme
   parallelism: 1
@@ -7,7 +11,6 @@ defaults: &defaults
     CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
     CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
   docker:
-    # List of image tags: https://circleci.com/developer/images/image/cimg/ruby#image-tags
     - image: cimg/ruby:3.1.4-browsers
       environment:
         PGHOST: 127.0.0.1
@@ -21,37 +24,21 @@ defaults: &defaults
     - image: redis
       environment:
         REDIS_HOST: redis
-        # The default Redis port
         REDIS_PORT: 6379
   steps:
     - checkout
+
 jobs:
-  setup-coverage:
-    <<: *defaults
-    steps:
-      - checkout
-      - run:
-          name: Download cc-test-reporter
-          command: |
-            mkdir -p tmp/
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
-            chmod +x ./tmp/cc-test-reporter
-      - persist_to_workspace:
-          root: tmp
-          paths:
-            - cc-test-reporter
   build:
     <<: *defaults
     steps:
       - checkout
-      - attach_workspace:
-          at: ~/ifmeorg/ifme/tmp
-      - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
-      - restore_cache:
-          keys:
-          - v1-dep-{{ .Branch }}-
-          - v1-dep-main-
-          - v1-dep-
+      - run:
+          name: Setup Ruby
+          command: |
+            gem install bundler
+            bundle config set --local path 'vendor/bundle'
+            bundle install --jobs=4 --retry=3
       - run:
           name: Swap node versions
           command: |
@@ -62,7 +49,6 @@ jobs:
             [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
             nvm install v20.17.0
             nvm alias default 20.17.0
-
             echo 'export NVM_DIR="$HOME/.nvm"' >> $BASH_ENV
             echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
       - run: gem install bundler
@@ -94,41 +80,40 @@ jobs:
           name: Run React Jest Tests
           command: |
             set -e
-            (cd client && yarn lint:flow && yarn lint:eslint && yarn test:circleci)
-            (cd client && ../tmp/cc-test-reporter format-coverage -t lcov -o ../tmp/codeclimate.frontend.json coverage/lcov.info)
+            cd client && yarn lint:flow && yarn lint:eslint && yarn test:circleci
       - persist_to_workspace:
-          root: tmp
+          root: .
           paths:
-            - codeclimate.frontend.json
+            - client/coverage/
       - run:
-          name: Run Rails Rspec Tests
+          name: Run Rails RSpec Tests
           command: |
             set -e
             bundle exec rspec --format progress --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec.xml
-            cd ~/ifmeorg/ifme/tmp && ./cc-test-reporter format-coverage -t simplecov -o codeclimate.backend.json ../coverage/.resultset.json
       - persist_to_workspace:
-          root: tmp
+          root: .
           paths:
-            - codeclimate.backend.json
-        # Wait for Sinatra be upgraded to fix security issue
-      - run: bundle exec bundle-audit check --update --ignore CVE-2024-21510
+            - coverage/.resultset.json
+      - run:
+          name: Run bundle-audit check
+          command: bundle exec bundle-audit check --update --ignore CVE-2024-21510
       - store_test_results:
           path: /tmp/circleci-test-results
       - store_artifacts:
           path: /tmp/circleci-artifacts
       - store_artifacts:
           path: /tmp/circleci-test-results
+
   upload-coverage:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: ~/ifmeorg/ifme/tmp
-      - run:
-          name: Upload coverage results to Code Climate
-          command: |
-            ./tmp/cc-test-reporter sum-coverage --output tmp/codeclimate.total.json --parts 2 tmp/codeclimate.*.json
-            sed -i.bak 's@"/home/circleci/ifmeorg/ifme/@"@' tmp/codeclimate.total.json
-            ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.total.json
+          at: ~/ifmeorg/ifme
+      - qlty/coverage_publish:
+          files: |
+            client/coverage/coverage-summary.json
+            coverage/.resultset.json
+
   deploy:
     docker:
       - image: cimg/base:stable
@@ -138,6 +123,7 @@ jobs:
           name: Deploy Main to Heroku
           command: |
             GIT_CURL_VERBOSE=1 GIT_TRACE=1 git push https://heroku:$HEROKU_API_KEY@git.heroku.com/ifme.git main
+
   deploy-storybook:
     <<: *defaults
     steps:
@@ -146,9 +132,9 @@ jobs:
           at: ~/ifmeorg/ifme/tmp
       - restore_cache:
           keys:
-          - v1-dep-{{ .Branch }}-
-          - v1-dep-main-
-          - v1-dep-
+            - v1-dep-{{ .Branch }}-
+            - v1-dep-main-
+            - v1-dep-
       - run:
           name: Update to Node v20.17.0
           command: |
@@ -165,32 +151,22 @@ jobs:
       - save_cache:
           key: v1-dep-{{ .Branch }}-{{ epoch }}
           paths:
-          - ~/.cache/yarn
-          - ./node_modules
-          - ./vendor/bundle
+            - ~/.cache/yarn
+            - ./node_modules
+            - ./vendor/bundle
 
 workflows:
   version: 2
   build-test:
     jobs:
-      - setup-coverage
-      - build:
-          requires:
-            - setup-coverage
+      - build
       - upload-coverage:
           requires:
             - build
+
   build-test-deploy:
     jobs:
-      - setup-coverage:
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
       - build:
-          requires:
-            - setup-coverage
           filters:
             branches:
               ignore: /.*/
