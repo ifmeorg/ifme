@@ -1,47 +1,47 @@
-[
+﻿[
   {
     "name": "Digital Public Goods Alliance",
     "link": "https://digitalpublicgoods.net/registry/",
-    "image_link": "/assets/partners/dpga.png"
+    "image_link": "/assets/partners/dpga.webp"
   },
   {
     "name": "Rails Girls Summer of Code",
     "link": "https://railsgirlssummerofcode.org",
-    "image_link": "/assets/partners/rails_girls_summer_of_code.png"
+    "image_link": "/assets/partners/rails_girls_summer_of_code.webp"
   },
   {
     "name": "Open Sourcing Mental Illness",
     "link": "https://osmihelp.org",
-    "image_link": "/assets/partners/osmi.png"
+    "image_link": "/assets/partners/osmi.webp"
   },
   {
     "name": "Southeast Asian Developement Center (San Francisco)",
     "link": "https://seadcenter.org",
-    "image_link": "/assets/partners/seadc.png"
+    "image_link": "/assets/partners/seadc.webp"
   },
   {
     "name": "Write/Speak/Code",
     "link": "http://www.writespeakcode.com",
-    "image_link": "/assets/partners/write_speak_code.png"
+    "image_link": "/assets/partners/write_speak_code.webp"
   },
   {
     "name": "Hacker Hours",
     "link": "http://hackerhours.org",
-    "image_link": "/assets/partners/hacker_hours.png"
+    "image_link": "/assets/partners/hacker_hours.webp"
   },
   {
     "name": "Everybody Has a Brain",
     "link": "http://everybodyhasabrain.com",
-    "image_link": "/assets/partners/everybody_has_a_brain.png"
+    "image_link": "/assets/partners/everybody_has_a_brain.webp"
   },
   {
     "name": "Brown Sisters Speak",
     "link": "https://www.facebook.com/Brownsistersspeak",
-    "image_link": "/assets/partners/brown_sisters_speak.png"
+    "image_link": "/assets/partners/brown_sisters_speak.webp"
   },
   {
     "name": "MHPrompt",
     "link": "http://mhprompt.org",
-    "image_link": "/assets/partners/mh_prompt.png"
+    "image_link": "/assets/partners/mh_prompt.webp"
   }
 ]

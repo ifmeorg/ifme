@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+﻿# frozen_string_literal: true
 
 class ApplicationMailer < ActionMailer::Base
   include ActionView::Helpers::UrlHelper
@@ -63,7 +63,7 @@ class ApplicationMailer < ActionMailer::Base
   protected
 
   def load_logo_inline
-    attachments.inline['logo@2x.png'] = File.read('./public/logo@2x.png')
+    attachments.inline['logo@2x.webp'] = File.read('./public/logo@2x.webp')
   end
 
   private
@@ -93,3 +93,4 @@ class ApplicationMailer < ActionMailer::Base
     @message += comment_link(link)
   end
 end
+
