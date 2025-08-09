@@ -93,7 +93,7 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
-            - coverage/.resultset.json
+            - coverage/
       - run:
           name: Run bundle-audit check
           command: bundle exec bundle-audit check --update --ignore CVE-2024-21510
@@ -106,13 +106,13 @@ jobs:
 
   upload-coverage:
     <<: *defaults
+    environment:
+      QLTY_PROJECT: ifme
     steps:
       - attach_workspace:
           at: ~/ifmeorg/ifme
       - qlty/coverage_publish:
-          files: |
-            client/coverage/coverage-summary.json
-            coverage/.resultset.json
+          files: client/coverage/coverage-summary.json, coverage/.resultset.json
 
   deploy:
     docker:
