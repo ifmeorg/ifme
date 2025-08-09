@@ -131,7 +131,9 @@
     "testRegex": "./app/.*.spec\\.jsx?$",
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
-    }
+    },
+    "coverageReporters": ["json-summary", "text", "lcov"],
+    "coverageDirectory": "coverage"
   },
   "resolutions": {
     "minimist": "^1.2.6",
