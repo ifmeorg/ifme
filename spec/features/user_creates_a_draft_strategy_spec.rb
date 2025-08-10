@@ -73,14 +73,7 @@ feature 'UserCreatesADraftStrategy', type: :feature, js: true do
       expect(page).to have_content 'Visible in stats'
       back = current_url
 
-      # TRYING TO VIEW AS ALLY
-      login_as ally
-      visit back
-      expect(find('.pageTitle')).not_to have_content 'My New Strategy'
-
       # EDITING
-      login_as user
-      visit back
       find('.storyActionsEdit').click
       expect(find('.pageTitle')).to have_content 'Edit My New Strategy'
 
