@@ -9,7 +9,8 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
       - BUNDLE_PATH=/bundle/vendor
       - PSQL_USERNAME=postgres
@@ -25,13 +26,18 @@ services:
     stdin_open: true
     command: /bin/sh -c "bundle exec foreman start -f Procfile.dev"
   db:
-    image: postgres:9.6-alpine
+    image: postgres:14-alpine
     ports:
       - "5432:5432"
     volumes:
       - postgres_volume:/var/lib/postgresql/data
     environment:
       - POSTGRES_PASSWORD=password
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
 volumes:
   bundle_cache:
