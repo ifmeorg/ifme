@@ -5,7 +5,7 @@ orbs:
 
 defaults: &defaults
   working_directory: ~/ifmeorg/ifme
-  parallelism: 4
+  parallelism: 1
   shell: /bin/bash --login
   resource_class: large
   environment:
