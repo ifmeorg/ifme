@@ -9,6 +9,11 @@ Rails.application.config.assets.version = "1.0"
 # Rails.application.config.assets.paths << Emoji.images_path
 
 Rails.application.config.assets.precompile += %w( application/mailer.css )
+
+# Configure asset paths
+Rails.application.config.assets.paths << Rails.root.join('app', 'assets')
+Rails.application.config.assets.precompile += %w[*.webp]
+
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
