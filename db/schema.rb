@@ -16,8 +16,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_214533) do
 
   create_table "allyships", force: :cascade do |t|
     t.integer "user_id"
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer "ally_id"
     t.integer "status"
   end
@@ -25,15 +25,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_214533) do
   create_table "bootsy_image_galleries", force: :cascade do |t|
     t.integer "bootsy_resource_id"
     t.string "bootsy_resource_type"
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "bootsy_images", force: :cascade do |t|
     t.string "image_file"
     t.integer "image_gallery_id"
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "care_plan_contacts", force: :cascade do |t|
@@ -47,8 +47,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_214533) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer "user_id"
     t.string "slug"
     t.boolean "visible", default: true
@@ -60,8 +60,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_214533) do
     t.integer "commentable_id"
     t.integer "comment_by"
     t.text "comment"
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string "visibility"
     t.text "viewers"
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
@@ -83,14 +83,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_214533) do
     t.integer "group_id"
     t.integer "user_id"
     t.boolean "leader"
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.text "description"
     t.string "slug"
     t.index ["slug"], name: "index_groups_on_slug", unique: true
@@ -99,9 +99,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_214533) do
   create_table "medications", force: :cascade do |t|
     t.string "name"
     t.integer "dosage"
-    t.datetime "refill", precision: nil
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.timestamptz "refill"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer "user_id"
     t.integer "total"
     t.integer "strength"
@@ -119,8 +119,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_214533) do
     t.integer "meeting_id"
     t.integer "user_id"
     t.boolean "leader"
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string "google_cal_event_id"
   end
 
@@ -131,8 +131,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_214533) do
     t.string "time"
     t.integer "maxmembers"
     t.integer "group_id"
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string "date"
     t.string "slug"
     t.index ["slug"], name: "index_meetings_on_slug", unique: true
@@ -153,8 +153,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_214533) do
     t.string "name"
     t.text "why"
     t.text "fix"
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer "user_id"
     t.text "viewers"
     t.boolean "comment"
@@ -189,8 +189,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_214533) do
   create_table "moods", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer "user_id"
     t.string "slug"
     t.boolean "visible", default: true
@@ -233,8 +233,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_214533) do
     t.text "description"
     t.text "viewers"
     t.boolean "comment"
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string "name"
     t.string "slug"
     t.datetime "published_at", precision: nil
@@ -253,8 +253,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_214533) do
     t.integer "user_id"
     t.string "support_type"
     t.text "support_ids"
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "take_medication_reminders", id: :serial, force: :cascade do |t|
@@ -268,15 +268,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_214533) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at", precision: nil
-    t.datetime "remember_created_at", precision: nil
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at", precision: nil
-    t.datetime "last_sign_in_at", precision: nil
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string "name"
     t.string "location"
     t.string "timezone"
