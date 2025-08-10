@@ -1,4 +1,4 @@
-﻿/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Modal } from 'components/Modal';
 /* eslint-disable import/no-extraneous-dependencies */
