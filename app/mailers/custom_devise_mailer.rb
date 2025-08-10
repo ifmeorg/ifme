@@ -1,11 +1,11 @@
-# frozen_string_literal: true
+﻿# frozen_string_literal: true
 class CustomDeviseMailer < Devise::Mailer
   before_action :load_logo_inline
 
   protected
 
   def load_logo_inline
-    attachments.inline['logo@2x.png'] = File.read('./public/logo@2x.png')
+    attachments.inline['logo@2x.webp'] = File.read('./public/logo@2x.webp')
   end
 
   def subject_for(key)
@@ -21,3 +21,4 @@ class CustomDeviseMailer < Devise::Mailer
     end
   end
 end
+

@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "if-me.org",
   "short_name": "if-me.org",
   "start_url": "/",
@@ -7,7 +7,7 @@
   "display": "fullscreen",
   "orientation": "portrait",
   "icons": [{
-    "src": "./logo_512.png",
+    "src": "./logo_512.webp",
     "sizes": "512x512",
     "type": "image/png"
   }]
