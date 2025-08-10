@@ -28,6 +28,7 @@ gem 'carrierwave', '~> 2.2.6'
 gem 'certified', '1.0.0'
 gem 'chronic', '0.10.2'
 gem 'cloudinary', '~> 1.25.0'
+gem 'image_processing', '~> 1.12.2'  # For WebP conversion
 gem 'google-api-client', '~> 0.53.0'
 gem 'kaminari', '1.2.1'
 gem 'omniauth', '~> 2.0'
