@@ -1,7 +1,7 @@
 FROM ruby:3.1.4
 
 RUN apt-get update -qq && \
-    apt-get install -y build-essential cmake git tzdata libpq-dev  ruby-dev curl
+    apt-get install -y build-essential cmake git tzdata libpq-dev ruby-dev curl libvips42
 
 # Install nodejs
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && \

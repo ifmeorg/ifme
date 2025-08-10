@@ -643,6 +643,7 @@ DEPENDENCIES
   friendly_id (~> 5.2.5)
   google-api-client (~> 0.53.0)
   groupdate (~> 6.1)
+  image_processing (~> 1.12.2)
   inline_svg
   jbuilder (~> 2.9.1)
   jquery-rails (= 4.4.0)
