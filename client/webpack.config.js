@@ -180,7 +180,7 @@ const config = {
         loader: 'yml-loader',
       },
       {
-        test: /\.(png|jp(e*)g|svg)$/,
+        test: /\.(png|jp(e*)g|svg|webp)$/,
         use: [
           {
             loader: 'url-loader',
