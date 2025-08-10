@@ -33,27 +33,33 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      # Restore dependency caches
+      - restore_cache:
+          keys:
+            - v1-bundle-{{ checksum "Gemfile.lock" }}
+            - v1-bundle-
+      - restore_cache:
+          keys:
+            - v1-yarn-{{ checksum "client/yarn.lock" }}
+            - v1-yarn-
       - run:
-          name: Setup Ruby
+          name: Setup dependencies
           command: |
             gem install bundler
             bundle config set --local path 'vendor/bundle'
             bundle install --jobs=4 --retry=3
-      - run:
-          name: Swap node versions
-          command: |
-            set +e
+            
+            # Install and setup Node
             wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-            [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
             nvm install v20.17.0
             nvm alias default 20.17.0
             echo 'export NVM_DIR="$HOME/.nvm"' >> $BASH_ENV
             echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
-      - run: gem install bundler
-      - run: bundle install --path=vendor/bundle --jobs=4 --retry=3
-      - run: yarn install --cache-folder ~/.cache/yarn
+            
+            # Install yarn dependencies
+            yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
       - run:
           name: Setup Chrome
           command: |
@@ -61,26 +67,35 @@ jobs:
             sudo dpkg -i ./google-chrome*.deb
             sudo apt-get install
             sudo apt --fix-broken install -y
+      # Save dependency caches
       - save_cache:
-          key: v1-dep-{{ .Branch }}-{{ epoch }}
+          key: v1-bundle-{{ checksum "Gemfile.lock" }}
           paths:
-          - ~/.cache/yarn
-          - ./node_modules
-          - ./vendor/bundle
-      - run: dockerize -wait tcp://localhost:5432 -timeout 1m
+            - vendor/bundle
+      - save_cache:
+          key: v1-yarn-{{ checksum "client/yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+            - client/node_modules
       - run:
-          command: bundle exec rake db:create db:schema:load --trace
-          environment:
-            RAILS_ENV: test
-            RACK_ENV: test
-      - run: RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run: RAILS_ENV=test bundle exec rake react_on_rails:locale
-      - run: RAILS_ENV=test bundle exec rails assets:precompile
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      
+      - run:
+          name: Setup test environment
+          command: |
+            RAILS_ENV=test RACK_ENV=test bundle exec rake db:create db:schema:load --trace
+            RAILS_ENV=test bundle exec rake react_on_rails:locale
+            RAILS_ENV=test bundle exec rails assets:precompile
       - run:
           name: Run React Jest Tests
           command: |
             set -e
-            cd client && yarn lint:flow && yarn lint:eslint && yarn test:circleci
+            cd client
+            yarn lint:flow &
+            yarn lint:eslint &
+            wait
+            yarn test:circleci
       - persist_to_workspace:
           root: .
           paths:
@@ -89,11 +104,19 @@ jobs:
           name: Run Rails RSpec Tests
           command: |
             set -e
-            bundle exec rspec --format progress --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec.xml
+            TESTFILES=$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+            bundle exec rspec \
+              --format progress \
+              --format RspecJunitFormatter \
+              -o $CIRCLE_TEST_REPORTS/rspec.xml \
+              -- ${TESTFILES}
       - persist_to_workspace:
           root: .
           paths:
-            - coverage/.resultset.json
+            - coverage/
+      # Store timing data for future test splits
+      - store_test_results:
+          path: $CIRCLE_TEST_REPORTS
       - run:
           name: Run bundle-audit check
           command: bundle exec bundle-audit check --update --ignore CVE-2024-21510
@@ -107,12 +130,11 @@ jobs:
   upload-coverage:
     <<: *defaults
     steps:
+      - checkout
       - attach_workspace:
           at: ~/ifmeorg/ifme
       - qlty/coverage_publish:
-          files: |
-            client/coverage/coverage-summary.json
-            coverage/.resultset.json
+          files: client/coverage/coverage-summary.json, coverage/.resultset.json
 
   deploy:
     docker:
