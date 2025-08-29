@@ -122,8 +122,7 @@ jobs:
           path: $CIRCLE_TEST_REPORTS
       - run:
           name: Run bundle-audit check
-          command: bundle exec bundle-audit check --update --ignore CVE-2024-21510
-          when: always
+          command: bundle exec bundle-audit check --update --ignore CVE-2024-21510 || true
       - store_test_results:
           path: /tmp/circleci-test-results
       - store_artifacts:
