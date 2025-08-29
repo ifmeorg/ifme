@@ -5,11 +5,11 @@ ruby '~> 3.1.4'
 
 gem 'puma', '5.6.9'  # Latest capybara doesn't work with puma 6.0 at the moment.
 gem 'rack-rewrite'
-gem 'rails', '~> 7.0.8.4'
+gem 'rails', '~> 7.2.2.2'
 
 gem 'activerecord-import'
 gem 'bcrypt', '3.1.13'
-gem 'devise', '~> 4.8.1'
+gem 'devise', '~> 4.9'
 gem 'devise_invitable', '~> 2.0.9'
 gem 'devise-pwned_password'
 gem 'devise_uid'
@@ -93,7 +93,7 @@ group :development, :test do
 
   gem 'foreman'
 
-  gem 'bullet'
+  gem 'bullet', '~> 7.1'
 
   gem 'actionview'
 end
