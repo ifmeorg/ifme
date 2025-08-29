@@ -15,7 +15,7 @@
 #
 
 class Comment < ApplicationRecord
-  serialize :viewers, Array
+  serialize :viewers, type: Array
   belongs_to :commentable, polymorphic: true
 
   validates :comment, length: { minimum: 0, maximum: 1000 }, presence: true

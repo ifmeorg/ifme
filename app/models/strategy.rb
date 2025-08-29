@@ -38,7 +38,7 @@ class Strategy < ApplicationRecord
   ].map!(&:freeze).freeze
 
   friendly_id :name
-  serialize :viewers, Array
+  serialize :viewers, type: Array
 
   before_save do
     elements_array_data(['category'])
