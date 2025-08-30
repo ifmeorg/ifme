@@ -1,0 +1,36 @@
+ca:
+  devise:
+    failure:
+      invited: >-
+        Tens una invitació pendent, accepta-la per acabar de crear el teu compte.
+    invitations:
+      send_instructions: 'S’ha enviat una invitació per correu a %{email}.'
+      failed_send: 'Hi ha hagut un error. No s’ha pogut convidar %{email}.'
+      invitation_token_invalid: El token d’invitació no és vàlid!
+      updated_not_active: La teva contrasenya s’ha establert correctament.
+      updated: >-
+        La teva contrasenya s’ha desat correctament, ja ets dins del sistema.
+      no_invitations_remaining: No queden més invitacions.
+      invitation_removed: S’ha eliminat la teva invitació.
+      new:
+        header: Enviar invitació
+        submit_button: Envia una invitació
+      edit:
+        header: Establir contrasenya
+        submit_button: Desa la meva contrasenya
+    mailer:
+      invitation_instructions:
+        subject: 'if-me.org | %{name} t’ha convidat a if-me.org!'
+        subject_nameless: if-me.org | T’han convidat a if-me.org!
+        hello: 'Hola %{email}!'
+        someone_invited_you: >-
+          %{name} t’ha convidat a unir-te a http://www.if-me.org, una comunitat
+          per compartir experiències de salut mental amb els teus éssers estimats
+          i mantenir un registre de les teves emocions, medicació i autocura.
+          Pots acceptar la invitació mitjançant l’enllaç de sota.
+        accept: Accepta la invitació!
+        accept_until: 'Aquesta invitació caducarà el dia %{due_date}.'
+        ignore: >-
+          Si no vols acceptar la invitació, si us plau ignora aquest missatge.
+          <br/>El teu compte no serà creat fins que accedeixis a l’enllaç de
+          dalt i estableixis la teva contrasenya.
