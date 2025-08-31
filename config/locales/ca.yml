@@ -1,0 +1,1109 @@
+ca:
+  app_name: if-me.org
+  app_description: Una comunitat per compartir experiències de salut mental
+  email: join.ifme@gmail.com
+  created: 'Creat %{created_at}'
+  draft: Esborrany
+  edited: 'Creat %{created_at} (editat)'
+  edited_updated_at: 'Creat %{created_at} (editat %{updated_at})'
+  salutation: 'Hola %{name},'
+  click_here: fes clic aquí
+  language: Idioma
+  yes_text: sí
+  no_text: 'no'
+  expand_menu: amplia el menú
+  close: tanca
+  alert_auto_hide: Aquesta alerta s’ocultarà automàticament
+  load_more: Carrega’n més
+  of: de
+  languages:
+    en: English
+    es: Espanyol
+    nl: Neerlandès
+    pt-BR: Portuguès
+    sv: Suec
+    various_languages: Diversos idiomes
+    vi: Vietnamita
+    it: Italià
+    nb: Noruec
+    de: Alemany
+    fr: Francès
+    hi: Hindi
+    zh-CN: Xinès
+    ko: Coreà
+    id: Indonesi
+    ar: Àrab
+    ru: Rus
+    ca: Català
+  navigation:
+    skip_to_main_content: Salta al contingut principal
+    main_menu: Menú principal del lloc
+    google: Google
+    user_menu: Menú de l’usuari
+    about: Quant a
+    blog: Blog
+    contribute: Col·labora
+    partners: Socis
+    privacy: Política de privadesa
+    github: GitHub
+    open_collective: Open Collective
+    instagram: Instagram
+    rss: RSS
+    x: X
+    facebook: Facebook
+    feedback: Comentaris
+    give_feedback: Envia comentaris
+    press: Premsa
+    faq: Preguntes freqüents
+    resources: Recursos
+    code_of_conduct: Codi de conducta
+    digital_public_goods_alliance: Digital Public Goods Alliance
+  common:
+    name: Nom
+    you: Tu
+    title: Títol
+    date: Data
+    daily_reminder: Correu per al recordatori diari
+    actions:
+      plural: Accions
+      submit: Envia
+      submit_publish: Publica
+      submit_draft: Desa com a esborrany
+      confirm: N’estàs segur/a?
+      delete: Elimina
+      edit: Edita
+      edit_instance: 'Edita %{instance}'
+      join: Uneix-te
+      leave: Abandona
+      add: Afegeix
+      add_all: Afegeix-ho tot
+      select_all: Selecciona-ho tot
+      remove: Elimina
+      report: Denuncia
+    form:
+      email: Correu electrònic
+      location: Ubicació
+      description: Descripció
+      error_explanation: Si us plau, completa els camps indicats
+      empty_error: Aquest camp no pot estar buit!
+      min_error: 'Aquest camp ha de ser igual o superior a %{min}!'
+      max_error: 'Aquest camp ha de ser igual o inferior a %{max}!'
+      min_max_error: >-
+        Aquest camp ha de ser igual o superior a %{min} i igual o inferior a
+        %{max}!
+      search_by_keywords: Cerca per paraules clau
+      template: Tria una plantilla
+    time_ago: 'fa %{date}'
+    write_to_us: escriu-nos
+    days: Dies
+  reports:
+    admin_dashboard: Tauler d’administració
+    reported_users: Usuaris denunciats
+    banned_users: Usuaris blocats
+    reasons: Raons
+    new: 'Nou informe per a %{name}'
+    remove_ban: Treu el blocatge
+    ban_user: Bloca l’usuari
+    report_sent: 'Informe per a %{name} enviat'
+    report_error: 'No s’ha pogut enviar l’informe per a %{name}'
+    reportee: Usuari denunciat
+    reporter: Usuari denunciant
+    user_banned: 'L’usuari %{name} ha estat blocat'
+    ban_removed: 'Blocatge eliminat per a %{name}'
+    user_banned_error: 'No s’ha pogut blocar %{name}'
+    ban_removed_error: 'No s’ha pogut eliminar el blocatge de %{name}'
+  comment:
+    singular: Comentari
+    plural: Comentaris
+    posting: Publicant comentari
+    allow_comments: Permetre comentaris?
+    hint: Només tu i la teva audiència podeu comentar
+    control: Controla qui pot veure i comentar
+    report_comment_by: 'Denuncia el comentari de %{name}'
+    delete_comment_by: 'Elimina el comentari de %{name}'
+  account:
+    singular: Compte
+    sign_in: Inicia sessió
+    sign_up: Registra’t
+    forgot_password: Has oblidat la contrasenya?
+  members:
+    one: '%{count} membre'
+    other: '%{count} membres'
+  allies:
+    add_ally: Afegeix aliats
+    cancel_ally_request: Cancel·la la sol·licitud
+    accept: Accepta
+    reject: Rebutja
+    index:
+      title: Aliats
+      outgoing: Sol·licituds pendents
+      incoming: Noves sol·licituds
+      invited: Convidat per correu electrònic
+      invited_on: 'Convidat el: %{date}'
+      invitation_expired: Invitació caducada
+      invite: Convida els teus éssers estimats!
+      none: >-
+        Ara mateix no tens cap aliat. Pots buscar-ne o convidar els teus éssers
+        estimats a unir-s’hi!
+      view_all_allies: Mostra tots els aliats
+      cancel: Cancel·la
+    form:
+      placeholder: 'Introdueix un o més correus electrònics separats per comes.'
+  categories:
+    singular: Categoria
+    plural: Categories
+    edit_category: Edita la categoria
+    new: Nova categoria
+    form:
+      name_hint: 'Categoritza persones, llocs, coses, activitats i més'
+    label:
+      one: 'Categoria:'
+      other: 'Categories:'
+    index:
+      subtitle: >-
+        La vida és complicada, col·loca les diferents persones, llocs i coses en
+        les seves categories.
+      premade1_name: Família
+      premade1_description: Sobre la meva família
+      premade2_name: Amics
+      premade2_description: Sobre els meus amics
+      premade3_name: Feina
+      premade3_description: Sobre la meva feina
+      premade4_name: Meditació
+      premade4_description: 'Meditació, respiració profunda i activitats relaxants'
+      instructions: >-
+        Encara no has creat categories personalitzades.<br />També pots afegir
+        les següents categories predeterminades i personalitzar-les després.
+  errors:
+    home_page: Torna a la pàgina d’inici
+    internal_server_error:
+      header_message: Aquesta pàgina no es pot mostrar
+    not_found:
+      header_message: Aquesta pàgina no existeix
+    empty_params: No pot estar en blanc
+  groups:
+    singular: Grup
+    plural: Grups
+    form:
+      leaders: Líders
+      only_leader: 'Ets l’únic líder, per tant no pots abandonar el grup.'
+      cannot_delete: 'Tingues en compte que no pots eliminar grups'
+      error_save: 'No podem desar aquest grup perquè:'
+      error_edit_permission: Has de ser el líder del grup per poder-lo editar
+    index:
+      subtitle: 'Crea i uneix-te a grups que ofereixen suport, guia i converses.'
+      available_groups: Grups disponibles
+      joined_groups: Grups als quals t’has unit
+      leader: (Líder)
+      instructions: Encara no ets membre de cap grup.
+    join:
+      success: T’has unit a aquest grup
+      group_not_exists: No pots unir-te a un grup que no existeix.
+    leave:
+      error: 'Ets l’únic líder, per tant no pots abandonar el grup.'
+      success: 'Has abandonat %{group}'
+      remove_member_success: 'Has eliminat %{user} de %{group}'
+      remove_member_error: No pots expulsar un membre perquè no ets líder.
+    new: Nou grup
+    show:
+      led_by: 'Liderat per:'
+      delete: Elimina el grup
+  layouts:
+    application:
+      signin: Comparteix les teves històries ara
+      create_account: Uneix-te a la comunitat
+      update_account: Personalitza el teu compte
+    mailer:
+      html:
+        app_description: >-
+          %{app_name} és una comunitat que anima les persones a compartir les
+          seves experiències de salut mental amb els seus éssers estimats.
+        no_reply: >-
+          No pots respondre aquest correu electrònic. Si tens preguntes, dubtes
+          o comentaris, envia un missatge a %{email}!
+    title:
+      reset_password: Restableix la teva contrasenya
+  medications:
+    singular: Medicament
+    edit_medication: Edita el medicament
+    refill_reminder: Recordatori per reposar medicaments per correu electrònic
+    dosage: 'Dosi diària:'
+    weekly_dosage: 'Dosi setmanal:'
+    refill: 'Reposició:'
+    quantity: 'Quantitat total:'
+    strength: 'Concentració:'
+    event_summary: 'Reposició per a %{name}.'
+    form:
+      strength: Concentració
+      strength_unit: Unitat de concentració
+      strength_placeholder: ex. 100
+      total_placeholder: ex. 30
+      dosage: dosi
+      dosage_unit: Unitat de dosi
+      dosage_placeholder: ex. 2
+      refill: reposició
+      name_hint: Nom genèric o de marca del medicament
+      comments_hint: 'Afegeix més comentaris aquí, per exemple, els teus símptomes.'
+      add_to_google_cal: Recordatori amb el Calendari de Google
+      google_cal_hint: >-
+        Afegirem un recordatori per a aquest medicament al teu calendari de
+        Google.
+      strength_hint: >-
+        La concentració del medicament, que normalment es troba al costat del
+        nom.
+      total_hint: Nombre total de comprimits o quantitat de medicament.
+      weekly_dosage_hint: Dies de la setmana en què has de prendre aquest medicament
+      dosage_hint: Nombre de comprimits o dosi diària.
+      refill_hint: Quan s’ha de reposar aquesta recepta.
+      refill_reminder_hint: >-
+        T’enviarem un correu una setmana abans que hagis de reposar el teu
+        medicament.
+      daily_reminder_hint: >-
+        T’enviarem un recordatori diari perquè prenguis aquest medicament.
+      total: Total
+      total_unit: Unitat total
+    new: Nou medicament
+    units:
+      display: '%{count} %{unit}'
+      mg: mg
+      ml: ml
+      tablets:
+        one: comprimit
+        other: comprimits
+    reminder_mailer:
+      subject: 'if-me.org | No oblidis prendre %{name}!'
+      body: 'Et recordem amablement que prenguis el teu medicament %{name}!'
+    refill_mailer:
+      subject: 'if-me.org | Ja s’acosta el moment de reposar %{name}!'
+      body: >-
+        Et recordem amablement que has de reposar el teu medicament %{name}
+        el %{refill}!
+    index:
+      title: Medicament
+      subtitle: >-
+        Fes un seguiment dels teus medicaments, incloent-hi les dosis i la
+        informació per reposar-los.
+      instructions: >-
+        Encara no has desat informació de cap medicament.<br /> <br />Aquí tens
+        un exemple d’informació sobre un medicament! També pots escriure sobre
+        la teva experiència.
+      example_name: Prozac
+      example_strength: 10 mg
+      example_total: 40 comprimits
+      example_dosage: 2 comprimits
+      example_refill: 31/05/2016
+    show:
+      comments: 'Comentaris:'
+  meetings:
+    singular: Reunió
+    edit_meeting: Edita la reunió
+    form:
+      location_placeholder: URL o adreça física
+      maximum_members: Nombre màxim de membres
+      maximum_placeholder: 0 si no hi ha màxim
+    join_success: T’has unit a aquesta reunió
+    info:
+      cancel_meeting: Cancel·la la reunió
+      meeting_time: Hora
+      members_of_group_html:
+        one: '%{count} membre de %{group}'
+        other: '%{count} membres de %{group}'
+    reminder_mailer:
+      subject: >-
+        if-me.org | La teva reunió "%{meeting_name}" és demà a les:
+        %{time}!
+      body: >-
+        Recorda que la teva reunió "%{meeting_name}" de demà tindrà lloc a les
+        %{time} a %{location}!
+    leave:
+      error: 'No pots abandonar la reunió, ets l’únic líder.'
+      success: 'Has abandonat %{meeting}.'
+    new: Nova reunió
+    google_cal:
+      create:
+        add: Afegeix al Google Calendar
+        success: Reunió afegida correctament al Google Calendar.
+        error: Alguna cosa ha fallat en afegir la reunió al Google Calendar.
+      destroy:
+        remove: Elimina del Google Calendar
+        success: Reunió eliminada correctament del Google Calendar.
+        error: Alguna cosa ha fallat en eliminar la reunió del Google Calendar.
+  moments:
+    singular: Moment
+    plural: Moments
+    edit_moment: Edita el moment
+    tagged_moments: Etiqueta el moment
+    new: Nou moment
+    secret_share:
+      singular: Compartir en secret
+      expires_at: Caduca el
+      cancel_secret_share: Cancel·la el compartir en secret
+      link_copied: L’enllaç secret s’ha copiat al porta-retalls
+      link_info: S’ha creat un enllaç per compartir en secret
+      info: Qualsevol amb aquest enllaç pot veure aquesta pàgina
+      info_public: >-
+        Estàs veient això a través d’un enllaç privat. No comparteixis aquesta
+        pàgina sense el consentiment de l’autor.
+    form:
+      why: Escriu sobre això
+      why_legacy: Què va passar i com et vas sentir?
+      fix_legacy: Quins pensaments t’agradaria tenir?
+      what_happened: Què va passar?
+      viewers_hint: 'Aliats que poden veure el teu moment:'
+      draft_question: Vols desar el teu moment com a esborrany?
+      bookmarked_question: Vols marcar aquest moment?
+      bookmarked_info: Els moments marcats apareixen en el teu pla de cures
+      resource_recommendations_question: Mostrar recomanacions de recursos?
+    index:
+      subtitle: >-
+        Aprofundeix en els teus moments: esdeveniments i situacions que afecten
+        la teva salut mental
+      subtitle_link: Crea i organitza plantilles per escriure sobre els teus moments.
+      instructions: >-
+        Encara no has escrit cap moment.<br><br>No saps per on començar? Escriu
+        alguna cosa que t’hagi passat avui i que t’agradaria compartir i
+        comentar amb els teus éssers estimats. Pot ser positiu o negatiu! No cal
+        que ho comparteixis ara mateix: fes-ho quan et sentis preparat! Aquí
+        tens un exemple de moment.
+      example_name: Preocupació per una entrevista de demà!
+      example_category: Carrera
+    show:
+      strategies: Quines estratègies podrien ajudar?
+      resources: Quins recursos podrien ajudar?
+    filters:
+      secret_share: Secret activat
+      no_viewers: Sense observadors
+      one_viewer: Almenys un observador
+      comments_enabled: Comentaris habilitats
+      draft_enabled: Esborrany habilitat
+      published: Publicat
+  moods:
+    singular: Estat d’ànim
+    plural: Estats d’ànim
+    edit_mood: Edita l’estat d’ànim
+    new: Nou estat d’ànim
+    example_moods: 'Nervis, Ansietat, Esperança'
+    index:
+      subtitle: 'Crea etiquetes per descriure el teu estat mental, sentiments i emocions.'
+      premade1_name: Acceptació
+      premade1_description: Acceptar i estar en pau amb diferències i límits
+      premade2_name: Ambició
+      premade2_description: Sentir-se optimista respecte a assolir objectius
+      premade3_name: Curiositat
+      premade3_description: Sentir curiositat per alguna cosa incerta
+      premade4_name: Ressentiment
+      premade4_description: >-
+        Incapaç d’acceptar certs fets, sentir ràbia, desig de venjança o gelosia
+      premade5_name: Desesperança
+      premade5_description: >-
+        Sentir-se trist i sense esperança, incapaç de trobar cap possible solució
+      instructions: >-
+        Encara no has creat estats d’ànim personalitzats.<br /> També pots
+        afegir algun dels estats d’ànim predefinits i personalitzar-los més endavant.
+  notifications:
+    plural: Notificacions
+    none: Sense pendents
+    clear: Elimina les notificacions
+    created_by_html: '<strong>Creat per</strong>: %{name}'
+    preview: Mostra més
+    members:
+      title: Llista de membres
+    ally:
+      accepted: '%{name} ha acceptat la teva sol·licitud d’aliança!'
+      sent_html: '%{link_to_user} t’ha enviat una sol·licitud d’aliança!'
+    comment:
+      full: '%{name} ha comentat "%{comment}" a %{commentable_id}'
+      truncated: '%{name} ha comentat "%{comment}" [...] a %{commentable_id}'
+    group:
+      new_group: '%{name} ha creat el grup "%{group_name}"'
+      new_group_member: '%{name} s’ha unit al teu grup "%{group_name}"'
+      add_group_leader: '%{name} és ara líder de "%{group_name}"'
+      remove_group_leader: '%{name} ja no és líder de "%{group_name}"'
+    meeting:
+      new_meeting: '%{name} ha creat la reunió "%{meeting_name}" per a "%{group_name}"'
+      remove_meeting: '%{name} ha cancel·lat "%{meeting_name}" per a "%{group_name}"'
+      update_meeting: '%{name} ha actualitzat "%{meeting_name}" per a "%{group_name}"'
+      join_meeting: '%{name} s’ha unit a "%{meeting_name}" per a "%{group_name}"'
+    mailer:
+      comment_on_moment_subject: 'if-me.org | %{user} ha comentat en el teu moment "%{moment}"'
+      comment_on_strategy_subject: 'if-me.org | %{user} ha comentat en la teva estratègia "%{strategy}"'
+      comment_on_meeting_subject: >-
+        if-me.org | %{user} ha comentat en la teva reunió "%{meeting}" del grup
+        "%{group}"
+      comment_on_private_body: '<p>El teu aliat/aliada <strong>%{user}</strong> ha comentat en mode privat:</p>'
+      comment_on_body: '<p>El teu aliat/aliada <strong>%{user}</strong> ha comentat:</p>'
+      comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
+      comment_text: '<p><i>%{comment}</i></p>'
+      comment_link: '<p>Per llegir-ho, %{link}!</p>'
+      new_group_subject: 'if-me.org | %{user} ha creat el grup "%{group}"'
+      new_group_body: >-
+        <p>%{user} ha creat el grup "%{group}":</p><p><i>
+        %{description}</i></p><p>Per continuar llegint i unir-te, %{link}!</p>
+        <p>Si us plau, segueix el nostre %{code_of_conduct_link}!</p>
+      new_group_member_subject: 'if-me.org | %{user} s’ha unit al teu grup "%{group}"'
+      add_group_leader_you_subject: 'if-me.org | T’has convertit en líder de "%{group}"'
+      add_group_leader_subject: 'if-me.org | %{user} s’ha convertit en líder de "%{group}"'
+      add_remove_group_leader_body: '<p>Per veure "%{group}", %{link}!</p>'
+      remove_group_leader_you_subject: 'if-me.org | Has deixat de ser líder de "%{group}"'
+      remove_group_leader_subject: 'if-me.org | %{user} ha deixat de ser líder de "%{group}"'
+      update_meeting_subject: 'if-me.org | %{user} ha actualitzat la reunió "%{meeting}" de "%{group}"'
+      new_meeting_subject: >-
+        if-me.org | %{user} ha creat una nova reunió "%{meeting}" de
+        "%{group}"
+      meeting_body: >-
+        <p>%{subject}</p><p><i>%{description}</i></p><p><strong>
+        Ubicació:</strong> %{location}</p><p><strong>Data:</strong>
+        %{date}</p> <p><strong>Hora:</strong> %{time}</p>
+      new_meeting_link: '<p>Per continuar llegint i assistir, %{link}!</p>'
+      update_meeting_link: '<p>Per continuar llegint, %{link}!</p>'
+      remove_meeting_subject: 'if-me.org | %{user} ha cancel·lat "%{meeting}" de "%{group}"'
+      join_meeting_subject: 'if-me.org | %{user} s’ha unit a "%{meeting}" de "%{group}"'
+      join_meeting_body: '<p>Per veure "%{meeting}", %{link}!</p>'
+      reported_user_subject: if-me.org | Acabes de reportar un usuari
+      reported_user_body: >-
+        Has reportat %{reported_name}. Un administrador revisarà la teva
+        petició en breu.
+      reportee_user_subject: if-me.org | Has estat reportat/da
+      reportee_user_body: Has estat reportat/da. Això serà revisat per un administrador.
+      add_ban_subject: if-me.org | Has estat bloquejat/da
+      add_ban_body: 'Has estat bloquejat/da per incomplir el nostre %{code_of_conduct_link}.'
+      remove_ban_subject: if-me.org | Ja no estàs bloquejat/da
+      remove_ban_body: >-
+        Anteriorment vas ser bloquejat/da per incomplir el nostre
+        %{code_of_conduct_link}. Ja no estàs bloquejat/da.
+  omniauth:
+    access_denied: Accés denegat
+  pages:
+    about:
+      main_message_one: >-
+        %{app_name}, pel seu significat en anglès, “si a mi”, és una comunitat que
+        ens anima a compartir les nostres experiències i històries de salut
+        mental amb aliats de confiança.
+      message_text_one: >-
+        Els aliats són aquells amb qui interactuem cada dia: amics, familiars,
+        companys de feina, professors i professionals de la salut mental.
+      main_message_two: >-
+        Afrontar la salut mental és el que ens fa humans. Tanmateix, per a molts
+        de nosaltres és difícil ser sincers sobre aquest tema.
+      message_text_two: >-
+        No tothom amb qui parlem és conseller o terapeuta. Les persones amb qui
+        interactuem diàriament afecten les nostres emocions i comportaments.
+        Involucrar-les en el nostre procés de benestar mental és clau per
+        recuperar-nos.
+      message_text_three: >-
+        <strong>Vols ajudar-nos a finançar-nos?</strong> El 2016 vam rebre una
+        subvenció comunitària de Linebreak. El 2017 vam rebre fons de
+        %{fund_club_link}. Pots donar-nos suport amb una donació al nostre
+        %{open_collective_link}.
+      fund_club: Fund Club
+    blog:
+      description: >-
+        Si vols escriure per nosaltres, envia’ns la teva proposta a %{email}!
+        També ho pots fer de manera anònima.
+    contribute:
+      contributor_avatar_alt: 'Biografia del col·laborador de %{name}'
+      message_text_one: >-
+        Estem <strong>sempre</strong> oberts a idees de tota mena i de totes les
+        persones: <strong>defensors de la salut mental</strong>,
+        <strong>desenvolupadors de programari</strong>,
+        <strong>traductors</strong> i <strong>dissenyadors d’experiència
+        d’usuari</strong>! <p class="noMarginBottom">Si us plau, %{email_link} i
+        ens posarem en contacte amb tu! Seràs convidat a participar al nostre
+        %{slack_link}, la nostra eina principal de comunicació. Assegura’t també
+        de crear una còpia del nostre repositori a %{github_link}!</p>
+      more_contributors: Més col·laboradors fantàstics!
+      thanks: 'Un enorme agraïment a:'
+      slack: Slack
+    faq:
+      title: Preguntes Freqüents
+      data_access_question: Qui té accés a la meva informació?
+      data_access_answer: >-
+        La informació no es comparteix ni és accessible a tercers. Si elimines el
+        teu compte, s’esborrarà tota la teva informació.<br /><br />La informació
+        de l’usuari s’analitza dins l’aplicació per oferir recomanacions
+        personalitzades.<br /><br />És necessari recollir el nom i l’adreça de
+        correu electrònic per crear un compte. Si un usuari s’autentica a través
+        de Facebook o Google, la seva foto de perfil i el seu nom s’utilitzaran al
+        seu compte.
+      moment_question: Què és un Moment?
+      moment_answer: >-
+        Un <strong>%{moment}</strong> és un esdeveniment o situació que afecta la
+        nostra salut mental. Pot ser positiu o negatiu. És com una pàgina de
+        diari o un estat nou a les xarxes socials.<br /><br />Es pot etiquetar amb
+        Estratègies, Categories i Estats d’ànim. Pots escollir quins dels teus
+        aliats poden veure i comentar. També pots fer que només sigui visible per
+        tu.<br /><br /><strong>%{moment_templates}</strong> et permet crear
+        plantilles de text reutilitzables.
+      strategy_question: Què és una Estratègia?
+      strategy_answer: >-
+        Una <strong>%{strategy}</strong> és una activitat, una sèrie de pensaments
+        o una forma d’autocura que ens ajuda a afrontar un Moment o a concentrar-nos
+        en la recuperació.<br /><br />Es pot etiquetar amb Categories. Podem
+        triar quins aliats poden veure i comentar. També podem fer que només sigui
+        visible per nosaltres mateixos. Les Estratègies compartides seran visibles
+        per tots els aliats especificats, i per tant pots etiquetar els teus
+        Moments amb aquestes Estratègies!
+      category_question: Què és una Categoria?
+      category_answer: >-
+        Una <strong>%{category}</strong> és una etiqueta que pot representar
+        persones, llocs o coses que són importants per a tu.
+      mood_question: Què és un Estat d’ànim?
+      mood_answer: >-
+        Un <strong>%{mood}</strong> és una etiqueta que descriu el teu estat
+        d’ànim, sentiments i emocions.
+      group_question: Què és un Grup?
+      group_answer: >-
+        Un <strong>%{group}</strong> ofereix suport, guia i converses sobre salut
+        mental. Podem crear grups i els nostres aliats tenen l’opció d’unir-s’hi.
+        Només ens podem unir a grups creats pels nostres aliats.<br /><br />Com a
+        líder del teu Grup, pots crear <strong>Reunions</strong>. Les Reunions
+        tenen una ubicació i una data. La ubicació pot ser l’adreça d’un carrer o
+        la URL d’una videotrucada. A les Reunions també es poden deixar
+        comentaris. Si ets líder d’un Grup, no pots abandonar-lo si no hi ha un
+        altre líder. Els Grups només poden eliminar-se quan només hi quedes tu.
+      medications_question: Com s’utilitza la funció de Medicaments?
+      medications_answer: >-
+        La funció <strong>%{medications}</strong> permet registrar els fàrmacs
+        receptats que estem prenent. També permet registrar símptomes.
+      care_plan_question: Com faig servir el Pla de cures?
+      care_plan_answer: >-
+        La funció <strong>%{care_plan}</strong> et permet mantenir una llista de
+        persones estimades amb qui contactar en moments difícils i marcar les
+        teves estratègies favorites d’autocura.
+      invite_question: Com puc convidar els meus éssers estimats a unir-se a la pàgina?
+      invite_answer: >-
+        Ves a la secció <strong>%{allies}</strong> i fes clic a “Convida els teus
+        éssers estimats”. Els podràs convidar per correu electrònic. Quan un dels
+        teus éssers estimats accepti la invitació, s’afegirà a la teva llista
+        d’Aliats.
+      email_notifications_question: Com puc modificar les meves preferències de notificacions per correu electrònic?
+      email_notifications_answer: >-
+        Ves a la pàgina de <strong>%{accounts}</strong>. Aquí pots modificar el
+        teu correu electrònic, contrasenya, foto de perfil i biografia. També
+        pots eliminar el teu compte.
+    home:
+      update_pwd_modal:
+        title: Actualitza la contrasenya
+        body: >-
+          Hem implementat millores de seguretat per als nostres usuaris, si us
+          plau %{update_password_link}
+        update_link: actualitza la teva contrasenya.
+      stories: Històries
+      not_signed_in:
+        main_message_one: >-
+          Una millor comunicació amb les persones estimades porta a una millor
+          salut mental.
+        message_text_one: Necessitem donar-nos suport mútuament per acabar amb l’estigma.
+        message_one: >-
+          Comparteix les teves històries amb els teus éssers estimats i obtén el
+          suport que mereixes.
+        message_two: 'Sigues tu mateix, sense condicions, amb seguretat i privacitat.'
+        message_three: 'Anota els teus estats d’ànim, medicaments i cures personals.'
+        main_message_two: >-
+          Som un projecte de codi obert (open source) perquè hauria d’existir
+          transparència i obertura en salut mental.
+        message_text_two: >-
+          Estem <strong>sempre</strong> disposats a rebre %{help} i %{feedback}!
+        help: ajuda
+      signed_in_empty:
+        main_message_one: 'Hola %{name}!'
+        message_text_one: Aquí t’expliquem com començar a compartir les teves històries.
+        main_message_two: Explica’ns coses sobre tu.
+        cell_one: >-
+          Personalitza el teu %{profile} - afegeix una biografia i una foto de
+          perfil.<br /> Afegeix %{moods} per descriure millor les teves
+          emocions.<br /> Afegeix %{allies} - amics, família i persones estimades
+          amb qui vulguis compartir.
+        main_message_three: Escriu les teves històries.
+        cell_two: >-
+          Crea %{categories} personalitzades per organitzar els teus moments.<br
+          /> Escriu sobre els %{moments} - els esdeveniments i situacions que
+          afecten la teva salut mental.
+        main_message_four: Cuida’t.
+        cell_three: >-
+          Elabora les teves %{strategize} d’autocura!<br /> Estàs prenent
+          %{medications}? Fes-ne seguiment i crea recordatoris.<br /> Necessites
+          suport extra? Uneix-te o crea un %{group} per parlar-ne.
+        main_message_five: Tens algun dubte o pregunta?
+        message_text_three: 'Revisa la nostra pàgina de %{faq} o %{email_link}.'
+        strategize: Estratègies
+    partners:
+      description: >-
+        Aquestes són les increïbles organitzacions que ens inspiren i amb les
+        quals hem tingut el privilegi de col·laborar. Ens encantaria treballar amb
+        la teva organització, envia’ns un correu a %{email}.
+    privacy:
+      summary: Resum
+      summary_description: >-
+        <p>La política de privacitat d’aquest lloc web regula la privacitat dels
+        usuaris que decideixen utilitzar-lo.</p><p>A causa de la sensibilitat del
+        contingut de la pàgina, la privacitat dels nostres usuaris és una de les
+        nostres principals preocupacions. Aquesta política detalla com es
+        recopilen les dades de l’usuari, amb quina finalitat i com es
+        protegeixen.</p>
+      user_data: Informació de l’usuari
+      user_data_description: >-
+        <p>La nostra pàgina %{faq_link} té més informació sobre les funcions
+        d’aquest lloc web.</p>
+      data_protection_rights: Drets de protecció de dades
+      data_protection_rights_answer: >-
+        <p>Tota persona usuària té dret al següent:</p><p>Dret d’accés: els
+        usuaris tenen dret a sol·licitar-nos còpies de les seves dades
+        personals. És possible que cobrem una petita tarifa per aquest
+        servei.</p><p>Dret de rectificació: els usuaris tenen dret a sol·licitar
+        que corregim qualsevol informació que considerin inexacta. També poden
+        sol·licitar que completem la informació que considerin incompleta.</p>
+        <p>Dret de supressió: els usuaris tenen dret a demanar que eliminem les
+        seves dades personals en determinades condicions.</p><p>Dret a restringir
+        el tractament: els usuaris tenen dret a sol·licitar que limitem el
+        processament de les seves dades personals en determinades
+        condicions.</p><p>Dret d’oposició al tractament: tenen dret a oposar-se al
+        tractament de les seves dades personals en determinades
+        condicions.</p><p>Dret a la portabilitat de les dades: els usuaris tenen
+        dret a sol·licitar que transferim les dades que hem recopilat a una altra
+        organització, o directament a ells, sota determinades
+        condicions.</p><p>Quan es fa una sol·licitud, tenim un mes per
+        respondre.</p>
+      cookies: Ús de galetes
+      cookies_description: >-
+        <p>Aquest lloc web utilitza galetes per millorar l’experiència de l’usuari
+        en les seves visites. Les galetes funcionals s’utilitzen per a
+        l’autenticació i per recordar les preferències seleccionades prèviament,
+        com l’idioma o la ubicació.</p><p>Quan és necessari, el lloc web utilitza
+        un sistema de control de galetes que permet a l’usuari acceptar o rebutjar
+        el seu ús des de la primera visita.</p><p>Les galetes són petits fitxers
+        que es guarden al disc dur de l’usuari per rastrejar, emmagatzemar i
+        desar informació sobre les seves interaccions i ús del lloc web. Això
+        permet al servidor del lloc oferir una experiència personalitzada en les
+        visites posteriors.</p><p>Es recomana als usuaris que, si volen rebutjar
+        l’ús i l’emmagatzematge de galetes d’aquest lloc al seu dispositiu,
+        ajustin la configuració de seguretat del seu navegador per bloquejar totes
+        les galetes d’aquest lloc i dels seus proveïdors externs.</p>
+      social_media: Xarxes socials
+      social_media_description: >-
+        <p>La comunicació, la participació i les accions realitzades a través de
+        plataformes de xarxes socials externes en què participa aquest lloc web
+        estan subjectes als termes i condicions de cada xarxa social en
+        qüestió.</p>
+      changes: Canvis
+      changes_description: >-
+        <p>Revisem periòdicament la nostra política de privacitat i publiquem
+        totes les actualitzacions en aquesta pàgina web. Ens assegurem de
+        complir amb la Llei de protecció d’informació personal al Canadà (PIPEDA)
+        i el Reglament General de Protecció de Dades (GDPR) de la UE.</p><p>Aquesta
+        política es va actualitzar per darrera vegada l’11 de febrer de
+        2024.</p>
+      contact: Contacte
+      contact_description: >-
+        <p class="no_margin_bottom">Si us plau, %{email_link} si tens dubtes,
+        preguntes o preocupacions.</p>
+    resources:
+      description: >-
+        Aquesta és la nostra llista de recursos de salut mental, que inclou
+        comunitats, eines educatives, línies d’ajuda i serveis.
+      emergency: >-
+        Si tu o algú que coneixes esteu vivint una emergència de salut mental,
+        busca ajuda tan aviat com puguis.
+      popular_tags: Etiquetes populars
+      crisis_prevention:
+        title: Com estàs?
+        description: Siguis com siguis, ets estimat
+        die: morir
+        dead: mort
+        died: va morir
+        dying: morint
+        death: mort
+        passed_away: va traspassar
+        kill_myself: suïcidar-me
+        hurt_myself: fer-me mal
+        suicide: suïcidi
+        suicidal: suïcida
+      tags:
+        communities: comunitats
+        education: educació
+        hotlines: línies d’ajuda
+        services: serveis
+        people_of_colour: persones racialitzades
+        women_of_colour: dones racialitzades
+        black_women: dones negres
+        domestic_violence: violència domèstica
+        dating_violence: violència en el festeig
+        cyberbullying: ciberassetjament
+        therapy: teràpia
+        counseling: assessorament
+        youth: joventut
+        lgbt: LGBT
+        harassment: assetjament
+        self_care: autocura
+        women: dones
+        chatbot: xatbot
+        anonymous: anònim
+        free: gratuït
+        paid: de pagament
+        twenty_four_seven: 24/7
+        videos: vídeos
+        blog: bloc
+        podcast: pòdcast
+        books: llibres
+        publication: publicació
+        video_chat: videotrucada
+        texting: missatges de text
+        open_source: codi obert
+        workplace: lloc de treball
+        social_justice: justícia social
+        tech_industry: indústria tecnològica
+        meditation: meditació
+        anxiety: ansietat
+        social_anxiety: ansietat social
+        trigger_warnings: advertiments de contingut
+        netflix: netflix
+        homeless: sense llar
+        talks: xerrades
+        voice_chat: xat de veu
+        training: formació
+        directory: directori
+        self_injury: autolesió
+        treatment: tractament
+        care_planning: planificació de cures
+        depression: depressió
+        ocd: TOC
+        advice: consell
+        forum: fòrum
+        crisis_prevention: prevenció de crisis
+        safety_planning: planificació de seguretat
+        suicide_prevention: prevenció del suïcidi
+        android: android
+        ios: iOS
+        support_groups: grups de suport
+        mindfulness: atenció plena
+        journaling: diari personal
+        mood_tracking: registre d’estats d’ànim
+        veterans: veterans
+        music: música
+        integrative: integratiu
+        ptsd: TEPT
+        tbi: TCE
+        news: notícies
+        government: govern
+        christian: cristià
+        humor: humor
+        conference: conferència
+        addiction: addicció
+        rehabilitation: rehabilitació
+        teachers: mestres
+        bipolar: bipolar
+        goal_tracking: seguiment d’objectius
+        social_network: xarxa social
+        add: TDA
+        adhd: TDAH
+        sexual_assault_survivors: supervivents d’agressió sexual
+        political_movement: moviment polític
+        reporting: denúncia
+        game: joc
+        stress: estrès
+        fidget: inquietud
+        colouring: pintar
+        deaf: sord
+        asl: llengua de signes americana (ASL)
+        latinx: llatins/llatines (latinx)
+        hispanic: hispà
+        senior_citizens: gent gran
+        black_people: persones negres
+        sexual_health: salut sexual
+        hackathon: hackató
+        stories: històries
+        teen: adolescent
+        coaching: entrenament
+        physical_dependence: dependència física
+        codependency: codependència
+        relationships: relacions
+        alcoholism: alcoholisme
+        cbt: TCC
+        chrome: chrome
+        firefox: firefox
+        social_media_break: descans de les xarxes socials
+        quiz: qüestionari
+        attachment: fitxer adjunt
+        eating_disorders: trastorns de la conducta alimentària
+        asian: asiàtic
+        pacific_islander: illenc del Pacífic
+        south_asian: sud-asiàtic
+        southeast_asian: del sud-est asiàtic
+        east_asian: de l’Àsia oriental
+        al_anon: al-anon
+        burnout: esgotament
+        breakup: ruptura
+        indigenous: pobles indígenes
+        therapists: terapeutes
+        recovery: recuperació
+        advocacy: incidència
+        trauma: trauma
+        newsletter: butlletí informatiu
+        phobias: fòbies
+        grief: dol
+        bereavement: pèrdua
+      locations:
+        uk: Regne Unit
+        us: Estats Units
+        intl: Internacional
+        se: Suècia
+        ca: Canadà
+        ie: Irlanda
+        nz: Nova Zelanda
+  profile:
+    index:
+      title: Perfil
+      edit_user: Personalizar Perfil
+  pusher:
+    not_authorized: Sense autorització
+  search:
+    label: Cerca
+    search_by_name: Cerca per nom
+    search_by_tags: Cerca per etiquetes
+    filter_by: Filtrar per
+    form:
+      search_by_location: Cerca per ubicació
+      search_by_email: Cerca per correu electrònic
+    index:
+      title: Cerca d’Aliats
+      user_not_found: 'Usuari %{email} no trobat'
+  shared:
+    footer:
+      licence: AGPL-3.0
+      licence_subtitle: 'Llicència sota %{licence}'
+      connect: Connectar-se
+    comments:
+      share_everyone: Compartir amb tothom
+      share_with: 'Compartir només amb %{name}'
+      visible_only_between_you_and: 'Visible només entre tu i %{name}'
+      not_allies: (no sou aliats)
+    header:
+      signout: Tancar sessió
+      home: Pàgina principal
+    viewers_indicator:
+      disabled_comments: Els comentaris s’han desactivat.
+      you_are_viewer_html:
+        one: Ets l’única persona que ho està veient.
+        other: Tu <strong>no</strong> ets l’única persona que ho està veient.
+      viewers_html:
+        zero: <strong>No</strong> hi ha ningú veient això.
+        one: '%{names} està veient això.'
+        other: '%{names} estan veient això.'
+    stats:
+      you_are_focusing: Et concentres principalment en
+      user_is_focusing: '%{name} es concentra principalment en'
+      visible_in_stats: Visible a les estadístiques
+      not_visible_in_stats: No visible per etiquetar i mostrar a les estadístiques del perfil
+      make_visible_in_stats: Vols fer-ho visible per etiquetar i mostrar a les estadístiques del perfil?
+    viewers:
+      plural: Persones observant
+      you: Només tu
+      you_link: Visible només per a tu
+      many: 'Visible per a %{viewers}'
+    meeting_info:
+      attending: Hi assistiràs. Canvi de plans?
+      not_attending: 'No hi assistiràs. %{join}'
+      not_attending_one_spot_left: 'No hi assistiràs. Queda un lloc! %{join}'
+      not_attending_spots_left: 'No hi assistiràs. Queden %{number} llocs! %{join}'
+      not_attending_no_spots_left: No hi assistiràs. No hi ha lloc perquè t’hi puguis unir.
+    quick_create:
+      new: 'Nova %{name}'
+  strategies:
+    singular: Estratègia
+    plural: Estratègies
+    edit_strategy: Editar estratègia
+    tagged_strategies: Estratègies etiquetades
+    new: Nova estratègia
+    form:
+      describe: Descriure l’estratègia
+      strategies_label: Quines estratègies ajudarien a aconseguir aquests pensaments?
+      name_hint: >-
+        Qualsevol activitat, corrent de pensament o forma d’autocura que t’ajudi
+      viewers_hint: >-
+        Els aliats que poden veure la teva estratègia i etiquetar amb ella els
+        seus propis moments
+      daily_reminder_hint: >-
+        Cada dia t’enviarem un correu electrònic per dur a terme aquesta estratègia
+      draft_question: Vols desar la teva estratègia com a esborrany?
+      bookmarked_question: Marcar aquesta estratègia?
+      bookmarked_info: Les estratègies marcades apareixen al teu Pla d’atenció
+    label:
+      one: 'Estratègia:'
+      other: 'Estratègies:'
+    index:
+      subtitle: >-
+        Elabora estratègies d’autocura per aconseguir pensaments i actituds
+        desitjades envers els teus moments.
+      premade1_name: Cinc minuts de meditació
+      premade1_description: >-
+        1) <b> Posa’t en una posició relaxada i còmoda. </b> Pots seure en una
+        cadira, al terra o en un coixí. Mantén l’esquena recta però sense tensió.
+        Les mans descansant on sigui més còmode. La llengua contra el paladar o
+        on et sigui més còmode. <br /><br />2) <b> Pren consciència i relaxa el
+        teu cos.</b> Intenta adonar-te de la forma del teu cos, del seu pes.
+        Deixa’t relaxar i observa amb curiositat el teu cos assegut aquí — les
+        sensacions que experimenta, el que toca, la connexió amb el terra o la
+        cadira. Relaxa qualsevol zona amb rigidesa o tensió. Només respira.<br
+        /><br />3) <b> Sintonitza’t amb la teva respiració. </b> Sent el flux
+        natural del teu alè — endins, enfora. No cal fer res amb la teva
+        respiració. No és llarga, no és curta, és natural. Fixa’t on perceps la
+        respiració en el teu cos. Pot ser a l’abdomen, al pit, a la gola o a les
+        fosses nasals. Observa si pots sentir les sensacions de la respiració,
+        una a una. Quan un alè acaba, el següent comença. <br /> <br />4) <b> Sigues
+        amable amb la teva ment dispersa. </b> Mentre fas això, la teva ment pot
+        començar a divagar. Pots començar a pensar en altres coses. Si passa, no
+        passa res. És natural. Només adona’t que la ment ha divagat. Pots dir
+        “pensant” o “divagant” suaument al teu cap. I torna suaument a la
+        respiració.<br /><br />5) <b> Queda’t aquí cinc o set minuts. </b> Pren
+        consciència de la respiració, en silenci. De tant en tant et perdràs en
+        els teus pensaments, i llavors torna a la respiració. <br /><br />6) <b>
+        Pren consciència de tot abans d’acabar.</b> Després d’uns minuts, torna a
+        adonar-te del teu cos, assegut aquí. Deixa’t relaxar encara més
+        profundament i agraeix-te haver fet això avui.<br /><br /><i>Extret de
+        http://www.mindful.org/a-five-minute-breathing-meditation/</i>
+      instructions: >-
+        Encara no has creat cap estratègia personalitzada.<br> També pots afegir
+        l’estratègia predeterminada següent i personalitzar-la més endavant.
+    reminder_mailer:
+      subject: 'if-me.org | No oblidis dur a terme %{name}!'
+      body: 'Aquí tens un recordatori amable per dur a terme %{name}!'
+  stats:
+    total_moments: >-
+      Has escrit un <strong>total</strong> de <strong>%{count}</strong> moments.
+    total_moment: >-
+      Has escrit un <strong>total</strong> de <strong>%{count}</strong> moment.
+    monthly_moments: 'Aquest <strong>mes</strong> has escrit <strong>%{count}</strong> moments.'
+    monthly_moment: 'Aquest <strong>mes</strong> has escrit <strong>%{count}</strong> moment.'
+  warnings:
+    no_description: No has escrit cap descripció!
+    yes_description: >-
+      Escriure’n una et pot ajudar a tu i als altres a comprendre millor en
+      detall
+  mailers:
+    accepted_ally_request:
+      subject: 'if-me.org | %{ally_name} ha acceptat la teva sol·licitud d’aliança!'
+      message: >-
+        <p>Enhorabona! Ja pots compartir Moments, Estratègies i més amb
+        %{ally_name}.</p>
+    new_ally_request:
+      subject: 'if-me.org | %{ally_name} t’ha enviat una sol·licitud d’aliança!'
+      message: >-
+        <p>Si us plau, <a href="%{allies_url}">entra</a> per acceptar o
+        rebutjar la sol·licitud!</p>
+  devise:
+    password: Contrasenya
+    new_password: Contrasenya nova
+    current_password: Contrasenya actual
+    password_change: Canviar contrasenya
+    remember_me: Recorda’m
+    show_password: Mostrar contrasenya
+    hide_password: Amagar contrasenya
+    confirmations:
+      resend_confirmation: Reenviar instruccions de confirmació
+    mailer:
+      confirmation:
+        link_instructions: >-
+          Pots confirmar l’adreça de correu electrònic associada al teu compte a
+          través de l’enllaç de sota
+        link_text: Confirmar compte
+      reset_password:
+        link_instructions: >-
+          Algú ha sol·licitat un enllaç per canviar la teva contrasenya. Pots fer-ho
+          utilitzant l’enllaç de sota.
+        ignore: 'Si tu no ho has sol·licitat, ignora aquest missatge.'
+        info: >-
+          La teva contrasenya no canviarà fins que accedeixis a l’enllaç de dalt i
+          en creïs una de nova.
+      unlock:
+        info: >-
+          El teu compte ha estat bloquejat per un excés d’intents fallits
+          d’inici de sessió.
+        link_instructions: Fes clic a l’enllaç de sota per desbloquejar el teu compte
+        link_text: Desbloquejar el meu compte
+    passwords:
+      edit:
+        confirmation: Confirmar contrasenya nova
+      new:
+        send_instructions: Envia’m instruccions per reiniciar la meva contrasenya
+    registrations:
+      email_notifications: Notificacions per correu electrònic
+      comment_notify_text: 'Comentaris en moments, estratègies i reunions'
+      ally_notify_text: Sol·licituds d’Aliats noves i acceptades
+      group_notify_text: Actualitzacions de grup
+      meeting_notify_text: Actualitzacions de reunions
+      google_auth1: >-
+        Si ja no vols verificar la teva identitat a través de Google, introdueix
+        un nou correu electrònic i contrasenya.
+      google_auth2: >-
+        Com que la teva identitat ha estat confirmada a través de Google, no
+        cal que introdueixis la contrasenya.<br />Si vols canviar això,
+        introdueix un nou correu electrònic i contrasenya.
+      facebook_auth1: >-
+        Si ja no vols verificar la teva identitat a través de Facebook, introdueix
+        un nou correu electrònic i contrasenya.
+      facebook_auth2: >-
+        Com que la teva identitat ha estat confirmada a través de Facebook, no
+        cal que introdueixis la contrasenya.<br />Si vols canviar això,
+        introdueix un nou correu electrònic i contrasenya.
+      password_errors:
+        format: ha de contenir de 8 a 128 caràcters.
+      placeholders:
+        repeat_password: Repetir contrasenya
+      edit:
+        labels:
+          profile_picture: Imatge de perfil
+          remove_picture: Eliminar imatge
+          about: Sobre tu
+          password_for: Contrasenya per al compte de <strong>if-me.org</strong>
+          update: Actualitzar
+        placeholders:
+          optional: Opcional
+          about: >-
+            Presenta’t! Per què ets aquí i què esperes aconseguir? Tingues en
+            compte que això serà visible quan altres usuaris et busquin
+          required: Obligatori
+        delete:
+          text: El <strong>if-me.org</strong> no funciona per a tu?
+          button: Esborrar el meu compte permanentment
+          confirm: >-
+            N’estàs segur/a? Perdràs tota la teva informació. Però sempre et
+            podràs registrar de nou!
+      new:
+        subtitle: >-
+          Comença a explicar les teves històries i a mantenir la teva salut en un
+          lloc segur i privat
+        label: Alguns detalls
+    sessions:
+      subtitle: 'Benvingut/da novament, esperem ajudar-te a afrontar el dia'
+    shared:
+      sign_in_google: Inicia sessió amb Google
+      sign_up_google: Registra’t amb Google
+      sign_in_facebook: Inicia sessió amb Facebook
+      sign_up_facebook: Registra’t amb Facebook
+      confirmation: No has rebut instruccions de confirmació?
+      unlock: No has rebut instruccions per desbloquejar?
+    unlock:
+      resend: Reenviar instruccions per desbloquejar
+  care_plan:
+    index:
+      title: Pla de cures
+      subtitle: Elabora un pla per superar els moments difícils.
+      contacts: Contactes
+      new_contact: Nou contacte
+      edit_contact: Editar contacte
+      phone_number: Número de telèfon
+      contacts_info: Persones estimades amb qui hauries de parlar
+  moment_templates:
+    index:
+      title: Plantilles de moment
+      subtitle: Plantilles de redacció per als teus moments
+      new_template: Nova plantilla
+      edit_template: Editar plantilla
+      instructions: >-
+        Encara no has creat cap plantilla.<br />També pots afegir les
+        plantilles prefabricades següents i personalitzar-les més endavant.
+      premade1_name: Bàsic
+      premade1_description: Què ha passat i com et sents?<br />Quins pensaments t’agradaria tenir?
+      premade2_name: Gratitud
+      premade2_description: Què és el que valores de tu mateix/a?<br />Què esperes avui?
+

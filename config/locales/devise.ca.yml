@@ -1,0 +1,85 @@
+ca:
+  devise:
+    confirmations:
+      confirmed: El teu correu electrònic ha estat confirmat correctament.
+      send_instructions: >-
+        Rebràs un correu amb les instruccions per confirmar el teu correu
+        electrònic en uns minuts.
+      send_paranoid_instructions: >-
+        Si el teu correu electrònic existeix a la nostra base de dades, rebràs
+        un correu amb les instruccions per confirmar-lo en uns minuts.
+    failure:
+      already_authenticated: Ja has iniciat sessió.
+      inactive: El teu compte encara no ha estat activat.
+      invalid: Correu electrònic i/o contrasenya invàlids.
+      locked: El teu compte està bloquejat.
+      last_attempt: Et queda un intent abans que el teu compte sigui bloquejat.
+      not_found_in_database: '%{authentication_keys} o contrasenya invàlids.'
+      timeout: La teva sessió ha expirat. Torna a iniciar sessió.
+      unauthenticated: Has de registrar-te o iniciar sessió abans de continuar.
+      unconfirmed: Has de confirmar el teu compte abans de continuar.
+    mailer:
+      confirmation_instructions:
+        subject: if-me.org | Instruccions de confirmació
+      reset_password_instructions:
+        subject: if-me.org | Instruccions de canvi de contrasenya
+      unlock_instructions:
+        subject: if-me.org | Instruccions de desbloqueig
+      password_change:
+        subject: if-me.org | Contrasenya modificada
+    omniauth_callbacks:
+      failure: >-
+        No hem pogut autenticar el teu compte de %{kind} per la raó següent:
+        "%{reason}".
+      success: T’has autenticat correctament amb el teu compte de %{kind}.
+    passwords:
+      no_token: >-
+        No pots accedir a aquesta pàgina sense venir des del correu de reinici
+        de contrasenya. Si hi vens des d’allà, assegura’t de fer servir l’URL
+        completa que hi apareix.
+      send_instructions: >-
+        Rebràs un correu amb instruccions per reiniciar la teva contrasenya en
+        uns minuts.
+      send_paranoid_instructions: >-
+        Si el teu correu existeix al sistema, rebràs un correu amb instruccions
+        per reiniciar la contrasenya en uns minuts.
+      updated: La teva contrasenya s’ha modificat correctament. Has iniciat sessió.
+      updated_not_active: La teva contrasenya s’ha modificat correctament.
+    registrations:
+      destroyed: Adéu, el teu compte ha estat eliminat. Esperem veure’t aviat!
+      signed_up: Benvingut/da! T’has registrat correctament.
+      signed_up_but_inactive: T’has registrat correctament, però el teu compte encara no ha estat activat.
+      signed_up_but_locked: T’has registrat correctament, però el teu compte està bloquejat.
+      signed_up_but_unconfirmed: >-
+        T’hem enviat un correu amb instruccions per confirmar el teu compte.
+      update_needs_confirmation: >-
+        Has actualitzat el teu compte correctament, però hem de tornar a
+        validar el teu correu electrònic. Revisa el teu correu per confirmar la
+        nova adreça.
+      updated: Has actualitzat el teu compte correctament.
+    sessions:
+      signed_in: Has iniciat sessió correctament.
+      signed_out: Has tancat la sessió correctament.
+      already_signed_out: La sessió s’ha tancat correctament.
+    unlocks:
+      send_instructions: >-
+        Rebràs un correu amb instruccions per desbloquejar el teu compte en uns
+        minuts.
+      send_paranoid_instructions: >-
+        Si el teu compte existeix, rebràs un correu amb instruccions per
+        desbloquejar-lo en uns minuts.
+      unlocked: El teu compte ha estat desbloquejat. Inicia sessió per continuar.
+  errors:
+    messages:
+      already_confirmed: ja ha estat confirmat. Intenta iniciar sessió.
+      confirmation_period_expired: 'necessita ser confirmat dins de %{period}, si us plau demana’n un de nou'
+      expired: 'ha expirat, si us plau demana’n un de nou'
+      not_found: no s’ha trobat
+      not_locked: no ha estat bloquejat
+      not_saved:
+        one: 'S’ha produït 1 error:'
+        other: 'S’han produït %{count} errors:'
+      pwned_password: >-
+        ha aparegut anteriorment en una filtració de dades i mai no s’hauria de
+        fer servir. Si l’has utilitzat en algun altre lloc, canvia-la de
+        seguida!
