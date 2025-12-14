@@ -91,18 +91,18 @@ describe('Utils', () => {
     it('should verify that for html strings without any issues, proper object representation is created without any value missing', () => {
       const h1HeadingString = '<h1 id="main-heading">THIS IS A HEADING</h1>';
       const h1Object = Utils.renderContent(h1HeadingString);
-      expect(h1Object.type).toEqual('h1');
-      expect(h1Object.props.id).toEqual('main-heading');
-
-      expect(h1Object.props.children).toEqual('THIS IS A HEADING');
+      expect(h1Object.type).toEqual('span');
+      expect(h1Object.props.dangerouslySetInnerHTML.__html).toContain('THIS IS A HEADING');
+      expect(h1Object.props.dangerouslySetInnerHTML.__html).toContain('id="main-heading"');
     });
 
     it('should verify that for html strings with vulnerable code, it gets sanitized in object representation', () => {
       const imageHTMLString = '<img src=img.jpg onerror=alert(1)>';
       const imageObject = Utils.renderContent(imageHTMLString);
-      expect(imageObject.type).toEqual('img');
-      expect(imageObject.props.src).toEqual('img.jpg');
-      expect(imageObject.props.onError).toBe(undefined);
+      expect(imageObject.type).toEqual('span');
+      expect(imageObject.props.dangerouslySetInnerHTML.__html).toContain('img.jpg');
+      expect(imageObject.props.dangerouslySetInnerHTML.__html).not.toContain('onerror');
+      expect(imageObject.props.dangerouslySetInnerHTML.__html).not.toContain('alert');
     });
 
     it('should apply attributes to React elements', () => {

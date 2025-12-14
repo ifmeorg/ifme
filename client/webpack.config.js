@@ -49,12 +49,9 @@ const config = {
   },
 
   entry: {
-    // Shims should be singletons, and webpack bundle is always loaded
-    webpack_bundle: [
-      'es5-shim/es5-shim',
-      'es5-shim/es5-sham',
-      '@babel/polyfill',
-    ].concat(glob.sync('./app/startup/*')),
+    // Modern browsers don't need ES5 shims - removing saves ~100KB
+    // Babel runtime handles necessary polyfills via @babel/preset-env + browserslist
+    webpack_bundle: glob.sync('./app/startup/*'),
   },
 
   output: {
