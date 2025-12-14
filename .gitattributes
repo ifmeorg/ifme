@@ -1,0 +1,12 @@
+# Force LF for shell scripts and binstubs (avoids CRLF issues on Windows)
+*.sh text eol=lf
+bin/* text eol=lf
+
+# Common configs that must always be LF
+Dockerfile text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Allow Markdown and text files to use system defaults
+*.md text
+*.txt text
