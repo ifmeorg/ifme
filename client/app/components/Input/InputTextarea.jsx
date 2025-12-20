@@ -108,17 +108,32 @@ export function InputTextarea(props: Props): Node {
   };
 
   useEffect(() => {
-    if (editorRef.current) {
-      editor.current = init({
-        element: editorRef.current.getElementsByClassName('editor')[0],
-        onChange,
-        classes,
-        actions,
+  if (editorRef.current) {
+    editor.current = init({
+      element: editorRef.current.getElementsByClassName('editor')[0],
+      onChange,
+      classes,
+      actions,
+    });
+    editor.current.content.innerHTML = value;
+    const toolbarButtons = editorRef.current.querySelectorAll('.pell-actionbar button');
+    toolbarButtons.forEach(btn => {
+      btn.addEventListener('mousedown', e => e.preventDefault());
+      btn.addEventListener('click', () => {
+        editor.current.content.focus({ preventScroll: true });
       });
-      editor.current.content.innerHTML = value;
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    });
+    return () => {
+      toolbarButtons.forEach(btn => {
+        btn.removeEventListener('mousedown', e => e.preventDefault());
+        btn.removeEventListener('click', () => {
+          editor.current.content.focus({ preventScroll: true });
+        });
+      });
+    };
+  }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
 
   return (
     <div
