@@ -123,7 +123,7 @@ export function InputTextarea(props: Props): Node {
   return (
     <div
       id={id}
-      className={`${inputCss.default} ${dark ? css.dark : ''}`}
+      className={`${inputCss.default} ${dark ? css.dark : ''} ${css.textarea}`}
       onBlur={onBlur}
       onFocus={onFocus}
       onPaste={onPaste}

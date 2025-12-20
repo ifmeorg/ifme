@@ -1,5 +1,9 @@
 @import "~styles/_global.scss";
 
+.textarea {
+  word-break: break-word;
+}
+
 .button {
   @include setFontSize($size-24);
 
@@ -87,4 +91,25 @@
 
 .editor {
   min-height: $size-70;
+}
+
+.editor:focus-within {
+   > div:first-child {
+    position: sticky;
+    top: $nav-height;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: $black;
+    margin-top: -1 * $size-24;
+    margin-left: -1 * $size-24;
+    padding: $size-24;
+
+    @media screen and (max-width: $medium) {
+      top: 0;
+      margin-top: -1 * $size-12;
+      margin-left: -1 * $size-32;
+      padding: $size-12 $size-32;
+    }
+  }
 }
