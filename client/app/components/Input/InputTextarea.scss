@@ -113,3 +113,11 @@
     }
   }
 }
+
+:global(.modal) {
+  .editor:focus-within {
+    > div:first-child {
+      top: 0 !important;
+    }
+  }
+}
