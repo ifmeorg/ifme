@@ -742,6 +742,7 @@ nl:
         suicide: zelfmoord
         suicidal: suïcidaal
       tags:
+        ai: AI
         communities: gemeenschappen
         education: educatie
         hotlines: meldpunten

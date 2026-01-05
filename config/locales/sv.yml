@@ -705,6 +705,7 @@ sv:
         suicide: självmord
         suicidal: självmords
       tags:
+        ai: AI
         communities: gemenskaperna
         education: utbildning
         hotlines: direktlinje
