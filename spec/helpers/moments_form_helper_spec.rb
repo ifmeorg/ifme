@@ -293,7 +293,8 @@ describe MomentsFormHelper do
               options: [{
                 id: 'test-moment-template-name',
                 label: 'Test Moment Template Name',
-                value: 'Test Moment Template Description'
+                value: 'Test Moment Template Description',
+                selected: false
               }],
               required: true,
               type: 'textareaTemplate',

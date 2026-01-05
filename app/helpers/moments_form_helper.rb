@@ -21,8 +21,17 @@ module MomentsFormHelper
   end
 
   def moment_text_input_props(field, type, label, required = false)
+    value = @moment[field] || nil
+    if field == 'why' && !@moment.fix.present?
+      current_user.moment_templates.each do |template|
+        if template.id.to_s == params[:templateId].to_s
+          value = template.description
+          break
+        end
+      end
+    end
     moment_input_props(field, type, label)
-      .merge(value: @moment[field] || nil, required:, dark: true)
+      .merge(value: value, required:, dark: true)
   end
 
   def moment_name
@@ -137,7 +146,7 @@ module MomentsFormHelper
 
   def options_for_templates(data)
     data.map do |item|
-      { id: item.slug, label: item.name, value: item.description }
+      { id: item.slug, label: item.name, value: item.description, selected: item.id.to_s == params[:templateId].to_s }
     end
   end
 end
