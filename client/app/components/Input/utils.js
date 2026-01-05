@@ -44,6 +44,7 @@ export type Option = {
   id: string,
   value: any,
   label: string,
+  selected?: Boolean;
 };
 
 export type Checkbox = {

@@ -6,6 +6,7 @@ import { Utils } from 'utils';
 import Modal from 'components/Modal';
 import { Story } from 'components/Story';
 import type { Template } from 'pages/MomentTemplates/MomentTemplatesForm';
+import css from './MomentTemplates.scss';
 
 type PremadeTemplate = {
   id?: string,
@@ -25,7 +26,28 @@ export const MomentTemplate = ({ template, editTemplate }: Props): Node => {
 
   return (
     <div className="gridTwoItemBoxLight">
-      <Modal title={name} body={description} open={open} modalKey={modalKey} />
+      <Modal
+        title={name}
+        body={
+          <>
+            <div className={css.marginBottom}>
+              <button
+                type="button"
+                className={css.buttonDarkM}
+                onClick={() => {
+                    window.location.href= id ? `/moments/new?templateId=${id}` : '/moments/new';
+                  }
+                }
+              >
+                {I18n.t('moments.new')}
+              </button>
+            </div>
+            {Utils.renderContent(description)}
+          </>
+        }
+        open={open}
+        modalKey={modalKey}
+      />
       <Story
         name={name}
         onClick={() => {
