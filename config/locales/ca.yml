@@ -719,6 +719,7 @@ ca:
         suicide: suïcidi
         suicidal: suïcida
       tags:
+        ai: AI
         communities: comunitats
         education: educació
         hotlines: línies d’ajuda

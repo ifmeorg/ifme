@@ -700,6 +700,7 @@ nb:
         suicide: selvmord
         suicidal: suicidal
       tags:
+        ai: AI
         communities: samfunn
         education: utdanning
         hotlines: hjelpelinjer

@@ -739,6 +739,7 @@ es:
         suicide: suicidio
         suicidal: suicida
       tags:
+        ai: AI
         communities: comunidades
         education: educación
         hotlines: líneas de ayuda

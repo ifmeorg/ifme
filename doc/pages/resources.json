@@ -600,9 +600,9 @@
     "languages": ["en"]
   },
   {
-    "name": "nOCD",
+    "name": "NOCD",
     "link": "https://www.treatmyocd.com/",
-    "tags": ["free", "ocd", "ios"],
+    "tags": ["free", "ocd", "ios", "android", "therapists", "counseling", "communities", "support_groups"],
     "languages": ["en"]
   },
   {
@@ -1274,6 +1274,18 @@
     "name": "Surviving Grief",
     "link": "https://www.survivinggrief.org",
     "tags": ["grief", "bereavement", "free", "directory"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Feeling Great",
+    "link": "https://www.feelinggreat.com/",
+    "tags": ["android", "ios", "free", "cbt", "depression", "anxiety", "education", "ai", "chatbot"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Youper",
+    "link": "https://www.youper.ai/",
+    "tags": ["android", "ios", "free", "cbt", "depression", "anxiety", "mood_tracking", "chatbot", "ai"],
     "languages": ["en"]
   }
 ]

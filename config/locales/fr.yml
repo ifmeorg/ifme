@@ -730,6 +730,7 @@ fr:
         suicide: suicide
         suicidal: suicidaire
       tags:
+        ai: AI
         communities: communauté
         education: éducation
         hotlines: hotlines
