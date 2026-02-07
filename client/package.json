@@ -110,7 +110,7 @@
     "surge": "^0.23.1",
     "terser-webpack-plugin": "^5.3.6",
     "url-loader": "^4.0.0",
-    "webpack": "^5.94.0",
+    "webpack": "^5.104.1",
     "webpack-cli": "^5.1.4",
     "webpack-manifest-plugin": "^5.0.0",
     "yml-loader": "^2.1.0"
@@ -146,7 +146,7 @@
     "node-fetch": "2.6.6",
     "react-dom": "^17.0.2",
     "react": "^17.0.2",
-    "webpack": "5.94.0"
+    "webpack": "5.104.1"
   },
   "browserslist": [
     "defaults"
