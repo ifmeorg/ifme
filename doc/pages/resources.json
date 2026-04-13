@@ -1287,5 +1287,11 @@
     "link": "https://www.youper.ai/",
     "tags": ["android", "ios", "free", "cbt", "depression", "anxiety", "mood_tracking", "chatbot", "ai"],
     "languages": ["en"]
+  },
+  {
+    "name": "BetterMind",
+    "link": "https://www.bettermind.com/",
+     "tags": ["blog", "education", "anxiety", "depression", "bipolar", "ptsd", "adhd", "eating_disorders"],
+    "languages": ["en"]
   }
 ]
