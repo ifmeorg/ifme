@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '~> 3.1.4'
+ruby '~> 3.3.11'
 
 gem 'puma', '5.6.9'  # Latest capybara doesn't work with puma 6.0 at the moment.
 gem 'rack-rewrite'
@@ -13,7 +13,7 @@ gem 'devise', '~> 4.8.1'
 gem 'devise_invitable', '~> 2.0.9'
 gem 'devise-pwned_password'
 gem 'devise_uid'
-gem 'pg', '1.1.4'
+gem "pg", "~> 1.5"
 gem "recaptcha"
 gem 'resque', '2.6.0'
 gem 'resque-scheduler', '4.10.2'
