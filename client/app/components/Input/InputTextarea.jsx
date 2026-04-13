@@ -77,7 +77,7 @@ export function InputTextarea(props: Props): Node {
     id, name, value: propValue, required, hasError, myRef, dark,
   } = props;
   const [value, setValue] = useState<string>(sanitize(propValue) || '');
-  const editorRef = useRef(null);
+  const editorRef = useRef<?HTMLDivElement>(null);
   const editor = useRef(null);
 
   const onChange = (updatedValue: string) => {
@@ -108,32 +108,35 @@ export function InputTextarea(props: Props): Node {
   };
 
   useEffect(() => {
-  if (editorRef.current) {
-    editor.current = init({
-      element: editorRef.current.getElementsByClassName('editor')[0],
-      onChange,
-      classes,
-      actions,
-    });
-    editor.current.content.innerHTML = value;
-    const toolbarButtons = editorRef.current.querySelectorAll('.pell-actionbar button');
-    toolbarButtons.forEach(btn => {
-      btn.addEventListener('mousedown', e => e.preventDefault());
-      btn.addEventListener('click', () => {
-        editor.current.content.focus({ preventScroll: true });
+    if (editorRef.current) {
+      editor.current = init({
+        element: editorRef.current.getElementsByClassName('editor')[0],
+        onChange,
+        classes,
+        actions,
       });
-    });
-    return () => {
-      toolbarButtons.forEach(btn => {
-        btn.removeEventListener('mousedown', e => e.preventDefault());
-        btn.removeEventListener('click', () => {
-          editor.current.content.focus({ preventScroll: true });
+      editor.current.content.innerHTML = value;
+      const toolbarButtons = editorRef.current?.querySelectorAll(
+        '.pell-actionbar button',
+      );
+      toolbarButtons?.forEach((btn) => {
+        btn.addEventListener('mousedown', (e: MouseEvent) => e.preventDefault());
+        btn.addEventListener('click', () => {
+          editor.current?.content.focus({ preventScroll: true });
         });
       });
-    };
-  }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, []);
+      return () => {
+        toolbarButtons?.forEach((btn) => {
+          btn.removeEventListener('mousedown', (e: MouseEvent) => e.preventDefault());
+          btn.removeEventListener('click', () => {
+            editor.current?.content.focus({ preventScroll: true });
+          });
+        });
+      };
+    }
+    return () => {};
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div
