@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
 require_relative "../config/boot"
+require "logger"
 require "rake"
 Rake.application.run

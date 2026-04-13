@@ -34,17 +34,17 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      # Restore dependency caches
+      # Restore dependency caches - Updated to v3 to bypass stale Ruby 3.3 environments
       - restore_cache:
           keys:
-            - v2-bundle-{{ arch }}-{{ checksum "Gemfile.lock" }}
-            - v2-bundle-{{ arch }}-
-            - v2-bundle-
+            - v3-bundle-{{ arch }}-{{ checksum "Gemfile.lock" }}
+            - v3-bundle-{{ arch }}-
+            - v3-bundle-
       - restore_cache:
           keys:
-            - v2-yarn-{{ arch }}-{{ checksum "yarn.lock" }}-{{ checksum "client/yarn.lock" }}
-            - v2-yarn-{{ arch }}-{{ checksum "yarn.lock" }}
-            - v2-yarn-{{ arch }}-
+            - v3-yarn-{{ arch }}-{{ checksum "yarn.lock" }}-{{ checksum "client/yarn.lock" }}
+            - v3-yarn-{{ arch }}-{{ checksum "yarn.lock" }}
+            - v3-yarn-{{ arch }}-
       - run:
           name: Setup dependencies
           command: |
@@ -72,11 +72,11 @@ jobs:
             sudo apt --fix-broken install -y
       # Save dependency caches
       - save_cache:
-          key: v1-bundle-{{ checksum "Gemfile.lock" }}
+          key: v3-bundle-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
       - save_cache:
-          key: v1-yarn-{{ checksum "client/yarn.lock" }}
+          key: v3-yarn-{{ checksum "client/yarn.lock" }}
           paths:
             - ~/.cache/yarn
             - client/node_modules
@@ -157,9 +157,9 @@ jobs:
           at: ~/ifmeorg/ifme/tmp
       - restore_cache:
           keys:
-            - v1-dep-{{ .Branch }}-
-            - v1-dep-main-
-            - v1-dep-
+            - v3-dep-{{ .Branch }}-
+            - v3-dep-main-
+            - v3-dep-
       - run:
           name: Update to Node v20.17.0
           command: |
@@ -174,7 +174,7 @@ jobs:
             cd client
             yarn deploy:storybook
       - save_cache:
-          key: v1-dep-{{ .Branch }}-{{ epoch }}
+          key: v3-dep-{{ .Branch }}-{{ epoch }}
           paths:
             - ~/.cache/yarn
             - ./node_modules
