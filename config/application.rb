@@ -2,6 +2,7 @@
 
 require_relative "boot"
 require_relative "locale"
+require "logger"
 require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
