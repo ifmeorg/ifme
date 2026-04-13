@@ -15,12 +15,12 @@ type Props = {
 };
 
 export const CarePlanContacts = ({ contacts: contactsProp }: Props): Node => {
-  const [editableContact, setEditableTemplate] = useState();
-  const [modalKey, setModalKey] = useState();
+  const [editableContact, setEditableTemplate] = useState<?Contact>(null);
+  const [modalKey, setModalKey] = useState<string>('');
   const [contacts, setTemplates] = useState(contactsProp || []);
   const [openModal, setOpenModal] = useState(false);
 
-  const editContact = (contact) => {
+  const editContact = (contact: Contact): void => {
     setEditableTemplate(contact);
     setOpenModal(true);
     setModalKey(Utils.randomString());

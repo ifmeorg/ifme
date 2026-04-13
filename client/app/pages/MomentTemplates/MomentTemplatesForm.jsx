@@ -19,11 +19,11 @@ type Response = {
 };
 
 export type Props = {
-  template?: Template,
+  template: ?Template,
 };
 
 export const MomentTemplatesForm = ({ template }: Props): Node => {
-  const [error, setError] = useState();
+  const [error, setError] = useState<?string>(null);
   const action = `/moment_templates/${
     template ? `update?id=${template.id}` : 'create'
   }`;

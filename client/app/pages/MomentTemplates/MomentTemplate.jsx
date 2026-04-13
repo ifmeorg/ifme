@@ -9,7 +9,7 @@ import type { Template } from 'pages/MomentTemplates/MomentTemplatesForm';
 import css from './MomentTemplates.scss';
 
 type PremadeTemplate = {
-  id?: string,
+  id?: string | number,
   name: string,
   description: string,
 };
@@ -22,7 +22,7 @@ type Props = {
 export const MomentTemplate = ({ template, editTemplate }: Props): Node => {
   const { id, name, description } = template;
   const [open, setOpen] = useState(false);
-  const [modalKey, setModalKey] = useState();
+  const [modalKey, setModalKey] = useState<string>('');
 
   return (
     <div className="gridTwoItemBoxLight">

@@ -19,11 +19,11 @@ type Response = {
 };
 
 export type Props = {
-  contact?: Contact,
+  contact: ?Contact,
 };
 
 export const CarePlanContactsForm = ({ contact }: Props): Node => {
-  const [error, setError] = useState();
+  const [error, setError] = useState<?string>(null);
   const action = `/care_plan_contacts/${
     contact ? `update?id=${contact.id}` : 'create'
   }`;

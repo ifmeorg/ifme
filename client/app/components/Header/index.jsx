@@ -113,7 +113,9 @@ export const Header = ({
   );
 
   useEffect(() => {
-    const handleScroll = (event) => {
+    const handleScroll = (event: {
+      currentTarget: { scrollY: number },
+    }): void => {
       if (event.currentTarget.scrollY > 0) {
         setScrolled(true);
       } else {

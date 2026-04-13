@@ -10,7 +10,9 @@ type chartControlProps = {
   types: string[],
   initialParams: {
     type: string,
-    data: {},
+    data: {
+      [string]: mixed,
+    },
   },
 };
 

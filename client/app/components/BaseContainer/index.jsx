@@ -31,10 +31,9 @@ export const BaseContainerComponent = ({
 
   const onClick = () => {
     const fetchUrl = fetchUrlProps;
-    let url = new URL(`${window.location.origin + fetchUrl}`);
-    url = `${url.origin}${url.pathname}.json?page=${page + 1}${
-      url.search ? `&${url.search.substring(1)}` : ''
-    }`;
+    const parsedUrl = new URL(`${window.location.origin + fetchUrl}`);
+    const url = `${parsedUrl.origin}${parsedUrl.pathname}.json?page=${page
+      + 1}${parsedUrl.search ? `&${parsedUrl.search.substring(1)}` : ''}`;
     Utils.setCsrfToken();
     axios.get(url).then((response: any) => {
       if (response.data) {

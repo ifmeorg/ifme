@@ -6,14 +6,15 @@ import Cookies from 'js-cookie';
 import { I18n } from 'libs/i18n';
 import Input from 'components/Input';
 import { Utils } from 'utils';
+import type { Option } from 'components/Input/utils';
 
 export type Props = {
   locale: string,
   locales: string[],
 };
 
-const options = (locales) => {
-  const result = [];
+const options = (locales: string[]): Option[] => {
+  const result: Option[] = [];
   locales.forEach((locale: string) => {
     result.push({
       label: I18n.t(`languages.${locale}`),

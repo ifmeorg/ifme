@@ -20,7 +20,7 @@ export const PageTitle = ({
 }: Props): Node => {
   useEffect(() => {
     window.document.title = `${I18n.t('app_name')} | ${title}`;
-  });
+  }, [title]);
 
   return (
     <>

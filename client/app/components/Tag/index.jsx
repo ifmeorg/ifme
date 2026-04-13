@@ -13,7 +13,15 @@ type Props = {
 };
 
 const labelClassNames = ({
-  dark, normal, secondary, onClick,
+  dark,
+  normal,
+  secondary,
+  onClick,
+}: {
+  dark?: boolean,
+  normal?: boolean,
+  secondary?: boolean,
+  onClick?: Function,
 } = {}) => `tag ${css.tag} ${dark ? css.dark : ''} ${normal ? css.normal : ''} ${
   secondary ? css.secondary : ''
 } ${onClick ? css.clickable : ''}`;

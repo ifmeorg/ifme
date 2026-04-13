@@ -1,10 +1,7 @@
+/* eslint-disable react/jsx-props-no-spreading */
 // @flow
 import React, {
-  useState,
-  useRef,
-  type Element,
-  type Node,
-  useEffect,
+  useState, useRef, type Node, useEffect,
 } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -20,9 +17,9 @@ type CustomElement = {
 };
 
 export type Props = {
-  element?: CustomElement | Element<any> | any,
+  element?: any,
   elementId?: string,
-  body?: string | Element<any> | any,
+  body?: any,
   title?: string,
   openListener?: Function,
   open?: boolean,
@@ -145,18 +142,9 @@ export const Modal = (props: Props): Node => {
     </div>
   );
 
-  const resolveComponent = (component: string) => {
-    /** Really only returns Avatar right now but more could be added if needed */
-    switch (component) {
-      case 'Avatar':
-      default:
-        return Avatar;
-    }
-  };
-
   useEffect(() => {
     if (element && element.component) {
-      const { props: elementProps } = element;
+      const { props: elementProps } = ((element: any): CustomElement);
       setIsInteractive(!!elementProps.onClick);
     } else if (
       element
@@ -180,25 +168,31 @@ export const Modal = (props: Props): Node => {
             !isInteractive ? (event) => handleKeyPress(event, 'Enter') : undefined
           }
         >
-          {element && element.component
-            ? React.createElement(resolveComponent(element.component), {
-              ...element.props,
-              tabIndex: !isInteractive ? 0 : undefined,
-              onClick: !isInteractive ? toggleOpen : undefined,
-              onKeyDown: !isInteractive
-                ? (event) => handleKeyPress(event, 'Enter')
-                : undefined,
-            })
-            : Utils.renderContent(
+          {element && element.component ? (
+            <Avatar
+              {...((element: any).props || {})}
+              tabIndex={!isInteractive ? 0 : undefined}
+              onClick={!isInteractive ? toggleOpen : undefined}
+              onKeyDown={
+                !isInteractive
+                  ? (event: SyntheticKeyboardEvent<HTMLDivElement>) => handleKeyPress(event, 'Enter')
+                  : undefined
+              }
+            />
+          ) : (
+            Utils.renderContent(
               element,
               typeof element === 'object' && element.type === 'button'
                 ? {
                   tabIndex: 0,
                   onClick: toggleOpen,
-                  onKeyDown: (event) => handleKeyPress(event, 'Enter'),
+                  onKeyDown: (
+                    event: SyntheticKeyboardEvent<HTMLDivElement>,
+                  ) => handleKeyPress(event, 'Enter'),
                 }
                 : {},
-            )}
+            )
+          )}
         </div>
       );
     }

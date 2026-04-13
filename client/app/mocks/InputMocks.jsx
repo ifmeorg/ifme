@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 // @flow
 import React from 'react';
 import type { Node } from 'react';
@@ -146,7 +147,7 @@ const event = (): void => window.alert('Event triggered!');
 
 const createInput = (props: Props, extraProps: any): Node => {
   const inputProps = { ...props, ...extraProps };
-  return React.createElement(Input, inputProps);
+  return <Input {...inputProps} />;
 };
 
 export const InputMocks = {

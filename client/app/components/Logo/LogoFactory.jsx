@@ -12,7 +12,7 @@ export type Props = {
 const ifDisplay = <div className={css.if}>if</div>;
 const meDisplay = <div className={css.me}>me</div>;
 
-const sizeClass = (sm, lg) => {
+const sizeClass = (sm: ?boolean, lg: ?boolean): string => {
   if (sm) return css.sm;
   if (lg) return css.lg;
   return '';

@@ -9,6 +9,7 @@ import { StoryActions } from 'components/Story/StoryActions';
 import DynamicForm from 'components/Form/DynamicForm';
 import { Utils } from 'utils';
 import type { FormProps } from 'components/Form/utils';
+import type { Action, Actions } from 'components/Story/StoryActions';
 import css from './Comments.scss';
 
 type CommentResponse = {
@@ -58,7 +59,11 @@ export const Comments = ({ comments, formProps }: Props): Node => {
     });
   };
 
-  const reportAction = (uid: string, id: number, commentByName: string) => ({
+  const reportAction = (
+    uid: string,
+    id: number,
+    commentByName: string,
+  ): Action => ({
     name: I18n.t('common.actions.report'),
     link: `/reports/new?uid=${uid}&comment_id=${id}`,
     commentBy: I18n.t('comment.report_comment_by', { name: commentByName }),
@@ -72,8 +77,8 @@ export const Comments = ({ comments, formProps }: Props): Node => {
     id: number,
     commentByAdmin: Boolean,
     commentByName: string,
-  ) => {
-    const actions = {};
+  ): Actions => {
+    const actions: Actions = {};
     if (currentUserUid !== uid && !commentByAdmin) {
       actions.report = reportAction(uid, id, commentByName);
     }

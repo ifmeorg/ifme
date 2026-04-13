@@ -14,7 +14,7 @@ export type Props = {
   profile: Profile,
 };
 
-const notificationsElement = (notifications) => (
+const notificationsElement = (notifications: string): Node => (
   <button
     type="button"
     className="buttonGhostXS"
@@ -25,7 +25,7 @@ const notificationsElement = (notifications) => (
   </button>
 );
 
-const displayInfoLinks = (headerProfile: Profile) => {
+const displayInfoLinks = (headerProfile: Profile): Node => {
   const { profile, account, notifications } = headerProfile;
   return (
     <div className={css.headerProfileInfoLinks}>

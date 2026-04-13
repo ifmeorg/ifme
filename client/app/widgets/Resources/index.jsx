@@ -25,7 +25,7 @@ export type Props = {
   resources: ResourceProp[],
   keywords: string[],
   history?: {
-    replace: (args: {}) => void,
+    replace: (args: { pathname: string, search: string }) => void,
   },
 };
 
@@ -117,13 +117,12 @@ const createCheckboxes = (resources: ResourceProp[], keywords: string[]) => {
           ...resource.languages,
           ...(resource.locations || []),
         ])
-        .reduce((acc, val) => acc.concat(val), []),
+        .reduce((acc: string[], val: string[]) => acc.concat(val), []),
     ),
   ];
   return sortAlpha(
     tagsList.map((tag: string) => ({
       id: tag,
-      key: tag,
       value: tag,
       label: tag,
       checked: keywords.some(
@@ -199,10 +198,10 @@ export const Resources = ({
     );
   };
 
-  const updateTagFilter = (tagLabel: String) => {
-    const updatedBoxes = checkboxes.map((box) =>
+  const updateTagFilter = (tagLabel: string) => {
+    const updatedBoxes: Checkbox[] = checkboxes.map((box: Checkbox) =>
       // eslint-disable-next-line implicit-arrow-linebreak
-      (box.label === tagLabel ? { ...box, checked: true } : box));
+      (box.label === tagLabel ? ({ ...box, checked: true }: Checkbox) : box));
     setCheckboxes(updatedBoxes);
   };
 

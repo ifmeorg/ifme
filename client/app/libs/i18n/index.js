@@ -10,8 +10,8 @@ const missingResult = (locale: string, scope: string): string =>
   // eslint-disable-next-line implicit-arrow-linebreak
   `[missing "${locale}.${scope}" translation]`;
 
-const getValue = (options, option) => {
-  if (option && typeof options !== 'undefined' && options[option]) {
+const getValue = (options: ?Options, option: string): string => {
+  if (option && options != null && options[option]) {
     return options[option];
   }
   return `[missing {${option}} value]`;

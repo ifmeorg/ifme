@@ -22,7 +22,7 @@ export const Notifications = ({ element, pusher }: Props): Node => {
   const [notifications, setNotifications] = useState('');
   const [alreadyMounted, setAlreadyMounted] = useState(false);
   const [open, setOpen] = useState(false);
-  const [modalKey, setModalKey] = useState();
+  const [modalKey, setModalKey] = useState<string>('');
 
   const setBody = (paramsNotifications: string[]) => {
     let updatedNotifications = '';

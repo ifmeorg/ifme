@@ -17,14 +17,14 @@ const handleOnChange = (
   e: SyntheticEvent<HTMLInputElement>,
   onChange?: Function,
   id: string,
-) => {
+): void => {
   const { checked } = e.currentTarget;
   if (onChange) {
     onChange({ checked, id });
   }
 };
 
-const displayInfo = (info: ?string) => {
+const displayInfo = (info: ?string): Node => {
   if (!info) return null;
   return (
     <Tooltip
@@ -35,7 +35,14 @@ const displayInfo = (info: ?string) => {
   );
 };
 
-const displayCheckbox = (id, name, value, checked, onChange, label) => (
+const displayCheckbox = (
+  id: string,
+  name: ?string,
+  value: mixed,
+  checked: ?boolean,
+  onChange: ?Function,
+  label: string,
+): Node => (
   <input
     id={id}
     name={name}
