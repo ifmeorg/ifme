@@ -13,7 +13,7 @@
 
 class Support < ApplicationRecord
   validates :user_id, :support_type, :support_ids, presence: true
-  serialize :support_ids, Array
+  serialize :support_ids, coder: JSON
   validates :support_type, inclusion: %w[category mood moment strategy]
   before_save :array_data
 

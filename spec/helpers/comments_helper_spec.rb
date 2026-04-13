@@ -4,6 +4,7 @@ describe CommentsHelper, type: :controller do
   let(:user2) { create(:user2) }
 
   controller(ApplicationController) do
+    helper CommentsHelper
   end
 
   describe '#generate_comments' do

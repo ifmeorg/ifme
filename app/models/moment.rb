@@ -43,7 +43,7 @@ class Moment < ApplicationRecord
   ].map!(&:freeze).freeze
 
   friendly_id :name
-  serialize :viewers, Array
+  serialize :viewers, coder: JSON
 
   before_save do
     elements_array_data(%w[category mood strategy])

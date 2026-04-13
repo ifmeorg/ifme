@@ -222,7 +222,7 @@ describe 'Strategy', type: :request do
         it 'responds with a 422 status' do
           headers = { "ACCEPT" => 'application/json'}
           post strategies_path, params: strategy_params, headers: headers
-          expect(response).to have_http_status(:unprocessable_entity)
+          expect(response).to have_http_status(:unprocessable_content)
         end
       end
 

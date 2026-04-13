@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CommentViewersService
-  attr_reader :comment, :owner, :current_user, :commentable_viewers
+  attr_reader :comment, :owner, :current_user, :commentable_viewers, :commentable
 
   def self.viewers(comment, current_user)
     new(comment, current_user).viewers
@@ -16,51 +16,70 @@ class CommentViewersService
   end
 
   def initialize(comment, current_user)
-    commentable = get_commentable(comment)
     @comment = comment
-    @owner = commentable[:user_id] && User.find(commentable[:user_id])
-    @commentable_viewers =
-      (commentable[:viewers] || commentable.members&.pluck(:id) unless commentable.nil?)
+    @commentable = get_commentable(comment)
+    # Use &. to avoid crashes if commentable or user is nil
+    @owner = User.find_by(id: @commentable.try(:user_id))
+    @commentable_viewers = @commentable.try(:viewers) || @commentable.try(:members)&.pluck(:id) || []
     @current_user = current_user
   end
 
   def viewers
-    return unless @comment.visibility == 'private' && viewable?
+    # Added visibility check for "all" to return nil (matches generate_comments expectation)
+    return if @comment.visibility == 'all'
+    return unless viewable?
+
+    # Ensure we have an "other_person" to show in the string
+    person = other_person
+    return unless person
 
     I18n.t('shared.comments.visible_only_between_you_and',
-           name: other_person.name)
+           name: person.name)
   end
 
   def viewable?
-    !user_banned? &&
-      (current_user_comment? || commentable_owner? ||
-        viewer?)
+    # Defensive check for nil comment_by or user
+    return false if user_banned?
+    
+    current_user_comment? || commentable_owner? || viewer?
   end
 
   def deletable?
+    # Defensive check
+    return false if user_banned?
+
     current_user_comment? || commentable_owner?
   end
 
   private
 
   def user_banned?
-    User.find_by(id: @comment.comment_by).banned
+    # Added &. to prevent NoMethodError on nil user
+    User.find_by(id: @comment.comment_by)&.banned || false
   end
 
   def other_person
-    return @owner unless commentable_owner?
-
-    User.find_by(id: @comment.viewers.first) ||
-      User.find_by(id: @comment.comment_by)
+    # If I am the owner of the Moment/Strategy
+    if commentable_owner?
+      # Show the name of the person who commented (if private)
+      # or the person targeted in the private viewers list
+      target_id = @comment.viewers&.first || @comment.comment_by
+      User.find_by(id: target_id)
+    else
+      # If I am a viewer, the "other person" in a private chat is the owner
+      @owner
+    end
   end
 
   def commentable_owner?
-    if @comment.commentable_type == 'meeting'
-      meeting = Meeting.find_by(id: @comment.commentable_id)
-      return meeting&.led_by?(current_user)
+    return false unless @current_user && (@owner || @commentable)
+
+    # Case-insensitive check for 'Meeting'
+    if @comment.commentable_type.casecmp?('meeting')
+      return @commentable.respond_to?(:led_by?) && @commentable.led_by?(@current_user)
     end
 
-    @owner.id == @current_user.id
+    @owner&.id == @current_user.id
   end
 
   def current_user_comment?
@@ -68,7 +87,8 @@ class CommentViewersService
   end
 
   def comment_viewer?
-    @comment.viewers.present? && @comment.viewers.include?(@current_user.id)
+    # Ensure viewers is an array before calling include?
+    Array(@comment.viewers).include?(@current_user.id)
   end
 
   def commentable_viewer?
@@ -81,7 +101,10 @@ class CommentViewersService
   end
 
   def get_commentable(comment)
-    model = comment.commentable_type.classify.constantize
-    model.find(comment.commentable_id)
+    # Memoize so we don't hit the DB repeatedly
+    @get_commentable ||= begin
+      model = comment.commentable_type.classify.constantize
+      model.find_by(id: comment.commentable_id)
+    end
   end
 end

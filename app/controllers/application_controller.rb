@@ -1,14 +1,23 @@
 # frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
+  # Built-in Rails helpers for controller-level string/date manipulation
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::TextHelper
+  
+  # Logic concerns
   include PageRedirectConcern
-  include CommentsHelper
-  include CommentsFormHelper
-  include TagsHelper
-  include MostFocusHelper
+
+  # CRITICAL: Use symbols here to prevent "uninitialized constant" boot errors.
+  # This makes the methods in CommentsHelper available to your views/controllers
+  # without causing a circular dependency deadlock.
+  helper :comments
+  helper :comments_form
+  helper :tags
+  helper :most_focus
 
   protect_from_forgery with: :exception
+
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :if_not_signed_in, unless: :devise_controller?
   before_action :set_sentry_context, if: proc { Rails.env.production? }
@@ -17,9 +26,9 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def with_timezone(&)
+  def with_timezone(&block)
     timezone = Time.find_zone(cookies[:timezone])
-    Time.use_zone(timezone, &)
+    Time.use_zone(timezone, &block)
   end
 
   def set_locale
@@ -36,7 +45,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_sentry_context
-    Sentry.set_user(id: current_user.id) if user_signed_in?
+    return unless user_signed_in?
+    Sentry.set_user(id: current_user.id)
     Sentry.set_extras(params: params.to_unsafe_h, url: request.url)
   end
 
@@ -64,8 +74,9 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    cookies[:pwned] = { value: true, expires: 10.minutes.from_now } if resource.respond_to?(:pwned?) && resource.pwned?
-
+    if resource.respond_to?(:pwned?) && resource.pwned?
+      cookies[:pwned] = { value: true, expires: 10.minutes.from_now }
+    end
     super
   end
 end

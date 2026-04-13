@@ -26,7 +26,7 @@ module StoriesHelper
 
   def viewable_published_stories(scope)
     scope.published.select do |story|
-      story.viewers.include?(current_user.id)
+      story.viewers&.include?(current_user.id)
     end
   end
 

@@ -119,7 +119,7 @@ describe 'Groups', type: :request do
       put group_path(group), params: params
 
       group.reload
-      expect(response).to have_http_status(:unprocessable_entity)
+      expect(response).to have_http_status(:unprocessable_content)
 
       json = JSON.parse(response.body)
       expect(json['name']).to eq(["can't be blank"])
@@ -153,7 +153,7 @@ describe 'Groups', type: :request do
 
       post groups_path, params: params
 
-      expect(response).to have_http_status(:unprocessable_entity)
+      expect(response).to have_http_status(:unprocessable_content)
 
       json = JSON.parse(response.body)
       expect(json['name']).to eq(["can't be blank"])

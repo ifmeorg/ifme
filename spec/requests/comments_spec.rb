@@ -8,7 +8,7 @@ describe 'Comments', type: :request do
     end
 
     context 'when a user is signed in' do
-      subject { post comments_path, params: { comment: comment_params } }
+      subject { post comments_path, params: { comment: comment_params }, as: :json }
 
       before { sign_in user }
 
@@ -113,7 +113,7 @@ describe 'Comments', type: :request do
     end
 
     context 'when a user is signed in' do
-      subject { delete delete_comments_path, params: { comment_id: comment_id } }
+      subject { delete delete_comments_path, params: { comment_id: comment_id }, as: :json }
 
       before { sign_in user }
 

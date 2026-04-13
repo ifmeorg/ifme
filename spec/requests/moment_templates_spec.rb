@@ -30,7 +30,7 @@ describe 'MomentTemplate', type: :request do
             moment_template: { name: nil }
           }
 
-          expect(response).to have_http_status(:unprocessable_entity)
+          expect(response).to have_http_status(:unprocessable_content)
         end
       end
     end
@@ -78,7 +78,7 @@ describe 'MomentTemplate', type: :request do
             moment_template: { name: nil }
           }
 
-          expect(response).to have_http_status(:unprocessable_entity)
+          expect(response).to have_http_status(:unprocessable_content)
           expect(moment_template.reload.name).not_to be_nil
         end
       end

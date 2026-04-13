@@ -42,8 +42,12 @@ services:
       timeout: 5s
 
   selenium:
-    image: selenium/standalone-firefox
+    image: seleniarm/standalone-firefox:latest
+    platform: linux/arm64
     container_name: selenium
+    ports:
+      - "4444:4444"
+      - "7900:7900"
     environment:
       - SE_NODE_MAX_INSTANCES=1
       - SE_NODE_PORT=5555

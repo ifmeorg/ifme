@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module ViewersHelper
   def viewers_hover(data, link)
     react_component(
@@ -67,7 +68,7 @@ module ViewersHelper
     objs = obj.where(user_id: data.user_id).all.order('created_at DESC')
     objs.each do |ob|
       item = ob.send(data_type).pluck(:id)
-      return ob.viewers if item.include?(data.id)
+      return ob.viewers if item&.include?(data.id)
     end
     []
   end
@@ -92,7 +93,8 @@ module ViewersHelper
       checkboxes.push(
         id: "#{name}_viewers_#{item.id}",
         value: item.id,
-        checked: obj.viewers.include?(item.id),
+        # Updated with obj&. safe navigation
+        checked: obj&.viewers&.include?(item.id) || false,
         label: sanitize(user.name).presence || user.email
       )
     end

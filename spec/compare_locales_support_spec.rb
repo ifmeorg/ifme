@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+require 'spec_helper'
+
 describe CompareLocalesSupport do
   described_class::ENGLISH_FILES.each do |f|
     context "when comparing #{f}" do

@@ -30,7 +30,7 @@ describe 'CarePlanContacts', type: :request do
             care_plan_contact: { name: nil }
           }
 
-          expect(response).to have_http_status(:unprocessable_entity)
+          expect(response).to have_http_status(:unprocessable_content)
         end
       end
     end
@@ -78,7 +78,7 @@ describe 'CarePlanContacts', type: :request do
             care_plan_contact: { name: nil }
           }
 
-          expect(response).to have_http_status(:unprocessable_entity)
+          expect(response).to have_http_status(:unprocessable_content)
           expect(care_plan_contact.reload.name).not_to be_nil
         end
       end

@@ -95,7 +95,7 @@ module Shared
     format.html { render is_update ? :edit : :new }
     format.json do
       render json: model_object.errors,
-             status: :unprocessable_entity
+             status: :unprocessable_content
     end
   end
 

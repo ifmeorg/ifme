@@ -62,7 +62,7 @@ class GroupsController < ApplicationController
       respond_to do |format|
         format.html { render :edit }
         format.json do
-          render json: @group.errors, status: :unprocessable_entity
+          render json: @group.errors, status: :unprocessable_content
         end
       end
     end
@@ -115,7 +115,7 @@ class GroupsController < ApplicationController
   def render_new(errors)
     respond_to do |format|
       format.html { render :new }
-      format.json { render json: errors, status: :unprocessable_entity }
+      format.json { render json: errors, status: :unprocessable_content }
     end
   end
 end

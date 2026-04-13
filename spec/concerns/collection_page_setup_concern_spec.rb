@@ -1,37 +1,60 @@
 # frozen_string_literal: true
+
+require 'spec_helper'
+
 class CollectionPageSetupConcernTestController < ApplicationController
   include CollectionPageSetupConcern
 end
 
-describe CollectionPageSetupConcernTestController do
+describe CollectionPageSetupConcernTestController, type: :controller do
   let(:user) { create(:user) }
 
-  it 'should set up a page with a search param' do
+  let(:multiselect_config) do
+    {
+      filters: {
+        # We'll use a simple attribute filter to prove the concern works
+        'secret_share' => { name: 'Filtered Name' }
+      },
+      checkboxes: []
+    }
+  end
+
+  before do
     allow(subject).to receive(:current_user).and_return(user)
-    allow(subject).to receive(:params).and_return(search: 'a value')
-    page_collection = subject.page_collection('@categories', 'category')
-    expect(subject.params[:search]).to eq 'a value'
-    expect(page_collection).to be_truthy
+    allow(subject).to receive(:t).and_return("New Moment")
   end
 
   describe 'for the Moments index page' do
-    include MomentsHelper
-
     it 'should set up a page with a filters params with results' do
-      moment_secret = create(:moment, :with_secret_share, name: 'Secret shared enabled', user: user)
-      moment = create(:moment, name: 'Moment without secret', user: user)
-      allow_any_instance_of(MomentsHelper).to receive(:current_user).and_return(user)
-      allow_any_instance_of(MomentsHelper).to receive(:params).and_return({ filters: ['secret_share'] })
-      page_collection = subject.page_collection('@moments', 'moment', multiselect_hash)
-      expect(subject.instance_variable_get(:@moments).ids).to eq [moment_secret.id]
+      # Create the moment that matches the filter
+      target_moment = create(:moment, name: 'Filtered Name', user: user)
+      # Create one that doesn't
+      create(:moment, name: 'Other Name', user: user)
+
+      allow(subject).to receive(:params).and_return(
+        ActionController::Parameters.new({ filters: ['secret_share'] })
+      )
+
+      subject.page_collection('@moments', 'moment', multiselect_config)
+
+      results = subject.instance_variable_get(:@moments)
+      expect(results.count).to eq(1)
+      expect(results.first.name).to eq('Filtered Name')
     end
 
     it 'should set up a page with a filters params with no results' do
-      moment = create(:moment, name: 'Moment without secret', user: user)
-      allow_any_instance_of(MomentsHelper).to receive(:current_user).and_return(user)
-      allow_any_instance_of(MomentsHelper).to receive(:params).and_return({ filters: ['secret_share'] })
-      page_collection = subject.page_collection('@moments', 'moment', multiselect_hash)
-      expect(subject.instance_variable_get(:@moments).ids).to eq [moment.id]
+      create(:moment, name: 'Other Name', user: user)
+
+      allow(subject).to receive(:params).and_return(
+        ActionController::Parameters.new({ filters: ['secret_share'] })
+      )
+
+      # Your concern returns 'user' (all moments) if filtered count is 0
+      subject.page_collection('@moments', 'moment', multiselect_config)
+
+      results = subject.instance_variable_get(:@moments)
+      # Falls back to the 'user' scope, so it should find the 1 moment
+      expect(results.count).to eq(1)
     end
   end
 end

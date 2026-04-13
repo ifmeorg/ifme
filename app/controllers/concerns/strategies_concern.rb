@@ -17,7 +17,7 @@ module StrategiesConcern
   end
 
   def render_errors(strategy)
-    render json: strategy.errors, status: :unprocessable_entity
+    render json: strategy.errors, status: :unprocessable_content
   end
 
   def empty_array_for(*symbols)

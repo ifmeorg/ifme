@@ -20,7 +20,7 @@ class Allyship < ApplicationRecord
     status
   ].map!(&:freeze).freeze
 
-  enum status: { accepted: 0, pending_from_user: 1, pending_from_ally: 2 }
+  enum :status, { accepted: 0, pending_from_user: 1, pending_from_ally: 2 }
 
   validate :different_users
 

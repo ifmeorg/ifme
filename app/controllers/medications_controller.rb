@@ -111,7 +111,7 @@ class MedicationsController < ApplicationController
     respond_to do |format|
       format.html { render :new }
       format.json do
-        render(json: @medication.errors, status: :unprocessable_entity)
+        render(json: @medication.errors, status: :unprocessable_content)
       end
     end
   end

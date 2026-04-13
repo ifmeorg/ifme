@@ -11,6 +11,10 @@
 #
 
 describe Users::DataRequest, type: :model do
+  before do
+    allow(ProcessDataRequestWorker).to receive(:perform_async)
+  end
+
   context 'validations' do
     it 'is invalid without a request_id' do
       data_request = build(:empty_request_id_data_request)

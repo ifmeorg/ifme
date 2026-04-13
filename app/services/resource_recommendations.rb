@@ -51,7 +51,11 @@ class ResourceRecommendations
   def all_resources
     resources = JSON.parse(File.read('doc/pages/resources.json'))
     resources.each do |item|
-      item['tags'].map! { |tag| I18n.t("pages.resources.tags.#{tag}") }
+      item['tags'].map! do |tag| 
+        # Convert "self-care" to "self_care" to match en.yml
+        normalized_tag = tag.to_s.gsub('-', '_') 
+        I18n.t("pages.resources.tags.#{normalized_tag}", default: tag.humanize)
+      end
     end
     resources
   end
