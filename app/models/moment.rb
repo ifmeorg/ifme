@@ -62,14 +62,14 @@ class Moment < ApplicationRecord
 
   validates :comment, inclusion: [true, false]
   validates :bookmarked, inclusion: [true, false]
-  validates :user_id, :name, :why, presence: true
+  validates :name, :why, presence: true
   validates :why, length: { minimum: 1 }
   validates :secret_share_expires_at,
             presence: true, if: :secret_share_identifier?
   validates :resource_recommendations, inclusion: [true, false]
 
   scope :published, -> { where.not(published_at: nil) }
-  scope :recent, -> { order('created_at DESC') }
+  scope :recent, -> { order(created_at: :desc) }
 
   attr_accessor :mood, :category, :strategy
 

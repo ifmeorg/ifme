@@ -2,6 +2,7 @@
 class MeetingsController < ApplicationController
   include MeetingsHelper
   include MeetingsFormHelper
+
   before_action :set_meeting, only: %i[show edit update destroy]
 
   # GET /meetings/1
@@ -60,7 +61,7 @@ class MeetingsController < ApplicationController
     meeting = Meeting.find(params[:meeting_id])
 
     # Cannot leave When you are the only leader
-    if meeting.led_by?(current_user) && meeting.leaders.count == 1
+    if meeting.led_by?(current_user) && meeting.leaders.one?
       redirect_to(group_path(meeting.group_id),
                   alert: t('.error'))
     else

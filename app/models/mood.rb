@@ -27,8 +27,9 @@ class Mood < ApplicationRecord
   ].map!(&:freeze).freeze
 
   extend FriendlyId
+
   friendly_id :name
-  validates :user_id, :name, presence: true
+  validates :name, presence: true
   belongs_to :user
 
   has_many :moments_moods, dependent: :destroy

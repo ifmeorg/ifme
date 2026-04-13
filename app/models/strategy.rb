@@ -55,12 +55,12 @@ class Strategy < ApplicationRecord
   accepts_nested_attributes_for :perform_strategy_reminder
 
   validates :comment, inclusion: [true, false]
-  validates :user_id, :name, :description, presence: true
+  validates :name, :description, presence: true
   validates :description, length: { minimum: 1 }
   validates :visible, inclusion: [true, false]
 
   scope :published, -> { where.not(published_at: nil) }
-  scope :recent, -> { order('created_at DESC') }
+  scope :recent, -> { order(created_at: :desc) }
 
   has_many :moments_strategies, dependent: :destroy
 

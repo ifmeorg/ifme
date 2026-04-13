@@ -26,7 +26,7 @@ module CollectionPageSetupConcern
     search_query = search.exists? && name.present? ? search : user.all
     instance_variable_set(
       collection.to_s,
-      search_query.order('created_at DESC').page(params[:page])
+      search_query.order(created_at: :desc).page(params[:page])
     )
   end
 
@@ -37,6 +37,6 @@ module CollectionPageSetupConcern
     search_filters.each do |filter|
       filtered_user = filtered_user.where(filters_model[filter])
     end
-    filtered_user.count > 0 ? filtered_user : user
+    filtered_user.any? ? filtered_user : user
   end
 end

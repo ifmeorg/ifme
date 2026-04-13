@@ -18,13 +18,14 @@
 
 class Meeting < ApplicationRecord
   extend FriendlyId
+
   friendly_id :name
-  validates :name, :description, :location, :time, :group_id, :date,
+  validates :name, :description, :location, :time, :date,
             presence: true
   belongs_to :group
   has_many :meeting_members, dependent: :destroy
-  has_many :members, -> { order 'name' }, through: :meeting_members,
-                                          source: :user
+  has_many :members, -> { order :name }, through: :meeting_members,
+                                         source: :user
   has_many :leaders, -> { where(meeting_members: { leader: true }) },
            through: :meeting_members, source: :user
   has_many :comments, as: :commentable

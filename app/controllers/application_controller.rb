@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # Built-in Rails helpers for controller-level string/date manipulation
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::TextHelper
-  
+
   # Logic concerns
   include PageRedirectConcern
 
@@ -26,9 +26,9 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def with_timezone(&block)
+  def with_timezone(&)
     timezone = Time.find_zone(cookies[:timezone])
-    Time.use_zone(timezone, &block)
+    Time.use_zone(timezone, &)
   end
 
   def set_locale
@@ -46,6 +46,7 @@ class ApplicationController < ActionController::Base
 
   def set_sentry_context
     return unless user_signed_in?
+
     Sentry.set_user(id: current_user.id)
     Sentry.set_extras(params: params.to_unsafe_h, url: request.url)
   end
@@ -74,9 +75,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if resource.respond_to?(:pwned?) && resource.pwned?
-      cookies[:pwned] = { value: true, expires: 10.minutes.from_now }
-    end
+    cookies[:pwned] = { value: true, expires: 10.minutes.from_now } if resource.respond_to?(:pwned?) && resource.pwned?
     super
   end
 end

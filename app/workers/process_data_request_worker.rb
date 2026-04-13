@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 class ProcessDataRequestWorker
   include Sidekiq::Worker
+
   sidekiq_options queue: 'critical'
 
   def perform(request_id)

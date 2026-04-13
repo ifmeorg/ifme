@@ -101,8 +101,8 @@ module MomentsHelper
       edit: actions[:edit],
       delete: actions[:delete],
       viewers: actions[:viewers],
-      not_visible: (!element.is_a?(Moment) &&
-      !element.visible) &&
+      not_visible: !element.is_a?(Moment) &&
+        !element.visible &&
         actions[:visible],
       visible: (element.is_a?(Moment) || element.visible) && actions[:visible],
       share_link_info: actions[:share_link_info]
@@ -170,7 +170,7 @@ module MomentsHelper
     index = 0
     values.each do |value|
       moment = current_user.moments.where(multiselect_filters[value])
-      next unless moment.count > 0
+      next unless moment.any?
 
       checkboxes.push({
                         id: "search_filters_#{index}",

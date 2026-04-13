@@ -23,7 +23,7 @@ class GroupNotifier
 
   def push_notifications(recipient)
     notifications = Notification.where(user_id: recipient.id)
-                                .order('created_at ASC')
+                                .order(:created_at)
     Pusher["private-#{recipient.id}"]
       .trigger('new_notification', notifications:)
   end

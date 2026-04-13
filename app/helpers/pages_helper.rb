@@ -36,8 +36,8 @@ module PagesHelper
     @stories&.select! do |story|
       current_user.id == story.user_id ||
         (
-          (story.viewers&.include?(current_user.id) &&
-          current_user.mutual_allies?(User.find_by(id: story.user_id)))
+          story.viewers&.include?(current_user.id) &&
+          current_user.mutual_allies?(User.find_by(id: story.user_id))
         )
     end
   end

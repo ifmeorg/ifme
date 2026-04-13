@@ -111,18 +111,18 @@ class MomentsController < ApplicationController
     extra_categories = Category.where(id: @moment.category_ids)
 
     @categories = Category.where(id: visible_categories.select(:id))
-                      .or(extra_categories)
-                      .includes(:moments_categories)
-                      .order(created_at: :desc)
+                          .or(extra_categories)
+                          .includes(:moments_categories)
+                          .order(created_at: :desc)
 
     @category = Category.new
     visible_moods = current_user.moods.is_visible
     extra_moods = Mood.where(id: @moment.mood_ids)
 
     @moods = Mood.where(id: visible_moods.select(:id))
-                .or(extra_moods)
-                .includes(:moments_moods)
-                .order(created_at: :desc)
+                 .or(extra_moods)
+                 .includes(:moments_moods)
+                 .order(created_at: :desc)
 
     @mood = Mood.new
     @strategies = associated_strategies
@@ -136,7 +136,7 @@ class MomentsController < ApplicationController
   def associated_strategies
     # current_user's strategies and all viewable strategies from allies
     strategy_ids = current_user.strategy_ids
-    Strategy.where(user: @viewers).each do |strategy|
+    Strategy.where(user: @viewers).find_each do |strategy|
       strategy_ids << strategy.id if strategy.viewer?(current_user)
     end
     Strategy.is_visible.where(id: strategy_ids)

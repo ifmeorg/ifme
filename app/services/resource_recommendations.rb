@@ -24,9 +24,7 @@ class ResourceRecommendations
     @moment_keywords = MomentKeywords.new(@moment).call
 
     all_resources.flat_map do |resource|
-      resource['tags'].select do |tag|
-        @moment_keywords.match?(tag)
-      end
+      resource['tags'].grep(@moment_keywords)
     end
   end
 
@@ -51,9 +49,9 @@ class ResourceRecommendations
   def all_resources
     resources = JSON.parse(File.read('doc/pages/resources.json'))
     resources.each do |item|
-      item['tags'].map! do |tag| 
+      item['tags'].map! do |tag|
         # Convert "self-care" to "self_care" to match en.yml
-        normalized_tag = tag.to_s.gsub('-', '_') 
+        normalized_tag = tag.to_s.tr('-', '_')
         I18n.t("pages.resources.tags.#{normalized_tag}", default: tag.humanize)
       end
     end

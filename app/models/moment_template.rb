@@ -16,7 +16,7 @@ class MomentTemplate < ApplicationRecord
   extend FriendlyId
 
   friendly_id :name
-  validates :user_id, :name, :description, presence: true
+  validates :name, :description, presence: true
   belongs_to :user
 
   USER_DATA_ATTRIBUTES = %w[

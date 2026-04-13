@@ -108,9 +108,7 @@ module StrategiesFormHelper
     @categories.each do |item|
       checked = @strategy.categories.include?(item)
 
-      if params[:category].present? && @strategy.new_record? && !checked
-        checked = item.slug == params[:category]
-      end
+      checked = item.slug == params[:category] if params[:category].present? && @strategy.new_record? && !checked
 
       checkboxes.push(
         id: item.slug,

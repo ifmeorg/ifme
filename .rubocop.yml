@@ -1,4 +1,5 @@
-require:
+# Use plugins instead of require for modern RuboCop versions
+plugins:
   - rubocop-rails
   - rubocop-performance
   - rubocop-rspec
@@ -7,7 +8,9 @@ require:
 
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 3.3.11
+  TargetRubyVersion: 3.3
+  # Note: Ruby 3.3.11 doesn't exist yet (3.3.1 is current stable), 
+  # but RuboCop usually just needs the major.minor version.
   Exclude:
     - 'bin/**/*'
     - 'db/**/*'
@@ -20,16 +23,16 @@ AllCops:
 Style/Documentation:
   Enabled: false
 
-Rails:
-  Enabled: true
+# This is now handled by the plugin system above
+# Rails:
+#   Enabled: true
 
-# There is a bug in the Rubocop 0.48 parser that causes it to incorrectly
-# complain about parentheses around blocks used with scopes. This should be
-# removed once it is possible to upgrade to 0.49 or above.
+# The bug from version 0.48 is long gone. 
+# You can keep this disabled if you prefer the style, 
+# otherwise, feel free to remove it to catch actual ambiguous blocks.
 Lint/AmbiguousBlockAssociation:
   Enabled: false
 
-# Rubocop should be used for style guide adherence, not testing for code smell
 Rails/OutputSafety:
   Enabled: false
 

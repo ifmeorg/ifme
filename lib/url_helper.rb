@@ -6,8 +6,6 @@ module UrlHelper
   include Rails.application.routes.url_helpers
 
   included do
-    def default_url_options
-      ActionMailer::Base.default_url_options
-    end
+    delegate :default_url_options, to: :'ActionMailer::Base'
   end
 end

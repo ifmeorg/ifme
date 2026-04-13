@@ -20,7 +20,7 @@ class Comment < ApplicationRecord
 
   validates :comment, length: { minimum: 0, maximum: 1000 }, presence: true
   validates :commentable_type, inclusion: %w[Moment Strategy Meeting]
-  validates :commentable_id, :comment_by, presence: true
+  validates :comment_by, presence: true
   validates :visibility, inclusion: %w[all private]
 
   before_save :array_data
@@ -100,7 +100,7 @@ class Comment < ApplicationRecord
       data:
     )
     model_data = Notification.where(user_id:)
-    model_data.order('created_at')
+    model_data.order(:created_at)
   end
 
   def notify_of_creation?(association)
@@ -123,7 +123,7 @@ class Comment < ApplicationRecord
   end
 
   def type
-    "comment_on_#{commentable_type}#{visibility == 'private' ? '_private' : ''}"
+    "comment_on_#{commentable_type}#{'_private' if visibility == 'private'}"
   end
 
   def unique_id(type)

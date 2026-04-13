@@ -42,11 +42,12 @@ module MostFocusHelper
   end
 
   def get_data_objs(item, data_type)
-    if data_type == 'moods'
+    case data_type
+    when 'moods'
       item.moods.pluck(:id)
-    elsif data_type == 'categories'
+    when 'categories'
       item.categories.pluck(:id)
-    elsif data_type == 'strategies'
+    when 'strategies'
       item.strategies.pluck(:id)
     end
   end
@@ -63,9 +64,7 @@ module MostFocusHelper
   end
 
   def top_three_focus(data)
-    freq = data.each_with_object(Hash.new(0)) do |value, hash|
-      hash[value] += 1
-    end
+    freq = data.tally
     freq.sort_by do |occurrences, _value|
       occurrences
     end[0..2].to_h

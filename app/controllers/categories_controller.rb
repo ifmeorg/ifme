@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
   include CategoriesHelper
   include SharedBasicConcern
   include TagsHelper
+
   before_action :set_category, only: %i[show edit update destroy]
   respond_to :json, only: [:index]
 

@@ -21,25 +21,25 @@ module ApplicationHelper
   def page_title
     t('app_name') +
       if sign_in_path?
-        ' | ' + t('account.sign_in')
+        " | #{t('account.sign_in')}"
       elsif join_path?
-        ' | ' + t('account.sign_up')
+        " | #{t('account.sign_up')}"
       elsif forgot_password_path?
-        ' | ' + t('account.forgot_password')
+        " | #{t('account.forgot_password')}"
       elsif update_account_path?
-        ' | ' + t('account.singular')
+        " | #{t('account.singular')}"
       elsif current_page?(root_path)
-        ' | ' + t('app_description')
+        " | #{t('app_description')}"
       elsif send_ally_invitation_path?
-        ' | ' + t('devise.invitations.new.header')
+        " | #{t('devise.invitations.new.header')}"
       elsif ally_accept_invitation_path?
-        ' | ' + t('devise.invitations.edit.header')
+        " | #{t('devise.invitations.edit.header')}"
       elsif reset_password_path?
-        ' | ' + t('layouts.title.reset_password')
+        " | #{t('layouts.title.reset_password')}"
       elsif new_user_confirmation_path?
-        ' | ' + t('devise.confirmations.resend_confirmation')
+        " | #{t('devise.confirmations.resend_confirmation')}"
       else
-        ' | ' + title_content
+        " | #{title_content}"
       end
   end
 
@@ -104,7 +104,7 @@ module ApplicationHelper
       partners_path, press_path, privacy_path
     ].select { |path| active?(path) }
     devise = ally_accept_invitation_path? || reset_password_path?
-    devise || non_devise_paths.count == 1
+    devise || non_devise_paths.one?
   end
 
   def title(page_title)

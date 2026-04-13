@@ -61,7 +61,7 @@ module Users
     def after_commit_tasks
       return unless saved_change_to_id? && status_id == STATUS[:enqueued]
 
-      Dir.mkdir(DEFAULT_FILE_PATH) unless File.exist?(DEFAULT_FILE_PATH)
+      FileUtils.mkdir_p(DEFAULT_FILE_PATH)
 
       enqueue_download_request
     end

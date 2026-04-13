@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rake'
 
 namespace :images do
@@ -14,16 +15,17 @@ namespace :images do
 
       # Find all relevant file types that might contain image references
       files_to_check = Dir.glob([
-        'app/**/*.{rb,erb,js,jsx,ts,tsx,css,scss}',
-        'client/**/*.{js,jsx,ts,tsx,css,scss}',
-        'config/**/*.{rb,yml}',
-        'doc/**/*.{json,md}'
-      ])
+                                  'app/**/*.{rb,erb,js,jsx,ts,tsx,css,scss}',
+                                  'client/**/*.{js,jsx,ts,tsx,css,scss}',
+                                  'config/**/*.{rb,yml}',
+                                  'doc/**/*.{json,md}'
+                                ])
 
       files_to_check.each do |file_path|
         next unless File.file?(file_path)
+
         content = File.read(file_path)
-        
+
         # Replace various forms of the image reference
         replacements = {
           pattern => webp_name,
@@ -53,11 +55,11 @@ namespace :images do
 
       begin
         puts "Converting: #{file_path}"
-        pipeline = ImageProcessing::Vips
+        ImageProcessing::Vips
           .source(file_path)
           .convert('webp')
           .call(destination: webp_path)
-        
+
         if File.exist?(webp_path)
           puts "Successfully converted to: #{webp_path}"
           # Update any code references to this image
@@ -66,29 +68,29 @@ namespace :images do
           File.delete(file_path)
           puts "Deleted original file: #{file_path}"
         end
-      rescue => e
+      rescue StandardError => e
         puts "Error converting #{file_path}: #{e.message}"
       end
     end
 
     # Find all PNG and JPG files in the project
     image_files = Dir.glob([
-      'app/assets/images/**/*.{png,jpg,jpeg}',
-      'public/**/*.{png,jpg,jpeg}',
-      'client/app/assets/images/**/*.{png,jpg,jpeg}'
-    ], File::FNM_CASEFOLD)
+                             'app/assets/images/**/*.{png,jpg,jpeg}',
+                             'public/**/*.{png,jpg,jpeg}',
+                             'client/app/assets/images/**/*.{png,jpg,jpeg}'
+                           ], File::FNM_CASEFOLD)
 
     if image_files.empty?
-      puts "No PNG or JPG files found to convert."
+      puts 'No PNG or JPG files found to convert.'
       next
     end
 
     puts "Found #{image_files.length} images to convert..."
-    
+
     image_files.each do |file|
       convert_to_webp(file)
     end
 
-    puts "Conversion process completed!"
+    puts 'Conversion process completed!'
   end
 end

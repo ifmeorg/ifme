@@ -41,7 +41,7 @@ module GroupsFormHelper
   end
 
   def edit_inputs
-    return unless action_name == 'edit' || action_name == 'update'
+    return unless %w[edit update].include?(action_name)
 
     inputs = common_inputs
     checkboxes = []

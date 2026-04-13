@@ -13,10 +13,11 @@
 
 class Group < ApplicationRecord
   extend FriendlyId
+
   friendly_id :name
   validates :name, :description, presence: true
   has_many :group_members, dependent: :destroy
-  has_many :members, -> { order 'name' }, through: :group_members, source: :user
+  has_many :members, -> { order :name }, through: :group_members, source: :user
   has_many :meetings, -> { order 'meetings.created_at DESC' },
            foreign_key: :group_id, dependent: :destroy
   has_many :leaders, -> { where(group_members: { leader: true }) },

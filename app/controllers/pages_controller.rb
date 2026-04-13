@@ -14,7 +14,7 @@ class PagesController < ApplicationController
   def home
     if user_signed_in?
       setup_stories
-      load_dashboard_data if @stories.present? && @stories.count.positive?
+      load_dashboard_data if @stories.present? && @stories.any?
     else
       @blurbs = set_blurbs
       @posts = fetch_posts
@@ -59,7 +59,7 @@ class PagesController < ApplicationController
   end
 
   def admin_dashboard
-    @reports = Report.order('created_at DESC').all
+    @reports = Report.order(created_at: :desc).all
     @banned_users = User.where(banned: true)
   end
 
@@ -102,15 +102,11 @@ class PagesController < ApplicationController
 
   def fetch_posts
     medium_posts = Medium.new.posts
-    posts = []
-    medium_posts.each do |post|
-      posts.push(
-        link_name: post['title'],
+    medium_posts.map do |post|
+      { link_name: post['title'],
         link: post['link'],
-        author: parse_author(post)
-      )
+        author: parse_author(post) }
     end
-    posts
   end
 
   def set_press

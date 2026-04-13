@@ -2,12 +2,13 @@
 
 class NotificationsController < ApplicationController
   include NotificationsHelper
+
   before_action :set_notification, only: [:destroy]
 
   # DELETE /notifications/1
   # DELETE /notifications/1.json
   def destroy
-    @notification.destroy if @notification.present?
+    @notification.presence&.destroy
 
     respond_to do |format|
       format.html { redirect_back_or_to notifications_path }

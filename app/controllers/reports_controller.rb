@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 class ReportsController < ApplicationController
   include ReportsHelper
+
   before_action :authenticate_user!
 
   def create
@@ -23,7 +24,7 @@ class ReportsController < ApplicationController
   def valid_report?(user)
     current_user.ally?(user) &&
       (params[:comment_id].blank? ||
-        Comment.where(id: params[:comment_id]).exists?)
+        Comment.exists?(id: params[:comment_id]))
   end
 
   def create_report

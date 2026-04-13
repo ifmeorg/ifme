@@ -220,7 +220,7 @@ class User < ApplicationRecord
                                .where(
                                  status_id: Users::DataRequest::STATUS[:success]
                                )
-                               .order('updated_at desc')
+                               .order(updated_at: :desc)
     return if successful_data_requests.count < 2
 
     ActiveRecord::Base.transaction do
@@ -228,7 +228,7 @@ class User < ApplicationRecord
         id: successful_data_requests.first
       )
       stale_data_requests.each do |dr|
-        File.delete(dr.file_path) if File.exist?(dr.file_path)
+        FileUtils.rm_f(dr.file_path)
         dr.update!(status_id: Users::DataRequest::STATUS[:deleted])
       end
     end

@@ -31,7 +31,7 @@ class MeetingNotificationsService
       data:
     )
     Notification.where(user_id: member.id)
-                .order('created_at ASC').all
+                .order(:created_at).all
   end
 
   def send_member_notification(member, data)

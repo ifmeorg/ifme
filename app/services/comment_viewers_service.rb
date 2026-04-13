@@ -40,7 +40,7 @@ class CommentViewersService
   def viewable?
     # Defensive check for nil comment_by or user
     return false if user_banned?
-    
+
     current_user_comment? || commentable_owner? || viewer?
   end
 

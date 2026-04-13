@@ -17,12 +17,12 @@ module MomentsFormHelper
 
   def moment_input_props(field, type, label, group = false)
     { id: "moment_#{field}", type:,
-      name: "moment[#{field}]#{group ? '[]' : ''}", label: t(label) }
+      name: "moment[#{field}]#{'[]' if group}", label: t(label) }
   end
 
   def moment_text_input_props(field, type, label, required = false)
     value = @moment[field] || nil
-    if field == 'why' && !@moment.fix.present?
+    if field == 'why' && @moment.fix.blank?
       current_user.moment_templates.each do |template|
         if template.id.to_s == params[:templateId].to_s
           value = template.description

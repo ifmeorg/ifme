@@ -1,10 +1,11 @@
-﻿# frozen_string_literal: true
+# frozen_string_literal: true
 
 class ApplicationMailer < ActionMailer::Base
   include ActionView::Helpers::UrlHelper
   include ApplicationMailerHelper
   include NotificationMailerHelper
   include GroupNotificationHelper
+
   default from: ENV.fetch('SMTP_FROM', nil)
   layout 'mailer'
   ALLY_NOTIFY_TYPES = %w[new_ally_request accepted_ally_request].freeze
@@ -93,4 +94,3 @@ class ApplicationMailer < ActionMailer::Base
     @message += comment_link(link)
   end
 end
-

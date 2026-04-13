@@ -11,11 +11,11 @@ module GroupsHelper
   end
 
   def user_can_leave?(group)
-    !user_is_leader_of?(group) || group.group_members.count > 1
+    !user_is_leader_of?(group) || group.group_members.many?
   end
 
   def user_can_delete?(group)
-    user_is_leader_of?(group) && group.group_members.count == 1
+    user_is_leader_of?(group) && group.group_members.one?
   end
 
   def edit_group_link(group)

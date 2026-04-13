@@ -7,14 +7,14 @@ module MomentsStatsHelper
     result = '<div class="center stats">'
     result += total_moment
     result += " #{monthly_moment}" if moment_count[:total] != moment_count[:monthly]
-    result + '</div>'
+    "#{result}</div>"
   end
 
   private
 
   def moment_count
     {
-      total: current_user.moments.all.count,
+      total: current_user.moments.count,
       monthly: current_user.moments.where(
         created_at: Time.current.beginning_of_month..Time.current
       ).count
