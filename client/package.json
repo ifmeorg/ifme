@@ -94,7 +94,7 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "extract-css-chunks-webpack-plugin": "^4.9.0",
     "file-loader": "^6.0.0",
-    "flow-bin": "^0.176.1",
+    "flow-bin": "^0.309.0",
     "flow-typed": "^3.8.0",
     "glob": "^8.0.3",
     "identity-obj-proxy": "^3.0.0",
@@ -132,7 +132,11 @@
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     },
-    "coverageReporters": ["json-summary", "text", "lcov"],
+    "coverageReporters": [
+      "json-summary",
+      "text",
+      "lcov"
+    ],
     "coverageDirectory": "coverage"
   },
   "resolutions": {
