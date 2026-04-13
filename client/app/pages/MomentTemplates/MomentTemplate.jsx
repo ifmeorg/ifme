@@ -28,23 +28,24 @@ export const MomentTemplate = ({ template, editTemplate }: Props): Node => {
     <div className="gridTwoItemBoxLight">
       <Modal
         title={name}
-        body={
+        body={(
           <>
             <div className={css.marginBottom}>
               <button
                 type="button"
                 className={css.buttonDarkM}
                 onClick={() => {
-                    window.location.href= id ? `/moments/new?templateId=${id}` : '/moments/new';
-                  }
-                }
+                  window.location.href = id
+                    ? `/moments/new?templateId=${id}`
+                    : '/moments/new';
+                }}
               >
                 {I18n.t('moments.new')}
               </button>
             </div>
             {Utils.renderContent(description)}
           </>
-        }
+        )}
         open={open}
         modalKey={modalKey}
       />

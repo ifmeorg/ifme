@@ -15,7 +15,6 @@ export type Props = {
   value?: any,
   options: Option[],
   onChange?: Function,
-  selected?: Boolean;
 };
 
 export function InputSelect({
@@ -49,7 +48,12 @@ export function InputSelect({
         onChange={toggleValue}
       >
         {options.map((option: Option) => (
-          <option id={option.id} value={option.value} key={option.value} selected={option.selected}>
+          <option
+            id={option.id}
+            value={option.value}
+            key={option.value}
+            selected={option.selected}
+          >
             {Utils.renderContent(option.label)}
           </option>
         ))}

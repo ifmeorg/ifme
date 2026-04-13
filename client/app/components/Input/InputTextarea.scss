@@ -94,7 +94,7 @@
 }
 
 .editor:focus-within {
-   > div:first-child {
+  > div:first-child {
     position: sticky;
     top: $nav-height;
     left: 0;

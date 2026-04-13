@@ -1,8 +1,8 @@
 // @flow
-import { Utils } from './index';
 import axios from 'axios';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
+import { Utils } from '../index';
 
 describe('Utils', () => {
   describe('randomString', () => {
@@ -18,7 +18,7 @@ describe('Utils', () => {
 
     it('should produce different outputs over multiple invocations', () => {
       const outputs = new Set();
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 10; i += 1) {
         outputs.add(Utils.randomString());
       }
       expect(outputs.size).toBe(10);
@@ -43,7 +43,9 @@ describe('Utils', () => {
       document.head.appendChild(meta);
 
       Utils.setCsrfToken();
-      expect(axios.defaults.headers.common['X-CSRF-Token']).toBe('secure-token');
+      expect(axios.defaults.headers.common['X-CSRF-Token']).toBe(
+        'secure-token',
+      );
     });
 
     it('should overwrite an existing CSRF token if re-run', () => {
@@ -57,7 +59,9 @@ describe('Utils', () => {
 
       meta.setAttribute('content', 'updated-token');
       Utils.setCsrfToken();
-      expect(axios.defaults.headers.common['X-CSRF-Token']).toBe('updated-token');
+      expect(axios.defaults.headers.common['X-CSRF-Token']).toBe(
+        'updated-token',
+      );
     });
   });
 
@@ -97,7 +101,7 @@ describe('Utils', () => {
 
   describe('renderContent', () => {
     it('should sanitize malicious HTML and preserve safe HTML', () => {
-      const malicious = `<img src=x onerror=alert(1) /><p>Hello</p>`;
+      const malicious = '<img src=x onerror=alert(1) /><p>Hello</p>';
       const result = Utils.renderContent(malicious);
       const html = renderToStaticMarkup(result);
       expect(html).not.toContain('onerror');
@@ -106,8 +110,15 @@ describe('Utils', () => {
     });
 
     it('should return cloned React element with merged props', () => {
-      const element = <button className="primary">Click</button>;
-      const result = Utils.renderContent(element, { id: 'submitBtn', disabled: true });
+      const element = (
+        <button className="primary" type="button">
+          Click
+        </button>
+      );
+      const result = Utils.renderContent(element, {
+        id: 'submitBtn',
+        disabled: true,
+      });
 
       expect(React.isValidElement(result)).toBe(true);
       expect(result.type).toBe('button');
@@ -136,7 +147,14 @@ describe('Utils', () => {
     });
 
     it('should preserve fragments', () => {
-      const fragment = <>{['One', 'Two'].map((txt, i) => <span key={i}>{txt}</span>)}</>;
+      const fragmentValue = ['One', 'Two'];
+      const fragment = (
+        <>
+          {fragmentValue.map((txt) => (
+            <span key={txt}>{txt}</span>
+          ))}
+        </>
+      );
       const result = Utils.renderContent(fragment, { 'data-test': 'fragment' });
 
       // Fragments can't be cloned with props directly, but test still returns the same JSX
