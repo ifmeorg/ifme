@@ -9,7 +9,6 @@
 README in: [Bangla](https://github.com/ifmeorg/ifme/blob/main/README-BN.md), [Italian](https://github.com/ifmeorg/ifme/blob/main/README-IT.md), [Spanish](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [Portuguese](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [French](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [Korean](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), [Indonesian](https://github.com/ifmeorg/ifme/blob/main/README-ID.md), [Turkish](https://github.com/ifmeorg/ifme/blob/main/README-TR.md), [Sinhala](https://github.com/ifmeorg/ifme/blob/main/README-LK.md), [Chinese](https://github.com/ifmeorg/ifme/blob/main/README-CN.md), 
 [Hindi](https://github.com/ifmeorg/ifme/blob/main/README-HI.md), [Vietnamese](https://github.com/ifmeorg/ifme/blob/main/README-VI.md), [Farsi](https://github.com/ifmeorg/ifme/blob/main/README-FA.md), [Catalan](https://github.com/ifmeorg/ifme/blob/main/README-CA.md)
 
-
 # if-me.org
 
 [if-me.org](https://www.if-me.org/)   هو مجتمع  لمشاركة التجارب النفسية 
@@ -18,9 +17,7 @@ README in: [Bangla](https://github.com/ifmeorg/ifme/blob/main/README-BN.md), [It
 التعامل  مع الآخرين  و مراعاة مشاعرهم والاهتمام بصحتهم النفسية  هو ما يجعلنا بشر  .. لكن بالنسبة للكثير منا  من الصعب  ان نكون منفتحين حيال ذلك
 لاننا جميعا  لسنا معالجين نفسيين .
 
-
  الأشخاص الذين نتفاعل  ونتعامل معهم كل يوم يشكّلون  عواطفنا وسلوكنا  وإشراكهم في علاجنا النفسي هو مفتاج الشفاء
-
 
 يمكن العثور على الموقع المباشر في[if-me.org](https://www.if-me.org/). يمكن العثور على أنظمة التصميم المباشر في[design.if-me.org](http://design.if-me.org/).
 
