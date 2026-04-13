@@ -17,7 +17,10 @@ const scrollUp = () => {
   window.scrollTo(0, 0);
 };
 
-const taggedResources = (tags: ?(string[]), updateTagFilter) => {
+const taggedResources = (
+  tags: ?(string[]),
+  updateTagFilter?: (tagLabel: string) => mixed,
+): Node => {
   if (tags) {
     return (
       <div className="tags">
@@ -28,7 +31,7 @@ const taggedResources = (tags: ?(string[]), updateTagFilter) => {
             key={Utils.randomString()}
             onClick={
               updateTagFilter
-                ? (tagLabel) => {
+                ? (tagLabel: string) => {
                   updateTagFilter(tagLabel);
                   scrollUp();
                 }

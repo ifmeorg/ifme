@@ -20,8 +20,8 @@ export type Props = {
 export type State = {
   checkboxes: Checkbox[],
   open: boolean,
-  modalKey?: string,
-  tagKey?: string,
+  modalKey: string,
+  tagKey: string,
   body?: any,
   accordionOpen: boolean,
 };
@@ -59,7 +59,7 @@ export const addToCheckboxes = (
   { name, id, slug }: CheckboxData,
   checkboxes: Checkbox[],
 ): Checkbox[] => {
-  const newCheckboxes = [
+  const newCheckboxes: Checkbox[] = [
     ...checkboxes,
     {
       id: slug,
@@ -130,8 +130,8 @@ export const QuickCreate = ({
     checkboxes: checkboxesProp,
     open: false,
     accordionOpen: checkboxesProp.some((cb) => cb.checked),
-    modalKey: undefined,
-    tagKey: undefined,
+    modalKey: '',
+    tagKey: '',
     body: undefined,
   });
 

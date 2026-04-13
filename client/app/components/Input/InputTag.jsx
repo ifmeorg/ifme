@@ -111,7 +111,7 @@ export function InputTag({
     }
   };
 
-  const displayCheckbox = (checkbox) => {
+  const displayCheckbox = (checkbox: Checkbox): Node => {
     if (!checkbox.checked) return null;
     return (
       <InputCheckbox

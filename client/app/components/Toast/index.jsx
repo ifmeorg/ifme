@@ -17,12 +17,12 @@ export type State = {
 
 export const Toast = ({ alert, notice, appendDashboardClass }: Props): Node => {
   const [showAlert, setShowAlert] = useState<boolean>(
-    alert !== null
+    alert != null
       && alert !== ''
       && !document.documentElement?.hasAttribute('data-turbolinks-preview'),
   );
   const [showNotice, setShowNotice] = useState<boolean>(
-    notice !== null
+    notice != null
       && notice !== ''
       && !document.documentElement?.hasAttribute('data-turbolinks-preview'),
   );

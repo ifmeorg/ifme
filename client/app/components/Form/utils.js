@@ -3,16 +3,17 @@ import { Utils } from 'utils';
 import { REQUIRES_DEFAULT } from 'components/Input/InputDefault';
 import type { Props as InputProps } from 'components/Input/utils';
 
-type KeyProps = { myKey?: string };
-
-export type MyInputProps = InputProps & KeyProps;
+export type MyInputProps = {
+  ...$Exact<InputProps>,
+  myKey?: string,
+};
 
 export type FormProps = {
   action?: string,
   inputs: MyInputProps[],
 };
 
-export type Errors = { [string]: boolean } | {};
+export type Errors = { [string]: boolean };
 
 type GetNewInputsArgs = {
   inputs: MyInputProps[],
@@ -45,21 +46,16 @@ export const getNewInputs = ({
       && typeof element.value !== 'undefined'
       && !Number.isNaN(parseInt(element.value, 10))
     ) {
+      const parsedValue = parseInt(element.value, 10);
+
       if (typeof input.min === 'number' && typeof input.max === 'number') {
-        return (
-          // $FlowIgnore[invalid-compare]
-          !(parseInt(element.value, 10) >= input.min)
-          // $FlowIgnore[invalid-compare]
-          || !(parseInt(element.value, 10) <= input.max)
-        );
+        return !(parsedValue >= input.min) || !(parsedValue <= input.max);
       }
       if (typeof input.min === 'number') {
-        // $FlowIgnore[invalid-compare]
-        return !(parseInt(element.value, 10) >= input.min);
+        return !(parsedValue >= input.min);
       }
       if (typeof input.max === 'number') {
-        // $FlowIgnore[invalid-compare]
-        return !(parseInt(element.value, 10) <= input.max);
+        return !(parsedValue <= input.max);
       }
     }
 
@@ -67,7 +63,7 @@ export const getNewInputs = ({
   };
 
   const newErrors: Errors = { ...errors };
-  const newInputs = inputs.map((input: MyInputProps) => {
+  const newInputs: MyInputProps[] = inputs.map((input: MyInputProps) => {
     const newInput: MyInputProps = { ...input };
     if (isInputError(newInput)) {
       newInput.error = true;

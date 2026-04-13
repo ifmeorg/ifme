@@ -72,13 +72,17 @@ export type Props = {
   dark?: boolean,
 };
 
+type PellEditor = {
+  content: HTMLElement,
+};
+
 export function InputTextarea(props: Props): Node {
   const {
     id, name, value: propValue, required, hasError, myRef, dark,
   } = props;
   const [value, setValue] = useState<string>(sanitize(propValue) || '');
   const editorRef = useRef<?HTMLDivElement>(null);
-  const editor = useRef(null);
+  const editor = useRef<?PellEditor>(null);
 
   const onChange = (updatedValue: string) => {
     setValue(sanitize(updatedValue));
@@ -99,42 +103,56 @@ export function InputTextarea(props: Props): Node {
     }
   };
 
-  const onPaste = (e) => {
+  const onPaste = (e: SyntheticEvent<HTMLElement>) => {
     e.preventDefault();
 
-    const text = (e.originalEvent || e).clipboardData.getData('text/plain') ?? '';
+    const clipboardData = (e.originalEvent && e.originalEvent.clipboardData) || e.clipboardData;
+    const text = clipboardData ? clipboardData.getData('text/plain') : '';
 
     document.execCommand('insertHTML', false, sanitize(text));
   };
 
   useEffect(() => {
     if (editorRef.current) {
+      const currentEditorRef = editorRef.current;
       editor.current = init({
-        element: editorRef.current.getElementsByClassName('editor')[0],
+        element: currentEditorRef.getElementsByClassName('editor')[0],
         onChange,
         classes,
         actions,
       });
-      editor.current.content.innerHTML = value;
-      const toolbarButtons = editorRef.current?.querySelectorAll(
+      if (editor.current) {
+        editor.current.content.innerHTML = value;
+      }
+      const toolbarButtons = currentEditorRef.querySelectorAll(
         '.pell-actionbar button',
       );
-      toolbarButtons?.forEach((btn) => {
-        btn.addEventListener('mousedown', (e: MouseEvent) => e.preventDefault());
+      toolbarButtons.forEach((btn: HTMLElement) => {
+        btn.addEventListener(
+          'mousedown',
+          (event: SyntheticEvent<HTMLElement>) => event.preventDefault(),
+        );
         btn.addEventListener('click', () => {
-          editor.current?.content.focus({ preventScroll: true });
+          if (editor.current) {
+            editor.current.content.focus({ preventScroll: true });
+          }
         });
       });
       return () => {
-        toolbarButtons?.forEach((btn) => {
-          btn.removeEventListener('mousedown', (e: MouseEvent) => e.preventDefault());
+        toolbarButtons.forEach((btn: HTMLElement) => {
+          btn.removeEventListener(
+            'mousedown',
+            (event: SyntheticEvent<HTMLElement>) => event.preventDefault(),
+          );
           btn.removeEventListener('click', () => {
-            editor.current?.content.focus({ preventScroll: true });
+            if (editor.current) {
+              editor.current.content.focus({ preventScroll: true });
+            }
           });
         });
       };
     }
-    return () => {};
+    return undefined;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

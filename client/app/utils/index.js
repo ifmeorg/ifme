@@ -20,14 +20,15 @@ const setCsrfToken = (): void => {
 };
 
 const getPusher = (): Object | null => {
-  if (window.Pusher) {
+  const { Pusher } = window;
+  if (Pusher) {
     const metaPusherKey = Array.from(
       window.document.getElementsByTagName('meta'),
     ).filter((item) => item.getAttribute('name') === 'pusher-key')[0];
     const metaPusherCluster = Array.from(
       window.document.getElementsByTagName('meta'),
     ).filter((item) => item.getAttribute('name') === 'pusher-cluster')[0];
-    return new window.Pusher(metaPusherKey.getAttribute('content'), {
+    return new Pusher(metaPusherKey.getAttribute('content'), {
       cluster: metaPusherCluster.getAttribute('content'),
     });
   }

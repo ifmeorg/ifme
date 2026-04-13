@@ -1,5 +1,5 @@
 // @flow
-import React, { type Element, type Node } from 'react';
+import React, { type Node } from 'react';
 import { Utils } from 'utils';
 import { StoryName } from 'components/Story/StoryName';
 import { StoryDate } from 'components/Story/StoryDate';
@@ -26,7 +26,7 @@ export type Props = {
   moods?: Mood[],
   storyBy?: StoryByProps,
   storyType?: string,
-  body?: string | Element<any> | any,
+  body?: string | Node | any,
   medicationBody?: Medication,
   onClick?: Function,
 };

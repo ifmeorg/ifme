@@ -15,7 +15,9 @@ export type State = {
   errors: Errors,
 };
 
-const getInputsInitialState = (inputs: MyInputProps[]) => inputs.filter((input) => input !== {});
+const getInputsInitialState = (inputs: MyInputProps[]) => inputs.filter(
+  (input: MyInputProps) => typeof input.id === 'string' && input.id.length > 0,
+);
 
 export const Form = ({ action, inputs: inputsProps }: Props): Node => {
   const [inputs, setInputs] = useState<MyInputProps[]>(
@@ -127,7 +129,7 @@ export const Form = ({ action, inputs: inputsProps }: Props): Node => {
 
   const { form } = css;
 
-  let csrfInput = '';
+  let csrfInput: Node = null;
   const csrfParam = document.querySelector('meta[name="csrf-param"]');
   const csrfToken = document.querySelector('meta[name="csrf-token"]');
 

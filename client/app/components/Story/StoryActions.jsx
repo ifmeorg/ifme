@@ -39,6 +39,7 @@ export type Actions = {
   viewers?: string,
   visible?: string,
   not_visible?: string,
+  share_link_info?: string,
 };
 
 export type Props = {
@@ -48,19 +49,36 @@ export type Props = {
   dark?: boolean,
 };
 
-const EDIT = 'edit';
-const DELETE = 'delete';
-const JOIN = 'join';
-const LEAVE = 'leave';
-const REPORT = 'report';
-const VIEWERS = 'viewers';
-const VISIBLE = 'visible';
-const NOT_VISIBLE = 'not_visible';
-const ADD_TO_G_CAL = 'add_to_google_cal';
-const REMOVE_FROM_G_CAL = 'remove_from_google_cal';
-const SHARE_LINK_INFO = 'share_link_info';
+type ActionItem =
+  | 'edit'
+  | 'delete'
+  | 'join'
+  | 'leave'
+  | 'report'
+  | 'viewers'
+  | 'visible'
+  | 'not_visible'
+  | 'add_to_google_cal'
+  | 'remove_from_google_cal'
+  | 'share_link_info';
 
-const classMap = (dark: ?boolean) => {
+const EDIT: ActionItem = 'edit';
+const DELETE: ActionItem = 'delete';
+const JOIN: ActionItem = 'join';
+const LEAVE: ActionItem = 'leave';
+const REPORT: ActionItem = 'report';
+const VIEWERS: ActionItem = 'viewers';
+const VISIBLE: ActionItem = 'visible';
+const NOT_VISIBLE: ActionItem = 'not_visible';
+const ADD_TO_G_CAL: ActionItem = 'add_to_google_cal';
+const REMOVE_FROM_G_CAL: ActionItem = 'remove_from_google_cal';
+const SHARE_LINK_INFO: ActionItem = 'share_link_info';
+
+type IconMap = {
+  [ActionItem]: Node,
+};
+
+const classMap = (dark: ?boolean): IconMap => {
   const className = dark ? css.actionDark : css.action;
   return {
     edit: <FontAwesomeIcon icon={faPencilAlt} className={className} />,
@@ -106,35 +124,35 @@ const classMap = (dark: ?boolean) => {
 
 const displayNonLink = (
   actions: Actions,
-  item: string,
+  item: ActionItem,
   hasStory: ?boolean,
   dark: ?boolean,
 ) => {
   const capitalizeItem = item.charAt(0).toUpperCase() + item.slice(1);
+  const text = (actions[item]: any);
   return (
     <div key={item} className={`storyActions${capitalizeItem}`}>
       <Tooltip
         element={classMap(dark)[item]}
-        text={actions[item]}
+        text={typeof text === 'string' ? text : ''}
         right={!!hasStory}
       />
     </div>
   );
 };
 
-const titleItem = (item: string) => item.charAt(0).toUpperCase() + item.slice(1);
+const titleItem = (item: ActionItem) => item.charAt(0).toUpperCase() + item.slice(1);
 
 const tooltipElement = (
-  item: string,
+  item: ActionItem,
   actions: Actions,
   storyName: ?string,
   dark: ?boolean,
 ) => {
+  const action: any = actions[item];
   const {
     link, dataMethod, dataConfirm, name, onClick, commentBy,
-  } = actions[
-    item
-  ];
+  } = action || {};
 
   const ariaLabel = commentBy || `${name} ${storyName || ''}`;
 
@@ -157,23 +175,26 @@ const tooltipElement = (
 
 const displayLink = (
   actions: Actions,
-  item: string,
+  item: ActionItem,
   storyName: ?string,
   hasStory: ?boolean,
   dark: ?boolean,
-) => (
-  <div key={item} className={`storyActions${titleItem(item)}`}>
-    <Tooltip
-      element={tooltipElement(item, actions, storyName, dark)}
-      text={actions[item].name}
-      right={!!hasStory}
-    />
-  </div>
-);
+) => {
+  const action: any = actions[item];
+  return (
+    <div key={item} className={`storyActions${titleItem(item)}`}>
+      <Tooltip
+        element={tooltipElement(item, actions, storyName, dark)}
+        text={action && action.name ? action.name : ''}
+        right={!!hasStory}
+      />
+    </div>
+  );
+};
 
 const displayItem = (
   actions: Actions,
-  item: string,
+  item: ActionItem,
   storyName: ?string,
   hasStory: ?boolean,
   dark: ?boolean,
@@ -207,7 +228,7 @@ export const StoryActions = (props: Props): Node => {
         NOT_VISIBLE,
         VIEWERS,
         SHARE_LINK_INFO,
-      ].map((item: string) => (actions[item]
+      ].map((item: ActionItem) => (actions[item]
         ? displayItem(actions, item, storyName, hasStory, dark)
         : null))}
     </div>
