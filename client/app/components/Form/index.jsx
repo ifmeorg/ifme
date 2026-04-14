@@ -15,9 +15,7 @@ export type State = {
   errors: Errors,
 };
 
-const getInputsInitialState = (inputs: MyInputProps[]) => inputs.filter(
-  (input: MyInputProps) => typeof input.id === 'string' && input.id.length > 0,
-);
+const getInputsInitialState = (inputs: MyInputProps[]) => inputs.filter((input) => input !== {});
 
 export const Form = ({ action, inputs: inputsProps }: Props): Node => {
   const [inputs, setInputs] = useState<MyInputProps[]>(

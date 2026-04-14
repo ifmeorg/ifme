@@ -18,7 +18,7 @@ class Category < ApplicationRecord
   extend FriendlyId
 
   friendly_id :name
-  validates :name, presence: true
+  validates :user_id, :name, presence: true
   belongs_to :user
 
   has_many :moments_categories, dependent: :destroy

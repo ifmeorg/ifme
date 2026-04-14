@@ -20,7 +20,7 @@ feature 'UserCreatesAMedication', type: :feature, js: true do
 
   context 'valid form input' do
     before do
-      CalendarUploader.stub_chain(:new, :upload_event)
+      allow(CalendarUploader).to receive_message_chain(:new, :upload_event)
       find('#medication_name').set(name)
       fill_in_textarea('A comment', '#medication_comments')
       find('#medication_strength').set(100)
@@ -30,8 +30,8 @@ feature 'UserCreatesAMedication', type: :feature, js: true do
     end
 
     it 'creates a new medication' do
-      find('#submit').click
       expect(CalendarUploader).to_not receive(:new)
+      find('#submit').click
 
       within '.pageTitle' do
         expect(page).to have_content(name)
@@ -46,8 +46,8 @@ feature 'UserCreatesAMedication', type: :feature, js: true do
       it 'activates reminders' do
         find('#medication_refill_reminder_attributes').click
         find('#medication_take_medication_reminder_attributes').click
-        find('#submit').click
         expect(CalendarUploader).to_not receive(:new)
+        find('#submit').click
         expect(find('.pageTitle')).to have_content(name)
         expect(medication.take_medication_reminder.active?).to be true
         expect(medication.refill_reminder.active?).to be true
@@ -56,7 +56,7 @@ feature 'UserCreatesAMedication', type: :feature, js: true do
 
     context 'with Google Calendar reminders checked' do
       before do
-        CalendarUploader.stub_chain(:new, :upload_event).and_return(true)
+        allow(CalendarUploader).to receive_message_chain(:new, :upload_event).and_return(true)
       end
 
       it 'activates reminders' do
@@ -73,8 +73,8 @@ feature 'UserCreatesAMedication', type: :feature, js: true do
 
     context 'when uploader raises an error' do
       before do
-        CalendarUploader.stub_chain(:new, :upload_event)
-                        .and_raise(Google::Apis::ClientError.new('error'))
+        allow(CalendarUploader).to receive_message_chain(:new, :upload_event)
+                                    .and_raise(Google::Apis::ClientError.new('error'))
       end
 
       it 'redirects to sign in' do

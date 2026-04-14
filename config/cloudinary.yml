@@ -6,9 +6,9 @@ development:
   static_image_support: true
   secure: true
 test:
-  cloud_name: ENV['CLOUDINARY_CLOUD_NAME']
-  api_key: ENV['CLOUDINARY_API_KEY']
-  api_secret: ENV['CLOUDINARY_API_SECRET']
+  cloud_name: <%= ENV['CLOUDINARY_CLOUD_NAME'].presence || 'test_cloud' %>
+  api_key: <%= ENV['CLOUDINARY_API_KEY'].presence || 'test_key' %>
+  api_secret: <%= ENV['CLOUDINARY_API_SECRET'].presence || 'test_secret' %>
   enhance_image_tag: true
   static_image_support: true
   secure: true

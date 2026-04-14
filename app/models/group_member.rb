@@ -22,6 +22,7 @@ class GroupMember < ApplicationRecord
 
   after_destroy :destroy_meeting_memberships
 
+  validates :group_id, :user_id, presence: true
   validates :leader, inclusion: [true, false]
 
   belongs_to :group

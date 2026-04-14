@@ -62,7 +62,7 @@ class Moment < ApplicationRecord
 
   validates :comment, inclusion: [true, false]
   validates :bookmarked, inclusion: [true, false]
-  validates :name, :why, presence: true
+  validates :user_id, :name, :why, presence: true
   validates :why, length: { minimum: 1 }
   validates :secret_share_expires_at,
             presence: true, if: :secret_share_identifier?
@@ -81,7 +81,7 @@ class Moment < ApplicationRecord
   end
 
   def viewers_array_data
-    self.viewers = viewers.collect(&:to_i) if viewers.is_a?(Array)
+    self.viewers = Array(viewers).collect(&:to_i)
   end
 
   def owned_by?(user)

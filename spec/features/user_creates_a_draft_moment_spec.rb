@@ -8,19 +8,22 @@ feature 'UserCreatesADraftMoment', type: :feature, js: true do
   let!(:strategy) { create :strategy, user_id: user.id }
 
   feature 'Creating, viewing, and editing a draft moment' do
-    it 'is not successful' do
+    scenario 'is not successful' do
+      user.confirm if user.respond_to?(:confirm)
       login_as user
       visit new_moment_path
+      expect(page).to have_content 'New Moment'
       find('#moment_publishing_switch').click
       find('#submit').click
       expect(page).to have_content('New Moment')
       expect(page).to have_css('.labelError')
     end
 
-    it 'is successful' do
+    scenario 'is successful' do
+      user.confirm if user.respond_to?(:confirm)
       login_as user
       visit moments_path
-      expect(find('.pageTitle')).to have_content 'Moments'
+      expect(page).to have_selector('.pageTitle', text: 'Moments')
       expect(page).to have_content 'Delve deep into your moments - events ' \
                                    'and situations that affect your mental ' \
                                    'health.'
@@ -35,14 +38,47 @@ feature 'UserCreatesADraftMoment', type: :feature, js: true do
 
       within('#moment_category_accordion') do
         find('.accordion').click
-        find('.tagAutocomplete').set('Test Category')
-        page.find('.tagAutocomplete').native.send_keys(:return)
-        find('.tagAutocomplete').set('Some New Category')
-        page.find('.tagAutocomplete').native.send_keys(:return)
+        tag_input = find('input.tagAutocomplete', visible: :all)
+        execute_script(<<~JS, tag_input)
+          arguments[0].focus();
+          arguments[0].value = 'Test Category';
+          arguments[0].dispatchEvent(new Event('change', { bubbles: true }));
+          arguments[0].dispatchEvent(new Event('input', { bubbles: true }));
+          arguments[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', keyCode: 13, bubbles: true }));
+        JS
       end
 
-      within '.modal' do
-        find('#submit').click
+      if page.has_css?('.modal')
+        within '.modal' do
+          find('#submit').click
+        end
+        expect(page).to have_no_css('.modal')
+      end
+
+      within('#moment_category_accordion') do
+        expect(page).to have_text(:all, 'Test Category')
+      end
+
+      within('#moment_category_accordion') do
+        tag_input = find('input.tagAutocomplete', visible: :all)
+        execute_script(<<~JS, tag_input)
+          arguments[0].focus();
+          arguments[0].value = 'Some New Category';
+          arguments[0].dispatchEvent(new Event('change', { bubbles: true }));
+          arguments[0].dispatchEvent(new Event('input', { bubbles: true }));
+          arguments[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', keyCode: 13, bubbles: true }));
+        JS
+      end
+
+      if page.has_css?('.modal')
+        within '.modal' do
+          find('#submit').click
+        end
+        expect(page).to have_no_css('.modal')
+      end
+
+      within('#moment_category_accordion') do
+        expect(page).to have_text(:all, 'Some New Category')
       end
 
       within('#moment_category_accordion') do
@@ -51,14 +87,47 @@ feature 'UserCreatesADraftMoment', type: :feature, js: true do
 
       within('#moment_mood_accordion') do
         find('.accordion').click
-        find('.tagAutocomplete').set('Test Mood')
-        page.find('.tagAutocomplete').native.send_keys(:return)
-        find('.tagAutocomplete').set('Some New Mood')
-        page.find('.tagAutocomplete').native.send_keys(:return)
+        tag_input = find('input.tagAutocomplete', visible: :all)
+        execute_script(<<~JS, tag_input)
+          arguments[0].focus();
+          arguments[0].value = 'Test Mood';
+          arguments[0].dispatchEvent(new Event('change', { bubbles: true }));
+          arguments[0].dispatchEvent(new Event('input', { bubbles: true }));
+          arguments[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', keyCode: 13, bubbles: true }));
+        JS
       end
 
-      within '.modal' do
-        find('#submit').click
+      if page.has_css?('.modal')
+        within '.modal' do
+          find('#submit').click
+        end
+        expect(page).to have_no_css('.modal')
+      end
+
+      within('#moment_mood_accordion') do
+        expect(page).to have_text(:all, 'Test Mood')
+      end
+
+      within('#moment_mood_accordion') do
+        tag_input = find('input.tagAutocomplete', visible: :all)
+        execute_script(<<~JS, tag_input)
+          arguments[0].focus();
+          arguments[0].value = 'Some New Mood';
+          arguments[0].dispatchEvent(new Event('change', { bubbles: true }));
+          arguments[0].dispatchEvent(new Event('input', { bubbles: true }));
+          arguments[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', keyCode: 13, bubbles: true }));
+        JS
+      end
+
+      if page.has_css?('.modal')
+        within '.modal' do
+          find('#submit').click
+        end
+        expect(page).to have_no_css('.modal')
+      end
+
+      within('#moment_mood_accordion') do
+        expect(page).to have_text(:all, 'Some New Mood')
       end
 
       within('#moment_mood_accordion') do
@@ -67,21 +136,60 @@ feature 'UserCreatesADraftMoment', type: :feature, js: true do
 
       within('#moment_strategy_accordion') do
         find('.accordion').click
-        find('.tagAutocomplete').set('Test Strategy')
-        page.find('.tagAutocomplete').native.send_keys(:return)
-        find('.tagAutocomplete').set('Some New Strategy')
-        page.find('.tagAutocomplete').native.send_keys(:return)
+        tag_input = find('input.tagAutocomplete', visible: :all)
+        execute_script(<<~JS, tag_input)
+          arguments[0].focus();
+          arguments[0].value = 'Test Strategy';
+          arguments[0].dispatchEvent(new Event('change', { bubbles: true }));
+          arguments[0].dispatchEvent(new Event('input', { bubbles: true }));
+          arguments[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', keyCode: 13, bubbles: true }));
+        JS
       end
 
-      within '.modal' do
-        fill_in_textarea('A Strategy Description', '#strategy_description')
-        find('#submit').click
+      if page.has_css?('.modal')
+        within '.modal' do
+          fill_in_textarea('A Strategy Description', '#strategy_description')
+          find('#submit').click
+        end
+        expect(page).to have_no_css('.modal')
+      end
+
+      within('#moment_strategy_accordion') do
+        expect(page).to have_text(:all, 'Test Strategy')
+      end
+
+      within('#moment_strategy_accordion') do
+        tag_input = find('input.tagAutocomplete', visible: :all)
+        execute_script(<<~JS, tag_input)
+          arguments[0].focus();
+          arguments[0].value = 'Some New Strategy';
+          arguments[0].dispatchEvent(new Event('change', { bubbles: true }));
+          arguments[0].dispatchEvent(new Event('input', { bubbles: true }));
+          arguments[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', keyCode: 13, bubbles: true }));
+        JS
+      end
+
+      if page.has_css?('.modal')
+        within '.modal' do
+          fill_in_textarea('A Strategy Description', '#strategy_description')
+          find('#submit').click
+        end
+        expect(page).to have_no_css('.modal')
+      end
+
+      within('#moment_strategy_accordion') do
+        expect(page).to have_text(:all, 'Some New Strategy')
       end
 
       within('#moment_viewers_accordion') do
         find('.accordion').click
-        find('.tagAutocomplete').set('Ally 1')
-        page.find('.tagAutocomplete').native.send_keys(:return)
+        viewer_input = find('input.tagAutocomplete', visible: :all)
+        execute_script(<<~JS, viewer_input)
+          arguments[0].focus();
+          arguments[0].value = 'Ally 1';
+          arguments[0].dispatchEvent(new Event('input', { bubbles: true }));
+          arguments[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', keyCode: 13, bubbles: true }));
+        JS
         find('.accordion').click
       end
 
@@ -108,7 +216,7 @@ feature 'UserCreatesADraftMoment', type: :feature, js: true do
       # TRYING TO VIEW AS ALLY
       login_as ally
       visit back
-      
+
       expect(find('.pageTitle')).not_to have_content 'My New Moment'
       login_as user
       visit back

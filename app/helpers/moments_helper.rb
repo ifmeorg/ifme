@@ -150,8 +150,8 @@ module MomentsHelper
   def multiselect_filters
     {
       'secret_share' => 'secret_share_identifier IS NOT NULL',
-      'no_viewers' => { viewers: [] },
-      'one_viewer' => 'length(viewers) > 0',
+      'no_viewers' => "viewers = '[]'",
+      'one_viewer' => "viewers != '[]' AND viewers IS NOT NULL",
       'comments_enabled' => { comment: true },
       'draft_enabled' => { published_at: nil },
       'published' => 'published_at IS NOT NULL'

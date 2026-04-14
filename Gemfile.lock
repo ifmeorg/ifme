@@ -146,6 +146,9 @@ GEM
       railties (>= 7.0)
       responders
       warden (~> 1.2.3)
+    devise-pwned_password (0.2.0)
+      devise (>= 4, < 6)
+      pwned (~> 2.4)
     devise-security (0.18.0)
       devise (>= 4.3.0)
     devise_invitable (2.0.11)
@@ -393,6 +396,7 @@ GEM
       multi_json (~> 1.0)
       pusher-signature (~> 0.1.8)
     pusher-signature (0.1.8)
+    pwned (2.4.1)
     raabro (1.4.0)
     racc (1.8.1)
     rack (3.2.6)
@@ -711,6 +715,7 @@ DEPENDENCIES
   cloudinary (~> 1.25.0)
   database_cleaner
   devise (>= 5.0.3)
+  devise-pwned_password
   devise-security
   devise_invitable (~> 2.0.11)
   devise_uid

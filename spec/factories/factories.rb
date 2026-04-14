@@ -1,6 +1,8 @@
 # frozen_string_literal: true
-# Do not use FactoryBot 5 behaviour, default to, "the association strategy would not always match the strategy of the parent object" https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md#associations
+# Do not use FactoryBot 5 behaviour, default to, "the association strategy would not always match the strategy of the parent object" 
+# https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md#associations
 FactoryBot.use_parent_strategy = false
+
 FactoryBot.define do
   factory :group_member do
     association :user, factory: :user1
@@ -22,9 +24,11 @@ FactoryBot.define do
     name { 'Test Name' }
     description { 'Test Description' }
     location { 'Test Location' }
-    time { Time.now.in_time_zone }
+    # Formatting time as a string to match schema
+    time { Time.now.in_time_zone.strftime('%H:%M') }
     maxmembers { 1 }
-    date { Date.tomorrow }
+    # Formatting date as a string to match schema
+    date { Date.tomorrow.to_s }
     group
   end
 
@@ -63,6 +67,8 @@ FactoryBot.define do
   end
 
   factory :medication do
+    # Medications usually require a user
+    association :user, factory: :user1
     name { 'Fancy Medication Name' }
     dosage { 10 }
     dosage_unit { 'tablet' }

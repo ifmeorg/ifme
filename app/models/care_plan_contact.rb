@@ -20,6 +20,6 @@ class CarePlanContact < ApplicationRecord
     updated_at
   ].map!(&:freeze).freeze
 
-  validates :name, presence: true
+  validates :user_id, :name, presence: true
   belongs_to :user
 end

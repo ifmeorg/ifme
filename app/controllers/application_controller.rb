@@ -7,14 +7,10 @@ class ApplicationController < ActionController::Base
 
   # Logic concerns
   include PageRedirectConcern
-
-  # CRITICAL: Use symbols here to prevent "uninitialized constant" boot errors.
-  # This makes the methods in CommentsHelper available to your views/controllers
-  # without causing a circular dependency deadlock.
-  helper :comments
-  helper :comments_form
-  helper :tags
-  helper :most_focus
+  include CommentsHelper
+  include CommentsFormHelper
+  include TagsHelper
+  include MostFocusHelper
 
   protect_from_forgery with: :exception
 

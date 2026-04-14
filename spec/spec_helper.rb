@@ -35,6 +35,14 @@ if ENV['SELENIUM_REMOTE_HOST']
   Capybara.server_port = 4000
   Capybara.app_host = "http://#{Capybara.server_host}:#{Capybara.server_port}"
 else
+  Capybara.register_driver :selenium_chrome_headless do |app|
+    options = Selenium::WebDriver::Chrome::Options.new
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--window-size=1280,800')
+    Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+  end
   Capybara.javascript_driver = :selenium_chrome_headless
 end
 
@@ -45,9 +53,12 @@ RSpec.configure do |config|
     metadata[:requires_webpack_assets] = true
   end
 
+  # --- DEVISE HELPERS ---
   config.include Devise::Test::ControllerHelpers, type: :controller
-  config.include Devise::Test::ControllerHelpers, type: :helper
+  config.include Devise::Test::ControllerHelpers, type: :helper # Added for your helper specs
   config.include Devise::Test::IntegrationHelpers, type: :request
+  # ----------------------
+
   config.include FactoryBot::Syntax::Methods
   config.include RSpecHtmlMatchers
   config.include StubCurrentUserHelper
@@ -57,10 +68,7 @@ RSpec.configure do |config|
     mock_config.syntax = %i[expect should]
   end
 
-  # Rails 7.2 uses fixture_paths (plural). 
-  # RSpec 6.1+ handles this automatically, but we set it here:
   config.fixture_paths = [Rails.root.join('spec', 'fixtures')]
-
   config.use_transactional_fixtures = false
   config.infer_base_class_for_anonymous_controllers = false
   config.order = 'random'

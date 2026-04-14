@@ -55,7 +55,7 @@ class Strategy < ApplicationRecord
   accepts_nested_attributes_for :perform_strategy_reminder
 
   validates :comment, inclusion: [true, false]
-  validates :name, :description, presence: true
+  validates :user_id, :name, :description, presence: true
   validates :description, length: { minimum: 1 }
   validates :visible, inclusion: [true, false]
 
@@ -71,7 +71,7 @@ class Strategy < ApplicationRecord
   end
 
   def viewers_array_data
-    self.viewers = viewers.collect(&:to_i) if viewers.is_a?(Array)
+    self.viewers = Array(viewers).collect(&:to_i)
   end
 
   def published?

@@ -64,7 +64,9 @@ feature 'ToggleLocale', type: :feature, js: true do
 
         expect(find('.pageTitle')).to have_content es_signed_in_root_title
 
-        click_link('Momentos')
+        within '.dashboardNavLinks' do
+          click_link('Momentos')
+        end
         expect(find('.dashboardSection')).to have_content 'Momentos'
       end
     end
@@ -104,7 +106,9 @@ feature 'ToggleLocale', type: :feature, js: true do
         change_language('es')
         expect(find('.pageTitle')).to have_content es_signed_in_root_title
 
-        click_link('Estrategias')
+        within '.dashboardNavLinks' do
+          click_link('Estrategias')
+        end
         expect(find('.dashboardSection')).to have_content 'Estrategias'
       end
     end

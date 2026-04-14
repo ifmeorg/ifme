@@ -15,9 +15,8 @@ gem 'bcrypt', '~> 3.1.22'
 
 gem 'devise', '>= 5.0.3'
 gem 'devise_invitable', '~> 2.0.11'
-
+gem 'devise-pwned_password'
 gem 'devise-security'
-
 gem 'devise_uid'
 
 gem "pg", "~> 1.5"
@@ -86,7 +85,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.1.0'
   gem 'letter_opener'
   gem 'rspec_junit_formatter'
-  
+
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rails'

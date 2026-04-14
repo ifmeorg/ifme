@@ -5,7 +5,7 @@ module Viewer
 
   def viewer?(user)
     id = user&.id || user
-    viewers.include?(id)
+    Array(viewers).include?(id)
   end
 
   class_methods do

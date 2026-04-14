@@ -27,7 +27,7 @@ const getInputsInitialState = (
   nameValue?: string,
 ): MyInputProps[] => {
   const formInputs = formProps.inputs.filter(
-    (input: MyInputProps) => typeof input.id === 'string' && input.id.length > 0,
+    (input: MyInputProps) => input !== {},
   );
   if (nameValue) {
     formInputs[0].value = nameValue;

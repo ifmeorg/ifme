@@ -159,9 +159,8 @@ describe "Medications", type: :request do
       context 'when valid params are supplied' do
 
         it 'updates a medication' do
-          updated_name_slug = (valid_medication_params[:name]).parameterize
           put_update valid_medication_params
-          expect(response.body).to include(updated_name_slug)
+          expect(medication.reload.name).to eq(valid_medication_params[:name])
         end
 
         it 'redirects the user' do
