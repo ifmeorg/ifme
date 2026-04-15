@@ -1,4 +1,4 @@
-FFROM ruby:3.3
+FROM ruby:3.3
 
 # Install system dependencies
 RUN apt-get update -qq && \
