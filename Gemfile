@@ -9,10 +9,10 @@ gem 'rack-rewrite'
 gem 'rails', '~> 7.0.8.4'
 
 gem 'activerecord-import'
-gem 'bcrypt', '3.1.13'
-gem 'devise', '~> 4.8.1'
+gem 'bcrypt', '>= 3.1.22'
+gem 'devise', '>= 5.0.3'
 gem 'devise_invitable', '~> 2.0.11'
-gem 'devise-pwned_password'
+gem 'devise-pwned_password', '~> 0.2.0'
 gem 'devise_uid'
 gem "pg", "~> 1.5"
 gem "recaptcha"
@@ -81,7 +81,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.0'
   gem 'letter_opener'
   gem 'rspec_junit_formatter'
-  
+
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
