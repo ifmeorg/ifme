@@ -789,5 +789,14 @@
     "link_name": "LinkedIn",
     "link": "https://linkedin.com/in/melinamarjani",
     "social": "linkedin"
+  },
+  {
+    "name": "Renan Fochetto",
+    "image": "/assets/contributors/renan_fochetto.webp",
+    "profile": "There is a meaningful difference between studying something and truly living it. Psychology taught me to understand emotional suffering — but what it really gave me was the ability to listen, to be present, and to recognize that sometimes just feeling heard can change everything. That's why a place like if-me.org matters to me. Not as a concept, but as something real — a space where people can express what they're going through, be welcomed without judgment, and find even a small moment of connection with someone who cares. Because no one should ever have to face the hard days alone. And somehow, life always finds its way back.",
+    "location": "São Paulo, Brazil",
+    "link_name": "LinkedIn",
+    "link": "https://linkedin.com/in/renanfochetto",
+    "social": "linkedin"
   }
 ]
