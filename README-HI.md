@@ -6,11 +6,11 @@
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 [![Awesome Humane Tech](https://raw.githubusercontent.com/humanetech-community/awesome-humane-tech/main/humane-tech-badge.svg?sanitize=true)](https://github.com/humanetech-community/awesome-humane-tech)
 
-README in: [Bangla](https://github.com/ifmeorg/ifme/blob/main/README-BN.md), [इतालवी](https://github.com/ifmeorg/ifme/blob/main/README-IT.md), [स्पैनिश](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [पुर्तगाली](https://github.com/ifmeorg/ifme/blob/main/README-PT.md),
+README in: [Bangla](https://github.com/ifmeorg/ifme/blob/main/README-BN.md), [English](https://github.com/ifmeorg/ifme/blob/main/README.md), [इतालवी](https://github.com/ifmeorg/ifme/blob/main/README-IT.md), [स्पैनिश](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [पुर्तगाली](https://github.com/ifmeorg/ifme/blob/main/README-PT.md),
 [फ्रेंच](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [कोरियन](https://github.com/ifmeorg/ifme/blob/main/README-KO.md),
 [इन्डोनेशियन](https://github.com/ifmeorg/ifme/blob/main/README-ID.md), [तुर्की](https://github.com/ifmeorg/ifme/blob/main/README-TR.md),
 [सिंहली](https://github.com/ifmeorg/ifme/blob/main/README-LK.md), [चीनी](https://github.com/ifmeorg/ifme/blob/main/README-CN.md), [अरबी](https://github.com/ifmeorg/ifme/blob/main/README-AR.md), [वियतनामी](https://github.com/ifmeorg/ifme/blob/main/README-VI.md)
-, [फ़ारसी](https://github.com/ifmeorg/ifme/blob/main/README-FA.md), [कातालान](https://github.com/ifmeorg/ifme/blob/main/README-CA.md)
+, [फ़ारसी](https://github.com/ifmeorg/ifme/blob/main/README-FA.md), [कातालान](https://github.com/ifmeorg/ifme/blob/main/README-CA.md), [Bulgarian](https://github.com/ifmeorg/ifme/blob/main/README-BG.md)
 # if-me.org
 
 [if-me.org](https://www.if-me.org/) मानसिक स्वास्थ्य के अनुभवों के लिए एक समुदाय है
