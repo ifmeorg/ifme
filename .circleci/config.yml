@@ -166,7 +166,8 @@ jobs:
             curl -sSL "https://nodejs.org/dist/v20.17.0/node-v20.17.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v20.17.0-linux-x64/bin/node
             curl https://www.npmjs.com/install.sh | sudo bash
       - run: gem install bundler
-      - run: bundle install --path=vendor/bundle --jobs=4 --retry=3
+      - run: bundle config set path 'vendor/bundle'
+      - run: bundle install --jobs=4 --retry=3
       - run: yarn install --cache-folder ~/.cache/yarn
       - run:
           name: Deploy Storybook
