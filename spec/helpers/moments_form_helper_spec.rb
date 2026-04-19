@@ -217,36 +217,63 @@ describe MomentsFormHelper do
               placeholder: 'Allies who can view your moment', type: 'tag'
             },
             {
-              checked: nil,
-              dark: true,
-              id: 'moment_comment',
-              info: 'Only you and viewers can comment',
-              label: 'Allow Comments?',
+              id: 'moment_comment_hidden',
+              type: 'hidden',
               name: 'moment[comment]',
-              type: 'switch',
-              uncheckedValue: false,
-              value: true
+              label: nil,
+              value: '0'
             },
             {
-              checked: false,
-              dark: true,
-              id: 'moment_publishing',
-              label: 'Do you want to save your moment as draft?',
-              name: 'publishing',
+              id: 'moment_comment',
               type: 'switch',
+              name: 'moment[comment]',
+              label: 'Allow Comments?',
+              value: true,
+              uncheckedValue: false,
+              dark: true,
+              info: 'Only you and viewers can comment'
+            },
+            {
+              id: 'moment_publishing_hidden',
+              type: 'hidden',
+              name: 'moment[publishing]',
+              label: nil,
+              value: '0'
+            },
+            {
+              id: 'moment_publishing',
+              type: 'switch',
+              name: 'publishing',
+              label: 'Do you want to save your moment as draft?',
+              value: '0',
               uncheckedValue: '1',
+              checked: false,
+              dark: true
+            },
+            {
+              id: 'moment_bookmarked_hidden',
+              type: 'hidden',
+              name: 'moment[bookmarked]',
+              label: nil,
               value: '0'
             },
             {
               id: 'moment_bookmarked',
+              type: 'switch',
+              name: 'moment[bookmarked]',
+              label: 'Bookmark this moment?',
+              value: true,
+              uncheckedValue: false,
               checked: false,
               dark: true,
-              info: 'Bookmarked moments appear in your Care Plan',
-              label: 'Bookmark this moment?',
-              name: 'moment[bookmarked]',
-              type: 'switch',
-              uncheckedValue: false,
-              value: true
+              info: 'Bookmarked moments appear in your Care Plan'
+            },
+            {
+              id: 'moment_resource_recommendations_hidden',
+              type: 'hidden',
+              name: 'moment[resource_recommendations]',
+              label: nil,
+              value: '0'
             },
             {
               id: 'moment_resource_recommendations',
@@ -463,36 +490,63 @@ describe MomentsFormHelper do
               placeholder: 'Allies who can view your moment', type: 'tag'
             },
             {
-              checked: nil,
-              dark: true,
-              id: 'moment_comment',
-              info: 'Only you and viewers can comment',
-              label: 'Allow Comments?',
+              id: 'moment_comment_hidden',
+              type: 'hidden',
               name: 'moment[comment]',
-              type: 'switch',
-              uncheckedValue: false,
-              value: true
+              label: nil,
+              value: '0'
             },
             {
-              checked: false,
-              dark: true,
-              id: 'moment_publishing',
-              label: 'Do you want to save your moment as draft?',
-              name: 'publishing',
+              id: 'moment_comment',
               type: 'switch',
+              name: 'moment[comment]',
+              label: 'Allow Comments?',
+              value: true,
+              uncheckedValue: false,
+              dark: true,
+              info: 'Only you and viewers can comment'
+            },
+            {
+              id: 'moment_publishing_hidden',
+              type: 'hidden',
+              name: 'moment[publishing]',
+              label: nil,
+              value: '0'
+            },
+            {
+              id: 'moment_publishing',
+              type: 'switch',
+              name: 'publishing',
+              label: 'Do you want to save your moment as draft?',
+              value: '0',
               uncheckedValue: '1',
+              checked: false,
+              dark: true
+            },
+            {
+              id: 'moment_bookmarked_hidden',
+              type: 'hidden',
+              name: 'moment[bookmarked]',
+              label: nil,
               value: '0'
             },
             {
               id: 'moment_bookmarked',
+              type: 'switch',
+              name: 'moment[bookmarked]',
+              label: 'Bookmark this moment?',
+              value: true,
+              uncheckedValue: false,
               checked: false,
               dark: true,
-              info: 'Bookmarked moments appear in your Care Plan',
-              label: 'Bookmark this moment?',
-              name: 'moment[bookmarked]',
-              type: 'switch',
-              uncheckedValue: false,
-              value: true
+              info: 'Bookmarked moments appear in your Care Plan'
+            },
+            {
+              id: 'moment_resource_recommendations_hidden',
+              type: 'hidden',
+              name: 'moment[resource_recommendations]',
+              label: nil,
+              value: '0'
             },
             {
               id: 'moment_resource_recommendations',
@@ -748,6 +802,13 @@ describe MomentsFormHelper do
               accordion: true
             },
             {
+              id: 'moment_comment_hidden',
+              type: 'hidden',
+              name: 'moment[comment]',
+              label: nil,
+              value: '0'
+            },
+            {
               id: 'moment_comment',
               type: 'switch',
               name: 'moment[comment]',
@@ -755,29 +816,50 @@ describe MomentsFormHelper do
               value: true,
               uncheckedValue: false,
               checked: true,
-              info: 'Only you and viewers can comment',
-              dark: true
+              dark: true,
+              info: 'Only you and viewers can comment'
+            },
+            {
+              id: 'moment_publishing_hidden',
+              type: 'hidden',
+              name: 'moment[publishing]',
+              label: nil,
+              value: '0'
             },
             {
               id: 'moment_publishing',
               type: 'switch',
-              label: 'Do you want to save your moment as draft?',
-              dark: true,
               name: 'publishing',
+              label: 'Do you want to save your moment as draft?',
               value: '0',
               uncheckedValue: '1',
-              checked: true
+              checked: true,
+              dark: true
+            },
+            {
+              id: 'moment_bookmarked_hidden',
+              type: 'hidden',
+              name: 'moment[bookmarked]',
+              label: nil,
+              value: '0'
             },
             {
               id: 'moment_bookmarked',
+              type: 'switch',
+              name: 'moment[bookmarked]',
+              label: 'Bookmark this moment?',
+              value: true,
+              uncheckedValue: false,
               checked: false,
               dark: true,
-              info: 'Bookmarked moments appear in your Care Plan',
-              label: 'Bookmark this moment?',
-              name: 'moment[bookmarked]',
-              type: 'switch',
-              uncheckedValue: false,
-              value: true
+              info: 'Bookmarked moments appear in your Care Plan'
+            },
+            {
+              id: 'moment_resource_recommendations_hidden',
+              type: 'hidden',
+              name: 'moment[resource_recommendations]',
+              label: nil,
+              value: '0'
             },
             {
               id: 'moment_resource_recommendations',
@@ -1027,6 +1109,13 @@ describe MomentsFormHelper do
               accordion: true
             },
             {
+              id: 'moment_comment_hidden',
+              type: 'hidden',
+              name: 'moment[comment]',
+              label: nil,
+              value: '0'
+            },
+            {
               id: 'moment_comment',
               type: 'switch',
               name: 'moment[comment]',
@@ -1034,29 +1123,50 @@ describe MomentsFormHelper do
               value: true,
               uncheckedValue: false,
               checked: true,
-              info: 'Only you and viewers can comment',
-              dark: true
+              dark: true,
+              info: 'Only you and viewers can comment'
+            },
+            {
+              id: 'moment_publishing_hidden',
+              type: 'hidden',
+              name: 'moment[publishing]',
+              label: nil,
+              value: '0'
             },
             {
               id: 'moment_publishing',
               type: 'switch',
-              label: 'Do you want to save your moment as draft?',
-              dark: true,
               name: 'publishing',
+              label: 'Do you want to save your moment as draft?',
               value: '0',
               uncheckedValue: '1',
-              checked: true
+              checked: true,
+              dark: true
+            },
+            {
+              id: 'moment_bookmarked_hidden',
+              type: 'hidden',
+              name: 'moment[bookmarked]',
+              label: nil,
+              value: '0'
             },
             {
               id: 'moment_bookmarked',
+              type: 'switch',
+              name: 'moment[bookmarked]',
+              label: 'Bookmark this moment?',
+              value: true,
+              uncheckedValue: false,
               checked: false,
               dark: true,
-              info: 'Bookmarked moments appear in your Care Plan',
-              label: 'Bookmark this moment?',
-              name: 'moment[bookmarked]',
-              type: 'switch',
-              uncheckedValue: false,
-              value: true
+              info: 'Bookmarked moments appear in your Care Plan'
+            },
+            {
+              id: 'moment_resource_recommendations_hidden',
+              type: 'hidden',
+              name: 'moment[resource_recommendations]',
+              label: nil,
+              value: '0'
             },
             {
               id: 'moment_resource_recommendations',

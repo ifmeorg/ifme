@@ -31,14 +31,16 @@ module MomentsFormHelper
   end
 
   def switch_input_props(field, label, options = {})
-    switch = base_input_props(field, 'switch', label)
-      .with_attributes(
-        value: '0',          # Checked state
-        unchecked_value: '1', # Unchecked state
-        checked: options[:checked],
-        dark: true,
-        info: options[:info]
-      )
+    attrs = {
+      value: options.fetch(:value, true),
+      uncheckedValue: options.fetch(:unchecked_value, false),
+      checked: options[:checked],
+      dark: true,
+      info: options[:info]
+    }
+    attrs[:name] = options[:name] if options.key?(:name)
+    attrs.compact!
+    switch = base_input_props(field, 'switch', label).with_attributes(attrs)
     hidden = FormInput.new(
       id: "moment_#{field}_hidden",
       type: 'hidden',
@@ -54,7 +56,7 @@ module MomentsFormHelper
       .with_attributes(
         placeholder: t('common.form.search_by_keywords'),
         checkboxes: checkboxes_for(model_relation),
-        form_props: form_props
+        formProps: form_props
       )
   end
 
@@ -69,7 +71,9 @@ module MomentsFormHelper
   end
 
   def moment_fix
-    @moment.fix.present? ? text_input_props('fix', 'textarea', 'moments.form.fix_legacy') : FormInput.empty
+    return [] unless @moment.fix.present?
+
+    text_input_props('fix', 'textarea', 'moments.form.fix_legacy')
   end
 
   def moment_category
@@ -93,10 +97,11 @@ module MomentsFormHelper
 
   def moment_publishing(edit)
     switch_input_props('publishing', 'moments.form.draft_question',
-      checked: edit ? !@moment.published? : true
-    ).map do |input|
-      input.with_attributes(value: '0', unchecked_value: '1')
-    end
+      name: 'publishing',
+      value: '0',
+      unchecked_value: '1',
+      checked: edit ? !@moment.published? : @moment.published?
+    )
   end
 
   def moment_bookmarked
@@ -153,36 +158,6 @@ module MomentsFormHelper
   end
 
   def options_for_templates(data)
-    data.map { |item| { id: item.slug, label: item.name, value: item.description } }
-  end
-end
-
-class FormInput
-  attr_reader :attributes
-
-  def self.empty
-    new(id: nil, type: nil, name: nil, label: nil).freeze
-  end
-
-  def initialize(id:, type:, name:, label:, attributes: {})
-    @attributes = { id: id, type: type, name: name, label: label }.merge(attributes)
-  end
-
-  def with_value(value)
-    with_attributes(value: value || nil)
-  end
-
-  def with_attributes(new_attrs)
-    self.class.new(
-      id: @attributes[:id],
-      type: @attributes[:type],
-      name: @attributes[:name],
-      label: @attributes[:label],
-      attributes: @attributes.merge(new_attrs)
-    )
-  end
-
-  def to_h
-    @attributes
+    data.map { |item| { id: item.slug, label: item.name, value: item.description, selected: item.id.to_s == params[:templateId].to_s } }
   end
 end
