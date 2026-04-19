@@ -5,8 +5,8 @@
 [![Backers on Open Collective](https://opencollective.com/ifme/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 
-කියවුමට : [Bangla](https://github.com/ifmeorg/ifme/blob/main/README-BN.md), [ඉතාලි](https://github.com/ifmeorg/ifme/blob/main/README-IT.md), [ස්පාඤ්ඤ](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [පෘතුගීසි](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [ප්‍රංශ](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [
-කොරියානු](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), [ඉන්දුනීසියානු](https://github.com/ifmeorg/ifme/blob/main/README-ID.md), [චීන](https://github.com/ifmeorg/ifme/blob/main/README-CN.md), [හින්දි](https://github.com/ifmeorg/ifme/blob/main/README-HI.md), [අරාබි](https://github.com/ifmeorg/ifme/blob/main/README-AR.md), [වියට්නාම](https://github.com/ifmeorg/ifme/blob/main/README-VI.md), [පර්සියානු](https://github.com/ifmeorg/ifme/blob/main/README-FA.md), [කැටලන්](https://github.com/ifmeorg/ifme/blob/main/README-CA.md)
+කියවුමට : [Bangla](https://github.com/ifmeorg/ifme/blob/main/README-BN.md), [English](https://github.com/ifmeorg/ifme/blob/main/README.md), [ඉතාලි](https://github.com/ifmeorg/ifme/blob/main/README-IT.md), [ස්පාඤ්ඤ](https://github.com/ifmeorg/ifme/blob/main/README-ES.md), [පෘතුගීසි](https://github.com/ifmeorg/ifme/blob/main/README-PT.md), [ප්‍රංශ](https://github.com/ifmeorg/ifme/blob/main/README-FR.md), [
+කොරියානු](https://github.com/ifmeorg/ifme/blob/main/README-KO.md), [ඉන්දුනීසියානු](https://github.com/ifmeorg/ifme/blob/main/README-ID.md), [Turkish](https://github.com/ifmeorg/ifme/blob/main/README-TR.md), [චීන](https://github.com/ifmeorg/ifme/blob/main/README-CN.md), [හින්දි](https://github.com/ifmeorg/ifme/blob/main/README-HI.md), [අරාබි](https://github.com/ifmeorg/ifme/blob/main/README-AR.md), [වියට්නාම](https://github.com/ifmeorg/ifme/blob/main/README-VI.md), [පර්සියානු](https://github.com/ifmeorg/ifme/blob/main/README-FA.md), [කැටලන්](https://github.com/ifmeorg/ifme/blob/main/README-CA.md), [Bulgarian](https://github.com/ifmeorg/ifme/blob/main/README-BG.md)
 
 # if-me.org
 
