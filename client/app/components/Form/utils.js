@@ -3,10 +3,8 @@ import { Utils } from 'utils';
 import { REQUIRES_DEFAULT } from 'components/Input/InputDefault';
 import type { Props as InputProps } from 'components/Input/utils';
 
-export type MyInputProps = {
-  ...$Exact<InputProps>,
-  myKey?: string,
-};
+type KeyProps = { myKey?: string };
+export type MyInputProps = InputProps & KeyProps;
 
 export type FormProps = {
   action?: string,

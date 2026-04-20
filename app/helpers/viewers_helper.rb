@@ -59,7 +59,9 @@ module ViewersHelper
   def get_viewer_list(data, link)
     return only_you_as_viewer(link) if data.blank?
 
-    names = data.to_a.map { |id| User.find_by(id:).name }.to_sentence
+    names = User.where(id: Array(data)).pluck(:name).to_sentence
+    return only_you_as_viewer(link) if names.blank?
+
     link ? t('shared.viewers.many', viewers: names) : names
   end
 
@@ -67,7 +69,7 @@ module ViewersHelper
     objs = obj.where(user_id: data.user_id).all.order('created_at DESC')
     objs.each do |ob|
       item = ob.send(data_type).pluck(:id)
-      return ob.viewers if item.include?(data.id)
+      return Array(ob.viewers) if item.include?(data.id)
     end
     []
   end
@@ -92,7 +94,7 @@ module ViewersHelper
       checkboxes.push(
         id: "#{name}_viewers_#{item.id}",
         value: item.id,
-        checked: obj.viewers.include?(item.id),
+        checked: Array(obj.viewers).include?(item.id),
         label: sanitize(user.name).presence || user.email
       )
     end
