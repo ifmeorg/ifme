@@ -468,7 +468,7 @@ bg:
         message_text_two: Ние <strong>винаги</strong> търсим твоята %{help} и %{feedback}!
         help: помощ
       signed_in_empty:
-        main_message_one: 'Здравей %{name}!'
+        main_message_one: 'Здравей, %{name}!'
         message_text_one: Ето как можеш да започнеш да споделяш историите си.
         main_message_two: Разкажи ни за себе си.
         cell_one: Персонализирай своя %{profile} - добави биография и профилна снимка <br />Добави свои %{moods}, за да опишеш най-добре емоциите си<br />Добави %{allies} - приятели, семейство и други хора, с които искаш да споделяш
