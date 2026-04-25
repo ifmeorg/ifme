@@ -23,18 +23,7 @@
     "tags": ["chatbot", "anonymous", "communities"],
     "languages": ["en"]
   },
-  {
-    "name": "Lemonaid",
-    "link": "http://lemonaid.io",
-    "tags": ["women", "self_care", "support_groups", "communities"],
-    "languages": ["en"]
-  },
-  {
-    "name": "MHPrompt",
-    "link": "http://mhprompt.org",
-    "tags": ["tech_industry", "talks", "communities"],
-    "languages": ["en"]
-  },
+
   {
     "name": "LifeSIGNS: Self Injury Guidance & Network Support",
     "link": "http://www.lifesigns.org.uk/",
@@ -64,12 +53,6 @@
     "name": "Peerly Human",
     "link": "https://peerlyhuman.blogspot.com/",
     "tags": ["support_groups", "blog", "education", "communities"],
-    "languages": ["en"]
-  },
-  {
-    "name": "Project Toe",
-    "link": "http://www.projecttoe.com/",
-    "tags": ["support_groups", "android", "ios", "communities"],
     "languages": ["en"]
   },
   {
@@ -106,15 +89,9 @@
     "locations": ["us"]
   },
   {
-    "name": "Buddy Project",
-    "link": "http://www.buddy-project.org/",
-    "tags": ["support_groups", "suicide_prevention", "communities"],
-    "languages": ["en"]
-  },
-  {
-    "name": "Elefriends",
-    "link": "https://www.elefriends.org.uk/",
-    "tags": ["support_groups", "anonymous", "android", "ios", "communities"],
+    "name": "Side by Side",
+    "link": "https://sidebyside.mind.org.uk/",
+    "tags": ["support_groups", "anonymous", "communities"],
     "languages": ["en"],
     "locations": ["uk"]
   },
@@ -128,12 +105,6 @@
     "name": "Redefine Enough",
     "link": "https://www.redefineenough.com",
     "tags": ["podcast", "blog", "black_women", "women_of_colour", "support_groups", "communities"],
-    "languages": ["en"]
-  },
-  {
-    "name": "GenuineU",
-    "link": "https://www.genuineu.org",
-    "tags": ["blog", "videos", "anonymous", "communities"],
     "languages": ["en"]
   },
   {
@@ -152,12 +123,6 @@
     "name": "Give Us the Floor",
     "link": "https://giveusthefloor.org/",
     "tags": ["teen", "support_groups", "blog", "videos", "communities"],
-    "languages": ["en"]
-  },
-  {
-    "name": "Lyftly",
-    "link": "https://lyftly.com/",
-    "tags": ["anonymous", "support_groups", "goal_tracking", "mood_tracking", "coaching", "ios", "android", "free", "paid", "communities"],
     "languages": ["en"]
   },
   {
@@ -185,12 +150,6 @@
     "languages": ["en"]
   },
   {
-    "name": "Everybody Has A Brain",
-    "link": "http://everybodyhasabrain.com",
-    "tags": ["blog", "videos", "podcast", "books", "education"],
-    "languages": ["en"]
-  },
-  {
     "name": "Fireweed Collective",
     "link": "https://fireweedcollective.org",
     "tags": ["social_justice", "books", "education", "communities"],
@@ -199,7 +158,7 @@
   {
     "name": "What is Dialectical Behavior Therapy (DBT)?",
     "link": "https://behavioraltech.org/resources/faqs/what-is-dbt/",
-    "tags": ["anonymous", "free", "mindfulness", "therapy", "treatment", "education"],
+    "tags": ["anonymous", "free", "mindfulness", "anxiety", "treatment", "education"],
     "languages": ["en"]
   },
   {
@@ -269,12 +228,6 @@
     "languages": ["en"]
   },
   {
-    "name": "Anxy Magazine",
-    "link": "http://www.anxymag.com",
-    "tags": ["paid", "publication", "blog", "education"],
-    "languages": ["en"]
-  },
-  {
     "name": "Mental Health - Khan Academy",
     "link": "https://www.khanacademy.org/science/health-and-medicine/mental-health",
     "tags": ["videos", "free", "education"],
@@ -310,12 +263,6 @@
     "name": "RxISK",
     "link": "https://rxisk.org/",
     "tags": ["free", "blog", "treatment", "education"],
-    "languages": ["en"]
-  },
-  {
-    "name": "Unified Therapy",
-    "link": "http://www.uthsc.edu/psych/faculty/unifiedtherapypg.php",
-    "tags": ["free", "integrative", "treatment", "therapy", "education"],
     "languages": ["en"]
   },
   {
@@ -368,12 +315,6 @@
     "languages": ["en"]
   },
   {
-    "name": "Mental Health Knowledge Base",
-    "link": "https://mentalhealth-kb.net/",
-    "tags": ["directory", "education"],
-    "languages": ["en"]
-  },
-  {
     "name": "Mental Health First Aid International",
     "link": "http://www.mhfainternational.org/",
     "tags": ["crisis_prevention", "safety_planning", "suicide_prevention", "education", "training", "paid", "directory"],
@@ -395,7 +336,7 @@
   {
     "name": "Psychology Today",
     "link": "https://www.psychologytoday.com",
-    "tags": ["directory", "education", "therapy", "counseling", "blog"],
+    "tags": ["directory", "education", "therapy", "therapists", "counseling", "blog"],
     "languages": ["en"]
   },
   {
@@ -418,8 +359,8 @@
     "languages": ["en"]
   },
   {
-    "name": "Center on Addiction",
-    "link": "https://www.centeronaddiction.org/addiction",
+    "name": "Partnership to End Addiction",
+    "link": "https://drugfree.org/",
     "tags": ["addiction", "blog", "directory", "education"],
     "languages": ["en"],
     "locations": ["us"]
@@ -539,7 +480,7 @@
   {
     "name": "National Queer & Trans Therapists of Color Network",
     "link": "http://www.nqttcn.com",
-    "tags": ["lgbt", "people_of_colour", "therapy", "counseling", "directory", "black_people", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "indigenous"],
+    "tags": ["lgbt", "people_of_colour", "therapy", "therapists", "counseling", "directory", "black_people", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "indigenous"],
     "languages": ["en"],
     "locations": ["us"]
   },
@@ -552,13 +493,14 @@
   {
     "name": "Talkspace",
     "link": "https://www.talkspace.com",
-    "tags": ["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat", "android", "ios"],
-    "languages": ["en"]
+    "tags": ["therapy", "therapists", "counseling", "paid", "texting", "video_chat", "voice_chat", "android", "ios"],
+    "languages": ["en"],
+    "locations": ["us"]
   },
   {
     "name": "7 Cups",
     "link": "https://www.7cups.com",
-    "tags": ["therapy", "counseling", "paid", "free", "texting", "android", "ios"],
+    "tags": ["counseling", "paid", "free", "texting", "android", "ios"],
     "languages": ["en", "es"]
   },
   {
@@ -568,16 +510,11 @@
     "languages": ["en"]
   },
   {
-    "name": "Joyable",
-    "link": "https://joyable.com",
-    "tags": ["social_anxiety", "therapy", "paid", "android", "ios"],
-    "languages": ["en"]
-  },
-  {
     "name": "BetterHelp",
     "link": "https://www.betterhelp.com",
-    "tags": ["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat", "android", "ios"],
-    "languages": ["en"]
+    "tags": ["therapy", "therapists", "counseling", "paid", "texting", "video_chat", "voice_chat", "android", "ios"],
+    "languages": ["en"],
+    "locations": ["us", "ca", "uk"]
   },
   {
     "name": "Doc Ready",
@@ -589,20 +526,14 @@
   {
     "name": "Therapy For Black Girls",
     "link": "http://www.therapyforblackgirls.com",
-    "tags": ["black_women", "therapy", "counseling", "directory", "podcast"],
+    "tags": ["black_women", "therapy", "therapists", "counseling", "directory", "podcast"],
     "languages": ["en"],
     "locations": ["us"]
   },
   {
-    "name": "Unstuck",
-    "link": "https://www.unstuck.com",
-    "tags": ["advice", "blog"],
-    "languages": ["en"]
-  },
-  {
     "name": "NOCD",
     "link": "https://www.treatmyocd.com/",
-    "tags": ["free", "ocd", "ios", "android", "therapists", "counseling", "communities", "support_groups"],
+    "tags": ["free", "ocd", "ios", "android", "therapists", "therapy", "counseling", "communities", "support_groups"],
     "languages": ["en"]
   },
   {
@@ -620,26 +551,20 @@
   {
     "name": "Happier",
     "link": "http://www.happier.com",
-    "tags": ["free", "mindfulness", "journaling", "android", "ios"],
-    "languages": ["en"]
-  },
-  {
-    "name": "Stigma",
-    "link": "http://www.getstigma.com",
-    "tags": ["free", "journaling", "mood_tracking", "android", "ios"],
+    "tags": ["free", "mindfulness", "journaling"],
     "languages": ["en"]
   },
   {
     "name": "Department of Veteran's Affairs | Mental Health",
     "link": "https://www.mentalhealth.va.gov/gethelp.asp",
-    "tags": ["free", "suicide_prevention", "homeless", "directory", "veterans", "government", "therapy", "counseling"],
+    "tags": ["free", "suicide_prevention", "homeless", "directory", "veterans", "government", "therapy","therapists", "counseling"],
     "languages": ["en"],
     "locations": ["us"]
   },
   {
     "name": "Disabled Veterans National Foundation Resources",
     "link": "http://dvnf.org/our-work/mental-physical-wellness/resource-links/",
-    "tags": ["therapy", "counseling", "directory", "veterans"],
+    "tags": ["therapy", "therapists", "counseling", "directory", "veterans"],
     "languages": ["en"],
     "locations": ["us"]
   },
@@ -659,28 +584,28 @@
   {
     "name": "AddictionCenter",
     "link": "https://www.addictioncenter.com",
-    "tags": ["addiction", "rehabilitation", "directory", "counseling", "therapy"],
+    "tags": ["addiction", "rehabilitation", "directory", "counseling", "therapy", "therapists"],
     "languages": ["en"],
     "locations": ["us"]
   },
   {
     "name": "Addiction Helper",
     "link": "https://www.addictionhelper.com",
-    "tags": ["addiction", "rehabilitation", "directory", "counseling", "therapy"],
+    "tags": ["addiction", "rehabilitation", "directory", "counseling", "therapy", "therapists"],
     "languages": ["en"],
     "locations": ["uk"]
   },
   {
     "name": "Recovery.org",
     "link": "https://www.recovery.org",
-    "tags": ["addiction", "rehabilitation", "directory", "counseling", "therapy"],
+    "tags": ["addiction", "rehabilitation", "directory", "counseling", "therapy", "therapists"],
     "languages": ["en"],
     "locations": ["us"]
   },
   {
     "name": "ProjectKnow",
     "link": "https://www.projectknow.com",
-    "tags": ["addiction", "rehabilitation", "directory", "counseling", "therapy", "podcast"],
+    "tags": ["addiction", "rehabilitation", "directory", "counseling", "therapy", "therapists", "podcast"],
     "languages": ["en"],
     "locations": ["us"]
   },
@@ -711,7 +636,7 @@
   {
     "name": "Low Cost Help",
     "link": "http://lowcosthelp.com/",
-    "tags": ["counseling", "therapy", "directory"],
+    "tags": ["counseling", "therapy", "therapists", "directory"],
     "languages": ["en"],
     "locations": ["us"]
   },
@@ -731,7 +656,7 @@
   {
     "name": "Open Path Psychotherapy Collective",
     "link": "https://openpathcollective.org/",
-    "tags": ["counseling", "therapy", "directory"],
+    "tags": ["counseling", "therapy", "therapists", "directory"],
     "languages": ["en"],
     "locations": ["us"]
   },
@@ -760,27 +685,9 @@
     "languages": ["en"]
   },
   {
-    "name": "Bloom",
-    "link": "http://www.getbloom.net/",
-    "tags": ["ios", "paid", "game", "colouring", "stress"],
-    "languages": ["en"]
-  },
-  {
-    "name": "Moodpath",
-    "link": "https://mymoodpath.com/",
-    "tags": ["ios", "android", "free", "depression", "mood_tracking", "anonymous"],
-    "languages": ["en", "de"]
-  },
-  {
-    "name": "Pacifica",
-    "link": "https://www.thinkpacifica.com/",
-    "tags": ["ios", "android", "paid", "depression", "anxiety", "mindfulness", "meditation", "mood_tracking"],
-    "languages": ["en"]
-  },
-  {
     "name": "Deaf Counseling Center",
     "link": "http://www.deafcounseling.com",
-    "tags": ["deaf", "asl", "counseling", "therapy", "directory"],
+    "tags": ["deaf", "asl", "counseling", "therapy", "therapists", "directory"],
     "languages": ["en"],
     "locations": ["us"]
   },
@@ -788,12 +695,6 @@
     "name": "Woebot",
     "link": "https://woebot.io",
     "tags": ["chatbot", "self_care", "mood_tracking", "android", "ios", "free"],
-    "languages": ["en"]
-  },
-  {
-    "name": "Ayana Therapy",
-    "link": "https://www.ayanatherapy.com/",
-    "tags": ["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat", "android", "ios", "people_of_colour", "lgbt", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "indigenous"],
     "languages": ["en"]
   },
   {
@@ -863,12 +764,6 @@
     "languages": ["en"]
   },
   {
-    "name": "Huddle.care",
-    "link": "https://www.huddle.care/",
-    "tags": ["ocd", "anxiety", "therapy", "counseling", "paid", "support_groups", "communities"],
-    "languages": ["en"]
-  },
-  {
     "name": "Addiction Group",
     "link": "https://www.addictiongroup.org/",
     "tags": ["addiction", "education", "blog"],
@@ -921,7 +816,7 @@
   {
     "name": "Sista Afya",
     "link": "https://www.sistaafya.com/",
-    "tags": ["black_women", "therapy", "counseling", "directory"],
+    "tags": ["black_women", "therapy", "therapists", "counseling", "directory"],
     "languages": ["en"],
     "locations": ["us"]
   },
@@ -940,21 +835,15 @@
   {
     "name": "South Asian Therapists",
     "link": "https://southasiantherapists.org/",
-    "tags": ["south_asian", "therapy", "counseling", "directory"],
+    "tags": ["south_asian", "therapy", "therapists", "counseling", "directory"],
     "languages": ["en"]
   },
   {
     "name": "Asian Mental Health Collective",
     "link": "https://www.asianmhc.org/",
-    "tags": ["asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "therapy", "counseling", "directory", "education"],
+    "tags": ["asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "therapy", "therapists", "counseling", "directory", "education"],
     "languages": ["en"],
     "locations": ["us", "ca"]
-  },
-  {
-    "name": "PROGRESH",
-    "link": "https://progresh.wixsite.com/home",
-    "tags": ["people_of_colour", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "indigenous", "al_anon", "addiction", "alcoholism", "communities", "anonymous", "support_groups"],
-    "languages": ["en"]
   },
   {
     "name": "Al-Anon",
@@ -965,7 +854,7 @@
   {
     "name": "Therapy for Latinx",
     "link": "https://latinxtherapy.com/",
-    "tags": ["latinx", "hispanic", "therapy", "counseling", "directory", "podcast"],
+    "tags": ["latinx", "hispanic", "therapy", "therapists", "counseling", "directory", "podcast"],
     "languages": ["en", "es"],
     "locations": ["us"]
   },
@@ -996,19 +885,13 @@
   {
     "name": "Inclusive Therapists",
     "link": "https://www.inclusivetherapists.com/",
-    "tags": ["therapy", "counseling", "directory", "people_of_colour", "lgbt", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "indigenous", "blog", "training"],
+    "tags": ["therapy", "therapists", "counseling", "directory", "people_of_colour", "lgbt", "latinx", "hispanic", "asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "indigenous", "blog", "training"],
     "languages": ["en", "es"]
   },
   {
     "name": "Online Therapy",
     "link": "https://www.onlinetherapy.com/",
-    "tags": ["directory", "education", "therapy", "counseling", "blog"],
-    "languages": ["en"]
-  },
-  {
-    "name": "RESIDEhere",
-    "link": "https://www.residehere.co/",
-    "tags": ["women_of_colour", "therapists", "communities", "blog", "support_groups", "training", "free", "paid"],
+    "tags": ["directory", "education", "therapy", "therapists", "counseling", "blog"],
     "languages": ["en"]
   },
   {
@@ -1055,7 +938,7 @@
   {
     "name": "Coa",
     "link": "https://www.joincoa.com/",
-    "tags": ["education", "therapy", "counseling", "directory", "paid", "workplace", "self_care"],
+    "tags": ["education", "therapy", "therapists", "counseling", "directory", "paid", "workplace", "self_care"],
     "languages": ["en"],
     "locations": ["us"]
   },
@@ -1094,12 +977,6 @@
     "name": "Bearable",
     "link": "https://bearable.app/",
     "tags": ["ios", "android", "free", "paid", "self_care", "blog", "mood_tracking", "goal_tracking", "journaling", "communities"],
-    "languages": ["en"]
-  },
-  {
-    "name": "Change Your Algorithm",
-    "link": "https://changealgorithm.com/",
-    "tags": ["education", "free", "communities", "newsletter", "support_groups", "youth"],
     "languages": ["en"]
   },
   {
@@ -1293,5 +1170,40 @@
     "link": "https://www.bettermind.com/",
      "tags": ["blog", "education", "anxiety", "depression", "bipolar", "ptsd", "adhd", "eating_disorders"],
     "languages": ["en"]
+  },
+  {
+    "name": "Grow Therapy",
+    "link": "https://growtherapy.com/",
+    "tags": ["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat", "android", "ios"],
+    "languages": ["en"],
+    "locations": ["us"]
+  },
+  {
+    "name": "Blackline",
+    "link": "https://www.callblackline.com/",
+    "tags": ["crisis_prevention", "suicide_prevention", "twenty_four_seven", "free", "anonymous", "hotlines", "education", "ios", "android", "black_people", "black_women", "lgbt"],
+    "languages": ["en"],
+    "locations": ["us"]
+  },
+  {
+    "name": "StrongHearts Native Helpline",
+    "link": "https://strongheartshelpline.org/",
+    "tags": ["crisis_prevention", "suicide_prevention", "twenty_four_seven", "free", "anonymous", "hotlines", "education", "indigenous", "sexual_assault_survivors", "domestic_violence", "dating_violence"],
+    "languages": ["en"],
+    "locations": ["us"]
+  },
+  {
+    "name": "Black Girls Heal",
+    "link": "https://www.blackgirlsheal.org",
+    "tags": ["black_women", "podcast", "education", "communities"],
+    "languages": ["en"],
+    "locations": ["us"]
+  },
+  {
+    "name": "Yellow Chair Collective",
+    "link": "https://yellowchaircollective.com/",
+    "tags": ["asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "communities", "education", "directory", "therapists", "counseling", "therapy"],
+    "languages": ["en"],
+    "locations": ["us"]
   }
 ]

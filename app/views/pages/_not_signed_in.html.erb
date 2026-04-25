@@ -61,9 +61,9 @@
   <%= t('pages.home.not_signed_in.main_message_two') %>
 </div>
 <div class="messageBody">
-  <%= raw t('pages.home.not_signed_in.message_text_two', 
+  <%= raw t('pages.home.not_signed_in.message_text_two',
     help: link_to(t('pages.home.not_signed_in.help'), about_path),
-    feedback: link_to(t('navigation.feedback'), 'http://goo.gl/forms/8EqoJDDiXY', target: 'blank')
+    feedback: link_to(t('navigation.feedback'), 'https://github.com/ifmeorg/ifme/issues', target: 'blank')
   ) %>
   <div class="gridMany marginTop">
     <%= render partial: 'contributor_blurb', collection: @blurbs %>
