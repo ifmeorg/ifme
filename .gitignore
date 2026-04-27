@@ -51,3 +51,9 @@ node_modules
 
 # Ignore gems installed locally
 /vendor
+
+# Contributing RoadMap Portuguese
+CONTRIBUTION_ROADMAP-pt.md
+
+# Package lock (project uses yarn)
+client/package-lock.json
