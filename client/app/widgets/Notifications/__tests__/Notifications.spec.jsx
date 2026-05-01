@@ -9,7 +9,7 @@ import { Notifications } from 'widgets/Notifications';
 const button = <button type="button">Notifications</button>;
 
 describe('Notifications', () => {
-  it('gets notifications and clears them', async (done) => {
+  it('gets notifications and clears them', async () => {
     const axiosGetSpy = jest
       .spyOn(axios, 'get')
       .mockReturnValueOnce(Promise.resolve({ data: { signed_in: 1 } }))
@@ -31,6 +31,5 @@ describe('Notifications', () => {
     await waitFor(() => {
       expect(screen.queryByText('Hello')).not.toBeInTheDocument();
     });
-    done();
   });
 });
