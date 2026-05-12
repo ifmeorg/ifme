@@ -49,12 +49,7 @@ const config = {
   },
 
   entry: {
-    // Shims should be singletons, and webpack bundle is always loaded
-    webpack_bundle: [
-      'es5-shim/es5-shim',
-      'es5-shim/es5-sham',
-      '@babel/polyfill',
-    ].concat(glob.sync('./app/startup/*')),
+    webpack_bundle: glob.sync('./app/startup/*'),
   },
 
   output: {
