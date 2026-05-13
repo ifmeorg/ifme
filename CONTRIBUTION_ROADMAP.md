@@ -11,12 +11,14 @@ The project carries significant accumulated technical debt. React was gradually 
 ### Identified Problems
 
 **Architectural:**
+
 - Rails builds complete form schemas, including field types, labels, validations and UI flags — responsibilities that belong to React's View layer
 - React components act as passive renderers, receiving excessively processed data from Rails
 - The Moment detail page uses 6 separate `react_component` calls interspersed with ERB, fragmenting the layout between two rendering engines. The same pattern exists in `strategies/show.html.erb` with 4 calls
 - Pre-rendered HTML is passed as props to React components, creating XSS vectors and making testing and styling impossible
 
 **Technical:**
+
 - `babel-plugin-flow-react-proptypes` has known incompatibilities with imported Flow types and modern syntax, causing crashes in development
 - Outdated stack: React 17, Jest 26, ESLint 7, Storybook 6.5, chart.js 2 — with growing incompatibility risks
 - Deprecated webpack plugins: `optimize-css-assets-webpack-plugin`, `extract-css-chunks-webpack-plugin`, `url-loader`, `file-loader`
@@ -29,6 +31,7 @@ The project carries significant accumulated technical debt. React was gradually 
 - `exact_by_default=false` in `.flowconfig` — allows inexact objects by default, reducing type safety
 
 **Performance:**
+
 - N+1 queries in `ViewersHelper` and `CommentsFormHelper` — one query per viewer per form
 - `@babel/polyfill` and `es5-shim` unnecessary with current configurations
 
@@ -54,12 +57,15 @@ These principles guide all contribution decisions:
 ## 3. Architectural Strategy
 
 ### Short-term Vision
+
 Stabilize the development environment and modernize critical dependencies, ensuring the project works consistently across development, testing and production.
 
 ### Medium-term Vision
+
 Clearly delineate responsibility layers — Rails as data API, React as the complete presentation layer. Strengthen existing contracts and eliminate unnecessary coupling.
 
 ### Long-term Vision
+
 Complete migration to TypeScript, which will be natural and efficient after contracts are clean and well-defined. With autonomous components and small contracts, typing is precise and migration is incremental. The project maintainer has confirmed interest in this migration.
 
 ### Ideal Architecture
@@ -93,6 +99,7 @@ React (complete View)
 > **Note:** The project maintainer is investigating a fix for Flow that may resolve some of these instabilities. Wait for her response before executing this task.
 
 **What to do:**
+
 1. Remove `flow-react-proptypes` from the `development.plugins` section in `client/.babelrc`
 2. Restart the development container
 3. Navigate through all app pages checking the browser console for errors
@@ -106,20 +113,22 @@ React (complete View)
 **Dependencies:** None
 
 **Completion criteria:**
-- [ ] Plugin removed from `.babelrc`
-- [ ] No errors related to `bpfrpt_proptype_*` in browser console
-- [ ] All forms rendering correctly
-- [ ] Tests passing
+
+- [ ]  Plugin removed from `.babelrc`
+- [ ]  No errors related to `bpfrpt_proptype_*` in browser console
+- [ ]  All forms rendering correctly
+- [ ]  Tests passing
 
 ---
 
-#### A2 — Update Jest 26 → 29
+#### A2 — Update Jest 26 → 29 - [COMPLETED ✔]
 
 **Summary:** Update the testing framework to a version compatible with Node 20, eliminating known instabilities.
 
 **Context:** The project uses Jest 26 with Node 20. Jest 26 was not designed for Node 20 and exhibits unstable behavior. Additionally, the plugin is disabled in tests, creating divergence between the development environment and CI — bugs that appear in the browser may not be caught by tests.
 
 **What to do:**
+
 1. Update `jest` and `babel-jest` from `^26.x` to `^29.x` in `client/package.json`
 2. Update `@testing-library/react` to `^14.x`
 3. Update `react-test-renderer` to the same React version (required if D1 is executed)
@@ -135,10 +144,11 @@ React (complete View)
 **Dependencies:** None
 
 **Completion criteria:**
-- [ ] Jest 29 installed
-- [ ] `jest-environment-jsdom` added as explicit dependency
-- [ ] All existing tests passing
-- [ ] No incompatibility warnings with Node 20
+
+- [ ]  Jest 29 installed
+- [ ]  `jest-environment-jsdom` added as explicit dependency
+- [ ]  All existing tests passing
+- [ ]  No incompatibility warnings with Node 20
 
 ---
 
@@ -149,6 +159,7 @@ React (complete View)
 **Context:** The project has moderate unit tests but no minimum coverage configuration. After updating Jest (A2), it is the ideal time to establish thresholds that prevent coverage regressions.
 
 **What to do:**
+
 1. Configure `collectCoverageFrom` in `jest.config.js` with appropriate globs (e.g.: `app/**/*.{js,jsx}`, excluding stories and mocks)
 2. Define conservative initial minimum thresholds (e.g.: 50% statements/branches/functions/lines)
 3. Add `yarn test:coverage` script to `package.json`
@@ -161,10 +172,11 @@ React (complete View)
 **Dependencies:** A2
 
 **Completion criteria:**
-- [ ] `collectCoverageFrom` configured
-- [ ] Thresholds defined and passing
-- [ ] `yarn test:coverage` script working
-- [ ] CI verifying coverage
+
+- [ ]  `collectCoverageFrom` configured
+- [ ]  Thresholds defined and passing
+- [ ]  `yarn test:coverage` script working
+- [ ]  CI verifying coverage
 
 ---
 
@@ -179,6 +191,7 @@ React (complete View)
 **Context:** The project uses Webpack 5 but still uses Webpack 4 era plugins that have been deprecated. Additionally, `.babelrc` uses `@babel/plugin-proposal-*` that were renamed to `@babel/plugin-transform-*` in Babel 7.22+, generating unnecessary warnings.
 
 **What to do:**
+
 1. Replace `optimize-css-assets-webpack-plugin` with `css-minimizer-webpack-plugin`
 2. Replace `extract-css-chunks-webpack-plugin` with `mini-css-extract-plugin`
 3. Replace `url-loader` and `file-loader` with native Webpack 5 Asset Modules
@@ -196,10 +209,11 @@ React (complete View)
 **Dependencies:** None
 
 **Completion criteria:**
-- [ ] Deprecated webpack plugins removed
-- [ ] Babel plugins renamed
-- [ ] Build working without deprecation warnings
-- [ ] App functioning visually identical to before
+
+- [ ]  Deprecated webpack plugins removed
+- [ ]  Babel plugins renamed
+- [ ]  Build working without deprecation warnings
+- [ ]  App functioning visually identical to before
 
 ---
 
@@ -210,6 +224,7 @@ React (complete View)
 **Context:** ESLint 9 completely changed the configuration format — from `.eslintrc` to `eslint.config.js`. Stylelint 13.7 is also very outdated (current is 16.x). Both should be updated together as complementary linting tools.
 
 **What to do:**
+
 1. Update `eslint` to `^9.x` in `client/package.json`
 2. Migrate `.eslintrc` to `eslint.config.js` following the official migration guide
 3. Update related ESLint plugins (airbnb config, etc.)
@@ -224,9 +239,10 @@ React (complete View)
 **Dependencies:** None
 
 **Completion criteria:**
-- [ ] ESLint 9 installed and configured
-- [ ] Stylelint 16 installed and configured
-- [ ] No unexpected linting errors
+
+- [ ]  ESLint 9 installed and configured
+- [ ]  Stylelint 16 installed and configured
+- [ ]  No unexpected linting errors
 
 ---
 
@@ -237,6 +253,7 @@ React (complete View)
 **Context:** The axios package was the target of a supply chain attack in March 2026 (versions 1.14.1 and 0.30.4 compromised with RAT attributed to a North Korean state actor). Although the project's current version (`^1.15.0`) was not directly affected, the incident highlights the risk of external dependencies for critical operations like HTTP requests. Node 20 and modern browsers already have native `fetch` with full support.
 
 **What to do:**
+
 1. Map all axios usages in the project
 2. Create a custom fetch wrapper with the same interfaces used by axios in the project
 3. Gradually replace each usage — starting with the simplest components
@@ -249,9 +266,10 @@ React (complete View)
 **Dependencies:** None — but recommended after A1 and A2
 
 **Completion criteria:**
-- [ ] No references to axios in code
-- [ ] All requests working with native fetch
-- [ ] Tests passing
+
+- [ ]  No references to axios in code
+- [ ]  All requests working with native fetch
+- [ ]  Tests passing
 
 ---
 
@@ -262,6 +280,7 @@ React (complete View)
 **Context:** Storybook 6.5 is EOL. The current version is 8.x with a completely new configuration API and native Webpack 5 builder. After architectural stabilization, Storybook will be essential for developing React components in isolation, without backend dependency.
 
 **What to do:**
+
 1. Follow the official Storybook 6 → 8 migration guide
 2. Migrate configuration files
 3. Adopt the native Webpack 5 builder
@@ -275,9 +294,10 @@ React (complete View)
 **Dependencies:** Recommended after B1 (webpack plugins updated)
 
 **Completion criteria:**
-- [ ] Storybook 8 running
-- [ ] Existing stories working
-- [ ] Webpack 5 builder configured
+
+- [ ]  Storybook 8 running
+- [ ]  Existing stories working
+- [ ]  Webpack 5 builder configured
 
 ---
 
@@ -288,6 +308,7 @@ React (complete View)
 **Context:** The project already uses `@babel/preset-env` with `useBuiltIns: 'usage'` and `core-js@3`, which automatically manage polyfills based on browserslist. `@babel/polyfill` is deprecated and `es5-shim` is unnecessary for modern targets. Additionally, `node-polyfill-webpack-plugin` is present in `webpack.config.js` and may be unnecessary depending on actual Node API usage in client code.
 
 **What to do:**
+
 1. Remove `@babel/polyfill` and `es5-shim`/`es5-sham` from `package.json` and webpack entry point
 2. Verify `core-js@3` is covering necessary polyfills
 3. Investigate which Node.js APIs `node-polyfill-webpack-plugin` is polyfilling
@@ -301,10 +322,11 @@ React (complete View)
 **Dependencies:** None
 
 **Completion criteria:**
-- [ ] Polyfills removed
-- [ ] `node-polyfill-webpack-plugin` evaluated and removed if unnecessary
-- [ ] App working in target browsers
-- [ ] Bundle size reduced
+
+- [ ]  Polyfills removed
+- [ ]  `node-polyfill-webpack-plugin` evaluated and removed if unnecessary
+- [ ]  App working in target browsers
+- [ ]  Bundle size reduced
 
 ---
 
@@ -315,6 +337,7 @@ React (complete View)
 **Context:** The project uses Font Awesome across 3 different packages with mixed versions: `@fortawesome/fontawesome-svg-core ^1.2.22`, `@fortawesome/free-solid-svg-icons ^5.10.2`, `@fortawesome/react-fontawesome ^0.1.4`, and still `font-awesome ^4.7.0` (legacy CSS version). FA6 is the current version. Some icon names changed between v5 and v6.
 
 **What to do:**
+
 1. Map all Font Awesome icon usages in the project
 2. Update all `@fortawesome/*` packages to v6
 3. Remove `font-awesome ^4.7.0` (legacy CSS version)
@@ -328,9 +351,10 @@ React (complete View)
 **Dependencies:** None
 
 **Completion criteria:**
-- [ ] All `@fortawesome/*` packages at v6
-- [ ] `font-awesome ^4.7.0` removed
-- [ ] All icons displaying correctly
+
+- [ ]  All `@fortawesome/*` packages at v6
+- [ ]  `font-awesome ^4.7.0` removed
+- [ ]  All icons displaying correctly
 
 ---
 
@@ -341,6 +365,7 @@ React (complete View)
 **Context:** `history ^4.9.0` is legacy. React Router v6+ requires history v5. If there are plans to adopt React Router v6, this update will be necessary.
 
 **What to do:**
+
 1. Check all `history` usages in the project
 2. Evaluate whether there are plans for React Router v6 migration
 3. Update to `history ^5.x` adjusting the API where necessary
@@ -352,9 +377,10 @@ React (complete View)
 **Dependencies:** Evaluate together with D1 (React 18)
 
 **Completion criteria:**
-- [ ] `history` updated to v5
-- [ ] No navigation breaks
-- [ ] Tests passing
+
+- [ ]  `history` updated to v5
+- [ ]  No navigation breaks
+- [ ]  Tests passing
 
 ---
 
@@ -369,6 +395,7 @@ React (complete View)
 **Context:** The `.flowconfig` has `exact_by_default=false`, which allows objects to accept extra undeclared properties. This reduces the effectiveness of type checking and can cause inconsistencies with generated PropTypes. Enabling `exact_by_default=true` will make types safer and more consistent.
 
 **What to do:**
+
 1. Change `exact_by_default=false` to `exact_by_default=true` in `.flowconfig`
 2. Run `yarn flow` to identify all introduced errors
 3. Fix errors incrementally — start with the simplest components
@@ -381,9 +408,10 @@ React (complete View)
 **Dependencies:** Recommended after A1
 
 **Completion criteria:**
-- [ ] `exact_by_default=true` in `.flowconfig`
-- [ ] No pending Flow errors
-- [ ] Tests passing
+
+- [ ]  `exact_by_default=true` in `.flowconfig`
+- [ ]  No pending Flow errors
+- [ ]  Tests passing
 
 ---
 
@@ -394,6 +422,7 @@ React (complete View)
 **Context:** Currently Rails serializes data directly in form helpers, mixing data with UI logic. For React to take responsibility for forms and lists, Rails needs to provide data via clean JSON endpoints. This is Phase 1 of the migration path defined by the audit.
 
 **What to do:**
+
 1. Check which JSON endpoints already exist (`.json` format in routes)
 2. Create or complete endpoints for: moments, strategies, medications, groups, meetings, categories, moods, users (lightweight), moment_templates, comments
 3. Ensure each endpoint returns only data — no UI flags, no pre-rendered HTML
@@ -406,9 +435,10 @@ React (complete View)
 **Dependencies:** None technical, but recommended after Category A
 
 **Completion criteria:**
-- [ ] JSON endpoints working for each domain
-- [ ] Data returned without UI logic
-- [ ] Documentation of each endpoint contract
+
+- [ ]  JSON endpoints working for each domain
+- [ ]  Data returned without UI logic
+- [ ]  Documentation of each endpoint contract
 
 ---
 
@@ -419,6 +449,7 @@ React (complete View)
 **Context:** This is the highest impact and highest ROI task in the project. Currently 7 Rails helpers build complete form schemas: `MomentsFormHelper`, `StrategiesFormHelper`, `MedicationsFormHelper`, `GroupsFormHelper`, `MeetingsFormHelper`, `CommentsFormHelper`, and the base `FormHelper`. React receives these schemas and only renders. This violates MVC and creates N+1 queries in the database. `CrisisPrevention` and `MomentTemplates` are examples of the correct pattern that should be replicated here.
 
 **What to do:**
+
 1. Create React schema components per domain: `MomentForm`, `StrategyForm`, `MedicationForm`, etc.
 2. Each component defines its own fields, types, labels, validations and UI flags
 3. Update Rails helpers to return only `{ action, record, associations }` via JSON
@@ -432,10 +463,11 @@ React (complete View)
 **Dependencies:** C1
 
 **Completion criteria:**
-- [ ] Each form defined as an autonomous React component
-- [ ] Rails passes only data — no field types, labels or validations
-- [ ] Rails form helpers eliminated or drastically simplified
-- [ ] Tests covering each FormSchema
+
+- [ ]  Each form defined as an autonomous React component
+- [ ]  Rails passes only data — no field types, labels or validations
+- [ ]  Rails form helpers eliminated or drastically simplified
+- [ ]  Tests covering each FormSchema
 
 ---
 
@@ -446,6 +478,7 @@ React (complete View)
 **Context:** The `present_moment_or_strategy` helper mixes data with presentation — generates HTML links with `link_to`, resolves viewer names with N+1 queries, calculates visibility labels. The `storyBy.author` field contains HTML generated by Rails — XSS vector and impossible to test. This pattern affects all index pages and the home page.
 
 **What to do:**
+
 1. Simplify `present_moment_or_strategy` to return only raw data
 2. Move link generation to React
 3. Move viewer name resolution to React
@@ -460,10 +493,11 @@ React (complete View)
 **Dependencies:** C1
 
 **Completion criteria:**
-- [ ] No pre-rendered HTML in Story props
-- [ ] Rails returns only raw data for Story
-- [ ] N+1 queries eliminated
-- [ ] Tests covering presentation logic in React
+
+- [ ]  No pre-rendered HTML in Story props
+- [ ]  Rails returns only raw data for Story
+- [ ]  N+1 queries eliminated
+- [ ]  Tests covering presentation logic in React
 
 ---
 
@@ -474,6 +508,7 @@ React (complete View)
 **Context:** Comments already has autonomous React behavior — submit and delete via axios. But the form is still built by Rails (`CommentsFormHelper`) and viewer names are resolved with database queries. It is a half-finished migration that needs to be completed.
 
 **What to do:**
+
 1. Create comment form schema directly in the React component
 2. Replace viewer resolution in Rails with a `GET /viewers` endpoint that returns `[{id, name}]`
 3. Update the widget to fetch viewers via API
@@ -486,10 +521,11 @@ React (complete View)
 **Dependencies:** C1
 
 **Completion criteria:**
-- [ ] Form schema defined in React
-- [ ] Viewers fetched via API
-- [ ] `CommentsFormHelper` eliminated
-- [ ] Tests covering the complete widget
+
+- [ ]  Form schema defined in React
+- [ ]  Viewers fetched via API
+- [ ]  `CommentsFormHelper` eliminated
+- [ ]  Tests covering the complete widget
 
 ---
 
@@ -500,6 +536,7 @@ React (complete View)
 **Context:** The Header receives a `mobileOnly` prop containing pre-rendered HTML from the `_dashboard_nav_mobile` partial (confirmed in `header_helper.rb` line 51). This breaks the React component model and prevents proper testing and styling. Affects all pages of the application.
 
 **What to do:**
+
 1. Create `DashboardNavMobile` React component
 2. Pass only necessary data (links, current user) as props
 3. Update Header to use the new component
@@ -512,9 +549,10 @@ React (complete View)
 **Dependencies:** None technical
 
 **Completion criteria:**
-- [ ] ERB partial removed
-- [ ] React component working in all screen sizes
-- [ ] Header without `mobileOnly` prop
+
+- [ ]  ERB partial removed
+- [ ]  React component working in all screen sizes
+- [ ]  Header without `mobileOnly` prop
 
 ---
 
@@ -525,6 +563,7 @@ React (complete View)
 **Context:** The pages `moments/show.html.erb` and `strategies/show.html.erb` use multiple `react_component` calls interspersed with ERB (6 calls in moments/show, 4 in strategies/show). This divides the layout between two rendering engines, making it impossible to test and maintain the page as a unit.
 
 **What to do:**
+
 1. Create `MomentShow` and `StrategyShow` components
 2. Each component receives the complete record and renders all sub-components internally
 3. Replace multiple `react_component` calls with a single call per page
@@ -537,9 +576,10 @@ React (complete View)
 **Dependencies:** C2, C3
 
 **Completion criteria:**
-- [ ] A single `react_component` call per detail page
-- [ ] No ERB interspersed with React
-- [ ] Layout working identically to current in `moments/show` and `strategies/show`
+
+- [ ]  A single `react_component` call per detail page
+- [ ]  No ERB interspersed with React
+- [ ]  Layout working identically to current in `moments/show` and `strategies/show`
 
 ---
 
@@ -554,6 +594,7 @@ React (complete View)
 **Context:** React 17 is out of mainstream support. React 18 introduced Concurrent Mode and changed `ReactDOM.render` to `createRoot`. `react-on-rails` is fixed at version `12.0.1` (without `^`), suggesting sensitivity to updates — verifying React 18 compatibility will be critical before proceeding.
 
 **What to do:**
+
 1. Verify compatibility of `react-on-rails` version `12.0.1` with React 18
 2. Update `react` and `react-dom` to `^18.x`
 3. Migrate `ReactDOM.render` to `createRoot` where necessary
@@ -568,11 +609,12 @@ React (complete View)
 **Dependencies:** A1, A2
 
 **Completion criteria:**
-- [ ] React 18 installed
-- [ ] Compatibility with `react-on-rails 12.0.1` verified
-- [ ] No legacy `ReactDOM.render` usage
-- [ ] Tests passing
-- [ ] App functioning completely
+
+- [ ]  React 18 installed
+- [ ]  Compatibility with `react-on-rails 12.0.1` verified
+- [ ]  No legacy `ReactDOM.render` usage
+- [ ]  Tests passing
+- [ ]  App functioning completely
 
 ---
 
@@ -583,6 +625,7 @@ React (complete View)
 **Context:** chart.js 2.x is EOL. Version 4.x has a breaking API — all components using charts will need to be rewritten. It is the most labor-intensive migration in the dependency category.
 
 **What to do:**
+
 1. Map all chart.js usages in the project
 2. Study API differences between v2 and v4
 3. Rewrite chart components using the new API
@@ -595,9 +638,10 @@ React (complete View)
 **Dependencies:** D1 recommended
 
 **Completion criteria:**
-- [ ] chart.js 4 installed
-- [ ] All charts working correctly
-- [ ] No usage of old API
+
+- [ ]  chart.js 4 installed
+- [ ]  All charts working correctly
+- [ ]  No usage of old API
 
 ---
 
@@ -612,6 +656,7 @@ React (complete View)
 **Context:** This is the definitive solution for the project's typing problems. The maintainer has confirmed interest in this migration. With clean contracts and autonomous components (result of categories A, B and C), the migration will be natural and incremental. TypeScript eliminates the need for Flow + PropTypes + babel-plugin, unifying everything in a single consistent typing layer across all environments.
 
 **What to do:**
+
 1. Configure TypeScript + Webpack + Babel for coexistence with Flow during migration
 2. Migrate file by file — starting with the simplest and most autonomous components
 3. Create TypeScript types for each Rails/React contract defined in previous tasks
@@ -625,11 +670,12 @@ React (complete View)
 **Dependencies:** All previous categories recommended
 
 **Completion criteria:**
-- [ ] No `.js` or `.jsx` files with Flow annotations
-- [ ] All files in `.ts` or `.tsx`
-- [ ] `tsconfig.json` configured
-- [ ] Flow and related configurations removed
-- [ ] Tests passing with ts-jest
+
+- [ ]  No `.js` or `.jsx` files with Flow annotations
+- [ ]  All files in `.ts` or `.tsx`
+- [ ]  `tsconfig.json` configured
+- [ ]  Flow and related configurations removed
+- [ ]  Tests passing with ts-jest
 
 ---
 
@@ -661,14 +707,14 @@ E1
 
 Before opening any PR:
 
-- [ ] Code tested locally
-- [ ] No new errors in browser console
-- [ ] No new errors in container terminal
-- [ ] Existing tests passing
-- [ ] PR with single and clear scope
-- [ ] Complete PR description with context and motivation
-- [ ] Issue linked when applicable
-- [ ] Screenshots when there are visual changes
+- [ ]  Code tested locally
+- [ ]  No new errors in browser console
+- [ ]  No new errors in container terminal
+- [ ]  Existing tests passing
+- [ ]  PR with single and clear scope
+- [ ]  Complete PR description with context and motivation
+- [ ]  Issue linked when applicable
+- [ ]  Screenshots when there are visual changes
 
 ---
 
