@@ -139,7 +139,15 @@
       "text",
       "lcov"
     ],
-    "coverageDirectory": "coverage"
+    "coverageDirectory": "coverage",
+    "coverageThreshold":  {
+      "global": {
+        "statements": 80,
+        "branches": 70,
+        "functions": 80,
+        "lines": 80
+      }
+    }
   },
   "resolutions": {
     "minimist": "^1.2.6",
