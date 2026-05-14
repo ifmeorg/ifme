@@ -58,7 +58,7 @@ gem 'rubyzip', '~> 1.3.0'
 gem 'sidekiq', '6.5.10'
 gem 'sidekiq-middleware'
 gem 'sidekiq-failures'
-gem "sidekiq-cron", "~> 1.1"
+gem "sidekiq-cron", "~> 2.4"
 gem 'net-smtp', require: false
 gem "sprockets-rails"
 
