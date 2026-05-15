@@ -152,7 +152,7 @@ React (complete View)
 
 ---
 
-#### A3 — Add test coverage with thresholds
+#### A3 — Add test coverage with thresholds - [COMPLETED ✔]
 
 **Summary:** Configure minimum test coverage and mandatory thresholds, establishing a quality baseline.
 
@@ -301,7 +301,7 @@ React (complete View)
 
 ---
 
-#### B5 — Remove unnecessary polyfills and investigate node-polyfill-webpack-plugin
+#### B5 — Remove unnecessary polyfills and investigate node-polyfill-webpack-plugin - [COMPLETED ✔]
 
 **Summary:** Remove unnecessary polyfills that increase bundle size without real benefit.
 
