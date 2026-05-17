@@ -38,7 +38,6 @@
     "dot-prop": "^5.1.1",
     "font-awesome": "^4.7.0",
     "history": "^4.9.0",
-    "html-react-parser": "^5.1.18",
     "js-cookie": "^2.2.1",
     "jstimezonedetect": "^1.0.6",
     "location-autocomplete": "^1.2.4",
