@@ -1,0 +1,74 @@
+zh-TW:
+  devise:
+    confirmations:
+      confirmed: 您的電子郵件地址已成功確認。
+      send_instructions: >-
+        您將在幾分鐘內收到一封電子郵件，內含確認電子郵件地址的說明。
+      send_paranoid_instructions: >-
+        若此電子郵件地址已註冊，您將在幾分鐘內收到一封確認電子郵件地址的說明信。
+    failure:
+      already_authenticated: 您已經登入了。
+      inactive: 您的帳號尚未啟用。
+      invalid: '無效的 %{authentication_keys} 或密碼。'
+      locked: 您的帳號已被鎖定。
+      last_attempt: 您只剩最後一次嘗試機會，之後帳號將被鎖定。
+      not_found_in_database: '無效的 %{authentication_keys} 或密碼。'
+      timeout: 您的工作階段已過期。請重新登入以繼續。
+      unauthenticated: 請先登入或註冊後再繼續。
+      unconfirmed: 請先確認您的電子郵件地址後再繼續。
+    mailer:
+      confirmation_instructions:
+        subject: if-me.org | 確認說明
+      reset_password_instructions:
+        subject: if-me.org | 重設密碼說明
+      unlock_instructions:
+        subject: if-me.org | 解鎖說明
+      password_change:
+        subject: if-me.org | 密碼已變更
+    omniauth_callbacks:
+      failure: '無法透過 %{kind} 驗證您的身分，原因為「%{reason}」。'
+      success: '已成功透過 %{kind} 帳號驗證身分。'
+    passwords:
+      no_token: >-
+        必須從重設密碼的電子郵件連結進入此頁面。如果您確實來自重設密碼的郵件，請確認使用了完整的網址。
+      send_instructions: >-
+        您將在幾分鐘內收到一封電子郵件，內含重設密碼的說明。
+      send_paranoid_instructions: >-
+        若此電子郵件地址已註冊，您將在幾分鐘內收到一封密碼重設連結信。
+      updated: 密碼已成功變更。您現在已登入。
+      updated_not_active: 密碼已成功變更。
+    registrations:
+      destroyed: >-
+        再見！您的帳號已成功取消。希望未來能再見到您。
+      signed_up: 歡迎！您已成功註冊。
+      signed_up_but_inactive: >-
+        您已成功註冊。但由於帳號尚未啟用，目前無法登入。
+      signed_up_but_locked: >-
+        您已成功註冊。但由於帳號已被鎖定，目前無法登入。
+      signed_up_but_unconfirmed: >-
+        我們已將確認連結寄到您的電子郵件地址。請按連結來啟用帳號。
+      update_needs_confirmation: >-
+        帳號已成功更新，但我們需要驗證您的新電子郵件地址。請檢查電子郵件並按確認連結來確認新的電子郵件地址。
+      updated: 帳號已成功更新。
+    sessions:
+      signed_in: 登入成功。
+      signed_out: 登出成功。
+      already_signed_out: 登出成功。
+    unlocks:
+      send_instructions: >-
+        您將在幾分鐘內收到一封電子郵件，內含解鎖帳號的說明。
+      send_paranoid_instructions: >-
+        如果帳號存在，您將在幾分鐘內收到一封解鎖帳號的說明信。
+      unlocked: 帳號已成功解鎖。請登入以繼續。
+  errors:
+    messages:
+      already_confirmed: 已經確認過了，請嘗試登入
+      confirmation_period_expired: '需要在 %{period} 內確認，請重新申請'
+      expired: 已過期，請重新申請
+      not_found: 找不到
+      not_locked: 未被鎖定
+      not_saved:
+        one: '1 個錯誤導致無法儲存此 %{resource}：'
+        other: '%{count} 個錯誤導致無法儲存此 %{resource}：'
+      pwned_password: >-
+        此密碼曾出現在資料外洩事件中，請勿使用。如果您曾在其他地方使用過此密碼，請立即變更！
