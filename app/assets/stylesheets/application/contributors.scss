@@ -1,5 +1,5 @@
 .contributorModalBody {
-  @include dashboardSectionLink();
+  @include dashboardSectionLink;
 
   display: flex;
   flex-direction: row;

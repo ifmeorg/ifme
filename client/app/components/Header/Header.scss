@@ -1,8 +1,8 @@
-@import "~styles/_global.scss";
+@import "~styles/_global";
 
 @mixin linkStyle() {
   a {
-    @include standardTransition();
+    @include standardTransition;
 
     color: $white;
     text-decoration: none;
@@ -25,7 +25,7 @@
   }
 
   &Link {
-    @include linkStyle();
+    @include linkStyle;
     @include setMargin($size-0, $size-0, $size-20, $size-0);
 
     font-size: $size-16;
@@ -76,10 +76,7 @@
     @media screen and (max-width: $medium) {
       background: $mulberry-key-lime;
       position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      top: 0;
+      inset: 0;
 
       &Nav {
         margin-bottom: auto;
@@ -122,7 +119,7 @@
     }
 
     &Home {
-      @include linkStyle();
+      @include linkStyle;
 
       font-size: $size-30;
     }
@@ -133,7 +130,7 @@
 
         display: flex;
         flex-direction: row;
-        letter-spacing: 0.0571429em;
+        letter-spacing: 0.0571em;
         text-transform: uppercase;
 
         > div {

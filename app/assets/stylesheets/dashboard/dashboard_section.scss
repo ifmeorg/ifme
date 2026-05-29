@@ -1,6 +1,6 @@
 @mixin dashboardSectionStyles() {
   @media screen and (max-width: $small) {
-    @include buttonFull();
+    @include buttonFull;
   }
 
   b,
@@ -8,7 +8,7 @@
     color: $mulberry;
   }
 
-  @include dashboardSectionLink();
+  @include dashboardSectionLink;
 
   .page {
     &Title {
@@ -149,5 +149,5 @@
     flex-basis: auto;
   }
 
-  @include dashboardSectionStyles();
+  @include dashboardSectionStyles;
 }
