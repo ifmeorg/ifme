@@ -230,7 +230,8 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.19.5)
-    jwt (2.5.0)
+    jwt (2.10.3)
+      base64
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.1)
