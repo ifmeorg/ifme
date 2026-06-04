@@ -1,5 +1,5 @@
 // @flow
-import axios from 'axios';
+import { fetchWrapper } from "utils/fetchWrapper";
 import { sanitize } from 'dompurify';
 import React from 'react';
 import parse from 'html-react-parser';
@@ -15,7 +15,7 @@ const setCsrfToken = (): void => {
   const tokenDom = document.querySelector('meta[name=csrf-token]');
   if (tokenDom) {
     const csrfToken = tokenDom.getAttribute('content');
-    axios.defaults.headers.common['X-CSRF-Token'] = csrfToken;
+    fetchWrapper.defaults.headers.common['X-CSRF-Token'] = csrfToken;
   }
 };
 
