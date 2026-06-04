@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import axios from 'axios';
+import { fetchWrapper } from 'utils/fetchWrapper';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { InputMocks } from 'mocks/InputMocks';
@@ -68,7 +68,7 @@ describe('DynamicForm', () => {
 
     describe('for changes on the input with text type', () => {
       it('has no errors when submit is clicked', async () => {
-        const axiosPostSpy = jest.spyOn(axios, 'post').mockResolvedValue({});
+        const fetchPostSpy = jest.spyOn(fetchWrapper, 'post').mockResolvedValue({});
         render(getComponent());
         await userEvent.type(
           getByPlaceholderText('Some Text Placeholder'),
@@ -77,27 +77,27 @@ describe('DynamicForm', () => {
         await userEvent.click(
           getByRole('button', { name: 'Some Submit Value' }),
         );
-        await waitFor(() => expect(axiosPostSpy).toBeCalled());
+        await waitFor(() => expect(fetchPostSpy).toBeCalled());
       });
 
       it('has errors when submit is clicked', async () => {
         const scrollIntoViewMock = jest.fn();
         window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock;
-        const axiosPostSpy = jest
-          .spyOn(axios, 'post')
+        const fetchPostSpy = jest
+          .spyOn(fetchWrapper, 'post')
           .mockRejectedValue({ error });
         render(getComponent());
         await userEvent.click(
           getByRole('button', { name: 'Some Submit Value' }),
         );
-        await waitFor(() => expect(axiosPostSpy()).rejects.toEqual({ error }));
+        await waitFor(() => expect(fetchPostSpy()).rejects.toEqual({ error }));
         expect(getByRole('alert')).toBeInTheDocument();
       });
     });
 
     describe('for changes on the input with number type', () => {
       it('has no errors when submit is clicked', async () => {
-        const axiosPostSpy = jest.spyOn(axios, 'post').mockResolvedValue({});
+        const fetchPostSpy = jest.spyOn(fetchWrapper, 'post').mockResolvedValue({});
         render(getComponent());
         await userEvent.type(
           getByPlaceholderText('Some Text Placeholder'),
@@ -107,14 +107,14 @@ describe('DynamicForm', () => {
         await userEvent.click(
           getByRole('button', { name: 'Some Submit Value' }),
         );
-        await waitFor(() => expect(axiosPostSpy).toBeCalled());
+        await waitFor(() => expect(fetchPostSpy).toBeCalled());
       });
 
       it('has errors when submit is clicked', async () => {
         const scrollIntoViewMock = jest.fn();
         window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock;
-        const axiosPostSpy = jest
-          .spyOn(axios, 'post')
+        const fetchPostSpy = jest
+          .spyOn(fetchWrapper, 'post')
           .mockRejectedValue({ error });
         render(getComponent());
         await userEvent.type(
@@ -125,7 +125,7 @@ describe('DynamicForm', () => {
         await userEvent.click(
           getByRole('button', { name: 'Some Submit Value' }),
         );
-        await waitFor(() => expect(axiosPostSpy()).rejects.toEqual({ error }));
+        await waitFor(() => expect(fetchPostSpy()).rejects.toEqual({ error }));
         expect(getByRole('alert')).toBeInTheDocument();
       });
     });
@@ -143,7 +143,7 @@ describe('DynamicForm', () => {
 
     describe('for changes on the input with text type', () => {
       it('has no errors when submit is clicked', async () => {
-        const axiosPostSpy = jest.spyOn(axios, 'post').mockResolvedValue({});
+        const fetchPostSpy = jest.spyOn(fetchWrapper, 'post').mockResolvedValue({});
         render(getComponent({ nameValue: 'name' }));
         await userEvent.type(getByText('Name'), 'hi');
         await userEvent.type(
@@ -153,27 +153,27 @@ describe('DynamicForm', () => {
         await userEvent.click(
           getByRole('button', { name: 'Some Submit Value' }),
         );
-        await waitFor(() => expect(axiosPostSpy).toBeCalled());
+        await waitFor(() => expect(fetchPostSpy).toBeCalled());
       });
 
       it('has errors when submit is clicked', async () => {
         const scrollIntoViewMock = jest.fn();
         window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock;
-        const axiosPostSpy = jest
-          .spyOn(axios, 'post')
+        const fetchPostSpy = jest
+          .spyOn(fetchWrapper, 'post')
           .mockRejectedValue({ error });
         render(getComponent({ nameValue: 'name' }));
         await userEvent.click(
           getByRole('button', { name: 'Some Submit Value' }),
         );
-        await waitFor(() => expect(axiosPostSpy()).rejects.toEqual({ error }));
+        await waitFor(() => expect(fetchPostSpy()).rejects.toEqual({ error }));
         expect(getByText('This field cannot be empty!')).toBeInTheDocument();
       });
     });
 
     describe('for changes on the input with number type', () => {
       it('has no errors when submit is clicked', async () => {
-        const axiosPostSpy = jest.spyOn(axios, 'post').mockResolvedValue({});
+        const fetchPostSpy = jest.spyOn(fetchWrapper, 'post').mockResolvedValue({});
         render(getComponent({ nameValue: 'name' }));
         await userEvent.type(getByText('Name'), 'hi');
         await userEvent.type(
@@ -184,14 +184,14 @@ describe('DynamicForm', () => {
         await userEvent.click(
           getByRole('button', { name: 'Some Submit Value' }),
         );
-        await waitFor(() => expect(axiosPostSpy).toBeCalled());
+        await waitFor(() => expect(fetchPostSpy).toBeCalled());
       });
 
       it('has errors when submit is clicked', async () => {
         const scrollIntoViewMock = jest.fn();
         window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock;
-        const axiosPostSpy = jest
-          .spyOn(axios, 'post')
+        const fetchPostSpy = jest
+          .spyOn(fetchWrapper, 'post')
           .mockRejectedValue({ error });
         render(getComponent({ nameValue: 'name' }));
         await userEvent.type(
@@ -202,7 +202,7 @@ describe('DynamicForm', () => {
         await userEvent.click(
           getByRole('button', { name: 'Some Submit Value' }),
         );
-        await waitFor(() => expect(axiosPostSpy()).rejects.toEqual({ error }));
+        await waitFor(() => expect(fetchPostSpy()).rejects.toEqual({ error }));
         expect(
           getByText(
             'This field must be equal or greater than 0 and equal or less than 2!',

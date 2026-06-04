@@ -1,5 +1,5 @@
 // @flow
-import axios from 'axios';
+import { fetchWrapper } from 'utils/fetchWrapper';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { Utils } from '../index';
@@ -28,12 +28,12 @@ describe('Utils', () => {
   describe('setCsrfToken', () => {
     beforeEach(() => {
       document.head.innerHTML = '';
-      axios.defaults.headers.common['X-CSRF-Token'] = undefined;
+      fetchWrapper.defaults.headers.common['X-CSRF-Token'] = undefined;
     });
 
     it('should not set anything if meta tag is missing', () => {
       Utils.setCsrfToken();
-      expect(axios.defaults.headers.common['X-CSRF-Token']).toBeUndefined();
+      expect(fetchWrapper.defaults.headers.common['X-CSRF-Token']).toBeUndefined();
     });
 
     it('should set token if meta tag is present', () => {
@@ -43,7 +43,7 @@ describe('Utils', () => {
       document.head.appendChild(meta);
 
       Utils.setCsrfToken();
-      expect(axios.defaults.headers.common['X-CSRF-Token']).toBe(
+      expect(fetchWrapper.defaults.headers.common['X-CSRF-Token']).toBe(
         'secure-token',
       );
     });
@@ -55,11 +55,11 @@ describe('Utils', () => {
       document.head.appendChild(meta);
 
       Utils.setCsrfToken();
-      expect(axios.defaults.headers.common['X-CSRF-Token']).toBe('first-token');
+      expect(fetchWrapper.defaults.headers.common['X-CSRF-Token']).toBe('first-token');
 
       meta.setAttribute('content', 'updated-token');
       Utils.setCsrfToken();
-      expect(axios.defaults.headers.common['X-CSRF-Token']).toBe(
+      expect(fetchWrapper.defaults.headers.common['X-CSRF-Token']).toBe(
         'updated-token',
       );
     });
