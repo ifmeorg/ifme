@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { fetchWrapper } from 'utils/fetchWrapper';
 import React from 'react';
 import { Utils } from '../index';
 
@@ -42,10 +42,10 @@ describe('Utils', () => {
   describe('setCsrfToken', () => {
     it('should verify that csrf token will be undefined if not present in meta tag', () => {
       Utils.setCsrfToken();
-      expect(axios.defaults.headers.common['X-CSRF-Token']).toBe(undefined);
+      expect(fetchWrapper.defaults.headers.common['X-CSRF-Token']).toBe(undefined);
     });
 
-    it('should verify that axios makes use of the CSRF token present in meta tag if defined', () => {
+    it('should verify that fetchWrapper makes use of the CSRF token present in meta tag if defined', () => {
       const metaElementOne = document.createElement('meta');
       metaElementOne.setAttribute('name', 'csrf-token');
       metaElementOne.setAttribute('content', 'TOKEN-TEST-VALUE');
@@ -55,7 +55,7 @@ describe('Utils', () => {
         .mockImplementation(() => [metaElementOne]);
 
       Utils.setCsrfToken();
-      expect(axios.defaults.headers.common['X-CSRF-Token']).toBe(
+      expect(fetchWrapper.defaults.headers.common['X-CSRF-Token']).toBe(
         'TOKEN-TEST-VALUE',
       );
     });

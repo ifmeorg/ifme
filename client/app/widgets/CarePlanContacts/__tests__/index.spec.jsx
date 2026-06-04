@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import { fetchWrapper } from 'utils/fetchWrapper';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import CarePlanContacts from 'widgets/CarePlanContacts';
@@ -36,7 +36,7 @@ describe('CarePlanContacts', () => {
   describe('when editing a contact', () => {
     it('opens a modal and submits the form successfully', async () => {
       const newPhoneNumber = '4160000000';
-      jest.spyOn(axios, 'patch').mockResolvedValue({
+      jest.spyOn(fetchWrapper, 'patch').mockResolvedValue({
         data: {
           id: 1,
           name: 'Test1 Lastname',
@@ -71,7 +71,7 @@ describe('CarePlanContacts', () => {
 
     it('opens a modal and does not submit the form successfully', async () => {
       const error = new Error('Error');
-      const axiosPostSpy = jest.spyOn(axios, 'patch').mockRejectedValue(error);
+      const fetchWrapperPostSpy = jest.spyOn(fetchWrapper, 'patch').mockRejectedValue(error);
       const { container } = render(component);
 
       const editLink = container.querySelector(
@@ -87,7 +87,7 @@ describe('CarePlanContacts', () => {
       expect(screen.getByLabelText('Phone number')).toHaveDisplayValue('');
 
       await userEvent.click(screen.getByText('Submit'));
-      await waitFor(() => expect(axiosPostSpy()).rejects.toEqual(error));
+      await waitFor(() => expect(fetchWrapperPostSpy()).rejects.toEqual(error));
       expect(screen.queryByText('Error: Error')).toBeInTheDocument();
     });
   });
@@ -96,7 +96,7 @@ describe('CarePlanContacts', () => {
     it('opens a modal and submits the form successfully', async () => {
       const newName = 'Test3 Lastname';
       const newPhoneNumber = '4160000000';
-      jest.spyOn(axios, 'post').mockResolvedValue({
+      jest.spyOn(fetchWrapper, 'post').mockResolvedValue({
         data: {
           id: 1,
           name: newName,
@@ -124,7 +124,7 @@ describe('CarePlanContacts', () => {
       const newName = 'Test3 Lastname';
       const newPhoneNumber = '4160000000';
       const error = new Error('Error');
-      const axiosPostSpy = jest.spyOn(axios, 'post').mockRejectedValue(error);
+      const fetchWrapperPostSpy = jest.spyOn(fetchWrapper, 'post').mockRejectedValue(error);
       render(<CarePlanContacts />);
 
       await userEvent.click(screen.getByText('New Contact'));
@@ -134,7 +134,7 @@ describe('CarePlanContacts', () => {
       await userEvent.type(nameField, newName);
       await userEvent.type(phoneNumberField, newPhoneNumber);
       await userEvent.click(screen.getByText('Submit'));
-      await waitFor(() => expect(axiosPostSpy()).rejects.toEqual(error));
+      await waitFor(() => expect(fetchWrapperPostSpy()).rejects.toEqual(error));
       expect(screen.queryByText('Error: Error')).toBeInTheDocument();
     });
   });

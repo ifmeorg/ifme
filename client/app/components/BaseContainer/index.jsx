@@ -1,7 +1,7 @@
 // @flow
 import React, { useState } from 'react';
 import type { Node } from 'react';
-import axios from 'axios';
+import { fetchWrapper } from 'utils/fetchWrapper';
 import { Utils } from 'utils';
 import StoryContainer from 'components/BaseContainer/StoryContainer';
 import { LoadMoreButton } from 'components/LoadMoreButton';
@@ -35,7 +35,7 @@ export const BaseContainerComponent = ({
     const url = `${parsedUrl.origin}${parsedUrl.pathname}.json?page=${page
       + 1}${parsedUrl.search ? `&${parsedUrl.search.substring(1)}` : ''}`;
     Utils.setCsrfToken();
-    axios.get(url).then((response: any) => {
+    fetchWrapper.get(url).then((response: any) => {
       if (response.data) {
         setlastPage(response.data.lastPage);
         setpage(page + 1);

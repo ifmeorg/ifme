@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import { fetchWrapper } from 'utils/fetchWrapper';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import MomentTemplates from 'pages/MomentTemplates';
@@ -38,7 +38,7 @@ describe('MomentTemplates', () => {
       };
 
       jest
-        .spyOn(axios, 'post')
+        .spyOn(fetchWrapper, 'post')
         .mockResolvedValueOnce({
           data: premadeOne,
         })

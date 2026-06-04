@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import { fetchWrapper } from 'utils/fetchWrapper';
 import {
   render,
   screen,
@@ -168,8 +168,8 @@ describe('QuickCreate', () => {
           slug: 'new-checkbox',
         },
       };
-      const axiosPostSpy = jest
-        .spyOn(axios, 'post')
+      const fetchWrapperPostSpy = jest
+        .spyOn(fetchWrapper, 'post')
         .mockResolvedValue(response);
       // open accordion
       await userEvent.click(screen.getByRole('button'));
@@ -181,7 +181,7 @@ describe('QuickCreate', () => {
       await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
       // when the dialog has been removed there was a successful submission
       await waitForElementToBeRemoved(() => screen.getByRole('dialog'));
-      expect(axiosPostSpy).toBeCalledWith('https://if-me.org/quick-create', {
+      expect(fetchWrapperPostSpy).toBeCalledWith('https://if-me.org/quick-create', {
         category: { name: 'new checkbox' },
       });
       // accordion is still open
@@ -201,8 +201,8 @@ describe('QuickCreate', () => {
       const response = {
         error: 'some error',
       };
-      const axiosPostSpy = jest
-        .spyOn(axios, 'post')
+      const fetchWrapperPostSpy = jest
+        .spyOn(fetchWrapper, 'post')
         .mockRejectedValue(response);
       // open accordion
       await userEvent.click(screen.getByRole('button'));
@@ -210,7 +210,7 @@ describe('QuickCreate', () => {
       await userEvent.type(screen.getByRole('textbox'), 'new checkbox{enter}');
       // submit
       await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
-      await waitFor(() => expect(axiosPostSpy).toHaveBeenCalled());
+      await waitFor(() => expect(fetchWrapperPostSpy).toHaveBeenCalled());
       // modal is still up when the request fails
       expect(screen.getByRole('dialog')).toBeInTheDocument();
     });
