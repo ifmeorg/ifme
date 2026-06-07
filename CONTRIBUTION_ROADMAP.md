@@ -184,7 +184,7 @@ React (complete View)
 
 ---
 
-#### B1 — Replace deprecated webpack plugins and update Babel plugins
+#### B1 — Replace deprecated webpack plugins and update Babel plugins - [COMPLETED ✔]
 
 **Summary:** Replace deprecated Webpack 5 plugins and loaders with modern alternatives, and update Babel plugins with old names.
 
