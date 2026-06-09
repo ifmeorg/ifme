@@ -1,0 +1,11 @@
+# Devcontainer-only override of the root docker-compose.yml.
+# Replaces the `app` service's command so the container idles instead of
+# launching foreman. The editor attaches to the idle container; start the
+# Rails server on demand from the integrated terminal with:
+#   bundle exec foreman start -f Procfile.dev
+#
+# The Dockerfile's ENTRYPOINT (./docker-entrypoint.sh) still runs and does
+# `bundle check || bundle install` before exec'ing this command.
+services:
+  app:
+    command: ["sleep", "infinity"]
