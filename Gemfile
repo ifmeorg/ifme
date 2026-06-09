@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 ruby '~> 3.3.0' # Adjusted for general 3.3 compatibility
 
 gem 'logger'
-gem 'puma', '5.6.9'
+gem 'puma', '7.2.1'
 gem 'rack-rewrite'
 gem 'rails', '~> 7.0.8.4'
 
