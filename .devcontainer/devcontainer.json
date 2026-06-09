@@ -18,10 +18,6 @@
     }
   },
 
-  "features": {
-    "ghcr.io/devcontainers/features/github-cli:1": {}
-  },
-
   "postCreateCommand": "bash -lc 'set -e; for f in development test; do src=config/env/${f}.example.env; dst=config/env/${f}.env; [ -f \"$dst\" ] || cp \"$src\" \"$dst\"; done; bundle check || bundle install; (cd client && yarn install); bundle exec rake db:prepare; if [ -z \"${DEVCONTAINER_SKIP_SEED:-}\" ]; then bundle exec rake db:seed || true; fi'",
 
   "customizations": {
