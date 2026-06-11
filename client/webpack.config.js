@@ -5,9 +5,9 @@
 const glob = require('glob');
 const { resolve } = require('path');
 const CompressionPlugin = require('compression-webpack-plugin');
-const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -83,13 +83,7 @@ const config = {
       },
     },
     minimizer: devOrTestMode ? [] : [
-      new OptimizeCssAssetsPlugin({
-        cssProcessorOptions: {
-          discardComments: {
-            removeAll: true,
-          },
-        },
-      }),
+      new CssMinimizerPlugin(),
       new CompressionPlugin({
         filename: '[path][base].gz[query]',
         algorithm: 'gzip',
@@ -102,10 +96,9 @@ const config = {
   },
 
   plugins: [
-    new ExtractCssChunks({
+    new MiniCssExtractPlugin({
       filename: `${outputFilename}.css`,
       chunkFilename: `${outputFilename}.chunk.css`,
-      hot: !!devOrTestMode,
     }),
     new WebpackManifestPlugin({ publicPath: output.publicPath, writeToFileEmit: true }),
     // only load moment.js data for locales we support (see config/locale.rb)
@@ -124,7 +117,7 @@ const config = {
         test: /\.css$/,
         include: /node_modules/,
         use: [
-          ExtractCssChunks.loader,
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -140,7 +133,7 @@ const config = {
         test: /\.css$/,
         exclude: /node_modules/,
         use: [
-          ExtractCssChunks.loader,
+          MiniCssExtractPlugin.loader,
           cssLoaderWithModules,
         ],
       },
@@ -148,7 +141,7 @@ const config = {
         test: /\.(sass|scss)$/,
         include: /node_modules/,
         use: [
-          ExtractCssChunks.loader,
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -165,7 +158,7 @@ const config = {
         test: /\.(sass|scss)$/,
         exclude: /node_modules/,
         use: [
-          ExtractCssChunks.loader,
+          MiniCssExtractPlugin.loader,
           cssLoaderWithModules,
           'sass-loader',
         ],
@@ -176,27 +169,23 @@ const config = {
       },
       {
         test: /\.(png|jp(e*)g|svg|webp)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8000,
-              name: 'images/[contenthash]-[name].[ext]',
-            },
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 8000,
           },
-        ],
+        },
+        generator: {
+          filename: 'images/[contenthash]-[name][ext]',
+        }
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         include: /node_modules/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'fonts/[contenthash]-[name].[ext]',
-            },
-          },
-        ],
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[contenthash]-[name][ext]',
+        }
       },
     ],
   },
