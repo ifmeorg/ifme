@@ -1,4 +1,4 @@
-@import '~styles/_global.scss';
+@import '~styles/_global';
 
 .resource {
   position: relative;
@@ -24,7 +24,7 @@
   }
 
   a {
-    @include standardTransition();
+    @include standardTransition;
 
     text-decoration: none;
     color: $white;

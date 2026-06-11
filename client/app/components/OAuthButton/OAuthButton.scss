@@ -1,5 +1,5 @@
-@import "~styles/_global.scss";
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import "~styles/_global";
+@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap';
 
 .oAuthButton {
   display: flex;
@@ -14,14 +14,14 @@
   border-radius: $size-2;
 
   &Google {
-    font-family: 'Roboto', sans-serif;
+    font-family: Roboto, sans-serif;
     background-color: #4285f4;
     letter-spacing: 0.21px;
-    box-shadow: 0 $size-2 $size-4 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 $size-2 $size-4 0 rgb(0 0 0 / 25%);
 
     &:hover,
     &:focus {
-      box-shadow: 0 0 3px 3px rgba(66, 133, 244, 0.3);
+      box-shadow: 0 0 3px 3px rgb(66 133 244 / 30%);
     }
 
     > img {

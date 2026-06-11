@@ -1,5 +1,5 @@
-@import "~styles/_legacy.scss";
-@import "~styles/_global_font.scss";
+@import "~styles/_legacy";
+@import "~styles/_global_font";
 
 body,
 html {
@@ -20,4 +20,4 @@ a {
   }
 }
 
-@include dashboardSectionStyles();
+@include dashboardSectionStyles;
