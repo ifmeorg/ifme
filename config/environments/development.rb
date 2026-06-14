@@ -1,7 +1,14 @@
 # frozen_string_literal: true
 require "active_support/core_ext/integer/time"
 
-primary_domain = 'localhost:3000'
+url_options =
+  if ENV['CODESPACE_NAME'].present?
+    { host: "#{ENV['CODESPACE_NAME']}-3000." \
+            "#{ENV.fetch('GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN', 'app.github.dev')}",
+      protocol: 'https' }
+  else
+    { host: 'localhost:3000' }
+  end
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -70,7 +77,7 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: primary_domain }
+  config.action_mailer.default_url_options = url_options
   config.action_mailer.perform_deliveries = ENV['SEND_EMAIL']
   config.action_mailer.raise_delivery_errors = ENV['RAISE_DELIVERY_ERRORS']
   config.action_view.annotate_rendered_view_with_filenames = true
@@ -98,6 +105,5 @@ Rails.application.configure do
 
   config.force_ssl = false
 
-  config.action_controller.default_url_options = { host: primary_domain }
-  config.action_controller.asset_host = primary_domain
+  config.action_controller.default_url_options = url_options
 end
