@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import type { Node } from 'react';
-import axios from 'axios';
+import { fetchWrapper } from 'utils/fetchWrapper';
 import Cookies from 'js-cookie';
 import { I18n } from 'libs/i18n';
 import Input from 'components/Input';
@@ -31,7 +31,7 @@ const onChange = (e: SyntheticEvent<HTMLInputElement>) => {
   if (value !== previousValue) {
     Cookies.set('locale', value);
     Utils.setCsrfToken();
-    axios.post('/toggle_locale', { locale: value }).then(() => {
+    fetchWrapper.post('/toggle_locale', { locale: value }).then(() => {
       window.location.reload();
     });
   }

@@ -1,7 +1,7 @@
 // @flow
 import React, { useState } from 'react';
 import type { Node } from 'react';
-import axios from 'axios';
+import { fetchWrapper } from 'utils/fetchWrapper';
 import { I18n } from 'libs/i18n';
 import { StoryBy } from 'components/Story/StoryBy';
 import { StoryDate } from 'components/Story/StoryDate';
@@ -48,7 +48,7 @@ export const Comments = ({ comments, formProps }: Props): Node => {
   ) => {
     e.preventDefault();
     Utils.setCsrfToken();
-    axios.delete(action).then((response: CommentResponse) => {
+    fetchWrapper.delete(action).then((response: CommentResponse) => {
       const { data } = response;
       if (data && data.id) {
         const newComments = commentsState.filter(

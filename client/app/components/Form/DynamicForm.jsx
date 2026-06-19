@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import type { Node } from 'react';
-import axios from 'axios';
+import { fetchWrapper } from "utils/fetchWrapper";
 import Input from 'components/Input';
 import { TYPES as INPUT_TYPES } from 'components/Input/utils';
 import css from './Form.scss';
@@ -103,7 +103,7 @@ export const DynamicForm = ({
         labelForError.scrollIntoView();
       }
     } else {
-      axios[type || 'post'](formProps.action, getParams(inputs, myRefs))
+      fetchWrapper[type || 'post'](formProps.action, getParams(inputs, myRefs))
         .then((response: Object) => {
           if (onSubmit) {
             onSubmit(response);
