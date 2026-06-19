@@ -74,8 +74,8 @@ module Users
       user = User.includes(*ASSOCIATIONS_TO_EXPORT).find(user_id)
       begin
         require 'csv'
-        csv_rows = user.build_csv_data
-        write_to_csv(csv_rows)
+        require 'zlib'
+        write_to_csv(user)
         self.status_id = STATUS[:success]
         save!
         user.delete_stale_data_file
@@ -87,16 +87,15 @@ module Users
     end
 
     def file_path
-      DEFAULT_FILE_PATH.join("#{request_id}.csv").to_s
+      DEFAULT_FILE_PATH.join("#{request_id}.csv.gz").to_s
     end
 
     private
 
-    def write_to_csv(csv_rows)
-      CSV.open(file_path, 'wb') do |csv_row|
-        csv_rows.each do |row|
-          csv_row << row
-        end
+    def write_to_csv(user)
+      Zlib::GzipWriter.open(file_path) do |gz|
+        csv = CSV.new(gz)
+        user.build_csv_data { |row| csv << row }
       end
     end
   end

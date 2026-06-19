@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'sidekiq/testing'
+require 'zlib'
 
 feature 'UserDownloadsData', type: :feature, js: true do
   let(:user) { create(:user1) }
@@ -94,7 +95,7 @@ feature 'UserDownloadsData', type: :feature, js: true do
     )
 
     expect(data_request).not_to be_nil
-    csv_content = File.read(data_request.file_path)
+    csv_content = Zlib::GzipReader.open(data_request.file_path, &:read)
 
     expect(csv_content).to include(user.email)
     expect(csv_content).to include('My Test Moment')
