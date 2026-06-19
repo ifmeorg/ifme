@@ -1,4 +1,4 @@
-@import "~styles/_global.scss";
+@import "~styles/_global";
 
 .multiSelect {
   &Button {
@@ -23,8 +23,7 @@
     border-radius: $size-4;
     background: $white;
     max-height: 200px;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden auto;
 
     &Wrapper {
       width: 100%;

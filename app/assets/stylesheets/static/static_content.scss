@@ -13,10 +13,10 @@
   }
 
   @media screen and (max-width: $small) {
-    @include buttonFull();
+    @include buttonFull;
   }
 
-  @include staticContentLink();
+  @include staticContentLink;
 
   b,
   strong {
@@ -69,7 +69,7 @@
       &Logo > div > div {
         display: flex;
         justify-content: center;
-        margin: 0 auto $size-30 auto;
+        margin: 0 auto $size-30;
       }
     }
 

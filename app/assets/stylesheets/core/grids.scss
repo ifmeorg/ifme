@@ -40,7 +40,7 @@
 }
 
 @mixin gridThreeItemAlways() {
-  @include gridThreeItem();
+  @include gridThreeItem;
 
   @media screen and (max-width: $medium) {
     width: calc(33% - 20px);
@@ -62,42 +62,42 @@
 }
 
 @mixin gridItemBoxLight() {
-  @include gridItemBox();
+  @include gridItemBox;
 
   background: $white;
   color: $black;
 
   h1,
   h1 > a {
-    @include gridH1();
+    @include gridH1;
 
     color: $mulberry;
   }
 }
 
 @mixin gridItemBoxDark() {
-  @include gridItemBox();
+  @include gridItemBox;
 
   background: $mulberry;
   color: $white;
 
   h1,
   h1 > a {
-    @include gridH1();
+    @include gridH1;
 
     color: $white;
   }
 }
 
 @mixin gridItemBoxGhost() {
-  @include gridItemBox();
+  @include gridItemBox;
 
   background: $black-20;
   color: $white;
 
   h1,
   h1 > a {
-    @include gridH1();
+    @include gridH1;
 
     color: $white;
   }
@@ -106,85 +106,85 @@
 .grid {
   &Item {
     &BoxLight {
-      @include gridItemBoxLight();
+      @include gridItemBoxLight;
     }
 
     &BoxDark {
-      @include gridItemBoxDark();
+      @include gridItemBoxDark;
     }
 
     &BoxGhost {
-      @include gridItemBoxGhost();
+      @include gridItemBoxGhost;
     }
   }
 
   &Two {
-    @include grid();
+    @include grid;
 
     &Item {
-      @include gridTwoItem();
+      @include gridTwoItem;
 
       &BoxLight {
-        @include gridTwoItem();
-        @include gridItemBoxLight();
+        @include gridTwoItem;
+        @include gridItemBoxLight;
       }
 
       &BoxDark {
-        @include gridTwoItem();
-        @include gridItemBoxDark();
+        @include gridTwoItem;
+        @include gridItemBoxDark;
       }
 
       &BoxGhost {
-        @include gridTwoItem();
-        @include gridItemBoxGhost();
+        @include gridTwoItem;
+        @include gridItemBoxGhost;
       }
     }
   }
 
   &Three {
-    @include grid();
+    @include grid;
 
     &Item {
-      @include gridThreeItem();
+      @include gridThreeItem;
 
       &BoxLight {
-        @include gridThreeItem();
-        @include gridItemBoxLight();
+        @include gridThreeItem;
+        @include gridItemBoxLight;
       }
 
       &BoxDark {
-        @include gridThreeItem();
-        @include gridItemBoxDark();
+        @include gridThreeItem;
+        @include gridItemBoxDark;
       }
 
       &BoxGhost {
-        @include gridThreeItem();
-        @include gridItemBoxGhost();
+        @include gridThreeItem;
+        @include gridItemBoxGhost;
       }
     }
   }
 
   &ThreeAlways {
-    @include grid();
+    @include grid;
 
     align-items: center;
 
     &Item {
-      @include gridThreeItemAlways();
+      @include gridThreeItemAlways;
 
       &BoxLight {
-        @include gridThreeItem();
-        @include gridItemBoxLight();
+        @include gridThreeItem;
+        @include gridItemBoxLight;
       }
 
       &BoxDark {
-        @include gridThreeItem();
-        @include gridItemBoxDark();
+        @include gridThreeItem;
+        @include gridItemBoxDark;
       }
 
       &BoxGhost {
-        @include gridThreeItem();
-        @include gridItemBoxGhost();
+        @include gridThreeItem;
+        @include gridItemBoxGhost;
       }
     }
   }
@@ -200,7 +200,7 @@
   }
 
   &Row {
-    @include gridRow();
+    @include gridRow;
 
     @media screen and (max-width: $small) {
       flex-direction: column;
@@ -208,7 +208,7 @@
     }
 
     &SpaceBetween {
-      @include gridRow();
+      @include gridRow;
 
       flex-wrap: wrap;
       justify-content: space-between;

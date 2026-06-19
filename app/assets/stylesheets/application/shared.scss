@@ -54,7 +54,7 @@
       }
 
       &Name {
-        word-break: break-word;
+        overflow-wrap: break-word;
       }
     }
   }
@@ -64,7 +64,7 @@
 
     &Element {
       width: inherit;
-      word-break: break-word;
+      overflow-wrap: break-word;
     }
   }
 }
