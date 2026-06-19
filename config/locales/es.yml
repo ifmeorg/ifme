@@ -1126,6 +1126,19 @@ es:
       edit_contact: Editar contacto
       phone_number: Número de teléfono
       contacts_info: Amados con los que deberías hablar
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: Ya hay una solicitud en cola para este usuario.
+        duplicate_request_id: Ya existe una solicitud con este ID de solicitud.
+    data_download:
+      label: Descargar tus datos
+      description: Descarga un archivo CSV con los datos de tu cuenta de if-me.org
+      request: Descargar mis datos de usuario
+      processing: Tus datos se están preparando. Esto puede tardar unos minutos...
+      download: Descargar datos (CSV)
+      request_new: Solicitar nueva descarga
+      error: Algo salió mal al preparar tus datos. Por favor, inténtalo de nuevo.
   moment_templates:
     index:
       title: Plantillas de momento

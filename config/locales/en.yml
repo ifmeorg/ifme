@@ -1064,6 +1064,19 @@ en:
       edit_contact: Edit Contact
       phone_number: Phone number
       contacts_info: Loved ones you should talk to
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: There is already a request enqueued for this user.
+        duplicate_request_id: There is already a request with this request_id.
+    data_download:
+      label: Download Your Data
+      description: Download a CSV file containing your account data from if-me.org
+      request: Download my user data
+      processing: Your data is being prepared. This may take a few minutes...
+      download: Download Data (CSV)
+      request_new: Request New Download
+      error: Something went wrong preparing your data. Please try again.
   moment_templates:
     index:
       title: Moment Templates

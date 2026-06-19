@@ -1,5 +1,5 @@
 // @flow
-/* eslint-disable max-len */
+
 /* eslint-disable no-unused-vars */
 import React, { useState, type Node } from 'react';
 import Input from 'components/Input';

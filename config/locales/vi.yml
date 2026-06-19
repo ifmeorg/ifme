@@ -1098,6 +1098,19 @@ vi:
       edit_contact: Chỉnh sửa liên hệ
       phone_number: Số điện thoại
       contacts_info: Những người thân yêu bạn nên nói chuyện với
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: Đã có một yêu cầu đang chờ xử lý cho người dùng này.
+        duplicate_request_id: Đã tồn tại một yêu cầu với ID yêu cầu này.
+    data_download:
+      label: "Tải xuống dữ liệu của bạn"
+      description: "Tải xuống tệp CSV chứa dữ liệu tài khoản của bạn từ if-me.org"
+      request: "Tải xuống dữ liệu người dùng của tôi"
+      processing: "Dữ liệu của bạn đang được chuẩn bị. Quá trình này có thể mất vài phút..."
+      download: "Tải xuống dữ liệu (CSV)"
+      request_new: "Yêu cầu tải xuống mới"
+      error: "Đã xảy ra lỗi khi chuẩn bị dữ liệu của bạn. Vui lòng thử lại."
   moment_templates:
     index:
       title: Mẫu khoảnh khắc

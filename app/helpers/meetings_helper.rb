@@ -30,12 +30,7 @@ module MeetingsHelper
   end
 
   def attending(id)
-    t('shared.meeting_info.attending') +
-      ' ' +
-      link_to(
-        t('common.actions.leave'),
-        leave_meetings_path(meeting_id: id)
-      )
+    "#{t('shared.meeting_info.attending')} #{link_to(t('common.actions.leave'), leave_meetings_path(meeting_id: id))}"
   end
 
   def one_spot(id)

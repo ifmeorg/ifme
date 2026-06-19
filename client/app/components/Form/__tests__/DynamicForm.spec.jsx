@@ -68,7 +68,9 @@ describe('DynamicForm', () => {
 
     describe('for changes on the input with text type', () => {
       it('has no errors when submit is clicked', async () => {
-        const fetchPostSpy = jest.spyOn(fetchWrapper, 'post').mockResolvedValue({});
+        const fetchPostSpy = jest
+          .spyOn(fetchWrapper, 'post')
+          .mockResolvedValue({});
         render(getComponent());
         await userEvent.type(
           getByPlaceholderText('Some Text Placeholder'),
@@ -97,7 +99,9 @@ describe('DynamicForm', () => {
 
     describe('for changes on the input with number type', () => {
       it('has no errors when submit is clicked', async () => {
-        const fetchPostSpy = jest.spyOn(fetchWrapper, 'post').mockResolvedValue({});
+        const fetchPostSpy = jest
+          .spyOn(fetchWrapper, 'post')
+          .mockResolvedValue({});
         render(getComponent());
         await userEvent.type(
           getByPlaceholderText('Some Text Placeholder'),
@@ -143,7 +147,9 @@ describe('DynamicForm', () => {
 
     describe('for changes on the input with text type', () => {
       it('has no errors when submit is clicked', async () => {
-        const fetchPostSpy = jest.spyOn(fetchWrapper, 'post').mockResolvedValue({});
+        const fetchPostSpy = jest
+          .spyOn(fetchWrapper, 'post')
+          .mockResolvedValue({});
         render(getComponent({ nameValue: 'name' }));
         await userEvent.type(getByText('Name'), 'hi');
         await userEvent.type(
@@ -173,7 +179,9 @@ describe('DynamicForm', () => {
 
     describe('for changes on the input with number type', () => {
       it('has no errors when submit is clicked', async () => {
-        const fetchPostSpy = jest.spyOn(fetchWrapper, 'post').mockResolvedValue({});
+        const fetchPostSpy = jest
+          .spyOn(fetchWrapper, 'post')
+          .mockResolvedValue({});
         render(getComponent({ nameValue: 'name' }));
         await userEvent.type(getByText('Name'), 'hi');
         await userEvent.type(

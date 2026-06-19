@@ -8,7 +8,7 @@ class FormInput
   end
 
   def initialize(id:, type:, name:, label:, attributes: {})
-    @attributes = { id: id, type: type, name: name, label: label }.merge(attributes)
+    @attributes = { id:, type:, name:, label: }.merge(attributes)
   end
 
   def with_value(value)

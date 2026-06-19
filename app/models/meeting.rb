@@ -19,7 +19,7 @@
 class Meeting < ApplicationRecord
   extend FriendlyId
   friendly_id :name
-  validates :name, :description, :location, :time, :group_id, :date,
+  validates :name, :description, :location, :time, :date,
             presence: true
   belongs_to :group
   has_many :meeting_members, dependent: :destroy

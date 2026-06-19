@@ -1136,6 +1136,19 @@ pt-BR:
       edit_contact: Editar Contato
       phone_number: Número de telefone
       contacts_info: 'Amados, você deve conversar'
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: Já existe uma solicitação na fila para este usuário.
+        duplicate_request_id: Já existe uma solicitação com este ID de solicitação.
+    data_download:
+      label: Baixar seus dados
+      description: Baixe um arquivo CSV com os dados da sua conta do if-me.org
+      request: Baixar meus dados de usuário
+      processing: Seus dados estão sendo preparados. Isso pode levar alguns minutos...
+      download: Baixar dados (CSV)
+      request_new: Solicitar novo download
+      error: Ocorreu um erro ao preparar seus dados. Por favor, tente novamente.
   moment_templates:
     index:
       title: Modelos de Momento

@@ -19,7 +19,7 @@ module PagesConcern
       item['locations']&.map! { |location| t("#{pr}.locations.#{location}") }
       item['tags'].sort_by!(&:downcase)
       item['languages'].sort_by!(&:downcase)
-      item['locations']&.sort_by! { |location| location.downcase }
+      item['locations']&.sort_by!(&:downcase)
     end
     resources
   end

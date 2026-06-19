@@ -13,8 +13,8 @@
 
 describe GroupMember do
   context 'with validations' do
-    it { is_expected.to validate_presence_of :group_id }
-    it { is_expected.to validate_presence_of :user_id }
+    it { is_expected.to belong_to(:group) }
+    it { is_expected.to belong_to(:user) }
   end
 
   context 'with relations' do
@@ -31,7 +31,7 @@ describe GroupMember do
   context 'when group_id is nil' do
     it 'is not valid' do
       group_member = build :group_member, group_id: nil
-      expect(group_member).to have(1).error_on(:group_id)
+      expect(group_member).to have(1).error_on(:group)
     end
   end
 

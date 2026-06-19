@@ -17,7 +17,6 @@ const response = {
   },
 };
 
-// eslint-disable-next-line react/prop-types
 const getComponent = ({ fetchUrl, lastPage } = {}) => (
   <BaseContainer
     container="StoryContainer"

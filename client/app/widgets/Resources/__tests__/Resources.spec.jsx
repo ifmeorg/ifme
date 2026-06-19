@@ -25,7 +25,6 @@ const resourcesData = [
   },
 ];
 
-// eslint-disable-next-line react/prop-types
 const getComponent = ({ history } = {}) => (
   <Resources keywords={[]} resources={resourcesData} history={history} />
 );

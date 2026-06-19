@@ -1082,6 +1082,19 @@ nb:
       edit_contact: Rediger kontakt
       phone_number: Telefonnummer
       contacts_info: Kjære du bør snakke med
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: Det er allerede en forespørsel i kø for denne brukeren.
+        duplicate_request_id: Det finnes allerede en forespørsel med denne forespørsels-ID.
+    data_download:
+      label: Last ned dataene dine
+      description: Last ned en CSV-fil med kontodataene dine fra if-me.org
+      request: Last ned mine brukerdata
+      processing: Dataene dine blir klargjort. Dette kan ta noen minutter...
+      download: Last ned data (CSV)
+      request_new: Be om ny nedlasting
+      error: Noe gikk galt ved klargjøring av dataene dine. Prøv igjen.
   moment_templates:
     index:
       title: Momentmaler

@@ -3,7 +3,7 @@
 namespace :cleaner do
   desc 'Remove lingering categories on Strategy instances'
   task remove_lingering_categories: :environment do
-    Strategy.all.each do |strategy|
+    Strategy.find_each do |strategy|
       strategy.category.each do |category_id|
         next if Category.find_by(id: category_id)
 

@@ -930,6 +930,19 @@ zh-TW:
       edit_contact: 編輯聯絡人
       phone_number: 電話號碼
       contacts_info: 在困難時期應該聯絡的親友
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: 此使用者已有請求在佇列中。
+        duplicate_request_id: 已存在具有此請求ID的請求。
+    data_download:
+      label: 下載您的資料
+      description: 從 if-me.org 下載包含您帳戶資料的 CSV 檔案
+      request: 下載我的使用者資料
+      processing: 您的資料正在準備中，可能需要幾分鐘...
+      download: 下載資料（CSV）
+      request_new: 請求新的下載
+      error: 準備您的資料時發生錯誤，請重試。
   moment_templates:
     index:
       title: 心情記事範本

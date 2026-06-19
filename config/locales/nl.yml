@@ -1119,6 +1119,19 @@ nl:
       edit_contact: Bewerk contact
       phone_number: Telefoonnummer
       contacts_info: 'Amados, você deve coGeliefden met wie je moet pratennversar'
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: Er staat al een verzoek in de wachtrij voor deze gebruiker.
+        duplicate_request_id: Er bestaat al een verzoek met dit verzoek-ID.
+    data_download:
+      label: Download uw gegevens
+      description: Download een CSV-bestand met uw accountgegevens van if-me.org
+      request: Download mijn gebruikersgegevens
+      processing: Uw gegevens worden voorbereid. Dit kan een paar minuten duren...
+      download: Gegevens downloaden (CSV)
+      request_new: Nieuw download aanvragen
+      error: Er is iets misgegaan bij het voorbereiden van uw gegevens. Probeer het opnieuw.
   moment_templates:
     index:
       title: Moment-sjablonen

@@ -1096,6 +1096,19 @@ ca:
       edit_contact: Editar contacte
       phone_number: Número de telèfon
       contacts_info: Persones estimades amb qui hauries de parlar
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: Ja hi ha una sol·licitud en cua per a aquest usuari.
+        duplicate_request_id: Ja hi ha una sol·licitud amb aquest identificador de sol·licitud.
+    data_download:
+      label: Descarregueu les vostres dades
+      description: Descarregueu un fitxer CSV amb les dades del vostre compte d'if-me.org
+      request: Descarregueu les meves dades d'usuari
+      processing: S'estan preparant les vostres dades. Pot trigar uns minuts...
+      download: Descarregueu les dades (CSV)
+      request_new: Sol·liciteu una nova descàrrega
+      error: S'ha produït un error en preparar les vostres dades. Torneu-ho a intentar.
   moment_templates:
     index:
       title: Plantilles de moment

@@ -42,7 +42,9 @@ describe('Utils', () => {
   describe('setCsrfToken', () => {
     it('should verify that csrf token will be undefined if not present in meta tag', () => {
       Utils.setCsrfToken();
-      expect(fetchWrapper.defaults.headers.common['X-CSRF-Token']).toBe(undefined);
+      expect(fetchWrapper.defaults.headers.common['X-CSRF-Token']).toBe(
+        undefined,
+      );
     });
 
     it('should verify that fetchWrapper makes use of the CSRF token present in meta tag if defined', () => {

@@ -24,7 +24,7 @@ describe Moment do
   it { is_expected.to respond_to :friendly_id }
 
   context 'with validations' do
-    it { is_expected.to validate_presence_of :user_id }
+    it { is_expected.to belong_to(:user) }
     it { is_expected.to validate_presence_of :name }
     it { is_expected.to validate_presence_of :why }
     it { is_expected.to validate_length_of(:why).is_at_least(1) }

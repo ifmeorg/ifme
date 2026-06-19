@@ -939,6 +939,19 @@ ko:
       edit_contact: 연락처 편집
       phone_number: 전화 번호
       contacts_info: 당신이 이야기해야 할 사랑하는 사람들
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: 이 사용자에 대해 이미 대기 중인 요청이 있습니다.
+        duplicate_request_id: 이 요청 ID로 이미 요청이 존재합니다.
+    data_download:
+      label: 내 데이터 다운로드
+      description: if-me.org의 계정 데이터가 포함된 CSV 파일을 다운로드하세요
+      request: 내 사용자 데이터 다운로드
+      processing: 데이터를 준비 중입니다. 몇 분이 소요될 수 있습니다...
+      download: 데이터 다운로드 (CSV)
+      request_new: 새 다운로드 요청
+      error: 데이터 준비 중 오류가 발생했습니다. 다시 시도해 주세요.
   moment_templates:
     index:
       title: 모멘트 템플릿

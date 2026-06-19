@@ -1088,6 +1088,19 @@ sv:
       edit_contact: Redigera kontakt
       phone_number: Telefonnummer
       contacts_info: Älskade du bör prata med
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: Det finns redan en begäran i kön för denna användare.
+        duplicate_request_id: Det finns redan en begäran med detta begäran-ID.
+    data_download:
+      label: Ladda ned dina data
+      description: Ladda ned en CSV-fil med dina kontouppgifter från if-me.org
+      request: Ladda ned mina användardata
+      processing: Dina data förbereds. Det kan ta några minuter...
+      download: Ladda ned data (CSV)
+      request_new: Begär ny nedladdning
+      error: Något gick fel vid förberedelsen av dina data. Försök igen.
   moment_templates:
     index:
       title: Momentmallar

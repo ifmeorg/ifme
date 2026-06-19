@@ -14,8 +14,8 @@
 
 describe MeetingMember do
   context 'with validations' do
-    it { is_expected.to validate_presence_of :meeting_id }
-    it { is_expected.to validate_presence_of :user_id }
+    it { is_expected.to belong_to(:meeting) }
+    it { is_expected.to belong_to(:user) }
   end
 
   context 'with relations' do
@@ -32,7 +32,7 @@ describe MeetingMember do
   context 'when meeting_id is nil' do
     it 'is invalid' do
       meeting_member = build :meeting_member, meeting_id: nil
-      expect(meeting_member).to have(1).error_on(:meeting_id)
+      expect(meeting_member).to have(1).error_on(:meeting)
     end
   end
 end

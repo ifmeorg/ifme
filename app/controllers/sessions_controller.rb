@@ -2,20 +2,12 @@
 
 class SessionsController < Devise::SessionsController
   prepend_before_action :check_recaptcha, only: [:create]
-  before_action :set_recaptcha, only: [:new]
-  prepend_before_action :invalidate_all_sessions, only: [:destroy]
-
-  def new
-    super
-  end
+  before_action :set_recaptcha, only: [:new] # rubocop:disable Rails/LexicallyScopedActionFilter
+  prepend_before_action :invalidate_all_sessions, only: [:destroy] # rubocop:disable Rails/LexicallyScopedActionFilter
 
   def create
     super
     set_user_locale if user_signed_in?
-  end
-
-  def destroy
-    super
   end
 
   private

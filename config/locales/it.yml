@@ -1116,6 +1116,19 @@ it:
       edit_contact: Modifica il contatto
       phone_number: Numero di telefono
       contacts_info: Persone care con cui dovresti parlare
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: È già presente una richiesta in coda per questo utente.
+        duplicate_request_id: È già presente una richiesta con questo ID richiesta.
+    data_download:
+      label: Scarica i tuoi dati
+      description: Scarica un file CSV contenente i dati del tuo account da if-me.org
+      request: Scarica i miei dati utente
+      processing: I tuoi dati sono in fase di preparazione. Potrebbero volerci alcuni minuti...
+      download: Scarica i dati (CSV)
+      request_new: Richiedi nuovo download
+      error: Si è verificato un errore durante la preparazione dei tuoi dati. Riprova.
   moment_templates:
     index:
       title: Modelli Moment

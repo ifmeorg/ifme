@@ -1124,6 +1124,19 @@ fr:
       edit_contact: Modifier le contact
       phone_number: Numéro de téléphone
       contacts_info: Les êtres chers auxquels vous devriez parler
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: Il y a déjà une demande en file d'attente pour cet utilisateur.
+        duplicate_request_id: Il y a déjà une demande avec cet identifiant de demande.
+    data_download:
+      label: "Télécharger vos données"
+      description: "Téléchargez un fichier CSV contenant les données de votre compte if-me.org"
+      request: "Télécharger mes données utilisateur"
+      processing: "Vos données sont en cours de préparation. Cela peut prendre quelques minutes..."
+      download: "Télécharger les données (CSV)"
+      request_new: "Demander un nouveau téléchargement"
+      error: "Une erreur s'est produite lors de la préparation de vos données. Veuillez réessayer."
   moment_templates:
     index:
       title: Modèles Moment

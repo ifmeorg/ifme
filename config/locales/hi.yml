@@ -1089,6 +1089,19 @@ hi:
       edit_contact: संपादित संपर्क
       phone_number: फ़ोन नंबर
       contacts_info: प्रियजनों से आपको बात करनी चाहिए
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: इस उपयोगकर्ता के लिए पहले से ही एक अनुरोध कतार में है।
+        duplicate_request_id: इस अनुरोध ID के साथ पहले से ही एक अनुरोध मौजूद है।
+    data_download:
+      label: अपना डेटा डाउनलोड करें
+      description: if-me.org से अपने खाते का डेटा CSV फ़ाइल में डाउनलोड करें
+      request: मेरा उपयोगकर्ता डेटा डाउनलोड करें
+      processing: आपका डेटा तैयार किया जा रहा है। इसमें कुछ मिनट लग सकते हैं...
+      download: डेटा डाउनलोड करें (CSV)
+      request_new: नया डाउनलोड अनुरोध करें
+      error: आपका डेटा तैयार करने में कोई समस्या आई। कृपया पुनः प्रयास करें।
   moment_templates:
     index:
       title: पल-पल का हाल
