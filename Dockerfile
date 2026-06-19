@@ -15,8 +15,8 @@ RUN apt-get update -qq && \
       iproute2 \
       gnupg
 
-# Install Node.js (v20)
-RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+# Install Node.js (v22)
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
     apt-get install -y nodejs
 
 # Enable Yarn via Corepack and disable interactive prompts
