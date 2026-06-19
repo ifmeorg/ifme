@@ -10,6 +10,7 @@ module Users
     end
 
     def fetch_request_status
+      expires_now
       status, response = fetch_request_status_helper(current_user,
                                                      params[:request_id])
       render json: response, status:

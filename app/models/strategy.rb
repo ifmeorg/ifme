@@ -55,7 +55,7 @@ class Strategy < ApplicationRecord
   accepts_nested_attributes_for :perform_strategy_reminder
 
   validates :comment, inclusion: [true, false]
-  validates :user_id, :name, :description, presence: true
+  validates :name, :description, presence: true
   validates :description, length: { minimum: 1 }
   validates :visible, inclusion: [true, false]
 

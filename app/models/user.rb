@@ -196,6 +196,8 @@ class User < ApplicationRecord
     user_data += CarePlanContact.build_csv_rows(care_plan_contacts)
     user_data += Allyship.build_csv_rows(allyships)
     user_data += MeetingMember.build_csv_rows(meeting_members)
+    user_data += build_comment_csv_data
+    user_data += build_led_group_meeting_csv_data
     user_data
   end
 
@@ -228,7 +230,7 @@ class User < ApplicationRecord
         id: successful_data_requests.first
       )
       stale_data_requests.each do |dr|
-        File.delete(dr.file_path) if File.exist?(dr.file_path)
+        FileUtils.rm_f(dr.file_path)
         dr.update!(status_id: Users::DataRequest::STATUS[:deleted])
       end
     end
@@ -245,6 +247,31 @@ class User < ApplicationRecord
   end
 
   private
+
+  def build_comment_csv_data
+    moment_ids = moments.map(&:id)
+    strategy_ids = strategies.map(&:id)
+    data = []
+    data += Comment.build_csv_rows(
+      Comment.where(commentable_type: 'Moment', commentable_id: moment_ids)
+    )
+    data += Comment.build_csv_rows(
+      Comment.where(commentable_type: 'Strategy', commentable_id: strategy_ids)
+    )
+    data
+  end
+
+  def build_led_group_meeting_csv_data
+    leader_group_ids = group_members.where(leader: true).pluck(:group_id)
+    return [] if leader_group_ids.empty?
+
+    leader_meetings = Meeting.where(group_id: leader_group_ids)
+    data = Meeting.build_csv_rows(leader_meetings)
+    data += Comment.build_csv_rows(
+      Comment.where(commentable_type: 'Meeting', commentable_id: leader_meetings.pluck(:id))
+    )
+    data
+  end
 
   def oauth_provided?
     provider.present? || token.present?

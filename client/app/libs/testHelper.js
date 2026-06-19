@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import TestUtils from 'react-dom/test-utils';
 
@@ -44,7 +43,11 @@ global.console.error = (...args) => {
    * Since both methods share the same prefix, we removed the variable and now use
    * a partial match in includes(), covering both methods with a single check.
    */
-  if (args && typeof args[0] === 'string' && args[0].includes('Not implemented: HTMLFormElement.prototype.')) {
+  if (
+    args
+    && typeof args[0] === 'string'
+    && args[0].includes('Not implemented: HTMLFormElement.prototype.')
+  ) {
     return false;
   }
 

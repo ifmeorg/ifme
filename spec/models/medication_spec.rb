@@ -28,7 +28,7 @@ describe Medication do
     it { is_expected.to validate_presence_of :name }
     it { is_expected.to validate_presence_of :dosage }
     it { is_expected.to validate_presence_of :refill }
-    it { is_expected.to validate_presence_of :user_id }
+    it { is_expected.to belong_to(:user) }
     it { is_expected.to validate_presence_of :total }
     it { is_expected.to validate_presence_of :strength }
     it { is_expected.to validate_presence_of :dosage_unit }

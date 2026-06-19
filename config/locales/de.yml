@@ -1186,6 +1186,19 @@ de:
       edit_contact: Kontakt bearbeiten
       phone_number: Telefonnummer
       contacts_info: 'Nahestehende, mit denen Sie sprechen sollten'
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: Es gibt bereits eine Anfrage in der Warteschlange für diesen Benutzer.
+        duplicate_request_id: Es gibt bereits eine Anfrage mit dieser Anfrage-ID.
+    data_download:
+      label: Daten herunterladen
+      description: Lade eine CSV-Datei mit deinen Kontodaten von if-me.org herunter
+      request: Meine Benutzerdaten herunterladen
+      processing: Deine Daten werden vorbereitet. Das kann einige Minuten dauern...
+      download: Daten herunterladen (CSV)
+      request_new: Neuen Download anfordern
+      error: Beim Vorbereiten deiner Daten ist ein Fehler aufgetreten. Bitte versuche es erneut.
   moment_templates:
     index:
       title: Erlebnisvorlagen

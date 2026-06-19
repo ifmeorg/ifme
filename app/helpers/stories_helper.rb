@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 module StoriesHelper
-  def get_stories(user, include_allies = false)
+  def get_stories(user, include_allies: false)
     moments, strategies = get_user_stories(user, include_allies)
     combine_stories(moments, strategies)
   end

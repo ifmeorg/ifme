@@ -894,6 +894,19 @@ zh-CN:
       edit_contact: 更改联系资料
       phone_number: 电话号码
       contacts_info: 你应该和亲人谈谈
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: 该用户已有请求在队列中。
+        duplicate_request_id: 已存在具有此请求ID的请求。
+    data_download:
+      label: 下载您的数据
+      description: 从 if-me.org 下载包含您账户数据的 CSV 文件
+      request: 下载我的用户数据
+      processing: 您的数据正在准备中，可能需要几分钟...
+      download: 下载数据（CSV）
+      request_new: 请求新的下载
+      error: 准备您的数据时出错，请重试。
   moment_templates:
     index:
       title: 時刻模板

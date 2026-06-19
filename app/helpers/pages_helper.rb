@@ -31,7 +31,7 @@ module PagesHelper
   end
 
   def setup_stories
-    @stories = Kaminari.paginate_array(get_stories(current_user, true))
+    @stories = Kaminari.paginate_array(get_stories(current_user, include_allies: true))
                        .page(params[:page])
     @stories&.select! do |story|
       current_user.id == story.user_id ||

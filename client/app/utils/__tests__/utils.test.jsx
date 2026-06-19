@@ -33,7 +33,9 @@ describe('Utils', () => {
 
     it('should not set anything if meta tag is missing', () => {
       Utils.setCsrfToken();
-      expect(fetchWrapper.defaults.headers.common['X-CSRF-Token']).toBeUndefined();
+      expect(
+        fetchWrapper.defaults.headers.common['X-CSRF-Token'],
+      ).toBeUndefined();
     });
 
     it('should set token if meta tag is present', () => {
@@ -55,7 +57,9 @@ describe('Utils', () => {
       document.head.appendChild(meta);
 
       Utils.setCsrfToken();
-      expect(fetchWrapper.defaults.headers.common['X-CSRF-Token']).toBe('first-token');
+      expect(fetchWrapper.defaults.headers.common['X-CSRF-Token']).toBe(
+        'first-token',
+      );
 
       meta.setAttribute('content', 'updated-token');
       Utils.setCsrfToken();

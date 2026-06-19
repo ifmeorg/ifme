@@ -12,7 +12,9 @@
  * Safely handles non-JSON responses by checking the content-type header first.
  */
 const handleResponse = async (response) => {
-  const isJson = response.headers.get('content-type')?.includes('application/json');
+  const isJson = response.headers
+    .get('content-type')
+    ?.includes('application/json');
   const data = isJson ? await response.json() : null;
 
   if (!response.ok) {

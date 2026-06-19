@@ -42,12 +42,12 @@ module Users
 
     validates :user_id, uniqueness: {
                           scope: :status_id,
-                          message: 'There is already a request enqueued for this user.'
+                          message: ->(_obj, _data) { I18n.t('users.data_request.errors.enqueued_for_user') }
                         },
                         if: -> { status_id == STATUS[:enqueued] }
 
     validates :request_id, uniqueness: {
-      message: 'There is already a request with this request_id.'
+      message: ->(_obj, _data) { I18n.t('users.data_request.errors.duplicate_request_id') }
     }
 
     validates :status_id, inclusion: {
@@ -61,7 +61,7 @@ module Users
     def after_commit_tasks
       return unless saved_change_to_id? && status_id == STATUS[:enqueued]
 
-      Dir.mkdir(DEFAULT_FILE_PATH) unless File.exist?(DEFAULT_FILE_PATH)
+      FileUtils.mkdir_p(DEFAULT_FILE_PATH)
 
       enqueue_download_request
     end

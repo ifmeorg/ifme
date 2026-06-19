@@ -54,7 +54,7 @@
 
 describe User do
   context 'with included modules' do
-    it { expect(described_class).to include AllyConcern }
+    it { expect(described_class.ancestors).to include AllyConcern }
   end
 
   context 'with constants' do
@@ -275,6 +275,59 @@ describe User do
     it 'validates with passwords containing 8 characters' do
       user_with_valid_password = build(:user, password: 'validpas')
       expect(user_with_valid_password.save).to be_truthy
+    end
+  end
+
+  describe '#build_csv_data' do
+    let(:user) { create(:user1) }
+
+    it 'includes user info' do
+      csv_data = user.build_csv_data
+      expect(csv_data.first).to eq(['user_info'])
+    end
+
+    it 'includes comments on user moments' do
+      moment = create(:moment, user_id: user.id)
+      comment = create(:comment,
+                        commentable_type: 'Moment',
+                        commentable_id: moment.id,
+                        comment_by: user.id)
+      csv_data = user.build_csv_data.flatten
+      expect(csv_data).to include('comment_info')
+      expect(csv_data).to include(comment.comment)
+    end
+
+    it 'includes comments on user strategies' do
+      strategy = create(:strategy, user_id: user.id)
+      comment = create(:comment,
+                        commentable_type: 'Strategy',
+                        commentable_id: strategy.id,
+                        comment_by: user.id)
+      csv_data = user.build_csv_data.flatten
+      expect(csv_data).to include('comment_info')
+      expect(csv_data).to include(comment.comment)
+    end
+
+    it 'includes meetings and their comments for groups the user leads' do
+      group = create(:group)
+      create(:group_leader, user_id: user.id, group_id: group.id)
+      meeting = create(:meeting, group_id: group.id)
+      comment = create(:comment,
+                        commentable_type: 'Meeting',
+                        commentable_id: meeting.id,
+                        comment_by: user.id)
+      csv_data = user.build_csv_data.flatten
+      expect(csv_data).to include('meeting_info')
+      expect(csv_data).to include(meeting.name)
+      expect(csv_data).to include(comment.comment)
+    end
+
+    it 'does not include meetings for groups the user is only a member of' do
+      group = create(:group)
+      create(:group_member, user_id: user.id, group_id: group.id)
+      create(:meeting, group_id: group.id)
+      csv_data = user.build_csv_data.flatten
+      expect(csv_data).not_to include('meeting_info')
     end
   end
 end

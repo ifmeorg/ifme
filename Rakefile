@@ -37,7 +37,8 @@ task setup_workspace: :environment do
 
     # insert the secrets into the file
     content = File.read(target)
-    %w[SECRET_KEY_BASE DEVISE_SECRET_KEY].each do |key|
+    secret_keys = %w[SECRET_KEY_BASE DEVISE_SECRET_KEY]
+    secret_keys.each do |key|
       content.sub!(%(#{key}=""), %(#{key}="#{SECRETS[key.to_sym]}"))
     end
     File.write(target, content)

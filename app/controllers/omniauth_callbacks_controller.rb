@@ -33,7 +33,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def update_needed?(omniauth_avatar)
-    return if omniauth_avatar.nil?
+    return false if omniauth_avatar.nil?
 
     user.third_party_avatar != omniauth_avatar
   end

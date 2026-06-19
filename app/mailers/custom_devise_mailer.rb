@@ -1,4 +1,4 @@
-﻿# frozen_string_literal: true
+# frozen_string_literal: true
 class CustomDeviseMailer < Devise::Mailer
   before_action :load_logo_inline
 
@@ -21,4 +21,3 @@ class CustomDeviseMailer < Devise::Mailer
     end
   end
 end
-

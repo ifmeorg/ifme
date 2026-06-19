@@ -1104,6 +1104,19 @@ id:
       edit_contact: Sunting Kontrak
       phone_number: Nomor Telepon
       contacts_info: Orang-orang terkasih yang harus Anda ajak bicara
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: Sudah ada permintaan dalam antrian untuk pengguna ini.
+        duplicate_request_id: Sudah ada permintaan dengan ID permintaan ini.
+    data_download:
+      label: Unduh Data Anda
+      description: Unduh file CSV berisi data akun Anda dari if-me.org
+      request: Unduh data pengguna saya
+      processing: Data Anda sedang disiapkan. Ini mungkin memakan beberapa menit...
+      download: Unduh Data (CSV)
+      request_new: Minta Unduhan Baru
+      error: Terjadi kesalahan saat menyiapkan data Anda. Silakan coba lagi.
   moment_templates:
     index:
       title: Template Momen

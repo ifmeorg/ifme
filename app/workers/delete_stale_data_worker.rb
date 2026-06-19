@@ -8,7 +8,7 @@ class DeleteStaleDataWorker
     Users::DataRequest
       .where('updated_at < ?', (Time.current - ACTIVE_DURATION))
       .where(status_id: Users::DataRequest::STATUS[:success])
-      .each do |dr|
+      .find_each do |dr|
       File.delete(dr.file_path) if dr.file_path.present? && File.exist?(dr.file_path)
       dr.update(status_id: Users::DataRequest::STATUS[:deleted])
     end

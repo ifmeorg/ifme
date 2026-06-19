@@ -10,7 +10,7 @@ module MomentsFormHelper
   end
 
   def edit_moment_props
-    edit_form_props(moment_form_inputs(true), moment_path(@moment))
+    edit_form_props(moment_form_inputs(edit: true), moment_path(@moment))
   end
 
   private
@@ -18,7 +18,7 @@ module MomentsFormHelper
   def base_input_props(field, type, label, group: false)
     FormInput.new(
       id: "moment_#{field}",
-      type: type,
+      type:,
       name: "moment[#{field}]#{group ? '[]' : ''}",
       label: t(label)
     )
@@ -27,7 +27,7 @@ module MomentsFormHelper
   def text_input_props(field, type, label, required: false)
     base_input_props(field, type, label)
       .with_value(@moment[field])
-      .with_attributes(required: required, dark: true)
+      .with_attributes(required:, dark: true)
   end
 
   def switch_input_props(field, label, options = {})
@@ -71,7 +71,7 @@ module MomentsFormHelper
   end
 
   def moment_fix
-    return [] unless @moment.fix.present?
+    return [] if @moment.fix.blank?
 
     text_input_props('fix', 'textarea', 'moments.form.fix_legacy')
   end
@@ -90,35 +90,31 @@ module MomentsFormHelper
 
   def moment_comment
     switch_input_props('comment', 'comment.allow_comments',
-      checked: @moment.comment,
-      info: t('comment.hint')
-    )
+                       checked: @moment.comment,
+                       info: t('comment.hint'))
   end
 
   def moment_publishing(edit)
     switch_input_props('publishing', 'moments.form.draft_question',
-      name: 'publishing',
-      value: '0',
-      unchecked_value: '1',
-      checked: edit ? !@moment.published? : @moment.published?
-    )
+                       name: 'publishing',
+                       value: '0',
+                       unchecked_value: '1',
+                       checked: edit ? !@moment.published? : @moment.published?)
   end
 
   def moment_bookmarked
     checked = params[:bookmarked] ? true : @moment.bookmarked
     switch_input_props('bookmarked', 'moments.form.bookmarked_question',
-      checked: checked,
-      info: t('moments.form.bookmarked_info')
-    )
+                       checked:,
+                       info: t('moments.form.bookmarked_info'))
   end
 
   def moment_display_resources
     switch_input_props('resource_recommendations', 'moments.form.resource_recommendations_question',
-      checked: @moment.resource_recommendations
-    )
+                       checked: @moment.resource_recommendations)
   end
 
-  def moment_form_inputs(edit = false)
+  def moment_form_inputs(edit: false)
     inputs = [
       moment_name,
       moment_why,
@@ -158,6 +154,8 @@ module MomentsFormHelper
   end
 
   def options_for_templates(data)
-    data.map { |item| { id: item.slug, label: item.name, value: item.description, selected: item.id.to_s == params[:templateId].to_s } }
+    data.map do |item|
+      { id: item.slug, label: item.name, value: item.description, selected: item.id.to_s == params[:templateId].to_s }
+    end
   end
 end

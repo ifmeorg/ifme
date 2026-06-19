@@ -1,9 +1,9 @@
 // @flow
-/* eslint-disable max-len */
+
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import type { Node } from 'react';
-import { fetchWrapper } from "utils/fetchWrapper";
+import { fetchWrapper } from 'utils/fetchWrapper';
 import Input from 'components/Input';
 import { TYPES as INPUT_TYPES } from 'components/Input/utils';
 import css from './Form.scss';

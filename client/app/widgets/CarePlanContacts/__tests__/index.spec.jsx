@@ -71,7 +71,9 @@ describe('CarePlanContacts', () => {
 
     it('opens a modal and does not submit the form successfully', async () => {
       const error = new Error('Error');
-      const fetchWrapperPostSpy = jest.spyOn(fetchWrapper, 'patch').mockRejectedValue(error);
+      const fetchWrapperPostSpy = jest
+        .spyOn(fetchWrapper, 'patch')
+        .mockRejectedValue(error);
       const { container } = render(component);
 
       const editLink = container.querySelector(
@@ -124,7 +126,9 @@ describe('CarePlanContacts', () => {
       const newName = 'Test3 Lastname';
       const newPhoneNumber = '4160000000';
       const error = new Error('Error');
-      const fetchWrapperPostSpy = jest.spyOn(fetchWrapper, 'post').mockRejectedValue(error);
+      const fetchWrapperPostSpy = jest
+        .spyOn(fetchWrapper, 'post')
+        .mockRejectedValue(error);
       render(<CarePlanContacts />);
 
       await userEvent.click(screen.getByText('New Contact'));

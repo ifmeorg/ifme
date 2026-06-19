@@ -1,5 +1,5 @@
 // @flow
-import { fetchWrapper } from "utils/fetchWrapper";
+import { fetchWrapper } from 'utils/fetchWrapper';
 import { sanitize } from 'dompurify';
 import React from 'react';
 import parse from 'html-react-parser';

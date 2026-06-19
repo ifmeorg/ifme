@@ -21,7 +21,9 @@ describe('Notifications', () => {
       .spyOn(fetchWrapper, 'delete')
       .mockReturnValue(Promise.resolve({ data: { ok: true } }));
     render(<Notifications element={button} />);
-    await waitFor(() => expect(fetchWrapperGetSpy).toHaveBeenCalledWith('/notifications/signed_in'));
+    await waitFor(() => expect(fetchWrapperGetSpy).toHaveBeenCalledWith(
+      '/notifications/signed_in',
+    ));
     await waitFor(() => expect(fetchWrapperGetSpy).toHaveBeenCalledWith(
       '/notifications/fetch_notifications',
     ));

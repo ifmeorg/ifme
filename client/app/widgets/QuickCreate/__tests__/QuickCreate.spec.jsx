@@ -181,9 +181,12 @@ describe('QuickCreate', () => {
       await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
       // when the dialog has been removed there was a successful submission
       await waitForElementToBeRemoved(() => screen.getByRole('dialog'));
-      expect(fetchWrapperPostSpy).toBeCalledWith('https://if-me.org/quick-create', {
-        category: { name: 'new checkbox' },
-      });
+      expect(fetchWrapperPostSpy).toBeCalledWith(
+        'https://if-me.org/quick-create',
+        {
+          category: { name: 'new checkbox' },
+        },
+      );
       // accordion is still open
       expect(screen.getByRole('button')).toHaveAttribute(
         'aria-expanded',
