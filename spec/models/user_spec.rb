@@ -292,7 +292,7 @@ describe User do
                         commentable_type: 'Moment',
                         commentable_id: moment.id,
                         comment_by: user.id)
-      csv_data = user.build_csv_data.flatten
+      csv_data = user.build_csv_data.to_a.flatten
       expect(csv_data).to include('comment_info')
       expect(csv_data).to include(comment.comment)
     end
@@ -303,7 +303,7 @@ describe User do
                         commentable_type: 'Strategy',
                         commentable_id: strategy.id,
                         comment_by: user.id)
-      csv_data = user.build_csv_data.flatten
+      csv_data = user.build_csv_data.to_a.flatten
       expect(csv_data).to include('comment_info')
       expect(csv_data).to include(comment.comment)
     end
@@ -316,7 +316,7 @@ describe User do
                         commentable_type: 'Meeting',
                         commentable_id: meeting.id,
                         comment_by: user.id)
-      csv_data = user.build_csv_data.flatten
+      csv_data = user.build_csv_data.to_a.flatten
       expect(csv_data).to include('meeting_info')
       expect(csv_data).to include(meeting.name)
       expect(csv_data).to include(comment.comment)
@@ -326,7 +326,7 @@ describe User do
       group = create(:group)
       create(:group_member, user_id: user.id, group_id: group.id)
       create(:meeting, group_id: group.id)
-      csv_data = user.build_csv_data.flatten
+      csv_data = user.build_csv_data.to_a.flatten
       expect(csv_data).not_to include('meeting_info')
     end
   end

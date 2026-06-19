@@ -182,23 +182,24 @@ class User < ApplicationRecord
   end
 
   def build_csv_data
-    user_data = [['user_info']]
-    user_data << USER_DATA_ATTRIBUTES
-    user_data << USER_DATA_ATTRIBUTES.map { |attribute| send(attribute.to_sym) }
-    user_data += Group.build_csv_rows(groups)
-    user_data += GroupMember.build_csv_rows(group_members)
-    user_data += Category.build_csv_rows(categories)
-    user_data += Medication.build_csv_rows(medications)
-    user_data += Strategy.build_csv_rows(strategies)
-    user_data += Moment.build_csv_rows(moments)
-    user_data += Notification.build_csv_rows(notifications)
-    user_data += Mood.build_csv_rows(moods)
-    user_data += CarePlanContact.build_csv_rows(care_plan_contacts)
-    user_data += Allyship.build_csv_rows(allyships)
-    user_data += MeetingMember.build_csv_rows(meeting_members)
-    user_data += build_comment_csv_data
-    user_data += build_led_group_meeting_csv_data
-    user_data
+    return to_enum(:build_csv_data) unless block_given?
+
+    yield ['user_info']
+    yield USER_DATA_ATTRIBUTES
+    yield USER_DATA_ATTRIBUTES.map { |attribute| send(attribute.to_sym) }
+    Group.build_csv_rows(groups).each { |row| yield row }
+    GroupMember.build_csv_rows(group_members).each { |row| yield row }
+    Category.build_csv_rows(categories).each { |row| yield row }
+    Medication.build_csv_rows(medications).each { |row| yield row }
+    Strategy.build_csv_rows(strategies).each { |row| yield row }
+    Moment.build_csv_rows(moments).each { |row| yield row }
+    Notification.build_csv_rows(notifications).each { |row| yield row }
+    Mood.build_csv_rows(moods).each { |row| yield row }
+    CarePlanContact.build_csv_rows(care_plan_contacts).each { |row| yield row }
+    Allyship.build_csv_rows(allyships).each { |row| yield row }
+    MeetingMember.build_csv_rows(meeting_members).each { |row| yield row }
+    build_comment_csv_data.each { |row| yield row }
+    build_led_group_meeting_csv_data.each { |row| yield row }
   end
 
   def generate_data_request
