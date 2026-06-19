@@ -33,7 +33,7 @@
     "chart.js": "^2.9.4",
     "chartkick": "^3.1.1",
     "core-js": "3",
-    "dompurify": "^3.4.0",
+    "dompurify": "^3.4.11",
     "dot-prop": "^5.1.1",
     "font-awesome": "^4.7.0",
     "history": "^4.9.0",
