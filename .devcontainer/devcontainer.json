@@ -1,0 +1,68 @@
+{
+  "name": "ifme (Rails 7 + React on Rails)",
+
+  "dockerComposeFile": [
+    "../docker-compose.yml",
+    "docker-compose.devcontainer.yml"
+  ],
+  "service": "app",
+  "workspaceFolder": "/app",
+  "remoteUser": "root",
+  "shutdownAction": "stopCompose",
+
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Rails (puma)",
+      "onAutoForward": "notify"
+    }
+  },
+
+  "postCreateCommand": "bash -lc 'set -e; for f in development test; do src=config/env/${f}.example.env; dst=config/env/${f}.env; [ -f \"$dst\" ] || cp \"$src\" \"$dst\"; done; bundle check || bundle install; (cd client && yarn install); bundle exec rake db:prepare; if [ -z \"${DEVCONTAINER_SKIP_SEED:-}\" ]; then bundle exec rake db:seed || true; fi'",
+
+  "containerEnv": {
+    "RAILS_DEVELOPMENT_HOSTS": ".app.github.dev"
+  },
+  
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Shopify.ruby-lsp",
+        "aliariff.vscode-erb-beautify",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "eamodio.gitlens",
+        "github.vscode-pull-request-github"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "[ruby]": {
+          "editor.defaultFormatter": "Shopify.ruby-lsp",
+          "editor.formatOnSave": true,
+          "editor.tabSize": 2
+        },
+        "[javascript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[javascriptreact]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[erb]": {
+          "editor.defaultFormatter": "aliariff.vscode-erb-beautify"
+        },
+        "eslint.workingDirectories": [
+          { "pattern": "." },
+          { "pattern": "client" }
+        ],
+        "prettier.singleQuote": true,
+        "prettier.trailingComma": "all",
+        "rubyLsp.formatter": "rubocop",
+        "files.associations": {
+          "*.erb": "erb",
+          "Procfile*": "shellscript"
+        },
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
+}
