@@ -1,7 +1,6 @@
-@import "~styles/_global.scss";
+@import "~styles/_global";
 
 .heart {
-  @extend .purpleYay;
-
+  @extend %purple-yay-style;
   @include setFontSize($size-20);
 }

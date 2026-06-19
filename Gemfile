@@ -22,7 +22,7 @@ gem 'resque_mailer', '2.4.3'
 
 gem 'jbuilder', '~> 2.9.1'
 gem 'jquery-rails', '4.4.0'
-gem 'sass-rails', '~> 5.0', '>= 5.1.0'
+gem 'dartsass-sprockets'
 gem 'turbolinks', '~> 5.2.0'
 
 gem 'carrierwave', '~> 2.2.7'

@@ -11,7 +11,7 @@
     font-size: $size-18;
 
     a {
-      @include standardTransition();
+      @include standardTransition;
 
       display: block;
       padding: $size-14 $size-26;

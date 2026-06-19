@@ -56,8 +56,8 @@ jobs:
             wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-            nvm install v20.17.0
-            nvm alias default 20.17.0
+            nvm install 22
+            nvm alias default 22
             echo 'export NVM_DIR="$HOME/.nvm"' >> $BASH_ENV
             echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
 
@@ -161,10 +161,15 @@ jobs:
             - v3-dep-main-
             - v3-dep-
       - run:
-          name: Update to Node v20.17.0
+          name: Update to Node v22
           command: |
-            curl -sSL "https://nodejs.org/dist/v20.17.0/node-v20.17.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v20.17.0-linux-x64/bin/node
-            curl https://www.npmjs.com/install.sh | sudo bash
+            wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            nvm install 22
+            nvm alias default 22
+            echo 'export NVM_DIR="$HOME/.nvm"' >> $BASH_ENV
+            echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
       - run: gem install bundler
       - run: bundle config set path 'vendor/bundle'
       - run: bundle install --jobs=4 --retry=3

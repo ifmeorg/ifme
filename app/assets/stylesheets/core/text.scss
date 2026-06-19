@@ -9,16 +9,20 @@
 }
 
 p {
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .moment p {
   margin: 0;
 }
 
-.purpleYay {
+%purple-yay-style {
   @include setFontSize($size-30);
 
   color: $purple-yay;
   text-shadow: $size-0 $size-0 $size-4 $purple-yay;
+}
+
+.purpleYay {
+  @extend %purple-yay-style;
 }

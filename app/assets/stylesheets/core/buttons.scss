@@ -1,5 +1,5 @@
 @mixin button() {
-  @include standardTransition();
+  @include standardTransition;
 
   background: $white;
   border-radius: $size-4;
@@ -67,86 +67,86 @@
 
 .buttonGhost {
   &XS {
-    @include button();
-    @include buttonGhost();
-    @include buttonXS();
-    @include buttonHover();
+    @include button;
+    @include buttonGhost;
+    @include buttonXS;
+    @include buttonHover;
   }
 
   &S {
-    @include button();
-    @include buttonGhost();
-    @include buttonS();
-    @include buttonHover();
+    @include button;
+    @include buttonGhost;
+    @include buttonS;
+    @include buttonHover;
   }
 
   &M {
-    @include button();
-    @include buttonGhost();
-    @include buttonM();
-    @include buttonHover();
+    @include button;
+    @include buttonGhost;
+    @include buttonM;
+    @include buttonHover;
   }
 
   &L {
-    @include button();
-    @include buttonGhost();
-    @include buttonL();
-    @include buttonHover();
+    @include button;
+    @include buttonGhost;
+    @include buttonL;
+    @include buttonHover;
   }
 }
 
 .button {
   &XS {
-    @include button();
-    @include buttonXS();
-    @include buttonHover();
+    @include button;
+    @include buttonXS;
+    @include buttonHover;
   }
 
   &S {
-    @include button();
-    @include buttonS();
-    @include buttonHover();
+    @include button;
+    @include buttonS;
+    @include buttonHover;
   }
 
   &M {
-    @include button();
-    @include buttonM();
-    @include buttonHover();
+    @include button;
+    @include buttonM;
+    @include buttonHover;
   }
 
   &L {
-    @include button();
-    @include buttonL();
-    @include buttonHover();
+    @include button;
+    @include buttonL;
+    @include buttonHover;
   }
 }
 
 .buttonDark {
   &XS {
-    @include button();
-    @include buttonDark();
-    @include buttonXS();
-    @include buttonHover();
+    @include button;
+    @include buttonDark;
+    @include buttonXS;
+    @include buttonHover;
   }
 
   &S {
-    @include button();
-    @include buttonDark();
-    @include buttonS();
-    @include buttonHover();
+    @include button;
+    @include buttonDark;
+    @include buttonS;
+    @include buttonHover;
   }
 
   &M {
-    @include button();
-    @include buttonDark();
-    @include buttonM();
-    @include buttonHover();
+    @include button;
+    @include buttonDark;
+    @include buttonM;
+    @include buttonHover;
   }
 
   &L {
-    @include button();
-    @include buttonDark();
-    @include buttonL();
-    @include buttonHover();
+    @include button;
+    @include buttonDark;
+    @include buttonL;
+    @include buttonHover;
   }
 }
