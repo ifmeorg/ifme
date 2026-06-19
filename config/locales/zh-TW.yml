@@ -1,0 +1,946 @@
+zh-TW:
+  app_name: if-me.org
+  app_description: 心理健康經驗分享社群
+  email: join.ifme@gmail.com
+  created: '建立於 %{created_at}'
+  draft: 草稿
+  edited: '建立於 %{created_at} (已編輯)'
+  edited_updated_at: '建立於 %{created_at} (編輯於 %{updated_at})'
+  salutation: '%{name}，您好，'
+  click_here: 請按這裡
+  language: 語言
+  yes_text: '是'
+  no_text: '否'
+  expand_menu: 展開選單
+  close: 關閉
+  alert_auto_hide: 此警示將自動隱藏
+  load_more: 載入更多
+  of: /
+  languages:
+    en: English
+    es: Español
+    nl: Nederlands
+    pt-BR: Português
+    sv: Svenska
+    various_languages: Various languages
+    vi: Tiếng Việt
+    it: Italiano
+    nb: Norsk
+    de: Deutsch
+    fr: Français
+    hi: हिंदी
+    zh-CN: 中文
+    zh-TW: 正體中文
+    ko: 한국어
+    id: Bahasa Indonesia
+    ar: اَلْعَرَبِيَّةُ
+    ru: Русские
+    ca: Català
+    bg: Български
+  navigation:
+    skip_to_main_content: 跳至主要內容
+    google: Google
+    main_menu: 主選單
+    user_menu: 使用者選單
+    about: 關於
+    blog: 部落格
+    contribute: 參與貢獻
+    partners: 合作夥伴
+    privacy: 隱私權政策
+    github: GitHub
+    open_collective: Open Collective
+    instagram: Instagram
+    rss: RSS
+    x: X
+    facebook: Facebook
+    feedback: 意見回饋
+    give_feedback: 提供意見回饋
+    press: 媒體報導
+    faq: 常見問題
+    resources: 資源
+    code_of_conduct: 行為準則
+    digital_public_goods_alliance: Digital Public Goods Alliance
+  common:
+    name: 名稱
+    you: 您
+    title: 標題
+    date: 日期
+    daily_reminder: 每日提醒電子郵件
+    actions:
+      plural: 動作
+      submit: 送出
+      submit_publish: 發布
+      submit_draft: 草稿
+      confirm: 確定要執行嗎？
+      delete: 刪除
+      edit: 編輯
+      edit_instance: '編輯 %{instance}'
+      join: 加入
+      leave: 離開
+      add: 新增
+      add_all: 全部新增
+      select_all: 全選
+      remove: 移除
+      report: 檢舉
+    form:
+      email: 電子郵件
+      location: 地點
+      description: 描述
+      error_explanation: 請填寫標記的欄位！
+      empty_error: 此欄位不可為空！
+      min_error: '此欄位必須等於或大於 %{min}！'
+      max_error: '此欄位必須等於或小於 %{max}！'
+      min_max_error: >-
+        此欄位必須等於或大於 %{min} 且等於或小於
+        %{max}！
+      search_by_keywords: 依關鍵字搜尋
+      template: 選擇範本
+    time_ago: '%{date}前'
+    write_to_us: 聯絡我們
+    days: 天
+  reports:
+    admin_dashboard: 管理員儀表板
+    reported_users: 被檢舉的使用者
+    banned_users: 被停權的使用者
+    reasons: 原因
+    new: '對 %{name} 的新檢舉'
+    remove_ban: 解除停權
+    ban_user: 停權使用者
+    report_sent: '已送出對 %{name} 的檢舉'
+    report_error: '無法送出對 %{name} 的檢舉'
+    reportee: 被檢舉者
+    reporter: 檢舉者
+    user_banned: '%{name} 已被停權'
+    ban_removed: '已解除 %{name} 的停權'
+    user_banned_error: '無法停權 %{name}'
+    ban_removed_error: '無法解除 %{name} 的停權'
+  comment:
+    singular: 留言
+    plural: 留言
+    posting: 正在發表留言……
+    allow_comments: 允許留言？
+    hint: 只有您和觀看者可以留言
+    control: 控制誰可以觀看和留言
+    report_comment_by: '檢舉 %{name} 的留言'
+    delete_comment_by: '刪除 %{name} 的留言'
+  account:
+    singular: 帳號
+    sign_in: 登入
+    sign_up: 註冊
+    forgot_password: 忘記密碼了嗎？
+  members:
+    one: '%{count} 位成員'
+    other: '%{count} 位成員'
+  allies:
+    add_ally: 加為夥伴
+    cancel_ally_request: 取消邀請
+    accept: 接受
+    reject: 拒絕
+    index:
+      title: 夥伴
+      outgoing: 已送出的邀請
+      incoming: 收到的邀請
+      invited: 以電子郵件邀請
+      invited_on: '邀請日期：%{date}'
+      invitation_expired: 邀請已過期
+      invite: 邀請您的親朋好友！
+      none: >-
+        您目前還沒有任何夥伴！可以搜尋他們或邀請親友加入！
+      view_all_allies: 檢視所有夥伴
+      cancel: 取消
+    form:
+      placeholder: 請輸入一個或多個電子郵件，以逗號分隔
+  categories:
+    singular: 分類
+    plural: 分類
+    edit_category: 編輯分類
+    new: 新分類
+    form:
+      name_hint: 將經常出現的人物、地點、事物、活動等加以分類
+    label:
+      one: '分類：'
+      other: '分類：'
+    index:
+      subtitle: 生活很複雜，將不同的人物、地點和事物加以分類整理。
+      premade1_name: 家庭
+      premade1_description: 家庭相關
+      premade2_name: 朋友
+      premade2_description: 朋友相關
+      premade3_name: 工作
+      premade3_description: 工作相關
+      premade4_name: 冥想
+      premade4_description: 冥想、深呼吸和放鬆活動
+      instructions: >-
+        您尚未建立任何自訂分類。<br />您也可以先新增以下預設分類，之後再自訂。
+  errors:
+    home_page: 回到首頁
+    internal_server_error:
+      header_message: 此頁面無法顯示
+    not_found:
+      header_message: 此頁面不存在
+    empty_params: 不可為空
+  groups:
+    singular: 群組
+    plural: 群組
+    form:
+      leaders: 組長
+      only_leader: 您是唯一的組長，因此無法離開。
+      cannot_delete: 請注意，您無法刪除群組。
+      error_save: '無法儲存此群組，原因為：'
+      error_edit_permission: 您必須是群組組長才能進行編輯
+    index:
+      subtitle: 建立並加入能互相支援、提供指導與討論的群組。
+      available_groups: 可加入的群組
+      joined_groups: 已加入的群組
+      leader: (組長)
+      instructions: 您尚未加入任何群組。
+    join:
+      success: 您已加入此群組。
+      group_not_exists: 無法加入不存在的群組。
+    leave:
+      error: 您無法離開群組，您是唯一的組長。
+      success: '您已離開 %{group}'
+      remove_member_success: '您已將 %{user} 從 %{group} 中移除'
+      remove_member_error: 您不是組長，因此無法移除群組成員。
+    new: 新群組
+    show:
+      led_by: '組長：'
+      delete: 刪除群組
+  layouts:
+    application:
+      signin: 立即分享您的故事
+      create_account: 立即加入社群
+      update_account: 自訂您的帳號
+    mailer:
+      html:
+        app_description: >-
+          %{app_name} 是鼓勵人們與親友分享心理健康故事的社群。
+        no_reply: >-
+          無法回覆此電子郵件。如有任何疑問、顧慮或意見回饋，請寄信至 %{email}！
+    title:
+      reset_password: 重設密碼
+  medications:
+    singular: 藥物
+    edit_medication: 編輯藥物
+    refill_reminder: 補充藥物提醒電子郵件
+    dosage: '每日劑量：'
+    weekly_dosage: '每週劑量：'
+    refill: '補充：'
+    quantity: '總數量：'
+    strength: '藥效強度：'
+    event_summary: '補充 %{name}。'
+    form:
+      strength: 藥效強度
+      strength_unit: 強度單位
+      dosage: 劑量
+      dosage_unit: 劑量單位
+      refill: 補充
+      name_hint: 藥物的學名或品牌名稱
+      comments_hint: 在此新增任何補充說明，例如記錄您的症狀
+      add_to_google_cal: Google 日曆提醒
+      google_cal_hint: 系統會把此藥物提醒新增至您的 Google 日曆。
+      strength_hint: 藥效強度，通常標示在名稱旁邊
+      total_hint: 藥丸總數或藥物總量
+      dosage_hint: 每日服用的藥丸數或份量
+      weekly_dosage_hint: 一週中服用此藥物的天數
+      refill_hint: 何時需要補充此處方
+      refill_reminder_hint: >-
+        系統會在需要補充藥物的前一週寄送電子郵件提醒。
+      daily_reminder_hint: 系統會每天寄送電子郵件提醒您服用此藥物
+      total: 總量
+      total_unit: 總量單位
+    new: 新藥物
+    units:
+      display: '%{count} %{unit}'
+      mg: mg
+      ml: ml
+      tablets:
+        one: 錠
+        other: 錠
+    reminder_mailer:
+      subject: 'if-me.org | 別忘了服用 %{name}！'
+      body: '溫馨提醒：請記得服用 %{name}！'
+    refill_mailer:
+      subject: 'if-me.org | 您的 %{name} 即將需要補充！'
+      body: >-
+        溫馨提醒：請記得於 %{refill} 補充您的藥物
+        %{name}！
+    index:
+      title: 藥物
+      subtitle: 追蹤您的藥物，包括劑量和補充資訊。
+      instructions: >-
+        您尚未儲存任何藥物。<br /><br />以下是儲存藥物的範例！您也可以撰寫您的用藥心得。
+      example_name: Prozac
+      example_strength: 10 mg
+      example_total: 40 錠
+      example_dosage: 2 錠
+      example_refill: 2016/05/31
+    show:
+      comments: '備註：'
+  meetings:
+    singular: 聚會
+    edit_meeting: 編輯聚會
+    form:
+      location_placeholder: 網址或街道地址
+      maximum_members: 人數上限
+      maximum_placeholder: 無上限請填 0
+    join_success: 您已加入此聚會。
+    info:
+      cancel_meeting: 取消聚會
+      meeting_time: 時間
+      members_of_group_html:
+        one: '%{group} 的 %{count} 位成員'
+        other: '%{group} 的 %{count} 位成員'
+    reminder_mailer:
+      subject: 'if-me.org | 您的聚會「%{meeting_name}」明天 %{time} 舉行！'
+      body: |-
+        溫馨提醒：您明天的聚會
+         「%{meeting_name}」將於 %{time} 在
+         %{location} 舉行！
+    leave:
+      error: 您無法離開聚會，您是唯一的組長。
+      success: '您已離開 %{meeting}'
+    new: 新聚會
+    google_cal:
+      create:
+        add: 新增至 Google 日曆
+        success: 聚會已成功新增至 Google 日曆。
+        error: 新增聚會至 Google 日曆時發生問題。
+      destroy:
+        remove: 從 Google 日曆移除
+        success: 聚會已成功從 Google 日曆移除。
+        error: 從 Google 日曆移除聚會時發生問題。
+  moments:
+    singular: 心情記事
+    plural: 心情記事
+    edit_moment: 編輯心情記事
+    tagged_moments: 已標記的心情記事
+    new: 新心情記事
+    secret_share:
+      singular: 私密分享
+      expires_at: 到期時間
+      cancel_secret_share: 取消私密分享
+      link_copied: 私密分享連結已複製到剪貼簿
+      link_info: 已建立私密分享連結
+      info: 任何擁有此連結的人都可以看到此頁面
+      info_public: >-
+        您正透過私密連結檢視此內容。未經作者同意，請勿分享此頁面。
+    form:
+      why: 寫下您的想法
+      why_legacy: 發生了什麼事？您的感受如何？
+      fix_legacy: 您希望擁有什麼樣的想法？
+      what_happened: 發生了什麼事？
+      viewers_hint: 可以觀看您心情記事的夥伴
+      draft_question: 要將心情記事儲存為草稿嗎？
+      bookmarked_question: 將此心情記事加入書籤？
+      bookmarked_info: 您加入書籤的心情記事會顯示在照護計畫中
+      resource_recommendations_question: 顯示資源推薦？
+    index:
+      subtitle: >-
+        深入探索心情記事，梳理影響心理健康的事件和情境。
+      subtitle_link: 建立並整理撰寫心情記事的範本。
+      instructions: >-
+        您尚未撰寫任何心情記事。<br /><br />不知道從何開始嗎？今天有什麼事想和親友分享討論的？不論好壞都可以！不必馬上分享——等您準備好了再說！以下是心情記事的範例。
+      example_name: 明天要面試，好緊張！
+      example_category: 工作
+    show:
+      strategies: 哪些策略可能有幫助？
+      resources: 哪些資源可能有幫助？
+    filters:
+      secret_share: 已啟用私密分享
+      no_viewers: 無觀看者
+      one_viewer: 至少一位觀看者
+      comments_enabled: 已啟用留言
+      draft_enabled: 已啟用草稿
+      published: 已發布
+  moods:
+    singular: 情緒
+    plural: 情緒
+    edit_mood: 編輯情緒
+    new: 新情緒
+    example_moods: 緊張、焦慮、充滿希望
+    index:
+      subtitle: 建立描述您心理狀態、感受和情感的標籤。
+      premade1_name: 接納
+      premade1_description: 接受差異和限制，保持內心平靜
+      premade2_name: 有企圖心
+      premade2_description: 對達成目標感到樂觀
+      premade3_name: 好奇
+      premade3_description: 對不確定的事物感到好奇
+      premade4_name: 憤恨
+      premade4_description: 不接受某些事實，感到憤怒、想報復和/或嫉妒
+      premade5_name: 無望
+      premade5_description: 感到悲傷和絕望——無法找到任何可能的解決方案
+      instructions: >-
+        您尚未建立任何自訂情緒。<br />您也可以先新增以下預設情緒，之後再自訂。
+  notifications:
+    plural: 通知
+    none: 目前沒有通知
+    clear: 清除
+    created_by_html: '<strong>建立者</strong>：%{name}'
+    preview: 檢視更多
+    members:
+      title: 成員清單
+    ally:
+      accepted: '%{name} 接受了您的夥伴邀請！'
+      sent_html: '%{link_to_user} 送出了一個夥伴邀請！'
+    comment:
+      full: '%{name} 在 %{typename} 留言了「%{comment}」'
+      truncated: '%{name} 在 %{typename} 留言了「%{comment}」[...]'
+    group:
+      new_group: '%{name} 建立了群組「%{group_name}」'
+      new_group_member: '%{name} 加入了您的群組「%{group_name}」'
+      add_group_leader: '%{name} 成為「%{group_name}」的組長'
+      remove_group_leader: '%{name} 不再是「%{group_name}」的組長'
+    meeting:
+      new_meeting: '%{name} 為「%{group_name}」建立了新聚會「%{meeting_name}」'
+      remove_meeting: '%{name} 已取消「%{group_name}」的聚會「%{meeting_name}」'
+      update_meeting: '%{name} 已更新「%{group_name}」的聚會「%{meeting_name}」'
+      join_meeting: '%{name} 已加入「%{group_name}」的聚會「%{meeting_name}」'
+    mailer:
+      comment_on_moment_subject: 'if-me.org | %{user} 在您的心情記事「%{moment}」留言了'
+      comment_on_strategy_subject: 'if-me.org | %{user} 在您的策略「%{strategy}」留言了'
+      comment_on_meeting_subject: >-
+        if-me.org | %{user} 在群組「%{group}」的聚會「%{meeting}」留言了
+      comment_on_private_body: '<p>您的夥伴 <strong>%{user}</strong> 私下留言了：</p>'
+      comment_on_body: '<p>您的夥伴 <strong>%{user}</strong> 留言了：</p>'
+      comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
+      comment_text: '<p><i>%{comment}</i></p>'
+      comment_link: '<p>前往閱讀：%{link}！</p>'
+      new_group_subject: 'if-me.org | %{user} 建立了群組「%{group}」'
+      new_group_body: >-
+        <p>%{user} 建立了群組「%{group}」：</p><p><i>%{description}</i></p><p>若要瞭解更多並加入，請按
+        %{link}！</p><p>請遵守我們的%{code_of_conduct_link}！</p>
+      new_group_member_subject: 'if-me.org | %{user} 加入了您的群組「%{group}」'
+      add_group_leader_you_subject: 'if-me.org | 您已成為「%{group}」的組長'
+      add_group_leader_subject: 'if-me.org | %{user} 成為「%{group}」的組長'
+      add_remove_group_leader_body: '<p>前往檢視「%{group}」：%{link}！</p>'
+      remove_group_leader_you_subject: 'if-me.org | 您不再是「%{group}」的組長'
+      remove_group_leader_subject: 'if-me.org | %{user} 不再是「%{group}」的組長'
+      update_meeting_subject: 'if-me.org | %{user} 已更新「%{group}」的聚會「%{meeting}」'
+      new_meeting_subject: >-
+        if-me.org | %{user} 為「%{group}」建立了新聚會「%{meeting}」
+      meeting_body: >-
+        <p>%{subject}</p><p><i>%{description}</i></p>
+        <p><strong>地點：</strong> %{location}</p><p><strong>日期：</strong>
+        %{date}</p><p><strong>時間：</strong> %{time}</p>
+      new_meeting_link: '<p>若要瞭解更多並參加，請按 %{link}！</p>'
+      update_meeting_link: '<p>若要瞭解更多，請按 %{link}！</p>'
+      remove_meeting_subject: 'if-me.org | %{user} 已取消「%{group}」的聚會「%{meeting}」'
+      join_meeting_subject: 'if-me.org | %{user} 已加入「%{group}」的聚會「%{meeting}」'
+      join_meeting_body: '<p>前往檢視「%{meeting}」：%{link}！</p>'
+      reported_user_subject: if-me.org | 您已檢舉一位使用者
+      reported_user_body: '您已檢舉 %{reported_name}。管理員將會進行審核。'
+      reportee_user_subject: if-me.org | 您已被檢舉
+      reportee_user_body: 您已被檢舉。管理員將會進行審核。
+      add_ban_subject: if-me.org | 您已被停權
+      add_ban_body: '您因違反我們的%{code_of_conduct_link}而被停權。'
+      remove_ban_subject: if-me.org | 您已不再被停權
+      remove_ban_body: >-
+        您先前因違反我們的%{code_of_conduct_link}而被停權，現已解除停權。
+  omniauth:
+    access_denied: 存取遭拒
+  pages:
+    about:
+      main_message_one: >-
+        %{app_name} 是促進心理健康的社群，鼓勵人們與信任的夥伴分享個人故事。
+      message_text_one: >-
+        每天互動的朋友、家人、同事、老師和心理健康工作者，都可以是信任的夥伴。
+      main_message_two: >-
+        面對心理健康議題是身為人的一部分。但對許多人來說，要坦然面對並不容易。
+      message_text_two: >-
+        並非每個人都是諮商師或治療師。我們每天互動的對象會影響我們的情緒和行為。讓他們參與心理健康照護，是邁向復原的關鍵。
+      message_text_three: >-
+        <strong>想贊助我們嗎？</strong>2016 年，我們獲得了 Linebreak 的社群補助。2017
+        年，我們獲得了 %{fund_club_link} 的資助。您可以藉由捐款至我們的
+        %{open_collective_link} 來支援我們。
+      fund_club: Fund Club
+    blog:
+      description: >-
+        如果您有興趣為我們撰稿，請來信 %{email}！我們也歡迎匿名投稿。
+    contribute:
+      contributor_avatar_alt: '貢獻者介紹：%{name}'
+      message_text_one: >-
+        我們隨時歡迎各方好手提供想法，包括<strong>心理健康倡議者</strong>、<strong>健康專業人員</strong>、<strong>軟體開發人員</strong>、<strong>翻譯人員</strong>和<strong>使用者體驗設計師</strong>！<p
+        class="noMarginBottom">請來信 %{email_link}，我們會與您聯絡！您將受邀加入我們的
+        %{slack_link} 頁面，這是我們主要的溝通工具。也歡迎 Fork 我們在 %{github_link}
+        上的原始程式碼庫！</p>
+      more_contributors: 更多優秀的貢獻者！
+      thanks: 特別感謝
+      slack: Slack
+    faq:
+      title: 常見問題
+      data_access_question: 誰可以存取我的資料？
+      data_access_answer: >-
+        資料不會提供給任何第三方，也不會讓第三方存取。刪除帳號將會移除您所有的資料。<br
+        /><br />系統會在網站內分析使用者資料，以提供客製化的推薦。<br /><br
+        />建立使用者帳號需要提供姓名和電子郵件地址。若透過 Facebook 或 Google
+        驗證身分，系統會將您的大頭照和姓名用於帳號中。
+      moment_question: 什麼是心情記事？
+      moment_answer: >-
+        <strong>%{moment}</strong>是影響您心理健康的事件和情境，可以是正面或負面的。您可以把它想成日記或動態更新。<br
+        /><br />您可以為心情記事標記策略、分類和情緒。您也可以選擇哪些夥伴能觀看和留言。您也可以將心情記事設為僅自己可見。<br
+        /><br /><strong>%{moment_templates}</strong>讓您建立可重複使用的撰寫提示。
+      strategy_question: 什麼是策略？
+      strategy_answer: >-
+        <strong>%{strategy}</strong>是一種有助於您應對或專注於復原的活動、思維方式或自我照護形式。<br
+        /><br />您可以為策略標記分類。您也可以選擇哪些夥伴能觀看和留言。您也可以將策略設為僅自己可見。分享的策略對所有指定的夥伴都可見，這表示您可以用他們的策略來標記您的心情記事！
+      category_question: 什麼是分類？
+      category_answer: >-
+        <strong>%{category}</strong>是一種標籤，可代表對您重要的人物、地點和事物。
+      mood_question: 什麼是情緒？
+      mood_answer: >-
+        <strong>%{mood}</strong>是描述您心理狀態、感受和情感的標籤。
+      group_question: 什麼是群組？
+      group_answer: >-
+        <strong>%{group}</strong>提供心理健康方面的支援、指導和討論。您可以建立群組，您的夥伴可以選擇加入。您只能加入由您的夥伴所建立的群組。<br
+        /><br />身為群組組長，您可以建立<strong>聚會</strong>。聚會有地點和時間。地點可以是街道地址或視訊會議網址。聚會也允許留言。如果您是群組組長，除非另有其他組長，否則無法離開群組。群組只有在您是唯一成員時才能刪除。
+      medications_question: 如何使用藥物功能？
+      medications_answer: >-
+        <strong>%{medications}</strong>功能讓您記錄正在服用的處方藥物，您也可以記錄您的症狀。
+      care_plan_question: 如何使用照護計畫功能？
+      care_plan_answer: >-
+        <strong>%{care_plan}</strong>功能讓您保留一份在困難時期應該聯絡的親友名單，並將您最喜歡的自我照護策略加入書籤。
+      invite_question: 如何邀請親友加入此應用程式？
+      invite_answer: >-
+        前往<strong>%{allies}</strong>頁面，按一下「邀請您的親朋好友」連結。您可以用電子郵件邀請他們。當親友接受邀請後，系統會將他們加入您的夥伴清單。
+      email_notifications_question: 如何修改電子郵件通知？
+      email_notifications_answer: >-
+        前往<strong>%{accounts}</strong>頁面。您可以在此修改電子郵件、密碼、大頭照和個人簡介。您也可以刪除帳號。一旦刪除帳號，所有資料都會被移除。
+    home:
+      update_pwd_modal:
+        title: 更新密碼
+        body: >-
+          為了提升安全性，請%{update_password_link}
+        update_link: 更新您的密碼。
+      stories: 故事
+      not_signed_in:
+        main_message_one: 和親友好好溝通，有助於改善心理健康。
+        message_text_one: 我們需要彼此的支援來打破汙名化。
+        message_one: 與親友分享您的故事，獲得您應得的支援
+        message_two: 做真實的自己，不受拘束，同時享有安全和隱私保障
+        message_three: 記錄您的情緒、藥物和自我照護
+        main_message_two: 我們是開放原始碼的，因為心理健康應該是開放的。
+        message_text_two: >-
+          我們<strong>隨時</strong>需要您的%{help}和%{feedback}！
+        help: 協助
+      signed_in_empty:
+        main_message_one: '%{name}，您好！'
+        message_text_one: 以下是如何開始分享您的故事。
+        main_message_two: 向我們介紹您自己。
+        cell_one: >-
+          自訂您的%{profile}——新增個人簡介和大頭照<br />新增自訂%{moods}以描述您的情緒<br
+          />新增%{allies}——您想與之分享的朋友、家人和其他人
+        main_message_three: 寫下您的故事。
+        cell_two: >-
+          建立自訂%{categories}來整理您的心情記事<br />撰寫%{moments}——影響您心理健康的事件和情境
+        main_message_four: 好好照顧自己。
+        cell_three: >-
+          %{strategize}您的自我照護計畫！<br />目前有在服用%{medications}嗎？追蹤並建立提醒！<br
+          />需要更多支援？加入或建立%{group}
+        main_message_five: 有任何疑問或顧慮嗎？
+        message_text_three: '請參閱我們的%{faq}頁面或%{email_link}！'
+        strategize: 制定策略
+    partners:
+      description: >-
+        以下是啟發我們且有幸合作的優秀組織。我們很樂意與您的組織合作，請來信
+        %{email}。
+    privacy:
+      summary: 摘要
+      summary_description: >-
+        <p>本隱私權政策適用於本網站，並管轄選擇使用本網站的使用者之隱私。</p><p>鑑於網站內容的敏感性，隱私對我們而言是極為重要的議題。本政策旨在說明使用者資料的蒐集方式、用途及保護方式。</p>
+      user_data: 使用者資料
+      user_data_description: >-
+        <p>如需更多本網站功能資訊，請參閱 %{faq_link} 頁面。</p>
+      data_protection_rights: 資料保護權利
+      data_protection_rights_answer: >-
+        <p>每位使用者都享有以下權利：</p><p>存取權——使用者有權要求我們提供其個人資料的副本。我們可能會為此服務收取少許費用。</p><p>更正權——使用者有權要求我們更正他們認為不正確的任何資訊。使用者也有權要求我們補充他們認為不完整的資訊。</p><p>刪除權——在特定條件下，使用者有權要求我們刪除其個人資料。</p><p>限制處理權——在特定條件下，使用者有權要求我們限制對其個人資料的處理。</p><p>反對處理權——在特定條件下，使用者有權反對我們處理其個人資料。</p><p>資料可攜權——在特定條件下，使用者有權要求我們將所蒐集的資料轉移給其他組織，或直接轉移給使用者本人。</p><p>收到請求後，我們會在一個月內回覆。</p>
+      cookies: Cookie 的使用
+      cookies_description: >-
+        <p>本網站使用 Cookie 來改善使用者瀏覽網站時的體驗。功能性 Cookie
+        用於驗證身分及記住先前選擇的偏好設定，例如您偏好的語言和所在位置。在適用的情況下，本網站使用
+        Cookie 控制系統，讓使用者在首次造訪網站時可以允許或拒絕在其電腦/裝置上使用
+        Cookie。</p><p>Cookie
+        是儲存在使用者電腦硬碟上的小型檔案，用於追蹤、儲存使用者與網站互動和使用情況的資訊。這讓網站能藉由伺服器為使用者提供量身規劃的體驗。</p><p>若使用者希望拒絕本網站在其電腦硬碟上使用和儲存
+        Cookie，請在網頁瀏覽器的安全性設定中採取必要步驟，封鎖來自本網站及其外部服務供應商的所有
+        Cookie。</p>
+      social_media: 社群媒體平台
+      social_media_description: >-
+        <p>在本網站參與的外部社群媒體平台上溝通、互動和採取行動時，分別依各社群媒體平台的條款和隱私權政策而定。</p>
+      changes: 變更
+      changes_description: >-
+        <p>我們會定期檢視隱私權政策，並在此網頁發布更新。我們確保遵守加拿大的《個人資訊保護暨電子文件法》 (PIPEDA)
+        和歐盟的《一般資料保護規則》 (GDPR EU)。</p><p>本隱私權政策最後更新於 2024 年 2 月 11 日。</p>
+      contact: 聯絡我們
+      contact_description: >-
+        <p class="noMarginBottom">如有任何疑問或顧慮，請%{email_link}。</p>
+    resources:
+      description: >-
+        這是我們精選的心理健康資源清單，包括社群、教育工具、專線和服務。
+      emergency: >-
+        如果您或您認識的人正經歷心理健康緊急狀況，請盡快尋求協助。
+      popular_tags: 熱門標籤
+      crisis_prevention:
+        title: 您好嗎？
+        description: 不論如何，您都是被愛的
+        die: 死
+        dead: 死了
+        died: 過世
+        dying: 瀕死
+        death: 死亡
+        passed_away: 過世
+        kill_myself: 自殺
+        hurt_myself: 傷害自己
+        suicide: 自殺
+        suicidal: 有自殺傾向
+      tags:
+        ai: AI
+        communities: 社群
+        education: 教育
+        hotlines: 專線
+        services: 服務
+        people_of_colour: 有色人種
+        women_of_colour: 有色人種女性
+        black_women: 黑人女性
+        domestic_violence: 家庭暴力
+        dating_violence: 約會暴力
+        cyberbullying: 網路霸凌
+        therapy: 心理治療
+        counseling: 諮商
+        youth: 青少年
+        lgbt: LGBT
+        harassment: 騷擾
+        self_care: 自我照護
+        women: 女性
+        chatbot: 聊天機器人
+        anonymous: 匿名
+        free: 免費
+        paid: 付費
+        twenty_four_seven: 全天候
+        videos: 影片
+        blog: 部落格
+        podcast: Podcast
+        books: 書籍
+        publication: 出版品
+        video_chat: 視訊通話
+        texting: 簡訊
+        open_source: 開放原始碼
+        workplace: 職場
+        social_justice: 社會正義
+        tech_industry: 科技業
+        meditation: 冥想
+        anxiety: 焦慮
+        social_anxiety: 社交焦慮
+        trigger_warnings: 觸發警告
+        netflix: Netflix
+        homeless: 無家者
+        talks: 演講
+        voice_chat: 語音通話
+        training: 訓練
+        directory: 名錄
+        self_injury: 自我傷害
+        treatment: 治療
+        care_planning: 照護計畫
+        depression: 憂鬱症
+        ocd: 強迫症
+        advice: 建議
+        forum: 論壇
+        crisis_prevention: 危機預防
+        safety_planning: 安全計畫
+        suicide_prevention: 自殺防治
+        android: Android
+        ios: iOS
+        support_groups: 互助團體
+        mindfulness: 正念
+        journaling: 日誌書寫
+        mood_tracking: 情緒追蹤
+        veterans: 退伍軍人
+        music: 音樂
+        integrative: 整合式
+        ptsd: PTSD
+        tbi: 腦部創傷
+        news: 新聞
+        government: 政府
+        christian: 基督教
+        humor: 幽默
+        conference: 研討會
+        addiction: 成癮
+        rehabilitation: 復健
+        teachers: 教師
+        bipolar: 躁鬱症
+        goal_tracking: 目標追蹤
+        social_network: 社群網路
+        add: ADD
+        adhd: ADHD
+        sexual_assault_survivors: 性侵害倖存者
+        political_movement: 政治運動
+        reporting: 通報
+        game: 遊戲
+        stress: 壓力
+        fidget: 坐立不安
+        colouring: 著色
+        deaf: 聽障
+        asl: 手語
+        latinx: 拉丁裔
+        hispanic: 西班牙裔
+        senior_citizens: 長者
+        black_people: 黑人
+        sexual_health: 性健康
+        hackathon: 黑客松
+        stories: 故事
+        teen: 青少年
+        coaching: 教練
+        physical_dependence: 生理依賴
+        codependency: 共依存
+        relationships: 人際關係
+        alcoholism: 酗酒
+        cbt: 認知行為治療
+        chrome: Chrome
+        firefox: Firefox
+        social_media_break: 社群媒體斷捨離
+        quiz: 測驗
+        attachment: 依附關係
+        eating_disorders: 飲食疾患
+        asian: 亞裔
+        pacific_islander: 太平洋島民
+        south_asian: 南亞裔
+        southeast_asian: 東南亞裔
+        east_asian: 東亞裔
+        al_anon: Al-Anon
+        burnout: 身心倦怠
+        breakup: 分手
+        indigenous: 原住民
+        therapists: 治療師
+        recovery: 復原
+        advocacy: 倡議
+        trauma: 創傷
+        newsletter: 電子報
+        phobias: 恐懼症
+        grief: 悲傷
+        bereavement: 喪親之痛
+      locations:
+        uk: 英國
+        us: 美國
+        intl: 國際
+        se: 瑞典
+        ca: 加拿大
+        ie: 愛爾蘭
+        nz: 紐西蘭
+  profile:
+    index:
+      title: 個人檔案
+      edit_user: 自訂個人檔案
+  pusher:
+    not_authorized: 未授權
+  search:
+    label: 搜尋
+    search_by_name: 依名稱搜尋
+    search_by_tags: 依標籤搜尋
+    filter_by: 篩選條件
+    form:
+      search_by_location: 依地點搜尋
+      search_by_email: 依電子郵件搜尋
+    index:
+      title: 搜尋夥伴
+      user_not_found: '找不到使用者 %{email}'
+  shared:
+    footer:
+      licence: AGPL-3.0
+      licence_subtitle: '以 %{licence} 授權'
+      connect: 聯絡
+    comments:
+      share_everyone: 與所有人分享
+      share_with: '僅與 %{name} 分享'
+      visible_only_between_you_and: '僅您和 %{name} 之間可見'
+      not_allies: (非夥伴)
+    header:
+      signout: 登出
+      home: 首頁
+    viewers_indicator:
+      disabled_comments: 留言功能已停用。
+      you_are_viewer_html:
+        one: 您是唯一的觀看者。
+        other: 您<strong>不是</strong>唯一的觀看者。
+      viewers_html:
+        zero: <strong>沒有</strong>觀看者。
+        one: '%{names} 是觀看者。'
+        other: '%{names} 是觀看者。'
+    stats:
+      you_are_focusing: 您最關注的是
+      user_is_focusing: '%{name} 最關注的是'
+      visible_in_stats: 在統計中可見
+      not_visible_in_stats: 不可用於標記，也不會顯示在個人檔案統計中
+      make_visible_in_stats: 要讓此項目可供標記並顯示在個人檔案統計中嗎？
+    viewers:
+      plural: 觀看者
+      you: 僅限自己
+      you_link: 僅自己可見
+      many: '對 %{viewers} 可見'
+    meeting_info:
+      attending: 您正在參加。想改變主意嗎？
+      not_attending: '您尚未參加。%{join}'
+      not_attending_one_spot_left: '您尚未參加。只剩一個名額了！%{join}'
+      not_attending_spots_left: '您尚未參加。還有 %{number} 個名額！%{join}'
+      not_attending_no_spots_left: 您尚未參加。已經沒有名額了。
+    quick_create:
+      new: '新%{name}'
+  strategies:
+    singular: 策略
+    plural: 策略
+    edit_strategy: 編輯策略
+    tagged_strategies: 已標記的策略
+    new: 新策略
+    form:
+      describe: 描述此策略。
+      strategies_label: 哪些策略有助於實現這些想法？
+      name_hint: 任何有助於您的活動、思維方式或自我照護形式
+      viewers_hint: 能觀看您的策略，並將它標記到自己心情記事的夥伴
+      daily_reminder_hint: 系統會每天寄送電子郵件提醒您執行此策略
+      draft_question: 要將策略儲存為草稿嗎？
+      bookmarked_question: 將此策略加入書籤？
+      bookmarked_info: 您加入書籤的策略會顯示在照護計畫中
+    label:
+      one: '策略：'
+      other: '策略：'
+    index:
+      subtitle: >-
+        制定自我照護策略，朝著您對心情記事的理想態度和想法邁進。
+      premade1_name: 五分鐘冥想
+      premade1_description: >-
+        1) <b>找到一個放鬆、舒適的姿勢。</b>您可以坐在椅子上，或坐在地板的坐墊上。保持背部挺直，但不要太緊繃。雙手放在舒適的位置。舌頭抵住上顎，或放在舒適的位置。<br
+        /><br />2) <b>注意並放鬆您的身體。</b>試著注意身體的形狀和重量。讓自己放鬆，對坐在這裡的身體感到好奇——它所經歷的感覺、觸感、與地板或椅子的接觸。放鬆任何緊繃的部位，只管呼吸。<br
+        /><br />3) <b>將注意力放在呼吸上。</b>感受自然的呼吸流動——吸氣、吐氣。不需要刻意控制呼吸，不長不短，順其自然。注意您在身體哪裡感受到呼吸，可能在腹部、胸腔、喉嚨或鼻孔。試著一次感受一個呼吸，一個呼吸結束，下一個呼吸開始。<br
+        /><br />4)
+        <b>善待游移的心。</b>在這過程中，您可能會發現思緒開始飄移，開始想其他事情。如果發生了，這完全沒問題，非常自然。只要注意到思緒已經飄走就好。您可以在心裡輕聲說「正在想」或「飄走了」，然後溫柔地將注意力帶回呼吸上。<br
+        /><br />5) <b>在此停留五到七分鐘。</b>在安靜中注意您的呼吸。偶爾思緒會飄走，然後再回到呼吸上。<br
+        /><br />6)
+        <b>結束前做個回顧。</b>幾分鐘後，再次注意您的身體，整個身體，坐在這裡。讓自己更加深層地放鬆，然後感謝自己今天做了這個練習。<br
+        /><br /><i>取自
+        http://www.mindful.org/a-five-minute-breathing-meditation/ </i>
+      instructions: >-
+        您尚未建立任何自訂策略。<br />您也可以先新增以下預設策略，之後再自訂。
+    reminder_mailer:
+      subject: 'if-me.org | 別忘了執行 %{name}！'
+      body: '溫馨提醒：請記得執行 %{name}！'
+  stats:
+    total_moments: >-
+      您已撰寫<strong>共</strong> <strong>%{count}</strong> 篇心情記事。
+    total_moment: >-
+      您已撰寫<strong>共</strong> <strong>%{count}</strong> 篇心情記事。
+    monthly_moments: '本<strong>月</strong>您撰寫了 <strong>%{count}</strong> 篇心情記事。'
+    monthly_moment: '本<strong>月</strong>您撰寫了 <strong>%{count}</strong> 篇心情記事。'
+  warnings:
+    no_description: 您沒有撰寫描述！
+    yes_description: 撰寫描述有助於您和他人更深入了解細節
+  mailers:
+    accepted_ally_request:
+      subject: 'if-me.org | %{ally_name} 接受了您的夥伴邀請！'
+      message: >-
+        <p>恭喜！您現在可以與 %{ally_name} 分享心情記事、策略等。</p>
+    new_ally_request:
+      subject: 'if-me.org | %{ally_name} 送出了一個夥伴邀請！'
+      message: >-
+        <p>請<a href="%{allies_url}">登入</a>以接受或拒絕此邀請！</p>
+  devise:
+    password: 密碼
+    new_password: 新密碼
+    current_password: 目前的密碼
+    password_change: 變更我的密碼
+    remember_me: 記住我
+    show_password: 顯示密碼
+    hide_password: 隱藏密碼
+    confirmations:
+      resend_confirmation: 重新寄送確認信
+    mailer:
+      confirmation:
+        link_instructions: 您可以透過以下連結確認您的帳號電子郵件
+        link_text: 確認我的帳號
+      reset_password:
+        link_instructions: >-
+          有人要求了變更密碼的連結。您可以透過以下連結進行變更。
+        ignore: 如果您並未提出此要求，請忽略此電子郵件。
+        info: >-
+          在您透過上方連結建立新密碼之前，密碼不會變更。
+      unlock:
+        info: >-
+          由於登入失敗次數過多，您的帳號已被鎖定。
+        link_instructions: 請按以下連結解鎖您的帳號
+        link_text: 解鎖我的帳號
+    passwords:
+      edit:
+        confirmation: 確認新密碼
+      new:
+        send_instructions: 寄送重設密碼的說明給我
+    registrations:
+      email_notifications: 電子郵件通知
+      comment_notify_text: 心情記事、策略和聚會的留言
+      ally_notify_text: 新的和已接受的夥伴邀請
+      group_notify_text: 群組更新
+      meeting_notify_text: 聚會更新
+      google_auth1: >-
+        如果您不想再透過 Google 驗證身分，請輸入新的電子郵件和密碼。
+      google_auth2: >-
+        由於您已透過 Google 驗證身分，不需要輸入密碼。<br />如果要變更此方式，請輸入新的電子郵件和密碼。
+      facebook_auth1: >-
+        如果您不想再透過 Facebook 驗證身分，請輸入新的電子郵件和密碼。
+      facebook_auth2: >-
+        由於您已透過 Facebook 驗證身分，不需要輸入密碼。<br />如果要變更此方式，請輸入新的電子郵件和密碼。
+      password_errors:
+        format: 密碼長度應為 8 到 128 個字元。
+      placeholders:
+        repeat_password: 再次輸入密碼
+      edit:
+        labels:
+          profile_picture: 大頭照
+          remove_picture: 移除圖片
+          about: 關於
+          password_for: <strong>if-me.org</strong> 帳號的密碼
+          update: 更新
+        placeholders:
+          optional: 選填
+          about: >-
+            自我介紹一下！您為什麼在這裡？希望達成什麼目標？請注意，其他使用者搜尋您時會看到此內容
+          required: 必填
+        delete:
+          text: <strong>if-me.org</strong> 不適合您嗎？
+          button: 永久刪除我的帳號
+          confirm: >-
+            確定嗎？您將失去所有資料。但您隨時可以重新註冊！
+      new:
+        subtitle: >-
+          在安全、私密的空間中分享您的故事，維護您的身心健康
+        label: 一些基本資料
+    sessions:
+      subtitle: 歡迎回來，我們期待協助您度過美好的一天
+    shared:
+      sign_in_google: 使用 Google 登入
+      sign_up_google: 使用 Google 註冊
+      sign_in_facebook: 使用 Facebook 登入
+      sign_up_facebook: 使用 Facebook 註冊
+      confirmation: 沒有收到確認信嗎？
+      unlock: 沒有收到解鎖信嗎？
+    unlock:
+      resend: 重新寄送解鎖說明
+  care_plan:
+    index:
+      title: 照護計畫
+      subtitle: 擬定一份度過困難時期的計畫
+      contacts: 聯絡人
+      new_contact: 新聯絡人
+      edit_contact: 編輯聯絡人
+      phone_number: 電話號碼
+      contacts_info: 在困難時期應該聯絡的親友
+  moment_templates:
+    index:
+      title: 心情記事範本
+      subtitle: 撰寫心情記事的範本
+      new_template: 新範本
+      edit_template: 編輯範本
+      instructions: >-
+        您尚未建立任何範本。<br />您也可以先新增以下預設範本，之後再自訂。
+      premade1_name: 基本
+      premade1_description: >-
+        發生了什麼事？您的感受如何？<br />您希望擁有什麼樣的想法？
+      premade2_name: 感恩
+      premade2_description: >-
+        您最欣賞自己的一件事是什麼？<br />今天有什麼值得期待的事？
