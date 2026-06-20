@@ -1,16 +1,10 @@
 # frozen_string_literal: true
-require 'sidekiq/web'
-require 'sidekiq/cron/web'
 Rails.application.routes.draw do
   get 'errors/not_found'
   get 'errors/internal_server_error'
 
   get '/404' => 'errors#not_found'
   get '/500' => 'errors#internal_server_error'
-
-  authenticate :user, lambda { |u| u.admin? } do
-    mount Sidekiq::Web => '/sidekiq'
-  end
 
   resources :allies, only: :index do
     collection do

@@ -4,6 +4,7 @@
 # Table name: users_data_requests
 #
 #  id         :bigint           not null, primary key
+#  file_data  :binary
 #  request_id :string           not null
 #  status_id  :integer          not null
 #  user_id    :bigint           not null
@@ -20,11 +21,7 @@ module Users
       deleted: 4
     }.freeze
 
-    DEFAULT_FILE_PATH = Rails.root.join('tmp/csv_data')
-
     belongs_to :user, class_name: '::User'
-
-    after_commit :after_commit_tasks
 
     validates :user_id, uniqueness: {
                           scope: :status_id,
@@ -44,18 +41,6 @@ module Users
 
     validates :request_id, presence: true
 
-    def after_commit_tasks
-      return unless saved_change_to_id? && status_id == STATUS[:enqueued]
-
-      FileUtils.mkdir_p(DEFAULT_FILE_PATH)
-
-      enqueue_download_request
-    end
-
-    def enqueue_download_request
-      ProcessDataRequestWorker.perform_async(request_id)
-    end
-
     def create_csv
       user = User.find(user_id)
       begin
@@ -66,23 +51,21 @@ module Users
         save!
         user.delete_stale_data_file
       rescue StandardError
-        File.delete(file_path) if file_path.present? && File.exist?(file_path)
+        self.file_data = nil
         self.status_id = STATUS[:failed]
         save!
       end
     end
 
-    def file_path
-      DEFAULT_FILE_PATH.join("#{request_id}.csv.gz").to_s
-    end
-
     private
 
     def write_to_csv(user)
-      Zlib::GzipWriter.open(file_path) do |gz|
+      buffer = StringIO.new
+      Zlib::GzipWriter.wrap(buffer) do |gz|
         csv = CSV.new(gz)
         user.build_csv_data { |row| csv << row }
       end
+      self.file_data = buffer.string
     end
   end
 end
