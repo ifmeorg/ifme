@@ -187,19 +187,19 @@ class User < ApplicationRecord
     yield ['user_info']
     yield USER_DATA_ATTRIBUTES
     yield USER_DATA_ATTRIBUTES.map { |attribute| send(attribute.to_sym) }
-    Group.build_csv_rows(groups).each { |row| yield row }
-    GroupMember.build_csv_rows(group_members).each { |row| yield row }
-    Category.build_csv_rows(categories).each { |row| yield row }
-    Medication.build_csv_rows(medications).each { |row| yield row }
-    Strategy.build_csv_rows(strategies).each { |row| yield row }
-    Moment.build_csv_rows(moments).each { |row| yield row }
-    Notification.build_csv_rows(notifications).each { |row| yield row }
-    Mood.build_csv_rows(moods).each { |row| yield row }
-    CarePlanContact.build_csv_rows(care_plan_contacts).each { |row| yield row }
-    Allyship.build_csv_rows(allyships).each { |row| yield row }
-    MeetingMember.build_csv_rows(meeting_members).each { |row| yield row }
-    build_comment_csv_data.each { |row| yield row }
-    build_led_group_meeting_csv_data.each { |row| yield row }
+    Group.build_csv_rows(groups) { |row| yield row }
+    GroupMember.build_csv_rows(group_members) { |row| yield row }
+    Category.build_csv_rows(categories) { |row| yield row }
+    Medication.build_csv_rows(medications) { |row| yield row }
+    Strategy.build_csv_rows(strategies) { |row| yield row }
+    Moment.build_csv_rows(moments) { |row| yield row }
+    Notification.build_csv_rows(notifications) { |row| yield row }
+    Mood.build_csv_rows(moods) { |row| yield row }
+    CarePlanContact.build_csv_rows(care_plan_contacts) { |row| yield row }
+    Allyship.build_csv_rows(allyships) { |row| yield row }
+    MeetingMember.build_csv_rows(meeting_members) { |row| yield row }
+    build_comment_csv_data { |row| yield row }
+    build_led_group_meeting_csv_data { |row| yield row }
   end
 
   def generate_data_request
@@ -250,28 +250,25 @@ class User < ApplicationRecord
   private
 
   def build_comment_csv_data
-    moment_ids = moments.map(&:id)
-    strategy_ids = strategies.map(&:id)
-    data = []
-    data += Comment.build_csv_rows(
+    moment_ids = Moment.where(user_id: id).pluck(:id)
+    strategy_ids = Strategy.where(user_id: id).pluck(:id)
+    Comment.build_csv_rows(
       Comment.where(commentable_type: 'Moment', commentable_id: moment_ids)
-    )
-    data += Comment.build_csv_rows(
+    ) { |row| yield row }
+    Comment.build_csv_rows(
       Comment.where(commentable_type: 'Strategy', commentable_id: strategy_ids)
-    )
-    data
+    ) { |row| yield row }
   end
 
   def build_led_group_meeting_csv_data
-    leader_group_ids = group_members.where(leader: true).pluck(:group_id)
-    return [] if leader_group_ids.empty?
+    leader_group_ids = GroupMember.where(user_id: id, leader: true).pluck(:group_id)
+    return if leader_group_ids.empty?
 
     leader_meetings = Meeting.where(group_id: leader_group_ids)
-    data = Meeting.build_csv_rows(leader_meetings)
-    data += Comment.build_csv_rows(
+    Meeting.build_csv_rows(leader_meetings) { |row| yield row }
+    Comment.build_csv_rows(
       Comment.where(commentable_type: 'Meeting', commentable_id: leader_meetings.pluck(:id))
-    )
-    data
+    ) { |row| yield row }
   end
 
   def oauth_provided?
