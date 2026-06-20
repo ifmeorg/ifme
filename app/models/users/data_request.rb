@@ -20,20 +20,6 @@ module Users
       deleted: 4
     }.freeze
 
-    ASSOCIATIONS_TO_EXPORT = %i[
-      allyships
-      group_members
-      groups
-      categories
-      medications
-      strategies
-      moments
-      notifications
-      moods
-      care_plan_contacts
-      meeting_members
-    ].freeze
-
     DEFAULT_FILE_PATH = Rails.root.join('tmp/csv_data')
 
     belongs_to :user, class_name: '::User'
@@ -71,7 +57,7 @@ module Users
     end
 
     def create_csv
-      user = User.includes(*ASSOCIATIONS_TO_EXPORT).find(user_id)
+      user = User.find(user_id)
       begin
         require 'csv'
         require 'zlib'
