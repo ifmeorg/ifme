@@ -97,7 +97,7 @@ Rails.application.configure do
     'Cache-Control' => "public, maxage=#{1.year.to_i}",
     'Expires' => 1.year.from_now.to_formatted_s(:rfc822)
   }
-  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
+  # X-Accel-Redirect is not used; files are served directly via send_data
   config.assets.compile = true
 
   config.action_mailer.default_url_options = { host: primary_domain }

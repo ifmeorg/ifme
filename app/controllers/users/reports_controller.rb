@@ -20,7 +20,8 @@ module Users
       status, response = download_data_helper(current_user,
                                               params[:request_id])
       if status == 200
-        send_file(response, status: 200, type: 'application/gzip', filename: 'user_data.csv.gz')
+        send_data(response.file_data, status: 200, type: 'application/gzip',
+                  filename: 'user_data.csv.gz', disposition: 'attachment')
       else
         render(json: response, status:)
       end

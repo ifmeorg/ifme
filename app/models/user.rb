@@ -203,19 +203,19 @@ class User < ApplicationRecord
   end
 
   def generate_data_request
+    data_request = nil
     ActiveRecord::Base.transaction do
       lock!
       data_request = data_requests
                      .where(status_id: Users::DataRequest::STATUS[:enqueued])
                      .first_or_initialize
-      if data_request.request_id.present?
-        data_request.request_id
-      else
+      unless data_request.request_id.present?
         data_request.request_id = SecureRandom.uuid
         data_request.save!
       end
-      data_request.request_id
     end
+    data_request.create_csv if data_request.status_id == Users::DataRequest::STATUS[:enqueued]
+    data_request.request_id
   end
 
   def delete_stale_data_file
@@ -231,8 +231,7 @@ class User < ApplicationRecord
         id: successful_data_requests.first
       )
       stale_data_requests.each do |dr|
-        FileUtils.rm_f(dr.file_path)
-        dr.update!(status_id: Users::DataRequest::STATUS[:deleted])
+        dr.update!(status_id: Users::DataRequest::STATUS[:deleted], file_data: nil)
       end
     end
   end
