@@ -181,25 +181,25 @@ class User < ApplicationRecord
     new_access_token
   end
 
-  def build_csv_data
+  def build_csv_data(&)
     return to_enum(:build_csv_data) unless block_given?
 
     yield ['user_info']
     yield USER_DATA_ATTRIBUTES
     yield USER_DATA_ATTRIBUTES.map { |attribute| send(attribute.to_sym) }
-    Group.build_csv_rows(groups) { |row| yield row }
-    GroupMember.build_csv_rows(group_members) { |row| yield row }
-    Category.build_csv_rows(categories) { |row| yield row }
-    Medication.build_csv_rows(medications) { |row| yield row }
-    Strategy.build_csv_rows(strategies) { |row| yield row }
-    Moment.build_csv_rows(moments) { |row| yield row }
-    Notification.build_csv_rows(notifications) { |row| yield row }
-    Mood.build_csv_rows(moods) { |row| yield row }
-    CarePlanContact.build_csv_rows(care_plan_contacts) { |row| yield row }
-    Allyship.build_csv_rows(allyships) { |row| yield row }
-    MeetingMember.build_csv_rows(meeting_members) { |row| yield row }
-    build_comment_csv_data { |row| yield row }
-    build_led_group_meeting_csv_data { |row| yield row }
+    Group.build_csv_rows(groups, &)
+    GroupMember.build_csv_rows(group_members, &)
+    Category.build_csv_rows(categories, &)
+    Medication.build_csv_rows(medications, &)
+    Strategy.build_csv_rows(strategies, &)
+    Moment.build_csv_rows(moments, &)
+    Notification.build_csv_rows(notifications, &)
+    Mood.build_csv_rows(moods, &)
+    CarePlanContact.build_csv_rows(care_plan_contacts, &)
+    Allyship.build_csv_rows(allyships, &)
+    MeetingMember.build_csv_rows(meeting_members, &)
+    build_comment_csv_data(&)
+    build_led_group_meeting_csv_data(&)
   end
 
   def generate_data_request
@@ -209,7 +209,7 @@ class User < ApplicationRecord
       data_request = data_requests
                      .where(status_id: Users::DataRequest::STATUS[:enqueued])
                      .first_or_initialize
-      unless data_request.request_id.present?
+      if data_request.request_id.blank?
         data_request.request_id = SecureRandom.uuid
         data_request.save!
       end
@@ -248,26 +248,26 @@ class User < ApplicationRecord
 
   private
 
-  def build_comment_csv_data
+  def build_comment_csv_data(&)
     moment_ids = Moment.where(user_id: id).pluck(:id)
     strategy_ids = Strategy.where(user_id: id).pluck(:id)
     Comment.build_csv_rows(
-      Comment.where(commentable_type: 'Moment', commentable_id: moment_ids)
-    ) { |row| yield row }
+      Comment.where(commentable_type: 'Moment', commentable_id: moment_ids), &
+    )
     Comment.build_csv_rows(
-      Comment.where(commentable_type: 'Strategy', commentable_id: strategy_ids)
-    ) { |row| yield row }
+      Comment.where(commentable_type: 'Strategy', commentable_id: strategy_ids), &
+    )
   end
 
-  def build_led_group_meeting_csv_data
+  def build_led_group_meeting_csv_data(&)
     leader_group_ids = GroupMember.where(user_id: id, leader: true).pluck(:group_id)
     return if leader_group_ids.empty?
 
     leader_meetings = Meeting.where(group_id: leader_group_ids)
-    Meeting.build_csv_rows(leader_meetings) { |row| yield row }
+    Meeting.build_csv_rows(leader_meetings, &)
     Comment.build_csv_rows(
-      Comment.where(commentable_type: 'Meeting', commentable_id: leader_meetings.pluck(:id))
-    ) { |row| yield row }
+      Comment.where(commentable_type: 'Meeting', commentable_id: leader_meetings.pluck(:id)), &
+    )
   end
 
   def oauth_provided?

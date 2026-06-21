@@ -2,6 +2,7 @@
 
 describe 'CarePlanContacts', type: :request do
   let(:user) { create(:user) }
+  let(:other_user) { create(:user2) }
 
   describe '#create' do
     context 'when the user is logged in' do
@@ -82,6 +83,19 @@ describe 'CarePlanContacts', type: :request do
           expect(care_plan_contact.reload.name).not_to be_nil
         end
       end
+
+      context 'when the contact belongs to another user' do
+        it 'does not update the contact' do
+          other_contact = create(:care_plan_contact, user_id: other_user.id)
+
+          patch care_plan_contacts_update_path, params: {
+            id: other_contact.id,
+            care_plan_contact: { name: 'Hacked Name' }
+          }
+
+          expect(other_contact.reload.name).not_to eq('Hacked Name')
+        end
+      end
     end
 
     context 'when the user is not logged in' do
@@ -121,6 +135,16 @@ describe 'CarePlanContacts', type: :request do
 
           expect(CarePlanContact.find_by_id(care_plan_contact.id)).not_to be_nil
           expect(response).to redirect_to care_plan_path
+        end
+      end
+
+      context 'when the contact belongs to another user' do
+        it 'does not delete the contact' do
+          other_contact = create(:care_plan_contact, user_id: other_user.id)
+
+          delete care_plan_contacts_destroy_path, params: { id: other_contact.id }
+
+          expect(CarePlanContact.find_by(id: other_contact.id)).not_to be_nil
         end
       end
     end

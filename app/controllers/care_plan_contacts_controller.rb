@@ -10,12 +10,12 @@ class CarePlanContactsController < ApplicationController
   end
 
   def update
-    care_plan_contact = CarePlanContact.find_by(id: params[:id])
+    care_plan_contact = current_user.care_plan_contacts.find_by(id: params[:id])
     render json: update_response_object(care_plan_contact)
   end
 
   def destroy
-    care_plan_contact = CarePlanContact.find_by(id: params[:id])
+    care_plan_contact = current_user.care_plan_contacts.find_by(id: params[:id])
     care_plan_contact&.destroy
     redirect_to_path(care_plan_path)
   end

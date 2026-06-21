@@ -2,6 +2,7 @@
 
 describe 'MomentTemplate', type: :request do
   let(:user) { create(:user) }
+  let(:other_user) { create(:user2) }
 
   describe '#create' do
     context 'when the user is logged in' do
@@ -82,6 +83,19 @@ describe 'MomentTemplate', type: :request do
           expect(moment_template.reload.name).not_to be_nil
         end
       end
+
+      context 'when the template belongs to another user' do
+        it 'does not update the template' do
+          other_template = create(:moment_template, user_id: other_user.id)
+
+          patch moment_templates_update_path, params: {
+            id: other_template.id,
+            moment_template: { name: 'Hacked Name' }
+          }
+
+          expect(other_template.reload.name).not_to eq('Hacked Name')
+        end
+      end
     end
 
     context 'when the user is not logged in' do
@@ -121,6 +135,16 @@ describe 'MomentTemplate', type: :request do
 
           expect(MomentTemplate.find_by_id(moment_template.id)).not_to be_nil
           expect(response).to redirect_to moment_templates_path
+        end
+      end
+
+      context 'when the template belongs to another user' do
+        it 'does not delete the template' do
+          other_template = create(:moment_template, user_id: other_user.id)
+
+          delete moment_templates_destroy_path, params: { id: other_template.id }
+
+          expect(MomentTemplate.find_by(id: other_template.id)).not_to be_nil
         end
       end
     end

@@ -21,7 +21,7 @@ module Users
                                               params[:request_id])
       if status == 200
         send_data(response.file_data, status: 200, type: 'application/gzip',
-                  filename: 'user_data.csv.gz', disposition: 'attachment')
+                                      filename: 'user_data.csv.gz', disposition: 'attachment')
       else
         render(json: response, status:)
       end

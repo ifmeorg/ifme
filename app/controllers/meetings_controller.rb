@@ -38,6 +38,8 @@ class MeetingsController < ApplicationController
 
   # PATCH/PUT /meetings/1
   def update
+    redirect_unless_leader_for(@meeting.group) && return
+
     if @meeting.update(meeting_params)
       send_notification(@meeting, @meeting.members, 'update_meeting')
       redirect_to meeting_path(@meeting.slug)
@@ -48,6 +50,11 @@ class MeetingsController < ApplicationController
 
   def join
     meeting = Meeting.find(params[:meeting_id])
+    unless meeting.group.member?(current_user)
+      redirect_to(groups_path)
+      return
+    end
+
     if meeting.member?(current_user)
       redirect_to group_path(meeting.group_id)
     else
