@@ -182,7 +182,7 @@ class User < ApplicationRecord
   end
 
   def build_csv_data(&)
-    return to_enum(:build_csv_data) unless block
+    return to_enum(:build_csv_data) unless block_given?
 
     yield ['user_info']
     yield USER_DATA_ATTRIBUTES

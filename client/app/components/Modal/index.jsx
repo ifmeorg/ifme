@@ -47,7 +47,9 @@ export const Modal = (props: Props): Node => {
   } = props;
 
   const [open, setOpen] = useState(!!openProps);
-  const [isInteractive, setIsInteractive] = useState(false);
+  const [isInteractive, setIsInteractive] = useState(
+    !!(element && typeof element === 'object' && element.type === 'button'),
+  );
   const [modalHasFocus, setModalHasFocus] = useState(true);
   const modalEl = useRef(null);
 

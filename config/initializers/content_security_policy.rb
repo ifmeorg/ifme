@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+return unless Rails.env.production?
+
 Rails.application.config.content_security_policy do |policy|
   policy.default_src :self
   policy.connect_src :self, 'wss://*.pusher.com', 'https://sockjs.pusher.com',
