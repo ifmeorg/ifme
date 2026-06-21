@@ -24,7 +24,7 @@ class ResourceRecommendations
     @moment_keywords = MomentKeywords.new(@moment).call
 
     all_resources.flat_map do |resource|
-      resource['tags'].select { |tag| @moment_keywords.match?(tag) }
+      resource['tags'].grep(@moment_keywords)
     end
   end
 

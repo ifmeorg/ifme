@@ -23,9 +23,7 @@ module Users
         request_id:,
         status_id: Users::DataRequest::STATUS[:success]
       )
-      if data_request.blank? || data_request.file_data.blank?
-        return 404, { error: 'Requested csv not found.' }
-      end
+      return 404, { error: 'Requested csv not found.' } if data_request.blank? || data_request.file_data.blank?
 
       [200, data_request]
     end

@@ -55,6 +55,8 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
   def update
+    return redirect_to_path(groups_path) unless @group.leaders.include?(current_user)
+
     if @group.update(group_params)
       update_leaders
       redirect_to_path(groups_path)
@@ -71,6 +73,8 @@ class GroupsController < ApplicationController
   # DELETE /groups/1
   # DELETE /groups/1.json
   def destroy
+    return redirect_to_path(groups_path) unless @group.leaders.include?(current_user)
+
     @group.destroy
     redirect_to_path(groups_path)
   end

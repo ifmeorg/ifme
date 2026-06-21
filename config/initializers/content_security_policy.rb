@@ -1,25 +1,19 @@
-# Be sure to restart your server when you modify this file.
+# frozen_string_literal: true
 
-# Define an application-wide content security policy.
-# See the Securing Rails Applications Guide for more information:
-# https://guides.rubyonrails.org/security.html#content-security-policy-header
-
-# Rails.application.configure do
-#   config.content_security_policy do |policy|
-#     policy.default_src :self, :https
-#     policy.font_src    :self, :https, :data
-#     policy.img_src     :self, :https, :data
-#     policy.object_src  :none
-#     policy.script_src  :self, :https
-#     policy.style_src   :self, :https
-#     # Specify URI for violation reports
-#     # policy.report_uri "/csp-violation-report-endpoint"
-#   end
-#
-#   # Generate session nonces for permitted importmap and inline scripts
-#   config.content_security_policy_nonce_generator = ->(request) { request.session.id.to_s }
-#   config.content_security_policy_nonce_directives = %w(script-src)
-#
-#   # Report violations without enforcing the policy.
-#   # config.content_security_policy_report_only = true
-# end
+Rails.application.config.content_security_policy do |policy|
+  policy.default_src :self
+  policy.connect_src :self, 'wss://*.pusher.com', 'https://sockjs.pusher.com',
+                     'https://stats.pusher.com'
+  policy.font_src    :self, 'https://cdn.jsdelivr.net'
+  policy.img_src     :self, :data, 'https://res.cloudinary.com',
+                     'https://maps.gstatic.com'
+  policy.object_src  :none
+  # unsafe_inline is required for inline_js (production asset inlining).
+  # React-side XSS is mitigated by DOMPurify.
+  policy.script_src  :self, :unsafe_inline,
+                     'https://js.pusher.com/3.0/pusher.min.js',
+                     'https://maps.googleapis.com/maps/api/js',
+                     'https://maps.googleapis.com/maps-api-v3/api/js',
+                     'https://maps.googleapis.com/maps/api/place/js'
+  policy.style_src   :self, :unsafe_inline, 'https://cdn.jsdelivr.net'
+end
