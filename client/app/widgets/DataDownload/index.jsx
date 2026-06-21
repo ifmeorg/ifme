@@ -102,6 +102,7 @@ export const DataDownload = (): Node => {
         <a
           href={`/users/data/download?request_id=${requestId}`}
           className="buttonDarkS"
+          download="user_data.csv.gz"
         >
           {I18n.t('users.data_download.download')}
         </a>
