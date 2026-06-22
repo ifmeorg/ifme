@@ -1,4 +1,5 @@
 // @flow
+/* eslint react/jsx-props-no-spreading: 0 */
 import React, { Suspense, lazy } from 'react';
 import type { Node } from 'react';
 

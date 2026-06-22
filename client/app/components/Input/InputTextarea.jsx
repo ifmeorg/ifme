@@ -1,7 +1,7 @@
 // @flow
 import React, { useState, useEffect, useRef } from 'react';
 import type { Node } from 'react';
-import { sanitize } from 'dompurify';
+import DOMPurify from 'dompurify';
 import ReactDOMServer from 'react-dom/server';
 import { init, exec } from 'pell';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -81,12 +81,14 @@ export function InputTextarea(props: Props): Node {
   const {
     id, name, value: propValue, required, hasError, myRef, dark,
   } = props;
-  const [value, setValue] = useState<string>(sanitize(propValue) || '');
+  const [value, setValue] = useState<string>(
+    DOMPurify.sanitize(propValue) || '',
+  );
   const editorRef = useRef<?HTMLDivElement>(null);
   const editor = useRef<?PellEditor>(null);
 
   const onChange = (updatedValue: string) => {
-    setValue(sanitize(updatedValue));
+    setValue(DOMPurify.sanitize(updatedValue));
   };
 
   const onBlur = () => {
@@ -110,7 +112,7 @@ export function InputTextarea(props: Props): Node {
     const clipboardData = (e.originalEvent && e.originalEvent.clipboardData) || e.clipboardData;
     const text = clipboardData ? clipboardData.getData('text/plain') : '';
 
-    document.execCommand('insertHTML', false, sanitize(text));
+    document.execCommand('insertHTML', false, DOMPurify.sanitize(text));
   };
 
   useEffect(() => {

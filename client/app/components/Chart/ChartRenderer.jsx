@@ -16,7 +16,10 @@ type chartShape = {
 
 const colorSchemes = ['#6D0839', '#66118', '#7F503F', '#775577', '#CCAADD'];
 
-export default function ChartRenderer({ chartType, ...props }: chartShape): Node {
+export default function ChartRenderer({
+  chartType,
+  ...props
+}: chartShape): Node {
   return chartType === 'Line' ? (
     <LineChart {...props} colors={colorSchemes} />
   ) : (

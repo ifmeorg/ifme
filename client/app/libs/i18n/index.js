@@ -10,6 +10,7 @@ let testTranslations = null;
 
 function getTranslations(locale: string): Object {
   if (!isTestEnv && typeof window !== 'undefined') {
+    // eslint-disable-next-line no-underscore-dangle
     return window.__I18N__ || {};
   }
   if (isTestEnv) {

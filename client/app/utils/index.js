@@ -1,6 +1,6 @@
 // @flow
 import { fetchWrapper } from 'utils/fetchWrapper';
-import { sanitize } from 'dompurify';
+import DOMPurify from 'dompurify';
 import React from 'react';
 import parse from 'html-react-parser';
 
@@ -37,7 +37,7 @@ const getPusher = (): Object | null => {
 
 const renderContent = (content: string | any, attributes: Object = {}): any => {
   if (typeof content === 'string') {
-    return parse(sanitize(content));
+    return parse(DOMPurify.sanitize(content));
   }
   if (React.isValidElement(content)) {
     return React.cloneElement(content, attributes);
