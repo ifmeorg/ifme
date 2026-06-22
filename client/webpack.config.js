@@ -12,6 +12,7 @@ const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const configPath = resolve('..', 'config');
 const devOrTestMode = process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test';
@@ -104,6 +105,7 @@ const config = {
     // only load moment.js data for locales we support (see config/locale.rb)
     new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en|es|de|it|nb|nl|pt-BR|sv|vi|fr/),
     new NodePolyfillPlugin(),
+    ...(process.env.BUNDLE_ANALYZE ? [new BundleAnalyzerPlugin({ analyzerMode: 'static', openAnalyzer: false })] : []),
   ],
 
   module: {
