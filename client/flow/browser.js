@@ -97,5 +97,14 @@ declare var window: {
   },
   alert(message?: string): void,
   prompt(message?: string): null | string,
+  __I18N__?: { [string]: string },
+  ...
+};
+
+declare var process: {
+  env: {
+    NODE_ENV: string,
+    ...
+  },
   ...
 };

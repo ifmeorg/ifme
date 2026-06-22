@@ -2,7 +2,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import type { Node } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { faCaretUp } from '@fortawesome/free-solid-svg-icons/faCaretUp';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons/faCaretDown';
 import { InputCheckbox } from 'components/Input/InputCheckbox';
 import css from './InputMultiSelect.scss';
 import type { Checkbox } from './utils';

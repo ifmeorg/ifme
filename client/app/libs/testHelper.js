@@ -1,6 +1,8 @@
 import React from 'react';
 import TestUtils from 'react-dom/test-utils';
 
+window.Element.prototype.scrollIntoView = jest.fn();
+
 Object.defineProperty(window, 'alert', {
   value: () => {},
   writable: true,

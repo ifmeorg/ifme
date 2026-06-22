@@ -3,7 +3,7 @@
     [
       "@babel/env", {
         "useBuiltIns": "usage",
-        "modules": "commonjs",
+        "modules": "auto",
         "corejs": "3"
       }
     ],
@@ -13,7 +13,6 @@
   "plugins": [
     "@babel/plugin-transform-class-properties",
     "@babel/plugin-syntax-dynamic-import",
-    "@babel/plugin-transform-modules-commonjs",
     "@babel/plugin-transform-private-methods",
     "@babel/plugin-transform-private-property-in-object"
   ],

@@ -7,6 +7,7 @@
     "build:production": "yarn build:i18n && NODE_ENV=production webpack --config webpack.config.js",
     "build:development": "yarn build:i18n && NODE_ENV=development webpack -w --config webpack.config.js",
     "build:production:debug": "yarn build:production --display-modules --sort-modules-by size",
+    "analyze": "yarn build:i18n && BUNDLE_ANALYZE=true NODE_ENV=production webpack --config webpack.config.js",
     "build:storybook": "npm run build:i18n && build-storybook -c .storybook -o .out",
     "lint:flow": "flow",
     "lint:eslint": "eslint 'app/**/*.js' 'app/**/*.jsx'",
@@ -33,6 +34,7 @@
     "chart.js": "^2.9.4",
     "chartkick": "^3.1.1",
     "core-js": "3",
+    "dayjs": "^1.11.21",
     "dompurify": "^3.4.11",
     "dot-prop": "^5.1.1",
     "font-awesome": "^4.7.0",
@@ -120,6 +122,7 @@
     "terser-webpack-plugin": "^5.3.6",
     "url-loader": "^4.0.0",
     "webpack": "^5.104.1",
+    "webpack-bundle-analyzer": "^5.3.0",
     "webpack-cli": "^5.1.4",
     "webpack-manifest-plugin": "^5.0.0",
     "yml-loader": "^2.1.0"

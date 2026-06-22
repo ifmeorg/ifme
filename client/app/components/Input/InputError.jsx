@@ -2,7 +2,7 @@
 import React from 'react';
 import type { Node } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExclamation } from '@fortawesome/free-solid-svg-icons';
+import { faExclamation } from '@fortawesome/free-solid-svg-icons/faExclamation';
 import { I18n } from 'libs/i18n';
 import css from './Input.scss';
 

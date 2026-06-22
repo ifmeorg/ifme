@@ -125,7 +125,24 @@ module ApplicationHelper
     'fa fa-globe'
   end
 
+  def i18n_translations_json
+    Rails.cache.fetch("i18n_translations/#{I18n.locale}") do
+      flatten_translations(I18n.t('.', locale: I18n.locale)).to_json
+    end
+  end
+
   private
+
+  def flatten_translations(hash, prefix = nil)
+    hash.each_with_object({}) do |(key, value), result|
+      full_key = prefix ? "#{prefix}.#{key}" : key.to_s
+      if value.is_a?(Hash)
+        result.merge!(flatten_translations(value, full_key))
+      elsif !value.is_a?(Proc)
+        result[full_key] = value.to_s
+      end
+    end
+  end
 
   def current_controller?(link_path, environment = {})
     link_controller = Rails.application.routes

@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { AreaChart } from 'react-chartkick';
 import { ChartControl } from 'components/Chart/ChartControl';
@@ -21,7 +21,7 @@ describe('ChartControl', () => {
     AreaChart.mockClear();
   });
 
-  it('renders', () => {
+  it('renders', async () => {
     const { container } = render(
       <ChartControl
         types={['Moments']}
@@ -40,7 +40,9 @@ describe('ChartControl', () => {
     const button = screen.getByRole('button', { name: 'Moments' });
     expect(button).toBeInTheDocument();
     // using querySelector as a last resort for canvas
-    expect(container.querySelector('canvas')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(container.querySelector('canvas')).toBeInTheDocument();
+    });
   });
 
   it('passes down the expected data for the selected type', async () => {

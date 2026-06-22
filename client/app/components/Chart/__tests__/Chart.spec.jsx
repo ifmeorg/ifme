@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { Chart } from 'components/Chart/index';
 
 const renderComponent = ({ chartType }) => render(
@@ -16,13 +16,17 @@ const renderComponent = ({ chartType }) => render(
 );
 
 describe('Chart', () => {
-  it('renders a Line chart', () => {
+  it('renders a Line chart', async () => {
     const { container } = renderComponent({ chartType: 'Line' });
-    expect(container.querySelector('canvas')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(container.querySelector('canvas')).toBeInTheDocument();
+    });
   });
 
-  it('renders an Area chart', () => {
+  it('renders an Area chart', async () => {
     const { container } = renderComponent({ chartType: 'Area' });
-    expect(container.querySelector('canvas')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(container.querySelector('canvas')).toBeInTheDocument();
+    });
   });
 });

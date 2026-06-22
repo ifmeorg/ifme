@@ -30,6 +30,7 @@
     <% else %>
       <%= stylesheet_pack_tag 'webpack_bundle', media: 'all' %>
     <% end %>
+    <script>window.__I18N__ = <%= raw i18n_translations_json %>;</script>
     <%= javascript_pack_tag 'webpack_bundle', 'data-turbolinks-track': true, defer: true %>
     <!-- Webpack Assets END -->
 

@@ -3,7 +3,8 @@ import React, {
   useState, useRef, useEffect, type Node,
 } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 import { Utils } from 'utils';
 import { I18n } from 'libs/i18n';
 import { Logo } from 'components/Logo';

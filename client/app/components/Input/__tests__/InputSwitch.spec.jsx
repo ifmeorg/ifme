@@ -14,15 +14,16 @@ describe('InputSwitch', () => {
 
   describe('with mouse', () => {
     it('toggles correctly', async () => {
+      const user = userEvent.setup();
       render(component);
       const inputSwitch = screen.getByRole('switch');
 
       expect(screen.getByRole('checkbox')).not.toBeChecked();
 
-      await userEvent.click(inputSwitch);
+      await user.click(inputSwitch);
       expect(screen.getByRole('checkbox')).toBeChecked();
 
-      await userEvent.click(inputSwitch);
+      await user.click(inputSwitch);
       expect(screen.getByRole('checkbox')).not.toBeChecked();
     });
   });
