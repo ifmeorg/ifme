@@ -38,3 +38,20 @@ HasActiveLink.storyName = 'With an active link';
 HasActiveLink.parameters = {
   backgrounds: { default: 'mulberry' },
 };
+
+export const WithLanguageSelector = Template.bind({});
+
+WithLanguageSelector.args = {
+  home: { name: 'if me', link: 'http://if-me.org' },
+  links: [
+    { name: 'Link 1', link: '#', active: true },
+    { name: 'Link 2', link: '#' },
+    { name: 'Link 3', link: '#' },
+  ],
+  locale: 'en',
+  locales: ['en', 'es', 'fr'],
+};
+WithLanguageSelector.storyName = 'With language selector';
+WithLanguageSelector.parameters = {
+  backgrounds: { default: 'mulberry' },
+};
