@@ -5,7 +5,8 @@ import { sanitize } from 'dompurify';
 import ReactDOMServer from 'react-dom/server';
 import { init, exec } from 'pell';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faImage, faLink } from '@fortawesome/free-solid-svg-icons';
+import { faImage } from '@fortawesome/free-solid-svg-icons/faImage';
+import { faLink } from '@fortawesome/free-solid-svg-icons/faLink';
 import css from './InputTextarea.scss';
 import inputCss from './Input.scss';
 

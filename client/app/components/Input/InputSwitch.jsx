@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import type { Node } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 import { I18n } from 'libs/i18n';
 import { Utils } from 'utils';
 import { InputCheckbox } from 'components/Input/InputCheckbox';

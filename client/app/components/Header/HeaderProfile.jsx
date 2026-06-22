@@ -2,7 +2,7 @@
 import React from 'react';
 import type { Node } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell } from '@fortawesome/free-solid-svg-icons';
+import { faBell } from '@fortawesome/free-solid-svg-icons/faBell';
 import { Utils } from 'utils';
 import globalCSS from 'styles/_global.scss';
 import { Notifications } from 'widgets/Notifications';
