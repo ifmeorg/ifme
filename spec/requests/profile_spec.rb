@@ -24,7 +24,7 @@ describe "Profile", type: :request do
         context "when user has no moments and strategies" do
           it "does not have the Stories section" do
             get profile_index_path, params: {uid: user.uid}
-            expect(response.body).to_not include("Stories")
+            expect(response.body).to_not include("StoryContainer")
           end
         end
 
@@ -34,7 +34,7 @@ describe "Profile", type: :request do
             strategy = create(:strategy, user: user)
 
             get profile_index_path, params: {uid: user.uid}
-            expect(response.body).to include("Stories")
+            expect(response.body).to include("StoryContainer")
             expect(response.body).to include(moment.name)
             expect(response.body).to include(strategy.name)
           end
@@ -50,7 +50,7 @@ describe "Profile", type: :request do
         end
 
         it "does not have the Stories section" do
-          expect(response.body).to_not include("Stories")
+          expect(response.body).to_not include("StoryContainer")
         end
 
         it "returns the profile for the owner" do
