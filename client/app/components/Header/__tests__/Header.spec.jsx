@@ -103,13 +103,13 @@ describe('Header', () => {
   it('renders the language selector when locales are provided', () => {
     const { container } = setup(componentWithLocales);
 
-    expect(container.querySelector('#locale')).toBeInTheDocument();
+    expect(container.querySelector('#navbarLocale')).toBeInTheDocument();
   });
 
   it('does not render the language selector without locales', () => {
     const { container } = setup(component);
 
-    expect(container.querySelector('#locale')).not.toBeInTheDocument();
+    expect(container.querySelector('#navbarLocale')).not.toBeInTheDocument();
   });
 
   it('renders the language selector inside the open mobile menu', async () => {

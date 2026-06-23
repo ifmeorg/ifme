@@ -44,7 +44,7 @@ export const ToggleLocale = (props: Props): Node => {
     <Input
       id={id}
       type="select"
-      name="locale"
+      name={id}
       ariaLabel={I18n.t('language')}
       value={locale}
       options={options(locales)}

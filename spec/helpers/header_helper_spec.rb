@@ -49,7 +49,9 @@ describe HeaderHelper do
               { name: 'Sign out', url: '/users/sign_out', dataMethod: 'delete', hideInMobile: true }
             ],
             mobileOnly: mobile_only,
-            profile: profile
+            profile: profile,
+            locale: nil,
+            locales: nil
           )
         end
       end
@@ -66,7 +68,9 @@ describe HeaderHelper do
               { name: 'Sign out', url: '/users/sign_out', dataMethod: 'delete', hideInMobile: true }
             ],
             mobileOnly: mobile_only,
-            profile: profile
+            profile: profile,
+            locale: nil,
+            locales: nil
           )
         end
       end
@@ -90,7 +94,9 @@ describe HeaderHelper do
               { name: 'Sign in', url: '/users/sign_in', active: false }
             ],
             mobileOnly: nil,
-            profile: nil
+            profile: nil,
+            locale: nil,
+            locales: nil
           )
         end
       end
@@ -108,7 +114,9 @@ describe HeaderHelper do
               { name: 'Sign in', url: '/users/sign_in', active: true }
             ],
             mobileOnly: nil,
-            profile: nil
+            profile: nil,
+            locale: nil,
+            locales: nil
           )
         end
       end

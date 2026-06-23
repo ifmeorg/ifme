@@ -109,7 +109,7 @@ export const Header = ({
         {!mobileNavOpen && (
           <div className={css.headerDesktopNavLinks}>{displayLinks()}</div>
         )}
-        {!mobileNavOpen && displayLocale(css.headerLocale, 'locale')}
+        {!mobileNavOpen && displayLocale(css.headerLocale, 'navbarLocale')}
       </div>
     </div>
   );
