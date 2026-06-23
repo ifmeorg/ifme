@@ -11,6 +11,7 @@ import type { Option } from 'components/Input/utils';
 export type Props = {
   locale: string,
   locales: string[],
+  id?: string,
 };
 
 const options = (locales: string[]): Option[] => {
@@ -38,10 +39,10 @@ const onChange = (e: SyntheticEvent<HTMLInputElement>) => {
 };
 
 export const ToggleLocale = (props: Props): Node => {
-  const { locale, locales } = props;
+  const { locale, locales, id = 'locale' } = props;
   return (
     <Input
-      id="locale"
+      id={id}
       type="select"
       name="locale"
       ariaLabel={I18n.t('language')}

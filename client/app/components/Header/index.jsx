@@ -77,10 +77,10 @@ export const Header = ({
     </div>
   ));
 
-  const displayLocale = (className: string): Node => (
+  const displayLocale = (className: string, id: string): Node => (
     locale != null && locales != null && locales.length > 0 ? (
       <div className={className}>
-        <ToggleLocale locale={locale} locales={locales} />
+        <ToggleLocale locale={locale} locales={locales} id={id} />
       </div>
     ) : null
   );
@@ -109,7 +109,7 @@ export const Header = ({
         {!mobileNavOpen && (
           <div className={css.headerDesktopNavLinks}>{displayLinks()}</div>
         )}
-        {!mobileNavOpen && displayLocale(css.headerLocale)}
+        {!mobileNavOpen && displayLocale(css.headerLocale, 'locale')}
       </div>
     </div>
   );
@@ -120,7 +120,7 @@ export const Header = ({
         {profile ? <HeaderProfile profile={profile} /> : null}
         {mobileOnly ? Utils.renderContent(mobileOnly) : null}
         {displayLinks()}
-        {displayLocale(css.headerMobileLocale)}
+        {displayLocale(css.headerMobileLocale, 'mobileLocale')}
       </div>
     </div>
   );

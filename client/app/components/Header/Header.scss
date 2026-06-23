@@ -66,6 +66,10 @@
     @media screen and (max-width: $medium) {
       display: none;
     }
+
+    select {
+      @include setPadding($size-12, $size-0, $size-12, $size-24);
+    }
   }
 
   &MobileLocale {
@@ -73,6 +77,10 @@
 
     display: flex;
     justify-content: center;
+
+    select {
+      text-align: center;
+    }
   }
 
   &Scroll {

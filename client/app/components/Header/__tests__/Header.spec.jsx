@@ -117,7 +117,7 @@ describe('Header', () => {
     await user.click(container.querySelector('#headerHamburger'));
 
     expect(
-      container.querySelector('#headerMobile #locale'),
+      container.querySelector('#headerMobile #mobileLocale'),
     ).toBeInTheDocument();
   });
 });
