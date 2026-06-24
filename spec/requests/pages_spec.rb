@@ -4,6 +4,14 @@ describe "Pages", type: :request do
   let(:user) { create(:user) }
 
   describe "#home" do
+    let(:medium_posts) do
+      [{ 'title' => 'Test Post', 'link' => 'https://medium.com/ifme/test', 'author' => 'Test Author' }]
+    end
+
+    before do
+      allow_any_instance_of(Medium).to receive(:posts).and_return(medium_posts)
+    end
+
     it "respond to request" do
       get pages_home_path
       expect(response).to be_successful
@@ -40,7 +48,7 @@ describe "Pages", type: :request do
       it "has blurbs and posts" do
         get pages_home_path
 
-        expect(assigns(:posts)[0].keys).to contain_exactly(:link, :link_name, :author)
+        expect(assigns(:posts).first.keys).to contain_exactly(:link, :link_name, :author)
         blurbs_file = File.read("doc/pages/blurbs.json")
         expect(assigns(:blurbs)).to eq(JSON.parse(blurbs_file))
       end
