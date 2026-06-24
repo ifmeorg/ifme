@@ -5,7 +5,9 @@ require 'json'
 
 class Medium
   def posts
-    content_hash['items']
+    content_hash['items'] || []
+  rescue OpenURI::HTTPError, SocketError, JSON::ParserError
+    []
   end
 
   private
