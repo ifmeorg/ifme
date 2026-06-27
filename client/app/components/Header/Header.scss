@@ -57,6 +57,32 @@
     }
   }
 
+  &Locale {
+    @include setMargin($size-0, $size-0, $size-0, $size-26);
+
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: $medium) {
+      display: none;
+    }
+
+    select {
+      @include setPadding($size-12, $size-0, $size-12, $size-24);
+    }
+  }
+
+  &MobileLocale {
+    @include setMargin($size-20, $size-0, $size-0, $size-0);
+
+    display: flex;
+    justify-content: center;
+
+    select {
+      text-align: center;
+    }
+  }
+
   &Scroll {
     background-color: $black-80;
 
@@ -125,6 +151,10 @@
     }
 
     &Nav {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
       &Links {
         @include setFontSize($size-18);
 

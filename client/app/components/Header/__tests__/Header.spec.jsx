@@ -90,4 +90,34 @@ describe('Header', () => {
     await user.keyboard('{Shift>}{Tab}{/Shift}{Enter}');
     expect(container.querySelector('#headerMobile')).not.toBeInTheDocument();
   });
+
+  const componentWithLocales = (
+    <Header
+      home={{ name: 'Home', url: '/some-path' }}
+      links={[{ name: 'Link 1', url: '/some-path-one' }]}
+      locale="en"
+      locales={['en', 'es']}
+    />
+  );
+
+  it('renders the language selector when locales are provided', () => {
+    const { container } = setup(componentWithLocales);
+
+    expect(container.querySelector('#navbarLocale')).toBeInTheDocument();
+  });
+
+  it('does not render the language selector without locales', () => {
+    const { container } = setup(component);
+
+    expect(container.querySelector('#navbarLocale')).not.toBeInTheDocument();
+  });
+
+  it('renders the language selector inside the open mobile menu', async () => {
+    const { container, user } = setup(componentWithLocales);
+    await user.click(container.querySelector('#headerHamburger'));
+
+    expect(
+      container.querySelector('#headerMobile #mobileLocale'),
+    ).toBeInTheDocument();
+  });
 });
