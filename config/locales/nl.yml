@@ -742,6 +742,8 @@ nl:
       crisis_prevention:
         title: Hoe gaat het?
         description: Je bent hoe dan ook geliefd
+        acknowledge: "Begrepen, ik ga voor mijn behoeften zorgen."
+        care_plan_link: "U kunt ook uw Zorgplan controleren op middelen en contacten."
         die: dood gaan
         dead: dood
         died: ging dood
@@ -752,6 +754,14 @@ nl:
         hurt_myself: mezelf pijn doen
         suicide: zelfmoord
         suicidal: suïcidaal
+        want_to_die: wil doodgaan
+        end_my_life: mijn leven beëindigen
+        take_my_life: mijn leven nemen
+        end_it_all: alles beëindigen
+        self_harm: zelfbeschadiging
+        no_reason_to_live: geen reden om te leven
+        not_worth_living: niet waard om te leven
+        overdose: overdosis
       tags:
         ai: AI
         communities: gemeenschappen

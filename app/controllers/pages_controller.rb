@@ -15,6 +15,7 @@ class PagesController < ApplicationController
     if user_signed_in?
       setup_stories
       load_dashboard_data if @stories.present? && @stories.count.positive?
+      @show_crisis_prevention_index = recent_unacknowledged_crisis_moments?
     else
       @blurbs = set_blurbs
       @posts = fetch_posts
@@ -68,6 +69,16 @@ class PagesController < ApplicationController
   def privacy; end
 
   private
+
+  def recent_unacknowledged_crisis_moments?
+    current_user.moments
+                .where(crisis_prevention_acknowledged: false)
+                .where('created_at >= ?', 1.month.ago)
+                .any? do |moment|
+      ResourceRecommendations.new(moment: moment, current_user: current_user)
+                             .has_crisis_keywords?
+    end
+  end
 
   def filter_keywords
     return [] if params[:filter].nil? || !params[:filter].is_a?(Array)

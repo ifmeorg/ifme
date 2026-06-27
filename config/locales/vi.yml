@@ -719,6 +719,8 @@ vi:
       crisis_prevention:
         title: Bạn đang làm gì?
         description: Bạn được yêu bất kể điều gì
+        acknowledge: "Đã ghi nhận, tôi sẽ chăm sóc bản thân mình."
+        care_plan_link: "Bạn cũng có thể kiểm tra Kế hoạch chăm sóc của mình để tìm tài nguyên và liên hệ."
         die: chết
         dead: đã chết
         died: chết
@@ -729,6 +731,14 @@ vi:
         hurt_myself: làm tổn thương chính minh
         suicide: tự sát
         suicidal: tự tử
+        want_to_die: muốn chết
+        end_my_life: kết thúc cuộc sống của tôi
+        take_my_life: lấy đi cuộc sống của tôi
+        end_it_all: kết thúc tất cả
+        self_harm: tự làm hại bản thân
+        no_reason_to_live: không có lý do để sống
+        not_worth_living: không đáng để sống
+        overdose: dùng quá liều
       tags:
         ai: AI
         communities: cộng đồng

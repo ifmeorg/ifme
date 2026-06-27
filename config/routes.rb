@@ -37,7 +37,11 @@ Rails.application.routes.draw do
   end
 
   resources :moments do
+    member do
+      post :acknowledge_crisis_prevention
+    end
     collection do
+      post :acknowledge_all_crisis_prevention
       post 'picture', to: 'moments#picture', as: 'picture'
       get 'tagged', defaults: { format: 'json' }
     end

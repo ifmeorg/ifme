@@ -705,6 +705,8 @@ sv:
       crisis_prevention:
         title: Hur mår du?
         description: Du är älskad oavsett vad
+        acknowledge: "Bekräftat, jag kommer att ta hand om mina behov."
+        care_plan_link: "Du kan också kolla din Vårdplan för resurser och kontakter."
         die: dö
         dead: död-
         died: dog
@@ -715,6 +717,14 @@ sv:
         hurt_myself: skada mig själv
         suicide: självmord
         suicidal: självmords
+        want_to_die: vill dö
+        end_my_life: avsluta mitt liv
+        take_my_life: ta mitt liv
+        end_it_all: avsluta allt
+        self_harm: självskada
+        no_reason_to_live: ingen anledning att leva
+        not_worth_living: inte värt att leva
+        overdose: överdos
       tags:
         ai: AI
         communities: gemenskaperna

@@ -731,6 +731,8 @@ it:
       crisis_prevention:
         title: Come te la passi?
         description: 'Sei amato, non importa quale'
+        acknowledge: "Riconosciuto, mi prenderò cura dei miei bisogni."
+        care_plan_link: "Puoi anche controllare il tuo Piano di cura per risorse e contatti."
         die: morire
         dead: morto
         died: morto
@@ -741,6 +743,14 @@ it:
         hurt_myself: ferirmi
         suicide: suicidio
         suicidal: suicida
+        want_to_die: voglio morire
+        end_my_life: porre fine alla mia vita
+        take_my_life: togliermi la vita
+        end_it_all: farla finita
+        self_harm: autolesionismo
+        no_reason_to_live: nessun motivo per vivere
+        not_worth_living: non vale la pena vivere
+        overdose: overdose
       tags:
         ai: AI
         communities: community

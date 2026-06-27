@@ -739,6 +739,8 @@ es:
       crisis_prevention:
         title: ¿Cómo estás?
         description: Eres amado pase lo que pase
+        acknowledge: "Reconocido, voy a atender mis necesidades."
+        care_plan_link: "También puede consultar su Plan de cuidado para obtener recursos y contactos."
         die: muere
         dead: muerto
         died: murió
@@ -749,6 +751,14 @@ es:
         hurt_myself: herirme a mí mismo
         suicide: suicidio
         suicidal: suicida
+        want_to_die: quiero morir
+        end_my_life: terminar con mi vida
+        take_my_life: quitarme la vida
+        end_it_all: acabar con todo
+        self_harm: autolesión
+        no_reason_to_live: sin razón para vivir
+        not_worth_living: no vale la pena vivir
+        overdose: sobredosis
       tags:
         ai: AI
         communities: comunidades

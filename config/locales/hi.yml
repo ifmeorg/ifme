@@ -714,6 +714,8 @@ hi:
       crisis_prevention:
         title: आप कैसे हैं?
         description: आपको कोई फर्क नहीं पड़ता प्यार किया जाता है
+        acknowledge: "स्वीकार किया, मैं अपनी जरूरतों का ख्याल रखूंगा।"
+        care_plan_link: "आप संसाधनों और संपर्कों के लिए अपनी देखभाल योजना भी देख सकते हैं।"
         die: मरना
         dead: मृत
         died: मर गए
@@ -724,6 +726,14 @@ hi:
         hurt_myself: मुझे ठेस पहूंचाता है
         suicide: आत्महत्या
         suicidal: आत्मघात
+        want_to_die: मरना चाहता हूं
+        end_my_life: अपनी जिंदगी खत्म करना
+        take_my_life: अपनी जान लेना
+        end_it_all: सब कुछ खत्म करना
+        self_harm: खुद को नुकसान पहुंचाना
+        no_reason_to_live: जीने की कोई वजह नहीं
+        not_worth_living: जीने लायक नहीं
+        overdose: ओवरडोज
       tags:
         ai: AI
         communities: समुदाय

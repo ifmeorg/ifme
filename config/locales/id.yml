@@ -718,6 +718,8 @@ id:
       crisis_prevention:
         title: Bagaimana kabar Anda?
         description: Anda dicintai apa pun yang terjadi
+        acknowledge: "Diakui, saya akan memenuhi kebutuhan saya."
+        care_plan_link: "Anda juga dapat memeriksa Rencana Perawatan Anda untuk sumber daya dan kontak."
         die: meninggal
         dead: meninggal
         died: meninggal
@@ -728,6 +730,14 @@ id:
         hurt_myself: menyakiti diri saya sendiri
         suicide: bunuh diri
         suicidal: kecenderungan bunuh diri
+        want_to_die: ingin mati
+        end_my_life: mengakhiri hidup saya
+        take_my_life: mengambil hidup saya
+        end_it_all: mengakhiri semuanya
+        self_harm: menyakiti diri sendiri
+        no_reason_to_live: tidak ada alasan untuk hidup
+        not_worth_living: tidak layak untuk hidup
+        overdose: overdosis
       tags:
         ai: AI
         communities: komunitas

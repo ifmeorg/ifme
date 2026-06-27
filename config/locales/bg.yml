@@ -515,6 +515,8 @@ bg:
       crisis_prevention:
         title: Как си?
         description: Ти си обичан независимо от всичко
+        acknowledge: "Прието, ще се погрижа за нуждите си."
+        care_plan_link: "Можете също да проверите своя план за грижа за ресурси и контакти."
         die: умирам
         dead: мъртъв
         died: починал
@@ -525,6 +527,14 @@ bg:
         hurt_myself: да се нараня
         suicide: самоубийство
         suicidal: суициден
+        want_to_die: искам да умра
+        end_my_life: да сложа край на живота си
+        take_my_life: да взема живота си
+        end_it_all: да сложа край на всичко
+        self_harm: самонараняване
+        no_reason_to_live: няма причина да живея
+        not_worth_living: не си заслужава да живея
+        overdose: предозиране
       tags:
         ai: AI
         communities: общности

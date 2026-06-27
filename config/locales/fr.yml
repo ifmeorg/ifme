@@ -730,6 +730,8 @@ fr:
       crisis_prevention:
         title: Comment ça va?
         description: Vous êtes aimé quoi qu'il arrive
+        acknowledge: "Reconnu, je vais prendre soin de mes besoins."
+        care_plan_link: "Vous pouvez également consulter votre Plan de soins pour des ressources et des contacts."
         die: meurs
         dead: mort
         died: mort
@@ -740,6 +742,14 @@ fr:
         hurt_myself: me faire du mal
         suicide: suicide
         suicidal: suicidaire
+        want_to_die: vouloir mourir
+        end_my_life: mettre fin à ma vie
+        take_my_life: prendre ma vie
+        end_it_all: en finir
+        self_harm: automutilation
+        no_reason_to_live: aucune raison de vivre
+        not_worth_living: ne vaut pas la peine de vivre
+        overdose: surdose
       tags:
         ai: AI
         communities: communauté

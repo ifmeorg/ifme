@@ -691,6 +691,8 @@ en:
       crisis_prevention:
         title: How are you doing?
         description: You are loved no matter what
+        acknowledge: "Acknowledged, I am going to tend to my needs."
+        care_plan_link: "You can also check your Care Plan for resources and contacts."
         die: die
         dead: dead
         died: died
@@ -701,6 +703,14 @@ en:
         hurt_myself: hurt myself
         suicide: suicide
         suicidal: suicidal
+        want_to_die: want to die
+        end_my_life: end my life
+        take_my_life: take my life
+        end_it_all: end it all
+        self_harm: self harm
+        no_reason_to_live: no reason to live
+        not_worth_living: not worth living
+        overdose: overdose
       tags:
         ai: AI
         communities: communities

@@ -8,7 +8,7 @@ class MomentsController < ApplicationController
   include Shared
   include TagsHelper
 
-  before_action :set_moment, only: %i[show edit update destroy picture]
+  before_action :set_moment, only: %i[show edit update destroy picture acknowledge_crisis_prevention]
   before_action :load_viewers, only: %i[new edit create update picture]
 
   # GET /moments
@@ -68,6 +68,34 @@ class MomentsController < ApplicationController
   def destroy
     @moment.destroy
     redirect_to_path(moments_path)
+  end
+
+  # POST /moments/acknowledge_all_crisis_prevention
+  def acknowledge_all_crisis_prevention
+    current_user.moments
+                .where(crisis_prevention_acknowledged: false)
+                .where('created_at >= ?', 1.month.ago)
+                .each do |moment|
+      moment.update!(
+        crisis_prevention_acknowledged: true,
+        crisis_prevention_acknowledged_text: moment.why
+      )
+    end
+    render json: { acknowledged: true }
+  end
+
+  # POST /moments/1/acknowledge_crisis_prevention
+  def acknowledge_crisis_prevention
+    unless @moment.owned_by?(current_user)
+      render json: { error: 'Unauthorized' }, status: :unauthorized
+      return
+    end
+
+    @moment.update!(
+      crisis_prevention_acknowledged: true,
+      crisis_prevention_acknowledged_text: @moment.why
+    )
+    render json: { acknowledged: true }
   end
 
   # POST /moments/1/picture

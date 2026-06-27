@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+require 'cgi'
+
 module ApplicationHelper
   include ViewersHelper
   include AssetsHelper
@@ -19,7 +21,7 @@ module ApplicationHelper
   end
 
   def page_title
-    t('app_name') +
+    CGI.unescapeHTML(t('app_name') +
       if sign_in_path?
         " | #{t('account.sign_in')}"
       elsif join_path?
@@ -40,7 +42,7 @@ module ApplicationHelper
         " | #{t('devise.confirmations.resend_confirmation')}"
       else
         " | #{title_content}"
-      end
+      end)
   end
 
   def title_content
