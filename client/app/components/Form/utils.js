@@ -68,6 +68,14 @@ export const getNewInputs = ({
       newInput.value = refs[input.id].value;
       newInput.myKey = Utils.randomString(); // Triggers state change in child component
       newErrors[newInput.id] = true;
+    } else {
+      const validType = REQUIRES_DEFAULT.includes(newInput.type)
+        || newInput.type === 'textarea'
+        || newInput.type === 'textareaTemplate';
+      const element = refs[newInput.id];
+      if (validType || element) {
+        newErrors[newInput.id] = false;
+      }
     }
     return newInput;
   });

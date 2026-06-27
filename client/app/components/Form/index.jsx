@@ -9,8 +9,9 @@ import { TYPES as INPUT_TYPES } from 'components/Input/utils';
 import { QuickCreate } from 'widgets/QuickCreate';
 import type { Props as QuickCreateProps } from 'widgets/QuickCreate';
 import { Utils } from 'utils';
+import { I18n } from 'libs/i18n';
 import { useAutoSave } from 'utils/useAutoSave';
-import { FormAutosaveBanner } from 'components/Form/FormAutosaveBanner';
+import { FeedbackBanner } from 'components/FeedbackBanner';
 import css from './Form.scss';
 import { getNewInputs } from './utils';
 import type { Errors, MyInputProps, FormProps as Props } from './utils';
@@ -19,6 +20,97 @@ export type State = {
   inputs: MyInputProps[],
   errors: Errors,
 };
+
+const EXCLUDED_INPUT_NAMES = ['utf8', 'authenticity_token'];
+
+const formatTimeDiff = (timestamp: number): string => {
+  const diffMin = Math.floor((Date.now() - timestamp) / 60000);
+  if (diffMin < 1) return I18n.t('common.autosave.time_just_now');
+  if (diffMin === 1) return I18n.t('common.autosave.time_one_minute');
+  if (diffMin < 60) return I18n.t('common.autosave.time_minutes_ago', { count: String(diffMin) });
+  const diffHr = Math.floor(diffMin / 60);
+  if (diffHr === 1) return I18n.t('common.autosave.time_one_hour');
+  return I18n.t('common.autosave.time_hours_ago', { count: String(diffHr) });
+};
+
+// Reads all form input values from the DOM, keyed by `name`.
+// Array-type inputs (name ends with []) collect values into arrays.
+const collectFormValues = (
+  form: HTMLFormElement,
+): { [string]: string | string[] } => {
+  const values: { [string]: string | string[] } = {};
+
+  // Text / number / date / time / email / tel inputs and textareas
+  form.querySelectorAll(
+    'input[type="text"], input[type="number"], input[type="email"], '
+    + 'input[type="date"], input[type="time"], input[type="tel"], textarea',
+  ).forEach((el: HTMLInputElement | HTMLTextAreaElement) => {
+    if (el.name && el.value !== '' && !EXCLUDED_INPUT_NAMES.includes(el.name)) {
+      values[el.name] = el.value;
+    }
+  });
+
+  // Hidden inputs (includes Pell textarea HTML, switch unchecked sentinels).
+  // Process before checkboxes so checked state can override.
+  form.querySelectorAll('input[type="hidden"]').forEach((el: HTMLInputElement) => {
+    if (el.name && el.value !== '' && !EXCLUDED_INPUT_NAMES.includes(el.name)) {
+      values[el.name] = el.value;
+    }
+  });
+
+  // Checkboxes (switches + tag/quickCreate selections).
+  // A checked checkbox overrides any previously recorded hidden sentinel.
+  form.querySelectorAll('input[type="checkbox"]').forEach((el: HTMLInputElement) => {
+    if (!el.name || EXCLUDED_INPUT_NAMES.includes(el.name) || !el.checked) return;
+    const isArray = el.name.endsWith('[]');
+    if (isArray) {
+      const current = values[el.name];
+      values[el.name] = Array.isArray(current)
+        ? [...current, el.value]
+        : [el.value];
+    } else {
+      values[el.name] = el.value;
+    }
+  });
+
+  return values;
+};
+
+// Applies saved values back to the inputs configuration array, covering all
+// input types: text/textarea, switch (checked prop), tag/quickCreate (checkboxes).
+const applyRestoredValues = (
+  inputs: MyInputProps[],
+  values: { [string]: string | string[] },
+): MyInputProps[] => inputs.map((input: MyInputProps) => {
+  const saved = values[input.name] || values[`${input.name}[]`];
+  if (saved === undefined) return input;
+
+  if (input.type === 'switch') {
+    const isChecked = saved === String(input.value);
+    return {
+      ...input, checked: isChecked, myKey: Utils.randomString(),
+    };
+  }
+
+  if (input.type === 'tag' || input.type === 'quickCreate') {
+    const savedIds = Array.isArray(saved) ? saved : [saved];
+    const restoredCheckboxes = (input.checkboxes || []).map((cb) => ({
+      ...cb,
+      checked: savedIds.includes(String(cb.value)),
+    }));
+    return {
+      ...input, checkboxes: restoredCheckboxes, myKey: Utils.randomString(),
+    };
+  }
+
+  if (typeof saved === 'string' && saved !== '') {
+    return {
+      ...input, value: saved, myKey: Utils.randomString(),
+    };
+  }
+
+  return input;
+});
 
 const getInputsInitialState = (inputs: MyInputProps[]) => inputs.filter(
   (input: MyInputProps) => typeof input.id === 'string' && input.id.length > 0,
@@ -29,34 +121,34 @@ export const Form = ({ action, inputs: inputsProps }: Props): Node => {
     getInputsInitialState(inputsProps),
   );
   const [errors, setErrors] = useState<Errors>({});
-  const [restoredAt, setRestoredAt] = useState<number | null>(null);
+  const [showBanner, setShowBanner] = useState<boolean>(false);
+  const [bannerData, setBannerData] = useState(null);
 
   const myRefs: Object = {};
+  const formRef = useRef<HTMLFormElement | null>(null);
+  // Holds the latest collect-and-save function so the interval never captures
+  // stale references across renders.
+  const saveLatestRef = useRef<Function | null>(null);
 
-  // Autosave setup – keyed by the form action URL so new vs edit are separate.
   const {
     getSavedData, saveData, clearSavedData, registerSaveCallback,
   } = useAutoSave(action || '');
 
-  // Show restore banner when there is a saved draft from a previous session.
-  const initialSaved = getSavedData();
-  const [showBanner, setShowBanner] = useState<boolean>(!!initialSaved);
-  const [bannerData, setBannerData] = useState(initialSaved);
+  // On mount: restore banner if there's a previous draft.
+  useEffect(() => {
+    const saved = getSavedData();
+    if (saved) {
+      setShowBanner(true);
+      setBannerData(saved);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  // The save function reads DOM values every interval. We hold the latest
-  // version in a ref so the interval never captures stale closures.
-  const saveLatestRef = useRef<Function | null>(null);
+  // Assign the save function every render so the interval always reads fresh values.
   saveLatestRef.current = () => {
-    const values: { [string]: string } = {};
-    Object.keys(myRefs).forEach((id) => {
-      const el = myRefs[id];
-      // Only save elements that carry a string value (text, textarea hidden input).
-      // Switches and tag checkboxes are skipped as they have no myRef.
-      if (el && typeof el.value === 'string' && el.value !== '') {
-        values[id] = el.value;
-      }
-    });
-    saveData(values);
+    if (!formRef.current) return;
+    const values = collectFormValues(formRef.current);
+    if (Object.keys(values).length > 0) saveData(values);
   };
 
   useEffect(() => {
@@ -73,18 +165,7 @@ export const Form = ({ action, inputs: inputsProps }: Props): Node => {
 
   const onRestore = () => {
     if (!bannerData) return;
-    const { values, timestamp } = bannerData;
-    const restoredInputs = inputs.map((input: MyInputProps) => {
-      const savedValue = values[input.id];
-      if (savedValue !== undefined) {
-        // Changing myKey forces a re-mount of the Input child, so uncontrolled
-        // inputs and the Pell rich-text editor reinitialise with the new value.
-        return { ...input, value: savedValue, myKey: Utils.randomString() };
-      }
-      return input;
-    });
-    setInputs(restoredInputs);
-    setRestoredAt(timestamp);
+    setInputs(applyRestoredValues(inputs, bannerData.values));
     setShowBanner(false);
   };
 
@@ -100,9 +181,7 @@ export const Form = ({ action, inputs: inputsProps }: Props): Node => {
       errors,
       refs: myRefs,
     });
-    const onlyErrors = Object.entries(newErrors).filter(
-      ([key, value]) => value,
-    );
+    const onlyErrors = Object.entries(newErrors).filter(([, value]) => value);
 
     if (onlyErrors.length > 0) {
       e.preventDefault();
@@ -116,7 +195,6 @@ export const Form = ({ action, inputs: inputsProps }: Props): Node => {
         labelForError.scrollIntoView();
       }
     } else {
-      // Validation passed – form will POST and navigate away; clear the draft.
       clearSavedData();
     }
   };
@@ -206,8 +284,21 @@ export const Form = ({ action, inputs: inputsProps }: Props): Node => {
     );
   }
 
+  const autosaveActions = [
+    {
+      label: I18n.t('common.autosave.restore_button'),
+      onClick: onRestore,
+      primary: true,
+    },
+    {
+      label: I18n.t('common.autosave.dismiss'),
+      onClick: onDismiss,
+    },
+  ];
+
   return (
     <form
+      ref={formRef}
       onSubmit={onSubmit}
       acceptCharset="UTF-8"
       className={form}
@@ -216,10 +307,11 @@ export const Form = ({ action, inputs: inputsProps }: Props): Node => {
     >
       {csrfInput}
       {showBanner && bannerData && (
-        <FormAutosaveBanner
-          savedAt={bannerData.timestamp}
-          onRestore={onRestore}
-          onDismiss={onDismiss}
+        <FeedbackBanner
+          message={I18n.t('common.autosave.restore_prompt', {
+            time: formatTimeDiff(bannerData.timestamp),
+          })}
+          actions={autosaveActions}
         />
       )}
       {displayInputs()}
