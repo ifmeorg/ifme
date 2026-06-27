@@ -95,6 +95,15 @@ es:
         %{max}!
       search_by_keywords: Búsqueda por palabras clave
       template: Elige una plantilla
+    autosave:
+      restore_prompt: 'Tienes un borrador no guardado de %{time}. ¿Te gustaría restaurarlo?'
+      restore_button: Restaurar borrador
+      dismiss: Descartar
+      time_just_now: justo ahora
+      time_one_minute: hace 1 minuto
+      time_minutes_ago: 'hace %{count} minutos'
+      time_one_hour: hace 1 hora
+      time_hours_ago: 'hace %{count} horas'
     time_ago: 'hace %{date}'
     write_to_us: escríbenos
     days: Dias

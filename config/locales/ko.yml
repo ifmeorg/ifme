@@ -93,6 +93,15 @@ ko:
       min_max_error: '이 필드는 %{min}보다 크거나 같고 %{max}보다 작거나 같아야 합니다!'
       search_by_keywords: 키워드로 검색
       template: 템플릿 선택
+    autosave:
+      restore_prompt: '%{time}의 저장되지 않은 임시저장 글이 있습니다. 복원하시겠습니까?'
+      restore_button: 임시저장 글 복원
+      dismiss: 닫기
+      time_just_now: 방금
+      time_one_minute: 1분 전
+      time_minutes_ago: '%{count}분 전'
+      time_one_hour: 1시간 전
+      time_hours_ago: '%{count}시간 전'
     time_ago: '%{date} 전'
     write_to_us: 저희에게 연락
     days: 날들

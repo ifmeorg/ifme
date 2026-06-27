@@ -95,6 +95,15 @@ en:
         %{max}!
       search_by_keywords: Search by keywords
       template: Choose a template
+    autosave:
+      restore_prompt: 'You have an unsaved draft from %{time}. Would you like to restore it?'
+      restore_button: Restore draft
+      dismiss: Dismiss
+      time_just_now: just now
+      time_one_minute: 1 minute ago
+      time_minutes_ago: '%{count} minutes ago'
+      time_one_hour: 1 hour ago
+      time_hours_ago: '%{count} hours ago'
     time_ago: '%{date} ago'
     write_to_us: write to us
     days: Days

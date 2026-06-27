@@ -95,6 +95,15 @@ pt-BR:
         %{max}!
       search_by_keywords: Pesquisar por palavras-chave
       template: Escolha um modelo
+    autosave:
+      restore_prompt: 'Você tem um rascunho não salvo de %{time}. Deseja restaurá-lo?'
+      restore_button: Restaurar rascunho
+      dismiss: Dispensar
+      time_just_now: agora mesmo
+      time_one_minute: "há 1 minuto"
+      time_minutes_ago: 'há %{count} minutos'
+      time_one_hour: "há 1 hora"
+      time_hours_ago: 'há %{count} horas'
     time_ago: '%{date} atrás'
     write_to_us: join.ifme@gmail.com
     days: Dias

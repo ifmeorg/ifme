@@ -95,6 +95,15 @@ nb:
         %{max}!
       search_by_keywords: Søk etter nøkkelord
       template: Velg en mal
+    autosave:
+      restore_prompt: 'Du har et ikke-lagret utkast fra %{time}. Vil du gjenopprette det?'
+      restore_button: Gjenopprett utkast
+      dismiss: Avvis
+      time_just_now: akkurat nå
+      time_one_minute: for 1 minutt siden
+      time_minutes_ago: 'for %{count} minutter siden'
+      time_one_hour: for 1 time siden
+      time_hours_ago: 'for %{count} timer siden'
     time_ago: '%{date} siden'
     write_to_us: skriv til oss
     days: Dager

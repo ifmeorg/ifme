@@ -36,6 +36,15 @@ export const Header = ({
 
   useFocusTrap(navigationRef, mobileNavOpen);
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 1024px)');
+    const handleChange = ({ matches }) => {
+      if (!matches) setMobileNavOpen(false);
+    };
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
   const toggle = (): void => {
     setMobileNavOpen((currentNavValue) => !currentNavValue);
   };

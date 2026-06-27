@@ -139,7 +139,7 @@ module ApplicationHelper
       if value.is_a?(Hash)
         result.merge!(flatten_translations(value, full_key))
       elsif !value.is_a?(Proc)
-        result[full_key] = value.to_s
+        result[full_key] = value.to_s.gsub(/%\{/, '{')
       end
     end
   end

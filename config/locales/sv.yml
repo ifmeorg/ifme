@@ -95,6 +95,15 @@ sv:
         mindre än %{max}!
       search_by_keywords: Sök med nyckelord
       template: Välj en mall
+    autosave:
+      restore_prompt: 'Du har ett osparade utkast från %{time}. Vill du återställa det?'
+      restore_button: Återställ utkast
+      dismiss: Avfärda
+      time_just_now: just nu
+      time_one_minute: för 1 minut sedan
+      time_minutes_ago: 'för %{count} minuter sedan'
+      time_one_hour: för 1 timme sedan
+      time_hours_ago: 'för %{count} timmar sedan'
     time_ago: '%{date} sedan'
     write_to_us: skriv till oss
     days: dagar

@@ -32,7 +32,10 @@ export const InputTextareaTemplate = ({
   options: optionsProp,
   myRef,
 }: Props): Node => {
-  const [value, setValue] = useState<string | void>(valueProp);
+  const selectedOption = optionsProp && optionsProp.find((opt) => opt.selected);
+  const [value, setValue] = useState<string | void>(
+    valueProp || (selectedOption ? selectedOption.value : undefined),
+  );
   const [textareaKey, setTextareaKey] = useState<string>('');
   const textareaRef = useRef<?HTMLInputElement>(null);
 
@@ -74,6 +77,7 @@ export const InputTextareaTemplate = ({
             id={`${id}-select`}
             options={options}
             onChange={onChangeForSelect}
+            value={selectedOption ? selectedOption.value : undefined}
           />
         </div>
       )}

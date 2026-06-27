@@ -93,6 +93,15 @@ bg:
       min_max_error: Това поле трябва да е равно или по-голямо от %{min} и равно или по-малко от %{max}!
       search_by_keywords: Търсене по ключови думи
       template: Избери шаблон
+    autosave:
+      restore_prompt: 'Имате незапазена чернова от %{time}. Искате ли да я възстановите?'
+      restore_button: Възстанови чернова
+      dismiss: Отхвърли
+      time_just_now: точно сега
+      time_one_minute: преди 1 минута
+      time_minutes_ago: 'преди %{count} минути'
+      time_one_hour: преди 1 час
+      time_hours_ago: 'преди %{count} часа'
     time_ago: 'Преди %{date}'
     write_to_us: пиши ни
     days: Дни
