@@ -139,8 +139,6 @@ module ApplicationHelper
       if value.is_a?(Hash)
         result.merge!(flatten_translations(value, full_key))
       elsif !value.is_a?(Proc)
-        # Strip the Rails-style `%{key}` sigil so the frontend I18n helper
-        # can match interpolation tokens with its `{key}` regex.
         result[full_key] = value.to_s.gsub(/%\{/, '{')
       end
     end

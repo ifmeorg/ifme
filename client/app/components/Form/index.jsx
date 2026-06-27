@@ -126,8 +126,6 @@ export const Form = ({ action, inputs: inputsProps }: Props): Node => {
 
   const myRefs: Object = {};
   const formRef = useRef<HTMLFormElement | null>(null);
-  // Holds the latest collect-and-save function so the interval never captures
-  // stale references across renders.
   const saveLatestRef = useRef<Function | null>(null);
 
   const {
