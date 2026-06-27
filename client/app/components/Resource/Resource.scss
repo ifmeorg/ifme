@@ -3,7 +3,7 @@
 .resource {
   position: relative;
   width: 100%;
-  padding: 25px $size-10;
+  padding: $size-25 $size-10;
 
   &::before {
     content: '';

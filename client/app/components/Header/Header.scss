@@ -1,5 +1,11 @@
 @import "~styles/_global";
 
+@mixin hideOnMobile {
+  @media screen and (max-width: $medium) {
+    display: none;
+  }
+}
+
 @mixin linkStyle() {
   a {
     @include standardTransition;
@@ -40,9 +46,7 @@
   }
 
   &HideInMobile {
-    @media screen and (max-width: $medium) {
-      display: none;
-    }
+    @include hideOnMobile;
   }
 
   &Hamburger {
@@ -58,14 +62,11 @@
   }
 
   &Locale {
-    @include setMargin($size-0, $size-0, $size-0, $size-26);
+    @include setMargin($size-0, $size-0, $size-0, $size-25);
 
     display: flex;
     align-items: center;
-
-    @media screen and (max-width: $medium) {
-      display: none;
-    }
+    @include hideOnMobile;
 
     select {
       @include setPadding($size-12, $size-0, $size-12, $size-24);
@@ -73,7 +74,7 @@
   }
 
   &MobileLocale {
-    @include setMargin($size-20, $size-0, $size-0, $size-0);
+    @include setMargin($size-20, $size-0, $size-20, $size-0);
 
     display: flex;
     justify-content: center;
@@ -129,7 +130,7 @@
 
   &Desktop {
     width: 100%;
-    padding: 25px $size-34;
+    padding: $size-25 $size-34;
     box-sizing: border-box;
     margin-bottom: auto;
     display: flex;
@@ -171,9 +172,7 @@
           @include setMargin($size-0, $size-0, $size-0, $size-0);
         }
 
-        @media screen and (max-width: $medium) {
-          display: none;
-        }
+        @include hideOnMobile;
       }
     }
   }
