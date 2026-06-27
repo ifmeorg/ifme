@@ -18,6 +18,58 @@ describe ResourceRecommendations do
 
       expect(resources.call).not_to eq(available_resource)
     end
+
+    context 'when the user has recent moments with moods matching resource tags' do
+      let(:moment) { FactoryBot.build(:moment, name: 'today', why: 'struggling', fix: 'rest') }
+      let(:mood) { create(:mood, name: 'depression', user: current_user) }
+
+      before do
+        past_moment = create(:moment, user: current_user)
+        past_moment.moods << mood
+      end
+
+      it 'surfaces resources matching historical moods' do
+        available_resources = [
+          { 'tags' => ['depression'] },
+          { 'tags' => ['hotlines'] }
+        ]
+        allow(JSON).to receive(:parse) { available_resources }
+
+        result = resources.call
+        expect(result).to include(available_resources[0])
+        expect(result).not_to include(available_resources[1])
+      end
+    end
+
+    context 'when a resource matches both current moment keywords and user history' do
+      let(:moment) { FactoryBot.build(:moment, name: 'depression', why: 'text', fix: 'text') }
+      let(:mood) { create(:mood, name: 'depression', user: current_user) }
+
+      before do
+        past_moment = create(:moment, user: current_user)
+        past_moment.moods << mood
+      end
+
+      it 'ranks the doubly-matched resource above a history-only match' do
+        available_resources = [
+          { 'tags' => ['hotlines'] },
+          { 'tags' => ['depression'] }
+        ]
+        allow(JSON).to receive(:parse) { available_resources }
+
+        result = resources.call
+        expect(result.first).to eq(available_resources[1])
+      end
+    end
+
+    context 'when the user has no recent moments' do
+      it 'falls back to matching on current moment keywords only' do
+        available_resource = [{ 'tags' => ['self_injury'] }]
+        allow(JSON).to receive(:parse) { available_resource }
+
+        expect(resources.call).to eq(available_resource)
+      end
+    end
   end
 
   describe '#has_crisis_keywords?' do

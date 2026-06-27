@@ -15,11 +15,13 @@ class ResourceRecommendations
 
   def call
     @moment_keywords = MomentKeywords.new(@moment).call
-    all_resources.select do |resource|
-      resource['tags'].any? do |tag|
-        @moment_keywords.match?(tag)
-      end
-    end
+    @history_keywords = user_history_keywords
+
+    all_resources
+      .map { |r| [r, resource_score(r)] }
+      .select { |_, score| score > 0 }
+      .sort_by { |_, score| -score }
+      .map { |r, _| r }
   end
 
   def matched_tags
@@ -46,6 +48,47 @@ class ResourceRecommendations
   end
 
   private
+
+  def resource_score(resource)
+    resource['tags'].sum do |tag|
+      score = 0
+      score += 2 if @moment_keywords.match?(tag)
+      score += 1 if @history_keywords.match?(tag)
+      score
+    end
+  end
+
+  def user_history_keywords
+    return '' unless @current_user
+
+    recent_moment_ids = @current_user.moments
+      .where(created_at: 90.days.ago..)
+      .pluck(:id)
+    return '' if recent_moment_ids.empty?
+
+    top_moods = Mood.joins(:moments_moods)
+      .where(moments_moods: { moment_id: recent_moment_ids })
+      .group('moods.id')
+      .order('COUNT(moods.id) DESC')
+      .limit(5)
+      .pluck(:name, :description)
+      .flatten
+      .compact
+
+    top_categories = Category.joins(:moments_categories)
+      .where(moments_categories: { moment_id: recent_moment_ids })
+      .group('categories.id')
+      .order('COUNT(categories.id) DESC')
+      .limit(5)
+      .pluck(:name, :description)
+      .flatten
+      .compact
+
+    (top_moods + top_categories)
+      .join(' ')
+      .downcase
+      .gsub(/[^\p{Alpha} -]/, '')
+  end
 
   def get_crisis_prevention_tag(tag)
     I18n.t("pages.resources.crisis_prevention.#{tag}")
