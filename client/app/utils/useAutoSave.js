@@ -13,12 +13,12 @@ const formTypeKey = (action: string): string => {
 
 export type AutoSavedData = {
   timestamp: number,
-  values: { [string]: string },
+  values: { [string]: string | string[] },
 };
 
 type UseAutoSaveReturn = {
   getSavedData: () => AutoSavedData | null,
-  saveData: (values: { [string]: string }) => void,
+  saveData: (values: { [string]: string | string[] }) => void,
   clearSavedData: () => void,
   registerSaveCallback: (fn: Function) => void,
 };
@@ -38,7 +38,7 @@ export const useAutoSave = (formAction: string): UseAutoSaveReturn => {
     }
   }, [storageKey]);
 
-  const saveData = useCallback((values: { [string]: string }) => {
+  const saveData = useCallback((values: { [string]: string | string[] }) => {
     if (Object.keys(values).length === 0) return;
     try {
       localStorage.setItem(

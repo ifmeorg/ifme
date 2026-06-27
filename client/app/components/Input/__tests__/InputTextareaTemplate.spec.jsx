@@ -146,42 +146,42 @@ describe('InputTextareaTemplate', () => {
     });
 
     describe('when an option is pre-selected via selected: true', () => {
-    const preSelectedOptions = [
-      {
-        id: 'option-1',
-        value: 'First option text',
-        label: 'Option 1',
-        selected: false,
-      },
-      {
-        id: 'option-2',
-        value: 'Second option text',
-        label: 'Option 2',
-        selected: true,
-      },
-    ];
+      const preSelectedOptions = [
+        {
+          id: 'option-1',
+          value: 'First option text',
+          label: 'Option 1',
+          selected: false,
+        },
+        {
+          id: 'option-2',
+          value: 'Second option text',
+          label: 'Option 2',
+          selected: true,
+        },
+      ];
 
-    it('initializes the hidden textarea input with the selected option value', () => {
-      const component = InputMocks.createInput(
-        InputMocks.inputTextareaTemplateProps,
-        { options: preSelectedOptions },
-      );
-      const { container } = render(component);
-      const hiddenInput = container.querySelector('input[type="hidden"]');
-      expect(hiddenInput).toHaveValue('Second option text');
+      it('initializes the hidden textarea input with the selected option value', () => {
+        const component = InputMocks.createInput(
+          InputMocks.inputTextareaTemplateProps,
+          { options: preSelectedOptions },
+        );
+        const { container } = render(component);
+        const hiddenInput = container.querySelector('input[type="hidden"]');
+        expect(hiddenInput).toHaveValue('Second option text');
+      });
+
+      it('pre-selects the option in the template dropdown', () => {
+        const component = InputMocks.createInput(
+          InputMocks.inputTextareaTemplateProps,
+          { options: preSelectedOptions },
+        );
+        render(component);
+        expect(screen.getByRole('combobox')).toHaveValue('Second option text');
+      });
     });
 
-    it('pre-selects the option in the template dropdown', () => {
-      const component = InputMocks.createInput(
-        InputMocks.inputTextareaTemplateProps,
-        { options: preSelectedOptions },
-      );
-      render(component);
-      expect(screen.getByRole('combobox')).toHaveValue('Second option text');
-    });
-  });
-
-  it('handles formatting actions', async () => {
+    it('handles formatting actions', async () => {
       const sampleUrl = 'sample-url';
       jest.spyOn(pell, 'exec');
       // mocks prompting the user for link url

@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 import { FeedbackBanner } from 'components/FeedbackBanner';
+
+const action = (name) => (...args) => console.log(name, ...args); // eslint-disable-line no-console
 
 export default {
   title: 'Components/FeedbackBanner',
