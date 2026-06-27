@@ -700,6 +700,8 @@ nb:
       crisis_prevention:
         title: Hvordan går det?
         description: Du er elsket uansett hva
+        acknowledge: "Forstått, jeg skal ta vare på mine behov."
+        care_plan_link: "Du kan også sjekke din Pleieplan for ressurser og kontakter."
         die: dø
         dead: død
         died: døde
@@ -710,6 +712,14 @@ nb:
         hurt_myself: skadet meg selv
         suicide: selvmord
         suicidal: suicidal
+        want_to_die: vil dø
+        end_my_life: avslutte livet mitt
+        take_my_life: ta livet mitt
+        end_it_all: avslutte alt
+        self_harm: selvskading
+        no_reason_to_live: ingen grunn til å leve
+        not_worth_living: ikke verdt å leve
+        overdose: overdose
       tags:
         ai: AI
         communities: samfunn

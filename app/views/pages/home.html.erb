@@ -6,6 +6,10 @@
   <% title t('pages.home.signed_in_empty.main_message_one', name: current_user.name) %>
 <% end %>
 
+<% if @show_crisis_prevention_index %>
+  <%= react_component('CrisisPrevention', props: { acknowledged: false }) %>
+<% end %>
+
 <% if !user_signed_in? %>
   <%= render partial: 'not_signed_in' %>
 <% elsif @stories.any? %>

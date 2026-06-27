@@ -605,6 +605,8 @@ ko:
       crisis_prevention:
         title: 어떻게 지내요?
         description: 당신은 무슨 일이 있어도 사랑 받습니다.
+        acknowledge: "인정합니다, 저는 제 필요를 돌볼 것입니다."
+        care_plan_link: "리소스와 연락처를 위해 돌봄 계획을 확인할 수도 있습니다."
         die: 죽다
         dead: 죽었던
         died: 죽은
@@ -615,6 +617,14 @@ ko:
         hurt_myself: 자해하다
         suicide: 자살
         suicidal: 자살할 것 같은
+        want_to_die: 죽고 싶다
+        end_my_life: 내 삶을 끝내다
+        take_my_life: 내 목숨을 끊다
+        end_it_all: 모든 것을 끝내다
+        self_harm: 자해
+        no_reason_to_live: 살 이유가 없다
+        not_worth_living: 살 가치가 없다
+        overdose: 과다복용
       tags:
         ai: AI
         communities: 커뮤니티들

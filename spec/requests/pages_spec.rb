@@ -20,6 +20,55 @@ describe "Pages", type: :request do
     context "logged in" do
       before { sign_in user }
 
+      context "with recent unacknowledged crisis moments" do
+        before do
+          create(:moment, user: user,
+                          why: 'I have been feeling suicidal.',
+                          crisis_prevention_acknowledged: false,
+                          created_at: 1.week.ago)
+        end
+
+        it "sets show_crisis_prevention_index to true" do
+          get pages_home_path
+          expect(assigns(:show_crisis_prevention_index)).to be true
+        end
+      end
+
+      context "without recent unacknowledged crisis moments" do
+        it "sets show_crisis_prevention_index to false" do
+          get pages_home_path
+          expect(assigns(:show_crisis_prevention_index)).to be false
+        end
+      end
+
+      context "when recent moments are already acknowledged" do
+        before do
+          create(:moment, user: user,
+                          why: 'I have been feeling suicidal.',
+                          crisis_prevention_acknowledged: true,
+                          created_at: 1.week.ago)
+        end
+
+        it "sets show_crisis_prevention_index to false" do
+          get pages_home_path
+          expect(assigns(:show_crisis_prevention_index)).to be false
+        end
+      end
+
+      context "when crisis moments are older than one month" do
+        before do
+          create(:moment, user: user,
+                          why: 'I have been feeling suicidal.',
+                          crisis_prevention_acknowledged: false,
+                          created_at: 6.weeks.ago)
+        end
+
+        it "sets show_crisis_prevention_index to false" do
+          get pages_home_path
+          expect(assigns(:show_crisis_prevention_index)).to be false
+        end
+      end
+
       it "has no stories" do
         list = double
         allow(Kaminari).to receive(:paginate_array).and_return(list)

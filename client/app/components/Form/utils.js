@@ -39,6 +39,10 @@ export const getNewInputs = ({
       return false;
     }
 
+    if (!element) {
+      return false;
+    }
+
     if (
       input.type === 'number'
       && typeof element.value !== 'undefined'

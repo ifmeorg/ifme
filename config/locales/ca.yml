@@ -719,6 +719,8 @@ ca:
       crisis_prevention:
         title: Com estàs?
         description: Siguis com siguis, ets estimat
+        acknowledge: "Reconegut, vaig a tenir cura de les meves necessitats."
+        care_plan_link: "També podeu consultar el vostre Pla d'atenció per obtenir recursos i contactes."
         die: morir
         dead: mort
         died: va morir
@@ -729,6 +731,14 @@ ca:
         hurt_myself: fer-me mal
         suicide: suïcidi
         suicidal: suïcida
+        want_to_die: vull morir
+        end_my_life: acabar amb la meva vida
+        take_my_life: prendre la meva vida
+        end_it_all: acabar amb tot
+        self_harm: autolesió
+        no_reason_to_live: cap raó per viure
+        not_worth_living: no val la pena viure
+        overdose: sobredosi
       tags:
         ai: AI
         communities: comunitats

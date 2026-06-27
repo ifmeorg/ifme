@@ -3,9 +3,14 @@
 module TextareaSupport
   def fill_in_textarea(text, locator)
     within(locator) do
-      find('.editorContent', visible: false).send_keys('')
-      find('.editorContent', visible: false).send_keys(text)
+      editor = find('.editorContent', visible: false)
+      editor.send_keys([modifier_key, 'a'])
+      editor.send_keys(text)
     end
+  end
+
+  def modifier_key
+    /darwin/i.match?(RbConfig::CONFIG['host_os']) ? :meta : :control
   end
 end
 

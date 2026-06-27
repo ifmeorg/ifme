@@ -793,6 +793,8 @@ de:
       crisis_prevention:
         title: Wie geht es dir?
         description: 'Du wirst geliebt, egal was'
+        acknowledge: "Verstanden, ich werde mich um meine Bedürfnisse kümmern."
+        care_plan_link: "Sie können auch Ihren Pflegeplan nach Ressourcen und Kontakten durchsuchen."
         die: stirb
         dead: tot
         died: gestorben
@@ -803,6 +805,14 @@ de:
         hurt_myself: verletze mich selbst
         suicide: selbstmord
         suicidal: selbstmörderisch
+        want_to_die: sterben wollen
+        end_my_life: mein Leben beenden
+        take_my_life: mein Leben nehmen
+        end_it_all: alles beenden
+        self_harm: selbstverletzung
+        no_reason_to_live: keinen grund zu leben
+        not_worth_living: nicht wert zu leben
+        overdose: überdosis
       tags:
         ai: AI
         communities: Gemeinschaften

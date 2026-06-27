@@ -3,21 +3,23 @@
 #
 # Table name: moments
 #
-#  id                       :bigint           not null, primary key
-#  name                     :string
-#  why                      :text
-#  fix                      :text
-#  created_at               :datetime
-#  updated_at               :datetime
-#  user_id                  :integer
-#  viewers                  :text
-#  comment                  :boolean
-#  slug                     :string
-#  secret_share_identifier  :uuid
-#  secret_share_expires_at  :datetime
-#  published_at             :datetime
-#  bookmarked               :boolean          default(FALSE)
-#  resource_recommendations :boolean          default(TRUE)
+#  id                                  :bigint           not null, primary key
+#  name                                :string
+#  why                                 :text
+#  fix                                 :text
+#  created_at                          :datetime
+#  updated_at                          :datetime
+#  user_id                             :integer
+#  viewers                             :text
+#  comment                             :boolean
+#  slug                                :string
+#  secret_share_identifier             :uuid
+#  secret_share_expires_at             :datetime
+#  published_at                        :datetime
+#  bookmarked                          :boolean          default(FALSE)
+#  resource_recommendations            :boolean          default(TRUE)
+#  crisis_prevention_acknowledged      :boolean          default(FALSE), not null
+#  crisis_prevention_acknowledged_text :text
 #
 
 class Moment < ApplicationRecord
@@ -49,6 +51,7 @@ class Moment < ApplicationRecord
     elements_array_data(%w[category mood strategy])
   end
   before_save :viewers_array_data
+  before_update :reset_crisis_prevention_if_significant_change
 
   belongs_to :user
 
@@ -99,5 +102,39 @@ class Moment < ApplicationRecord
 
   def comments
     Comment.comments_from(self)
+  end
+
+  private
+
+  def reset_crisis_prevention_if_significant_change
+    return unless crisis_prevention_acknowledged?
+    return if crisis_prevention_acknowledged_text.blank?
+    return unless will_save_change_to_why?
+
+    if significant_text_change?(crisis_prevention_acknowledged_text, why)
+      self.crisis_prevention_acknowledged = false
+      self.crisis_prevention_acknowledged_text = nil
+    end
+  end
+
+  def significant_text_change?(old_text, new_text)
+    old_clean = ActionController::Base.helpers.strip_tags(old_text.to_s).downcase.strip
+    new_clean = ActionController::Base.helpers.strip_tags(new_text.to_s).downcase.strip
+
+    return false if old_clean == new_clean
+    return true if old_clean.blank?
+
+    old_words = old_clean.split
+    return true if old_words.empty?
+
+    new_word_tally = new_clean.split.tally
+    matching = old_words.count do |word|
+      if new_word_tally[word].to_i > 0
+        new_word_tally[word] -= 1
+        true
+      end
+    end
+
+    (1.0 - (matching.to_f / old_words.size)) > 0.30
   end
 end

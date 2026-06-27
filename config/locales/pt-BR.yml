@@ -743,6 +743,8 @@ pt-BR:
       crisis_prevention:
         title: Como vai você?
         description: 'Você é amado, não importa o que'
+        acknowledge: "Reconhecido, vou cuidar das minhas necessidades."
+        care_plan_link: "Você também pode verificar seu Plano de cuidados para recursos e contatos."
         die: morrer
         dead: morto
         died: morreu
@@ -753,6 +755,14 @@ pt-BR:
         hurt_myself: me machucar
         suicide: suicídio
         suicidal: suicida
+        want_to_die: quero morrer
+        end_my_life: acabar com minha vida
+        take_my_life: tirar minha vida
+        end_it_all: acabar com tudo
+        self_harm: automutilação
+        no_reason_to_live: sem razão para viver
+        not_worth_living: não vale a pena viver
+        overdose: overdose
       tags:
         ai: AI
         communities: grupos comunitários

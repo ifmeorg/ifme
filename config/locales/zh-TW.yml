@@ -592,6 +592,8 @@ zh-TW:
       crisis_prevention:
         title: 您好嗎？
         description: 不論如何，您都是被愛的
+        acknowledge: "已確認，我將照顧好我的需求。"
+        care_plan_link: "您也可以查看您的護理計劃以獲取資源和聯繫人。"
         die: 死
         dead: 死了
         died: 過世
@@ -602,6 +604,14 @@ zh-TW:
         hurt_myself: 傷害自己
         suicide: 自殺
         suicidal: 有自殺傾向
+        want_to_die: 想死
+        end_my_life: 結束我的生命
+        take_my_life: 奪取我的生命
+        end_it_all: 結束這一切
+        self_harm: 自殘
+        no_reason_to_live: 沒有理由活著
+        not_worth_living: 不值得活著
+        overdose: 過量服藥
       tags:
         ai: AI
         communities: 社群

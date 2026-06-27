@@ -571,6 +571,8 @@ zh-CN:
       crisis_prevention:
         title: 你好吗？
         description: 不管你爱你
+        acknowledge: "已确认，我会照顾好自己的需求。"
+        care_plan_link: "您也可以查看您的护理计划以获取资源和联系人。"
         die: 死
         dead: 死
         died: 死了
@@ -581,6 +583,14 @@ zh-CN:
         hurt_myself: 伤害我自己
         suicide: 自杀
         suicidal: 自杀的
+        want_to_die: 想死
+        end_my_life: 结束我的生命
+        take_my_life: 夺取我的生命
+        end_it_all: 结束这一切
+        self_harm: 自残
+        no_reason_to_live: 没有理由活着
+        not_worth_living: 不值得活着
+        overdose: 过量服药
       tags:
         ai: AI
         communities: 社区

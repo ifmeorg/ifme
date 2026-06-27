@@ -2,6 +2,8 @@
 
 CRISIS_PREVENTION_TAGS = %w[
   die dead died dying death passed_away kill_myself hurt_myself suicidal suicide
+  want_to_die end_my_life take_my_life end_it_all self_harm
+  no_reason_to_live not_worth_living overdose
 ].freeze
 
 class ResourceRecommendations
@@ -30,14 +32,17 @@ class ResourceRecommendations
 
   def show_crisis_prevention
     if same_user? && same_date?
-      @moment_keywords = MomentKeywords.new(@moment).call
-
-      return CRISIS_PREVENTION_TAGS.any? do |tag|
-        @moment_keywords.match?(get_crisis_prevention_tag(tag))
-      end
+      return has_crisis_keywords?
     end
 
     false
+  end
+
+  def has_crisis_keywords?
+    @moment_keywords = MomentKeywords.new(@moment).call
+    CRISIS_PREVENTION_TAGS.any? do |tag|
+      @moment_keywords.match?(get_crisis_prevention_tag(tag))
+    end
   end
 
   private

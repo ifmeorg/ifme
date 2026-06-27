@@ -217,6 +217,7 @@ export const Form = ({ action, inputs: inputsProps }: Props): Node => {
   }, [registerSaveCallback]);
 
   const handleError = (id: string, error: boolean): void => {
+    if (errors[id] === error) return;
     const newErrors = { ...errors };
     newErrors[id] = error;
     setErrors(newErrors);

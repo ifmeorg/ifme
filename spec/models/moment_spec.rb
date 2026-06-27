@@ -114,4 +114,59 @@ describe Moment do
       it { is_expected.to be false }
     end
   end
+
+  describe 'crisis prevention acknowledgment reset' do
+    let(:original_why) { 'I am feeling overwhelmed and need support.' }
+    let(:moment) do
+      create(:moment, :with_user,
+             why: original_why,
+             crisis_prevention_acknowledged: true,
+             crisis_prevention_acknowledged_text: original_why)
+    end
+
+    context 'when the why text has not changed' do
+      it 'keeps the acknowledgment' do
+        moment.update!(name: 'Updated name')
+        expect(moment.reload.crisis_prevention_acknowledged).to be true
+      end
+    end
+
+    context 'when the why text changes by 30% or less' do
+      it 'keeps the acknowledgment' do
+        # Change one word in a longer sentence (well under 30%)
+        new_why = 'I am feeling overwhelmed and need support today.'
+        moment.update!(why: new_why)
+        expect(moment.reload.crisis_prevention_acknowledged).to be true
+      end
+    end
+
+    context 'when the why text changes by more than 30%' do
+      it 'resets the acknowledgment' do
+        moment.update!(why: 'Completely different content about something else entirely now.')
+        expect(moment.reload.crisis_prevention_acknowledged).to be false
+        expect(moment.reload.crisis_prevention_acknowledged_text).to be_nil
+      end
+    end
+
+    context 'when the why text is completely replaced' do
+      it 'resets the acknowledgment' do
+        moment.update!(why: 'New text with no overlap from the original entry.')
+        expect(moment.reload.crisis_prevention_acknowledged).to be false
+      end
+    end
+
+    context 'when the moment is not yet acknowledged' do
+      let(:moment) do
+        create(:moment, :with_user,
+               why: original_why,
+               crisis_prevention_acknowledged: false,
+               crisis_prevention_acknowledged_text: nil)
+      end
+
+      it 'does not change acknowledged state on update' do
+        moment.update!(why: 'Completely different content about something else entirely now.')
+        expect(moment.reload.crisis_prevention_acknowledged).to be false
+      end
+    end
+  end
 end
