@@ -1,7 +1,8 @@
 // @flow
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useState } from 'react';
 import type { Node } from 'react';
-import Autosuggest from 'react-autosuggest';
+import { useCombobox } from 'downshift';
 import { Utils } from 'utils';
 import { InputCheckbox } from 'components/Input/InputCheckbox';
 import type { Checkbox } from './utils';
@@ -26,8 +27,7 @@ export function InputTag({
   onCheckboxChange,
 }: Props): Node {
   const [checkboxes, setCheckboxes] = useState<Checkbox[]>(defaultCheckboxes);
-  const [suggestions, setSuggestions] = useState<Checkbox[]>(defaultCheckboxes);
-  const [autocompleteLabel, setAutocompleteLabel] = useState<string>('');
+  const [inputValue, setInputValue] = useState<string>('');
 
   const check = (inputId: string, checked: boolean) => {
     const newCheckboxes = checkboxes.map((checkbox: Checkbox) => {
@@ -41,9 +41,6 @@ export function InputTag({
       return newCheckbox;
     });
 
-    if (checked) {
-      setAutocompleteLabel('');
-    }
     setCheckboxes(newCheckboxes);
   };
 
@@ -58,27 +55,12 @@ export function InputTag({
     }
   };
 
-  const getSuggestions = (label: string) => {
-    const inputValue = label.trim().toLowerCase();
-    const inputLength = inputValue.length;
-    const newSuggestions: Checkbox[] = inputLength === 0
-      ? checkboxes
-      : checkboxes.filter(
-        (checkbox: Checkbox) => checkbox.label.toLowerCase().indexOf(inputValue) > -1,
-      );
-    return newSuggestions;
-  };
-
-  const getSuggestionValue = ({ label }: Checkbox) => (label === autocompleteLabel ? label : '');
-
-  const onSuggestionsFetchRequested = (valueProp: { value: string }) => {
-    const { value } = valueProp;
-    const newSuggestions = getSuggestions(value);
-    setSuggestions(newSuggestions);
-  };
-
-  const onSuggestionsClearRequested = () => {
-    setSuggestions(defaultCheckboxes);
+  const getSuggestions = (label: string): Checkbox[] => {
+    const value = label.trim().toLowerCase();
+    if (value.length === 0) return checkboxes;
+    return checkboxes.filter(
+      (checkbox: Checkbox) => checkbox.label.toLowerCase().indexOf(value) > -1,
+    );
   };
 
   const labelExistsUnchecked = (label: string) => {
@@ -90,24 +72,64 @@ export function InputTag({
     return checkboxWithLabel.length && checkboxWithLabel[0].id;
   };
 
-  const onAutocompleteChange = (
-    e: SyntheticEvent<HTMLInputElement>,
-    { newValue }: { newValue: string },
-  ) => {
-    setAutocompleteLabel(newValue);
-  };
+  const suggestions = getSuggestions(inputValue);
 
-  const onSelect = (
-    event: SyntheticEvent<HTMLInputElement>,
-    { suggestion, method }: { suggestion: Checkbox, method: string },
-  ) => {
-    if (method === 'enter') {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-    const inputId = labelExistsUnchecked(suggestion.label);
-    if (inputId) {
-      check(inputId, true);
+  const {
+    isOpen,
+    getMenuProps,
+    getInputProps,
+    getItemProps,
+    highlightedIndex,
+    openMenu,
+  } = useCombobox<Checkbox>({
+    items: suggestions,
+    inputValue,
+    selectedItem: null,
+    defaultHighlightedIndex: 0,
+    itemToString: (item: ?Checkbox) => (item ? item.label : ''),
+    onInputValueChange: ({ inputValue: newInputValue }) => {
+      setInputValue(newInputValue || '');
+    },
+    stateReducer: (state, { type, changes }) => {
+      switch (type) {
+        case useCombobox.stateChangeTypes.InputKeyDownEnter:
+        case useCombobox.stateChangeTypes.ItemClick:
+          // keep the menu open and reset the search after a pick
+          return {
+            ...changes,
+            isOpen: true,
+            inputValue: '',
+            highlightedIndex: 0,
+          };
+        case useCombobox.stateChangeTypes.InputClick:
+          // clicking the input always reveals the options, never toggles them off
+          return { ...changes, isOpen: true };
+        default:
+          return changes;
+      }
+    },
+    onStateChange: ({ type, selectedItem }) => {
+      switch (type) {
+        case useCombobox.stateChangeTypes.InputKeyDownEnter:
+        case useCombobox.stateChangeTypes.ItemClick: {
+          if (!selectedItem) return;
+          const inputId = labelExistsUnchecked(selectedItem.label);
+          if (inputId) {
+            check(inputId, true);
+          }
+          break;
+        }
+        default:
+          break;
+      }
+    },
+  });
+
+  const onInputKeyDown = (e: SyntheticKeyboardEvent<HTMLInputElement>) => {
+    // no suggestion to select: surface the typed value (e.g. to create a new tag)
+    if (e.key === 'Enter' && suggestions.length === 0 && onChange) {
+      e.preventDefault();
+      onChange({ label: inputValue, checkboxes });
     }
   };
 
@@ -126,45 +148,42 @@ export function InputTag({
     );
   };
 
-  const shouldRenderSuggestions = () => true;
-
-  const onKeyDown = (e: SyntheticKeyboardEvent<HTMLInputElement>) => {
-    if (!e.isPropagationStopped() && e.key === 'Enter' && onChange) {
-      e.preventDefault();
-      onChange({ label: autocompleteLabel, checkboxes });
-    }
-  };
-
-  const renderSuggestion = (checkbox: Checkbox) => (
-    <div className="tagLabel">{checkbox.label}</div>
-  );
-
-  const displayAutocomplete = () => (
-    <Autosuggest
-      className="tagMenu"
-      id={`autosuggest-${id}`}
-      suggestions={suggestions}
-      onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-      onSuggestionsClearRequested={onSuggestionsClearRequested}
-      onSuggestionSelected={onSelect}
-      highlightFirstSuggestion
-      shouldRenderSuggestions={shouldRenderSuggestions}
-      renderSuggestion={renderSuggestion}
-      getSuggestionValue={getSuggestionValue}
-      theme={css}
-      inputProps={{
-        onChange: onAutocompleteChange,
-        value: autocompleteLabel,
-        className: `tagAutocomplete ${inputCss.tagAutocomplete}`,
-        onKeyDown,
-        placeholder,
-      }}
-    />
-  );
-
   return (
     <div id={id}>
-      {displayAutocomplete()}
+      <div className={`tagMenu ${css.tagMenu}`}>
+        <input
+          {...getInputProps({
+            id: `autosuggest-${id}`,
+            className: `tagAutocomplete ${inputCss.tagAutocomplete}`,
+            placeholder,
+            onFocus: () => {
+              if (!isOpen) openMenu();
+            },
+            onKeyDown: onInputKeyDown,
+          })}
+        />
+        <ul
+          {...getMenuProps()}
+          className={`${css.suggestionsList} ${
+            isOpen && suggestions.length ? css.suggestionsContainerOpen : ''
+          }`}
+        >
+          {isOpen
+            && suggestions.map((checkbox: Checkbox, index: number) => (
+              <li
+                className={
+                  index === highlightedIndex
+                    ? css.suggestionHighlighted
+                    : css.suggestion
+                }
+                key={checkbox.id}
+                {...getItemProps({ item: checkbox, index })}
+              >
+                <div className="tagLabel">{checkbox.label}</div>
+              </li>
+            ))}
+        </ul>
+      </div>
       <div className={css.tagCheckboxes}>
         {checkboxes.map((checkbox: Checkbox) => displayCheckbox(checkbox))}
       </div>
