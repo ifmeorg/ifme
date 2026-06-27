@@ -48,16 +48,14 @@
   </div>
 <% end %>
 
-<% if @moment.resource_recommendations? && @resources_tags.present? %>
-  <div class="smallMarginTop">
-    <div class="label"><%= label_tag t('moments.show.resources') %></div>
-    <ul>
-      <% @resources.take(3).each do |item|  %>
-        <li><%= link_to item['name'], item['link'] %></li>
-      <%end %>
-      <li><%= link_to  "#{t('load_more')}...", "/resources?#{@resources_tags}" %></li>
-    </ul>
-  </div>
+<% if @moment.resource_recommendations? && @resources.any? %>
+  <%= react_component('MomentResources', props: {
+    resources: @resources,
+    text: strip_tags("#{@moment.why} #{@moment.fix}").strip,
+    resourcesTagsUrl: @resources_tags.present? ? "/resources?#{@resources_tags}" : '/resources',
+    label: t('moments.show.resources'),
+    loadMoreText: "#{t('load_more')}..."
+  }) %>
 <% end %>
 
 <% if @show_crisis_prevention %>

@@ -29,6 +29,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
+    "@huggingface/transformers": "^4.2.0",
     "@sentry/browser": "^8.33.0",
     "babel-core": "7.0.0-bridge.0",
     "chart.js": "^2.9.4",

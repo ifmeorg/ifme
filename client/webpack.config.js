@@ -44,6 +44,7 @@ const config = {
       utils: resolve(__dirname, 'app/utils'),
       mocks: resolve(__dirname, 'app/mocks'),
       widgets: resolve(__dirname, 'app/widgets'),
+      workers: resolve(__dirname, 'app/workers'),
       pages: resolve(__dirname, 'app/pages'),
       moment: resolve(__dirname, 'app/libs/moment-compat.js'),
     },

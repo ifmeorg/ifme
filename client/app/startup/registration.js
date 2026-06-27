@@ -33,6 +33,7 @@ import { ToggleLocale } from 'widgets/ToggleLocale';
 import Resources from 'widgets/Resources';
 import { Notifications } from 'widgets/Notifications';
 import CrisisPrevention from 'widgets/CrisisPrevention';
+import MomentResources from 'widgets/MomentResources';
 import CarePlanContacts from 'widgets/CarePlanContacts';
 import DataDownload from 'widgets/DataDownload';
 import MomentTemplates from 'pages/MomentTemplates';
@@ -69,6 +70,7 @@ ReactOnRails.register({
   Tooltip,
   Toast,
   CrisisPrevention,
+  MomentResources,
   CarePlanContacts,
   DataDownload,
   OAuthButton,

@@ -97,6 +97,7 @@ class ResourceRecommendations
   def all_resources
     resources = JSON.parse(File.read('doc/pages/resources.json'))
     resources.each do |item|
+      item['tag_keys'] = item['tags'].dup
       item['tags'].map! { |tag| I18n.t("pages.resources.tags.#{tag}") }
     end
     resources
