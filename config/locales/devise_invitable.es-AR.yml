@@ -1,0 +1,38 @@
+es-AR:
+  devise:
+    failure:
+      invited: >-
+        Tenés una invitación pendiente. Aceptala para terminar de crear tu
+        cuenta.
+    invitations:
+      send_instructions: 'Se envió una invitación por correo a %{email}.'
+      failed_send: 'Ocurrió un error. No se pudo invitar a %{email}.'
+      invitation_token_invalid: '¡El token de invitación no es válido!'
+      updated_not_active: Tu contraseña fue establecida con éxito.
+      updated: >-
+        Tu contraseña fue configurada correctamente. Ya estás dentro del
+        sistema.
+      no_invitations_remaining: No quedan más invitaciones disponibles.
+      invitation_removed: Se eliminó tu invitación.
+      new:
+        header: Enviar invitación
+        submit_button: Enviar una invitación
+      edit:
+        header: Establecé tu contraseña
+        submit_button: Guardar mi contraseña
+    mailer:
+      invitation_instructions:
+        subject: 'if-me.org | ¡%{name} te invitó a if-me.org!'
+        subject_nameless: if-me.org | ¡Te invitaron a if-me.org!
+        hello: '¡Hola %{email}!'
+        someone_invited_you: >-
+          %{name} te invitó a sumarte a http://www.if-me.org, una comunidad
+          para compartir experiencias de salud mental con tus personas queridas
+          y llevar un registro de tus emociones, medicamentos y autocuidado.
+          Podés aceptar la invitación usando el enlace de abajo.
+        accept: '¡Aceptar la invitación!'
+        accept_until: 'Esta invitación vence el %{due_date}.'
+        ignore: >-
+          Si no querés aceptar la invitación, ignorá este mensaje.<br />Tu
+          cuenta no va a ser creada hasta que uses el enlace de arriba y
+          establezcas tu contraseña.

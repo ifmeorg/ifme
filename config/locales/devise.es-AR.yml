@@ -1,0 +1,85 @@
+es-AR:
+  devise:
+    confirmations:
+      confirmed: Tu correo electrónico fue confirmado con éxito.
+      send_instructions: >-
+        En unos minutos vas a recibir un correo con las instrucciones para
+        confirmar tu dirección de correo electrónico.
+      send_paranoid_instructions: >-
+        Si tu correo electrónico existe en nuestra base de datos, en unos
+        minutos vas a recibir un mensaje con las instrucciones para confirmarlo.
+    failure:
+      already_authenticated: Ya iniciaste sesión.
+      inactive: Tu cuenta todavía no fue activada.
+      invalid: Correo electrónico o contraseña inválidos.
+      locked: Tu cuenta está bloqueada.
+      last_attempt: Te queda un intento antes de que tu cuenta sea bloqueada.
+      not_found_in_database: '%{authentication_keys} o contraseña inválidos.'
+      timeout: Tu sesión venció. Iniciá sesión nuevamente.
+      unauthenticated: Tenés que registrarte o iniciar sesión para continuar.
+      unconfirmed: Tenés que confirmar tu cuenta para continuar.
+    mailer:
+      confirmation_instructions:
+        subject: if-me.org | Instrucciones de confirmación
+      reset_password_instructions:
+        subject: if-me.org | Instrucciones para restablecer tu contraseña
+      unlock_instructions:
+        subject: if-me.org | Instrucciones para desbloquear tu cuenta
+      password_change:
+        subject: if-me.org | Tu contraseña fue modificada
+    omniauth_callbacks:
+      failure: >-
+        No pudimos autenticarte con tu cuenta de %{kind} por el siguiente
+        motivo: "%{reason}".
+      success: 'Te autenticaste correctamente con tu cuenta de %{kind}.'
+    passwords:
+      no_token: >-
+        No podés acceder a esta página sin venir desde el correo de
+        restablecimiento de contraseña. Si venís desde ahí, asegurate de
+        usar la URL completa que aparece en el mensaje.
+      send_instructions: >-
+        En unos minutos vas a recibir un correo con instrucciones para
+        restablecer tu contraseña.
+      send_paranoid_instructions: >-
+        Si tu correo existe en el sistema, en unos minutos vas a recibir un
+        mensaje con instrucciones para restablecer tu contraseña.
+      updated: Tu contraseña fue modificada correctamente. Ya iniciaste sesión.
+      updated_not_active: Tu contraseña fue modificada correctamente.
+    registrations:
+      destroyed: 'Hasta luego, tu cuenta fue eliminada. ¡Esperamos verte de vuelta!'
+      signed_up: '¡Bienvenido/a! Te registraste correctamente.'
+      signed_up_but_inactive: >-
+        Te registraste correctamente, pero tu cuenta todavía no fue activada.
+      signed_up_but_locked: >-
+        Te registraste correctamente, pero tu cuenta está bloqueada.
+      signed_up_but_unconfirmed: >-
+        Te enviamos un correo con instrucciones para confirmar tu cuenta.
+      update_needs_confirmation: >-
+        Actualizaste tu cuenta correctamente, pero necesitamos revalidar tu
+        correo. Revisá tu casilla para confirmar la dirección.
+      updated: Actualizaste tu cuenta correctamente.
+    sessions:
+      signed_in: Iniciaste sesión correctamente.
+      signed_out: Cerraste sesión correctamente.
+      already_signed_out: La sesión ya fue cerrada.
+    unlocks:
+      send_instructions: >-
+        En unos minutos vas a recibir un correo con instrucciones para
+        desbloquear tu cuenta.
+      send_paranoid_instructions: >-
+        Si tu cuenta existe, en unos minutos vas a recibir un correo con
+        instrucciones para desbloquearla.
+      unlocked: Tu cuenta fue desbloqueada. Iniciá sesión para continuar.
+  errors:
+    messages:
+      already_confirmed: ya fue confirmada. Intentá ingresar.
+      confirmation_period_expired: 'necesita ser confirmada dentro de %{period}, pedí una nueva'
+      expired: 'venció, pedí una nueva'
+      not_found: no encontrado/a
+      not_locked: no está bloqueada
+      not_saved:
+        one: 'Ocurrió 1 error:'
+        other: 'Ocurrieron %{count} errores:'
+      pwned_password: >-
+        apareció en una filtración de datos y no debería usarse. Si la usaste
+        en algún lado, ¡cambiala de inmediato!
