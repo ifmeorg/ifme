@@ -96,6 +96,15 @@ de:
         als %{max} sein!
       search_by_keywords: Suche nach Schlüsselwörtern
       template: Wähle eine Vorlage
+    autosave:
+      restore_prompt: 'Sie haben einen nicht gespeicherten Entwurf von %{time}. Möchten Sie ihn wiederherstellen?'
+      restore_button: Entwurf wiederherstellen
+      dismiss: Verwerfen
+      time_just_now: gerade eben
+      time_one_minute: vor 1 Minute
+      time_minutes_ago: 'vor %{count} Minuten'
+      time_one_hour: vor 1 Stunde
+      time_hours_ago: 'vor %{count} Stunden'
     time_ago: 'Vor %{date}'
     write_to_us: schreibe uns
     days: Tage

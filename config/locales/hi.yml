@@ -95,6 +95,15 @@ hi:
         चाहिए!
       search_by_keywords: कीवर्ड द्वारा खोजें
       template: एक टेम्पलेट चुनें
+    autosave:
+      restore_prompt: 'आपके पास %{time} का एक न सहेजा हुआ मसौदा है। क्या आप इसे पुनर्स्थापित करना चाहेंगे?'
+      restore_button: मसौदा पुनर्स्थापित करें
+      dismiss: खारिज करें
+      time_just_now: अभी-अभी
+      time_one_minute: 1 मिनट पहले
+      time_minutes_ago: '%{count} मिनट पहले'
+      time_one_hour: 1 घंटे पहले
+      time_hours_ago: '%{count} घंटे पहले'
     time_ago: '%{date}'
     write_to_us: हमें लिखें
     days: दिन

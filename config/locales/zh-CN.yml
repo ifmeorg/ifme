@@ -93,6 +93,15 @@ zh-CN:
       min_max_error: '該字段必須等於或大於 %{min} 且等於或小於 %{max}！'
       search_by_keywords: 关键词搜索
       template: 選擇一個模板
+    autosave:
+      restore_prompt: '您有一份来自%{time}的未保存草稿。是否要恢复它？'
+      restore_button: 恢复草稿
+      dismiss: 忽略
+      time_just_now: 刚刚
+      time_one_minute: 1分钟前
+      time_minutes_ago: '%{count}分钟前'
+      time_one_hour: 1小时前
+      time_hours_ago: '%{count}小时前'
     time_ago: '%{date}之前'
     write_to_us: 联系我们
     days: 天

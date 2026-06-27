@@ -95,6 +95,15 @@ ca:
         %{max}!
       search_by_keywords: Cerca per paraules clau
       template: Tria una plantilla
+    autosave:
+      restore_prompt: "Teniu un esborrany no desat de %{time}. Voleu restaurar-lo?"
+      restore_button: "Restaura l'esborrany"
+      dismiss: Descarta
+      time_just_now: just ara
+      time_one_minute: fa 1 minut
+      time_minutes_ago: 'fa %{count} minuts'
+      time_one_hour: fa 1 hora
+      time_hours_ago: 'fa %{count} hores'
     time_ago: 'fa %{date}'
     write_to_us: escriu-nos
     days: Dies

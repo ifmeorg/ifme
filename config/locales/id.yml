@@ -95,6 +95,15 @@ id:
         dari %{max}!
       search_by_keywords: Cari berdasarkan kata kunci
       template: Pilih template
+    autosave:
+      restore_prompt: 'Anda memiliki draf yang belum disimpan dari %{time}. Apakah Anda ingin memulihkannya?'
+      restore_button: Pulihkan draf
+      dismiss: Abaikan
+      time_just_now: baru saja
+      time_one_minute: 1 menit yang lalu
+      time_minutes_ago: '%{count} menit yang lalu'
+      time_one_hour: 1 jam yang lalu
+      time_hours_ago: '%{count} jam yang lalu'
     time_ago: '%{date} yang lalu'
     write_to_us: Tulis kepada kami
     days: Hari

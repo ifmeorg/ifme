@@ -93,6 +93,15 @@ vi:
       min_max_error: 'Trường này phải bằng hoặc lớn hơn %{min} và bằng hoặc nhỏ hơn %{max}!'
       search_by_keywords: Tìm kiếm theo từ khóa
       template: Chọn một mẫu
+    autosave:
+      restore_prompt: 'Bạn có một bản nháp chưa lưu từ %{time}. Bạn có muốn khôi phục không?'
+      restore_button: Khôi phục bản nháp
+      dismiss: Bỏ qua
+      time_just_now: vừa xong
+      time_one_minute: 1 phút trước
+      time_minutes_ago: '%{count} phút trước'
+      time_one_hour: 1 giờ trước
+      time_hours_ago: '%{count} giờ trước'
     time_ago: 'Cách đây %{date} ngày'
     write_to_us: viết cho chúng tôi
     days: Ngày

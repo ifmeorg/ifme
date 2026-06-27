@@ -95,6 +95,15 @@ nl:
         kleiner dan %{max}!
       search_by_keywords: Zoeken op trefwoorden
       template: Kies een sjabloon
+    autosave:
+      restore_prompt: 'Je hebt een niet-opgeslagen concept van %{time}. Wil je het herstellen?'
+      restore_button: Concept herstellen
+      dismiss: Verwijder
+      time_just_now: zojuist
+      time_one_minute: 1 minuut geleden
+      time_minutes_ago: '%{count} minuten geleden'
+      time_one_hour: 1 uur geleden
+      time_hours_ago: '%{count} uur geleden'
     time_ago: '%{date} geleden'
     write_to_us: schrijf ons
     days: dagen

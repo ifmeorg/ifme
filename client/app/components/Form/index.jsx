@@ -1,11 +1,16 @@
 // @flow
 
 /* eslint-disable no-unused-vars */
-import React, { useState, type Node } from 'react';
+import React, {
+  useState, useEffect, useRef, type Node,
+} from 'react';
 import Input from 'components/Input';
 import { TYPES as INPUT_TYPES } from 'components/Input/utils';
 import { QuickCreate } from 'widgets/QuickCreate';
 import type { Props as QuickCreateProps } from 'widgets/QuickCreate';
+import { Utils } from 'utils';
+import { useAutoSave } from 'utils/useAutoSave';
+import { FormAutosaveBanner } from 'components/Form/FormAutosaveBanner';
 import css from './Form.scss';
 import { getNewInputs } from './utils';
 import type { Errors, MyInputProps, FormProps as Props } from './utils';
@@ -24,8 +29,41 @@ export const Form = ({ action, inputs: inputsProps }: Props): Node => {
     getInputsInitialState(inputsProps),
   );
   const [errors, setErrors] = useState<Errors>({});
+  const [restoredAt, setRestoredAt] = useState<number | null>(null);
 
   const myRefs: Object = {};
+
+  // Autosave setup – keyed by the form action URL so new vs edit are separate.
+  const {
+    getSavedData, saveData, clearSavedData, registerSaveCallback,
+  } = useAutoSave(action || '');
+
+  // Show restore banner when there is a saved draft from a previous session.
+  const initialSaved = getSavedData();
+  const [showBanner, setShowBanner] = useState<boolean>(!!initialSaved);
+  const [bannerData, setBannerData] = useState(initialSaved);
+
+  // The save function reads DOM values every interval. We hold the latest
+  // version in a ref so the interval never captures stale closures.
+  const saveLatestRef = useRef<Function | null>(null);
+  saveLatestRef.current = () => {
+    const values: { [string]: string } = {};
+    Object.keys(myRefs).forEach((id) => {
+      const el = myRefs[id];
+      // Only save elements that carry a string value (text, textarea hidden input).
+      // Switches and tag checkboxes are skipped as they have no myRef.
+      if (el && typeof el.value === 'string' && el.value !== '') {
+        values[id] = el.value;
+      }
+    });
+    saveData(values);
+  };
+
+  useEffect(() => {
+    registerSaveCallback(() => {
+      if (saveLatestRef.current) saveLatestRef.current();
+    });
+  }, [registerSaveCallback]);
 
   const handleError = (id: string, error: boolean): void => {
     const newErrors = { ...errors };
@@ -33,8 +71,30 @@ export const Form = ({ action, inputs: inputsProps }: Props): Node => {
     setErrors(newErrors);
   };
 
+  const onRestore = () => {
+    if (!bannerData) return;
+    const { values, timestamp } = bannerData;
+    const restoredInputs = inputs.map((input: MyInputProps) => {
+      const savedValue = values[input.id];
+      if (savedValue !== undefined) {
+        // Changing myKey forces a re-mount of the Input child, so uncontrolled
+        // inputs and the Pell rich-text editor reinitialise with the new value.
+        return { ...input, value: savedValue, myKey: Utils.randomString() };
+      }
+      return input;
+    });
+    setInputs(restoredInputs);
+    setRestoredAt(timestamp);
+    setShowBanner(false);
+  };
+
+  const onDismiss = () => {
+    clearSavedData();
+    setShowBanner(false);
+    setBannerData(null);
+  };
+
   const onSubmit = (e: SyntheticEvent<HTMLInputElement>) => {
-    // Get errors from inputs that were never focused
     const { inputs: newInputs, errors: newErrors } = getNewInputs({
       inputs,
       errors,
@@ -55,6 +115,9 @@ export const Form = ({ action, inputs: inputsProps }: Props): Node => {
       if (labelForError) {
         labelForError.scrollIntoView();
       }
+    } else {
+      // Validation passed – form will POST and navigate away; clear the draft.
+      clearSavedData();
     }
   };
 
@@ -152,6 +215,13 @@ export const Form = ({ action, inputs: inputsProps }: Props): Node => {
       action={action}
     >
       {csrfInput}
+      {showBanner && bannerData && (
+        <FormAutosaveBanner
+          savedAt={bannerData.timestamp}
+          onRestore={onRestore}
+          onDismiss={onDismiss}
+        />
+      )}
       {displayInputs()}
     </form>
   );

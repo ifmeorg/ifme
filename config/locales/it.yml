@@ -95,6 +95,15 @@ it:
         di %{max}!
       search_by_keywords: Cerca per parole chiave
       template: Scegli un modello
+    autosave:
+      restore_prompt: 'Hai una bozza non salvata di %{time}. Vuoi ripristinarla?'
+      restore_button: Ripristina bozza
+      dismiss: Ignora
+      time_just_now: proprio ora
+      time_one_minute: 1 minuto fa
+      time_minutes_ago: '%{count} minuti fa'
+      time_one_hour: 1 ora fa
+      time_hours_ago: '%{count} ore fa'
     time_ago: '%{date} fa'
     write_to_us: scrivici
     days: giorni

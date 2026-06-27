@@ -95,6 +95,15 @@ fr:
         %{max} !
       search_by_keywords: Recherche par mots-clés
       template: Choisissez un modèle
+    autosave:
+      restore_prompt: "Vous avez un brouillon non enregistré de %{time}. Souhaitez-vous le restaurer ?"
+      restore_button: Restaurer le brouillon
+      dismiss: Ignorer
+      time_just_now: "à l'instant"
+      time_one_minute: il y a 1 minute
+      time_minutes_ago: 'il y a %{count} minutes'
+      time_one_hour: il y a 1 heure
+      time_hours_ago: 'il y a %{count} heures'
     time_ago: 'il y a %{date}'
     write_to_us: nous écrire
     days: Jours
