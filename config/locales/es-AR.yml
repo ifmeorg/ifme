@@ -1,0 +1,1125 @@
+es-AR:
+  app_name: if-me.org
+  app_description: Una comunidad para compartir experiencias de salud mental
+  email: join.ifme@gmail.com
+  created: 'Creado el %{created_at}'
+  draft: Borrador
+  edited: 'Creado el %{created_at} (editado)'
+  edited_updated_at: 'Creado el %{created_at} (editado el %{updated_at})'
+  salutation: 'Hola %{name},'
+  click_here: hacé clic acá
+  language: Idioma
+  yes_text: sí
+  no_text: 'no'
+  expand_menu: expandir menú
+  close: cerrar
+  alert_auto_hide: Esta alerta se va a ocultar automáticamente
+  load_more: Cargar más
+  of: de
+  languages:
+    en: English
+    es: Español
+    es-AR: Español rioplatense
+    nl: Nederlands
+    pt-BR: Português
+    sv: Svenska
+    various_languages: Varios idiomas
+    vi: Tiếng Việt
+    it: Italiano
+    nb: Norsk
+    de: Deutsch
+    fr: Français
+    hi: हिंदी
+    zh-CN: 中文
+    zh-TW: 正體中文
+    ko: 한국어
+    id: Bahasa Indonesia
+    ar: اَلْعَرَبِيَّةُ
+    ru: Русские
+    ca: Català
+    bg: Български
+  navigation:
+    skip_to_main_content: Ir al contenido principal
+    main_menu: Menú principal
+    google: Google
+    user_menu: Menú de usuario
+    about: Sobre nosotros
+    blog: Blog
+    contribute: Cómo participar
+    partners: Alianzas
+    privacy: Política de privacidad
+    github: GitHub
+    open_collective: Open Collective
+    instagram: Instagram
+    rss: RSS
+    x: X
+    facebook: Facebook
+    feedback: comentarios
+    give_feedback: Envianos tus comentarios
+    press: Prensa
+    faq: Preguntas frecuentes
+    resources: Recursos
+    code_of_conduct: Código de conducta
+    digital_public_goods_alliance: Digital Public Goods Alliance
+  common:
+    name: Nombre
+    you: Vos
+    title: Título
+    date: Fecha
+    daily_reminder: Recordatorio diario por correo
+    actions:
+      plural: Acciones
+      submit: Enviar
+      submit_publish: Publicar
+      submit_draft: Guardar como borrador
+      confirm: '¿Estás seguro/a?'
+      delete: Eliminar
+      edit: Editar
+      edit_instance: 'Editar %{instance}'
+      join: Unirse
+      leave: Salir
+      add: Agregar
+      add_all: Agregar todo
+      select_all: Seleccionar todo
+      remove: Quitar
+      report: Reportar
+    form:
+      email: Correo electrónico
+      location: Ubicación
+      description: Descripción
+      error_explanation: Por favor completá los campos marcados
+      empty_error: '¡Este campo no puede estar vacío!'
+      min_error: '¡Este campo tiene que ser igual o mayor que %{min}!'
+      max_error: '¡Este campo tiene que ser igual o menor que %{max}!'
+      min_max_error: >-
+        ¡Este campo tiene que ser igual o mayor que %{min} e igual o menor que
+        %{max}!
+      search_by_keywords: Buscar por palabras clave
+      template: Elegí una plantilla
+    autosave:
+      restore_prompt: 'Tenés un borrador sin guardar de %{time}. ¿Querés restaurarlo?'
+      restore_button: Restaurar borrador
+      dismiss: Descartar
+      time_just_now: recién ahora
+      time_one_minute: hace 1 minuto
+      time_minutes_ago: 'hace %{count} minutos'
+      time_one_hour: hace 1 hora
+      time_hours_ago: 'hace %{count} horas'
+    time_ago: 'hace %{date}'
+    write_to_us: escribinos
+    days: Días
+  reports:
+    admin_dashboard: Panel de administración
+    reported_users: Usuarios reportados
+    banned_users: Usuarios bloqueados
+    reasons: Motivos
+    new: 'Nuevo reporte para %{name}'
+    remove_ban: Quitar bloqueo
+    ban_user: Bloquear usuario
+    report_sent: 'Reporte para %{name} enviado'
+    report_error: 'No se pudo enviar el reporte para %{name}'
+    reportee: Usuario reportado
+    reporter: Quien reportó
+    user_banned: '%{name} fue bloqueade'
+    ban_removed: 'Bloqueo levantado para %{name}'
+    user_banned_error: 'No se pudo bloquear a %{name}'
+    ban_removed_error: 'No se pudo levantar el bloqueo de %{name}'
+  comment:
+    singular: Comentario
+    plural: Comentarios
+    posting: Publicando comentario...
+    allow_comments: '¿Permitir comentarios?'
+    hint: Solo vos y tu audiencia pueden comentar
+    control: Controlá quién puede ver y comentar
+    report_comment_by: 'Reportar comentario de %{name}'
+    delete_comment_by: 'Eliminar comentario de %{name}'
+  account:
+    singular: Cuenta
+    sign_in: Ingresar
+    sign_up: Registrarse
+    forgot_password: '¿Olvidaste tu contraseña?'
+  members:
+    one: '%{count} miembro'
+    other: '%{count} miembros'
+  allies:
+    add_ally: Agregar como aliado/a
+    cancel_ally_request: Cancelar solicitud
+    accept: Aceptar
+    reject: Rechazar
+    index:
+      title: Aliados/as
+      outgoing: Solicitudes enviadas
+      incoming: Solicitudes recibidas
+      invited: Invitade por correo
+      invited_on: 'Invitade el: %{date}'
+      invitation_expired: Invitación vencida
+      invite: '¡Invitá a tus personas queridas!'
+      none: >-
+        Por ahora no tenés ningún aliado o aliada. ¡Podés buscarles o invitar
+        a tus personas queridas a sumarse!
+      view_all_allies: Ver todos/as los aliados/as
+      cancel: Cancelar
+    form:
+      placeholder: 'Ingresá uno o más correos separados por comas.'
+  categories:
+    singular: Categoría
+    plural: Categorías
+    edit_category: Editar categoría
+    new: Nueva categoría
+    form:
+      name_hint: 'Categorizá personas, lugares, cosas, actividades y más'
+    label:
+      one: 'Categoría:'
+      other: 'Categorías:'
+    index:
+      subtitle: >-
+        La vida es complicada. Categorizá las diferentes personas, lugares
+        y cosas que forman parte de tu cotidiano.
+      premade1_name: Familia
+      premade1_description: Relacionado con mi familia
+      premade2_name: Amistades
+      premade2_description: Relacionado con mis amistades
+      premade3_name: Trabajo
+      premade3_description: Relacionado con mi trabajo
+      premade4_name: Meditación
+      premade4_description: 'Meditación, respiración y actividades relajantes'
+      instructions: >-
+        Todavía no creaste categorías personalizadas.<br />También podés agregar
+        las siguientes categorías prediseñadas y personalizarlas después.
+  errors:
+    home_page: Volver al inicio
+    internal_server_error:
+      header_message: Esta página no se puede mostrar
+    not_found:
+      header_message: Esta página no existe
+    empty_params: No puede estar en blanco
+  groups:
+    singular: Grupo
+    plural: Grupos
+    form:
+      leaders: Líderes
+      only_leader: 'Sos el/la único/a líder, así que no podés salir del grupo.'
+      cannot_delete: Tené en cuenta que no podés eliminar grupos.
+      error_save: 'No podemos guardar este grupo porque: '
+      error_edit_permission: Tenés que ser líder del grupo para poder editarlo
+    index:
+      subtitle: 'Creá y unite a grupos que ofrecen apoyo, orientación y charlas.'
+      available_groups: Grupos disponibles
+      joined_groups: Grupos a los que te uniste
+      leader: (Líder)
+      instructions: Todavía no sos parte de ningún grupo.
+    join:
+      success: Te uniste a este grupo
+      group_not_exists: No podés unirte a un grupo que no existe.
+    leave:
+      error: 'Sos el/la único/a líder, así que no podés salir del grupo.'
+      success: 'Saliste de %{group}'
+      remove_member_success: 'Quitaste a %{user} de %{group}'
+      remove_member_error: No podés quitar a un miembro del grupo porque no sos líder.
+    new: Nuevo grupo
+    show:
+      led_by: 'Liderado/a por:'
+      delete: Eliminar grupo
+  layouts:
+    application:
+      signin: Contá tus historias ahora
+      create_account: Unite a la comunidad
+      update_account: Personalizá tu cuenta
+    mailer:
+      html:
+        app_description: >-
+          %{app_name} es una comunidad que alienta a las personas a compartir
+          sus experiencias de salud mental con sus seres queridos.
+        no_reply: >-
+          No podés responder este correo. Si tenés preguntas, dudas o comentarios,
+          escribinos a %{email}.
+    title:
+      reset_password: Restablecé tu contraseña
+  medications:
+    singular: Medicamento
+    edit_medication: Editar medicamento
+    refill_reminder: Recordatorio de reposición por correo
+    dosage: 'Dosis diaria:'
+    weekly_dosage: 'Dosis semanal:'
+    refill: 'Reposición:'
+    quantity: 'Cantidad total:'
+    strength: 'Concentración:'
+    event_summary: 'Reponer %{name}.'
+    form:
+      strength: Concentración
+      strength_unit: Unidad de concentración
+      strength_placeholder: ej. 100
+      total_placeholder: ej. 30
+      dosage: dosis
+      dosage_unit: Unidad de dosis
+      dosage_placeholder: ej. 2
+      refill: reposición
+      name_hint: Nombre genérico o comercial del medicamento
+      comments_hint: 'Agregá comentarios adicionales acá, por ejemplo tus síntomas.'
+      add_to_google_cal: Recordatorio en Google Calendar
+      google_cal_hint: >-
+        Vamos a agregar un recordatorio para este medicamento a tu calendario
+        de Google.
+      strength_hint: >-
+        La concentración del medicamento, generalmente aparece junto al nombre.
+      total_hint: Cantidad total de pastillas o dosis disponibles.
+      weekly_dosage_hint: Días de la semana en que tomás este medicamento
+      dosage_hint: Cantidad de pastillas o dosis diaria.
+      refill_hint: Cuándo reponer esta receta.
+      refill_reminder_hint: >-
+        Te vamos a mandar un correo la semana antes de que tengas que reponer
+        tu medicamento.
+      daily_reminder_hint: >-
+        Te vamos a mandar un recordatorio diario para que tomes este
+        medicamento.
+      total: Total
+      total_unit: Unidad total
+    new: Nuevo medicamento
+    units:
+      display: '%{count} %{unit}'
+      mg: mg
+      ml: ml
+      tablets:
+        one: pastilla
+        other: pastillas
+    reminder_mailer:
+      subject: 'if-me.org | ¡No te olvides de tomar %{name}!'
+      body: '¡Te mandamos un recordatorio amistoso para que tomes %{name}!'
+    refill_mailer:
+      subject: 'if-me.org | ¡Ya es momento de reponer %{name}!'
+      body: >-
+        ¡Te recordamos que tenés que reponer tu medicamento %{name} el
+        %{refill}!
+    index:
+      title: Medicamentos
+      subtitle: >-
+        Llevá el registro de tus medicamentos, incluyendo dosis e información
+        para reponer.
+      instructions: >-
+        Todavía no guardaste información de ningún medicamento.<br /><br />¡Acá
+        hay un ejemplo de cómo se ve! También podés anotar tu experiencia.
+      example_name: Prozac
+      example_strength: 10 mg
+      example_total: 40 pastillas
+      example_dosage: 2 pastillas
+      example_refill: 31/05/2016
+    show:
+      comments: 'Comentarios:'
+  meetings:
+    singular: Encuentro
+    edit_meeting: Editar encuentro
+    form:
+      location_placeholder: URL o dirección
+      maximum_members: Máximo de participantes
+      maximum_placeholder: 0 si no hay límite
+    join_success: Te uniste a este encuentro
+    info:
+      cancel_meeting: Cancelar encuentro
+      meeting_time: Horario
+      members_of_group_html:
+        one: '%{count} miembro de %{group}'
+        other: '%{count} miembros de %{group}'
+    reminder_mailer:
+      subject: 'if-me.org | ¡Tu encuentro "%{meeting_name}" es mañana a las %{time}!'
+      body: >-
+        ¡Te recordamos que tu encuentro "%{meeting_name}" es mañana a las
+        %{time} en %{location}!
+    leave:
+      error: 'No podés salir del encuentro, sos el/la único/a líder.'
+      success: 'Saliste de %{meeting}.'
+    new: Nuevo encuentro
+    google_cal:
+      create:
+        add: Agregar a Google Calendar
+        success: Encuentro agregado a Google Calendar con éxito.
+        error: Algo salió mal al agregar el encuentro a Google Calendar.
+      destroy:
+        remove: Quitar de Google Calendar
+        success: Encuentro quitado de Google Calendar con éxito.
+        error: Algo salió mal al quitar el encuentro de Google Calendar.
+  moments:
+    singular: Momento
+    plural: Momentos
+    edit_moment: Editar momento
+    tagged_moments: Momentos etiquetados
+    new: Nuevo momento
+    secret_share:
+      singular: Compartir en privado
+      expires_at: Vence el
+      cancel_secret_share: Cancelar compartir en privado
+      link_copied: Enlace privado copiado al portapapeles
+      link_info: Enlace privado creado
+      info: Cualquier persona con este enlace puede ver esta página
+      info_public: >-
+        Estás viendo esto a través de un enlace privado. No lo compartás sin
+        el consentimiento de quien lo escribió.
+    form:
+      why: Escribí sobre eso
+      why_legacy: '¿Qué pasó y cómo te sentiste?'
+      fix_legacy: '¿Qué pensamientos te gustaría tener?'
+      what_happened: '¿Qué pasó?'
+      viewers_hint: 'Aliados/as que pueden ver tu momento:'
+      draft_question: '¿Querés guardar este momento como borrador?'
+      bookmarked_question: '¿Marcar este momento?'
+      bookmarked_info: Los momentos marcados aparecen en tu plan de cuidado
+      resource_recommendations_question: '¿Mostrar recomendaciones de recursos?'
+    index:
+      subtitle: >-
+        Explorá tus Momentos: los eventos y situaciones que afectan tu salud
+        mental.
+      subtitle_link: Creá y organizá plantillas para escribir sobre tus momentos.
+      instructions: >-
+        Todavía no escribiste sobre ningún momento.<br /><br /> ¿No sabés por
+        dónde empezar? ¿Qué es algo que pasó hoy y que te gustaría compartir
+        con alguien de confianza? ¡Puede ser positivo o negativo! No tenés que
+        compartirlo ahora: hacelo cuando te sientas listo/a. Acá hay un ejemplo.
+      example_name: '¡Estoy angustiado/a por la entrevista de mañana!'
+      example_category: Trabajo
+    show:
+      strategies: '¿Qué estrategias podrían ayudar?'
+      resources: '¿Qué recursos podrían ayudar?'
+    filters:
+      secret_share: Compartir privado activado
+      no_viewers: Sin observadores
+      one_viewer: Al menos un observador
+      comments_enabled: Comentarios habilitados
+      draft_enabled: Borrador habilitado
+      published: Publicado
+  moods:
+    singular: Estado de ánimo
+    plural: Estados de ánimo
+    edit_mood: Editar estado de ánimo
+    new: Nuevo estado de ánimo
+    example_moods: 'Nervioso/a, Ansioso/a, Esperanzado/a'
+    index:
+      subtitle: 'Creá etiquetas que describan tu estado de ánimo, sentimientos y emociones.'
+      premade1_name: Aceptación
+      premade1_description: Aceptar y estar en paz con las diferencias y los propios límites
+      premade2_name: Ambición
+      premade2_description: Sentirse optimista sobre alcanzar las metas
+      premade3_name: Curiosidad
+      premade3_description: Sentir curiosidad ante lo incierto
+      premade4_name: Resentimiento
+      premade4_description: >-
+        No poder aceptar algo, sentir enojo, deseos de venganza o celos
+      premade5_name: Desesperanza
+      premade5_description: >-
+        Sentirse triste y sin esperanza, sin ver salidas posibles
+      instructions: >-
+        Todavía no creaste estados de ánimo personalizados.<br /> También podés
+        agregar los siguientes estados de ánimo prediseñados y personalizarlos
+        después.
+  notifications:
+    plural: Notificaciones
+    none: Sin notificaciones
+    clear: Borrar notificaciones
+    created_by_html: '<strong>Creado por</strong>: %{name}'
+    preview: Ver más
+    members:
+      title: Lista de miembros
+    ally:
+      accepted: '¡%{name} aceptó tu solicitud de alianza!'
+      sent_html: '¡%{link_to_user} te envió una solicitud de alianza!'
+    comment:
+      full: '%{name} comentó "%{comment}" en %{commentable_id}'
+      truncated: '%{name} comentó "%{comment}" [...] en %{commentable_id}'
+    group:
+      new_group: '%{name} creó el grupo "%{group_name}"'
+      new_group_member: '%{name} se unió a tu grupo "%{group_name}"'
+      add_group_leader: '%{name} es ahora líder de "%{group_name}"'
+      remove_group_leader: '%{name} ya no es líder de "%{group_name}"'
+    meeting:
+      new_meeting: '%{name} creó el encuentro "%{meeting_name}" en "%{group_name}"'
+      remove_meeting: '%{name} canceló "%{meeting_name}" en "%{group_name}"'
+      update_meeting: '%{name} actualizó "%{meeting_name}" en "%{group_name}"'
+      join_meeting: '%{name} se unió a "%{meeting_name}" en "%{group_name}"'
+    mailer:
+      comment_on_moment_subject: 'if-me.org | %{user} comentó en tu momento "%{moment}"'
+      comment_on_strategy_subject: 'if-me.org | %{user} comentó en tu estrategia "%{strategy}"'
+      comment_on_meeting_subject: >-
+        if-me.org | %{user} comentó en el encuentro "%{meeting}" del grupo
+        "%{group}"
+      comment_on_private_body: '<p>Tu aliado/a <strong>%{user}</strong> comentó en privado:</p>'
+      comment_on_body: '<p>Tu aliado/a <strong>%{user}</strong> comentó:</p>'
+      comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
+      comment_text: '<p><i>%{comment}</i></p>'
+      comment_link: '<p>Para leerlo, %{link}.</p>'
+      new_group_subject: 'if-me.org | %{user} creó el grupo "%{group}"'
+      new_group_body: >-
+        <p>%{user} creó el grupo "%{group}":</p><p><i>
+        %{description}</i></p><p>Para saber más y unirte, %{link}.</p>
+        <p>Por favor seguí nuestro %{code_of_conduct_link}.</p>
+      new_group_member_subject: 'if-me.org | %{user} se unió a tu grupo "%{group}"'
+      add_group_leader_you_subject: 'if-me.org | Ahora sos líder de "%{group}"'
+      add_group_leader_subject: 'if-me.org | %{user} ahora es líder de "%{group}"'
+      add_remove_group_leader_body: '<p>Para ver "%{group}", %{link}.</p>'
+      remove_group_leader_you_subject: 'if-me.org | Ya no sos líder de "%{group}"'
+      remove_group_leader_subject: 'if-me.org | %{user} ya no es líder de "%{group}"'
+      update_meeting_subject: 'if-me.org | %{user} actualizó el encuentro "%{meeting}" de "%{group}"'
+      new_meeting_subject: >-
+        if-me.org | %{user} creó un nuevo encuentro "%{meeting}" en
+        "%{group}"
+      meeting_body: >-
+        <p>%{subject}</p><p><i>%{description}</i></p><p><strong>
+        Lugar:</strong> %{location}</p><p><strong>Fecha:</strong>
+        %{date}</p> <p><strong>Horario:</strong> %{time}</p>
+      new_meeting_link: '<p>Para saber más y asistir, %{link}.</p>'
+      update_meeting_link: '<p>Para saber más, %{link}.</p>'
+      remove_meeting_subject: 'if-me.org | %{user} canceló "%{meeting}" de "%{group}"'
+      join_meeting_subject: 'if-me.org | %{user} se unió a "%{meeting}" de "%{group}"'
+      join_meeting_body: '<p>Para ver "%{meeting}", %{link}.</p>'
+      reported_user_subject: if-me.org | Reportaste a un usuario
+      reported_user_body: >-
+        Reportaste a %{reported_name}. Un administrador va a revisar tu
+        solicitud pronto.
+      reportee_user_subject: if-me.org | Fuiste reportado/a
+      reportee_user_body: Fuiste reportado/a. Esto va a ser revisado por un administrador.
+      add_ban_subject: if-me.org | Fuiste bloqueado/a
+      add_ban_body: 'Fuiste bloqueado/a por no respetar nuestro %{code_of_conduct_link}.'
+      remove_ban_subject: if-me.org | Tu bloqueo fue levantado
+      remove_ban_body: >-
+        Habías sido bloqueado/a por no respetar nuestro
+        %{code_of_conduct_link}. Tu bloqueo fue levantado.
+  omniauth:
+    access_denied: Acceso denegado
+  pages:
+    about:
+      main_message_one: >-
+        %{app_name} es una comunidad de salud mental que nos invita a compartir
+        nuestras experiencias personales con personas de confianza.
+      message_text_one: >-
+        Las personas de confianza son quienes nos acompañan en el día a día:
+        amistades, familia, compañeros/as de trabajo, docentes y profesionales
+        de la salud mental.
+      main_message_two: >-
+        Atravesar el propio mundo emocional es algo profundamente humano. Pero
+        para muchos de nosotros, abrirse al respecto sigue siendo difícil.
+      message_text_two: >-
+        No todo el mundo es psicólogo o terapeuta. Las personas con las que
+        nos relacionamos cada día inciden en cómo nos sentimos y actuamos.
+        Involucrarlas en nuestro proceso de salud mental puede ser clave para
+        el bienestar.
+      message_text_three: >-
+        <strong>¿Querés apoyarnos económicamente?</strong> En 2016, recibimos
+        una subvención comunitaria de Linebreak. En 2017, recibimos fondos de
+        %{fund_club_link}. Podés apoyarnos con una donación en nuestro
+        %{open_collective_link}.
+      fund_club: Fund Club
+    blog:
+      description: >-
+        Si te interesa escribir para nosotros, mandanos tu propuesta a %{email}.
+        También aceptamos colaboraciones anónimas.
+    contribute:
+      contributor_avatar_alt: 'Biografía de %{name}'
+      message_text_one: >-
+        Siempre estamos abiertos a ideas de todo tipo y de todas las personas,
+        incluyendo <strong>defensores/as de la salud mental</strong>,
+        <strong>profesionales de la salud</strong>,
+        <strong>desarrolladores/as de software</strong>,
+        <strong>traductores/as</strong> y
+        <strong>diseñadores/as de experiencia de usuario</strong>.<p
+        class="noMarginBottom">Escribinos a %{email_link} y nos ponemos en
+        contacto. Te vamos a invitar a nuestro canal de %{slack_link}, nuestra
+        herramienta principal de comunicación. No te olvides de hacer un fork
+        de nuestro repositorio en %{github_link}.</p>
+      more_contributors: '¡Más colaboradores/as increíbles!'
+      thanks: 'Un enorme gracias a:'
+      slack: Slack
+    faq:
+      title: Preguntas frecuentes
+      data_access_question: '¿Quién tiene acceso a mi información?'
+      data_access_answer: >-
+        La información no se comparte ni se pone a disposición de terceros.
+        Eliminar tu cuenta borra toda tu información.<br /><br />Los datos del
+        usuario se analizan dentro de la aplicación para ofrecer
+        recomendaciones personalizadas.<br /><br />Para crear una cuenta es
+        necesario ingresar nombre y correo electrónico. Si te autenticás con
+        Facebook o Google, se van a usar tu foto de perfil y nombre de esa
+        cuenta.
+      moment_question: '¿Qué es un Momento?'
+      moment_answer: >-
+        Un <strong>%{moment}</strong> es un evento o situación que afecta
+        tu salud mental. Puede ser algo positivo o negativo. Pensalo como
+        una entrada de diario o una publicación en redes sociales.<br /><br
+        />Podés etiquetar los Momentos con Estrategias, Categorías y Estados
+        de ánimo. También podés elegir qué aliados/as pueden verlos y
+        comentarlos, o hacer que solo sean visibles para vos.<br /><br
+        /><strong>%{moment_templates}</strong> te permite crear prompts de
+        escritura reutilizables.
+      strategy_question: '¿Qué es una Estrategia?'
+      strategy_answer: >-
+        Una <strong>%{strategy}</strong> es una actividad, forma de pensar o
+        práctica de autocuidado que te ayuda a atravesar un momento difícil o
+        enfocarte en tu bienestar.<br /><br />Podés etiquetar las Estrategias
+        con Categorías y elegir qué aliados/as pueden verlas y comentarlas.
+        Las Estrategias compartidas van a ser visibles para todos los aliados
+        y aliadas que indiques, lo que les permite etiquetarlas en sus propios
+        Momentos.
+      category_question: '¿Qué es una Categoría?'
+      category_answer: >-
+        Una <strong>%{category}</strong> es una etiqueta que puede representar
+        las personas, lugares y cosas que son importantes para vos.
+      mood_question: '¿Qué es un Estado de ánimo?'
+      mood_answer: >-
+        Un <strong>%{mood}</strong> es una etiqueta que describe tu estado de
+        ánimo, sentimientos y emociones.
+      group_question: '¿Qué es un Grupo?'
+      group_answer: >-
+        Un <strong>%{group}</strong> ofrece apoyo, orientación y espacios de
+        diálogo sobre salud mental. Podés crear grupos y tus aliados/as pueden
+        elegir unirse. Solo podés unirte a grupos creados por tus aliados/as.<br
+        /><br />Como líder de un Grupo, podés crear <strong>Encuentros</strong>.
+        Los Encuentros tienen lugar y horario. El lugar puede ser una dirección
+        o la URL de una videollamada. En los Encuentros también se puede
+        comentar. Si sos líder de un Grupo, no podés salir a menos que haya
+        otro líder. Los Grupos solo se pueden eliminar cuando sos el/la único/a
+        miembro.
+      medications_question: '¿Cómo uso la función de Medicamentos?'
+      medications_answer: >-
+        La función <strong>%{medications}</strong> te permite registrar los
+        medicamentos que estás tomando. También podés anotar tus síntomas.
+      care_plan_question: '¿Cómo uso el Plan de cuidado?'
+      care_plan_answer: >-
+        La función <strong>%{care_plan}</strong> te permite mantener una lista
+        de personas a quienes contactar en los momentos difíciles, y guardar
+        tus estrategias de autocuidado favoritas.
+      invite_question: '¿Cómo puedo invitar a mis seres queridos?'
+      invite_answer: >-
+        Entrá a la sección de <strong>%{allies}</strong> y hacé clic en
+        "Invitá a tus personas queridas". Vas a poder invitarlas por correo
+        electrónico. Cuando acepten la invitación, se van a agregar a tu lista
+        de aliados/as.
+      email_notifications_question: '¿Cómo modifico mis notificaciones por correo?'
+      email_notifications_answer: >-
+        Entrá a la página de <strong>%{accounts}</strong>. Desde ahí podés
+        modificar tu correo, contraseña, foto de perfil y descripción. También
+        podés eliminar tu cuenta. Al hacerlo, se borran todos tus datos.
+    home:
+      update_pwd_modal:
+        title: Actualizá tu contraseña
+        body: >-
+          Implementamos mejores medidas de seguridad para nuestros usuarios.
+          Por favor, %{update_password_link}
+        update_link: actualizá tu contraseña.
+      stories: Historias
+      not_signed_in:
+        main_message_one: >-
+          Comunicarnos mejor con las personas que queremos mejora nuestra
+          salud mental.
+        message_text_one: Necesitamos apoyarnos mutuamente para derribar el estigma.
+        message_one: >-
+          Compartí tus historias con personas de confianza y recibí el apoyo
+          que merecés.
+        message_two: 'Sé vos, sin condiciones, con seguridad y privacidad.'
+        message_three: 'Registrá tus estados de ánimo, medicamentos y autocuidado.'
+        main_message_two: >-
+          Somos un proyecto de código abierto porque la salud mental también
+          tiene que ser abierta.
+        message_text_two: >-
+          ¡Siempre estamos buscando tu %{help} y %{feedback}!
+        help: ayuda
+      signed_in_empty:
+        main_message_one: '¡Hola %{name}!'
+        message_text_one: Acá te contamos cómo empezar a compartir tus historias.
+        main_message_two: Contanos sobre vos.
+        cell_one: >-
+          Personalizá tu %{profile}: agregá una descripción y foto de perfil.<br
+          />Agregá %{moods} para describir mejor tus emociones.<br /> Agregá
+          %{allies}: amistades, familia y personas con quienes querés compartir.
+        main_message_three: Escribí tus historias.
+        cell_two: >-
+          Creá %{categories} para organizar tus momentos.<br /> Escribí sobre
+          los %{moments}: los eventos y situaciones que afectan tu salud mental.
+        main_message_four: Cuidate.
+        cell_three: >-
+          ¡Armá tu plan de %{strategize}!<br />¿Estás tomando %{medications}?
+          Llevá un registro y creá recordatorios.<br /> ¿Necesitás apoyo extra?
+          Unite o creá un %{group} para abrirte.
+        main_message_five: '¿Tenés preguntas o dudas?'
+        message_text_three: 'Revisá nuestra página de %{faq} o %{email_link}.'
+        strategize: Estrategias
+    partners:
+      description: >-
+        Estas son las organizaciones increíbles que nos inspiran y con las que
+        tuvimos el privilegio de trabajar. Nos encantaría trabajar con tu
+        organización. Escribinos a %{email}.
+    privacy:
+      summary: Resumen
+      summary_description: >-
+        <p>Esta política de privacidad regula la privacidad de los usuarios
+        que eligen usar este sitio.</p><p>Dado el contenido sensible del sitio,
+        la privacidad de nuestros usuarios es una prioridad. Esta política
+        describe cómo se recopilan los datos del usuario, para qué se usan y
+        cómo se protegen.</p>
+      user_data: Datos del usuario
+      user_data_description: >-
+        <p>Nuestra página de %{faq_link} tiene más información sobre las
+        funciones de este sitio.</p>
+      data_protection_rights: Derechos de protección de datos
+      data_protection_rights_answer: >-
+        <p>Cada usuario tiene derecho a lo siguiente:</p><p>Derecho de acceso:
+        los usuarios pueden solicitarnos copias de sus datos personales. Es
+        posible que cobremos un pequeño arancel por este servicio.</p><p>Derecho
+        de rectificación: los usuarios pueden pedirnos que corrijamos información
+        que consideren inexacta, o que completemos información incompleta.</p>
+        <p>Derecho de supresión: los usuarios pueden pedirnos que eliminemos sus
+        datos personales, bajo ciertas condiciones.</p><p>Derecho a limitar el
+        tratamiento: los usuarios pueden pedirnos que limitemos el procesamiento
+        de sus datos personales, bajo ciertas condiciones.</p><p>Derecho de
+        oposición: los usuarios pueden oponerse al procesamiento de sus datos
+        personales, bajo ciertas condiciones.</p><p>Derecho a la portabilidad
+        de los datos: los usuarios pueden pedirnos que transfiramos sus datos a
+        otra organización o directamente a ellos, bajo ciertas condiciones.</p>
+        <p>Una vez recibida la solicitud, tenemos un mes para responder.</p>
+      cookies: Uso de cookies
+      cookies_description: >-
+        <p>Este sitio usa cookies para mejorar la experiencia del usuario. Las
+        cookies de funcionalidad se usan para la autenticación y para recordar
+        preferencias previas, como el idioma o la ubicación. Cuando corresponde,
+        el sitio utiliza un sistema de control de cookies que permite al usuario
+        aceptarlas o rechazarlas en su primera visita.</p><p>Las cookies son
+        archivos pequeños que se guardan en el dispositivo del usuario para
+        registrar sus interacciones con el sitio. Esto le permite al sitio
+        ofrecer una experiencia personalizada.</p><p>Si no querés que este sitio
+        guarde cookies en tu dispositivo, podés configurar tu navegador para
+        bloquearlas.</p>
+      social_media: Plataformas de redes sociales
+      social_media_description: >-
+        <p>Las comunicaciones e interacciones realizadas a través de plataformas
+        de redes sociales externas en las que participa este sitio están sujetas
+        a los términos y condiciones de cada red social.</p>
+      changes: Cambios
+      changes_description: >-
+        <p>Revisamos periódicamente nuestra política de privacidad y publicamos
+        todas las actualizaciones en esta página. Nos aseguramos de cumplir con
+        la Ley de Documentos Electrónicos de Protección de Información Personal
+        (PIPEDA) de Canadá y el Reglamento General de Protección de Datos de
+        la UE (GDPR). Esta política de privacidad fue actualizada por última vez
+        el 11 de febrero de 2024.</p>
+      contact: Contacto
+      contact_description: >-
+        <p class="no_margin_bottom">Escribinos a %{email_link} si tenés dudas,
+        preguntas o comentarios.</p>
+    resources:
+      description: >-
+        Esta es nuestra lista curada de recursos de salud mental, que incluye
+        comunidades, herramientas educativas, líneas de ayuda y servicios.
+      emergency: >-
+        Si vos o alguien que conocés está atravesando una urgencia de salud
+        mental, buscá ayuda lo antes posible.
+      popular_tags: Etiquetas populares
+      crisis_prevention:
+        title: '¿Cómo estás?'
+        description: Hay personas que te quieren, pase lo que pase
+        die: morir
+        dead: muerto
+        died: murió
+        dying: muriendo
+        death: muerte
+        passed_away: falleció
+        kill_myself: hacerme daño
+        hurt_myself: lastimarme
+        suicide: suicidio
+        suicidal: suicida
+      tags:
+        ai: IA
+        communities: comunidades
+        education: educación
+        hotlines: líneas de ayuda
+        services: servicios
+        people_of_colour: personas racializadas
+        women_of_colour: mujeres racializadas
+        black_women: mujeres negras
+        domestic_violence: violencia doméstica
+        dating_violence: violencia en parejas
+        cyberbullying: ciberacoso
+        therapy: terapia
+        counseling: orientación
+        youth: juventud
+        lgbt: LGBT+
+        harassment: acoso
+        self_care: autocuidado
+        women: mujeres
+        chatbot: chatbot
+        anonymous: anónimo
+        free: gratuito
+        paid: de pago
+        twenty_four_seven: 24/7
+        videos: videos
+        blog: blog
+        podcast: podcast
+        books: libros
+        publication: publicación
+        video_chat: videollamada
+        texting: mensajes de texto
+        open_source: código abierto
+        workplace: ámbito laboral
+        social_justice: justicia social
+        tech_industry: industria tecnológica
+        meditation: meditación
+        anxiety: ansiedad
+        social_anxiety: ansiedad social
+        trigger_warnings: advertencias de contenido sensible
+        netflix: netflix
+        homeless: situación de calle
+        talks: charlas
+        voice_chat: chat de voz
+        training: formación
+        directory: directorio
+        self_injury: autolesión
+        treatment: tratamiento
+        care_planning: planificación de cuidado
+        depression: depresión
+        ocd: TOC (trastorno obsesivo-compulsivo)
+        advice: consejos
+        forum: foro
+        crisis_prevention: prevención de crisis
+        safety_planning: plan de seguridad
+        suicide_prevention: prevención del suicidio
+        android: android
+        ios: iOS
+        support_groups: grupos de apoyo
+        mindfulness: atención plena
+        journaling: diario personal
+        mood_tracking: registro de estados de ánimo
+        veterans: veteranos/as
+        music: música
+        integrative: integrativo
+        ptsd: TEPT (trastorno de estrés postraumático)
+        tbi: TCE (traumatismo de cráneo y encéfalo)
+        news: noticias
+        government: gobierno
+        christian: cristiano
+        humor: humor
+        conference: conferencia
+        addiction: adicciones
+        rehabilitation: rehabilitación
+        teachers: docentes
+        bipolar: bipolar
+        goal_tracking: seguimiento de objetivos
+        social_network: red social
+        add: ADD
+        adhd: ADHD
+        sexual_assault_survivors: sobrevivientes de violencia sexual
+        political_movement: movimiento político
+        reporting: denuncia
+        game: juego
+        stress: estrés
+        fidget: inquietud
+        colouring: colorear
+        deaf: personas sordas
+        asl: ASL
+        latinx: latinx
+        hispanic: hispano/a
+        senior_citizens: personas mayores
+        black_people: personas negras
+        sexual_health: salud sexual
+        hackathon: hackathon
+        stories: historias
+        teen: adolescentes
+        coaching: acompañamiento
+        physical_dependence: dependencia física
+        codependency: codependencia
+        relationships: vínculos
+        alcoholism: alcoholismo
+        cbt: TCC (terapia cognitivo-conductual)
+        chrome: chrome
+        firefox: firefox
+        social_media_break: descanso de las redes sociales
+        quiz: cuestionario
+        attachment: apego
+        eating_disorders: trastornos alimentarios
+        asian: asiático/a
+        pacific_islander: isleño/a del Pacífico
+        south_asian: del sur de Asia
+        southeast_asian: del sudeste asiático
+        east_asian: del este de Asia
+        al_anon: al-anon
+        burnout: agotamiento
+        breakup: ruptura
+        indigenous: pueblos indígenas
+        therapists: terapeutas
+        recovery: recuperación
+        advocacy: activismo
+        trauma: trauma
+        newsletter: boletín
+        phobias: fobias
+        grief: duelo
+        bereavement: pérdida
+      locations:
+        uk: Reino Unido
+        us: Estados Unidos
+        intl: Internacional
+        se: Suecia
+        ca: Canadá
+        ie: Irlanda
+        nz: Nueva Zelanda
+  profile:
+    index:
+      title: Perfil
+      edit_user: Personalizá tu perfil
+  pusher:
+    not_authorized: Sin autorización
+  search:
+    label: Buscar
+    search_by_name: Buscar por nombre
+    search_by_tags: Buscar por etiquetas
+    filter_by: Filtrar por
+    form:
+      search_by_location: Buscar por ubicación
+      search_by_email: Buscar por correo electrónico
+    index:
+      title: Buscar aliados/as
+      user_not_found: 'No se encontró al usuario %{email}'
+  shared:
+    footer:
+      licence: AGPL-3.0
+      licence_subtitle: 'Licenciado bajo %{licence}'
+      connect: Conectarse
+    comments:
+      share_everyone: Compartir con todos/as
+      share_with: 'Compartir solo con %{name}'
+      visible_only_between_you_and: 'Solo visible entre vos y %{name}'
+      not_allies: (no son aliados/as)
+    header:
+      signout: Cerrar sesión
+      home: Inicio
+    viewers_indicator:
+      disabled_comments: Los comentarios están deshabilitados.
+      you_are_viewer_html:
+        one: Sos la única persona viendo esto.
+        other: Vos <strong>no</strong> sos la única persona viendo esto.
+      viewers_html:
+        zero: <strong>Nadie</strong> está viendo esto.
+        one: '%{names} está viendo esto.'
+        other: '%{names} están viendo esto.'
+    stats:
+      you_are_focusing: Estás enfocándote principalmente en
+      user_is_focusing: '%{name} se está enfocando principalmente en'
+      visible_in_stats: Visible en estadísticas
+      not_visible_in_stats: No visible para etiquetar y mostrar en estadísticas del perfil
+      make_visible_in_stats: '¿Hacer visible para etiquetar y mostrar en estadísticas del perfil?'
+    viewers:
+      plural: Personas que lo ven
+      you: Solo vos
+      you_link: Solo visible para vos
+      many: 'Visible para %{viewers}'
+    meeting_info:
+      attending: Vas a asistir. ¿Cambiaste de idea?
+      not_attending: 'No vas a asistir. %{join}'
+      not_attending_one_spot_left: 'No vas a asistir. ¡Queda un lugar! %{join}'
+      not_attending_spots_left: 'No vas a asistir. ¡Quedan %{number} lugares! %{join}'
+      not_attending_no_spots_left: No vas a asistir. No quedan lugares disponibles.
+    quick_create:
+      new: 'Nuevo/a %{name}'
+  strategies:
+    singular: Estrategia
+    plural: Estrategias
+    edit_strategy: Editar estrategia
+    tagged_strategies: Estrategias etiquetadas
+    new: Nueva estrategia
+    form:
+      describe: Describí la estrategia.
+      strategies_label: '¿Qué estrategias podrían ayudarte a alcanzar esos pensamientos?'
+      name_hint: >-
+        Cualquier actividad, forma de pensar o práctica de autocuidado que
+        te ayude
+      viewers_hint: >-
+        Aliados/as que pueden ver tu estrategia y etiquetarla en sus propios
+        momentos
+      daily_reminder_hint: >-
+        Te vamos a mandar un recordatorio diario por correo para realizar
+        esta estrategia
+      draft_question: '¿Querés guardar esta estrategia como borrador?'
+      bookmarked_question: '¿Marcar esta estrategia?'
+      bookmarked_info: Las estrategias marcadas aparecen en tu plan de cuidado
+    label:
+      one: 'Estrategia:'
+      other: 'Estrategias:'
+    index:
+      subtitle: >-
+        Armá estrategias de autocuidado para cultivar los pensamientos y
+        actitudes que querés tener frente a tus momentos.
+      premade1_name: Cinco minutos de meditación
+      premade1_description: >-
+        1) <b>Encontrá una posición relajada y cómoda.</b> Podés sentarte en
+        una silla o en el suelo sobre un almohadón. Mantené la espalda recta,
+        sin tensarla demasiado. Las manos donde te resulte más cómodo. La
+        lengua en el paladar o donde estés a gusto.<br /><br />2) <b>Notá y
+        relajá tu cuerpo.</b> Tratá de observar la forma de tu cuerpo, su
+        peso. Dejate relajar y explorá con curiosidad tu cuerpo sentado acá:
+        las sensaciones que experimenta, el contacto con el suelo o la silla.
+        Relajá las zonas donde haya tensión. Solo respirá.<br /><br />3)
+        <b>Conectá con tu respiración.</b> Sentí el flujo natural del aliento:
+        adentro, afuera. No necesitás modificar nada. No larga, no corta:
+        natural. Observá dónde sentís la respiración en el cuerpo. Puede ser
+        en el abdomen, el pecho, la garganta o las fosas nasales. Intentá
+        sentir las sensaciones de cada respiración, una a la vez.<br /><br
+        />4) <b>Sé amable con tu mente cuando se distraiga.</b> Es probable
+        que tu mente empiece a vagar. Eso es completamente normal. Cuando
+        pase, simplemente notalo, con suavidad, y volvé a la respiración.<br
+        /><br />5) <b>Quedaté acá cinco o siete minutos.</b> Observá tu
+        respiración en silencio. De vez en cuando te vas a perder en tus
+        pensamientos: volvé a la respiración.<br /><br />6) <b>Antes de
+        terminar, volvé al cuerpo.</b> Después de unos minutos, volvé a
+        notar tu cuerpo entero. Dejate relajar un poco más y date las gracias
+        por haber dedicado este tiempo.<br /><br /><i>Adaptado de
+        http://www.mindful.org/a-five-minute-breathing-meditation/</i>
+      instructions: >-
+        Todavía no creaste estrategias personalizadas.<br /> También podés
+        agregar la siguiente estrategia prediseñada y personalizarla después.
+    reminder_mailer:
+      subject: 'if-me.org | ¡No te olvides de practicar %{name}!'
+      body: '¡Te mandamos un recordatorio amistoso para practicar %{name}!'
+  stats:
+    total_moments: >-
+      Escribiste un <strong>total</strong> de <strong>%{count}</strong>
+      momentos.
+    total_moment: >-
+      Escribiste un <strong>total</strong> de <strong>%{count}</strong>
+      momento.
+    monthly_moments: 'Este <strong>mes</strong> escribiste <strong>%{count}</strong> momentos.'
+    monthly_moment: 'Este <strong>mes</strong> escribiste <strong>%{count}</strong> momento.'
+  warnings:
+    no_description: '¡No escribiste una descripción!'
+    yes_description: >-
+      Escribirla puede ayudarte a vos y a otres a entender mejor lo que pasó
+  mailers:
+    accepted_ally_request:
+      subject: 'if-me.org | ¡%{ally_name} aceptó tu solicitud de alianza!'
+      message: >-
+        <p>¡Genial! Ahora podés compartir Momentos, Estrategias y más con
+        %{ally_name}.</p>
+    new_ally_request:
+      subject: 'if-me.org | ¡%{ally_name} te envió una solicitud de alianza!'
+      message: >-
+        <p>Por favor <a href="%{allies_url}">ingresá</a> para aceptar o
+        rechazar la solicitud.</p>
+  devise:
+    password: Contraseña
+    new_password: Nueva contraseña
+    current_password: Contraseña actual
+    password_change: Cambiar contraseña
+    remember_me: Recordarme
+    show_password: Mostrar contraseña
+    hide_password: Ocultar contraseña
+    confirmations:
+      resend_confirmation: Reenviar instrucciones de confirmación
+    mailer:
+      confirmation:
+        link_instructions: >-
+          Podés confirmar la dirección de correo electrónico de tu cuenta
+          usando el enlace de abajo
+        link_text: Confirmar mi cuenta
+      reset_password:
+        link_instructions: >-
+          Alguien solicitó un enlace para cambiar tu contraseña. Podés
+          hacerlo usando el enlace de abajo.
+        ignore: 'Si no fuiste vos, ignorá este mensaje.'
+        info: >-
+          Tu contraseña no va a cambiar hasta que uses el enlace de arriba
+          y crees una nueva.
+      unlock:
+        info: >-
+          Tu cuenta fue bloqueada por demasiados intentos de ingreso fallidos.
+        link_instructions: Usá el enlace de abajo para desbloquear tu cuenta
+        link_text: Desbloquear mi cuenta
+    passwords:
+      edit:
+        confirmation: Confirmar nueva contraseña
+      new:
+        send_instructions: Mandarme instrucciones para restablecer mi contraseña
+    registrations:
+      email_notifications: Notificaciones por correo
+      comment_notify_text: 'Comentarios en momentos, estrategias y encuentros'
+      ally_notify_text: Solicitudes de alianza nuevas y aceptadas
+      group_notify_text: Actualizaciones de grupos
+      meeting_notify_text: Actualizaciones de encuentros
+      google_auth1: >-
+        Si ya no querés autenticarte con Google, ingresá un nuevo correo
+        electrónico y contraseña.
+      google_auth2: >-
+        Como te autenticaste con Google, no necesitás ingresar tu contraseña.<br
+        />Si querés cambiar esto, ingresá un nuevo correo electrónico y
+        contraseña.
+      facebook_auth1: >-
+        Si ya no querés autenticarte con Facebook, ingresá un nuevo correo
+        electrónico y contraseña.
+      facebook_auth2: >-
+        Como te autenticaste con Facebook, no necesitás ingresar tu contraseña.<br
+        />Si querés cambiar esto, ingresá un nuevo correo electrónico y
+        contraseña.
+      password_errors:
+        format: tiene que tener entre 8 y 128 caracteres.
+      placeholders:
+        repeat_password: Repetir contraseña
+      edit:
+        labels:
+          profile_picture: Foto de perfil
+          remove_picture: Quitar foto
+          about: Sobre vos
+          password_for: Contraseña para tu cuenta de <strong>if-me.org</strong>
+          update: Actualizar
+        placeholders:
+          optional: Opcional
+          about: >-
+            ¡Presentate! ¿Por qué estás acá y qué esperás lograr? Tené en
+            cuenta que esto va a ser visible cuando otros usuarios te busquen.
+          required: Requerido
+        delete:
+          text: '¿<strong>if-me.org</strong> no te está siendo útil?'
+          button: Eliminar mi cuenta definitivamente
+          confirm: >-
+            ¿Estás seguro/a? Vas a perder todos tus datos. Pero siempre podés
+            volverte a registrar.
+      new:
+        subtitle: >-
+          Empezá a contar tus historias y a cuidar tu bienestar en un espacio
+          seguro y privado
+        label: Algunos datos
+    sessions:
+      subtitle: 'Bienvenido/a de vuelta, esperamos ayudarte a atravesar el día'
+    shared:
+      sign_in_google: Ingresar con Google
+      sign_up_google: Registrarse con Google
+      sign_in_facebook: Ingresar con Facebook
+      sign_up_facebook: Registrarse con Facebook
+      confirmation: '¿No recibiste las instrucciones de confirmación?'
+      unlock: '¿No recibiste las instrucciones para desbloquear?'
+    unlock:
+      resend: Reenviar instrucciones para desbloquear
+  care_plan:
+    index:
+      title: Plan de cuidado
+      subtitle: Armá un plan para atravesar los momentos difíciles.
+      contacts: Contactos
+      new_contact: Nuevo contacto
+      edit_contact: Editar contacto
+      phone_number: Número de teléfono
+      contacts_info: Personas queridas con quienes hablar
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: Ya hay una solicitud en cola para este usuario.
+        duplicate_request_id: Ya existe una solicitud con este ID.
+    data_download:
+      label: Descargar tus datos
+      description: Descargá un archivo CSV con los datos de tu cuenta de if-me.org
+      request: Descargar mis datos
+      processing: Tus datos se están preparando. Puede llevar unos minutos...
+      download: Descargar datos (CSV)
+      request_new: Solicitar nueva descarga
+      error: Algo salió mal al preparar tus datos. Por favor, intentá de nuevo.
+  moment_templates:
+    index:
+      title: Plantillas de momento
+      subtitle: Prompts de escritura para tus momentos
+      new_template: Nueva plantilla
+      edit_template: Editar plantilla
+      instructions: >-
+        Todavía no creaste ninguna plantilla.<br />También podés agregar las
+        siguientes plantillas prediseñadas y personalizarlas después.
+      premade1_name: Básica
+      premade1_description: '¿Qué pasó y cómo te sentís?<br />¿Qué pensamientos te gustaría tener?'
+      premade2_name: Gratitud
+      premade2_description: '¿Qué es algo que valorás de vos mismo/a?<br />¿Qué te da ganas de que llegue hoy?'
