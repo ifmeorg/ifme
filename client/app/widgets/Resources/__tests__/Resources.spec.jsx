@@ -117,7 +117,7 @@ describe('Resources', () => {
     expect(screen.getByText(new RegExp(`${3} of ${3}`))).toBeInTheDocument();
 
     // focuses the InputTag select
-    let input = screen.getByRole('textbox');
+    let input = screen.getByRole('combobox');
     await userEvent.click(input);
 
     // first tag selection
@@ -140,7 +140,7 @@ describe('Resources', () => {
     let checkbox = screen.queryByRole('checkbox', queryOptions);
     expect(checkbox).toBeInTheDocument();
     // re-query input as its key prop has been refreshed
-    input = screen.getByRole('textbox');
+    input = screen.getByRole('combobox');
     await userEvent.click(input);
 
     // check second tag selection
@@ -165,7 +165,7 @@ describe('Resources', () => {
     expect(resourcesArticles).toHaveLength(3);
     expect(screen.getByText(new RegExp(`${3} of ${3}`))).toBeInTheDocument();
 
-    const input = screen.getByRole('textbox');
+    const input = screen.getByRole('combobox');
     await userEvent.click(input);
 
     // tag selection and expected view updates
