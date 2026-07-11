@@ -3,7 +3,6 @@ import { fetchWrapper } from 'utils/fetchWrapper';
 import {
   render,
   screen,
-  waitForElementToBeRemoved,
   waitFor,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -82,12 +81,12 @@ describe('QuickCreate', () => {
       );
       const userInput = 'my input text';
       // User enters some text
-      await userEvent.type(screen.getByRole('textbox'), userInput);
+      await userEvent.type(screen.getByRole('combobox'), userInput);
       // Closes the input
       await userEvent.click(quickCreateButton);
       // Reopen
       await userEvent.click(quickCreateButton);
-      expect(screen.getByRole('textbox')).toHaveValue(userInput);
+      expect(screen.getByRole('combobox')).toHaveValue(userInput);
     });
   });
 
@@ -98,7 +97,7 @@ describe('QuickCreate', () => {
       // modal does not exist yet
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
       // user enters a checkbox value that does not exist
-      await userEvent.type(screen.getByRole('textbox'), 'new checkbox{enter}');
+      await userEvent.type(screen.getByRole('combobox'), 'new checkbox{enter}');
       // modal appears
       expect(screen.getByRole('dialog')).toBeInTheDocument();
     });
@@ -108,24 +107,12 @@ describe('QuickCreate', () => {
       // open accordion
       await userEvent.click(screen.getByRole('button'));
       // type a value that already exists
-      await userEvent.type(screen.getByRole('textbox'), `${label}{enter}`);
+      await userEvent.type(screen.getByRole('combobox'), `${label}{enter}`);
       // modal should not be open
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     });
 
-    /**
-     * Skipping this one for now. react-autosuggest still checks for event.keyCode, which
-     * is long since deprecated. testing-library/user-event stopped supporting as of v14
-     * and now overwrites keyCode to `0` (only to support React's SyntheticEvents which expect
-     * a value for keyCode).
-     *
-     * I've tried manually dispatching a KeyboardEvent with the correct keyCode to step outside
-     * the testing-library box for this singular test but it is not currently working. Will revisit.
-     *
-     * See: https://github.com/moroshko/react-autosuggest/blob/master/src/Autosuggest.js#L713
-     * See: https://github.com/testing-library/user-event/issues/842
-     */
-    it.skip('does not open modal if input matches an unselected option', async () => {
+    it('does not open modal if input matches an unselected option', async () => {
       const [, { label }] = checkboxes;
       // open accordion
       await userEvent.click(screen.getByRole('button'));
@@ -135,7 +122,7 @@ describe('QuickCreate', () => {
         }),
       ).not.toBeInTheDocument();
       // type a value that already exists
-      await userEvent.type(screen.getByRole('textbox'), `${label}{enter}`);
+      await userEvent.type(screen.getByRole('combobox'), `${label}{enter}`);
       expect(
         screen.getByRole('checkbox', {
           name: label,
@@ -147,19 +134,7 @@ describe('QuickCreate', () => {
   });
 
   describe('when the form', () => {
-    /**
-     * Skipping this one for now. react-autosuggest still checks for event.keyCode, which
-     * is long since deprecated. testing-library/user-event stopped supporting as of v14
-     * and now overwrites keyCode to `0` (only to support React's SyntheticEvents which expect
-     * a value for keyCode).
-     *
-     * I've tried manually dispatching a KeyboardEvent with the correct keyCode to step outside
-     * the testing-library box for this singular test but it is not currently working. Will revisit.
-     *
-     * See: https://github.com/moroshko/react-autosuggest/blob/master/src/Autosuggest.js#L713
-     * See: https://github.com/testing-library/user-event/issues/842
-     */
-    it.skip('is submitted it adds a new checkbox from data', async () => {
+    it('is submitted it adds a new checkbox from data', async () => {
       const response = {
         data: {
           success: true,
@@ -174,13 +149,13 @@ describe('QuickCreate', () => {
       // open accordion
       await userEvent.click(screen.getByRole('button'));
       // enter a value that does not exist
-      await userEvent.type(screen.getByRole('textbox'), 'new checkbox{enter}');
+      await userEvent.type(screen.getByRole('combobox'), 'new checkbox{enter}');
       // dialog for new checkbox appears
-      expect(screen.getByRole('dialog')).toBeInTheDocument();
+      expect(await screen.findByRole('dialog')).toBeInTheDocument();
       // submit the form
       await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
       // when the dialog has been removed there was a successful submission
-      await waitForElementToBeRemoved(() => screen.getByRole('dialog'));
+      await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
       expect(fetchWrapperPostSpy).toBeCalledWith(
         'https://if-me.org/quick-create',
         {
@@ -210,7 +185,7 @@ describe('QuickCreate', () => {
       // open accordion
       await userEvent.click(screen.getByRole('button'));
       // enter a checkbox that does not exist
-      await userEvent.type(screen.getByRole('textbox'), 'new checkbox{enter}');
+      await userEvent.type(screen.getByRole('combobox'), 'new checkbox{enter}');
       // submit
       await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
       await waitFor(() => expect(fetchWrapperPostSpy).toHaveBeenCalled());
