@@ -39,6 +39,23 @@ describe ViewersHelper do
       )
       viewers_hover(viewers, new_category)
     end
+
+    it 'preserves viewer id order in the viewer list' do
+      new_user1 = create(:user1)
+      new_user2 = create(:user2)
+      new_user3 = create(:user3)
+      viewers = [new_user3.id, new_user1.id, new_user2.id]
+      new_category = create(:category, user_id: new_user1.id)
+      expect(self).to receive(:react_component).with(
+        'Tooltip',
+        props: {
+          element: element,
+          text: 'Visible to Gentle Breezy, Oprah Chang, and Plum Blossom',
+          center: true
+        }
+      )
+      viewers_hover(viewers, new_category)
+    end
   end
 
   describe 'get_viewers_for' do
