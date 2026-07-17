@@ -1,10 +1,11 @@
 <footer class="footer">
+  <% external_link_options = { target: '_blank', rel: 'noopener noreferrer' } %>
   <div class="footerLinks">
     <div>
       <div class="footerLinksTitle"><%= t('app_name') %></div>
       <%= link_to(t('navigation.about'), about_path) %>
       <%= link_to(t('navigation.blog'), 'https://medium.com/ifme') %>
-      <%= link_to(t('navigation.code_of_conduct'), 'https://www.contributor-covenant.org/', target: '_blank') %>
+      <%= link_to(t('navigation.code_of_conduct'), 'https://www.contributor-covenant.org/', external_link_options) %>
       <%= link_to(t('navigation.faq'), faq_path) %>
 
       <%= link_to(t('navigation.partners'), partners_path) %>
@@ -15,13 +16,13 @@
     <div>
       <div class="footerLinksTitle"><%= t('shared.footer.connect') %></div>
       <%= link_to(t('common.form.email'), 'mailto:join.ifme@gmail.com') %>
-      <%= link_to(t('navigation.facebook'), 'http://facebook.com/ifmeorg', target: '_blank') %>
-      <%= link_to(t('navigation.github'), 'https://github.com/ifmeorg/ifme', target: '_blank') %>
-      <%= link_to(t('navigation.instagram'), 'https://www.instagram.com/ifmeorg', target: '_blank') %>
-      <%= link_to(t('navigation.open_collective'), 'https://opencollective.com/ifme', target: '_blank') %>
-      <%= link_to(t('navigation.rss'), 'https://medium.com/feed/ifme', target: '_blank') %>
-      <%= link_to(t('navigation.x'), 'http://x.com/ifmeorg', target: '_blank') %>
-      <a target="_blank" href="https://digitalpublicgoods.net/registry/">
+      <%= link_to(t('navigation.facebook'), 'http://facebook.com/ifmeorg', external_link_options) %>
+      <%= link_to(t('navigation.github'), 'https://github.com/ifmeorg/ifme', external_link_options) %>
+      <%= link_to(t('navigation.instagram'), 'https://www.instagram.com/ifmeorg', external_link_options) %>
+      <%= link_to(t('navigation.open_collective'), 'https://opencollective.com/ifme', external_link_options) %>
+      <%= link_to(t('navigation.rss'), 'https://medium.com/feed/ifme', external_link_options) %>
+      <%= link_to(t('navigation.x'), 'http://x.com/ifmeorg', external_link_options) %>
+      <a target="_blank" rel="noopener noreferrer" href="https://digitalpublicgoods.net/registry/">
         <div class="footerDpga" role="presentation" aria-label="<%= t('navigation.digital_public_goods_alliance') %>"></div>
       </a>
     </div>
@@ -33,7 +34,7 @@
     <%= react_component('ToggleLocale', props: { locale: @locale, locales: @locales }) %>
     <div>
       <%= sanitize t('shared.footer.licence_subtitle',
-        licence: link_to(t('shared.footer.licence'), 'https://github.com/ifmeorg/ifme/blob/main/LICENSE.txt', target: '_blank'))
+        licence: link_to(t('shared.footer.licence'), 'https://github.com/ifmeorg/ifme/blob/main/LICENSE.txt', external_link_options))
       %>
     </div>
   </div>
