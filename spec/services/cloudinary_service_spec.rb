@@ -5,10 +5,24 @@ FILE_PATH = "/spec/uploads/"
 describe CloudinaryService do
   subject { described_class }
 
+  let(:file) { File.new(File.join(::Rails.root.to_s, FILE_PATH, FILENAME)) }
+  let(:public_id) { "moment-public-id" }
+  let(:upload_response) do
+    {
+      "public_id" => public_id,
+      "secure_url" => "https://res.cloudinary.com/demo/image/upload/#{public_id}",
+      "signature" => "signature",
+      "original_filename" => "moment"
+    }
+  end
+
   describe '#upload' do
     context 'successfully' do
       it 'returns json response from cloudinary' do
-        file = File.new(File.join(::Rails.root.to_s, FILE_PATH, FILENAME))
+        expect(Cloudinary::Uploader).to receive(:upload)
+          .with(file, {})
+          .and_return(upload_response)
+
         response = subject.upload(file)
 
         expect(response).to have_key("public_id")
@@ -20,7 +34,10 @@ describe CloudinaryService do
 
     context 'it gracefully fails' do
       it 'returns nil' do
-        file = File.new(File.join(::Rails.root.to_s, FILE_PATH, FILENAME))
+        expect(Cloudinary::Uploader).to receive(:upload)
+          .with(nil, {})
+          .and_raise(StandardError)
+
         response = subject.upload(nil)
         expect(response).to be nil
       end
@@ -30,21 +47,21 @@ describe CloudinaryService do
   describe '#delete' do
     context 'successfully' do
       it 'returns success json response from cloudinary' do
-        # upload image
-        file = File.new(File.join(::Rails.root.to_s, FILE_PATH, FILENAME))
-        uploaded_file = subject.upload(file)
-        expect(uploaded_file).to have_key("public_id")
-        expect(uploaded_file).to have_key("secure_url")
+        expect(Cloudinary::Uploader).to receive(:destroy)
+          .with(public_id, {})
+          .and_return({"result"=>"ok"})
 
-        # delete image
-        response = subject.delete(uploaded_file["public_id"])
+        response = subject.delete(public_id)
         expect(response).to eq({"result"=>"ok"})
       end
     end
 
     context 'gracefully fails' do
       it 'returns not found' do
-        # upload image
+        expect(Cloudinary::Uploader).to receive(:destroy)
+          .with("untitled", {})
+          .and_return({"result"=>"not found"})
+
         response = subject.delete("untitled")
         expect(response).to eq({"result"=>"not found"})
       end
@@ -54,16 +71,15 @@ describe CloudinaryService do
   describe 'fetch' do
     context 'successfully' do
       it 'returns a secure url of an uploaded image' do
-        # upload image
-        file = File.new(File.join(::Rails.root.to_s, FILE_PATH, FILENAME))
-        uploaded_file = subject.upload(file)
+        cloudinary_secure_url = "https://res.cloudinary.com/demo/image/upload/"
+        allow(ENV).to receive(:fetch)
+          .with('CLOUDINARY_SECURE_URL', nil)
+          .and_return(cloudinary_secure_url)
 
-        # delete image
-        response = subject.fetch(uploaded_file["public_id"])
-        expect(response).to include(ENV['CLOUDINARY_SECURE_URL'])
-        expect(response).to include(uploaded_file["public_id"])
+        response = subject.fetch(public_id)
+
+        expect(response).to eq("#{cloudinary_secure_url}#{public_id}")
       end
     end
   end
 end
-
