@@ -798,5 +798,14 @@
     "link_name": "LinkedIn",
     "link": "https://linkedin.com/in/renanfochetto",
     "social": "linkedin"
+  },
+  {
+    "name": "Adam Peña",
+    "image": "/assets/contributors/adam_pena.webp",
+    "profile": "I am a software engineer who specializes in building high-performance UI infrastructure: accessible, battle-tested, and built to scale. I started out in community health, but transitioned into engineering after realizing I could have a much bigger impact applying those skills to the same kinds of problems. That's what drew me to if-me.org earlier in my career.",
+    "location": "United States",
+    "link_name": "adamjpena.com",
+    "link": "https://adamjpena.com/",
+    "social": "globe"
   }
 ]
