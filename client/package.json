@@ -35,7 +35,7 @@
     "chartkick": "^3.1.1",
     "core-js": "3",
     "dayjs": "^1.11.21",
-    "dompurify": "^3.4.11",
+    "dompurify": "^3.4.12",
     "dot-prop": "^5.1.1",
     "downshift": "^8.5.0",
     "font-awesome": "^4.7.0",
