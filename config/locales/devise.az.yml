@@ -1,0 +1,91 @@
+az:
+  devise:
+    confirmations:
+      confirmed: E-poçt ünvanın uğurla təsdiqləndi.
+      send_instructions: >-
+        Bir neçə dəqiqə ərzində e-poçt ünvanını necə təsdiqləmək barədə
+        təlimatları e-poçtla alacaqsan.
+      send_paranoid_instructions: >-
+        E-poçt ünvanın məlumat bazamızda varsa, bir neçə dəqiqə ərzində
+        e-poçt ünvanını necə təsdiqləmək barədə təlimatları
+        e-poçtla alacaqsan.
+    failure:
+      already_authenticated: Artıq daxil olmusan.
+      inactive: Hesabın hələ aktivləşdirilməyib.
+      invalid: '%{authentication_keys} və ya parol yanlışdır.'
+      locked: Hesabın kilidlənib.
+      last_attempt: Hesabının kilidlənməsinə qədər daha bir cəhdin qalıb.
+      not_found_in_database: '%{authentication_keys} və ya parol yanlışdır.'
+      timeout: Sessiyanın müddəti bitib. Davam etmək üçün zəhmət olmasa, yenidən daxil ol.
+      unauthenticated: Davam etmək üçün daxil olmalı və ya qeydiyyatdan keçməlisən.
+      unconfirmed: Davam etmək üçün e-poçt ünvanını təsdiqləməlisən.
+    mailer:
+      confirmation_instructions:
+        subject: if-me.org | Təsdiqləmə təlimatları
+      reset_password_instructions:
+        subject: if-me.org | Parolu sıfırlamaq üçün təlimatlar
+      unlock_instructions:
+        subject: if-me.org | Kilidi açmaq üçün təlimatlar
+      password_change:
+        subject: if-me.org | Parol dəyişdirildi
+    omniauth_callbacks:
+      failure: '%{kind} vasitəsilə daxil olmaq mümkün olmadı, çünki "%{reason}".'
+      success: '%{kind} hesabın vasitəsilə uğurla daxil oldun.'
+    passwords:
+      no_token: >-
+        Bu səhifəyə yalnız parolu sıfırlamaq üçün göndərilən e-poçtdakı keçidlə daxil ola bilərsən.
+        Həmin e-poçtdakı keçiddən istifadə etmisənsə, zəhmət olmasa,
+        göstərilən URL ünvanını tam daxil etdiyinə əmin ol.
+      send_instructions: >-
+        Bir neçə dəqiqə ərzində parolunu necə sıfırlamaq barədə
+        təlimatları e-poçtla alacaqsan.
+      send_paranoid_instructions: >-
+        E-poçt ünvanın məlumat bazamızda varsa, bir neçə dəqiqə ərzində
+        parolunu bərpa etmək üçün keçidi e-poçt ünvanına göndərəcəyik.
+      updated: Parolun uğurla dəyişdirildi. Artıq daxil olmusan.
+      updated_not_active: Parolun uğurla dəyişdirildi.
+    registrations:
+      destroyed: >-
+        Sağ ol! Hesabın uğurla ləğv edildi. Ümid edirik ki, tezliklə
+        səni yenidən görəcəyik.
+      signed_up: Xoş gəldin! Uğurla qeydiyyatdan keçdin.
+      signed_up_but_inactive: >-
+        Uğurla qeydiyyatdan keçdin. Amma hesabın hələ aktivləşdirilmədiyi üçün
+        daxil olmağın mümkün olmadı.
+      signed_up_but_locked: >-
+        Uğurla qeydiyyatdan keçdin. Amma hesabın kilidləndiyi üçün
+        daxil olmağın mümkün olmadı.
+      signed_up_but_unconfirmed: >-
+        E-poçt ünvanına təsdiqləmə keçidi olan mesaj göndərildi.
+        Hesabını aktivləşdirmək üçün zəhmət olmasa, həmin keçidə daxil ol.
+      update_needs_confirmation: >-
+        Hesabını uğurla yenilədin, amma yeni e-poçt ünvanını təsdiqləməliyik.
+        Yeni e-poçt ünvanını təsdiqləmək üçün zəhmət olmasa,
+        e-poçtunu yoxla və təsdiqləmə keçidinə daxil ol.
+      updated: Hesabın uğurla yeniləndi.
+    sessions:
+      signed_in: Uğurla daxil oldun.
+      signed_out: Uğurla çıxış etdin.
+      already_signed_out: Uğurla çıxış etdin.
+    unlocks:
+      send_instructions: >-
+        Bir neçə dəqiqə ərzində hesabının kilidini necə açmaq barədə
+        təlimatları e-poçtla alacaqsan.
+      send_paranoid_instructions: >-
+        Hesabın varsa, bir neçə dəqiqə ərzində onun kilidini necə açmaq barədə
+        təlimatları e-poçtla alacaqsan.
+      unlocked: Hesabının kilidi uğurla açıldı. Davam etmək üçün zəhmət olmasa, daxil ol.
+  errors:
+    messages:
+      already_confirmed: 'artıq təsdiqlənib, zəhmət olmasa, daxil olmağa çalış'
+      confirmation_period_expired: '%{period} ərzində təsdiqlənməlidir, zəhmət olmasa, yenisini istə'
+      expired: 'artıq etibarlı deyil, zəhmət olmasa, yenisini istə'
+      not_found: tapılmadı
+      not_locked: kilidlənməyib
+      not_saved:
+        one: '1 xəta səbəbindən bu %{resource} yadda saxlanılmadı:'
+        other: '%{count} xəta səbəbindən bu %{resource} yadda saxlanılmadı:'
+      pwned_password: >-
+        əvvəllər məlumat sızması zamanı üzə çıxıb və heç vaxt istifadə edilməməlidir.
+        Əgər onu əvvəllər hər hansı yerdə istifadə etmisənsə,
+        dərhal dəyişdir!
