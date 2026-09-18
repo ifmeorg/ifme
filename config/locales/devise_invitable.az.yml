@@ -1,0 +1,36 @@
+az:
+  devise:
+    failure:
+      invited: >-
+        Gözləyən dəvətin var. Hesabının yaradılmasını tamamlamaq üçün
+        onu qəbul et.
+    invitations:
+      send_instructions: '%{email} ünvanına dəvət e-poçtu göndərildi.'
+      failed_send: 'Xəta baş verdi. %{email} ünvanına dəvət göndərmək mümkün olmadı.'
+      invitation_token_invalid: Təqdim edilən dəvət kodu etibarlı deyil!
+      updated: Parolun uğurla təyin edildi. Artıq daxil olmusan.
+      updated_not_active: Parolun uğurla təyin edildi.
+      no_invitations_remaining: Göndərə biləcəyin dəvət qalmayıb
+      invitation_removed: Dəvətin silindi.
+      new:
+        header: Dəstəkçi dəvəti göndər
+        submit_button: Dəvət göndər
+      edit:
+        header: Parolunu təyin et
+        submit_button: Parolumu təyin et
+    mailer:
+      invitation_instructions:
+        subject: 'if-me.org | %{name} səni if-me.org icmasına qoşulmağa dəvət etdi!'
+        subject_nameless: if-me.org | Kimsə səni if-me.org icmasına qoşulmağa dəvət etdi!
+        hello: 'Salam %{email}!'
+        someone_invited_you: >-
+          %{name} səni psixoloji rifahla bağlı təcrübələrini sevdiklərinlə
+          paylaşa, əhvalını, dərmanlarını və özünə qayğını izləyə biləcəyin
+          http://www.if-me.org icmasına qoşulmağa dəvət etdi. Dəvəti
+          aşağıdakı keçid vasitəsilə qəbul edə bilərsən.
+        accept: Dəvəti qəbul et!
+        accept_until: 'Bu dəvətin müddəti %{due_date} tarixində bitəcək.'
+        ignore: >-
+          Dəvəti qəbul etmək istəmirsənsə, zəhmət olmasa, bu e-poçtu
+          nəzərə alma.<br/>Yuxarıdakı keçidə daxil olub parolunu təyin
+          etməyənə qədər hesabın yaradılmayacaq.
