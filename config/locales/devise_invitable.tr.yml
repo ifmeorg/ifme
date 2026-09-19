@@ -1,0 +1,36 @@
+tr:
+  devise:
+    failure:
+      invited: >-
+        Bekleyen bir davetiniz var. Hesabınızı oluşturmayı tamamlamak için
+        lütfen daveti kabul edin.
+    invitations:
+      send_instructions: '%{email} adresine bir davet e-postası gönderildi.'
+      failed_send: 'Bir hata oluştu. %{email} adresine davet gönderilemedi.'
+      invitation_token_invalid: Davet kodu geçerli değil!
+      updated: Parolanız başarıyla belirlendi. Oturumunuz açıldı.
+      updated_not_active: Parolanız başarıyla belirlendi.
+      no_invitations_remaining: Davet hakkınız kalmadı
+      invitation_removed: Davetiniz kaldırıldı.
+      new:
+        header: Bir destekçinizi davet edin
+        submit_button: Davet gönderin
+      edit:
+        header: Parolanızı belirleyin
+        submit_button: Parolamı belirleyin
+    mailer:
+      invitation_instructions:
+        subject: 'if-me.org | %{name} sizi if-me.org topluluğuna katılmaya davet etti!'
+        subject_nameless: if-me.org | Birisi sizi if-me.org topluluğuna katılmaya davet etti!
+        hello: 'Merhaba %{email}!'
+        someone_invited_you: >-
+          %{name} sizi ruh sağlığıyla ilgili deneyimlerinizi sevdiklerinizle
+          paylaşabileceğiniz, ruh hâlinizi, ilaçlarınızı ve öz bakımınızı
+          takip edebileceğiniz bir topluluk olan http://www.if-me.org adresine
+          katılmaya davet etti. Aşağıdaki bağlantıdan daveti kabul edebilirsiniz.
+        accept: Daveti kabul edin!
+        accept_until: 'Bu davetin süresi %{due_date} tarihinde dolacak.'
+        ignore: >-
+          Daveti kabul etmek istemiyorsanız lütfen bu e-postayı dikkate
+          almayın.<br/>Yukarıdaki bağlantıya tıklayıp parolanızı belirleyene
+          kadar hesabınız oluşturulmayacak.

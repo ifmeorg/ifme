@@ -1,0 +1,90 @@
+tr:
+  devise:
+    confirmations:
+      confirmed: E-posta adresiniz başarıyla doğrulandı.
+      send_instructions: >-
+        Birkaç dakika içinde e-posta adresinizi nasıl doğrulayacağınızı açıklayan
+        bir e-posta alacaksınız.
+      send_paranoid_instructions: >-
+        E-posta adresiniz sistemimizde kayıtlıysa birkaç dakika içinde e-posta
+        adresinizi nasıl doğrulayacağınızı açıklayan bir e-posta alacaksınız.
+    failure:
+      already_authenticated: Zaten oturum açtınız.
+      inactive: Hesabınız henüz etkinleştirilmedi.
+      invalid: 'Geçersiz %{authentication_keys} veya parola.'
+      locked: Hesabınız kilitlendi.
+      last_attempt: Hesabınız kilitlenmeden önce bir deneme hakkınız daha var.
+      not_found_in_database: 'Geçersiz %{authentication_keys} veya parola.'
+      timeout: Oturumunuzun süresi doldu. Devam etmek için lütfen yeniden oturum açın.
+      unauthenticated: Devam etmek için oturum açmanız veya kaydolmanız gerekiyor.
+      unconfirmed: Devam etmek için e-posta adresinizi doğrulamanız gerekiyor.
+    mailer:
+      confirmation_instructions:
+        subject: if-me.org | E-posta adresinizi doğrulama adımları
+      reset_password_instructions:
+        subject: if-me.org | Parolanızı sıfırlama adımları
+      unlock_instructions:
+        subject: if-me.org | Hesabınızın kilidini açma adımları
+      password_change:
+        subject: if-me.org | Parolanız değiştirildi
+    omniauth_callbacks:
+      failure: '%{kind} ile kimliğiniz doğrulanamadı. Nedeni: "%{reason}".'
+      success: '%{kind} hesabınızla kimliğiniz başarıyla doğrulandı.'
+    passwords:
+      no_token: >-
+        Bu sayfaya yalnızca parola sıfırlama e-postasındaki bağlantıdan erişebilirsiniz.
+        Bu bağlantıyı kullanarak geldiyseniz lütfen e-postadaki bağlantı adresinin
+        tamamını kullandığınızdan emin olun.
+      send_instructions: >-
+        Birkaç dakika içinde parolanızı nasıl sıfırlayacağınızı açıklayan
+        bir e-posta alacaksınız.
+      send_paranoid_instructions: >-
+        E-posta adresiniz sistemimizde kayıtlıysa birkaç dakika içinde e-posta
+        adresinize bir parola sıfırlama bağlantısı gönderilecek.
+      updated: Parolanız başarıyla değiştirildi. Oturumunuz açıldı.
+      updated_not_active: Parolanız başarıyla değiştirildi.
+    registrations:
+      destroyed: >-
+        Hoşça kalın! Hesabınız başarıyla kapatıldı. Sizi yakında yeniden
+        görmeyi umuyoruz.
+      signed_up: Hoş geldiniz! Başarıyla kaydoldunuz.
+      signed_up_but_inactive: >-
+        Başarıyla kaydoldunuz. Ancak hesabınız henüz etkinleştirilmediği için
+        oturumunuz açılamadı.
+      signed_up_but_locked: >-
+        Başarıyla kaydoldunuz. Ancak hesabınız kilitli olduğu için
+        oturumunuz açılamadı.
+      signed_up_but_unconfirmed: >-
+        E-posta adresinize doğrulama bağlantısı içeren bir mesaj gönderildi.
+        Hesabınızı etkinleştirmek için lütfen bağlantıya tıklayın.
+      update_needs_confirmation: >-
+        Hesabınız başarıyla güncellendi, ancak yeni e-posta adresinizi doğrulamanız
+        gerekiyor. Lütfen e-postanızı kontrol edin ve yeni e-posta adresinizi
+        doğrulamak için doğrulama bağlantısına tıklayın.
+      updated: Hesabınız başarıyla güncellendi.
+    sessions:
+      signed_in: Başarıyla oturum açtınız.
+      signed_out: Başarıyla çıkış yaptınız.
+      already_signed_out: Başarıyla çıkış yaptınız.
+    unlocks:
+      send_instructions: >-
+        Birkaç dakika içinde hesabınızın kilidini nasıl açacağınızı açıklayan
+        bir e-posta alacaksınız.
+      send_paranoid_instructions: >-
+        Hesabınız sistemimizde kayıtlıysa birkaç dakika içinde hesabınızın
+        kilidini nasıl açacağınızı açıklayan bir e-posta alacaksınız.
+      unlocked: Hesabınızın kilidi başarıyla açıldı. Devam etmek için lütfen oturum açın.
+  errors:
+    messages:
+      already_confirmed: 'zaten doğrulandı, lütfen oturum açmayı deneyin'
+      confirmation_period_expired: '%{period} içinde doğrulanmalı, lütfen yeni bir doğrulama bağlantısı isteyin'
+      expired: 'süresi doldu, lütfen yenisini isteyin'
+      not_found: bulunamadı
+      not_locked: kilitli değil
+      not_saved:
+        one: '1 hata nedeniyle %{resource} kaydedilemedi:'
+        other: '%{count} hata nedeniyle %{resource} kaydedilemedi:'
+      pwned_password: >-
+        daha önce bir veri sızıntısında açığa çıktığı için kullanılmamalıdır.
+        Bu parolayı daha önce herhangi bir yerde kullandıysanız lütfen
+        hemen değiştirin!

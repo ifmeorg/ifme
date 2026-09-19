@@ -38,6 +38,7 @@ ca:
     ca: Català
     bg: Български
     az: Azərbaycanca
+    tr: Türkçe
   navigation:
     skip_to_main_content: Salta al contingut principal
     main_menu: Menú principal del lloc
