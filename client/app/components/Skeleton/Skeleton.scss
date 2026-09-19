@@ -1,0 +1,29 @@
+@import "~styles/_global";
+
+.skeleton {
+  width: 100%;
+}
+
+.block {
+  border-radius: $size-4;
+  background-color: $black-10;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .block {
+    background-image: linear-gradient(90deg, transparent, $white-70, transparent);
+    background-repeat: no-repeat;
+    background-size: 50% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: -100% 0;
+  }
+
+  to {
+    background-position: 200% 0;
+  }
+}
