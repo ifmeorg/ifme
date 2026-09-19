@@ -16,6 +16,17 @@ const renderComponent = ({ chartType }) => render(
 );
 
 describe('Chart', () => {
+  it('holds the chart space with a skeleton until the chart loads', async () => {
+    const { container } = renderComponent({ chartType: 'Line' });
+    const skeleton = container.querySelector('[aria-busy="true"]');
+    expect(skeleton).toBeInTheDocument();
+    expect(skeleton.firstChild).toHaveStyle({ height: '300px' });
+    await waitFor(() => {
+      expect(container.querySelector('canvas')).toBeInTheDocument();
+    });
+    expect(container.querySelector('[aria-busy="true"]')).toBeNull();
+  });
+
   it('renders a Line chart', async () => {
     const { container } = renderComponent({ chartType: 'Line' });
     await waitFor(() => {
