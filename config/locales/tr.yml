@@ -1,0 +1,1101 @@
+tr:
+  app_name: if-me.org
+  app_description: Ruh sağlığı deneyimlerinin paylaşıldığı bir topluluk
+  email: join.ifme@gmail.com
+  created: 'Oluşturulma tarihi: %{created_at}'
+  draft: Taslak
+  edited: 'Oluşturulma tarihi: %{created_at} (düzenlendi)'
+  edited_updated_at: 'Oluşturulma tarihi: %{created_at} (düzenleme tarihi: %{updated_at})'
+  salutation: 'Merhaba %{name},'
+  click_here: buraya tıklayın
+  language: Dil
+  yes_text: 'evet'
+  no_text: 'hayır'
+  expand_menu: menüyü genişletin
+  close: kapatın
+  alert_auto_hide: Bu uyarı otomatik olarak gizlenecek
+  load_more: Daha fazla yükleyin
+  of: /
+  languages:
+    en: English
+    es: Español
+    nl: Nederlands
+    pt-BR: Português
+    sv: Svenska
+    various_languages: Çeşitli diller
+    vi: Tiếng Việt
+    it: Italiano
+    nb: Norsk
+    de: Deutsch
+    fr: Français
+    hi: हिंदी
+    zh-CN: 中文
+    zh-TW: 正體中文
+    ko: 한국어
+    id: Bahasa Indonesia
+    ar: اَلْعَرَبِيَّةُ
+    ru: Русские
+    ca: Català
+    bg: Български
+    az: Azərbaycanca
+    tr: Türkçe
+  navigation:
+    skip_to_main_content: Ana içeriğe geçin
+    google: Google
+    main_menu: Ana menü
+    user_menu: Kullanıcı menüsü
+    about: Hakkımızda
+    blog: Blog
+    contribute: Katkıda bulunun
+    partners: İş ortaklarımız
+    privacy: Gizlilik politikası
+    github: GitHub
+    open_collective: Open Collective
+    instagram: Instagram
+    rss: RSS
+    x: X
+    facebook: Facebook
+    feedback: geri bildirim
+    give_feedback: Geri bildirimde bulunun
+    press: Basın
+    faq: Sıkça sorulan sorular
+    resources: Kaynaklar
+    code_of_conduct: Topluluk kuralları
+    digital_public_goods_alliance: Digital Public Goods Alliance
+  common:
+    name: Ad
+    you: Siz
+    title: Başlık
+    date: Tarih
+    daily_reminder: Günlük hatırlatma e-postası
+    actions:
+      plural: İşlemler
+      submit: Gönderin
+      submit_publish: Yayımlayın
+      submit_draft: Taslak olarak kaydedin
+      confirm: Emin misiniz?
+      delete: Silin
+      edit: Düzenleyin
+      edit_instance: '%{instance} öğesini düzenleyin'
+      join: Katılın
+      leave: Ayrılın
+      add: Ekleyin
+      add_all: Tümünü ekleyin
+      select_all: Tümünü seçin
+      remove: Kaldırın
+      report: Şikâyet edin
+    form:
+      email: E-posta
+      location: Konum
+      description: Açıklama
+      error_explanation: Lütfen işaretli alanları doldurun!
+      empty_error: Bu alan boş bırakılamaz!
+      min_error: 'Bu alandaki değer en az %{min} olmalıdır!'
+      max_error: 'Bu alandaki değer en fazla %{max} olmalıdır!'
+      min_max_error: >-
+        Bu alandaki değer en az %{min}, en fazla %{max} olmalıdır!
+      search_by_keywords: Anahtar kelimelerle arayın
+      template: Bir şablon seçin
+    autosave:
+      restore_prompt: '%{time} oluşturulmuş, kaydedilmemiş bir taslağınız var. Geri yüklemek ister misiniz?'
+      restore_button: Taslağı geri yükleyin
+      dismiss: Kapatın
+      time_just_now: az önce
+      time_one_minute: 1 dakika önce
+      time_minutes_ago: '%{count} dakika önce'
+      time_one_hour: 1 saat önce
+      time_hours_ago: '%{count} saat önce'
+    time_ago: '%{date} önce'
+    write_to_us: bize yazın
+    days: Günler
+  reports:
+    admin_dashboard: Yönetici paneli
+    reported_users: Şikâyet edilen kullanıcılar
+    banned_users: Erişimi engellenen kullanıcılar
+    reasons: Gerekçeler
+    new: '%{name} hakkında yeni şikâyet'
+    remove_ban: Erişim engelini kaldırın
+    ban_user: Kullanıcının erişimini engelleyin
+    report_sent: '%{name} hakkındaki şikâyet gönderildi'
+    report_error: '%{name} hakkındaki şikâyet gönderilemedi'
+    reportee: Şikâyet edilen
+    reporter: Şikâyet eden
+    user_banned: '%{name} adlı kullanıcının erişimi engellendi'
+    ban_removed: '%{name} adlı kullanıcının erişim engeli kaldırıldı'
+    user_banned_error: '%{name} adlı kullanıcının erişimi engellenemedi'
+    ban_removed_error: '%{name} adlı kullanıcının erişim engeli kaldırılamadı'
+  comment:
+    singular: Yorum
+    plural: Yorumlar
+    posting: Yorum gönderiliyor...
+    allow_comments: Yorumlara izin verilsin mi?
+    hint: Yalnızca siz ve içeriği görebilen kişiler yorum yapabilirsiniz
+    control: Kimlerin görebileceğini ve yorum yapabileceğini belirleyin
+    report_comment_by: '%{name} adlı kullanıcının yorumunu şikâyet edin'
+    delete_comment_by: '%{name} adlı kullanıcının yorumunu silin'
+  account:
+    singular: Hesap
+    sign_in: Giriş yapın
+    sign_up: Kaydolun
+    forgot_password: Parolanızı mı unuttunuz?
+  members:
+    one: '%{count} üye'
+    other: '%{count} üye'
+  allies:
+    add_ally: Destekçilere ekleyin
+    cancel_ally_request: İsteği iptal edin
+    accept: Kabul edin
+    reject: Reddedin
+    index:
+      title: Destekçiler
+      outgoing: Gönderilen istekler
+      incoming: Gelen istekler
+      invited: E-postayla davet edilenler
+      invited_on: 'Davet tarihi: %{date}'
+      invitation_expired: Davetin süresi doldu
+      invite: Sevdiklerinizi davet edin!
+      none: >-
+        Henüz destekçiniz yok! Destekçi bulmak için arama yapabilir veya sevdiklerinizi
+        katılmaya davet edebilirsiniz!
+      view_all_allies: Tüm destekçileri görün
+      cancel: İptal edin
+    form:
+      placeholder: Bir veya daha fazla e-posta adresini virgülle ayırarak girin
+  categories:
+    singular: Kategori
+    plural: Kategoriler
+    edit_category: Kategoriyi düzenleyin
+    new: Yeni kategori
+    form:
+      name_hint: 'Sıkça söz ettiğiniz kişileri, yerleri, şeyleri, etkinlikleri ve daha fazlasını kategorilere ayırın'
+    label:
+      one: 'Kategori:'
+      other: 'Kategoriler:'
+    index:
+      subtitle: 'Hayat karmaşık olabilir. Farklı kişileri, yerleri ve şeyleri kategorilere ayırın.'
+      premade1_name: Aile
+      premade1_description: Aileyle ilgili
+      premade2_name: Arkadaşlar
+      premade2_description: Arkadaşlarla ilgili
+      premade3_name: İş
+      premade3_description: İşle ilgili
+      premade4_name: Meditasyon
+      premade4_description: 'Meditasyon, derin nefes alma ve rahatlatıcı etkinlikler'
+      instructions: >-
+        Henüz kendinize özel bir kategori oluşturmadınız.<br />Aşağıdaki hazır
+        kategorileri de ekleyebilir, daha sonra kendinize göre düzenleyebilirsiniz.
+  errors:
+    home_page: Ana sayfaya dönün
+    internal_server_error:
+      header_message: Bu sayfa görüntülenemiyor
+    not_found:
+      header_message: Böyle bir sayfa yok
+    empty_params: Boş bırakılamaz
+  groups:
+    singular: Grup
+    plural: Gruplar
+    form:
+      leaders: Grup yöneticileri
+      only_leader: 'Grubun tek yöneticisi olduğunuz için ayrılamazsınız.'
+      cannot_delete: Grupları silemeyeceğinizi lütfen unutmayın.
+      error_save: 'Bu grup şu nedenle kaydedilemiyor: '
+      error_edit_permission: Bir grubu düzenleyebilmek için o grubun yöneticisi olmalısınız
+    index:
+      subtitle: 'Destek alabileceğiniz, rehberlik bulabileceğiniz ve fikir alışverişi yapabileceğiniz gruplar oluşturun ve gruplara katılın.'
+      available_groups: Katılabileceğiniz gruplar
+      joined_groups: Katıldığınız gruplar
+      leader: (Grup yöneticisi)
+      instructions: Henüz bir gruba üye değilsiniz.
+    join:
+      success: Bu gruba katıldınız.
+      group_not_exists: Var olmayan bir gruba katılamazsınız.
+    leave:
+      error: 'Grubun tek yöneticisi olduğunuz için gruptan ayrılamazsınız.'
+      success: '%{group} grubundan ayrıldınız'
+      remove_member_success: '%{user} adlı kullanıcıyı %{group} grubundan çıkardınız'
+      remove_member_error: Grup yöneticisi olmadığınız için bir üyeyi gruptan çıkaramazsınız.
+    new: Yeni grup
+    show:
+      led_by: 'Grup yöneticileri:'
+      delete: Grubu silin
+  layouts:
+    application:
+      signin: Deneyimlerinizi paylaşmaya başlayın
+      create_account: Topluluğa hemen katılın
+      update_account: Hesabınızı özelleştirin
+    mailer:
+      html:
+        app_description: >-
+          %{app_name}, insanları ruh sağlığıyla ilgili deneyimlerini sevdikleriyle
+          paylaşmaya teşvik eden bir topluluktur.
+        no_reply: >-
+          Bu e-postaya yanıt veremezsiniz. Sorularınız, kaygılarınız veya geri
+          bildirimleriniz için lütfen %{email} adresine yazın!
+    title:
+      reset_password: Parolanızı sıfırlayın
+  medications:
+    singular: İlaç
+    edit_medication: İlacı düzenleyin
+    refill_reminder: İlaç temini için hatırlatma e-postası
+    dosage: 'Günlük doz:'
+    weekly_dosage: 'Haftalık doz:'
+    refill: 'Yeniden temin tarihi:'
+    quantity: 'Toplam miktar:'
+    strength: 'Etken madde miktarı:'
+    event_summary: '%{name} ilacını yeniden temin etme zamanı.'
+    form:
+      strength: Etken madde miktarı
+      strength_unit: Etken madde miktarı birimi
+      dosage: doz
+      dosage_unit: Doz birimi
+      refill: yeniden temin
+      name_hint: İlacın etken madde adı veya marka adı
+      comments_hint: 'Buraya ek notlarınızı yazabilirsiniz; örneğin belirtilerinizi kaydedebilirsiniz'
+      add_to_google_cal: Google Takvim hatırlatması
+      google_cal_hint: Google Takvim hesabınıza bu ilaç için bir hatırlatma ekleyeceğiz.
+      strength_hint: 'Genellikle ilacın adının yanında belirtilen etken madde miktarı'
+      total_hint: Toplam tablet sayısı veya ilaç miktarı
+      dosage_hint: Günde alınacak tablet veya ölçek sayısı
+      weekly_dosage_hint: Bu ilacı haftanın hangi günlerinde alacağınız
+      refill_hint: İlacınızı yeniden temin etmeniz gereken tarih
+      refill_reminder_hint: >-
+        İlacınızı yeniden temin etmeniz gereken tarihten bir hafta önce size bir
+        hatırlatma e-postası göndereceğiz.
+      daily_reminder_hint: Bu ilacı almanız için size her gün bir hatırlatma e-postası göndereceğiz
+      total: Toplam
+      total_unit: Toplam miktar birimi
+    new: Yeni ilaç
+    units:
+      display: '%{count} %{unit}'
+      mg: mg
+      ml: ml
+      tablets:
+        one: tablet
+        other: tablet
+    reminder_mailer:
+      subject: 'if-me.org | %{name} ilacınızı almayı unutmayın!'
+      body: '%{name} ilacınızı almanız için küçük bir hatırlatma!'
+    refill_mailer:
+      subject: 'if-me.org | %{name} ilacınızı yeniden temin etme zamanı yaklaşıyor!'
+      body: >-
+        %{name} ilacınızı %{refill} tarihinde yeniden temin etmeniz için küçük bir
+        hatırlatma!
+    index:
+      title: İlaçlar
+      subtitle: 'İlaçlarınızı, dozlarını ve yeniden temin tarihlerini takip edin.'
+      instructions: >-
+        Henüz bir ilaç kaydetmediniz.<br /><br />İşte bir ilaç kaydı örneği! İlacı
+        kullanırken yaşadıklarınızı da yazabilirsiniz.
+      example_name: Prozac
+      example_strength: 10 mg
+      example_total: 40 tablet
+      example_dosage: 2 tablet
+      example_refill: 31.05.2016
+    show:
+      comments: 'Yorumlar:'
+  meetings:
+    singular: Buluşma
+    edit_meeting: Buluşmayı düzenleyin
+    form:
+      location_placeholder: İnternet adresi veya açık adres
+      maximum_members: En fazla üye sayısı
+      maximum_placeholder: Sınır yoksa 0 girin
+    join_success: Bu buluşmaya katıldınız.
+    info:
+      cancel_meeting: Buluşmayı iptal edin
+      meeting_time: Saat
+      members_of_group_html:
+        one: '%{group} grubundan %{count} üye'
+        other: '%{group} grubundan %{count} üye'
+    reminder_mailer:
+      subject: 'if-me.org | "%{meeting_name}" buluşmanız yarın! Saat: %{time}'
+      body: |-
+        Küçük bir hatırlatma: "%{meeting_name}" buluşmanız yarın gerçekleşecek.
+         Buluşma saati: %{time}
+         Buluşma yeri: %{location}!
+    leave:
+      error: 'Tek grup yöneticisi olduğunuz için buluşmadan ayrılamazsınız.'
+      success: '%{meeting} buluşmasından ayrıldınız'
+    new: Yeni buluşma
+    google_cal:
+      create:
+        add: Google Takvim'e ekleyin
+        success: Buluşma Google Takvim'e eklendi.
+        error: Buluşma Google Takvim'e eklenirken bir sorun oluştu.
+      destroy:
+        remove: Google Takvim'den kaldırın
+        success: Buluşma Google Takvim'den kaldırıldı.
+        error: Buluşma Google Takvim'den kaldırılırken bir sorun oluştu.
+  moments:
+    singular: An
+    plural: Anlar
+    edit_moment: Anı düzenleyin
+    tagged_moments: Etiketlenen anlar
+    new: Yeni an
+    secret_share:
+      singular: Özel bağlantıyla paylaşım
+      expires_at: Geçerlilik sonu
+      cancel_secret_share: Özel bağlantıyla paylaşımı iptal edin
+      link_copied: Özel bağlantıyla paylaşım bağlantısı panoya kopyalandı
+      link_info: Özel bağlantıyla paylaşım bağlantısı oluşturuldu
+      info: Bu bağlantıya sahip olan herkes bu sayfayı görebilir
+      info_public: >-
+        Bu sayfayı özel bir bağlantı aracılığıyla görüntülüyorsunuz. Lütfen yazarının
+        izni olmadan bu sayfayı paylaşmayın.
+    form:
+      why: Yaşadıklarınızı yazın
+      why_legacy: Ne oldu ve nasıl hissediyorsunuz?
+      fix_legacy: Aklınızdan hangi düşüncelerin geçmesini isterdiniz?
+      what_happened: Ne oldu?
+      viewers_hint: Anınızı görebilecek destekçiler
+      draft_question: Anınızı taslak olarak kaydetmek ister misiniz?
+      bookmarked_question: Bu an yer imlerine eklensin mi?
+      bookmarked_info: Yer imlerine eklediğiniz anlar bakım planınızda görünür
+      resource_recommendations_question: Kaynak önerileri gösterilsin mi?
+    index:
+      subtitle: >-
+        Ruh sağlığınızı etkileyen olayları ve durumları, yani anlarınızı daha yakından
+        ele alın.
+      subtitle_link: Anlarınızı yazmak için şablonlar oluşturun ve düzenleyin.
+      instructions: >-
+        Henüz bir an yazmadınız.<br /><br /> Nereden başlayacağınızı bilemiyor musunuz?
+        Bugün yaşadığınız ve sevdiğiniz biriyle paylaşıp konuşmak istediğiniz bir şey
+        var mı? Olumlu da olabilir, olumsuz da! Hemen paylaşmanız gerekmiyor; kendinizi
+        hazır hissettiğinizde paylaşabilirsiniz. İşte bir an örneği.
+      example_name: Yarınki iş görüşmesi yüzünden paniğe kapıldım!
+      example_category: Kariyer
+    show:
+      strategies: Hangi baş etme yolları yardımcı olabilir?
+      resources: Hangi kaynaklar yardımcı olabilir?
+    filters:
+      secret_share: Özel bağlantıyla paylaşım açık
+      no_viewers: Gören kişi yok
+      one_viewer: En az bir kişi görebiliyor
+      comments_enabled: Yorumlar açık
+      draft_enabled: Taslak olarak kayıtlı
+      published: Yayımlandı
+  moods:
+    singular: Ruh hâli
+    plural: Ruh hâlleri
+    edit_mood: Ruh hâlini düzenleyin
+    new: Yeni ruh hâli
+    example_moods: 'Gergin, kaygılı, umutlu'
+    index:
+      subtitle: 'Düşüncelerinizi ve duygularınızı ifade eden etiketler oluşturun.'
+      premade1_name: Kabullenen
+      premade1_description: Farklılıkları ve sınırları kabullenmek, onlarla barışık olmak
+      premade2_name: Azimli
+      premade2_description: Hedeflere ulaşma konusunda iyimser hissetmek
+      premade3_name: Meraklı
+      premade3_description: Belirsizlikler karşısında merak duymak
+      premade4_name: Kırgın
+      premade4_description: 'Bazı gerçekleri kabullenememek; öfke, intikam isteği veya kıskançlık hissetmek'
+      premade5_name: Umutsuz
+      premade5_description: Üzgün ve umutsuz hissetmek, hiçbir çıkış yolu bulamamak
+      instructions: >-
+        Henüz kendinize özel bir ruh hâli oluşturmadınız.<br />Aşağıdaki hazır ruh
+        hâllerini de ekleyebilir, daha sonra kendinize göre düzenleyebilirsiniz.
+  notifications:
+    plural: Bildirimler
+    none: Henüz bildirim yok
+    clear: Temizleyin
+    created_by_html: '<strong>Oluşturan</strong>: %{name}'
+    preview: Daha fazlasını görün
+    members:
+      title: Üye listesi
+    ally:
+      accepted: '%{name} destekçi isteğinizi kabul etti!'
+      sent_html: '%{link_to_user} destekçi isteği gönderdi!'
+    comment:
+      full: '%{name}, %{typename} için "%{comment}" yorumunu yazdı'
+      truncated: '%{name}, %{typename} için "%{comment}" [...] yorumunu yazdı'
+    group:
+      new_group: '%{name}, "%{group_name}" adlı bir grup oluşturdu'
+      new_group_member: '%{name}, "%{group_name}" grubunuza katıldı'
+      add_group_leader: '%{name}, "%{group_name}" grubunun yöneticisi oldu'
+      remove_group_leader: '%{name} artık "%{group_name}" grubunun yöneticisi değil'
+    meeting:
+      new_meeting: '%{name}, "%{group_name}" grubu için "%{meeting_name}" adlı yeni bir buluşma oluşturdu'
+      remove_meeting: '%{name}, "%{group_name}" grubunun "%{meeting_name}" buluşmasını iptal etti'
+      update_meeting: '%{name}, "%{group_name}" grubunun "%{meeting_name}" buluşmasını güncelledi'
+      join_meeting: '%{name}, "%{group_name}" grubunun "%{meeting_name}" buluşmasına katıldı'
+    mailer:
+      comment_on_moment_subject: 'if-me.org | %{user}, "%{moment}" anınıza yorum yaptı'
+      comment_on_strategy_subject: 'if-me.org | %{user}, "%{strategy}" baş etme yolunuza yorum yaptı'
+      comment_on_meeting_subject: >-
+        if-me.org | %{user}, "%{group}" grubundaki "%{meeting}" buluşmasına yorum yaptı
+      comment_on_private_body: '<p>Destekçiniz <strong>%{user}</strong> size özel bir yorum yazdı:</p>'
+      comment_on_body: '<p>Destekçiniz <strong>%{user}</strong> yorum yaptı:</p>'
+      comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
+      comment_text: '<p><i>%{comment}</i></p>'
+      comment_link: '<p>Okumak için %{link}!</p>'
+      new_group_subject: 'if-me.org | %{user}, "%{group}" adlı bir grup oluşturdu'
+      new_group_body: >-
+        <p>%{user}, "%{group}" adlı bir grup
+        oluşturdu:</p><p><i>%{description}</i></p><p>Daha fazla bilgi almak ve katılmak
+        için %{link}!</p><p>Lütfen %{code_of_conduct_link} çerçevesinde hareket
+        edin!</p>
+      new_group_member_subject: 'if-me.org | %{user}, "%{group}" grubunuza katıldı'
+      add_group_leader_you_subject: 'if-me.org | "%{group}" grubunun yöneticisi oldunuz'
+      add_group_leader_subject: 'if-me.org | %{user}, " %{group}" grubunun yöneticisi oldu'
+      add_remove_group_leader_body: '<p>"%{group}" grubunu görmek için %{link}!</p>'
+      remove_group_leader_you_subject: 'if-me.org | Artık "%{group}" grubunun yöneticisi değilsiniz'
+      remove_group_leader_subject: 'if-me.org | %{user} artık "%{group}" grubunun yöneticisi değil'
+      update_meeting_subject: 'if-me.org | %{user}, "%{group}" grubunun "%{meeting}" buluşmasını güncelledi'
+      new_meeting_subject: >-
+        if-me.org | %{user}, "%{group}" grubu için "%{meeting}" adlı yeni bir buluşma
+        oluşturdu
+      meeting_body: >-
+        <p>%{subject}</p><p><i>%{description}</i></p> <p><strong>Konum:</strong>
+        %{location}</p><p><strong> Tarih:</strong> %{date}</p><p><strong>Saat:</strong>
+        %{time}</p>
+      new_meeting_link: '<p>Daha fazla bilgi almak ve katılmak için %{link}!</p>'
+      update_meeting_link: '<p>Daha fazla bilgi almak için %{link}!</p>'
+      remove_meeting_subject: 'if-me.org | %{user}, "%{group}" grubunun "%{meeting}" buluşmasını iptal etti'
+      join_meeting_subject: 'if-me.org | %{user}, "%{group}" grubunun "%{meeting}" buluşmasına katıldı'
+      join_meeting_body: '<p>"%{meeting}" buluşmasını görmek için %{link}!</p>'
+      reported_user_subject: if-me.org | Bir kullanıcıyı şikâyet ettiniz
+      reported_user_body: '%{reported_name} adlı kullanıcıyı şikâyet ettiniz. Şikâyetiniz bir yönetici tarafından incelenecek.'
+      reportee_user_subject: if-me.org | Hakkınızda şikâyet var
+      reportee_user_body: Hakkınızda bir şikâyet gönderildi. Bu şikâyet bir yönetici tarafından incelenecek.
+      add_ban_subject: if-me.org | Erişiminiz engellendi
+      add_ban_body: '%{code_of_conduct_link} ihlali nedeniyle erişiminiz engellendi.'
+      remove_ban_subject: if-me.org | Erişim engeliniz kaldırıldı
+      remove_ban_body: >-
+        Daha önce %{code_of_conduct_link} ihlali nedeniyle erişiminiz engellenmişti.
+        Erişim engeliniz kaldırıldı.
+  omniauth:
+    access_denied: Erişim reddedildi
+  pages:
+    about:
+      main_message_one: >-
+        %{app_name}, insanları kişisel deneyimlerini güvendikleri destekçilerle
+        paylaşmaya teşvik eden bir ruh sağlığı topluluğudur.
+      message_text_one: >-
+        Güvendiğimiz destekçiler; arkadaşlarımız, aile üyelerimiz, iş arkadaşlarımız,
+        öğretmenlerimiz ve ruh sağlığı çalışanları gibi günlük yaşamımızda iletişim
+        kurduğumuz kişilerdir.
+      main_message_two: >-
+        Ruh sağlığımızla ilgilenmek insan olmanın bir parçasıdır. Ancak pek çoğumuz için
+        bu konuda açıkça konuşmak zordur.
+      message_text_two: >-
+        Herkes psikolojik danışman ya da terapist değildir. Günlük yaşamda iletişim
+        kurduğumuz insanlar duygularımızı ve davranışlarımızı etkiler. Onların ruh
+        sağlığı tedavisine destek olması, iyileşme sürecinin önemli bir parçasıdır.
+      message_text_three: >-
+        <strong>Bize maddi destek vermek ister misiniz?</strong> 2016 yılında Linebreak
+        topluluk hibesi aldık. 2017 yılında %{fund_club_link} tarafından desteklendik.
+        %{open_collective_link} sayfamızdan bağış yaparak bize destek olabilirsiniz.
+      fund_club: Fund Club
+    blog:
+      description: >-
+        Bizim için yazmak isterseniz fikirlerinizi %{email} adresine gönderin! İsminizi
+        paylaşmadan da yazı gönderebilirsiniz.
+    contribute:
+      contributor_avatar_alt: 'Katkıda bulunan %{name} hakkında'
+      message_text_one: >-
+        <strong>Ruh sağlığı savunucuları</strong>, <strong>sağlık çalışanları</strong>,
+        <strong>yazılım geliştiricileri</strong>, <strong>çevirmenler</strong> ve
+        <strong>kullanıcı deneyimi tasarımcıları</strong> dâhil herkesin fikirlerine
+        açığız! <p class="noMarginBottom">Lütfen %{email_link}, sizinle iletişime
+        geçelim! Temel iletişim aracımız olan %{slack_link} kanalımıza davet
+        edileceksiniz. %{github_link} üzerindeki kod depomuzu çatallamayı da
+        unutmayın!</p>
+      more_contributors: Katkıda bulunan diğer harika insanlar!
+      thanks: Katkıları için çok teşekkür ederiz
+      slack: Slack
+    faq:
+      title: Sıkça sorulan sorular
+      data_access_question: Verilerime kimler erişebilir?
+      data_access_answer: >-
+        Verileriniz üçüncü taraflara verilmez ve erişimlerine açılmaz. Hesabınızı
+        sildiğinizde tüm verileriniz de silinir.<br /><br />Size özel öneriler sunmak
+        için kullanıcı verileri site içinde analiz edilir.<br /><br />Kullanıcı hesabı
+        oluşturmak için ad ve e-posta adresi gereklidir. Facebook veya Google ile giriş
+        yapan kullanıcıların profil fotoğrafı ve adı hesaplarında kullanılır.
+      moment_question: An nedir?
+      moment_answer: >-
+        <strong>%{moment}</strong>, ruh sağlığınızı etkileyen bir olay veya durumdur.
+        Olumlu da olabilir, olumsuz da. Bunu bir günlük yazısı veya durum paylaşımı gibi
+        düşünebilirsiniz.<br /><br />Anlarınızı baş etme yolları, kategoriler ve ruh
+        hâlleriyle etiketleyebilirsiniz. Hangi destekçilerin görebileceğini ve yorum
+        yapabileceğini de seçebilirsiniz. İsterseniz anlarınızı yalnızca siz
+        görebilirsiniz.<br /><br /><strong>%{moment_templates}</strong> ile yazarken
+        size yol gösterecek, tekrar kullanabileceğiniz şablonlar oluşturabilirsiniz.
+      strategy_question: Baş etme yolu nedir?
+      strategy_answer: >-
+        <strong>%{strategy}</strong>, zorluklarla baş etmenize veya iyileşmeye
+        odaklanmanıza yardımcı olan bir etkinlik, düşünce biçimi ya da öz bakım
+        uygulamasıdır.<br /><br />Baş etme yollarınızı kategorilerle
+        etiketleyebilirsiniz. Hangi destekçilerin görebileceğini ve yorum yapabileceğini
+        de seçebilirsiniz. İsterseniz baş etme yollarınızı yalnızca siz görebilirsiniz.
+        Paylaşılan baş etme yolları, seçilen tüm destekçiler tarafından görülebilir.
+        Böylece anlarınızı destekçilerinizin baş etme yollarıyla da
+        etiketleyebilirsiniz!
+      category_question: Kategori nedir?
+      category_answer: >-
+        <strong>%{category}</strong>, sizin için önemli olan kişileri, yerleri ve
+        şeyleri temsil edebilen bir etikettir.
+      mood_question: Ruh hâli nedir?
+      mood_answer: >-
+        <strong>%{mood}</strong>, düşüncelerinizi ve duygularınızı ifade eden bir
+        etikettir.
+      group_question: Grup nedir?
+      group_answer: >-
+        <strong>%{group}</strong>, ruh sağlığı konusunda destek, rehberlik ve fikir
+        alışverişi olanağı sunar. Gruplar oluşturabilirsiniz; destekçileriniz de bu
+        gruplara katılabilir. Yalnızca destekçilerinizin oluşturduğu gruplara
+        katılabilirsiniz.<br /><br />Grup yöneticisi olarak <strong>buluşmalar</strong>
+        oluşturabilirsiniz. Buluşmaların bir yeri ve zamanı vardır. Buluşma yeri bir
+        açık adres veya görüntülü görüşme bağlantısı olabilir. Buluşmalara yorum da
+        yapılabilir. Grup yöneticisiyseniz başka bir yönetici olmadığı sürece gruptan
+        ayrılamazsınız. Bir grubu ancak grubun tek üyesi sizseniz silebilirsiniz.
+      medications_question: İlaçlar özelliğini nasıl kullanabilirim?
+      medications_answer: >-
+        <strong>%{medications}</strong> özelliğiyle kullandığınız reçeteli ilaçları
+        kaydedebilirsiniz. Belirtilerinizi de not edebilirsiniz.
+      care_plan_question: Bakım planı özelliğini nasıl kullanabilirim?
+      care_plan_answer: >-
+        <strong>%{care_plan}</strong> özelliğiyle zor zamanlarda ulaşabileceğiniz
+        sevdiklerinizin listesini tutabilir ve size iyi gelen baş etme yollarını yer
+        imlerine ekleyebilirsiniz.
+      invite_question: Sevdiklerimi uygulamaya katılmaya nasıl davet edebilirim?
+      invite_answer: >-
+        <strong>%{allies}</strong> sayfasına gidip "Sevdiklerinizi davet edin"
+        bağlantısına tıklayın. Onları e-postayla davet edebilirsiniz. Davetinizi kabul
+        ettiklerinde destekçiler listenize eklenirler.
+      email_notifications_question: E-posta bildirimlerini nasıl değiştirebilirim?
+      email_notifications_answer: >-
+        <strong>%{accounts}</strong> sayfasına gidin. Buradan e-posta adresinizi,
+        parolanızı, profil fotoğrafınızı ve kendinizi tanıtan yazıyı
+        değiştirebilirsiniz. Hesabınızı da silebilirsiniz. Hesabınızı sildiğinizde tüm
+        verileriniz silinir.
+    home:
+      update_pwd_modal:
+        title: Parolanızı güncelleyin
+        body: >-
+          Kullanıcılarımız için güvenlik önlemlerimizi güçlendirdik. Lütfen
+          %{update_password_link}
+        update_link: parolanızı güncelleyin.
+      stories: Deneyimler
+      not_signed_in:
+        main_message_one: Sevdiklerinizle daha iyi iletişim kurmak ruh sağlığınıza iyi gelir.
+        message_text_one: Ruh sağlığına ilişkin damgalamayı aşmak için birbirimizin desteğine ihtiyacımız var.
+        message_one: Deneyimlerinizi sevdiklerinizle paylaşın ve hak ettiğiniz desteği alın
+        message_two: 'Güvenliğinizin ve gizliliğinizin korunduğu, hiçbir koşul olmadan kendiniz olabileceğiniz bir alan'
+        message_three: 'Ruh hâllerinizi, ilaçlarınızı ve öz bakımınızı kaydedin'
+        main_message_two: Ruh sağlığı hakkında açıkça konuşabilmemiz gerektiğine inanıyoruz. Bu yüzden açık kaynaklıyız.
+        message_text_two: >-
+          %{help} ve %{feedback} sunmanızı <strong>her zaman</strong> bekliyoruz!
+        help: yardım
+      signed_in_empty:
+        main_message_one: 'Merhaba %{name}!'
+        message_text_one: Deneyimlerinizi paylaşmaya şöyle başlayabilirsiniz.
+        main_message_two: Bize kendinizden bahsedin.
+        cell_one: >-
+          %{profile} sayfanızı özelleştirin; kendinizi tanıtan bir yazı ve profil
+          fotoğrafı ekleyin <br />Duygularınızı en iyi ifade eden, size özel %{moods}
+          ekleyin<br />Paylaşımda bulunmak istediğiniz arkadaşlarınızı, ailenizi ve
+          diğer kişileri %{allies} listenize ekleyin
+        main_message_three: Deneyimlerinizi yazın.
+        cell_two: >-
+          Anlarınızı düzenlemek için size özel %{categories} oluşturun <br />Ruh
+          sağlığınızı etkileyen olayları ve durumları %{moments} bölümünde yazın
+        main_message_four: Kendinize özen gösterin.
+        cell_three: >-
+          %{strategize}, öz bakım planınızı şekillendirin!<br />Şu anda ilaç kullanıyor musunuz?
+          %{medications} bölümünde takip edin ve hatırlatmalar oluşturun!<br /> Daha
+          fazla desteğe mi ihtiyacınız var? İçinizi dökebilmek için bir %{group}
+          oluşturun veya birine katılın
+        main_message_five: Sorularınız ya da kaygılarınız mı var?
+        message_text_three: '%{faq} sayfamıza göz atın veya %{email_link}!'
+        strategize: Baş etme yolları oluşturun
+    partners:
+      description: >-
+        İlham aldığımız ve birlikte çalışma fırsatı bulduğumuz harika kuruluşlar. Sizin
+        kuruluşunuzla da çalışmak isteriz. Bize %{email} adresinden yazabilirsiniz.
+    privacy:
+      summary: Özet
+      summary_description: >-
+        <p>Bu gizlilik politikası, bu web sitesi için geçerlidir ve siteyi kullanan
+        kişilerin gizliliğine ilişkin esasları belirler. </p><p>Sitedeki içeriklerin
+        hassasiyeti nedeniyle gizliliğe büyük önem veriyoruz. Bu politika, kullanıcı
+        verilerinin nasıl toplandığını, hangi amaçlarla kullanıldığını ve nasıl
+        korunduğunu açıklar.</p>
+      user_data: Kullanıcı verileri
+      user_data_description: >-
+        <p>Bu web sitesinin özellikleri hakkında daha fazla bilgiyi %{faq_link}
+        sayfamızda bulabilirsiniz.</p>
+      data_protection_rights: Kişisel verilerin korunmasına ilişkin haklar
+      data_protection_rights_answer: >-
+        <p>Her kullanıcı aşağıdaki haklara sahiptir:</p><p>Erişim hakkı – Kullanıcılar,
+        kişisel verilerinin bir kopyasını bizden talep edebilir. Bu hizmet için küçük
+        bir ücret alabiliriz.</p><p>Düzeltme hakkı – Kullanıcılar, yanlış olduğunu
+        düşündükleri bilgilerin düzeltilmesini talep edebilir. Eksik olduğunu
+        düşündükleri bilgilerin tamamlanmasını da isteyebilirler.</p><p>Silme hakkı –
+        Kullanıcılar, belirli koşullar altında kişisel verilerinin silinmesini talep
+        edebilir.</p><p>İşlemeyi kısıtlama hakkı – Kullanıcılar, belirli koşullar
+        altında kişisel verilerinin işlenmesinin kısıtlanmasını talep
+        edebilir.</p><p>İşlemeye itiraz hakkı – Kullanıcılar, belirli koşullar altında
+        kişisel verilerini işlememize itiraz edebilir.</p><p>Veri taşınabilirliği hakkı
+        – Kullanıcılar, belirli koşullar altında topladığımız verilerin başka bir
+        kuruluşa veya doğrudan kendilerine aktarılmasını talep edebilir.</p><p>Bir
+        talepte bulunmanız hâlinde size bir ay içinde yanıt veririz.</p>
+      cookies: Çerez kullanımı
+      cookies_description: >-
+        <p>Bu web sitesi, ziyaretiniz sırasında kullanıcı deneyimini iyileştirmek için
+        çerezler kullanır. İşlevsel çerezler, kimlik doğrulamak ve daha önce seçilen
+        tercihleri hatırlamak için kullanılır. Bu tercihler, seçtiğiniz dili ve
+        bulunduğunuz konumu içerebilir. Gerektiğinde, siteye ilk ziyaretinizde
+        bilgisayarınızda veya cihazınızda çerez kullanımına izin vermenizi ya da
+        reddetmenizi sağlayan bir çerez yönetim sistemi kullanılır.</p><p>Çerezler,
+        kullanıcının bilgisayarının sabit diskine kaydedilen küçük dosyalardır.
+        Kullanıcının web sitesiyle etkileşimi ve siteyi kullanımı hakkındaki bilgileri
+        takip eder, kaydeder ve saklar. Böylece web sitesi, sunucusu aracılığıyla
+        kullanıcılara site içinde kişiselleştirilmiş bir deneyim sunabilir.</p><p> Bu
+        web sitesinin çerez kullanmasını ve bilgisayarınızın sabit diskine çerez
+        kaydetmesini istemiyorsanız, tarayıcınızın güvenlik ayarlarından bu web
+        sitesinin ve siteye dışarıdan hizmet sağlayan kuruluşların tüm çerezlerini
+        engelleyebilirsiniz.</p>
+      social_media: Sosyal medya platformları
+      social_media_description: >-
+        <p>Bu web sitesinin yer aldığı haricî sosyal medya platformları üzerinden
+        gerçekleştirilen iletişim, etkileşim ve işlemler, ilgili sosyal medya
+        platformunun kendi kullanım koşullarına ve gizlilik politikasına tabidir.</p>
+      changes: Değişiklikler
+      changes_description: >-
+        <p>Gizlilik politikamızı düzenli olarak gözden geçirir ve güncellemeleri bu
+        sayfada yayımlarız. Kanada'daki Kişisel Bilgilerin Korunması ve Elektronik
+        Belgeler Yasası (PIPEDA) ile Avrupa Birliği Genel Veri Koruma Tüzüğü'ne (GDPR
+        EU) uyum sağlarız.</p><p>Bu gizlilik politikası en son 11 Şubat 2024 tarihinde
+        güncellenmiştir.</p>
+      contact: Bize ulaşın
+      contact_description: >-
+        <p class="noMarginBottom">Sorularınız veya kaygılarınız varsa lütfen
+        %{email_link}.</p>
+    resources:
+      description: >-
+        Topluluklar, eğitici araçlar, destek hatları ve hizmetler içeren, özenle
+        seçtiğimiz ruh sağlığı kaynakları listemiz.
+      emergency: >-
+        Siz veya tanıdığınız biri ruh sağlığıyla ilgili acil bir durum yaşıyorsa, mümkün
+        olan en kısa sürede yardım isteyin.
+      popular_tags: Popüler etiketler
+      crisis_prevention:
+        title: Nasılsınız?
+        description: Ne yaşarsanız yaşayın, seviliyorsunuz
+        acknowledge: "Anladım, ihtiyaçlarıma özen göstereceğim."
+        care_plan_link: "Kaynaklar ve ulaşabileceğiniz kişiler için bakım planınıza da bakabilirsiniz."
+        die: ölmek
+        dead: ölü
+        died: öldü
+        dying: ölüyorum
+        death: ölüm
+        passed_away: hayatını kaybetti
+        kill_myself: kendimi öldürmek
+        hurt_myself: kendime zarar vermek
+        suicide: intihar
+        suicidal: intihar düşünceleri
+        want_to_die: ölmek istiyorum
+        end_my_life: hayatıma son vermek
+        take_my_life: canıma kıymak
+        end_it_all: her şeye son vermek
+        self_harm: kendine zarar verme
+        no_reason_to_live: yaşamak için bir neden yok
+        not_worth_living: yaşamaya değmez
+        overdose: aşırı doz
+      tags:
+        ai: yapay zekâ
+        communities: topluluklar
+        education: eğitim
+        hotlines: destek hatları
+        services: hizmetler
+        people_of_colour: beyaz olmayan kişiler
+        women_of_colour: beyaz olmayan kadınlar
+        black_women: siyah kadınlar
+        domestic_violence: ev içi şiddet
+        dating_violence: flört şiddeti
+        cyberbullying: siber zorbalık
+        therapy: terapi
+        counseling: psikolojik danışmanlık
+        youth: gençler
+        lgbt: LGBT
+        harassment: taciz
+        self_care: öz bakım
+        women: kadınlar
+        chatbot: sohbet botu
+        anonymous: anonim
+        free: ücretsiz
+        paid: ücretli
+        twenty_four_seven: 7/24
+        videos: videolar
+        blog: blog
+        podcast: podcast
+        books: kitaplar
+        publication: yayın
+        video_chat: görüntülü sohbet
+        texting: mesajlaşma
+        open_source: açık kaynak
+        workplace: iş yeri
+        social_justice: sosyal adalet
+        tech_industry: teknoloji sektörü
+        meditation: meditasyon
+        anxiety: kaygı
+        social_anxiety: sosyal kaygı
+        trigger_warnings: tetikleyici içerik uyarıları
+        netflix: netflix
+        homeless: evsizler
+        talks: söyleşiler
+        voice_chat: sesli sohbet
+        training: eğitim programları
+        directory: rehber
+        self_injury: kendini yaralama
+        treatment: tedavi
+        care_planning: bakım planlama
+        depression: depresyon
+        ocd: OKB
+        advice: öneriler
+        forum: forum
+        crisis_prevention: krizleri önleme
+        safety_planning: güvenlik planlama
+        suicide_prevention: intiharı önleme
+        android: android
+        ios: iOS
+        support_groups: destek grupları
+        mindfulness: bilinçli farkındalık
+        journaling: günlük tutma
+        mood_tracking: ruh hâli takibi
+        veterans: gaziler
+        music: müzik
+        integrative: bütüncül yaklaşım
+        ptsd: TSSB
+        tbi: travmatik beyin hasarı
+        news: haberler
+        government: kamu kurumları
+        christian: Hristiyan
+        humor: mizah
+        conference: konferans
+        addiction: bağımlılık
+        rehabilitation: rehabilitasyon
+        teachers: öğretmenler
+        bipolar: bipolar bozukluk
+        goal_tracking: hedef takibi
+        social_network: sosyal ağ
+        add: dikkat eksikliği bozukluğu
+        adhd: DEHB
+        sexual_assault_survivors: cinsel saldırıya maruz bırakılanlar
+        political_movement: siyasi hareket
+        reporting: bildirimde bulunma
+        game: oyun
+        stress: stres
+        fidget: stres oyuncakları
+        colouring: boyama
+        deaf: sağırlar
+        asl: Amerikan İşaret Dili
+        latinx: Latin Amerika kökenliler
+        hispanic: Hispanikler
+        senior_citizens: yaşlılar
+        black_people: siyahlar
+        sexual_health: cinsel sağlık
+        hackathon: yazılım geliştirme maratonu
+        stories: deneyimler
+        teen: ergenler
+        coaching: koçluk
+        physical_dependence: fiziksel bağımlılık
+        codependency: eş bağımlılık
+        relationships: ilişkiler
+        alcoholism: alkol bağımlılığı
+        cbt: BDT
+        chrome: chrome
+        firefox: firefox
+        social_media_break: sosyal medyaya ara verme
+        quiz: test
+        attachment: bağlanma
+        eating_disorders: yeme bozuklukları
+        asian: Asyalılar
+        pacific_islander: Pasifik adalıları
+        south_asian: Güney Asyalılar
+        southeast_asian: Güneydoğu Asyalılar
+        east_asian: Doğu Asyalılar
+        al_anon: al-anon
+        burnout: tükenmişlik
+        breakup: ayrılık
+        indigenous: yerli halklar
+        therapists: terapistler
+        recovery: iyileşme
+        advocacy: hak savunuculuğu
+        trauma: travma
+        newsletter: e-bülten
+        phobias: fobiler
+        grief: yas
+        bereavement: yakın kaybı
+      locations:
+        uk: Birleşik Krallık
+        us: Amerika Birleşik Devletleri
+        intl: Uluslararası
+        se: İsveç
+        ca: Kanada
+        ie: İrlanda
+        nz: Yeni Zelanda
+  profile:
+    index:
+      title: Profil
+      edit_user: Profilinizi özelleştirin
+  pusher:
+    not_authorized: Yetkiniz yok
+  search:
+    label: Arayın
+    search_by_name: Ada göre arayın
+    search_by_tags: Etiketlere göre arayın
+    filter_by: Filtreleme ölçütü
+    form:
+      search_by_location: Konuma göre arayın
+      search_by_email: E-posta adresine göre arayın
+    index:
+      title: Destekçi arayın
+      user_not_found: '%{email} e-posta adresine sahip kullanıcı bulunamadı'
+  shared:
+    footer:
+      licence: AGPL-3.0
+      licence_subtitle: '%{licence} kapsamında lisanslanmıştır'
+      connect: iletişim kurun
+    comments:
+      share_everyone: Herkesle paylaşın
+      share_with: 'Yalnızca %{name} ile paylaşın'
+      visible_only_between_you_and: 'Yalnızca siz ve %{name} görebilirsiniz'
+      not_allies: (destekçiniz değil)
+    header:
+      signout: Çıkış yapın
+      home: Ana sayfa
+    viewers_indicator:
+      disabled_comments: Yorumlar kapatıldı.
+      you_are_viewer_html:
+        one: Yalnızca siz görebilirsiniz.
+        other: Sizden <strong>başkaları da</strong> görebilir.
+      viewers_html:
+        zero: Görebilen <strong>kimse yok</strong>.
+        one: '%{names} görebilir.'
+        other: '%{names} görebilir.'
+    stats:
+      you_are_focusing: En çok odaklandığınız konular
+      user_is_focusing: '%{name} adlı kullanıcının en çok odaklandığı konular'
+      visible_in_stats: İstatistiklerde görünür
+      not_visible_in_stats: Etiketlemek ve profil istatistiklerinde göstermek için görünür değil
+      make_visible_in_stats: Etiketlemek ve profil istatistiklerinde göstermek için görünür yapılsın mı?
+    viewers:
+      plural: Görebilenler
+      you: Yalnızca siz
+      you_link: Yalnızca siz görebilirsiniz
+      many: '%{viewers} görebilir'
+    meeting_info:
+      attending: Katılıyorsunuz. Fikrinizi mi değiştirdiniz?
+      not_attending: 'Katılmıyorsunuz. %{join}'
+      not_attending_one_spot_left: 'Katılmıyorsunuz. Yalnızca bir kişilik yer kaldı! %{join}'
+      not_attending_spots_left: 'Katılmıyorsunuz. %{number} kişilik yer kaldı! %{join}'
+      not_attending_no_spots_left: Katılmıyorsunuz. Katılmak için boş yer yok.
+    quick_create:
+      new: 'Yeni %{name}'
+  strategies:
+    singular: Baş etme yolu
+    plural: Baş etme yolları
+    edit_strategy: Baş etme yolunu düzenleyin
+    tagged_strategies: Etiketlenen baş etme yolları
+    new: Yeni baş etme yolu
+    form:
+      describe: Baş etme yolunu açıklayın.
+      strategies_label: Bu düşüncelere ulaşmanıza hangi baş etme yolları yardımcı olabilir?
+      name_hint: 'Size iyi gelen herhangi bir etkinlik, düşünce biçimi veya öz bakım uygulaması'
+      viewers_hint: Baş etme yolunuzu görebilecek ve kendi anlarını bununla etiketleyebilecek destekçiler
+      daily_reminder_hint: Bu baş etme yolunu uygulamanız için size her gün bir hatırlatma e-postası göndereceğiz
+      draft_question: Baş etme yolunuzu taslak olarak kaydetmek ister misiniz?
+      bookmarked_question: Bu baş etme yolu yer imlerine eklensin mi?
+      bookmarked_info: Yer imlerine eklediğiniz baş etme yolları bakım planınızda görünür
+    label:
+      one: 'Baş etme yolu:'
+      other: 'Baş etme yolları:'
+    index:
+      subtitle: >-
+        Anlarınıza dair geliştirmek istediğiniz düşünce ve tutumlar için öz bakımınızı
+        destekleyen baş etme yolları oluşturun.
+      premade1_name: Beş dakikalık meditasyon
+      premade1_description: >-
+        1) <b>Rahat bir pozisyon bulun.</b> Bir sandalyeye veya yerde bir mindere
+        oturabilirsiniz. Sırtınızı dik tutun, ancak kendinizi fazla kasmayın. Ellerinizi
+        rahat ettikleri bir yere bırakın. Diliniz damağınızda veya rahat hissettiğiniz
+        bir konumda olsun. <br /><br />2)<b>Bedeninizi fark edin ve gevşetin.</b>
+        Bedeninizin duruşunu ve ağırlığını fark etmeye çalışın. Gevşemeye izin verin ve
+        burada oturan bedeninize merakla yaklaşın; hissettiklerini, temas ettiği
+        yerleri, zeminle veya sandalyeyle kurduğu bağı fark edin. Kasılmış ya da gergin
+        bölgeleri gevşetin. Yalnızca nefes alın.<br /><br />3) <b>Dikkatinizi nefesinize
+        verin.</b> Nefesinizin doğal akışını, alıp verişinizi hissedin. Nefesinizi
+        değiştirmeniz gerekmiyor. Uzun ya da kısa olmasına çalışmadan, doğal hâliyle
+        bırakın. Nefesi bedeninizin neresinde hissettiğinizi fark edin. Karnınızda,
+        göğsünüzde, boğazınızda veya burun deliklerinizde olabilir. Her nefesin
+        yarattığı duyumları tek tek fark etmeye çalışın. Bir nefes bittiğinde diğeri
+        başlar.<br /><br />4) <b>Dikkatiniz dağıldığında kendinize nazik davranın.</b>
+        Bu sırada zihninizin başka yerlere gittiğini fark edebilirsiniz. Başka şeyler
+        düşünmeye başlayabilirsiniz. Bunda bir sorun yok; bu çok doğal. Yalnızca
+        dikkatinizin dağıldığını fark edin. İçinizden yumuşakça “düşünüyorum” veya
+        “dikkatim dağıldı” diyebilirsiniz. Sonra dikkatinizi nazikçe yeniden nefesinize
+        yöneltin. <br /><br />5) <b>Beş ila yedi dakika bu şekilde kalın. </b> Sessizce
+        nefesinizi fark edin. Zaman zaman düşüncelere dalabilirsiniz; ardından yeniden
+        nefesinize dönün.<br /><br />6) <b>Bitirmeden önce nasıl olduğunuzu fark edin.
+        </b> Birkaç dakika sonra burada oturan bedeninizi, tüm bedeninizi yeniden fark
+        edin. Biraz daha gevşemeye izin verin ve bugün bu uygulamaya zaman ayırdığınız
+        için kendinize teşekkür edin. <br /><br /><i>Kaynak:
+        http://www.mindful.org/a-five-minute-breathing-meditation/ </i>
+      instructions: >-
+        Henüz kendinize özel bir baş etme yolu oluşturmadınız.<br />Aşağıdaki hazır baş
+        etme yolunu da ekleyebilir, daha sonra kendinize göre düzenleyebilirsiniz.
+    reminder_mailer:
+      subject: 'if-me.org | %{name} baş etme yolunu uygulamayı unutmayın!'
+      body: '%{name} baş etme yolunu uygulamanız için küçük bir hatırlatma!'
+  stats:
+    total_moments: >-
+      <strong>Toplam</strong> <strong>%{count}</strong> an yazdınız.
+    total_moment: >-
+      <strong>Toplam</strong> <strong>%{count}</strong> an yazdınız.
+    monthly_moments: 'Bu <strong>ay</strong> <strong>%{count}</strong> an yazdınız.'
+    monthly_moment: 'Bu <strong>ay</strong> <strong>%{count}</strong> an yazdınız.'
+  warnings:
+    no_description: Henüz bir açıklama yazmadınız!
+    yes_description: Bir açıklama yazmanız, hem sizin hem de başkalarının konuyu daha iyi anlamasına yardımcı olabilir
+  mailers:
+    accepted_ally_request:
+      subject: 'if-me.org | %{ally_name} destekçi isteğinizi kabul etti!'
+      message: >-
+        <p>Ne güzel! Artık %{ally_name} ile anlarınızı, baş etme yollarınızı ve daha
+        fazlasını paylaşabilirsiniz.</p>
+    new_ally_request:
+      subject: 'if-me.org | %{ally_name} destekçi isteği gönderdi!'
+      message: >-
+        <p>İsteği kabul etmek veya reddetmek için lütfen <a href="%{allies_url}">giriş
+        yapın</a>!</p>
+  devise:
+    password: Parola
+    new_password: Yeni parola
+    current_password: Mevcut parola
+    password_change: Parolamı değiştirin
+    remember_me: Beni hatırlayın
+    show_password: Parolayı gösterin
+    hide_password: Parolayı gizleyin
+    confirmations:
+      resend_confirmation: Doğrulama yönergelerini yeniden gönderin
+    mailer:
+      confirmation:
+        link_instructions: Aşağıdaki bağlantıdan hesabınızın e-posta adresini doğrulayabilirsiniz
+        link_text: Hesabımı doğrulayın
+      reset_password:
+        link_instructions: >-
+          Parolanızı değiştirmek için bir bağlantı talep edildi. Aşağıdaki bağlantıyı
+          kullanarak parolanızı değiştirebilirsiniz.
+        ignore: 'Bu talebi siz yapmadıysanız lütfen bu e-postayı dikkate almayın.'
+        info: >-
+          Yukarıdaki bağlantıyı açıp yeni bir parola oluşturmadığınız sürece parolanız
+          değişmeyecek.
+      unlock:
+        info: >-
+          Çok fazla başarısız giriş denemesi nedeniyle hesabınız kilitlendi.
+        link_instructions: Hesabınızın kilidini açmak için aşağıdaki bağlantıya tıklayın
+        link_text: Hesabımın kilidini açın
+    passwords:
+      edit:
+        confirmation: Yeni parolanızı doğrulayın
+      new:
+        send_instructions: Bana parola sıfırlama yönergelerini gönderin
+    registrations:
+      email_notifications: E-posta bildirimleri
+      comment_notify_text: 'Anlara, baş etme yollarına ve buluşmalara yapılan yorumlar'
+      ally_notify_text: Yeni ve kabul edilen destekçi istekleri
+      group_notify_text: Grup güncellemeleri
+      meeting_notify_text: Buluşma güncellemeleri
+      google_auth1: >-
+        Artık Google ile giriş yapmak istemiyorsanız lütfen yeni bir e-posta adresi ve
+        parola girin.
+      google_auth2: >-
+        Google ile giriş yaptığınız için parolanızı girmeniz gerekmiyor.<br />Bunu
+        değiştirmek isterseniz lütfen yeni bir e-posta adresi ve parola girin.
+      facebook_auth1: >-
+        Artık Facebook ile giriş yapmak istemiyorsanız lütfen yeni bir e-posta adresi ve
+        parola girin.
+      facebook_auth2: >-
+        Facebook ile giriş yaptığınız için parolanızı girmeniz gerekmiyor.<br />Bunu
+        değiştirmek isterseniz lütfen yeni bir e-posta adresi ve parola girin.
+      password_errors:
+        format: 8 ila 128 karakter uzunluğunda olmalıdır.
+      placeholders:
+        repeat_password: Parolanızı tekrar girin
+      edit:
+        labels:
+          profile_picture: Profil fotoğrafı
+          remove_picture: Fotoğrafı kaldırın
+          about: Hakkınızda
+          password_for: <strong>if-me.org</strong> hesabınızın parolası
+          update: Güncelleyin
+        placeholders:
+          optional: İsteğe bağlı
+          about: >-
+            Kendinizi tanıtın! Buraya sizi ne getirdi ve neyi başarmak istiyorsunuz?
+            Kullanıcılar sizi aradığında bu yazıyı görebileceklerini lütfen unutmayın
+          required: Zorunlu
+        delete:
+          text: <strong>if-me.org</strong> beklentilerinizi karşılamıyor mu?
+          button: Hesabımı kalıcı olarak silin
+          confirm: >-
+            Emin misiniz? Tüm verilerinizi kaybedeceksiniz. Ancak istediğiniz zaman
+            yeniden kaydolabilirsiniz!
+      new:
+        subtitle: >-
+          Güvenli ve gizliliğinizin korunduğu bir alanda deneyimlerinizi paylaşmaya ve
+          sağlığınıza özen göstermeye başlayın
+        label: Birkaç bilgi
+    sessions:
+      subtitle: 'Tekrar hoş geldiniz. Gününüzü daha rahat geçirmeniz için yanınızdayız'
+    shared:
+      sign_in_google: Google ile giriş yapın
+      sign_up_google: Google ile kaydolun
+      sign_in_facebook: Facebook ile giriş yapın
+      sign_up_facebook: Facebook ile kaydolun
+      confirmation: Doğrulama yönergeleri size ulaşmadı mı?
+      unlock: Kilit açma yönergeleri size ulaşmadı mı?
+    unlock:
+      resend: Kilit açma yönergelerini yeniden gönderin
+  care_plan:
+    index:
+      title: Bakım planı
+      subtitle: Zor zamanları atlatmak için bir plan hazırlayın
+      contacts: İletişim kurulacak kişiler
+      new_contact: Yeni kişi
+      edit_contact: Kişiyi düzenleyin
+      phone_number: Telefon numarası
+      contacts_info: Konuşmak için ulaşabileceğiniz sevdikleriniz
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: Bu kullanıcı için zaten sıraya alınmış bir talep var.
+        duplicate_request_id: Bu talep kimliğiyle zaten bir talep var.
+    data_download:
+      label: Verilerinizi indirin
+      description: if-me.org hesap verilerinizi içeren bir CSV dosyası indirin
+      request: Kullanıcı verilerimi indirin
+      processing: Verileriniz hazırlanıyor. Bu işlem birkaç dakika sürebilir...
+      download: Verileri indirin (CSV)
+      request_new: Yeni bir indirme talebi oluşturun
+      error: Verileriniz hazırlanırken bir sorun oluştu. Lütfen tekrar deneyin.
+  moment_templates:
+    index:
+      title: An şablonları
+      subtitle: Anlarınızı yazmak için şablonlar
+      new_template: Yeni şablon
+      edit_template: Şablonu düzenleyin
+      instructions: >-
+        Henüz bir şablon oluşturmadınız.<br />Aşağıdaki hazır şablonları da ekleyebilir,
+        daha sonra kendinize göre düzenleyebilirsiniz.
+      premade1_name: Temel
+      premade1_description: >-
+        Ne oldu ve nasıl hissediyorsunuz?<br />Aklınızdan hangi düşüncelerin geçmesini
+        isterdiniz?
+      premade2_name: Şükran
+      premade2_description: >-
+        Kendinizde değer verdiğiniz bir özellik nedir?<br />Bugün neyi heyecanla
+        bekliyorsunuz?
