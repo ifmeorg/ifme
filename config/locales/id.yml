@@ -625,8 +625,8 @@ id:
           ingin Anda bagikan
         main_message_three: Tulis cerita Anda.
         cell_two: >-
-          Buat %{kategori} kustom untuk membantu Anda mengatur momen Anda <br />
-          Tulis tentang %{momen} - peristiwa dan situasi yang memengaruhi
+          Buat %{categories} kustom untuk membantu Anda mengatur momen Anda <br />
+          Tulis tentang %{moments} - peristiwa dan situasi yang memengaruhi
           kesehatan mental Anda
         main_message_four: Jaga dirimu.
         cell_three: >-

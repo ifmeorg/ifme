@@ -499,7 +499,7 @@ zh-CN:
         然后单击“邀请你的亲朋好友”链接。你将可以通过电子邮件邀请他们。当你亲朋好友接受邀请时， 他们将被添加到你的好友列表中。
       email_notifications_question: 如何修改电子邮件提示？
       email_notifications_answer: >-
-        转到<strong>%{帐户} </strong>页面。 你可以在此处修改电子邮件，密码，个人资料图片和个人简介。你也可以删除你的帐户。
+        转到<strong>%{accounts} </strong>页面。 你可以在此处修改电子邮件，密码，个人资料图片和个人简介。你也可以删除你的帐户。
         删除帐户后，所有数据都会被删除。
     home:
       update_pwd_modal:
@@ -778,9 +778,9 @@ zh-CN:
       many: '对%{viewers}可见'
     meeting_info:
       attending: 你在参加。改变你的想法？
-      not_attending: '你没有参加。 %{加入}'
-      not_attending_one_spot_left: '你没有参加。还剩一个位置！ %{加入}'
-      not_attending_spots_left: '你没有参加。还剩%{number}个位置！ %{加入}'
+      not_attending: '你没有参加。 %{join}'
+      not_attending_one_spot_left: '你没有参加。还剩一个位置！ %{join}'
+      not_attending_spots_left: '你没有参加。还剩%{number}个位置！ %{join}'
       not_attending_no_spots_left: '你没有参加。抱歉,没有加入的位置。'
     quick_create:
       new: '新%{name}'
