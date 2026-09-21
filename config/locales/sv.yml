@@ -421,8 +421,8 @@ sv:
       accepted: '%{name} accepterade din förfrågan om att bli en allierad!'
       sent_html: '%{link_to_user} skickade en förfrågan om att bli en allierad!'
     comment:
-      full: '%{name} kommenterade "%{comment}" på %{commented_on}'
-      truncated: '%{name} kommenterade "%{comment}" [...] på %{commented_on}'
+      full: '%{name} kommenterade "%{comment}" på %{typename}'
+      truncated: '%{name} kommenterade "%{comment}" [...] på %{typename}'
     group:
       new_group: '%{name} skapade en grupp "%{group_name}"'
       new_group_member: '%{name} gick med i din grupp "%{group_name}"'

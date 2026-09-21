@@ -425,8 +425,8 @@ ca:
       accepted: '%{name} ha acceptat la teva sol·licitud d’aliança!'
       sent_html: '%{link_to_user} t’ha enviat una sol·licitud d’aliança!'
     comment:
-      full: '%{name} ha comentat "%{comment}" a %{commentable_id}'
-      truncated: '%{name} ha comentat "%{comment}" [...] a %{commentable_id}'
+      full: '%{name} ha comentat "%{comment}" a %{typename}'
+      truncated: '%{name} ha comentat "%{comment}" [...] a %{typename}'
     group:
       new_group: '%{name} ha creat el grup "%{group_name}"'
       new_group_member: '%{name} s’ha unit al teu grup "%{group_name}"'
