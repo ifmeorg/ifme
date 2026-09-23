@@ -62,9 +62,7 @@ module Meetings
     def rescue_google_calendar_ex
       response = yield
       [true, response]
-    rescue Google::Apis::ClientError => e
-      [false, e.message]
-    rescue Google::Apis::ServerError => e
+    rescue Google::Apis::ClientError, Google::Apis::ServerError => e
       [false, e.message]
     end
 

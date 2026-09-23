@@ -30,12 +30,15 @@ ca:
     fr: Francès
     hi: Hindi
     zh-CN: Xinès
+    zh-TW: Xinès tradicional
     ko: Coreà
     id: Indonesi
     ar: Àrab
     ru: Rus
     ca: Català
     bg: Български
+    az: Azərbaycanca
+    tr: Türkçe
   navigation:
     skip_to_main_content: Salta al contingut principal
     main_menu: Menú principal del lloc
@@ -94,6 +97,15 @@ ca:
         %{max}!
       search_by_keywords: Cerca per paraules clau
       template: Tria una plantilla
+    autosave:
+      restore_prompt: "Teniu un esborrany no desat de %{time}. Voleu restaurar-lo?"
+      restore_button: "Restaura l'esborrany"
+      dismiss: Descarta
+      time_just_now: just ara
+      time_one_minute: fa 1 minut
+      time_minutes_ago: 'fa %{count} minuts'
+      time_one_hour: fa 1 hora
+      time_hours_ago: 'fa %{count} hores'
     time_ago: 'fa %{date}'
     write_to_us: escriu-nos
     days: Dies
@@ -709,6 +721,8 @@ ca:
       crisis_prevention:
         title: Com estàs?
         description: Siguis com siguis, ets estimat
+        acknowledge: "Reconegut, vaig a tenir cura de les meves necessitats."
+        care_plan_link: "També podeu consultar el vostre Pla d'atenció per obtenir recursos i contactes."
         die: morir
         dead: mort
         died: va morir
@@ -719,6 +733,14 @@ ca:
         hurt_myself: fer-me mal
         suicide: suïcidi
         suicidal: suïcida
+        want_to_die: vull morir
+        end_my_life: acabar amb la meva vida
+        take_my_life: prendre la meva vida
+        end_it_all: acabar amb tot
+        self_harm: autolesió
+        no_reason_to_live: cap raó per viure
+        not_worth_living: no val la pena viure
+        overdose: sobredosi
       tags:
         ai: AI
         communities: comunitats
@@ -1095,6 +1117,19 @@ ca:
       edit_contact: Editar contacte
       phone_number: Número de telèfon
       contacts_info: Persones estimades amb qui hauries de parlar
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: Ja hi ha una sol·licitud en cua per a aquest usuari.
+        duplicate_request_id: Ja hi ha una sol·licitud amb aquest identificador de sol·licitud.
+    data_download:
+      label: Descarregueu les vostres dades
+      description: Descarregueu un fitxer CSV amb les dades del vostre compte d'if-me.org
+      request: Descarregueu les meves dades d'usuari
+      processing: S'estan preparant les vostres dades. Pot trigar uns minuts...
+      download: Descarregueu les dades (CSV)
+      request_new: Sol·liciteu una nova descàrrega
+      error: S'ha produït un error en preparar les vostres dades. Torneu-ho a intentar.
   moment_templates:
     index:
       title: Plantilles de moment

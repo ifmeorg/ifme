@@ -26,7 +26,7 @@ export function InputRadioGroup({
               id={option.id}
               name={name}
               value={option.value}
-              defaultChecked={option.value === propValue}
+              defaultChecked={String(option.value) === String(propValue)}
             />
           </label>
         </div>

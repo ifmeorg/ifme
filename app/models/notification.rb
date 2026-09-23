@@ -20,7 +20,7 @@ class Notification < ApplicationRecord
     updated_at
   ].map!(&:freeze).freeze
 
-  validates :user_id, :uniqueid, :data, presence: true
+  validates :uniqueid, :data, presence: true
   belongs_to :user
 
   scope :for_ally, lambda { |user_id, ally_id|

@@ -1,4 +1,4 @@
-@import "~styles/_global.scss";
+@import "~styles/_global";
 
 .modal {
   &Element {
@@ -12,10 +12,7 @@
 
   &Backdrop {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     background: $black-70;
     display: flex;
     align-items: center;
@@ -68,10 +65,9 @@
     }
 
     &Body {
-      @include dashboardSectionLink();
+      @include dashboardSectionLink;
 
-      overflow-x: hidden;
-      overflow-y: auto;
+      overflow: hidden auto;
       height: calc(100% - 40px);
       text-align: left;
       line-height: 1.4 !important;

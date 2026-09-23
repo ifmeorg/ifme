@@ -4,7 +4,7 @@ import React, {
   useState, useRef, type Node, useEffect,
 } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 import { I18n } from 'libs/i18n';
 import { Utils } from 'utils';
 import { Avatar } from 'components/Avatar';
@@ -47,7 +47,9 @@ export const Modal = (props: Props): Node => {
   } = props;
 
   const [open, setOpen] = useState(!!openProps);
-  const [isInteractive, setIsInteractive] = useState(false);
+  const [isInteractive, setIsInteractive] = useState(
+    !!(element && typeof element === 'object' && element.type === 'button'),
+  );
   const [modalHasFocus, setModalHasFocus] = useState(true);
   const modalEl = useRef(null);
 

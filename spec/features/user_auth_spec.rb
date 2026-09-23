@@ -8,7 +8,7 @@ feature 'UserAuthLogin', type: :feature, js: true do
 
       visit moments_path
 
-      expect(page.body).to_not have_content("confirm your email")
+      expect(page).to_not have_content("confirm your email")
       expect(page).to have_current_path moments_path
     end
   end

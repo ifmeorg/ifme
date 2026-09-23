@@ -321,4 +321,117 @@ describe 'Moments', type: :request do
       expect(assigns(:react_moments)[create_time]).to eq(1)
     end
   end
+
+  describe '#acknowledge_all_crisis_prevention' do
+    let!(:crisis_moment1) do
+      create(:moment, user: user, why: 'I feel like dying.',
+                      crisis_prevention_acknowledged: false,
+                      created_at: 2.weeks.ago)
+    end
+    let!(:crisis_moment2) do
+      create(:moment, user: user, why: 'Thinking about suicide a lot.',
+                      crisis_prevention_acknowledged: false,
+                      created_at: 3.days.ago)
+    end
+    let!(:old_moment) do
+      create(:moment, user: user, why: 'I feel like dying.',
+                      crisis_prevention_acknowledged: false,
+                      created_at: 2.months.ago)
+    end
+
+    context 'when the user is logged in' do
+      before do
+        sign_in user
+        post acknowledge_all_crisis_prevention_moments_path,
+             headers: { 'ACCEPT' => 'application/json' }
+      end
+
+      it 'returns success' do
+        expect(response).to have_http_status(:ok)
+      end
+
+      it 'returns acknowledged: true in JSON' do
+        expect(JSON.parse(response.body)).to eq({ 'acknowledged' => true })
+      end
+
+      it 'acknowledges recent unacknowledged moments' do
+        expect(crisis_moment1.reload.crisis_prevention_acknowledged).to be true
+        expect(crisis_moment2.reload.crisis_prevention_acknowledged).to be true
+      end
+
+      it 'stores the why text at time of acknowledgment' do
+        expect(crisis_moment1.reload.crisis_prevention_acknowledged_text).to eq(crisis_moment1.why)
+        expect(crisis_moment2.reload.crisis_prevention_acknowledged_text).to eq(crisis_moment2.why)
+      end
+
+      it 'does not acknowledge moments older than one month' do
+        expect(old_moment.reload.crisis_prevention_acknowledged).to be false
+      end
+    end
+
+    context 'when the user is not logged in' do
+      before do
+        post acknowledge_all_crisis_prevention_moments_path
+      end
+
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
+
+  describe '#acknowledge_crisis_prevention' do
+    let!(:moment) { create(:moment, user: user, why: 'I have been feeling very sad lately.') }
+
+    context 'when the user is logged in' do
+      before { sign_in user }
+
+      context 'when the moment belongs to the current user' do
+        before do
+          post acknowledge_crisis_prevention_moment_path(moment.id),
+               headers: { 'ACCEPT' => 'application/json' }
+        end
+
+        it 'returns success' do
+          expect(response).to have_http_status(:ok)
+        end
+
+        it 'sets crisis_prevention_acknowledged to true' do
+          expect(moment.reload.crisis_prevention_acknowledged).to be true
+        end
+
+        it 'stores the current why text in crisis_prevention_acknowledged_text' do
+          expect(moment.reload.crisis_prevention_acknowledged_text).to eq(moment.why)
+        end
+
+        it 'returns acknowledged: true in JSON' do
+          expect(JSON.parse(response.body)).to eq({ 'acknowledged' => true })
+        end
+      end
+
+      context 'when the moment does not belong to the current user' do
+        let(:other_user) { create(:user) }
+        let!(:other_moment) { create(:moment, user: other_user) }
+
+        before do
+          post acknowledge_crisis_prevention_moment_path(other_moment.id),
+               headers: { 'ACCEPT' => 'application/json' }
+        end
+
+        it 'returns unauthorized' do
+          expect(response).to have_http_status(:unauthorized)
+        end
+
+        it 'does not acknowledge the moment' do
+          expect(other_moment.reload.crisis_prevention_acknowledged).to be false
+        end
+      end
+    end
+
+    context 'when the user is not logged in' do
+      before do
+        post acknowledge_crisis_prevention_moment_path(moment.id)
+      end
+
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
 end

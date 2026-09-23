@@ -100,30 +100,44 @@ describe 'Groups', type: :request do
   describe 'PUT #update' do
     before { sign_in user }
 
-    it 'updates leader' do
-      group = create :group
-      user = create :user
-      non_leader = create :group_member, group: group, leader: false, user: user
+    context 'when user is a leader' do
+      it 'updates leader' do
+        group_member = create :group_member, user: user, leader: true
+        group = group_member.group
+        other_user = create :user
+        non_leader = create :group_member, group: group, leader: false, user: other_user
 
-      put group_path(group), params: { group: { leader: [user.id] } }
+        put group_path(group), params: { group: { leader: [other_user.id] } }
 
-      non_leader.reload
-      expect(non_leader.leader).to be true
-      expect(response).to redirect_to(groups_path)
+        non_leader.reload
+        expect(non_leader.leader).to be true
+        expect(response).to redirect_to(groups_path)
+      end
+
+      it 'returns error response if there is an empty name or description' do
+        group_member = create :group_member, user: user, leader: true
+        group = group_member.group
+        params = { group: { name: nil, description: nil }, format: 'json' }
+
+        put group_path(group), params: params
+
+        expect(response).to have_http_status(:unprocessable_entity)
+        json = JSON.parse(response.body)
+        expect(json['name']).to eq(["can't be blank"])
+        expect(json['description']).to eq(["can't be blank"])
+      end
     end
 
-    it 'returns error response if there is an empty name or description' do
-      group = create :group
-      params = { group: { name: nil, description: nil }, format: 'json' }
+    context 'when user is not a leader' do
+      it 'redirects without updating the group' do
+        group = create :group
+        original_name = group.name
 
-      put group_path(group), params: params
+        put group_path(group), params: { group: { name: 'Hacked Name' } }
 
-      group.reload
-      expect(response).to have_http_status(:unprocessable_entity)
-
-      json = JSON.parse(response.body)
-      expect(json['name']).to eq(["can't be blank"])
-      expect(json['description']).to eq(["can't be blank"])
+        expect(group.reload.name).to eq(original_name)
+        expect(response).to redirect_to(groups_path)
+      end
     end
   end
 
@@ -164,13 +178,27 @@ describe 'Groups', type: :request do
   describe 'DELETE #destroy' do
     before { sign_in user }
 
-    it 'deletes the group' do
-      group = create :group
+    context 'when user is a leader' do
+      it 'deletes the group' do
+        group_member = create :group_member, user: user, leader: true
+        group = group_member.group
 
-      delete group_path(group)
+        delete group_path(group)
 
-      expect(response).to have_http_status(:redirect)
-      expect(Group.find_by(id: group.id)).to be_nil
+        expect(response).to have_http_status(:redirect)
+        expect(Group.find_by(id: group.id)).to be_nil
+      end
+    end
+
+    context 'when user is not a leader' do
+      it 'redirects without deleting the group' do
+        group = create :group
+
+        delete group_path(group)
+
+        expect(Group.find_by(id: group.id)).not_to be_nil
+        expect(response).to redirect_to(groups_path)
+      end
     end
   end
 end

@@ -1,9 +1,9 @@
-@import '~styles/_global.scss';
+@import '~styles/_global';
 
 .resource {
   position: relative;
   width: 100%;
-  padding: 25px $size-10;
+  padding: $size-25 $size-10;
 
   &::before {
     content: '';
@@ -24,7 +24,7 @@
   }
 
   a {
-    @include standardTransition();
+    @include standardTransition;
 
     text-decoration: none;
     color: $white;

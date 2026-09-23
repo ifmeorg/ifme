@@ -31,6 +31,12 @@
 
 @import "base/*";
 @import "font-awesome";
+@import "core/*";
+@import "dashboard/*";
+@import "static/*";
+@import "secret_share/*";
+@import "overrides/*";
+@import "application/*";
 
 /* Text */
 
@@ -80,10 +86,3 @@ html {
 main {
   width: 100%;
 }
-
-@import "core/*";
-@import "dashboard/*";
-@import "static/*";
-@import "secret_share/*";
-@import "overrides/*";
-@import "application/*";

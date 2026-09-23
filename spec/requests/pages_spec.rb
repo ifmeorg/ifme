@@ -4,6 +4,14 @@ describe "Pages", type: :request do
   let(:user) { create(:user) }
 
   describe "#home" do
+    let(:medium_posts) do
+      [{ 'title' => 'Test Post', 'link' => 'https://medium.com/ifme/test', 'author' => 'Test Author' }]
+    end
+
+    before do
+      allow_any_instance_of(Medium).to receive(:posts).and_return(medium_posts)
+    end
+
     it "respond to request" do
       get pages_home_path
       expect(response).to be_successful
@@ -11,6 +19,55 @@ describe "Pages", type: :request do
 
     context "logged in" do
       before { sign_in user }
+
+      context "with recent unacknowledged crisis moments" do
+        before do
+          create(:moment, user: user,
+                          why: 'I have been feeling suicidal.',
+                          crisis_prevention_acknowledged: false,
+                          created_at: 1.week.ago)
+        end
+
+        it "sets show_crisis_prevention_index to true" do
+          get pages_home_path
+          expect(assigns(:show_crisis_prevention_index)).to be true
+        end
+      end
+
+      context "without recent unacknowledged crisis moments" do
+        it "sets show_crisis_prevention_index to false" do
+          get pages_home_path
+          expect(assigns(:show_crisis_prevention_index)).to be false
+        end
+      end
+
+      context "when recent moments are already acknowledged" do
+        before do
+          create(:moment, user: user,
+                          why: 'I have been feeling suicidal.',
+                          crisis_prevention_acknowledged: true,
+                          created_at: 1.week.ago)
+        end
+
+        it "sets show_crisis_prevention_index to false" do
+          get pages_home_path
+          expect(assigns(:show_crisis_prevention_index)).to be false
+        end
+      end
+
+      context "when crisis moments are older than one month" do
+        before do
+          create(:moment, user: user,
+                          why: 'I have been feeling suicidal.',
+                          crisis_prevention_acknowledged: false,
+                          created_at: 6.weeks.ago)
+        end
+
+        it "sets show_crisis_prevention_index to false" do
+          get pages_home_path
+          expect(assigns(:show_crisis_prevention_index)).to be false
+        end
+      end
 
       it "has no stories" do
         list = double
@@ -40,7 +97,7 @@ describe "Pages", type: :request do
       it "has blurbs and posts" do
         get pages_home_path
 
-        expect(assigns(:posts)[0].keys).to contain_exactly(:link, :link_name, :author)
+        expect(assigns(:posts).first.keys).to contain_exactly(:link, :link_name, :author)
         blurbs_file = File.read("doc/pages/blurbs.json")
         expect(assigns(:blurbs)).to eq(JSON.parse(blurbs_file))
       end

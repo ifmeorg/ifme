@@ -3,19 +3,17 @@ import React from 'react';
 import type { Node } from 'react';
 import { I18n } from 'libs/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faPencilAlt,
-  faTrash,
-  faLock,
-  faDoorOpen,
-  faDoorClosed,
-  faExclamationTriangle,
-  faEyeSlash,
-  faCalendarPlus,
-  faCalendarMinus,
-  faChartLine,
-  faKey,
-} from '@fortawesome/free-solid-svg-icons';
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { faLock } from '@fortawesome/free-solid-svg-icons/faLock';
+import { faDoorOpen } from '@fortawesome/free-solid-svg-icons/faDoorOpen';
+import { faDoorClosed } from '@fortawesome/free-solid-svg-icons/faDoorClosed';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
+import { faEyeSlash } from '@fortawesome/free-solid-svg-icons/faEyeSlash';
+import { faCalendarPlus } from '@fortawesome/free-solid-svg-icons/faCalendarPlus';
+import { faCalendarMinus } from '@fortawesome/free-solid-svg-icons/faCalendarMinus';
+import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
+import { faKey } from '@fortawesome/free-solid-svg-icons/faKey';
 import { Tooltip } from 'components/Tooltip';
 import css from './Story.scss';
 

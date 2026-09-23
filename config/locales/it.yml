@@ -30,12 +30,15 @@ it:
     fr: Français
     hi: हिंदी
     zh-CN: 中文
+    zh-TW: 正體中文
     ko: 한국어
     id: Bahasa Indonesia
     ar: اَلْعَرَبِيَّةُ
     ru: Русские
     ca: Català
     bg: Български
+    az: Azərbaycanca
+    tr: Türkçe
   navigation:
     skip_to_main_content: Salta al contenuto principale
     main_menu: Menu del sito principale
@@ -94,6 +97,15 @@ it:
         di %{max}!
       search_by_keywords: Cerca per parole chiave
       template: Scegli un modello
+    autosave:
+      restore_prompt: 'Hai una bozza non salvata di %{time}. Vuoi ripristinarla?'
+      restore_button: Ripristina bozza
+      dismiss: Ignora
+      time_just_now: proprio ora
+      time_one_minute: 1 minuto fa
+      time_minutes_ago: '%{count} minuti fa'
+      time_one_hour: 1 ora fa
+      time_hours_ago: '%{count} ore fa'
     time_ago: '%{date} fa'
     write_to_us: scrivici
     days: giorni
@@ -721,6 +733,8 @@ it:
       crisis_prevention:
         title: Come te la passi?
         description: 'Sei amato, non importa quale'
+        acknowledge: "Riconosciuto, mi prenderò cura dei miei bisogni."
+        care_plan_link: "Puoi anche controllare il tuo Piano di cura per risorse e contatti."
         die: morire
         dead: morto
         died: morto
@@ -731,6 +745,14 @@ it:
         hurt_myself: ferirmi
         suicide: suicidio
         suicidal: suicida
+        want_to_die: voglio morire
+        end_my_life: porre fine alla mia vita
+        take_my_life: togliermi la vita
+        end_it_all: farla finita
+        self_harm: autolesionismo
+        no_reason_to_live: nessun motivo per vivere
+        not_worth_living: non vale la pena vivere
+        overdose: overdose
       tags:
         ai: AI
         communities: community
@@ -1115,6 +1137,19 @@ it:
       edit_contact: Modifica il contatto
       phone_number: Numero di telefono
       contacts_info: Persone care con cui dovresti parlare
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: È già presente una richiesta in coda per questo utente.
+        duplicate_request_id: È già presente una richiesta con questo ID richiesta.
+    data_download:
+      label: Scarica i tuoi dati
+      description: Scarica un file CSV contenente i dati del tuo account da if-me.org
+      request: Scarica i miei dati utente
+      processing: I tuoi dati sono in fase di preparazione. Potrebbero volerci alcuni minuti...
+      download: Scarica i dati (CSV)
+      request_new: Richiedi nuovo download
+      error: Si è verificato un errore durante la preparazione dei tuoi dati. Riprova.
   moment_templates:
     index:
       title: Modelli Moment

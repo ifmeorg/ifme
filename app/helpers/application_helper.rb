@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+require 'cgi'
+
 module ApplicationHelper
   include ViewersHelper
   include AssetsHelper
@@ -19,28 +21,28 @@ module ApplicationHelper
   end
 
   def page_title
-    t('app_name') +
+    CGI.unescapeHTML(t('app_name') +
       if sign_in_path?
-        ' | ' + t('account.sign_in')
+        " | #{t('account.sign_in')}"
       elsif join_path?
-        ' | ' + t('account.sign_up')
+        " | #{t('account.sign_up')}"
       elsif forgot_password_path?
-        ' | ' + t('account.forgot_password')
+        " | #{t('account.forgot_password')}"
       elsif update_account_path?
-        ' | ' + t('account.singular')
+        " | #{t('account.singular')}"
       elsif current_page?(root_path)
-        ' | ' + t('app_description')
+        " | #{t('app_description')}"
       elsif send_ally_invitation_path?
-        ' | ' + t('devise.invitations.new.header')
+        " | #{t('devise.invitations.new.header')}"
       elsif ally_accept_invitation_path?
-        ' | ' + t('devise.invitations.edit.header')
+        " | #{t('devise.invitations.edit.header')}"
       elsif reset_password_path?
-        ' | ' + t('layouts.title.reset_password')
+        " | #{t('layouts.title.reset_password')}"
       elsif new_user_confirmation_path?
-        ' | ' + t('devise.confirmations.resend_confirmation')
+        " | #{t('devise.confirmations.resend_confirmation')}"
       else
-        ' | ' + title_content
-      end
+        " | #{title_content}"
+      end)
   end
 
   def title_content
@@ -125,7 +127,24 @@ module ApplicationHelper
     'fa fa-globe'
   end
 
+  def i18n_translations_json
+    Rails.cache.fetch("i18n_translations/#{I18n.locale}") do
+      flatten_translations(I18n.t('.', locale: I18n.locale)).to_json
+    end
+  end
+
   private
+
+  def flatten_translations(hash, prefix = nil)
+    hash.each_with_object({}) do |(key, value), result|
+      full_key = prefix ? "#{prefix}.#{key}" : key.to_s
+      if value.is_a?(Hash)
+        result.merge!(flatten_translations(value, full_key))
+      elsif !value.is_a?(Proc)
+        result[full_key] = value.to_s.gsub(/%\{/, '{')
+      end
+    end
+  end
 
   def current_controller?(link_path, environment = {})
     link_controller = Rails.application.routes

@@ -1,4 +1,4 @@
-﻿# frozen_string_literal: true
+# frozen_string_literal: true
 
 class ApplicationMailer < ActionMailer::Base
   include ActionView::Helpers::UrlHelper
@@ -93,4 +93,3 @@ class ApplicationMailer < ActionMailer::Base
     @message += comment_link(link)
   end
 end
-

@@ -20,8 +20,8 @@ describe Report do
   end
 
   context 'with validations' do
-    it { is_expected.to validate_presence_of :reportee_id }
-    it { is_expected.to validate_presence_of :reporter_id }
+    it { is_expected.to belong_to(:reportee) }
+    it { is_expected.to belong_to(:reporter) }
     it { is_expected.to validate_presence_of :reasons }
   end
 
@@ -46,13 +46,13 @@ describe Report do
     it 'is invalid without reporter_id' do
       report = Report.new(reporter_id: nil)
       report.valid?
-      expect(report.errors[:reporter_id]).to include(error)
+      expect(report.errors[:reporter]).to include('must exist')
     end
 
     it 'is invalid without reportee_id' do
       report = Report.new(reportee_id: nil)
       report.valid?
-      expect(report.errors[:reportee_id]).to include(error)
+      expect(report.errors[:reportee]).to include('must exist')
     end
 
     it 'is invalid without comments' do

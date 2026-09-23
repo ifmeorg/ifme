@@ -1,0 +1,30 @@
+zh-TW:
+  devise:
+    failure:
+      invited: >-
+        您有一個待接受的邀請，請接受邀請以完成帳號建立。
+    invitations:
+      send_instructions: '邀請電子郵件已寄送至 %{email}。'
+      failed_send: '發生錯誤，無法邀請 %{email}。'
+      invitation_token_invalid: 提供的邀請碼無效！
+      updated: 密碼已成功設定。您現在已登入。
+      updated_not_active: 密碼已成功設定。
+      no_invitations_remaining: 已無剩餘邀請額度
+      invitation_removed: 您的邀請已移除。
+      new:
+        header: 寄送夥伴邀請
+        submit_button: 寄送邀請
+      edit:
+        header: 設定您的密碼
+        submit_button: 設定密碼
+    mailer:
+      invitation_instructions:
+        subject: 'if-me.org | %{name} 邀請您加入 if-me.org！'
+        subject_nameless: if-me.org | 有人邀請您加入 if-me.org！
+        hello: '%{email}，您好！'
+        someone_invited_you: >-
+          %{name} 邀請您加入 http://www.if-me.org，這是一個與親友分享心理健康經驗、追蹤情緒、藥物和自我照護的社群。您可以透過以下連結接受邀請。
+        accept: 接受邀請！
+        accept_until: '此邀請將於 %{due_date} 到期。'
+        ignore: >-
+          如果您不想接受邀請，請忽略此電子郵件。<br/>在您透過上方連結設定密碼之前，系統不會建立您的帳號。

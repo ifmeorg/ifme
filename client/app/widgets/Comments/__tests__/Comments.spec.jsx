@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import axios from 'axios';
+import { fetchWrapper } from 'utils/fetchWrapper';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Comments from 'widgets/Comments';
@@ -94,10 +94,10 @@ describe('Comments', () => {
     });
 
     it('add and delete a comment', async () => {
-      jest.spyOn(axios, 'post').mockResolvedValue({
+      jest.spyOn(fetchWrapper, 'post').mockResolvedValue({
         data: { comment: getComment() },
       });
-      jest.spyOn(axios, 'delete').mockResolvedValue({
+      jest.spyOn(fetchWrapper, 'delete').mockResolvedValue({
         data: { id },
       });
       render(<Comments formProps={formProps} />);
@@ -139,10 +139,10 @@ describe('Comments', () => {
     });
 
     it('add and delete a comment', async () => {
-      jest.spyOn(axios, 'post').mockResolvedValue({
+      jest.spyOn(fetchWrapper, 'post').mockResolvedValue({
         data: { comment: getComment({ commentByAdmin: true }) },
       });
-      jest.spyOn(axios, 'delete').mockResolvedValue({
+      jest.spyOn(fetchWrapper, 'delete').mockResolvedValue({
         data: { id },
       });
       render(<Comments formProps={formProps} />);

@@ -30,12 +30,15 @@ bg:
     fr: Français
     hi: हिंदी
     zh-CN: 中文
+    zh-TW: 正體中文
     ko: 한국어
     id: Bahasa Indonesia
     ar: اَلْعَرَبِيَّةُ
     ru: Русские
     ca: Català
     bg: Български
+    az: Azərbaycanca
+    tr: Türkçe
   navigation:
     skip_to_main_content: Премини към основното съдържание
     google: Google
@@ -92,6 +95,15 @@ bg:
       min_max_error: Това поле трябва да е равно или по-голямо от %{min} и равно или по-малко от %{max}!
       search_by_keywords: Търсене по ключови думи
       template: Избери шаблон
+    autosave:
+      restore_prompt: 'Имате незапазена чернова от %{time}. Искате ли да я възстановите?'
+      restore_button: Възстанови чернова
+      dismiss: Отхвърли
+      time_just_now: точно сега
+      time_one_minute: преди 1 минута
+      time_minutes_ago: 'преди %{count} минути'
+      time_one_hour: преди 1 час
+      time_hours_ago: 'преди %{count} часа'
     time_ago: 'Преди %{date}'
     write_to_us: пиши ни
     days: Дни
@@ -505,6 +517,8 @@ bg:
       crisis_prevention:
         title: Как си?
         description: Ти си обичан независимо от всичко
+        acknowledge: "Прието, ще се погрижа за нуждите си."
+        care_plan_link: "Можете също да проверите своя план за грижа за ресурси и контакти."
         die: умирам
         dead: мъртъв
         died: починал
@@ -515,6 +529,14 @@ bg:
         hurt_myself: да се нараня
         suicide: самоубийство
         suicidal: суициден
+        want_to_die: искам да умра
+        end_my_life: да сложа край на живота си
+        take_my_life: да взема живота си
+        end_it_all: да сложа край на всичко
+        self_harm: самонараняване
+        no_reason_to_live: няма причина да живея
+        not_worth_living: не си заслужава да живея
+        overdose: предозиране
       tags:
         ai: AI
         communities: общности
@@ -827,6 +849,19 @@ bg:
       edit_contact: Редактиране на контакт
       phone_number: Телефонен номер
       contacts_info: Близки хора, с които можеш да говориш
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: Вече има заявка в опашката за този потребител.
+        duplicate_request_id: Вече има заявка с този идентификатор на заявка.
+    data_download:
+      label: Изтеглете вашите данни
+      description: Изтеглете CSV файл с данните за вашия акаунт от if-me.org
+      request: Изтеглете моите потребителски данни
+      processing: Данните ви се подготвят. Това може да отнеме няколко минути...
+      download: Изтегляне на данни (CSV)
+      request_new: Заявете ново изтегляне
+      error: Нещо се обърка при подготовката на данните ви. Моля, опитайте отново.
   moment_templates:
     index:
       title: Шаблони за моменти

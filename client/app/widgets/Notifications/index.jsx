@@ -1,7 +1,7 @@
 // @flow
 import React, { useState, useEffect, useCallback } from 'react';
 import type { Node } from 'react';
-import axios from 'axios';
+import { fetchWrapper } from 'utils/fetchWrapper';
 import { I18n } from 'libs/i18n';
 import Modal from 'components/Modal';
 import { Utils } from 'utils';
@@ -40,21 +40,23 @@ export const Notifications = ({ element, pusher }: Props): Node => {
   };
 
   const fetchNotifications = useCallback(() => {
-    axios.get('/notifications/fetch_notifications').then((response: any) => {
-      if (response && response.data && response.data.fetch_notifications) {
-        changeTitle(response.data.fetch_notifications.length);
-        setBody(response.data.fetch_notifications);
-        if (!alreadyMounted && response.data.fetch_notifications.length > 0) {
-          setAlreadyMounted(true);
-          setOpen(true);
-          setModalKey(Utils.randomString());
+    fetchWrapper
+      .get('/notifications/fetch_notifications')
+      .then((response: any) => {
+        if (response && response.data && response.data.fetch_notifications) {
+          changeTitle(response.data.fetch_notifications.length);
+          setBody(response.data.fetch_notifications);
+          if (!alreadyMounted && response.data.fetch_notifications.length > 0) {
+            setAlreadyMounted(true);
+            setOpen(true);
+            setModalKey(Utils.randomString());
+          }
         }
-      }
-    });
+      });
   }, [alreadyMounted]);
 
   const clearNotifications = () => {
-    axios.delete('/notifications/clear').then((response: any) => {
+    fetchWrapper.delete('/notifications/clear').then((response: any) => {
       if (response) {
         changeTitle(0);
         setOpen(false);
@@ -80,19 +82,21 @@ export const Notifications = ({ element, pusher }: Props): Node => {
   useEffect(() => {
     const fetchData = () => {
       Utils.setCsrfToken();
-      return axios.get('/notifications/signed_in').then((response: any) => {
-        if (response && response.data && !!response.data.signed_in) {
-          if (pusher) {
-            const channel = pusher.subscribe(
-              `private-${response.data.signed_in}`,
-            );
-            channel.bind('new_notification', () => {
-              fetchNotifications();
-            });
+      return fetchWrapper
+        .get('/notifications/signed_in')
+        .then((response: any) => {
+          if (response && response.data && !!response.data.signed_in) {
+            if (pusher) {
+              const channel = pusher.subscribe(
+                `private-${response.data.signed_in}`,
+              );
+              channel.bind('new_notification', () => {
+                fetchNotifications();
+              });
+            }
+            fetchNotifications();
           }
-          fetchNotifications();
-        }
-      });
+        });
     };
     fetchData();
   }, [fetchNotifications, pusher]);

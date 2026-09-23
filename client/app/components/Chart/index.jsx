@@ -1,11 +1,14 @@
 // @flow
 /* eslint react/jsx-props-no-spreading: 0 */
-import { Chart as ChartJS } from 'chart.js';
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import type { Node } from 'react';
-import { AreaChart, LineChart } from 'react-chartkick';
+import { Skeleton } from 'components/Skeleton';
 
-ChartJS.defaults.global.defaultFontFamily = 'Lato';
+const ChartRenderer = lazy(() => import('./ChartRenderer'));
+
+// react-chartkick draws charts 300px tall by default, so the placeholder
+// holds the same space while the chart code loads.
+const CHART_HEIGHT = '300px';
 
 type chartShape = {
   xtitle?: string,
@@ -14,12 +17,10 @@ type chartShape = {
   chartType: 'Line' | 'Area',
 };
 
-const colorSchemes = ['#6D0839', '#66118', '#7F503F', '#775577', '#CCAADD'];
-
-export function Chart({ chartType, ...props }: chartShape): Node {
-  return chartType === 'Line' ? (
-    <LineChart {...props} colors={colorSchemes} />
-  ) : (
-    <AreaChart {...props} colors={colorSchemes} />
+export function Chart(props: chartShape): Node {
+  return (
+    <Suspense fallback={<Skeleton height={CHART_HEIGHT} />}>
+      <ChartRenderer {...props} />
+    </Suspense>
   );
 }

@@ -21,14 +21,14 @@ module StrategiesHelper
 
   def edit_strategy_props(strategy, viewers)
     edit_form_props(
-      strategy_form_inputs(strategy, viewers, true),
+      strategy_form_inputs(strategy, viewers, edit: true),
       strategy_path(strategy)
     )
   end
 
   private
 
-  def strategy_form_inputs(strategy, viewers, edit = false)
+  def strategy_form_inputs(strategy, viewers, edit: false)
     [build_strategy_name(strategy), build_strategy_description(strategy),
      build_strategy_category,
      get_viewers_input(viewers, 'strategy', 'strategies', strategy),

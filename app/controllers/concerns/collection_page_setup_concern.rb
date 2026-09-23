@@ -37,6 +37,6 @@ module CollectionPageSetupConcern
     search_filters.each do |filter|
       filtered_user = filtered_user.where(filters_model[filter])
     end
-    filtered_user.count > 0 ? filtered_user : user
+    filtered_user.count.positive? ? filtered_user : user
   end
 end

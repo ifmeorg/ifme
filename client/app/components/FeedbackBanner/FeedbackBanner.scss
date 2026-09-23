@@ -1,0 +1,54 @@
+@import "~styles/_global";
+
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $size-10;
+  @include setPadding($size-16, $size-16, $size-16, $size-16);
+  @include setMargin($size-0, $size-0, $size-20, $size-0);
+  background-color: $cornflower;
+  border: 1px solid $blumine;
+  border-radius: $size-4;
+
+  @media screen and (max-width: $small) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.message {
+  flex: 1;
+  color: $blumine;
+  @include setFontSize($size-16);
+
+  @media screen and (max-width: $small) {
+    width: 100%;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: $size-10;
+  flex-shrink: 0;
+
+  @media screen and (max-width: $small) {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+.primaryButton {
+  @include button;
+  @include buttonS;
+  @include buttonHover;
+  background: $blumine !important;
+  color: $white !important;
+}
+
+.secondaryButton {
+  @include button;
+  @include buttonS;
+  @include buttonHover;
+  color: $blumine !important;
+}

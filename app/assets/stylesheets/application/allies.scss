@@ -8,7 +8,7 @@
   text-align: center;
 
   a {
-    @include standardTransition();
+    @include standardTransition;
   }
 
   > a:first-of-type {

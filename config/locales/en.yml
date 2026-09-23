@@ -30,12 +30,15 @@ en:
     fr: Français
     hi: हिंदी
     zh-CN: 中文
+    zh-TW: 正體中文
     ko: 한국어
     id: Bahasa Indonesia
     ar: اَلْعَرَبِيَّةُ
     ru: Русские
     ca: Català
     bg: Български
+    az: Azərbaycanca
+    tr: Türkçe
   navigation:
     skip_to_main_content: Skip to main content
     google: Google
@@ -94,6 +97,15 @@ en:
         %{max}!
       search_by_keywords: Search by keywords
       template: Choose a template
+    autosave:
+      restore_prompt: 'You have an unsaved draft from %{time}. Would you like to restore it?'
+      restore_button: Restore draft
+      dismiss: Dismiss
+      time_just_now: just now
+      time_one_minute: 1 minute ago
+      time_minutes_ago: '%{count} minutes ago'
+      time_one_hour: 1 hour ago
+      time_hours_ago: '%{count} hours ago'
     time_ago: '%{date} ago'
     write_to_us: write to us
     days: Days
@@ -681,6 +693,8 @@ en:
       crisis_prevention:
         title: How are you doing?
         description: You are loved no matter what
+        acknowledge: "Acknowledged, I am going to tend to my needs."
+        care_plan_link: "You can also check your Care Plan for resources and contacts."
         die: die
         dead: dead
         died: died
@@ -691,6 +705,14 @@ en:
         hurt_myself: hurt myself
         suicide: suicide
         suicidal: suicidal
+        want_to_die: want to die
+        end_my_life: end my life
+        take_my_life: take my life
+        end_it_all: end it all
+        self_harm: self harm
+        no_reason_to_live: no reason to live
+        not_worth_living: not worth living
+        overdose: overdose
       tags:
         ai: AI
         communities: communities
@@ -1063,6 +1085,19 @@ en:
       edit_contact: Edit Contact
       phone_number: Phone number
       contacts_info: Loved ones you should talk to
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: There is already a request enqueued for this user.
+        duplicate_request_id: There is already a request with this request_id.
+    data_download:
+      label: Download Your Data
+      description: Download a CSV file containing your account data from if-me.org
+      request: Download my user data
+      processing: Your data is being prepared. This may take a few minutes...
+      download: Download Data (CSV)
+      request_new: Request New Download
+      error: Something went wrong preparing your data. Please try again.
   moment_templates:
     index:
       title: Moment Templates

@@ -61,7 +61,10 @@
 <% end %>
 
 <% if @show_crisis_prevention %>
-  <%= react_component('CrisisPrevention') %>
+  <%= react_component('CrisisPrevention', props: {
+    momentId: @moment.id,
+    acknowledged: @moment.crisis_prevention_acknowledged
+  }) %>
 <% end %>
 
 <% if @moment.owned_by?(current_user) && @moment.shared? %>

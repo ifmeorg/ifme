@@ -1,6 +1,6 @@
 // @flow
-import axios from 'axios';
-import { sanitize } from 'dompurify';
+import { fetchWrapper } from 'utils/fetchWrapper';
+import DOMPurify from 'dompurify';
 import React from 'react';
 import parse from 'html-react-parser';
 
@@ -15,29 +15,27 @@ const setCsrfToken = (): void => {
   const tokenDom = document.querySelector('meta[name=csrf-token]');
   if (tokenDom) {
     const csrfToken = tokenDom.getAttribute('content');
-    axios.defaults.headers.common['X-CSRF-Token'] = csrfToken;
+    fetchWrapper.defaults.headers.common['X-CSRF-Token'] = csrfToken;
   }
 };
 
 const getPusher = (): Object | null => {
   const { Pusher } = window;
-  if (Pusher) {
-    const metaPusherKey = Array.from(
-      window.document.getElementsByTagName('meta'),
-    ).filter((item) => item.getAttribute('name') === 'pusher-key')[0];
-    const metaPusherCluster = Array.from(
-      window.document.getElementsByTagName('meta'),
-    ).filter((item) => item.getAttribute('name') === 'pusher-cluster')[0];
-    return new Pusher(metaPusherKey.getAttribute('content'), {
-      cluster: metaPusherCluster.getAttribute('content'),
-    });
-  }
-  return null;
+  if (!Pusher) return null;
+
+  const metaPusherKey = document.querySelector('meta[name=pusher-key]');
+  const metaPusherCluster = document.querySelector('meta[name=pusher-cluster]');
+
+  if (!metaPusherKey || !metaPusherCluster) return null;
+
+  return new Pusher(metaPusherKey.getAttribute('content'), {
+    cluster: metaPusherCluster.getAttribute('content'),
+  });
 };
 
 const renderContent = (content: string | any, attributes: Object = {}): any => {
   if (typeof content === 'string') {
-    return parse(sanitize(content));
+    return parse(DOMPurify.sanitize(content));
   }
   if (React.isValidElement(content)) {
     return React.cloneElement(content, attributes);

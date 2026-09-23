@@ -30,12 +30,15 @@ ko:
     fr: Français
     hi: हिंदी
     zh-CN: 中文
+    zh-TW: 正體中文
     ko: 한국어
     id: Bahasa Indonesia
     ar: اَلْعَرَبِيَّةُ
     ru: Русские
     ca: Català
     bg: Български
+    az: Azərbaycanca
+    tr: Türkçe
   navigation:
     skip_to_main_content: 메인 컨텐츠로 가기
     google: Google
@@ -92,6 +95,15 @@ ko:
       min_max_error: '이 필드는 %{min}보다 크거나 같고 %{max}보다 작거나 같아야 합니다!'
       search_by_keywords: 키워드로 검색
       template: 템플릿 선택
+    autosave:
+      restore_prompt: '%{time}의 저장되지 않은 임시저장 글이 있습니다. 복원하시겠습니까?'
+      restore_button: 임시저장 글 복원
+      dismiss: 닫기
+      time_just_now: 방금
+      time_one_minute: 1분 전
+      time_minutes_ago: '%{count}분 전'
+      time_one_hour: 1시간 전
+      time_hours_ago: '%{count}시간 전'
     time_ago: '%{date} 전'
     write_to_us: 저희에게 연락
     days: 날들
@@ -595,6 +607,8 @@ ko:
       crisis_prevention:
         title: 어떻게 지내요?
         description: 당신은 무슨 일이 있어도 사랑 받습니다.
+        acknowledge: "인정합니다, 저는 제 필요를 돌볼 것입니다."
+        care_plan_link: "리소스와 연락처를 위해 돌봄 계획을 확인할 수도 있습니다."
         die: 죽다
         dead: 죽었던
         died: 죽은
@@ -605,6 +619,14 @@ ko:
         hurt_myself: 자해하다
         suicide: 자살
         suicidal: 자살할 것 같은
+        want_to_die: 죽고 싶다
+        end_my_life: 내 삶을 끝내다
+        take_my_life: 내 목숨을 끊다
+        end_it_all: 모든 것을 끝내다
+        self_harm: 자해
+        no_reason_to_live: 살 이유가 없다
+        not_worth_living: 살 가치가 없다
+        overdose: 과다복용
       tags:
         ai: AI
         communities: 커뮤니티들
@@ -938,6 +960,19 @@ ko:
       edit_contact: 연락처 편집
       phone_number: 전화 번호
       contacts_info: 당신이 이야기해야 할 사랑하는 사람들
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: 이 사용자에 대해 이미 대기 중인 요청이 있습니다.
+        duplicate_request_id: 이 요청 ID로 이미 요청이 존재합니다.
+    data_download:
+      label: 내 데이터 다운로드
+      description: if-me.org의 계정 데이터가 포함된 CSV 파일을 다운로드하세요
+      request: 내 사용자 데이터 다운로드
+      processing: 데이터를 준비 중입니다. 몇 분이 소요될 수 있습니다...
+      download: 데이터 다운로드 (CSV)
+      request_new: 새 다운로드 요청
+      error: 데이터 준비 중 오류가 발생했습니다. 다시 시도해 주세요.
   moment_templates:
     index:
       title: 모멘트 템플릿

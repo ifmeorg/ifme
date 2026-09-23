@@ -1,5 +1,5 @@
 @mixin staticContentFakeLink() {
-  @include standardTransition();
+  @include standardTransition;
 
   text-decoration: none;
   color: $cornflower;
@@ -12,7 +12,7 @@
 
 @mixin staticContentLink() {
   a {
-    @include staticContentFakeLink();
+    @include staticContentFakeLink;
   }
 }
 
@@ -28,6 +28,6 @@
 
 @mixin dashboardSectionLink() {
   a {
-    @include dashboardSectionFakeLink();
+    @include dashboardSectionFakeLink;
   }
 }

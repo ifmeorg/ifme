@@ -32,7 +32,7 @@ describe Meeting do
     it { is_expected.to validate_presence_of :description }
     it { is_expected.to validate_presence_of :location }
     it { is_expected.to validate_presence_of :time }
-    it { is_expected.to validate_presence_of :group_id }
+    it { is_expected.to belong_to(:group) }
     it { is_expected.to validate_presence_of :date }
   end
 
@@ -44,7 +44,7 @@ describe Meeting do
   context 'when meeting does not have a group id' do
     it 'is not valid' do
       new_meeting = build(:meeting, group_id: nil)
-      expect(new_meeting).to have(1).error_on(:group_id)
+      expect(new_meeting).to have(1).error_on(:group)
     end
   end
 

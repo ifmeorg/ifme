@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import axios from 'axios';
+import { fetchWrapper } from 'utils/fetchWrapper';
 import { render, fireEvent, act } from '@testing-library/react';
 import BaseContainer from 'components/BaseContainer';
 
@@ -17,7 +17,6 @@ const response = {
   },
 };
 
-// eslint-disable-next-line react/prop-types
 const getComponent = ({ fetchUrl, lastPage } = {}) => (
   <BaseContainer
     container="StoryContainer"
@@ -48,14 +47,14 @@ describe('BaseContainer', () => {
         });
 
         it('renders the next story when "Load more" button is clicked', async () => {
-          const axiosGetSpy = jest
-            .spyOn(axios, 'get')
+          const fetchGetSpy = jest
+            .spyOn(fetchWrapper, 'get')
             .mockImplementation(() => Promise.resolve(response));
           const { container, getByRole } = render(getComponent({ fetchUrl }));
           const loadMoreButton = getByRole('button');
           fireEvent.click(loadMoreButton);
-          await act(() => axiosGetSpy());
-          expect(axiosGetSpy).toBeCalledWith(
+          await act(() => fetchGetSpy());
+          expect(fetchGetSpy).toBeCalledWith(
             'https://if-me.org/some-fetch-url.json?page=2',
           );
           const stories = container.querySelectorAll('.story');
@@ -90,15 +89,15 @@ describe('BaseContainer', () => {
         });
 
         it('renders the next story when "Load more" button is clicked', async () => {
-          const axiosGetSpy = jest
-            .spyOn(axios, 'get')
+          const fetchGetSpy = jest
+            .spyOn(fetchWrapper, 'get')
             .mockImplementation(() => Promise.resolve(response));
           const { container, queryByRole } = render(getComponent({ fetchUrl }));
           const loadMoreButton = queryByRole('button');
           fireEvent.click(loadMoreButton);
-          await act(() => axiosGetSpy());
+          await act(() => fetchGetSpy());
           const stories = container.querySelectorAll('.story');
-          expect(axiosGetSpy).toBeCalledWith(
+          expect(fetchGetSpy).toBeCalledWith(
             'https://if-me.org/some-fetch-url.json?page=2&uid=some-uid',
           );
           expect(loadMoreButton).not.toBeInTheDocument();

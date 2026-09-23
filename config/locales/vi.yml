@@ -30,12 +30,15 @@ vi:
     fr: Français
     hi: हिंदी
     zh-CN: 中文
+    zh-TW: 正體中文
     ko: 한국어
     id: Bahasa Indonesia
     ar: اَلْعَرَبِيَّةُ
     ru: Русские
     ca: Català
     bg: Български
+    az: Azərbaycanca
+    tr: Türkçe
   navigation:
     skip_to_main_content: Chuyển đến nội dung chính
     main_menu: Menu trang chính
@@ -92,6 +95,15 @@ vi:
       min_max_error: 'Trường này phải bằng hoặc lớn hơn %{min} và bằng hoặc nhỏ hơn %{max}!'
       search_by_keywords: Tìm kiếm theo từ khóa
       template: Chọn một mẫu
+    autosave:
+      restore_prompt: 'Bạn có một bản nháp chưa lưu từ %{time}. Bạn có muốn khôi phục không?'
+      restore_button: Khôi phục bản nháp
+      dismiss: Bỏ qua
+      time_just_now: vừa xong
+      time_one_minute: 1 phút trước
+      time_minutes_ago: '%{count} phút trước'
+      time_one_hour: 1 giờ trước
+      time_hours_ago: '%{count} giờ trước'
     time_ago: 'Cách đây %{date} ngày'
     write_to_us: viết cho chúng tôi
     days: Ngày
@@ -709,6 +721,8 @@ vi:
       crisis_prevention:
         title: Bạn đang làm gì?
         description: Bạn được yêu bất kể điều gì
+        acknowledge: "Đã ghi nhận, tôi sẽ chăm sóc bản thân mình."
+        care_plan_link: "Bạn cũng có thể kiểm tra Kế hoạch chăm sóc của mình để tìm tài nguyên và liên hệ."
         die: chết
         dead: đã chết
         died: chết
@@ -719,6 +733,14 @@ vi:
         hurt_myself: làm tổn thương chính minh
         suicide: tự sát
         suicidal: tự tử
+        want_to_die: muốn chết
+        end_my_life: kết thúc cuộc sống của tôi
+        take_my_life: lấy đi cuộc sống của tôi
+        end_it_all: kết thúc tất cả
+        self_harm: tự làm hại bản thân
+        no_reason_to_live: không có lý do để sống
+        not_worth_living: không đáng để sống
+        overdose: dùng quá liều
       tags:
         ai: AI
         communities: cộng đồng
@@ -1097,6 +1119,19 @@ vi:
       edit_contact: Chỉnh sửa liên hệ
       phone_number: Số điện thoại
       contacts_info: Những người thân yêu bạn nên nói chuyện với
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: Đã có một yêu cầu đang chờ xử lý cho người dùng này.
+        duplicate_request_id: Đã tồn tại một yêu cầu với ID yêu cầu này.
+    data_download:
+      label: "Tải xuống dữ liệu của bạn"
+      description: "Tải xuống tệp CSV chứa dữ liệu tài khoản của bạn từ if-me.org"
+      request: "Tải xuống dữ liệu người dùng của tôi"
+      processing: "Dữ liệu của bạn đang được chuẩn bị. Quá trình này có thể mất vài phút..."
+      download: "Tải xuống dữ liệu (CSV)"
+      request_new: "Yêu cầu tải xuống mới"
+      error: "Đã xảy ra lỗi khi chuẩn bị dữ liệu của bạn. Vui lòng thử lại."
   moment_templates:
     index:
       title: Mẫu khoảnh khắc

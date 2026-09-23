@@ -30,12 +30,15 @@ fr:
     fr: Français
     hi: हिंदी
     zh-CN: 中文
+    zh-TW: 正體中文
     ko: 한국어
     id: Bahasa Indonesia
     ar: اَلْعَرَبِيَّةُ
     ru: Русские
     ca: Català
     bg: Български
+    az: Azərbaycanca
+    tr: Türkçe
   navigation:
     skip_to_main_content: Passer au contenu principal
     main_menu: Menu du site principal
@@ -94,6 +97,15 @@ fr:
         %{max} !
       search_by_keywords: Recherche par mots-clés
       template: Choisissez un modèle
+    autosave:
+      restore_prompt: "Vous avez un brouillon non enregistré de %{time}. Souhaitez-vous le restaurer ?"
+      restore_button: Restaurer le brouillon
+      dismiss: Ignorer
+      time_just_now: "à l'instant"
+      time_one_minute: il y a 1 minute
+      time_minutes_ago: 'il y a %{count} minutes'
+      time_one_hour: il y a 1 heure
+      time_hours_ago: 'il y a %{count} heures'
     time_ago: 'il y a %{date}'
     write_to_us: nous écrire
     days: Jours
@@ -720,6 +732,8 @@ fr:
       crisis_prevention:
         title: Comment ça va?
         description: Vous êtes aimé quoi qu'il arrive
+        acknowledge: "Reconnu, je vais prendre soin de mes besoins."
+        care_plan_link: "Vous pouvez également consulter votre Plan de soins pour des ressources et des contacts."
         die: meurs
         dead: mort
         died: mort
@@ -730,6 +744,14 @@ fr:
         hurt_myself: me faire du mal
         suicide: suicide
         suicidal: suicidaire
+        want_to_die: vouloir mourir
+        end_my_life: mettre fin à ma vie
+        take_my_life: prendre ma vie
+        end_it_all: en finir
+        self_harm: automutilation
+        no_reason_to_live: aucune raison de vivre
+        not_worth_living: ne vaut pas la peine de vivre
+        overdose: surdose
       tags:
         ai: AI
         communities: communauté
@@ -1123,6 +1145,19 @@ fr:
       edit_contact: Modifier le contact
       phone_number: Numéro de téléphone
       contacts_info: Les êtres chers auxquels vous devriez parler
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: Il y a déjà une demande en file d'attente pour cet utilisateur.
+        duplicate_request_id: Il y a déjà une demande avec cet identifiant de demande.
+    data_download:
+      label: "Télécharger vos données"
+      description: "Téléchargez un fichier CSV contenant les données de votre compte if-me.org"
+      request: "Télécharger mes données utilisateur"
+      processing: "Vos données sont en cours de préparation. Cela peut prendre quelques minutes..."
+      download: "Télécharger les données (CSV)"
+      request_new: "Demander un nouveau téléchargement"
+      error: "Une erreur s'est produite lors de la préparation de vos données. Veuillez réessayer."
   moment_templates:
     index:
       title: Modèles Moment

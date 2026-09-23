@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import axios from 'axios';
+import { fetchWrapper } from 'utils/fetchWrapper';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Cookies from 'js-cookie';
@@ -16,22 +16,22 @@ describe('ToggleLocale', () => {
   });
 
   it('does nothing if the previous locale is the same as the selected', async () => {
-    const axiosPostSpy = jest
-      .spyOn(axios, 'post')
+    const fetchWrapperPostSpy = jest
+      .spyOn(fetchWrapper, 'post')
       .mockImplementation(() => Promise.resolve());
     render(component);
     await userEvent.selectOptions(screen.getByRole('combobox'), 'en');
-    expect(axiosPostSpy).not.toHaveBeenCalled();
+    expect(fetchWrapperPostSpy).not.toHaveBeenCalled();
   });
 
   it('sets the locale cookie and makes a post request if the selected locale is different from the previous', async () => {
-    const axiosPostSpy = jest
-      .spyOn(axios, 'post')
+    const fetchWrapperPostSpy = jest
+      .spyOn(fetchWrapper, 'post')
       .mockImplementation(() => Promise.resolve());
     render(component);
     await userEvent.selectOptions(screen.getByRole('combobox'), 'es');
     expect(Cookies.set).toHaveBeenCalledWith('locale', 'es');
-    expect(axiosPostSpy).toHaveBeenCalledWith('/toggle_locale', {
+    expect(fetchWrapperPostSpy).toHaveBeenCalledWith('/toggle_locale', {
       locale: 'es',
     });
   });

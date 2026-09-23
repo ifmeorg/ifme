@@ -8,7 +8,7 @@ class MomentsController < ApplicationController
   include Shared
   include TagsHelper
 
-  before_action :set_moment, only: %i[show edit update destroy picture]
+  before_action :set_moment, only: %i[show edit update destroy picture acknowledge_crisis_prevention]
   before_action :load_viewers, only: %i[new edit create update picture]
 
   # GET /moments
@@ -70,6 +70,34 @@ class MomentsController < ApplicationController
     redirect_to_path(moments_path)
   end
 
+  # POST /moments/acknowledge_all_crisis_prevention
+  def acknowledge_all_crisis_prevention
+    current_user.moments
+                .where(crisis_prevention_acknowledged: false)
+                .where('created_at >= ?', 1.month.ago)
+                .each do |moment|
+      moment.update!(
+        crisis_prevention_acknowledged: true,
+        crisis_prevention_acknowledged_text: moment.why
+      )
+    end
+    render json: { acknowledged: true }
+  end
+
+  # POST /moments/1/acknowledge_crisis_prevention
+  def acknowledge_crisis_prevention
+    unless @moment.owned_by?(current_user)
+      render json: { error: 'Unauthorized' }, status: :unauthorized
+      return
+    end
+
+    @moment.update!(
+      crisis_prevention_acknowledged: true,
+      crisis_prevention_acknowledged_text: @moment.why
+    )
+    render json: { acknowledged: true }
+  end
+
   # POST /moments/1/picture
   # POST /moments/1/picture.json
   def picture
@@ -111,18 +139,18 @@ class MomentsController < ApplicationController
     extra_categories = Category.where(id: @moment.category_ids)
 
     @categories = Category.where(id: visible_categories.select(:id))
-                      .or(extra_categories)
-                      .includes(:moments_categories)
-                      .order(created_at: :desc)
+                          .or(extra_categories)
+                          .includes(:moments_categories)
+                          .order(created_at: :desc)
 
     @category = Category.new
     visible_moods = current_user.moods.is_visible
     extra_moods = Mood.where(id: @moment.mood_ids)
 
     @moods = Mood.where(id: visible_moods.select(:id))
-                .or(extra_moods)
-                .includes(:moments_moods)
-                .order(created_at: :desc)
+                 .or(extra_moods)
+                 .includes(:moments_moods)
+                 .order(created_at: :desc)
 
     @mood = Mood.new
     @strategies = associated_strategies
@@ -136,7 +164,7 @@ class MomentsController < ApplicationController
   def associated_strategies
     # current_user's strategies and all viewable strategies from allies
     strategy_ids = current_user.strategy_ids
-    Strategy.where(user: @viewers).each do |strategy|
+    Strategy.where(user: @viewers).find_each do |strategy|
       strategy_ids << strategy.id if strategy.viewer?(current_user)
     end
     Strategy.is_visible.where(id: strategy_ids)

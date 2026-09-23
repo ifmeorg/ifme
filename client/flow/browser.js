@@ -78,6 +78,14 @@ declare var document: {
   ...
 };
 
+declare var localStorage: {
+  getItem(key: string): string | null,
+  setItem(key: string, value: string): void,
+  removeItem(key: string): void,
+  clear(): void,
+  ...
+};
+
 declare var window: {
   document: typeof document,
   Pusher?: any,
@@ -97,5 +105,15 @@ declare var window: {
   },
   alert(message?: string): void,
   prompt(message?: string): null | string,
+  matchMedia(query: string): { matches: boolean, ... },
+  __I18N__?: { [string]: string },
+  ...
+};
+
+declare var process: {
+  env: {
+    NODE_ENV: string,
+    ...
+  },
   ...
 };

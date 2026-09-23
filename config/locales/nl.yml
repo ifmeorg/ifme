@@ -30,12 +30,15 @@ nl:
     fr: Français
     hi: हिंदी
     zh-CN: 中文
+    zh-TW: 正體中文
     ko: 한국어
     id: Bahasa Indonesia
     ar: اَلْعَرَبِيَّةُ
     ru: Русские
     ca: Català
     bg: Български
+    az: Azərbaycanca
+    tr: Türkçe
   navigation:
     skip_to_main_content: Ga naar hoofdinhoud
     main_menu: Hoofdsitemenu
@@ -94,6 +97,15 @@ nl:
         kleiner dan %{max}!
       search_by_keywords: Zoeken op trefwoorden
       template: Kies een sjabloon
+    autosave:
+      restore_prompt: 'Je hebt een niet-opgeslagen concept van %{time}. Wil je het herstellen?'
+      restore_button: Concept herstellen
+      dismiss: Verwijder
+      time_just_now: zojuist
+      time_one_minute: 1 minuut geleden
+      time_minutes_ago: '%{count} minuten geleden'
+      time_one_hour: 1 uur geleden
+      time_hours_ago: '%{count} uur geleden'
     time_ago: '%{date} geleden'
     write_to_us: schrijf ons
     days: dagen
@@ -732,6 +744,8 @@ nl:
       crisis_prevention:
         title: Hoe gaat het?
         description: Je bent hoe dan ook geliefd
+        acknowledge: "Begrepen, ik ga voor mijn behoeften zorgen."
+        care_plan_link: "U kunt ook uw Zorgplan controleren op middelen en contacten."
         die: dood gaan
         dead: dood
         died: ging dood
@@ -742,6 +756,14 @@ nl:
         hurt_myself: mezelf pijn doen
         suicide: zelfmoord
         suicidal: suïcidaal
+        want_to_die: wil doodgaan
+        end_my_life: mijn leven beëindigen
+        take_my_life: mijn leven nemen
+        end_it_all: alles beëindigen
+        self_harm: zelfbeschadiging
+        no_reason_to_live: geen reden om te leven
+        not_worth_living: niet waard om te leven
+        overdose: overdosis
       tags:
         ai: AI
         communities: gemeenschappen
@@ -1118,6 +1140,19 @@ nl:
       edit_contact: Bewerk contact
       phone_number: Telefoonnummer
       contacts_info: 'Amados, você deve coGeliefden met wie je moet pratennversar'
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: Er staat al een verzoek in de wachtrij voor deze gebruiker.
+        duplicate_request_id: Er bestaat al een verzoek met dit verzoek-ID.
+    data_download:
+      label: Download uw gegevens
+      description: Download een CSV-bestand met uw accountgegevens van if-me.org
+      request: Download mijn gebruikersgegevens
+      processing: Uw gegevens worden voorbereid. Dit kan een paar minuten duren...
+      download: Gegevens downloaden (CSV)
+      request_new: Nieuw download aanvragen
+      error: Er is iets misgegaan bij het voorbereiden van uw gegevens. Probeer het opnieuw.
   moment_templates:
     index:
       title: Moment-sjablonen

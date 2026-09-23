@@ -2,7 +2,8 @@
 import React from 'react';
 import type { Node } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAsterisk, faQuestion } from '@fortawesome/free-solid-svg-icons';
+import { faAsterisk } from '@fortawesome/free-solid-svg-icons/faAsterisk';
+import { faQuestion } from '@fortawesome/free-solid-svg-icons/faQuestion';
 import globalCss from 'styles/_global.scss';
 import { Tooltip } from 'components/Tooltip';
 import css from './Input.scss';

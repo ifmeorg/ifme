@@ -158,7 +158,7 @@ module MomentsHelper
     }
   end
 
-  def is_checked(value)
+  def checked?(value)
     return params[:filters].include?(value) if params[:filters]
 
     false
@@ -170,14 +170,14 @@ module MomentsHelper
     index = 0
     values.each do |value|
       moment = current_user.moments.where(multiselect_filters[value])
-      next unless moment.count > 0
+      next unless moment.count.positive?
 
       checkboxes.push({
                         id: "search_filters_#{index}",
                         name: 'search[filters][]',
                         label: I18n.t("moments.filters.#{value}"),
                         value:,
-                        checked: is_checked(value)
+                        checked: checked?(value)
                       })
       index += 1
     end

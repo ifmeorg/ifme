@@ -13,7 +13,7 @@ class MomentKeywords
     @moment_keywords.push(extract(@moment.name),
                           extract(@moment.why),
                           extract(@moment.fix))
-    @moment_keywords = @moment_keywords.join(' ')
+    @moment_keywords = @moment_keywords.flatten.reject(&:empty?).join(' ')
   end
 
   private

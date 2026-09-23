@@ -30,12 +30,15 @@ pt-BR:
     fr: Français
     hi: हिंदी
     zh-CN: 中文
+    zh-TW: 正體中文
     ko: 한국어
     id: Bahasa Indonesia
     ar: اَلْعَرَبِيَّةُ
     ru: Русские
     ca: Català
     bg: Български
+    az: Azərbaycanca
+    tr: Türkçe
   navigation:
     skip_to_main_content: Pular para o conteúdo principal
     main_menu: Menu do site principal
@@ -94,6 +97,15 @@ pt-BR:
         %{max}!
       search_by_keywords: Pesquisar por palavras-chave
       template: Escolha um modelo
+    autosave:
+      restore_prompt: 'Você tem um rascunho não salvo de %{time}. Deseja restaurá-lo?'
+      restore_button: Restaurar rascunho
+      dismiss: Dispensar
+      time_just_now: agora mesmo
+      time_one_minute: "há 1 minuto"
+      time_minutes_ago: 'há %{count} minutos'
+      time_one_hour: "há 1 hora"
+      time_hours_ago: 'há %{count} horas'
     time_ago: '%{date} atrás'
     write_to_us: join.ifme@gmail.com
     days: Dias
@@ -733,6 +745,8 @@ pt-BR:
       crisis_prevention:
         title: Como vai você?
         description: 'Você é amado, não importa o que'
+        acknowledge: "Reconhecido, vou cuidar das minhas necessidades."
+        care_plan_link: "Você também pode verificar seu Plano de cuidados para recursos e contatos."
         die: morrer
         dead: morto
         died: morreu
@@ -743,6 +757,14 @@ pt-BR:
         hurt_myself: me machucar
         suicide: suicídio
         suicidal: suicida
+        want_to_die: quero morrer
+        end_my_life: acabar com minha vida
+        take_my_life: tirar minha vida
+        end_it_all: acabar com tudo
+        self_harm: automutilação
+        no_reason_to_live: sem razão para viver
+        not_worth_living: não vale a pena viver
+        overdose: overdose
       tags:
         ai: AI
         communities: grupos comunitários
@@ -1135,6 +1157,19 @@ pt-BR:
       edit_contact: Editar Contato
       phone_number: Número de telefone
       contacts_info: 'Amados, você deve conversar'
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: Já existe uma solicitação na fila para este usuário.
+        duplicate_request_id: Já existe uma solicitação com este ID de solicitação.
+    data_download:
+      label: Baixar seus dados
+      description: Baixe um arquivo CSV com os dados da sua conta do if-me.org
+      request: Baixar meus dados de usuário
+      processing: Seus dados estão sendo preparados. Isso pode levar alguns minutos...
+      download: Baixar dados (CSV)
+      request_new: Solicitar novo download
+      error: Ocorreu um erro ao preparar seus dados. Por favor, tente novamente.
   moment_templates:
     index:
       title: Modelos de Momento

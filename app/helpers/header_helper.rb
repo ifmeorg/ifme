@@ -6,7 +6,9 @@ module HeaderHelper
       home: { name: t('app_name'), url: root_path },
       profile: user_signed_in? ? profile : nil,
       links:,
-      mobileOnly: user_signed_in? ? mobile_only : nil
+      mobileOnly: user_signed_in? ? mobile_only : nil,
+      locale: @locale,
+      locales: @locales
     }
   end
 

@@ -30,12 +30,15 @@ sv:
     fr: Français
     hi: हिंदी
     zh-CN: 中文
+    zh-TW: 正體中文
     ko: 한국어
     id: Bahasa Indonesia
     ar: اَلْعَرَبِيَّةُ
     ru: Русские
     ca: Català
     bg: Български
+    az: Azərbaycanca
+    tr: Türkçe
   navigation:
     skip_to_main_content: Hoppa till huvudinnehåll
     main_menu: Huvudsidan meny
@@ -94,6 +97,15 @@ sv:
         mindre än %{max}!
       search_by_keywords: Sök med nyckelord
       template: Välj en mall
+    autosave:
+      restore_prompt: 'Du har ett osparade utkast från %{time}. Vill du återställa det?'
+      restore_button: Återställ utkast
+      dismiss: Avfärda
+      time_just_now: just nu
+      time_one_minute: för 1 minut sedan
+      time_minutes_ago: 'för %{count} minuter sedan'
+      time_one_hour: för 1 timme sedan
+      time_hours_ago: 'för %{count} timmar sedan'
     time_ago: '%{date} sedan'
     write_to_us: skriv till oss
     days: dagar
@@ -695,6 +707,8 @@ sv:
       crisis_prevention:
         title: Hur mår du?
         description: Du är älskad oavsett vad
+        acknowledge: "Bekräftat, jag kommer att ta hand om mina behov."
+        care_plan_link: "Du kan också kolla din Vårdplan för resurser och kontakter."
         die: dö
         dead: död-
         died: dog
@@ -705,6 +719,14 @@ sv:
         hurt_myself: skada mig själv
         suicide: självmord
         suicidal: självmords
+        want_to_die: vill dö
+        end_my_life: avsluta mitt liv
+        take_my_life: ta mitt liv
+        end_it_all: avsluta allt
+        self_harm: självskada
+        no_reason_to_live: ingen anledning att leva
+        not_worth_living: inte värt att leva
+        overdose: överdos
       tags:
         ai: AI
         communities: gemenskaperna
@@ -1087,6 +1109,19 @@ sv:
       edit_contact: Redigera kontakt
       phone_number: Telefonnummer
       contacts_info: Älskade du bör prata med
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: Det finns redan en begäran i kön för denna användare.
+        duplicate_request_id: Det finns redan en begäran med detta begäran-ID.
+    data_download:
+      label: Ladda ned dina data
+      description: Ladda ned en CSV-fil med dina kontouppgifter från if-me.org
+      request: Ladda ned mina användardata
+      processing: Dina data förbereds. Det kan ta några minuter...
+      download: Ladda ned data (CSV)
+      request_new: Begär ny nedladdning
+      error: Något gick fel vid förberedelsen av dina data. Försök igen.
   moment_templates:
     index:
       title: Momentmallar

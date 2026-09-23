@@ -22,7 +22,6 @@ class MeetingMember < ApplicationRecord
     google_cal_event_id
   ].map!(&:freeze).freeze
 
-  validates :meeting_id, :user_id, presence: true
   validates :leader, inclusion: [true, false]
 
   belongs_to :meeting

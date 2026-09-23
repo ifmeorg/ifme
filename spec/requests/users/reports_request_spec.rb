@@ -43,7 +43,7 @@ describe "Users::Reports", type: :request do
         params = { request_id: JSON.parse(response.body)['request_id'] }
         get users_data_status_path, params: params
         expect(status).to eq(200)
-        expect(JSON.parse(response.body)).to have_key('current_status')
+        expect(JSON.parse(response.body)['current_status']).to eq(Users::DataRequest::STATUS[:success])
       end
     end
 
@@ -70,6 +70,13 @@ describe "Users::Reports", type: :request do
         expect(JSON.parse(response.body)).to have_key('error')
       end
 
+      it 'returns 404 when file_data is missing for a successful request' do
+        data_request = create(:successful_data_request, user:, file_data: nil)
+        get users_data_download_path, params: { request_id: data_request.request_id }
+        expect(status).to eq(404)
+        expect(JSON.parse(response.body)).to have_key('error')
+      end
+
       it "creates a data request and then fetches it's status and then fetches the file" do
         post users_data_path
         expect(status).to eq(200)
@@ -77,12 +84,13 @@ describe "Users::Reports", type: :request do
         get users_data_status_path, params: params
         expect(status).to eq(200)
         expect(JSON.parse(response.body)).to have_key('current_status')
-        ProcessDataRequestWorker.new.perform(params[:request_id])
-        data_request = Users::DataRequest.find_by(request_id: params[:request_id])
         get users_data_download_path, params: params
         expect(status).to eq(200)
-        expect(File.exist?(data_request.file_path.to_s)).to be(true)
-        File.delete(data_request.file_path.to_s) if File.exist?(data_request.file_path.to_s)
+        expect(response.content_type).to include('application/gzip')
+        expect(response.headers['Content-Disposition']).to include('attachment')
+        expect(response.headers['Content-Disposition']).to include('user_data.csv.gz')
+        data_request = Users::DataRequest.find_by(request_id: params[:request_id])
+        expect(data_request.file_data).to be_present
       end
     end
 

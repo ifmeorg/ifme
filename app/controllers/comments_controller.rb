@@ -40,7 +40,9 @@ class CommentsController < ApplicationController
   end
 
   def handle_create(comment_params)
-    comment = Comment.create_from!(comment_params)
+    comment = Comment.create_from!(
+      comment_params.merge(comment_by: current_user.id)
+    )
     comment.notify_of_creation!(current_user)
     comment.id
   end

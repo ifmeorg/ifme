@@ -1,4 +1,4 @@
-@import "~styles/_global.scss";
+@import "~styles/_global";
 
 .skipToContent {
   // accessibility hidden element
@@ -8,13 +8,13 @@
   position: absolute;
   top: auto;
   width: 1px;
+
   // styling
   align-items: center;
   background: $cornflower;
   color: $carmine;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: space-evenly;
   line-height: 3.5;
   margin-top: $size-4;

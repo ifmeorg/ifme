@@ -181,38 +181,41 @@ class User < ApplicationRecord
     new_access_token
   end
 
-  def build_csv_data
-    user_data = [['user_info']]
-    user_data << USER_DATA_ATTRIBUTES
-    user_data << USER_DATA_ATTRIBUTES.map { |attribute| send(attribute.to_sym) }
-    user_data += Group.build_csv_rows(groups)
-    user_data += GroupMember.build_csv_rows(group_members)
-    user_data += Category.build_csv_rows(categories)
-    user_data += Medication.build_csv_rows(medications)
-    user_data += Strategy.build_csv_rows(strategies)
-    user_data += Moment.build_csv_rows(moments)
-    user_data += Notification.build_csv_rows(notifications)
-    user_data += Mood.build_csv_rows(moods)
-    user_data += CarePlanContact.build_csv_rows(care_plan_contacts)
-    user_data += Allyship.build_csv_rows(allyships)
-    user_data += MeetingMember.build_csv_rows(meeting_members)
-    user_data
+  def build_csv_data(&)
+    return to_enum(:build_csv_data) unless block_given?
+
+    yield ['user_info']
+    yield USER_DATA_ATTRIBUTES
+    yield USER_DATA_ATTRIBUTES.map { |attribute| send(attribute.to_sym) }
+    Group.build_csv_rows(groups, &)
+    GroupMember.build_csv_rows(group_members, &)
+    Category.build_csv_rows(categories, &)
+    Medication.build_csv_rows(medications, &)
+    Strategy.build_csv_rows(strategies, &)
+    Moment.build_csv_rows(moments, &)
+    Notification.build_csv_rows(notifications, &)
+    Mood.build_csv_rows(moods, &)
+    CarePlanContact.build_csv_rows(care_plan_contacts, &)
+    Allyship.build_csv_rows(allyships, &)
+    MeetingMember.build_csv_rows(meeting_members, &)
+    build_comment_csv_data(&)
+    build_led_group_meeting_csv_data(&)
   end
 
   def generate_data_request
+    data_request = nil
     ActiveRecord::Base.transaction do
       lock!
       data_request = data_requests
                      .where(status_id: Users::DataRequest::STATUS[:enqueued])
                      .first_or_initialize
-      if data_request.request_id.present?
-        data_request.request_id
-      else
+      if data_request.request_id.blank?
         data_request.request_id = SecureRandom.uuid
         data_request.save!
       end
-      data_request.request_id
     end
+    data_request.create_csv if data_request.status_id == Users::DataRequest::STATUS[:enqueued]
+    data_request.request_id
   end
 
   def delete_stale_data_file
@@ -228,8 +231,7 @@ class User < ApplicationRecord
         id: successful_data_requests.first
       )
       stale_data_requests.each do |dr|
-        File.delete(dr.file_path) if File.exist?(dr.file_path)
-        dr.update!(status_id: Users::DataRequest::STATUS[:deleted])
+        dr.update!(status_id: Users::DataRequest::STATUS[:deleted], file_data: nil)
       end
     end
   end
@@ -245,6 +247,28 @@ class User < ApplicationRecord
   end
 
   private
+
+  def build_comment_csv_data(&)
+    moment_ids = Moment.where(user_id: id).pluck(:id)
+    strategy_ids = Strategy.where(user_id: id).pluck(:id)
+    Comment.build_csv_rows(
+      Comment.where(commentable_type: 'Moment', commentable_id: moment_ids), &
+    )
+    Comment.build_csv_rows(
+      Comment.where(commentable_type: 'Strategy', commentable_id: strategy_ids), &
+    )
+  end
+
+  def build_led_group_meeting_csv_data(&)
+    leader_group_ids = GroupMember.where(user_id: id, leader: true).pluck(:group_id)
+    return if leader_group_ids.empty?
+
+    leader_meetings = Meeting.where(group_id: leader_group_ids)
+    Meeting.build_csv_rows(leader_meetings, &)
+    Comment.build_csv_rows(
+      Comment.where(commentable_type: 'Meeting', commentable_id: leader_meetings.pluck(:id)), &
+    )
+  end
 
   def oauth_provided?
     provider.present? || token.present?

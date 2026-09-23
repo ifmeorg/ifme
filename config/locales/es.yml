@@ -30,12 +30,15 @@ es:
     fr: Français
     hi: हिंदी
     zh-CN: 中文
+    zh-TW: 正體中文
     ko: 한국어
     id: Bahasa Indonesia
     ar: اَلْعَرَبِيَّةُ
     ru: Русские
     ca: Català
     bg: Български
+    az: Azərbaycanca
+    tr: Türkçe
   navigation:
     skip_to_main_content: Saltar al contenido principal
     main_menu: Menú del sitio principal
@@ -94,6 +97,15 @@ es:
         %{max}!
       search_by_keywords: Búsqueda por palabras clave
       template: Elige una plantilla
+    autosave:
+      restore_prompt: 'Tienes un borrador no guardado de %{time}. ¿Te gustaría restaurarlo?'
+      restore_button: Restaurar borrador
+      dismiss: Descartar
+      time_just_now: justo ahora
+      time_one_minute: hace 1 minuto
+      time_minutes_ago: 'hace %{count} minutos'
+      time_one_hour: hace 1 hora
+      time_hours_ago: 'hace %{count} horas'
     time_ago: 'hace %{date}'
     write_to_us: escríbenos
     days: Dias
@@ -729,6 +741,8 @@ es:
       crisis_prevention:
         title: ¿Cómo estás?
         description: Eres amado pase lo que pase
+        acknowledge: "Reconocido, voy a atender mis necesidades."
+        care_plan_link: "También puede consultar su Plan de cuidado para obtener recursos y contactos."
         die: muere
         dead: muerto
         died: murió
@@ -739,6 +753,14 @@ es:
         hurt_myself: herirme a mí mismo
         suicide: suicidio
         suicidal: suicida
+        want_to_die: quiero morir
+        end_my_life: terminar con mi vida
+        take_my_life: quitarme la vida
+        end_it_all: acabar con todo
+        self_harm: autolesión
+        no_reason_to_live: sin razón para vivir
+        not_worth_living: no vale la pena vivir
+        overdose: sobredosis
       tags:
         ai: AI
         communities: comunidades
@@ -1125,6 +1147,19 @@ es:
       edit_contact: Editar contacto
       phone_number: Número de teléfono
       contacts_info: Amados con los que deberías hablar
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: Ya hay una solicitud en cola para este usuario.
+        duplicate_request_id: Ya existe una solicitud con este ID de solicitud.
+    data_download:
+      label: Descargar tus datos
+      description: Descarga un archivo CSV con los datos de tu cuenta de if-me.org
+      request: Descargar mis datos de usuario
+      processing: Tus datos se están preparando. Esto puede tardar unos minutos...
+      download: Descargar datos (CSV)
+      request_new: Solicitar nueva descarga
+      error: Algo salió mal al preparar tus datos. Por favor, inténtalo de nuevo.
   moment_templates:
     index:
       title: Plantillas de momento

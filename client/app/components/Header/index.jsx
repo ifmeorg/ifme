@@ -3,11 +3,13 @@ import React, {
   useState, useRef, useEffect, type Node,
 } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 import { Utils } from 'utils';
 import { I18n } from 'libs/i18n';
 import { Logo } from 'components/Logo';
 import { HeaderProfile } from 'components/Header/HeaderProfile';
+import { ToggleLocale } from 'widgets/ToggleLocale';
 import type { Profile, Link } from './types';
 import css from './Header.scss';
 import { useFocusTrap } from '../../hooks';
@@ -17,6 +19,8 @@ export type Props = {
   links: Link[],
   mobileOnly?: any,
   profile?: Profile,
+  locale?: string,
+  locales?: string[],
 };
 
 export type State = {
@@ -24,13 +28,22 @@ export type State = {
 };
 
 export const Header = ({
-  home, links, mobileOnly, profile,
+  home, links, mobileOnly, profile, locale, locales,
 }: Props): Node => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const navigationRef = useRef(null);
 
   useFocusTrap(navigationRef, mobileNavOpen);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 1024px)');
+    const handleChange = ({ matches }) => {
+      if (!matches) setMobileNavOpen(false);
+    };
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
 
   const toggle = (): void => {
     setMobileNavOpen((currentNavValue) => !currentNavValue);
@@ -74,6 +87,14 @@ export const Header = ({
     </div>
   ));
 
+  const displayLocale = (className: string, id: string): Node => (
+    locale != null && locales != null && locales.length > 0 ? (
+      <div className={className}>
+        <ToggleLocale locale={locale} locales={locales} id={id} />
+      </div>
+    ) : null
+  );
+
   const displayDesktop = (): Node => (
     <div
       className={`${css.headerDesktop} ${scrolled ? css.headerScroll : ''}`}
@@ -98,6 +119,7 @@ export const Header = ({
         {!mobileNavOpen && (
           <div className={css.headerDesktopNavLinks}>{displayLinks()}</div>
         )}
+        {!mobileNavOpen && displayLocale(css.headerLocale, 'navbarLocale')}
       </div>
     </div>
   );
@@ -108,6 +130,7 @@ export const Header = ({
         {profile ? <HeaderProfile profile={profile} /> : null}
         {mobileOnly ? Utils.renderContent(mobileOnly) : null}
         {displayLinks()}
+        {displayLocale(css.headerMobileLocale, 'mobileLocale')}
       </div>
     </div>
   );
@@ -149,7 +172,14 @@ export const Header = ({
 };
 
 export default ({
-  home, links, mobileOnly, profile,
+  home, links, mobileOnly, profile, locale, locales,
 }: Props): Node => (
-  <Header home={home} links={links} mobileOnly={mobileOnly} profile={profile} />
+  <Header
+    home={home}
+    links={links}
+    mobileOnly={mobileOnly}
+    profile={profile}
+    locale={locale}
+    locales={locales}
+  />
 );

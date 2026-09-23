@@ -1,4 +1,4 @@
-@import '~styles/_global.scss';
+@import '~styles/_global';
 
 .comments {
   @include setMargin($size-40, $size-0, $size-0, $size-0);
@@ -6,7 +6,7 @@
 
 .comment {
   @include fadeIn(1.5s);
-  @include gridItemBoxLight();
+  @include gridItemBoxLight;
 
   &:last-of-type {
     @include setMargin($size-0, $size-0, $size-0, $size-0);

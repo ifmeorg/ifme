@@ -1,7 +1,7 @@
 // @flow
 import React, { useState } from 'react';
 import type { Node } from 'react';
-import axios from 'axios';
+import { fetchWrapper } from 'utils/fetchWrapper';
 import { I18n } from 'libs/i18n';
 import { PageTitle } from 'components/PageTitle';
 import Modal from 'components/Modal';
@@ -44,13 +44,13 @@ export const MomentTemplates = ({ templates: templatesProp }: Props): Node => {
   };
 
   const addPremadeTemplates = () => {
-    const premadeOne = axios
+    const premadeOne = fetchWrapper
       .post('/moment_templates/create', {
         moment_template: premadeTemplates[0],
       })
       .then((response: Object) => response);
 
-    const premadeTwo = axios
+    const premadeTwo = fetchWrapper
       .post('/moment_templates/create', {
         moment_template: premadeTemplates[1],
       })

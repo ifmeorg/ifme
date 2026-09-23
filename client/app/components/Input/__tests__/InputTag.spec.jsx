@@ -21,17 +21,15 @@ describe('InputTag', () => {
     render(component);
 
     const combobox = screen.getByRole('combobox');
-    const input = screen.getByRole('textbox');
     const listbox = screen.getByRole('listbox');
 
     expect(combobox).toBeInTheDocument();
-    expect(input).toBeInTheDocument();
     expect(listbox).toBeInTheDocument();
   });
 
   it('toggles menu options correctly', async () => {
     const { user } = setup(component);
-    const input = screen.getByRole('textbox');
+    const input = screen.getByRole('combobox');
     expect(screen.queryByRole('option')).not.toBeInTheDocument();
     // toggle options by focusing on input
     await user.click(input);
@@ -64,7 +62,7 @@ describe('InputTag', () => {
     expect(checkbox).not.toBeInTheDocument();
 
     // simulate searching for an option
-    const input = screen.getByRole('textbox');
+    const input = screen.getByRole('combobox');
     await user.type(input, 'One');
     // after selecting the option, its associated checkbox should exist
     const option = screen.getByRole('option', queryOptions);
@@ -74,23 +72,11 @@ describe('InputTag', () => {
     expect(checkbox).toBeInTheDocument();
   });
 
-  /**
-   * Skipping this one for now. react-autosuggest still checks for event.keyCode, which
-   * is long since deprecated. testing-library/user-event stopped supporting as of v14
-   * and now overwrites keyCode to `0` (only to support React's SyntheticEvents which expect
-   * a value for keyCode).
-   *
-   * I've tried manually dispatching a KeyboardEvent with the correct keyCode to step outside
-   * the testing-library box for this singular test but it is not currently working. Will revisit.
-   *
-   * See: https://github.com/moroshko/react-autosuggest/blob/master/src/Autosuggest.js#L713
-   * See: https://github.com/testing-library/user-event/issues/842
-   */
-  it.skip('selects a value with keydown without specifying text', async () => {
+  it('selects a value with keydown without specifying text', async () => {
     const [{ label: labelOne }] = checkboxes;
     const { user } = setup(component);
 
-    const input = screen.getByRole('textbox');
+    const input = screen.getByRole('combobox');
 
     const queryOptions = { name: labelOne };
     const checkbox = screen.getByRole('checkbox', queryOptions);
@@ -100,27 +86,24 @@ describe('InputTag', () => {
       screen.queryByRole('checkbox', queryOptions),
     ).not.toBeInTheDocument();
 
+    // focus the input so the menu opens and highlights the first item
     await user.tab();
+    expect(input).toHaveFocus();
     // expect first item to be highlighted, so it can be selected
     expect(screen.getByRole('option', queryOptions)).toHaveAttribute(
       'aria-selected',
       'true',
     );
-    expect(input).toHaveFocus();
 
-    const event = new window.KeyboardEvent('keydown', {
-      keyCode: 13,
-      bubbles: true,
-    });
-    global.dispatchEvent(event);
-    expect(screen.getAllByRole('checkbox', queryOptions)).toBeInTheDocument();
+    await user.keyboard('{Enter}');
+    expect(screen.getByRole('checkbox', queryOptions)).toBeInTheDocument();
   });
 
   it('does not select value if no match exists and calls onChange prop if defined', async () => {
     const onChange = jest.fn();
     const { user } = setup(getComponent({ onChange }));
 
-    const input = screen.getByRole('textbox');
+    const input = screen.getByRole('combobox');
     // unselect selected checkbox value first
     await user.click(screen.getByRole('checkbox'));
     expect(screen.queryByRole('checkbox')).not.toBeInTheDocument();

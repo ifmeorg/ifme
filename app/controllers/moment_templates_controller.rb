@@ -14,12 +14,12 @@ class MomentTemplatesController < ApplicationController
   end
 
   def update
-    moment_template = MomentTemplate.find_by(id: params[:id])
+    moment_template = current_user.moment_templates.find_by(id: params[:id])
     render json: update_response_object(moment_template)
   end
 
   def destroy
-    moment_template = MomentTemplate.find_by(id: params[:id])
+    moment_template = current_user.moment_templates.find_by(id: params[:id])
     moment_template&.destroy
     redirect_to_path(moment_templates_path)
   end

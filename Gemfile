@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 ruby '~> 3.3.0' # Adjusted for general 3.3 compatibility
 
 gem 'logger'
-gem 'puma', '5.6.9'
+gem 'puma', '7.2.1'
 gem 'rack-rewrite'
 gem 'rails', '~> 7.0.8.4'
 
@@ -22,10 +22,10 @@ gem 'resque_mailer', '2.4.3'
 
 gem 'jbuilder', '~> 2.9.1'
 gem 'jquery-rails', '4.4.0'
-gem 'sass-rails', '~> 5.0', '>= 5.1.0'
+gem 'dartsass-sprockets'
 gem 'turbolinks', '~> 5.2.0'
 
-gem 'carrierwave', '~> 2.2.6'
+gem 'carrierwave', '~> 2.2.7'
 gem 'certified', '1.0.0'
 gem 'chronic', '0.10.2'
 gem 'cloudinary', '~> 1.25.0'

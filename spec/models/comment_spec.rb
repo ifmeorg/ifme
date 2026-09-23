@@ -21,7 +21,7 @@ describe Comment do
 
   context 'with validations' do
     it { is_expected.to validate_presence_of :comment }
-    it { is_expected.to validate_presence_of :commentable_id }
+    it { is_expected.to belong_to(:commentable) }
     it { is_expected.to validate_presence_of :comment_by }
     it do
       is_expected.to validate_length_of(:comment).is_at_least(0).is_at_most(1000)

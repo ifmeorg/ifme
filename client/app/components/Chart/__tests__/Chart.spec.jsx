@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { Chart } from 'components/Chart/index';
 
 const renderComponent = ({ chartType }) => render(
@@ -16,13 +16,28 @@ const renderComponent = ({ chartType }) => render(
 );
 
 describe('Chart', () => {
-  it('renders a Line chart', () => {
+  it('holds the chart space with a skeleton until the chart loads', async () => {
     const { container } = renderComponent({ chartType: 'Line' });
-    expect(container.querySelector('canvas')).toBeInTheDocument();
+    const skeleton = container.querySelector('[aria-busy="true"]');
+    expect(skeleton).toBeInTheDocument();
+    expect(skeleton.firstChild).toHaveStyle({ height: '300px' });
+    await waitFor(() => {
+      expect(container.querySelector('canvas')).toBeInTheDocument();
+    });
+    expect(container.querySelector('[aria-busy="true"]')).toBeNull();
   });
 
-  it('renders an Area chart', () => {
+  it('renders a Line chart', async () => {
+    const { container } = renderComponent({ chartType: 'Line' });
+    await waitFor(() => {
+      expect(container.querySelector('canvas')).toBeInTheDocument();
+    });
+  });
+
+  it('renders an Area chart', async () => {
     const { container } = renderComponent({ chartType: 'Area' });
-    expect(container.querySelector('canvas')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(container.querySelector('canvas')).toBeInTheDocument();
+    });
   });
 });

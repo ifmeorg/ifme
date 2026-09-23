@@ -239,6 +239,7 @@ describe "Meetings", type: :request do
 
     context 'when meeting is found' do
       let!(:meeting) { create(:meeting) }
+      let!(:group_membership) { create(:group_member, group: meeting.group, user: user, leader: true) }
 
       context 'and parameters are valid' do
         let(:params) do
@@ -288,6 +289,7 @@ describe "Meetings", type: :request do
 
     context 'when meeting is found' do
       let!(:meeting) { create(:meeting) }
+      let!(:group_membership) { create(:group_member, group: meeting.group, user: user) }
 
       it 'adds user to meeting members' do
         expect do

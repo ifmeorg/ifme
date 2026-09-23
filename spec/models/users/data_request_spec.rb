@@ -10,6 +10,8 @@
 #  updated_at :datetime         not null
 #
 
+require 'zlib'
+
 describe Users::DataRequest, type: :model do
   context 'validations' do
     it 'is invalid without a request_id' do
@@ -36,6 +38,29 @@ describe Users::DataRequest, type: :model do
       data_request1 = create(:enqueued_data_request, use_example_uuid: true)
       data_request2 = build(:enqueued_data_request, use_example_uuid: true)
       expect(data_request2.valid?).to be(false)
+    end
+  end
+
+  describe '#create_csv' do
+    let(:data_request) { create(:enqueued_data_request) }
+
+    it 'sets status to success and stores gzip data in file_data' do
+      data_request.create_csv
+      expect(data_request.reload.status_id).to eq(Users::DataRequest::STATUS[:success])
+      expect(data_request.reload.file_data).to be_present
+    end
+
+    it 'produces valid gzip content' do
+      data_request.create_csv
+      content = Zlib::GzipReader.new(StringIO.new(data_request.reload.file_data)).read
+      expect(content).to be_present
+    end
+
+    it 'sets status to failed and clears file_data when an error occurs' do
+      allow(data_request).to receive(:write_to_csv).and_raise(StandardError, 'boom')
+      data_request.create_csv
+      expect(data_request.reload.status_id).to eq(Users::DataRequest::STATUS[:failed])
+      expect(data_request.reload.file_data).to be_nil
     end
   end
 end

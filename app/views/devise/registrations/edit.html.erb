@@ -192,5 +192,9 @@
   <%= f.submit t('devise.registrations.edit.labels.update'), class: 'buttonDarkM marginTop', id: 'submit' %>
 <% end %>
 
+<div class="label marginTop"><%= t('users.data_download.label') %></div>
+<div class="smallerMarginTop"><%= t('users.data_download.description') %></div>
+<%= react_component 'DataDownload', props: {} %>
+
 <div class="label marginTop"><%= raw t('devise.registrations.edit.delete.text') %></div>
 <%= button_to t('devise.registrations.edit.delete.button'), registration_path(resource_name), data: { confirm: t('devise.registrations.edit.delete.confirm') }, method: :delete, class: 'buttonDarkM' %>

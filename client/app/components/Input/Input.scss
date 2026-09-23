@@ -1,4 +1,4 @@
-@import "~styles/_global.scss";
+@import "~styles/_global";
 
 @mixin paddingForSelectIcon($padding) {
   padding-right: $padding * 2 + $size-12;
@@ -34,8 +34,6 @@
     color: $white;
     font-weight: $font-weight-400;
     width: 100%;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     box-sizing: border-box;
     background-color: $white-10;

@@ -34,6 +34,7 @@ import Resources from 'widgets/Resources';
 import { Notifications } from 'widgets/Notifications';
 import CrisisPrevention from 'widgets/CrisisPrevention';
 import CarePlanContacts from 'widgets/CarePlanContacts';
+import DataDownload from 'widgets/DataDownload';
 import MomentTemplates from 'pages/MomentTemplates';
 import { scrollToTop } from './scrollToTop';
 
@@ -69,6 +70,7 @@ ReactOnRails.register({
   Toast,
   CrisisPrevention,
   CarePlanContacts,
+  DataDownload,
   OAuthButton,
   MomentTemplates,
 });

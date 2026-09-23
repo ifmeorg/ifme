@@ -13,7 +13,7 @@
   color: $white;
 
   a {
-    @include standardTransition();
+    @include standardTransition;
 
     color: $white;
     text-decoration: none;

@@ -30,12 +30,15 @@ de:
     fr: Français
     hi: हिंदी
     zh-CN: 中文
+    zh-TW: 正體中文
     ko: 한국어
     id: Bahasa Indonesia
     ar: اَلْعَرَبِيَّةُ
     ru: Русские
     ca: Català
     bg: Български
+    az: Azərbaycanca
+    tr: Türkçe
   navigation:
     skip_to_main_content: Zum Hauptinhalt springen
     google: Google
@@ -95,6 +98,15 @@ de:
         als %{max} sein!
       search_by_keywords: Suche nach Schlüsselwörtern
       template: Wähle eine Vorlage
+    autosave:
+      restore_prompt: 'Sie haben einen nicht gespeicherten Entwurf von %{time}. Möchten Sie ihn wiederherstellen?'
+      restore_button: Entwurf wiederherstellen
+      dismiss: Verwerfen
+      time_just_now: gerade eben
+      time_one_minute: vor 1 Minute
+      time_minutes_ago: 'vor %{count} Minuten'
+      time_one_hour: vor 1 Stunde
+      time_hours_ago: 'vor %{count} Stunden'
     time_ago: 'Vor %{date}'
     write_to_us: schreibe uns
     days: Tage
@@ -783,6 +795,8 @@ de:
       crisis_prevention:
         title: Wie geht es dir?
         description: 'Du wirst geliebt, egal was'
+        acknowledge: "Verstanden, ich werde mich um meine Bedürfnisse kümmern."
+        care_plan_link: "Sie können auch Ihren Pflegeplan nach Ressourcen und Kontakten durchsuchen."
         die: stirb
         dead: tot
         died: gestorben
@@ -793,6 +807,14 @@ de:
         hurt_myself: verletze mich selbst
         suicide: selbstmord
         suicidal: selbstmörderisch
+        want_to_die: sterben wollen
+        end_my_life: mein Leben beenden
+        take_my_life: mein Leben nehmen
+        end_it_all: alles beenden
+        self_harm: selbstverletzung
+        no_reason_to_live: keinen grund zu leben
+        not_worth_living: nicht wert zu leben
+        overdose: überdosis
       tags:
         ai: AI
         communities: Gemeinschaften
@@ -1185,6 +1207,19 @@ de:
       edit_contact: Kontakt bearbeiten
       phone_number: Telefonnummer
       contacts_info: 'Nahestehende, mit denen Sie sprechen sollten'
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: Es gibt bereits eine Anfrage in der Warteschlange für diesen Benutzer.
+        duplicate_request_id: Es gibt bereits eine Anfrage mit dieser Anfrage-ID.
+    data_download:
+      label: Daten herunterladen
+      description: Lade eine CSV-Datei mit deinen Kontodaten von if-me.org herunter
+      request: Meine Benutzerdaten herunterladen
+      processing: Deine Daten werden vorbereitet. Das kann einige Minuten dauern...
+      download: Daten herunterladen (CSV)
+      request_new: Neuen Download anfordern
+      error: Beim Vorbereiten deiner Daten ist ein Fehler aufgetreten. Bitte versuche es erneut.
   moment_templates:
     index:
       title: Erlebnisvorlagen

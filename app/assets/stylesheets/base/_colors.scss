@@ -2,32 +2,32 @@
 
 // Black
 $black: #000;
-$black-90: rgba(0, 0, 0, 0.9);
-$black-80: rgba(0, 0, 0, 0.8);
-$black-70: rgba(0, 0, 0, 0.7);
-$black-60: rgba(0, 0, 0, 0.6);
-$black-50: rgba(0, 0, 0, 0.5);
-$black-30: rgba(0, 0, 0, 0.3);
-$black-20: rgba(0, 0, 0, 0.2);
-$black-10: rgba(0, 0, 0, 0.1);
+$black-90: rgb(0 0 0 / 90%);
+$black-80: rgb(0 0 0 / 80%);
+$black-70: rgb(0 0 0 / 70%);
+$black-60: rgb(0 0 0 / 60%);
+$black-50: rgb(0 0 0 / 50%);
+$black-30: rgb(0 0 0 / 30%);
+$black-20: rgb(0 0 0 / 20%);
+$black-10: rgb(0 0 0 / 10%);
 
 // Grey
 $grey: #808080;
-$light-grey:#d3d3d3;
+$light-grey: #d3d3d3;
 
 // White
 $white: #fff;
-$white-80: rgba(255, 255, 255, 0.8);
-$white-70: rgba(255, 255, 255, 0.7);
-$white-20: rgba(255, 255, 255, 0.2);
-$white-10: rgba(255, 255, 255, 0.1);
+$white-80: rgb(255 255 255 / 80%);
+$white-70: rgb(255 255 255 / 70%);
+$white-20: rgb(255 255 255 / 20%);
+$white-10: rgb(255 255 255 / 10%);
 
 // Mulberry
 $mulberry: #6d0839;
-$mulberry-90: rgba(109, 8, 57, 0.9);
-$mulberry-80: rgba(109, 8, 57, 0.8);
-$mulberry-70: rgba(109, 8, 57, 0.7);
-$mulberry-50: rgba(109, 8, 57, 0.5);
+$mulberry-90: rgb(109 8 57 / 90%);
+$mulberry-80: rgb(109 8 57 / 80%);
+$mulberry-70: rgb(109 8 57 / 70%);
+$mulberry-50: rgb(109 8 57 / 50%);
 
 // Key Lime
 $key-lime: #d0e799;

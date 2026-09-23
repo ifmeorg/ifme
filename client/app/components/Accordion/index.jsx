@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import type { Node } from 'react';
 import { Utils } from 'utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons/faCaretDown';
+import { faCaretUp } from '@fortawesome/free-solid-svg-icons/faCaretUp';
 import globalCss from 'styles/_global.scss';
 import css from 'components/Input/Input.scss';
 

@@ -1,5 +1,5 @@
 // @flow
-import { faQuestion } from '@fortawesome/free-solid-svg-icons';
+import { faQuestion } from '@fortawesome/free-solid-svg-icons/faQuestion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Tooltip } from 'components/Tooltip';
 import type { Node } from 'react';

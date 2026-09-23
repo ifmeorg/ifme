@@ -51,7 +51,7 @@ module TagsHelper
   end
 
   def viewable_tag?(data)
-    return false unless data&.respond_to?(:user_id)
+    return false unless data.respond_to?(:user_id)
 
     data.user_id == current_user.id ||
       (data.try(:viewers)&.include?(current_user.id) &&
@@ -68,11 +68,12 @@ module TagsHelper
   end
 
   def tagged_data_result(tag, data)
-    if tag.is_a?(Mood)
+    case tag
+    when Mood
       get_moods_from_data(data, tag)
-    elsif tag.is_a?(Category)
+    when Category
       get_categories_from_data(data, tag)
-    elsif tag.is_a?(Strategy)
+    when Strategy
       get_strategies_from_data(data, tag)
     end
   end

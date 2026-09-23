@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import type { Node } from 'react';
-import axios from 'axios';
+import { fetchWrapper } from 'utils/fetchWrapper';
 import Cookies from 'js-cookie';
 import { I18n } from 'libs/i18n';
 import Input from 'components/Input';
@@ -11,6 +11,7 @@ import type { Option } from 'components/Input/utils';
 export type Props = {
   locale: string,
   locales: string[],
+  id?: string,
 };
 
 const options = (locales: string[]): Option[] => {
@@ -31,19 +32,19 @@ const onChange = (e: SyntheticEvent<HTMLInputElement>) => {
   if (value !== previousValue) {
     Cookies.set('locale', value);
     Utils.setCsrfToken();
-    axios.post('/toggle_locale', { locale: value }).then(() => {
+    fetchWrapper.post('/toggle_locale', { locale: value }).then(() => {
       window.location.reload();
     });
   }
 };
 
 export const ToggleLocale = (props: Props): Node => {
-  const { locale, locales } = props;
+  const { locale, locales, id = 'locale' } = props;
   return (
     <Input
-      id="locale"
+      id={id}
       type="select"
-      name="locale"
+      name={id}
       ariaLabel={I18n.t('language')}
       value={locale}
       options={options(locales)}
