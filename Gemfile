@@ -52,8 +52,8 @@ gem 'groupdate', '~> 6.5.1'
 gem 'react_on_rails', '12.0.1'
 gem 'webpacker'
 
-gem 'selenium-webdriver', '~> 4.22.0'
-gem 'rubyzip', '~> 1.3.0'
+gem 'selenium-webdriver', '~> 4.49.0'
+gem 'rubyzip', '~> 3.7.0'
 
 gem 'sidekiq', '6.5.10'
 gem 'sidekiq-middleware'
