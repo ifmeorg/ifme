@@ -1,0 +1,873 @@
+ja:
+  app_name: if-me.org
+  app_description: 'こころの健康の経験を分かち合うコミュニティ'
+  email: join.ifme@gmail.com
+  created: '%{created_at}に作成'
+  draft: '下書き'
+  edited: '%{created_at}に作成（編集済み）'
+  edited_updated_at: '%{created_at}に作成（%{updated_at}に編集）'
+  salutation: '%{name}さん、こんにちは。'
+  click_here: 'こちらをクリック'
+  language: '言語'
+  yes_text: 'はい'
+  no_text: 'いいえ'
+  expand_menu: 'メニューを開く'
+  close: '閉じる'
+  alert_auto_hide: 'このお知らせは自動で消えます'
+  load_more: 'さらに表示'
+  of: '/'
+  languages:
+    en: English
+    es: Español
+    nl: Nederlands
+    pt-BR: Português
+    sv: Svenska
+    various_languages: 'さまざまな言語'
+    vi: Tiếng Việt
+    it: Italiano
+    nb: Norsk
+    de: Deutsch
+    fr: Français
+    hi: हिंदी
+    zh-CN: 中文
+    zh-TW: 正體中文
+    ko: 한국어
+    id: Bahasa Indonesia
+    ar: اَلْعَرَبِيَّةُ
+    ru: Русские
+    ca: Català
+    bg: Български
+    az: Azərbaycanca
+    tr: Türkçe
+    ja: 日本語
+  navigation:
+    skip_to_main_content: 'メインの内容へ移動'
+    google: Google
+    main_menu: 'メインメニュー'
+    user_menu: 'ユーザーメニュー'
+    about: 'if-me について'
+    blog: 'ブログ'
+    contribute: '参加する'
+    partners: 'パートナー'
+    privacy: 'プライバシーポリシー'
+    github: GitHub
+    open_collective: Open Collective
+    instagram: Instagram
+    rss: RSS
+    x: X
+    facebook: Facebook
+    feedback: 'ご意見'
+    give_feedback: 'ご意見を送る'
+    press: '報道関係の方へ'
+    faq: 'よくある質問'
+    resources: '相談先・情報'
+    code_of_conduct: '行動規範'
+    digital_public_goods_alliance: Digital Public Goods Alliance
+  common:
+    name: '名前'
+    you: 'あなた'
+    title: 'タイトル'
+    date: '日付'
+    daily_reminder: '毎日のお知らせメール'
+    actions:
+      plural: '操作'
+      submit: '送信'
+      submit_publish: '公開'
+      submit_draft: '下書き'
+      confirm: 'よろしいですか？'
+      delete: '削除'
+      edit: '編集'
+      edit_instance: '%{instance}を編集'
+      join: '参加する'
+      leave: '退出する'
+      add: '追加'
+      add_all: 'すべて追加'
+      select_all: 'すべて選択'
+      remove: '外す'
+      report: '報告'
+    form:
+      email: 'メールアドレス'
+      location: '場所'
+      description: '説明'
+      error_explanation: '印の付いた欄を入力してください。'
+      empty_error: 'この欄は空にできません。'
+      min_error: '%{min}以上の値を入力してください。'
+      max_error: '%{max}以下の値を入力してください。'
+      min_max_error: '%{min}以上、%{max}以下の値を入力してください。'
+      search_by_keywords: 'キーワードで検索'
+      template: 'テンプレートを選ぶ'
+    autosave:
+      restore_prompt: '%{time}の保存されていない下書きがあります。元に戻しますか？'
+      restore_button: '下書きを元に戻す'
+      dismiss: '閉じる'
+      time_just_now: 'たった今'
+      time_one_minute: '1分前'
+      time_minutes_ago: '%{count}分前'
+      time_one_hour: '1時間前'
+      time_hours_ago: '%{count}時間前'
+    time_ago: '%{date}前'
+    write_to_us: 'お問い合わせ'
+    days: '曜日'
+  reports:
+    admin_dashboard: '管理画面'
+    reported_users: '報告されたユーザー'
+    banned_users: '利用停止中のユーザー'
+    reasons: '理由'
+    new: '%{name}さんを報告'
+    remove_ban: '利用停止を解除'
+    ban_user: 'ユーザーの利用を停止'
+    report_sent: '%{name}さんについての報告を送りました'
+    report_error: '%{name}さんについての報告を送れませんでした'
+    reportee: '報告されたユーザー'
+    reporter: '報告したユーザー'
+    user_banned: '%{name}さんの利用を停止しました'
+    ban_removed: '%{name}さんの利用停止を解除しました'
+    user_banned_error: '%{name}さんの利用を停止できませんでした'
+    ban_removed_error: '%{name}さんの利用停止を解除できませんでした'
+  comment:
+    singular: 'コメント'
+    plural: 'コメント'
+    posting: 'コメントを投稿しています…'
+    allow_comments: 'コメントを受け付けますか？'
+    hint: 'コメントできるのは、あなたと閲覧者だけです'
+    control: '見られる人とコメントできる人を決める'
+    report_comment_by: '%{name}さんのコメントを報告'
+    delete_comment_by: '%{name}さんのコメントを削除'
+  account:
+    singular: 'アカウント'
+    sign_in: 'ログイン'
+    sign_up: '新規登録'
+    forgot_password: 'パスワードをお忘れですか？'
+  members:
+    one: 'メンバー%{count}人'
+    other: 'メンバー%{count}人'
+  allies:
+    add_ally: '味方に追加'
+    cancel_ally_request: 'リクエストを取り消す'
+    accept: '承認'
+    reject: '断る'
+    index:
+      title: '味方'
+      outgoing: '送ったリクエスト'
+      incoming: '届いたリクエスト'
+      invited: 'メールで招待済み'
+      invited_on: '招待した日：%{date}'
+      invitation_expired: '招待の期限が切れました'
+      invite: '大切な人を招待しましょう！'
+      none: 'まだ味方がいません。検索して見つけるか、大切な人を招待してみましょう。'
+      view_all_allies: 'すべての味方を見る'
+      cancel: 'キャンセル'
+    form:
+      placeholder: 'メールアドレスを入力（複数の場合はカンマで区切る）'
+  categories:
+    singular: 'カテゴリー'
+    plural: 'カテゴリー'
+    edit_category: 'カテゴリーを編集'
+    new: '新しいカテゴリー'
+    form:
+      name_hint: 'よく関わる人・場所・もの・活動などを分類しましょう'
+    label:
+      one: 'カテゴリー：'
+      other: 'カテゴリー：'
+    index:
+      subtitle: '人生はごちゃごちゃしたもの。関わる人・場所・ものを分類しましょう。'
+      premade1_name: '家族'
+      premade1_description: '家族のこと'
+      premade2_name: '友だち'
+      premade2_description: '友だちのこと'
+      premade3_name: '仕事'
+      premade3_description: '仕事のこと'
+      premade4_name: '瞑想'
+      premade4_description: '瞑想、深呼吸、リラックスできる活動'
+      instructions: 'まだ自分のカテゴリーを作っていません。<br />下の用意されたカテゴリーを追加して、あとで自分に合わせて変えることもできます。'
+  errors:
+    home_page: 'ホームに戻る'
+    internal_server_error:
+      header_message: 'このページを表示できません'
+    not_found:
+      header_message: 'このページは存在しません'
+    empty_params: '空欄にはできません'
+  groups:
+    singular: 'グループ'
+    plural: 'グループ'
+    form:
+      leaders: 'リーダー'
+      only_leader: 'リーダーがあなた一人のため、退出できません。'
+      cannot_delete: 'グループは削除できませんのでご注意ください。'
+      error_save: 'このグループを保存できません。理由：'
+      error_edit_permission: 'グループを編集できるのはリーダーだけです'
+    index:
+      subtitle: '支え合い・相談・話し合いのためのグループを作ったり、参加したりしましょう。'
+      available_groups: '参加できるグループ'
+      joined_groups: '参加中のグループ'
+      leader: '（リーダー）'
+      instructions: 'まだどのグループにも参加していません。'
+    join:
+      success: 'このグループに参加しました。'
+      group_not_exists: '存在しないグループには参加できません。'
+    leave:
+      error: 'リーダーがあなた一人のため、グループから退出できません。'
+      success: '%{group}から退出しました'
+      remove_member_success: '%{group}から%{user}さんを外しました'
+      remove_member_error: 'リーダーではないため、メンバーを外せません。'
+    new: '新しいグループ'
+    show:
+      led_by: 'リーダー：'
+      delete: 'グループを削除'
+  layouts:
+    application:
+      signin: '今のあなたの話を書いてみませんか'
+      create_account: 'コミュニティに参加する'
+      update_account: 'アカウントを設定する'
+    mailer:
+      html:
+        app_description: '%{app_name}は、こころの健康についての経験を大切な人と分かち合うことを応援するコミュニティです。'
+        no_reply: 'このメールには返信できません。ご質問・ご心配・ご意見は %{email} までお寄せください。'
+    title:
+      reset_password: 'パスワードを再設定'
+  medications:
+    singular: 'お薬'
+    edit_medication: 'お薬を編集'
+    refill_reminder: '次に受け取る日のお知らせメール'
+    dosage: '1日の服用量：'
+    weekly_dosage: '飲む曜日：'
+    refill: '次に受け取る日：'
+    quantity: '合計の量：'
+    strength: '1錠あたりの量：'
+    event_summary: '%{name}を受け取る日です。'
+    form:
+      strength: '1錠あたりの量'
+      strength_unit: '1錠あたりの量の単位'
+      dosage: '服用量'
+      dosage_unit: '服用量の単位'
+      refill: '次に受け取る日'
+      name_hint: 'お薬の一般名か商品名'
+      comments_hint: 'ほかに書いておきたいこと（例：症状の記録）'
+      add_to_google_cal: 'Google カレンダーで知らせる'
+      google_cal_hint: 'このお薬のお知らせを Google カレンダーに追加します。'
+      strength_hint: '1錠あたりの量。たいていお薬の名前の横に書いてあります'
+      total_hint: '錠剤の合計の数か、お薬の合計の量'
+      dosage_hint: '1日に飲む錠数か回数'
+      weekly_dosage_hint: 'このお薬を飲む曜日'
+      refill_hint: '次にお薬を受け取る日'
+      refill_reminder_hint: 'お薬を受け取る日の1週間前に、メールでお知らせします。'
+      daily_reminder_hint: 'このお薬を飲むことを、毎日メールでお知らせします'
+      total: '合計'
+      total_unit: '合計の単位'
+    new: '新しいお薬'
+    units:
+      display: '%{count} %{unit}'
+      mg: mg
+      ml: ml
+      tablets:
+        one: '錠'
+        other: '錠'
+    reminder_mailer:
+      subject: 'if-me.org | %{name}を飲むのを忘れずに！'
+      body: '%{name}を飲む時間です。お知らせします。'
+    refill_mailer:
+      subject: 'if-me.org | もうすぐ%{name}を受け取る日です'
+      body: '%{refill}に%{name}を受け取る予定です。お知らせします。'
+    index:
+      title: 'お薬'
+      subtitle: '飲んでいるお薬を、服用量や受け取る日と一緒に記録しましょう。'
+      instructions: 'まだお薬を記録していません。<br /><br />記録の例はこちらです。飲んでみてどうだったかを書くこともできます。'
+      example_name: 'レクサプロ'
+      example_strength: 10 mg
+      example_total: '40錠'
+      example_dosage: '2錠'
+      example_refill: 2016/05/31
+    show:
+      comments: 'メモ：'
+  meetings:
+    singular: 'ミーティング'
+    edit_meeting: 'ミーティングを編集'
+    form:
+      location_placeholder: 'URL か住所'
+      maximum_members: '定員'
+      maximum_placeholder: '定員なしは0'
+    join_success: 'このミーティングに参加しました。'
+    info:
+      cancel_meeting: 'ミーティングを中止'
+      meeting_time: '時間'
+      members_of_group_html:
+        one: '%{group}のメンバー%{count}人'
+        other: '%{group}のメンバー%{count}人'
+    reminder_mailer:
+      subject: 'if-me.org | ミーティング「%{meeting_name}」は明日%{time}からです'
+      body: '明日のミーティング「%{meeting_name}」は、%{time}から%{location}で行われます。お知らせします。'
+    leave:
+      error: 'リーダーがあなた一人のため、ミーティングから退出できません。'
+      success: '%{meeting}から退出しました'
+    new: '新しいミーティング'
+    google_cal:
+      create:
+        add: 'Google カレンダーに追加'
+        success: 'ミーティングを Google カレンダーに追加しました。'
+        error: 'ミーティングを Google カレンダーに追加できませんでした。'
+      destroy:
+        remove: 'Google カレンダーから削除'
+        success: 'ミーティングを Google カレンダーから削除しました。'
+        error: 'ミーティングを Google カレンダーから削除できませんでした。'
+  moments:
+    singular: 'できごと'
+    plural: 'できごと'
+    edit_moment: 'できごとを編集'
+    tagged_moments: 'タグを付けたできごと'
+    new: '新しいできごと'
+    secret_share:
+      singular: '限定リンクで共有'
+      expires_at: '期限'
+      cancel_secret_share: '限定リンクの共有をやめる'
+      link_copied: '限定リンクをクリップボードにコピーしました'
+      link_info: '限定リンクを作りました'
+      info: 'このリンクを知っている人は誰でもこのページを見られます'
+      info_public: '限定リンクから見ています。書いた人の同意なしに、このページを共有しないでください。'
+    form:
+      why: 'このことについて書く'
+      why_legacy: '何があって、どう感じていますか？'
+      fix_legacy: 'どんなふうに考えられたらいいですか？'
+      what_happened: '何がありましたか？'
+      viewers_hint: 'このできごとを見られる味方'
+      draft_question: 'このできごとを下書きとして保存しますか？'
+      bookmarked_question: 'このできごとをブックマークしますか？'
+      bookmarked_info: 'ブックマークしたできごとは、セルフケアプランに表示されます'
+      resource_recommendations_question: 'おすすめの相談先・情報を表示しますか？'
+    index:
+      subtitle: 'こころの健康に影響したできごと、つまり出来事や状況を深く見つめましょう。'
+      subtitle_link: 'できごとを書くためのテンプレートを作って整理しましょう。'
+      instructions: 'まだできごとを書いていません。<br /><br />何から書けばいいか分かりませんか？今日あったことで、大切な人に話して一緒に考えたいことは何ですか？良いことでも、つらいことでもかまいません。すぐに共有しなくて大丈夫です。準備ができたときに共有しましょう。できごとの例はこちらです。'
+      example_name: '明日の面接が不安でたまらない！'
+      example_category: '仕事'
+    show:
+      strategies: 'どんな対処法が役立ちそうですか？'
+      resources: 'どんな相談先・情報が役立ちそうですか？'
+    filters:
+      secret_share: '限定リンクで共有中'
+      no_viewers: '閲覧者なし'
+      one_viewer: '閲覧者が1人以上'
+      comments_enabled: 'コメントを受け付け中'
+      draft_enabled: '下書き'
+      published: '公開済み'
+  moods:
+    singular: '気分'
+    plural: '気分'
+    edit_mood: '気分を編集'
+    new: '新しい気分'
+    example_moods: '緊張、不安、希望'
+    index:
+      subtitle: '心の状態や気持ち、感情を表すタグを作りましょう。'
+      premade1_name: '受け入れている'
+      premade1_description: '違いや限界を受け入れ、穏やかでいられる'
+      premade2_name: '意欲的'
+      premade2_description: '目標を達成できそうだと前向きに感じる'
+      premade3_name: '好奇心'
+      premade3_description: '分からないことにも興味がわく'
+      premade4_name: '恨めしい'
+      premade4_description: 'ある事実を受け入れられず、怒りや仕返ししたい気持ち、ねたみを感じる'
+      premade5_name: '絶望的'
+      premade5_description: '悲しく、望みがない。解決の道が見つからない'
+      instructions: 'まだ自分の気分を作っていません。<br />下の用意された気分を追加して、あとで自分に合わせて変えることもできます。'
+  notifications:
+    plural: 'お知らせ'
+    none: 'ありません'
+    clear: 'すべて消す'
+    created_by_html: '<strong>作成者</strong>：%{name}'
+    preview: 'もっと見る'
+    members:
+      title: 'メンバーの一覧'
+    ally:
+      accepted: '%{name}さんが味方のリクエストを承認しました！'
+      sent_html: '%{link_to_user}さんから味方のリクエストが届きました！'
+    comment:
+      full: '%{name}さんが%{typename}に「%{comment}」とコメントしました'
+      truncated: '%{name}さんが%{typename}に「%{comment}」[…]とコメントしました'
+    group:
+      new_group: '%{name}さんがグループ「%{group_name}」を作りました'
+      new_group_member: '%{name}さんがあなたのグループ「%{group_name}」に参加しました'
+      add_group_leader: '%{name}さんが「%{group_name}」のリーダーになりました'
+      remove_group_leader: '%{name}さんは「%{group_name}」のリーダーではなくなりました'
+    meeting:
+      new_meeting: '%{name}さんが「%{group_name}」の新しいミーティング「%{meeting_name}」を作りました'
+      remove_meeting: '%{name}さんが「%{group_name}」のミーティング「%{meeting_name}」を中止しました'
+      update_meeting: '%{name}さんが「%{group_name}」のミーティング「%{meeting_name}」を更新しました'
+      join_meeting: '%{name}さんが「%{group_name}」のミーティング「%{meeting_name}」に参加しました'
+    mailer:
+      comment_on_moment_subject: 'if-me.org | %{user}さんがあなたのできごと「%{moment}」にコメントしました'
+      comment_on_strategy_subject: 'if-me.org | %{user}さんがあなたの対処法「%{strategy}」にコメントしました'
+      comment_on_meeting_subject: 'if-me.org | %{user}さんがグループ「%{group}」のミーティング「%{meeting}」にコメントしました'
+      comment_on_private_body: '<p>味方の<strong>%{user}</strong>さんが、あなただけに見えるコメントをしました：</p>'
+      comment_on_body: '<p>味方の<strong>%{user}</strong>さんがコメントしました：</p>'
+      comment_text_cutoff: '<p><i>%{comment} […]</i></p>'
+      comment_text: '<p><i>%{comment}</i></p>'
+      comment_link: '<p>読むには%{link}してください。</p>'
+      new_group_subject: 'if-me.org | %{user}さんがグループ「%{group}」を作りました'
+      new_group_body: '<p>%{user}さんがグループ「%{group}」を作りました：</p><p><i>%{description}</i></p><p>詳しく見て参加するには%{link}してください。</p><p>%{code_of_conduct_link}を守ってください。</p>'
+      new_group_member_subject: 'if-me.org | %{user}さんがあなたのグループ「%{group}」に参加しました'
+      add_group_leader_you_subject: 'if-me.org | あなたが「%{group}」のリーダーになりました'
+      add_group_leader_subject: 'if-me.org | %{user}さんが「%{group}」のリーダーになりました'
+      add_remove_group_leader_body: '<p>「%{group}」を見るには%{link}してください。</p>'
+      remove_group_leader_you_subject: 'if-me.org | あなたは「%{group}」のリーダーではなくなりました'
+      remove_group_leader_subject: 'if-me.org | %{user}さんは「%{group}」のリーダーではなくなりました'
+      update_meeting_subject: 'if-me.org | %{user}さんが「%{group}」のミーティング「%{meeting}」を更新しました'
+      new_meeting_subject: 'if-me.org | %{user}さんが「%{group}」の新しいミーティング「%{meeting}」を作りました'
+      meeting_body: '<p>%{subject}</p><p><i>%{description}</i></p><p><strong>場所：</strong>%{location}</p><p><strong>日付：</strong>%{date}</p><p><strong>時間：</strong>%{time}</p>'
+      new_meeting_link: '<p>詳しく見て参加するには%{link}してください。</p>'
+      update_meeting_link: '<p>詳しく見るには%{link}してください。</p>'
+      remove_meeting_subject: 'if-me.org | %{user}さんが「%{group}」のミーティング「%{meeting}」を中止しました'
+      join_meeting_subject: 'if-me.org | %{user}さんが「%{group}」のミーティング「%{meeting}」に参加しました'
+      join_meeting_body: '<p>「%{meeting}」を見るには%{link}してください。</p>'
+      reported_user_subject: 'if-me.org | ユーザーを報告しました'
+      reported_user_body: '%{reported_name}さんを報告しました。管理者が確認します。'
+      reportee_user_subject: 'if-me.org | あなたについての報告がありました'
+      reportee_user_body: 'あなたについての報告がありました。管理者が確認します。'
+      add_ban_subject: 'if-me.org | 利用を停止しました'
+      add_ban_body: '%{code_of_conduct_link}に違反したため、利用を停止しました。'
+      remove_ban_subject: 'if-me.org | 利用停止を解除しました'
+      remove_ban_body: '%{code_of_conduct_link}に違反したため利用を停止していましたが、解除しました。'
+  omniauth:
+    access_denied: 'アクセスが拒否されました'
+  pages:
+    about:
+      main_message_one: '%{app_name}は、こころの健康についての経験を、信頼できる味方と分かち合うことを応援するコミュニティです。'
+      message_text_one: '信頼できる味方とは、友だち、家族、職場の人、先生、支援の専門職など、毎日関わる人たちのことです。'
+      main_message_two: 'こころの健康と向き合うのは、人として自然なことです。でも、それを人に話すのは、多くの人にとって難しいことです。'
+      message_text_two: '誰もがカウンセラーやセラピストではありません。私たちの感情や行動は、毎日関わる人たちによって形づくられます。その人たちに回復の歩みに関わってもらうことが、回復への鍵です。'
+      message_text_three: '<strong>資金面で応援しませんか？</strong>2016年に Linebreak からコミュニティの助成を受け、2017年に %{fund_club_link} から資金を受けました。%{open_collective_link} への寄付で応援していただけます。'
+      fund_club: Fund Club
+    blog:
+      description: '私たちのブログに書いてみたい方は、%{email} まで企画をお送りください。匿名での投稿も歓迎します。'
+    contribute:
+      contributor_avatar_alt: '%{name}さんの紹介'
+      message_text_one: '<strong>こころの健康を支える活動をしている方</strong>、<strong>医療・福祉の専門職の方</strong>、<strong>ソフトウェア開発者</strong>、<strong>翻訳者</strong>、<strong>UX デザイナー</strong>など、どなたのアイデアもいつでも歓迎します！<p class="noMarginBottom">%{email_link}ください。こちらからご連絡します。主な連絡手段である %{slack_link} にご招待します。%{github_link} のリポジトリのフォークもお忘れなく！</p>'
+      more_contributors: 'ほかにも素晴らしい協力者のみなさん！'
+      thanks: '心から感謝します'
+      slack: Slack
+    faq:
+      title: 'よくある質問'
+      data_access_question: '私のデータは誰が見られますか？'
+      data_access_answer: 'データを第三者に渡したり、見られるようにしたりすることはありません。アカウントを削除すると、すべてのデータが消えます。<br /><br />あなたに合ったおすすめを出すため、ユーザーのデータはサイトの中で分析されます。<br /><br />アカウントを作るには、名前とメールアドレスが必要です。Facebook か Google でログインした場合は、そのプロフィール写真と名前がアカウントに使われます。'
+      moment_question: 'できごととは何ですか？'
+      moment_answer: '<strong>%{moment}</strong>とは、こころの健康に影響する出来事や状況のことです。良いことでも、つらいことでもかまいません。日記やつぶやきのようなものと考えてください。<br /><br />できごとには、対処法・カテゴリー・気分のタグを付けられます。どの味方が見てコメントできるかも選べます。自分だけが見られるようにもできます。<br /><br /><strong>%{moment_templates}</strong>を使うと、くり返し使える書き出しを作れます。'
+      strategy_question: '対処法とは何ですか？'
+      strategy_answer: '<strong>%{strategy}</strong>とは、つらさをやわらげたり、回復に向かったりするのに役立つ活動や考え方、セルフケアのことです。<br /><br />対処法には、カテゴリーのタグを付けられます。どの味方が見てコメントできるかも選べます。自分だけが見られるようにもできます。共有した対処法は、指定したすべての味方に表示されるので、味方は自分のできごとにあなたの対処法のタグを付けられます！'
+      category_question: 'カテゴリーとは何ですか？'
+      category_answer: '<strong>%{category}</strong>とは、あなたにとって大切な人・場所・ものを表すタグです。'
+      mood_question: '気分とは何ですか？'
+      mood_answer: '<strong>%{mood}</strong>とは、心の状態や気持ち、感情を表すタグです。'
+      group_question: 'グループとは何ですか？'
+      group_answer: '<strong>%{group}</strong>は、こころの健康について支え合い、相談し、話し合う場です。グループを作ると、味方が参加できるようになります。参加できるのは、味方が作ったグループだけです。<br /><br />グループのリーダーは<strong>ミーティング</strong>を作れます。ミーティングには場所と時間があります。場所は住所でも、ビデオ会議の URL でもかまいません。ミーティングにはコメントもできます。グループのリーダーは、ほかにリーダーがいないとグループから退出できません。グループを削除できるのは、メンバーがあなた一人のときだけです。'
+      medications_question: 'お薬の機能はどう使いますか？'
+      medications_answer: '<strong>%{medications}</strong>の機能では、飲んでいる処方薬を記録できます。症状の記録もできます。'
+      care_plan_question: 'セルフケアプランの機能はどう使いますか？'
+      care_plan_answer: '<strong>%{care_plan}</strong>の機能では、つらいときに連絡したい大切な人の一覧を作り、お気に入りのセルフケアの対処法をブックマークしておけます。'
+      invite_question: '大切な人をアプリに招待するには？'
+      invite_answer: '<strong>%{allies}</strong>のページで「大切な人を招待しましょう」のリンクを押すと、メールで招待できます。招待が受け入れられると、その人があなたの味方の一覧に加わります。'
+      email_notifications_question: 'メールのお知らせを変えるには？'
+      email_notifications_answer: '<strong>%{accounts}</strong>のページで、メールアドレス、パスワード、プロフィール写真、自己紹介を変えられます。アカウントの削除もここでできます。アカウントを削除すると、すべてのデータが消えます。'
+    home:
+      update_pwd_modal:
+        title: 'パスワードを更新してください'
+        body: 'ユーザーのみなさんを守るため、安全対策を強めました。%{update_password_link}'
+        update_link: 'パスワードを更新してください。'
+      stories: 'みんなの話'
+      not_signed_in:
+        main_message_one: '大切な人ともっと話せると、こころの健康も良くなります。'
+        message_text_one: '偏見をなくすには、お互いの支えが必要です。'
+        message_one: '自分の話を大切な人と分かち合い、あなたにふさわしい支えを受けましょう'
+        message_two: '安全とプライバシーを守りながら、気負わずにありのままで'
+        message_three: '気分、お薬、セルフケアを記録しましょう'
+        main_message_two: 'こころの健康はオープンであるべきだから、私たちはオープンソースです。'
+        message_text_two: '%{help}と%{feedback}を、<strong>いつでも</strong>お待ちしています！'
+        help: 'ご協力'
+      signed_in_empty:
+        main_message_one: '%{name}さん、こんにちは！'
+        message_text_one: '自分の話を分かち合う始め方はこちらです。'
+        main_message_two: 'あなたのことを教えてください。'
+        cell_one: '%{profile}を整えましょう。自己紹介とプロフィール写真を追加します<br />気持ちにぴったりの%{moods}を追加しましょう<br />%{allies}を追加しましょう。分かち合いたい友だち、家族などです'
+        main_message_three: 'あなたの話を書きましょう。'
+        cell_two: 'できごとを整理するための%{categories}を作りましょう<br />%{moments}、つまりこころの健康に影響した出来事や状況について書きましょう'
+        main_message_four: '自分をいたわりましょう。'
+        cell_three: 'セルフケアの計画を%{strategize}！<br />%{medications}を飲んでいますか？記録して、お知らせを設定しましょう！<br />もっと支えがほしいときは、%{group}に参加するか作って、話してみましょう'
+        main_message_five: 'ご質問やご心配はありますか？'
+        message_text_three: '%{faq}のページをご覧いただくか、%{email_link}ください！'
+        strategize: '立てましょう'
+    partners:
+      description: '私たちが刺激を受け、一緒に活動させていただいた素晴らしい団体のみなさんです。あなたの団体ともぜひご一緒したいと思っています。%{email} までご連絡ください。'
+    privacy:
+      summary: '概要'
+      summary_description: '<p>このプライバシーポリシーは、このウェブサイトと、このサイトを使うユーザーのプライバシーについて定めるものです。</p><p>このサイトは繊細な内容を扱うため、プライバシーは私たちにとってとても大切なことです。このポリシーでは、ユーザーのデータをどう集め、何に使い、どう守るかを説明します。</p>'
+      user_data: 'ユーザーのデータ'
+      user_data_description: '<p>このサイトの機能について詳しくは %{faq_link} のページをご覧ください。</p>'
+      data_protection_rights: 'データ保護の権利'
+      data_protection_rights_answer: '<p>すべてのユーザーに、次の権利があります。</p><p>アクセスの権利：ユーザーは、自分の個人データの写しを求めることができます。この手続きには少額の手数料をいただくことがあります。</p><p>訂正の権利：ユーザーは、不正確だと思う情報の訂正を求めることができます。また、不完全だと思う情報を補うよう求めることもできます。</p><p>消去の権利：ユーザーは、一定の条件のもとで、自分の個人データの消去を求めることができます。</p><p>処理を制限する権利：ユーザーは、一定の条件のもとで、自分の個人データの処理を制限するよう求めることができます。</p><p>処理に異議を述べる権利：ユーザーは、一定の条件のもとで、自分の個人データの処理に異議を述べることができます。</p><p>データポータビリティの権利：ユーザーは、一定の条件のもとで、私たちが集めたデータを別の組織か本人に移すよう求めることができます。</p><p>お求めがあった場合、私たちは1か月以内にお返事します。</p>'
+      cookies: 'Cookie の使用'
+      cookies_description: '<p>このウェブサイトは、訪れたユーザーの体験を良くするために Cookie を使います。機能のための Cookie は、ログインと、以前に選んだ設定（使う言語や地域など）を覚えておくために使います。必要に応じて、初めて訪れたユーザーが、自分のコンピューターや端末での Cookie の使用を許可するか拒否するかを選べる仕組みを使います。</p><p>Cookie は、ユーザーのコンピューターに保存される小さなファイルで、サイトでの操作や使い方についての情報を記録・保存します。これにより、ウェブサイトはサーバーを通じて、ユーザーに合わせた体験を提供できます。</p><p>このウェブサイトとその外部の配信業者からの Cookie の使用と保存を拒否したい場合は、ブラウザーのセキュリティの設定で、このサイトとその外部の配信業者からのすべての Cookie をブロックしてください。</p>'
+      social_media: 'ソーシャルメディア'
+      social_media_description: '<p>このウェブサイトが参加している外部のソーシャルメディアでのやりとり・交流・操作には、それぞれのソーシャルメディアの利用規約とプライバシーポリシーが適用されます。</p>'
+      changes: '変更'
+      changes_description: '<p>私たちはプライバシーポリシーを定期的に見直し、変更はこのページに掲載します。カナダの個人情報保護および電子文書法（PIPEDA）と、欧州連合の一般データ保護規則（GDPR）に従っています。</p><p>このプライバシーポリシーの最終更新日は2024年2月11日です。</p>'
+      contact: 'お問い合わせ'
+      contact_description: '<p class="noMarginBottom">ご質問やご心配があれば、%{email_link}ください。</p>'
+    resources:
+      description: 'コミュニティ、学べる道具、電話相談、サービスなど、私たちが選んだこころの健康の相談先・情報の一覧です。'
+      emergency: 'あなたや身近な人がこころの健康の緊急事態にあるときは、できるだけ早く助けを求めてください。'
+      popular_tags: 'よく使われるタグ'
+      crisis_prevention:
+        title: '今、どんな気持ちですか？'
+        description: 'どんなときも、あなたは大切な人です'
+        acknowledge: 'わかりました。自分の気持ちと体を大切にします。'
+        care_plan_link: 'セルフケアプランで、相談先や連絡先を見ることもできます。'
+        die: '死ぬ'
+        dead: '死んだ'
+        died: '亡くなった'
+        dying: '死にそう'
+        death: '死に'
+        passed_away: '他界'
+        kill_myself: '自殺したい'
+        hurt_myself: '自分を傷つけ'
+        suicide: '自殺'
+        suicidal: '自殺願望'
+        want_to_die: '死にたい'
+        end_my_life: '人生を終わ'
+        take_my_life: '命を絶'
+        end_it_all: '終わりにしたい'
+        self_harm: '自傷'
+        no_reason_to_live: '生きる意味がない'
+        not_worth_living: '生きる価値'
+        overdose: 'オーバードーズ'
+      tags:
+        ai: AI
+        communities: 'コミュニティ'
+        education: '学び'
+        hotlines: '電話相談'
+        services: 'サービス'
+        people_of_colour: '有色の人々'
+        women_of_colour: '有色の女性'
+        black_women: '黒人女性'
+        domestic_violence: 'DV'
+        dating_violence: 'デートDV'
+        cyberbullying: 'ネットいじめ'
+        therapy: 'セラピー'
+        counseling: 'カウンセリング'
+        youth: '若者'
+        lgbt: LGBT
+        harassment: 'ハラスメント'
+        self_care: 'セルフケア'
+        women: '女性'
+        chatbot: 'チャットボット'
+        anonymous: '匿名'
+        free: '無料'
+        paid: '有料'
+        twenty_four_seven: '24時間'
+        videos: '動画'
+        blog: 'ブログ'
+        podcast: 'ポッドキャスト'
+        books: '本'
+        publication: '出版物'
+        video_chat: 'ビデオ通話'
+        texting: 'チャット相談'
+        open_source: 'オープンソース'
+        workplace: '職場'
+        social_justice: '社会正義'
+        tech_industry: 'IT業界'
+        meditation: '瞑想'
+        anxiety: '不安'
+        social_anxiety: '社交不安'
+        trigger_warnings: 'トリガー注意'
+        netflix: Netflix
+        homeless: 'ホームレス'
+        talks: '講演'
+        voice_chat: '音声通話'
+        training: '研修'
+        directory: '一覧'
+        self_injury: '自傷行為'
+        treatment: '治療'
+        care_planning: 'ケアの計画'
+        depression: 'うつ'
+        ocd: OCD
+        advice: 'アドバイス'
+        forum: '掲示板'
+        crisis_prevention: '危機への備え'
+        safety_planning: '安全計画'
+        suicide_prevention: '自殺予防'
+        android: Android
+        ios: iOS
+        support_groups: '自助グループ'
+        mindfulness: 'マインドフルネス'
+        journaling: '日記'
+        mood_tracking: '気分の記録'
+        veterans: '退役軍人'
+        music: '音楽'
+        integrative: '統合医療'
+        ptsd: PTSD
+        tbi: '脳損傷'
+        news: 'ニュース'
+        government: '行政'
+        christian: 'キリスト教'
+        humor: 'ユーモア'
+        conference: 'カンファレンス'
+        addiction: '依存症'
+        rehabilitation: 'リハビリ'
+        teachers: '教員'
+        bipolar: '双極性障害'
+        goal_tracking: '目標の記録'
+        social_network: 'SNS'
+        add: ADD
+        adhd: ADHD
+        sexual_assault_survivors: '性暴力のサバイバー'
+        political_movement: '政治運動'
+        reporting: '通報'
+        game: 'ゲーム'
+        stress: 'ストレス'
+        fidget: 'フィジェット'
+        colouring: 'ぬりえ'
+        deaf: 'ろう者'
+        asl: ASL
+        latinx: 'ラテン系'
+        hispanic: 'ヒスパニック'
+        senior_citizens: '高齢者'
+        black_people: '黒人'
+        sexual_health: '性の健康'
+        hackathon: 'ハッカソン'
+        stories: '体験談'
+        teen: '10代'
+        coaching: 'コーチング'
+        physical_dependence: '身体依存'
+        codependency: '共依存'
+        relationships: '人間関係'
+        alcoholism: 'アルコール依存症'
+        cbt: CBT
+        chrome: Chrome
+        firefox: Firefox
+        social_media_break: 'SNS断ち'
+        quiz: 'クイズ'
+        attachment: '愛着'
+        eating_disorders: '摂食障害'
+        asian: 'アジア系'
+        pacific_islander: '太平洋諸島系'
+        south_asian: '南アジア系'
+        southeast_asian: '東南アジア系'
+        east_asian: '東アジア系'
+        al_anon: 'アラノン'
+        burnout: '燃え尽き'
+        breakup: '失恋'
+        indigenous: '先住民'
+        therapists: 'セラピスト'
+        recovery: '回復'
+        advocacy: '権利擁護'
+        trauma: 'トラウマ'
+        newsletter: 'ニュースレター'
+        phobias: '恐怖症'
+        grief: '悲しみ'
+        bereavement: '死別'
+      locations:
+        uk: 'イギリス'
+        us: 'アメリカ'
+        intl: '国際'
+        se: 'スウェーデン'
+        ca: 'カナダ'
+        ie: 'アイルランド'
+        nz: 'ニュージーランド'
+  profile:
+    index:
+      title: 'プロフィール'
+      edit_user: 'プロフィールを編集'
+  pusher:
+    not_authorized: '権限がありません'
+  search:
+    label: '検索'
+    search_by_name: '名前で検索'
+    search_by_tags: 'タグで検索'
+    filter_by: '絞り込み'
+    form:
+      search_by_location: '場所で検索'
+      search_by_email: 'メールアドレスで検索'
+    index:
+      title: '味方を探す'
+      user_not_found: '%{email} のユーザーは見つかりませんでした'
+  shared:
+    footer:
+      licence: AGPL-3.0
+      licence_subtitle: '%{licence} ライセンス'
+      connect: 'つながる'
+    comments:
+      share_everyone: '全員に共有'
+      share_with: '%{name}さんだけに共有'
+      visible_only_between_you_and: 'あなたと%{name}さんだけに表示'
+      not_allies: '（味方ではありません）'
+    header:
+      signout: 'ログアウト'
+      home: 'ホーム'
+    viewers_indicator:
+      disabled_comments: 'コメントは受け付けていません。'
+      you_are_viewer_html:
+        one: '閲覧者はあなただけです。'
+        other: '閲覧者はあなただけでは<strong>ありません</strong>。'
+      viewers_html:
+        zero: '閲覧者は<strong>いません</strong>。'
+        one: '%{names}さんが閲覧者です。'
+        other: '%{names}さんが閲覧者です。'
+    stats:
+      you_are_focusing: 'あなたがいちばん向き合っているのは'
+      user_is_focusing: '%{name}さんがいちばん向き合っているのは'
+      visible_in_stats: '統計に表示'
+      not_visible_in_stats: 'タグ付けやプロフィールの統計に表示しない'
+      make_visible_in_stats: 'タグ付けやプロフィールの統計に表示しますか？'
+    viewers:
+      plural: '閲覧者'
+      you: 'あなただけ'
+      you_link: 'あなただけに表示'
+      many: '%{viewers}さんに表示'
+    meeting_info:
+      attending: '参加予定です。予定を変えますか？'
+      not_attending: '参加していません。%{join}'
+      not_attending_one_spot_left: '参加していません。残り1人分の空きがあります！%{join}'
+      not_attending_spots_left: '参加していません。残り%{number}人分の空きがあります！%{join}'
+      not_attending_no_spots_left: '参加していません。定員に達しています。'
+    quick_create:
+      new: '新しい%{name}'
+  strategies:
+    singular: '対処法'
+    plural: '対処法'
+    edit_strategy: '対処法を編集'
+    tagged_strategies: 'タグを付けた対処法'
+    new: '新しい対処法'
+    form:
+      describe: '対処法を説明してください。'
+      strategies_label: 'そう考えられるようになるには、どんな対処法が役立ちそうですか？'
+      name_hint: 'あなたの助けになる活動、考え方、セルフケア'
+      viewers_hint: 'この対処法を見て、自分のできごとにタグとして付けられる味方'
+      daily_reminder_hint: 'この対処法を行うことを、毎日メールでお知らせします'
+      draft_question: 'この対処法を下書きとして保存しますか？'
+      bookmarked_question: 'この対処法をブックマークしますか？'
+      bookmarked_info: 'ブックマークした対処法は、セルフケアプランに表示されます'
+    label:
+      one: '対処法：'
+      other: '対処法：'
+    index:
+      subtitle: 'できごとに対して望む考え方や向き合い方ができるよう、セルフケアの対処法を考えましょう。'
+      premade1_name: '5分間の瞑想'
+      premade1_description: '1) <b>リラックスできる楽な姿勢をとります。</b>椅子に座っても、床のクッションに座ってもかまいません。背すじは伸ばしますが、力を入れすぎないように。手は楽なところに置きます。舌は上あごにつけるか、楽な位置に。<br /><br />2) <b>体に気づき、ゆるめます。</b>体の形や重さに気づいてみましょう。体をゆるめ、ここに座っている体に興味を向けます。感じている感覚、触れているもの、床や椅子との接点。こわばったところや緊張しているところをゆるめます。ただ呼吸します。<br /><br />3) <b>呼吸に意識を向けます。</b>吸って、吐いて。自然な呼吸の流れを感じます。呼吸を変えようとしなくてかまいません。長くも短くもなく、自然なままで。体のどこで呼吸を感じるかに気づきます。おなかかもしれません。胸やのど、鼻かもしれません。一回ずつ、呼吸の感覚を感じられるか試してみましょう。ひとつの呼吸が終わると、次の呼吸が始まります。<br /><br />4) <b>さまよう心にやさしく。</b>こうしていると、心がさまよい始めることに気づくかもしれません。ほかのことを考え始めるかもしれません。そうなっても問題ありません。とても自然なことです。心がさまよったことに、ただ気づきます。心の中でそっと「考えている」「さまよっている」と言ってもかまいません。そして、やさしく注意を呼吸に戻します。<br /><br />5) <b>5〜7分ほど、このまま続けます。</b>静かに呼吸に気づきます。ときどき考えごとに入りこんでも、また呼吸に戻ります。<br /><br />6) <b>終える前に、もう一度体に気づきます。</b>数分たったら、ここに座っている体、体全体にもう一度気づきます。さらに深くゆるめ、今日この練習をした自分に感謝しましょう。<br /><br /><i>出典：http://www.mindful.org/a-five-minute-breathing-meditation/ </i>'
+      instructions: 'まだ自分の対処法を作っていません。<br />下の用意された対処法を追加して、あとで自分に合わせて変えることもできます。'
+    reminder_mailer:
+      subject: 'if-me.org | %{name}を忘れずに！'
+      body: '%{name}をする時間です。お知らせします。'
+  stats:
+    total_moments: 'これまでに<strong>合計</strong><strong>%{count}</strong>件のできごとを書きました。'
+    total_moment: 'これまでに<strong>合計</strong><strong>%{count}</strong>件のできごとを書きました。'
+    monthly_moments: '<strong>今月</strong>は<strong>%{count}</strong>件のできごとを書きました。'
+    monthly_moment: '<strong>今月</strong>は<strong>%{count}</strong>件のできごとを書きました。'
+  warnings:
+    no_description: '説明を書いていません！'
+    yes_description: '説明を書くと、あなたもほかの人も、くわしく理解しやすくなります'
+  mailers:
+    accepted_ally_request:
+      subject: 'if-me.org | %{ally_name}さんが味方のリクエストを承認しました！'
+      message: '<p>おめでとうございます！これで%{ally_name}さんと、できごとや対処法などを分かち合えます。</p>'
+    new_ally_request:
+      subject: 'if-me.org | %{ally_name}さんから味方のリクエストが届きました！'
+      message: '<p><a href="%{allies_url}">ログイン</a>して、リクエストを承認するか断ってください。</p>'
+  devise:
+    password: 'パスワード'
+    new_password: '新しいパスワード'
+    current_password: '今のパスワード'
+    password_change: 'パスワードを変更'
+    remember_me: 'ログインしたままにする'
+    show_password: 'パスワードを表示'
+    hide_password: 'パスワードを隠す'
+    confirmations:
+      resend_confirmation: '確認の手順をもう一度送る'
+    mailer:
+      confirmation:
+        link_instructions: '下のリンクから、アカウントのメールアドレスを確認できます'
+        link_text: 'アカウントを確認する'
+      reset_password:
+        link_instructions: 'パスワードを変更するリンクのご依頼がありました。下のリンクから変更できます。'
+        ignore: 'お心当たりがない場合は、このメールを無視してください。'
+        info: '上のリンクを開いて新しいパスワードを作るまで、パスワードは変わりません。'
+      unlock:
+        info: 'ログインの失敗が多すぎたため、アカウントがロックされました。'
+        link_instructions: '下のリンクを押して、アカウントのロックを解除してください'
+        link_text: 'アカウントのロックを解除する'
+    passwords:
+      edit:
+        confirmation: '新しいパスワード（確認）'
+      new:
+        send_instructions: 'パスワードの再設定の手順を送る'
+    registrations:
+      email_notifications: 'メールのお知らせ'
+      comment_notify_text: 'できごと・対処法・ミーティングへのコメント'
+      ally_notify_text: '味方のリクエストの受信と承認'
+      group_notify_text: 'グループの更新'
+      meeting_notify_text: 'ミーティングの更新'
+      google_auth1: 'Google でのログインをやめる場合は、新しいメールアドレスとパスワードを入力してください。'
+      google_auth2: 'Google でログインしているので、パスワードの入力は不要です。<br />変える場合は、新しいメールアドレスとパスワードを入力してください。'
+      facebook_auth1: 'Facebook でのログインをやめる場合は、新しいメールアドレスとパスワードを入力してください。'
+      facebook_auth2: 'Facebook でログインしているので、パスワードの入力は不要です。<br />変える場合は、新しいメールアドレスとパスワードを入力してください。'
+      password_errors:
+        format: 'は8〜128文字にしてください。'
+      placeholders:
+        repeat_password: 'パスワード（確認）'
+      edit:
+        labels:
+          profile_picture: 'プロフィール写真'
+          remove_picture: '写真を外す'
+          about: '自己紹介'
+          password_for: '<strong>if-me.org</strong> アカウントのパスワード'
+          update: '更新'
+        placeholders:
+          optional: '任意'
+          about: '自己紹介をどうぞ！ここに来た理由や、目指していることは何ですか？ほかのユーザーがあなたを検索したときに表示されます'
+          required: '必須'
+        delete:
+          text: '<strong>if-me.org</strong> が合いませんか？'
+          button: 'アカウントを完全に削除する'
+          confirm: 'よろしいですか？すべてのデータが消えます。でも、いつでもまた登録できます！'
+      new:
+        subtitle: '安全でプライベートな場所で、自分の話を書き、健康を保ち始めましょう'
+        label: 'いくつかの項目'
+    sessions:
+      subtitle: 'おかえりなさい。今日一日を乗りこえるお手伝いができるのを楽しみにしています'
+    shared:
+      sign_in_google: 'Google でログイン'
+      sign_up_google: 'Google で登録'
+      sign_in_facebook: 'Facebook でログイン'
+      sign_up_facebook: 'Facebook で登録'
+      confirmation: '確認の手順のメールが届きませんか？'
+      unlock: 'ロック解除の手順のメールが届きませんか？'
+    unlock:
+      resend: 'ロック解除の手順をもう一度送る'
+  care_plan:
+    index:
+      title: 'セルフケアプラン'
+      subtitle: 'つらいときを乗りこえるための計画を立てましょう'
+      contacts: '連絡先'
+      new_contact: '新しい連絡先'
+      edit_contact: '連絡先を編集'
+      phone_number: '電話番号'
+      contacts_info: '話したい大切な人'
+  users:
+    data_request:
+      errors:
+        enqueued_for_user: 'このユーザーのリクエストはすでに受け付けています。'
+        duplicate_request_id: 'この request_id のリクエストはすでにあります。'
+    data_download:
+      label: 'データのダウンロード'
+      description: 'if-me.org のアカウントのデータを CSV ファイルでダウンロードします'
+      request: '自分のデータをダウンロードする'
+      processing: 'データを準備しています。数分かかることがあります…'
+      download: 'データをダウンロード（CSV）'
+      request_new: 'もう一度ダウンロードを依頼する'
+      error: 'データの準備中に問題が起きました。もう一度お試しください。'
+  moment_templates:
+    index:
+      title: 'できごとのテンプレート'
+      subtitle: 'できごとを書くためのテンプレート'
+      new_template: '新しいテンプレート'
+      edit_template: 'テンプレートを編集'
+      instructions: 'まだテンプレートを作っていません。<br />下の用意されたテンプレートを追加して、あとで自分に合わせて変えることもできます。'
+      premade1_name: '基本'
+      premade1_description: '何があって、どう感じていますか？<br />どんなふうに考えられたらいいですか？'
+      premade2_name: '感謝'
+      premade2_description: '自分のいいところを1つ挙げるとしたら？<br />今日楽しみにしていることは何ですか？'
