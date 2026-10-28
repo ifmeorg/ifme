@@ -1,0 +1,61 @@
+ja:
+  devise:
+    confirmations:
+      confirmed: 'メールアドレスを確認しました。'
+      send_instructions: 'メールアドレスの確認の手順を書いたメールを、数分以内にお送りします。'
+      send_paranoid_instructions: 'メールアドレスが登録されている場合は、メールアドレスの確認の手順を書いたメールが数分以内に届きます。'
+    failure:
+      already_authenticated: 'すでにログインしています。'
+      inactive: 'アカウントはまだ有効になっていません。'
+      invalid: '%{authentication_keys}かパスワードが正しくありません。'
+      locked: 'アカウントはロックされています。'
+      last_attempt: 'あと1回失敗すると、アカウントがロックされます。'
+      not_found_in_database: '%{authentication_keys}かパスワードが正しくありません。'
+      timeout: 'ログインの有効期限が切れました。続けるには、もう一度ログインしてください。'
+      unauthenticated: '続けるには、ログインするか新規登録してください。'
+      unconfirmed: '続けるには、メールアドレスを確認してください。'
+    mailer:
+      confirmation_instructions:
+        subject: 'if-me.org | メールアドレスの確認の手順'
+      reset_password_instructions:
+        subject: 'if-me.org | パスワードの再設定の手順'
+      unlock_instructions:
+        subject: 'if-me.org | ロック解除の手順'
+      password_change:
+        subject: 'if-me.org | パスワードを変更しました'
+    omniauth_callbacks:
+      failure: '%{kind}でログインできませんでした。理由：「%{reason}」'
+      success: '%{kind}のアカウントでログインしました。'
+    passwords:
+      no_token: 'このページは、パスワードの再設定のメールから開いてください。メールから開いた場合は、書かれている URL を最後まで使ったかを確かめてください。'
+      send_instructions: 'パスワードの再設定の手順を書いたメールを、数分以内にお送りします。'
+      send_paranoid_instructions: 'メールアドレスが登録されている場合は、パスワードの再設定のリンクが数分以内に届きます。'
+      updated: 'パスワードを変更しました。ログインしています。'
+      updated_not_active: 'パスワードを変更しました。'
+    registrations:
+      destroyed: 'アカウントを削除しました。またお会いできるのを楽しみにしています。'
+      signed_up: 'ようこそ！新規登録が終わりました。'
+      signed_up_but_inactive: '新規登録が終わりました。ただ、アカウントがまだ有効になっていないため、ログインできませんでした。'
+      signed_up_but_locked: '新規登録が終わりました。ただ、アカウントがロックされているため、ログインできませんでした。'
+      signed_up_but_unconfirmed: '確認のリンクを書いたメールをお送りしました。リンクを開いて、アカウントを有効にしてください。'
+      update_needs_confirmation: 'アカウントを更新しました。新しいメールアドレスの確認が必要です。メールを見て、確認のリンクを開いてください。'
+      updated: 'アカウントを更新しました。'
+    sessions:
+      signed_in: 'ログインしました。'
+      signed_out: 'ログアウトしました。'
+      already_signed_out: 'ログアウトしました。'
+    unlocks:
+      send_instructions: 'アカウントのロックを解除する手順を書いたメールを、数分以内にお送りします。'
+      send_paranoid_instructions: 'アカウントがある場合は、ロックを解除する手順を書いたメールが数分以内に届きます。'
+      unlocked: 'アカウントのロックを解除しました。続けるにはログインしてください。'
+  errors:
+    messages:
+      already_confirmed: 'はすでに確認済みです。ログインしてみてください'
+      confirmation_period_expired: 'は%{period}以内に確認する必要があります。もう一度お申し込みください'
+      expired: 'の有効期限が切れました。もう一度お申し込みください'
+      not_found: 'は見つかりませんでした'
+      not_locked: 'はロックされていませんでした'
+      not_saved:
+        one: 'エラーが1件あるため、%{resource}を保存できませんでした：'
+        other: 'エラーが%{count}件あるため、%{resource}を保存できませんでした：'
+      pwned_password: 'は過去のデータ漏えいに含まれていたため、使わないでください。ほかで使ったことがあれば、すぐに変更してください。'
