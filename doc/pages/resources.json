@@ -1205,5 +1205,11 @@
     "tags": ["asian", "south_asian", "pacific_islander", "southeast_asian", "east_asian", "communities", "education", "directory", "therapists", "counseling", "therapy"],
     "languages": ["en"],
     "locations": ["us"]
+  },
+  {
+    "name": "Mental: Mood Tracker & Journal",
+    "link": "https://getmental.app/",
+    "tags": ["ios", "free", "paid", "mood_tracking", "journaling"],
+    "languages": ["en"]
   }
 ]
