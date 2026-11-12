@@ -1,0 +1,27 @@
+ja:
+  devise:
+    failure:
+      invited: '受け取っていない招待があります。招待を受けて、アカウントの作成を終えてください。'
+    invitations:
+      send_instructions: '%{email} に招待のメールを送りました。'
+      failed_send: '問題が起きました。%{email} を招待できませんでした。'
+      invitation_token_invalid: '招待のトークンが正しくありません。'
+      updated: 'パスワードを設定しました。ログインしています。'
+      updated_not_active: 'パスワードを設定しました。'
+      no_invitations_remaining: '招待できる残りの数がありません'
+      invitation_removed: '招待を取り消しました。'
+      new:
+        header: '味方に招待を送る'
+        submit_button: '招待を送る'
+      edit:
+        header: 'パスワードを設定'
+        submit_button: 'パスワードを設定する'
+    mailer:
+      invitation_instructions:
+        subject: 'if-me.org | %{name}さんから if-me.org への招待が届きました'
+        subject_nameless: 'if-me.org | if-me.org への招待が届きました'
+        hello: '%{email} さん、こんにちは。'
+        someone_invited_you: '%{name}さんが、あなたを http://www.if-me.org に招待しました。if-me.org は、こころの健康についての経験を大切な人と分かち合い、気分やお薬、セルフケアを記録できるコミュニティです。下のリンクから招待を受けられます。'
+        accept: '招待を受ける'
+        accept_until: 'この招待の期限は%{due_date}です。'
+        ignore: '招待を受けない場合は、このメールを無視してください。<br/>上のリンクを開いてパスワードを設定するまで、アカウントは作られません。'
