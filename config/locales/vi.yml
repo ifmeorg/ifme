@@ -923,12 +923,12 @@ vi:
       plural: Người xem
       you: Duy nhất có bạn
       you_link: Hiển thị duy nhất cho bạn
-      many: 'Hiển thị đối với %{khán giả}'
+      many: 'Hiển thị đối với %{viewers}'
     meeting_info:
       attending: 'Bạn đang tham gia vào, có thay đổi quyết định không?'
       not_attending: 'Bạn đang tham gia vào. %{join}'
       not_attending_one_spot_left: 'Bạn không tham gia, chỉ còn một chổ duy nhất! %{join}'
-      not_attending_spots_left: 'Bạn không tham dự. Có %{number} điểm còn lại để điền! %{tham gia}'
+      not_attending_spots_left: 'Bạn không tham dự. Có %{number} điểm còn lại để điền! %{join}'
       not_attending_no_spots_left: Bạn không tham dự. Không có chỗ để tham gia.
     quick_create:
       new: 'Mới %{name}'

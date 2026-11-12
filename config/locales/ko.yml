@@ -271,7 +271,7 @@ ko:
       body: '%{name}을(를) 복용하도록 알려주는 친절한 알림입니다!'
     refill_mailer:
       subject: 'if-me.org | 곧 %{name}을(를) 재구매 해야합니다!'
-      body: '%{name}을(를) 재구매하도록 알려주는 친절한 알림입니다!'
+      body: '%{refill}에 %{name}을(를) 재구매하도록 알려주는 친절한 알림입니다!'
     index:
       title: 의약품
       subtitle: 복용량 및 리필정보 등 당신의 약에 대한 정보를 계속 확인하십시오.
