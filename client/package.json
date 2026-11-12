@@ -160,7 +160,7 @@
     }
   },
   "resolutions": {
-    "minimist": "^1.2.6",
+    "minimist": "^1.2.8",
     "marked": ">=0.6.2",
     "braces": ">=2.3.1",
     "https-proxy-agent": "^2.2.3",
