@@ -16,9 +16,7 @@ export const RegularSizeAndRegularStyle = Template.bind({});
 
 RegularSizeAndRegularStyle.args = { id: 'some_id', title, children };
 RegularSizeAndRegularStyle.storyName = 'Regular size and regular style';
-RegularSizeAndRegularStyle.parameters = {
-  backgrounds: { default: 'mulberry' },
-};
+RegularSizeAndRegularStyle.globals = { backgrounds: { value: 'mulberry' } };
 
 export const LargeSizeAndRegularStyle = Template.bind({});
 
@@ -29,9 +27,7 @@ LargeSizeAndRegularStyle.args = {
   large: true,
 };
 LargeSizeAndRegularStyle.storyName = 'Large size and regular style';
-LargeSizeAndRegularStyle.parameters = {
-  backgrounds: { default: 'mulberry' },
-};
+LargeSizeAndRegularStyle.globals = { backgrounds: { value: 'mulberry' } };
 
 export const RegularSizeAndDarkStyle = Template.bind({});
 

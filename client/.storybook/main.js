@@ -12,16 +12,11 @@ module.exports = {
   ],
   addons: [
     '@storybook/addon-links',
-    {
-      name: '@storybook/addon-essentials',
-      options: {
-        controls: false,
-        actions: false,
-      }
-    },
+    '@storybook/addon-docs',
   ],
-  docs: {
-    autodocs: true,
+  features: {
+    controls: false,
+    actions: false,
   },
   webpackFinal: (config) => {
     config.resolve.modules.push(path.resolve(__dirname, '../..'));

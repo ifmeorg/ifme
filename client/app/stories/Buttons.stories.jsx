@@ -65,6 +65,4 @@ const DarkBackgroundTemplate = (args) => (
 export const ButtonsOnDarkBackground = DarkBackgroundTemplate.bind({});
 
 ButtonsOnDarkBackground.storyName = 'Buttons on dark background';
-ButtonsOnDarkBackground.parameters = {
-  backgrounds: { default: 'mulberry' },
-};
+ButtonsOnDarkBackground.globals = { backgrounds: { value: 'mulberry' } };
