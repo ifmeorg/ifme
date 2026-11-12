@@ -53,12 +53,5 @@ export const Welcome = () => (
   </div>
 );
 
-Welcome.parameters = {
-  viewMode: 'story',
-  backgrounds: { default: 'mulberry' },
-  previewTabs: {
-    'storybook/docs/panel': {
-      hidden: true,
-    },
-  },
-};
+Welcome.parameters = { viewMode: 'story' };
+Welcome.globals = { backgrounds: { value: 'mulberry' } };

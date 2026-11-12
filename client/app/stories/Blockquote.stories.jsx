@@ -16,6 +16,4 @@ Default.args = {
     "It's not just all in your head, it's all around you. We can heal together.",
   author: '❤️',
 };
-Default.parameters = {
-  backgrounds: { default: 'mulberry' },
-};
+Default.globals = { backgrounds: { value: 'mulberry' } };

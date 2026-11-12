@@ -10,8 +10,10 @@ const sampleChartData = {
 
 export default {
   title: 'Components/Chart',
-  parameters: {
-    backgrounds: { default: 'white' },
+  globals: {
+    backgrounds: {
+      value: 'white',
+    },
   },
 };
 

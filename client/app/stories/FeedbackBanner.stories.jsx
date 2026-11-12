@@ -7,8 +7,10 @@ const action = (name) => (...args) => console.log(name, ...args); // eslint-disa
 export default {
   title: 'Components/FeedbackBanner',
   component: FeedbackBanner,
-  parameters: {
-    backgrounds: { default: 'mulberry' },
+  globals: {
+    backgrounds: {
+      value: 'mulberry',
+    },
   },
 };
 

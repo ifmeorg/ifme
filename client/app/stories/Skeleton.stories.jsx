@@ -5,8 +5,10 @@ import { Skeleton } from 'components/Skeleton';
 export default {
   title: 'Components/Skeleton',
   component: Skeleton,
-  parameters: {
-    backgrounds: { default: 'white' },
+  globals: {
+    backgrounds: {
+      value: 'white',
+    },
   },
 };
 
