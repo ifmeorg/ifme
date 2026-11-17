@@ -53,3 +53,30 @@
     <%= "#{t('no_text')} #{t('reports.banned_users')}".titleize %>
   </div>
 <% end %>
+
+<% if @pending_moments.exists? %>
+  <div class="title"><%= t('reports.pending_public_moments') %></div>
+  <div class="gridTwo">
+    <% @pending_moments.each do |moment| %>
+      <div class="gridTwoItemBoxLight">
+        <div>
+          <strong><%= moment.name %></strong>
+        </div>
+        <div>
+          <%= link_to moment.user.name, profile_index_path(uid: moment.user.uid) %>
+        </div>
+        <div class="smallMarginTop">
+          <%= react_component('Modal', props: {
+            element: "<button class=\"buttonDarkXS\">#{t('reports.view_story')}</button>",
+            title: moment.name,
+            body: sanitize(moment.why)
+          }) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="title">
+    <%= "#{t('no_text')} #{t('reports.pending_public_moments')}".titleize %>
+  </div>
+<% end %>
