@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_06_27_000001) do
+ActiveRecord::Schema[7.0].define(version: 2026_11_17_000001) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -166,6 +166,8 @@ ActiveRecord::Schema[7.0].define(version: 2026_06_27_000001) do
     t.boolean "resource_recommendations", default: true
     t.boolean "crisis_prevention_acknowledged", default: false, null: false
     t.text "crisis_prevention_acknowledged_text"
+    t.boolean "make_public", default: false, null: false
+    t.datetime "public_approved_at"
     t.index ["secret_share_identifier"], name: "index_moments_on_secret_share_identifier", unique: true
     t.index ["slug"], name: "index_moments_on_slug", unique: true
   end
