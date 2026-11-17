@@ -72,6 +72,9 @@
             body: sanitize(moment.why)
           }) %>
         </div>
+        <div class="smallMarginTop">
+          <%= link_to t('reports.approve_moment'), approve_public_moment_path(moment_id: moment.id), method: :post %>
+        </div>
       </div>
     <% end %>
   </div>
