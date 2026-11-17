@@ -11,7 +11,7 @@ class PagesController < ApplicationController
 
   before_action :if_not_admin, only: %i[admin_dashboard]
 
-  def home
+  def homeen.yml
     if user_signed_in?
       setup_stories
       load_dashboard_data if @stories.present? && @stories.count.positive?
