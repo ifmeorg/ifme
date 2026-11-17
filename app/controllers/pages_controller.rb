@@ -62,6 +62,8 @@ class PagesController < ApplicationController
   def admin_dashboard
     @reports = Report.order('created_at DESC').all
     @banned_users = User.where(banned: true)
+    @pending_moments = Moment.where(make_public: true, public_approved_at: nil)
+                             .order('created_at DESC')
   end
 
   def faq; end
