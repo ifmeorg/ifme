@@ -110,6 +110,11 @@ ko:
     days: 날들
   reports:
     admin_dashboard: 관리자 대시보드
+    pending_public_moments: Moments Awaiting Public Approval
+    view_story: View Story
+    approve_moment: Approve
+    moment_approved: Moment approved for the public page
+    moment_approved_error: Could not approve this moment
     reported_users: 신고된 사용자
     banned_users: 정지된 사용자
     reasons: 사유
