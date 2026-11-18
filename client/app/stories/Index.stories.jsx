@@ -4,6 +4,7 @@ import css from 'styles/_global.scss';
 
 export default {
   title: 'Home',
+  tags: ['!autodocs'],
 };
 
 export const Welcome = () => (

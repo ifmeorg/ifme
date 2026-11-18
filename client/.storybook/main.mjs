@@ -1,7 +1,12 @@
-const path = require('path');
-const custom = require('../webpack.config');
+import path from 'node:path';
+import { createRequire } from 'node:module';
+import { fileURLToPath } from 'node:url';
 
-module.exports = {
+const require = createRequire(import.meta.url);
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const custom = require('../webpack.config.js');
+
+export default {
   framework: {
     name: '@storybook/react-webpack5',
     options: {},
@@ -17,6 +22,8 @@ module.exports = {
   features: {
     controls: false,
     actions: false,
+    sidebarOnboardingChecklist: false,
+    menuOnboardingChecklist: false,
   },
   webpackFinal: (config) => {
     config.resolve.modules.push(path.resolve(__dirname, '../..'));
