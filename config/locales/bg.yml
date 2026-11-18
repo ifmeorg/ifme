@@ -110,6 +110,11 @@ bg:
     days: Дни
   reports:
     admin_dashboard: Администраторско табло
+    pending_public_moments: Moments Awaiting Public Approval
+    view_story: View Story
+    approve_moment: Approve
+    moment_approved: Moment approved for the public page
+    moment_approved_error: Could not approve this moment
     reported_users: докладвани потребители
     banned_users: блокирани потребители
     reasons: Причини

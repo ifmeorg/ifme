@@ -126,6 +126,11 @@ en:
     ban_removed: 'Ban removed from %{name}'
     user_banned_error: 'Could not ban %{name}'
     ban_removed_error: 'Could not remove ban from %{name}'
+    pending_public_moments: Moments Awaiting Public Approval
+    view_story: View Story
+    approve_moment: Approve
+    moment_approved: Moment approved for the public page
+    moment_approved_error: Could not approve this moment
   comment:
     singular: Comment
     plural: Comments
@@ -1116,3 +1121,4 @@ en:
       premade2_description: >-
         What is one thing you appreciate about yourself?<br />What are you
         looking forward to today?
+        

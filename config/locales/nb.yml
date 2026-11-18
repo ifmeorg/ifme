@@ -112,6 +112,11 @@ nb:
     days: Dager
   reports:
     admin_dashboard: Admin Dashboard
+    pending_public_moments: Moments Awaiting Public Approval
+    view_story: View Story
+    approve_moment: Approve
+    moment_approved: Moment approved for the public page
+    moment_approved_error: Could not approve this moment
     reported_users: Rapporterte Brukere
     banned_users: Forbudte Brukere
     reasons: Grunner

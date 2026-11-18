@@ -112,6 +112,11 @@ sv:
     days: dagar
   reports:
     admin_dashboard: Admin Dashboard
+    pending_public_moments: Moments Awaiting Public Approval
+    view_story: View Story
+    approve_moment: Approve
+    moment_approved: Moment approved for the public page
+    moment_approved_error: Could not approve this moment
     reported_users: Rapporterade Användare
     banned_users: Förbjudna Användare
     reasons: Anledningar

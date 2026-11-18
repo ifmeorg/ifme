@@ -110,6 +110,11 @@ zh-CN:
     days: 天
   reports:
     admin_dashboard: 管理员
+    pending_public_moments: Moments Awaiting Public Approval
+    view_story: View Story
+    approve_moment: Approve
+    moment_approved: Moment approved for the public page
+    moment_approved_error: Could not approve this moment
     reported_users: 投诉不良用户
     banned_users: 封号的用户
     reasons: 原因

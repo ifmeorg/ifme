@@ -112,6 +112,11 @@ pt-BR:
     days: Dias
   reports:
     admin_dashboard: Painel de administração
+    pending_public_moments: Moments Awaiting Public Approval
+    view_story: View Story
+    approve_moment: Approve
+    moment_approved: Moment approved for the public page
+    moment_approved_error: Could not approve this moment
     reported_users: Usuários reportados
     banned_users: Usuários banidos
     reasons: Motivos

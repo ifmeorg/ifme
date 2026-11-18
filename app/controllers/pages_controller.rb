@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   skip_before_action :if_not_signed_in, except: %i[home_data]
   before_action :if_not_signed_in, only: %i[home_data]
 
-  before_action :if_not_admin, only: %i[admin_dashboard]
+  before_action :if_not_admin, only: %i[admin_dashboard approve_public_moment]
 
   def home
     if user_signed_in?
@@ -62,6 +62,21 @@ class PagesController < ApplicationController
   def admin_dashboard
     @reports = Report.order('created_at DESC').all
     @banned_users = User.where(banned: true)
+    @pending_moments = Moment.where(make_public: true, public_approved_at: nil)
+                             .order('created_at DESC')
+  end
+
+  def approve_public_moment
+    moment = Moment.where(make_public: true, public_approved_at: nil)
+                   .find_by(id: params[:moment_id])
+    if moment.present?
+      moment.update_column(:public_approved_at, Time.zone.now)
+      redirect_to admin_dashboard_path,
+                  notice: t('reports.moment_approved')
+    else
+      redirect_to admin_dashboard_path,
+                  alert: t('reports.moment_approved_error')
+    end
   end
 
   def faq; end

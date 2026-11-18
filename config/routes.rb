@@ -122,6 +122,7 @@ Rails.application.routes.draw do
   get 'pages/home'
   match 'about', to: 'pages#about', via: :get
   match 'admin_dashboard', to: 'pages#admin_dashboard', via: :get
+  match 'approve_public_moment', to: 'pages#approve_public_moment', via: :post
   match 'partners', to: 'pages#partners', via: :get
   match 'privacy', to: 'pages#privacy', via: :get
   match 'faq', to: 'pages#faq', via: :get

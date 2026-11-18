@@ -112,6 +112,11 @@ zh-TW:
     days: 天
   reports:
     admin_dashboard: 管理員儀表板
+    pending_public_moments: Moments Awaiting Public Approval
+    view_story: View Story
+    approve_moment: Approve
+    moment_approved: Moment approved for the public page
+    moment_approved_error: Could not approve this moment
     reported_users: 被檢舉的使用者
     banned_users: 被停權的使用者
     reasons: 原因
