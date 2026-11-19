@@ -4,6 +4,7 @@ import css from 'styles/_global.scss';
 
 export default {
   title: 'Home',
+  tags: ['!autodocs'],
 };
 
 export const Welcome = () => (
@@ -53,12 +54,5 @@ export const Welcome = () => (
   </div>
 );
 
-Welcome.parameters = {
-  viewMode: 'story',
-  backgrounds: { default: 'mulberry' },
-  previewTabs: {
-    'storybook/docs/panel': {
-      hidden: true,
-    },
-  },
-};
+Welcome.parameters = { viewMode: 'story' };
+Welcome.globals = { backgrounds: { value: 'mulberry' } };

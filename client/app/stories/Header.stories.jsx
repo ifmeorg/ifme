@@ -20,9 +20,7 @@ NoActiveLink.args = {
   ],
 };
 NoActiveLink.storyName = 'With no active link';
-NoActiveLink.parameters = {
-  backgrounds: { default: 'mulberry' },
-};
+NoActiveLink.globals = { backgrounds: { value: 'mulberry' } };
 
 export const HasActiveLink = Template.bind({});
 
@@ -35,9 +33,7 @@ HasActiveLink.args = {
   ],
 };
 HasActiveLink.storyName = 'With an active link';
-HasActiveLink.parameters = {
-  backgrounds: { default: 'mulberry' },
-};
+HasActiveLink.globals = { backgrounds: { value: 'mulberry' } };
 
 export const WithLanguageSelector = Template.bind({});
 
@@ -52,6 +48,4 @@ WithLanguageSelector.args = {
   locales: ['en', 'es', 'fr'],
 };
 WithLanguageSelector.storyName = 'With language selector';
-WithLanguageSelector.parameters = {
-  backgrounds: { default: 'mulberry' },
-};
+WithLanguageSelector.globals = { backgrounds: { value: 'mulberry' } };

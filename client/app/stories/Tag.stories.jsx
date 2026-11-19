@@ -16,9 +16,7 @@ NormalStyle.args = {
   label: 'Self-Injury',
 };
 NormalStyle.storyName = 'Normal style';
-NormalStyle.parameters = {
-  backgrounds: { default: 'mulberry' },
-};
+NormalStyle.globals = { backgrounds: { value: 'mulberry' } };
 
 export const SecondaryStyle = Template.bind({});
 
