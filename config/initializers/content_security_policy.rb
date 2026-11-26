@@ -6,7 +6,7 @@ Rails.application.config.content_security_policy do |policy|
   policy.default_src :self
   policy.connect_src :self, 'wss://*.pusher.com', 'https://sockjs.pusher.com',
                      'https://stats.pusher.com'
-  policy.font_src    :self, 'https://cdn.jsdelivr.net'
+  policy.font_src    :self, 'https://cdn.jsdelivr.net', 'https://fonts.gstatic.com'
   policy.img_src     :self, :data, 'https://res.cloudinary.com',
                      'https://maps.gstatic.com'
   policy.object_src  :none
@@ -17,5 +17,6 @@ Rails.application.config.content_security_policy do |policy|
                      'https://maps.googleapis.com/maps/api/js',
                      'https://maps.googleapis.com/maps-api-v3/api/js',
                      'https://maps.googleapis.com/maps/api/place/js'
-  policy.style_src   :self, :unsafe_inline, 'https://cdn.jsdelivr.net'
+  policy.style_src   :self, :unsafe_inline, 'https://cdn.jsdelivr.net',
+                     'https://fonts.googleapis.com'
 end
