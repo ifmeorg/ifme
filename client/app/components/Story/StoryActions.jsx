@@ -124,14 +124,14 @@ const displayNonLink = (
   actions: Actions,
   item: ActionItem,
   hasStory: ?boolean,
-  dark: ?boolean,
+  icon: Node,
 ) => {
   const capitalizeItem = item.charAt(0).toUpperCase() + item.slice(1);
   const text = (actions[item]: any);
   return (
     <div key={item} className={`storyActions${capitalizeItem}`}>
       <Tooltip
-        element={classMap(dark)[item]}
+        element={icon}
         text={typeof text === 'string' ? text : ''}
         right={!!hasStory}
       />
@@ -145,7 +145,7 @@ const tooltipElement = (
   item: ActionItem,
   actions: Actions,
   storyName: ?string,
-  dark: ?boolean,
+  icon: Node,
 ) => {
   const action: any = actions[item];
   const {
@@ -166,7 +166,7 @@ const tooltipElement = (
           : undefined
       }
     >
-      {classMap(dark)[item]}
+      {icon}
     </a>
   );
 };
@@ -176,13 +176,13 @@ const displayLink = (
   item: ActionItem,
   storyName: ?string,
   hasStory: ?boolean,
-  dark: ?boolean,
+  icon: Node,
 ) => {
   const action: any = actions[item];
   return (
     <div key={item} className={`storyActions${titleItem(item)}`}>
       <Tooltip
-        element={tooltipElement(item, actions, storyName, dark)}
+        element={tooltipElement(item, actions, storyName, icon)}
         text={action && action.name ? action.name : ''}
         right={!!hasStory}
       />
@@ -195,7 +195,7 @@ const displayItem = (
   item: ActionItem,
   storyName: ?string,
   hasStory: ?boolean,
-  dark: ?boolean,
+  icon: Node,
 ) => {
   if (
     item === VIEWERS
@@ -203,15 +203,17 @@ const displayItem = (
     || item === NOT_VISIBLE
     || item === SHARE_LINK_INFO
   ) {
-    return displayNonLink(actions, item, hasStory, dark);
+    return displayNonLink(actions, item, hasStory, icon);
   }
-  return displayLink(actions, item, storyName, hasStory, dark);
+  return displayLink(actions, item, storyName, hasStory, icon);
 };
 
 export const StoryActions = (props: Props): Node => {
   const {
     actions, hasStory, dark, storyName,
   } = props;
+  // Built once per render instead of once per present action.
+  const icons = classMap(dark);
   return (
     <div className={css.actions}>
       {[
@@ -227,7 +229,7 @@ export const StoryActions = (props: Props): Node => {
         VIEWERS,
         SHARE_LINK_INFO,
       ].map((item: ActionItem) => (actions[item]
-        ? displayItem(actions, item, storyName, hasStory, dark)
+        ? displayItem(actions, item, storyName, hasStory, icons[item])
         : null))}
     </div>
   );
