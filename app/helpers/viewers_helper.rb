@@ -68,12 +68,12 @@ module ViewersHelper
   end
 
   def get_viewers(data, data_type, obj)
-    objs = obj.where(user_id: data.user_id).order('created_at DESC')
-    objs.each do |ob|
-      item = ob.send(data_type).pluck(:id)
-      return Array(ob.viewers) if item.include?(data.id)
-    end
-    []
+    match = obj.where(user_id: data.user_id)
+               .joins(data_type.to_sym)
+               .where(data_type.to_sym => { id: data.id })
+               .order('created_at DESC')
+               .first
+    match ? Array(match.viewers) : []
   end
 
   def get_viewers_input(viewers, name, translation_name, obj)
