@@ -1,2 +1,2 @@
-<% title "#{t('moods.new')}" %>
-<%= react_component('Form', props: new_mood_props) %>
+<%= render 'shared/categories_or_moods/new', translation_prefix: 'moods',
+                                           props: new_mood_props %>

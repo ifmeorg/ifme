@@ -12,15 +12,7 @@ class MoodsController < ApplicationController
   # GET /moods.json
   def index
     page_collection('@moods', 'mood')
-    respond_to do |format|
-      format.json do
-        render json: {
-          data: categories_or_moods_props(@moods),
-          lastPage: @moods.last_page?
-        }
-      end
-      format.html
-    end
+    shared_index_response(@moods)
   end
 
   # GET /moods/1

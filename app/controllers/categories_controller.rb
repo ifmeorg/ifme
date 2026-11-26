@@ -13,15 +13,7 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     page_collection('@categories', 'category')
-    respond_to do |format|
-      format.json do
-        render json: {
-          data: categories_or_moods_props(@categories),
-          lastPage: @categories.last_page?
-        }
-      end
-      format.html
-    end
+    shared_index_response(@categories)
   end
 
   # GET /categories/1
