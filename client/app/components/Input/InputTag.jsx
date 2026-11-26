@@ -170,11 +170,9 @@ export function InputTag({
           {isOpen
             && suggestions.map((checkbox: Checkbox, index: number) => (
               <li
-                className={
-                  index === highlightedIndex
-                    ? css.suggestionHighlighted
-                    : css.suggestion
-                }
+                className={`${css.suggestion} ${
+                  index === highlightedIndex ? css.suggestionHighlighted : ''
+                }`}
                 key={checkbox.id}
                 {...getItemProps({ item: checkbox, index })}
               >
