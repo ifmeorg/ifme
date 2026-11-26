@@ -10,9 +10,9 @@ Rails.application.config.content_security_policy do |policy|
   policy.img_src     :self, :data, 'https://res.cloudinary.com',
                      'https://maps.gstatic.com'
   policy.object_src  :none
-  # unsafe_inline is required for inline_js (production asset inlining).
-  # React-side XSS is mitigated by DOMPurify.
-  policy.script_src  :self, :unsafe_inline,
+  # inline_js (production asset inlining) uses a per-request nonce instead of
+  # unsafe_inline; see config.content_security_policy_nonce_generator.
+  policy.script_src  :self,
                      'https://js.pusher.com/3.0/pusher.min.js',
                      'https://maps.googleapis.com/maps/api/js',
                      'https://maps.googleapis.com/maps-api-v3/api/js',

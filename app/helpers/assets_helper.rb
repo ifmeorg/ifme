@@ -6,7 +6,8 @@ module AssetsHelper
     content = inline_file(path)
     return nil unless content
 
-    "<script>#{content}</script>".html_safe
+    nonce = content_security_policy_nonce if respond_to?(:content_security_policy_nonce)
+    %(<script#{%( nonce="#{nonce}") if nonce}>#{content}</script>).html_safe
   end
 
   def inline_css(path)

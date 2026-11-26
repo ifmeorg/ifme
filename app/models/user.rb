@@ -87,7 +87,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :uid, :lockable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
-         :confirmable, omniauth_providers: %i[google_oauth2 facebook]
+         :confirmable, :timeoutable, omniauth_providers: %i[google_oauth2 facebook]
   # https://github.com/michaelbanfield/devise-pwned_password#disabling-in-test-environments
   # TODO: reenable if we disable real network requests & stub them with Webmock
   # https://github.com/bblimke/webmock
