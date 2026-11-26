@@ -6,6 +6,12 @@ module PageRedirectConcern
     helper_method :if_not_signed_in, :if_not_admin, :redirect_to_path
   end
 
+  def redirect_unless_owner!(resource, fallback_path)
+    return if resource.user_id == current_user.id
+
+    redirect_to_path(fallback_path)
+  end
+
   def if_not_signed_in
     return if user_signed_in?
 

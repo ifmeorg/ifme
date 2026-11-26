@@ -28,7 +28,7 @@ class MedicationsController < ApplicationController
   # GET /medications/1
   # GET /medications/1.json
   def show
-    redirect_to_path(medications_path) if @medication.user_id != current_user.id
+    redirect_unless_owner!(@medication, medications_path)
   end
 
   # GET /medications/new
@@ -42,9 +42,7 @@ class MedicationsController < ApplicationController
   def edit
     TakeMedicationReminder.find_or_initialize_by(medication_id: @medication.id)
     RefillReminder.find_or_initialize_by(medication_id: @medication.id)
-    return if @medication.user_id == current_user.id
-
-    redirect_to_medication(@medication)
+    redirect_unless_owner!(@medication, medication_path(@medication))
   end
 
   def add_refill(medication)
