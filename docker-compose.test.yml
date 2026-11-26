@@ -46,7 +46,6 @@ services:
     container_name: selenium
     environment:
       - SE_NODE_MAX_INSTANCES=1
-      - SE_NODE_PORT=5555
       - SE_NODE_SESSION_TIMEOUT=300
       - SE_NODE_CLEAN_UP_CYCLE=5000
 
