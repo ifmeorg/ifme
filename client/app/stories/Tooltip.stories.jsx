@@ -36,9 +36,7 @@ const ElementIsHtmlTemplate = (args) => (
 export const ElementIsHtml = ElementIsHtmlTemplate.bind({});
 
 ElementIsHtml.storyName = 'Element is HTML';
-ElementIsHtml.parameters = {
-  backgrounds: { default: 'mulberry' },
-};
+ElementIsHtml.globals = { backgrounds: { value: 'mulberry' } };
 
 const ElementIsTextAndTooltipIsPositionedRightTemplate = (args) => (
   <center>
@@ -69,9 +67,7 @@ export const ElementIsHtmlAndTooltipIsPositionedRight = ElementIsHtmlAndTooltipI
 );
 
 ElementIsHtmlAndTooltipIsPositionedRight.storyName = 'Element is HTML and tooltip is positioned right';
-ElementIsHtmlAndTooltipIsPositionedRight.parameters = {
-  backgrounds: { default: 'mulberry' },
-};
+ElementIsHtmlAndTooltipIsPositionedRight.globals = { backgrounds: { value: 'mulberry' } };
 
 const ElementIsTextAndTooltipIsPositionedCenterTemplate = (args) => (
   <center>
@@ -102,6 +98,4 @@ export const ElementIsHtmlAndTooltipIsPositionedCenter = ElementIsHtmlAndTooltip
 );
 
 ElementIsHtmlAndTooltipIsPositionedCenter.storyName = 'Element is HTML and tooltip is positioned center';
-ElementIsHtmlAndTooltipIsPositionedCenter.parameters = {
-  backgrounds: { default: 'mulberry' },
-};
+ElementIsHtmlAndTooltipIsPositionedCenter.globals = { backgrounds: { value: 'mulberry' } };

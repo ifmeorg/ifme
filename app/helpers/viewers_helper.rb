@@ -59,7 +59,9 @@ module ViewersHelper
   def get_viewer_list(data, link)
     return only_you_as_viewer(link) if data.blank?
 
-    names = User.where(id: Array(data)).pluck(:name).to_sentence
+    ids = Array(data)
+    names_by_id = User.where(id: ids).pluck(:id, :name).to_h
+    names = ids.filter_map { |id| names_by_id[id] }.to_sentence
     return only_you_as_viewer(link) if names.blank?
 
     link ? t('shared.viewers.many', viewers: names) : names

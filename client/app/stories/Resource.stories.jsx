@@ -25,9 +25,7 @@ WithTags.args = {
   title: 'LifeSIGNS: Self Injury Guidance & Network Support (UK)',
   link: 'http://www.lifesigns.org.uk/',
 };
-WithTags.parameters = {
-  backgrounds: { default: 'mulberry' },
-};
+WithTags.globals = { backgrounds: { value: 'mulberry' } };
 WithTags.storyName = 'With tags';
 
 export const WithoutTags = Template.bind({});
@@ -38,9 +36,7 @@ WithoutTags.args = {
   link: 'https://if-me.org',
   author: 'Author with a very very long name that is usually an edge case',
 };
-WithoutTags.parameters = {
-  backgrounds: { default: 'mulberry' },
-};
+WithoutTags.globals = { backgrounds: { value: 'mulberry' } };
 WithoutTags.storyName = 'Without tags';
 
 export const WithAllProps = Template.bind({});
@@ -52,7 +48,5 @@ WithAllProps.args = {
   link: 'https://if-me.org',
   author: 'Desi Rottman',
 };
-WithAllProps.parameters = {
-  backgrounds: { default: 'mulberry' },
-};
+WithAllProps.globals = { backgrounds: { value: 'mulberry' } };
 WithAllProps.storyName = 'With all props';
