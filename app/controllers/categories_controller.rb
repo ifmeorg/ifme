@@ -28,7 +28,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     setup_stories
-    redirect_to_path(categories_path) if @category.user_id != current_user.id
+    redirect_unless_owner!(@category, categories_path)
     @page_new_buttons = [
       { text: t('moments.new'), path: new_moment_path(category: @category.slug) },
       { text: t('strategies.new'), path: new_strategy_path(category: @category.slug) }
@@ -42,9 +42,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
-    return if @category.user_id == current_user.id
-
-    redirect_to_path(category_path(@category))
+    redirect_unless_owner!(@category, category_path(@category))
   end
 
   # POST /categories

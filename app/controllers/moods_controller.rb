@@ -27,7 +27,7 @@ class MoodsController < ApplicationController
   # GET /moods/1.json
   def show
     setup_stories
-    redirect_to_path(moods_path) if @mood.user_id != current_user.id
+    redirect_unless_owner!(@mood, moods_path)
   end
 
   # GET /moods/new
@@ -38,9 +38,7 @@ class MoodsController < ApplicationController
 
   # GET /moods/1/edit
   def edit
-    return if @mood.user_id == current_user.id
-
-    redirect_to_path(mood_path(@mood))
+    redirect_unless_owner!(@mood, mood_path(@mood))
   end
 
   # POST /moods
