@@ -107,7 +107,7 @@ jobs:
           name: Run Rails RSpec Tests
           command: |
             set -e
-            TESTFILES=$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+            TESTFILES=$(circleci tests glob "spec/**/*_spec.rb")
             bundle exec rspec \
               --format progress \
               --format RspecJunitFormatter \
@@ -117,7 +117,6 @@ jobs:
           root: .
           paths:
             - coverage/
-      # Store timing data for future test splits
       - store_test_results:
           path: $CIRCLE_TEST_REPORTS
       - run:
