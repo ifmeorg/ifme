@@ -4,14 +4,11 @@ module CommentsHelper
   include ResourceRouting
 
   def generate_comments(comments)
-    result_comments = []
-    comments.each do |comment|
-      next unless CommentViewersService.viewable?(comment, current_user)
-
-      user = User.find(comment.comment_by)
-      result_comments.push(comment_hash(comment, user))
+    viewable_comments = comments.select do |comment|
+      CommentViewersService.viewable?(comment, current_user)
     end
-    result_comments
+    users_by_id = User.where(id: viewable_comments.map(&:comment_by)).index_by(&:id)
+    viewable_comments.map { |comment| comment_hash(comment, users_by_id[comment.comment_by]) }
   end
 
   def show_with_comments(subject)
