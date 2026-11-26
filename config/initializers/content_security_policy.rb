@@ -14,6 +14,7 @@ Rails.application.config.content_security_policy do |policy|
   # unsafe_inline; see config.content_security_policy_nonce_generator.
   policy.script_src  :self,
                      'https://js.pusher.com/3.0/pusher.min.js',
+                     'https://stats.pusher.com',
                      'https://maps.googleapis.com/maps/api/js',
                      'https://maps.googleapis.com/maps-api-v3/api/js',
                      'https://maps.googleapis.com/maps/api/place/js'
