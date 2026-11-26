@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_11_17_000001) do
+ActiveRecord::Schema[7.0].define(version: 2026_11_26_000001) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,8 @@ ActiveRecord::Schema[7.0].define(version: 2026_11_17_000001) do
     t.datetime "updated_at"
     t.integer "ally_id"
     t.integer "status"
+    t.index ["ally_id"], name: "index_allyships_on_ally_id"
+    t.index ["user_id"], name: "index_allyships_on_user_id"
   end
 
   create_table "bootsy_image_galleries", force: :cascade do |t|
@@ -85,6 +87,8 @@ ActiveRecord::Schema[7.0].define(version: 2026_11_17_000001) do
     t.boolean "leader"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["group_id"], name: "index_group_members_on_group_id"
+    t.index ["user_id"], name: "index_group_members_on_user_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -122,6 +126,8 @@ ActiveRecord::Schema[7.0].define(version: 2026_11_17_000001) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string "google_cal_event_id"
+    t.index ["meeting_id"], name: "index_meeting_members_on_meeting_id"
+    t.index ["user_id"], name: "index_meeting_members_on_user_id"
   end
 
   create_table "meetings", force: :cascade do |t|

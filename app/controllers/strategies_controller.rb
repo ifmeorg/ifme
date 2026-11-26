@@ -14,7 +14,7 @@ class StrategiesController < ApplicationController
   # GET /strategies
   # GET /strategies.json
   def index
-    page_collection('@strategies', 'strategy')
+    page_collection('@strategies', 'strategy', includes: %i[categories user])
     respond_to do |format|
       format.json do
         render json: { data: moments_or_strategy_props(@strategies),
