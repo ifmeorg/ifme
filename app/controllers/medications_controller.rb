@@ -6,6 +6,7 @@ class MedicationsController < ApplicationController
   include MedicationRefillHelper
   include MedicationsHelper
   include MedicationsFormHelper
+  find_resource_by_slug :medication, redirect_to: :medications_path
   before_action :set_medication, only: %i[show edit update destroy]
 
   # GET /medications
@@ -114,13 +115,6 @@ class MedicationsController < ApplicationController
         render(json: @medication.errors, status: :unprocessable_entity)
       end
     end
-  end
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_medication
-    @medication = Medication.friendly.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    redirect_to_path(medications_path)
   end
 
   def medication_params

@@ -8,6 +8,7 @@ class StrategiesController < ApplicationController
   include MomentsHelper
   include TagsHelper
 
+  find_resource_by_slug :strategy, redirect_to: :strategies_path
   before_action :set_strategy, only: %i[show edit update destroy]
 
   # GET /strategies
@@ -113,13 +114,6 @@ class StrategiesController < ApplicationController
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_strategy
-    @strategy = Strategy.friendly.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    redirect_to_path(strategies_path)
-  end
 
   def quick_create_params(viewers)
     { user_id: current_user.id, comment: true, viewers:, visible: true,

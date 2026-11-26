@@ -8,6 +8,7 @@ class MomentsController < ApplicationController
   include Shared
   include TagsHelper
 
+  find_resource_by_slug :moment, redirect_to: :moments_path
   before_action :set_moment, only: %i[show edit update destroy picture acknowledge_crisis_prevention]
   before_action :load_viewers, only: %i[new edit create update picture]
 
@@ -120,12 +121,6 @@ class MomentsController < ApplicationController
   end
 
   private
-
-  def set_moment
-    @moment = Moment.friendly.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    redirect_to_path(moments_path)
-  end
 
   def moment_params
     params.require(:moment).permit(:name, :why, :fix, :comment, :draft,
