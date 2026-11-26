@@ -1,0 +1,30 @@
+<% title t("#{translation_prefix}.plural") %>
+<% page_new new_path %>
+
+<div class="subtitle">
+  <%= t("#{translation_prefix}.index.subtitle") %>
+</div>
+
+<% if elements.any? %>
+  <%= render partial: '/search/posts', locals: { data_type: data_type } %>
+  <%= render partial: '/shared/stats', locals: { data_type: translation_prefix, user: current_user } %>
+
+  <%= react_component('BaseContainer', props: {
+    container: 'StoryContainer',
+    data: categories_or_moods_props(elements),
+    fetchUrl: fetch_path,
+    lastPage: elements.last_page?
+  }) %>
+<% else %>
+  <%= raw t("#{translation_prefix}.index.instructions") %>
+  <%= button_to t('common.actions.add_all'), premade_path, class: 'smallMarginTop buttonDarkS' %>
+  <div class="gridTwo marginTop">
+    <% (1..premade_count).each do |n| %>
+      <div class="gridTwoItemBoxLight">
+        <%= react_component('Story', html_options: html_options, props: {
+          name: t("#{translation_prefix}.index.premade#{n}_name")
+        }) %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
