@@ -80,7 +80,7 @@ const getPopularTags = () => {
     <Tag
       normal
       label={I18n.t(`pages.resources.tags.${tag}`)}
-      key={Utils.randomString()}
+      key={tag}
       onClick={() => {
         window.location.href = `/resources?filter[]=${tag.replace(
           /_/g,
@@ -228,7 +228,7 @@ export const Resources = ({
           .map((resource: ResourceProp) => (
             <article
               className={`Resource ${css.gridThreeItem}`}
-              key={Utils.randomString()}
+              key={resource.link}
             >
               <Resource
                 tagged
@@ -254,6 +254,9 @@ export const Resources = ({
     <>
       {infoDescription}
       <InputTag
+        // `InputTag` copies `checkboxes` into local state once at mount and
+        // never re-syncs it from props (see InputTag.jsx), so this key is
+        // required to force a remount when the available tags change here.
         key={Utils.randomString()}
         id="resourceTags"
         name="resourceTags"
