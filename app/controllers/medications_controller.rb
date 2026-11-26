@@ -6,6 +6,7 @@ class MedicationsController < ApplicationController
   include MedicationRefillHelper
   include MedicationsHelper
   include MedicationsFormHelper
+  include Shared
   find_resource_by_slug :medication, redirect_to: :medications_path
   before_action :set_medication, only: %i[show edit update destroy]
 
@@ -68,11 +69,7 @@ class MedicationsController < ApplicationController
                                  ))
     return unless save_refill_to_google_calendar(@medication)
 
-    if @medication.save
-      redirect_to_medication(@medication)
-    else
-      render_unprocessable_medication
-    end
+    shared_create(@medication)
   end
 
   # PATCH/PUT /medications/1
@@ -80,13 +77,7 @@ class MedicationsController < ApplicationController
   def update
     return unless save_refill_to_google_calendar(@medication)
 
-    if @medication.update(medication_params.merge(
-                            refill: add_refill(medication_params)
-                          ))
-      redirect_to_medication(@medication)
-    else
-      render_unprocessable_medication
-    end
+    shared_update(@medication, medication_params.merge(refill: add_refill(medication_params)))
   end
 
   # DELETE /medications/1
@@ -107,15 +98,6 @@ class MedicationsController < ApplicationController
   end
 
   private
-
-  def render_unprocessable_medication
-    respond_to do |format|
-      format.html { render :new }
-      format.json do
-        render(json: @medication.errors, status: :unprocessable_entity)
-      end
-    end
-  end
 
   def medication_params
     params.require(:medication).permit(

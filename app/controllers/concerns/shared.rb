@@ -59,6 +59,8 @@ module Shared
       categories_path
     when 'Moment'
       moments_path
+    when 'Medication'
+      medications_path
     else
       strategies_path
     end
@@ -72,6 +74,8 @@ module Shared
       category_path(model_object)
     when 'Moment'
       moment_path(model_object)
+    when 'Medication'
+      medication_path(model_object)
     else
       strategy_path(model_object)
     end
