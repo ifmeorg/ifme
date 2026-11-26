@@ -5,6 +5,7 @@ class ApplicationMailer < ActionMailer::Base
   include ApplicationMailerHelper
   include NotificationMailerHelper
   include GroupNotificationHelper
+  include ResourceRouting
   default from: ENV.fetch('SMTP_FROM', nil)
   layout 'mailer'
   ALLY_NOTIFY_TYPES = %w[new_ally_request accepted_ally_request].freeze
@@ -88,7 +89,9 @@ class ApplicationMailer < ActionMailer::Base
     key = data['cutoff'] ? val('comment_text_cutoff') : val('comment_text')
     @message += comment_text(data, key)
 
-    url = send("#{commented_model(data)}_url", data['typeid'])
+    url = resource_show_url(
+      commented_model(data), ResourceRouting::COMMENTABLE_DATA_TYPES, data['typeid']
+    )
     link = link_to(I18n.t('click_here'), url)
     @message += comment_link(link)
   end
