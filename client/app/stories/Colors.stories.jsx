@@ -42,12 +42,5 @@ export const Colors = () => (
   </div>
 );
 
-Colors.parameters = {
-  viewMode: 'story',
-  backgrounds: { default: 'white' },
-  previewTabs: {
-    'storybook/docs/panel': {
-      hidden: true,
-    },
-  },
-};
+Colors.parameters = { viewMode: 'story' };
+Colors.globals = { backgrounds: { value: 'white' } };
