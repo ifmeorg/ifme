@@ -77,7 +77,7 @@ type IconMap = {
 };
 
 const classMap = (dark: ?boolean): IconMap => {
-  const className = dark ? css.actionDark : css.action;
+  const className = dark ? `${css.action} ${css.actionDark}` : css.action;
   return {
     edit: <FontAwesomeIcon icon={faPencilAlt} className={className} />,
     delete: <FontAwesomeIcon icon={faTrash} className={className} />,
