@@ -5,6 +5,7 @@ class MoodsController < ApplicationController
   include CategoriesHelper
   include SharedBasicConcern
   include TagsHelper
+  find_resource_by_slug :mood, redirect_to: :moods_path
   before_action :set_mood, only: %i[show edit update destroy]
 
   # GET /moods
@@ -73,13 +74,6 @@ class MoodsController < ApplicationController
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_mood
-    @mood = Mood.friendly.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    redirect_to_path(moods_path)
-  end
 
   def mood_params
     params.require(:mood).permit(:name, :description, :visible)

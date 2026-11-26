@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
   include CategoriesHelper
   include SharedBasicConcern
   include TagsHelper
+  find_resource_by_slug :category, redirect_to: :categories_path
   before_action :set_category, only: %i[show edit update destroy]
   respond_to :json, only: [:index]
 
@@ -77,13 +78,6 @@ class CategoriesController < ApplicationController
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_category
-    @category = Category.friendly.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    redirect_to_path(categories_path)
-  end
 
   def category_params
     params.require(:category).permit(:name, :description, :visible)
