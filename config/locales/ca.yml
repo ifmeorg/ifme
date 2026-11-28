@@ -112,6 +112,11 @@ ca:
     days: Dies
   reports:
     admin_dashboard: Tauler d’administració
+    pending_public_moments: "Moments pendents d'aprovació pública"
+    view_story: "Mostra la història"
+    approve_moment: "Aprova"
+    moment_approved: "Moment aprovat per a la pàgina pública"
+    moment_approved_error: "No s'ha pogut aprovar aquest moment"
     reported_users: Usuaris denunciats
     banned_users: Usuaris blocats
     reasons: Raons

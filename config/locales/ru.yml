@@ -126,6 +126,11 @@ ru:
     ban_removed: 'Пользователь %{name} разблокирован'
     user_banned_error: 'Не удалось заблокировать пользователя %{name}'
     ban_removed_error: 'Не удалось разблокировать пользователя %{name}'
+    pending_public_moments: "Моменты, ожидающие одобрения публикации"
+    view_story: "Посмотреть историю"
+    approve_moment: "Одобрить"
+    moment_approved: "Момент одобрен для публичной страницы"
+    moment_approved_error: "Не удалось одобрить этот момент"
   comment:
     singular: 'Комментарий'
     plural: 'Комментарии'

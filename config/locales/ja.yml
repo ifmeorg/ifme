@@ -110,6 +110,11 @@ ja:
     days: '曜日'
   reports:
     admin_dashboard: '管理画面'
+    pending_public_moments: "公開の承認待ちのできごと"
+    view_story: "ストーリーを見る"
+    approve_moment: "承認する"
+    moment_approved: "できごとが公開ページ向けに承認されました"
+    moment_approved_error: "このできごとを承認できませんでした"
     reported_users: '報告されたユーザー'
     banned_users: '利用停止中のユーザー'
     reasons: '理由'

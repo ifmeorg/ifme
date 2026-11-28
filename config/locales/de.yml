@@ -113,6 +113,11 @@ de:
     days: Tage
   reports:
     admin_dashboard: Admin-Dashboard
+    pending_public_moments: "Ereignisse, die auf die Freigabe zur Veröffentlichung warten"
+    view_story: "Geschichte ansehen"
+    approve_moment: "Freigeben"
+    moment_approved: "Ereignis für die öffentliche Seite freigegeben"
+    moment_approved_error: "Dieses Ereignis konnte nicht freigegeben werden"
     reported_users: Gemeldete Benutzer
     banned_users: Blockierte Benutzer
     reasons: Begründungen

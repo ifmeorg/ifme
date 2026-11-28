@@ -112,6 +112,11 @@ fr:
     days: Jours
   reports:
     admin_dashboard: Tableau de bord administrateur
+    pending_public_moments: "Moments en attente d'approbation publique"
+    view_story: "Voir l'histoire"
+    approve_moment: "Approuver"
+    moment_approved: "Moment approuvé pour la page publique"
+    moment_approved_error: "Impossible d'approuver ce moment"
     reported_users: Utilisateurs Rapportés
     banned_users: Utilisateurs Bannis
     reasons: Les Raisons

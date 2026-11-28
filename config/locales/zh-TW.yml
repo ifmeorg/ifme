@@ -112,6 +112,11 @@ zh-TW:
     days: 天
   reports:
     admin_dashboard: 管理員儀表板
+    pending_public_moments: "等待公開審核的心情記事"
+    view_story: "查看故事"
+    approve_moment: "核准"
+    moment_approved: "心情記事已核准發佈到公開頁面"
+    moment_approved_error: "無法核准這則心情記事"
     reported_users: 被檢舉的使用者
     banned_users: 被停權的使用者
     reasons: 原因

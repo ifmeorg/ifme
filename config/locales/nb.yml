@@ -112,6 +112,11 @@ nb:
     days: Dager
   reports:
     admin_dashboard: Admin Dashboard
+    pending_public_moments: "Øyeblikk som venter på godkjenning for publisering"
+    view_story: "Vis historien"
+    approve_moment: "Godkjenn"
+    moment_approved: "Øyeblikket er godkjent for den offentlige siden"
+    moment_approved_error: "Kunne ikke godkjenne dette øyeblikket"
     reported_users: Rapporterte Brukere
     banned_users: Forbudte Brukere
     reasons: Grunner

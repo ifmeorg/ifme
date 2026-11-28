@@ -110,6 +110,11 @@ vi:
     days: Ngày
   reports:
     admin_dashboard: Bảng điều khiển quản trị
+    pending_public_moments: "Khoảnh khắc đang chờ duyệt công khai"
+    view_story: "Xem câu chuyện"
+    approve_moment: "Phê duyệt"
+    moment_approved: "Khoảnh khắc đã được duyệt cho trang công khai"
+    moment_approved_error: "Không thể duyệt khoảnh khắc này"
     reported_users: Người dùng đã báo cáo
     banned_users: Người dùng bị cấm
     reasons: Lý Do

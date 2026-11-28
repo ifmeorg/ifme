@@ -110,6 +110,11 @@ zh-CN:
     days: 天
   reports:
     admin_dashboard: 管理员
+    pending_public_moments: "等待公开审核的日记"
+    view_story: "查看故事"
+    approve_moment: "批准"
+    moment_approved: "日记已获准发布到公开页面"
+    moment_approved_error: "无法批准这篇日记"
     reported_users: 投诉不良用户
     banned_users: 封号的用户
     reasons: 原因

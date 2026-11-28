@@ -112,6 +112,11 @@ az:
     days: Günlər
   reports:
     admin_dashboard: İnzibatçı paneli
+    pending_public_moments: "İctimai təsdiq gözləyən anlar"
+    view_story: "Hekayəyə bax"
+    approve_moment: "Təsdiq et"
+    moment_approved: "An ictimai səhifə üçün təsdiqləndi"
+    moment_approved_error: "Bu anı təsdiqləmək mümkün olmadı"
     reported_users: Haqqında şikayət edilən istifadəçilər
     banned_users: Bloklanmış istifadəçilər
     reasons: Səbəblər

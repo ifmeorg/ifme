@@ -112,6 +112,11 @@ sv:
     days: dagar
   reports:
     admin_dashboard: Admin Dashboard
+    pending_public_moments: "Ögonblick som väntar på godkännande för publicering"
+    view_story: "Visa berättelsen"
+    approve_moment: "Godkänn"
+    moment_approved: "Ögonblicket har godkänts för den offentliga sidan"
+    moment_approved_error: "Det gick inte att godkänna det här ögonblicket"
     reported_users: Rapporterade Användare
     banned_users: Förbjudna Användare
     reasons: Anledningar
