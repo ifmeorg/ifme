@@ -113,11 +113,11 @@ es-AR:
     days: Días
   reports:
     admin_dashboard: Panel de administración
-    pending_public_moments: Moments Awaiting Public Approval
-    view_story: View Story
-    approve_moment: Approve
-    moment_approved: Moment approved for the public page
-    moment_approved_error: Could not approve this moment
+    pending_public_moments: "Momentos pendientes de aprobación pública"
+    view_story: "Ver historia"
+    approve_moment: "Aprobar"
+    moment_approved: "Momento aprobado para la página pública"
+    moment_approved_error: "No se pudo aprobar este momento"
     reported_users: Usuarios reportados
     banned_users: Usuarios bloqueados
     reasons: Motivos

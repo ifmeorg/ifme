@@ -112,11 +112,11 @@ it:
     days: giorni
   reports:
     admin_dashboard: Dashboard di amministrazione
-    pending_public_moments: Moments Awaiting Public Approval
-    view_story: View Story
-    approve_moment: Approve
-    moment_approved: Moment approved for the public page
-    moment_approved_error: Could not approve this moment
+    pending_public_moments: "Momenti in attesa di approvazione pubblica"
+    view_story: "Visualizza storia"
+    approve_moment: "Approva"
+    moment_approved: "Momento approvato per la pagina pubblica"
+    moment_approved_error: "Impossibile approvare questo momento"
     reported_users: Utenti Segnalati
     banned_users: Utenti Vietati
     reasons: Motivi

@@ -112,11 +112,11 @@ nl:
     days: dagen
   reports:
     admin_dashboard: Beheerdersdashboard
-    pending_public_moments: Moments Awaiting Public Approval
-    view_story: View Story
-    approve_moment: Approve
-    moment_approved: Moment approved for the public page
-    moment_approved_error: Could not approve this moment
+    pending_public_moments: "Momenten die wachten op goedkeuring voor publicatie"
+    view_story: "Verhaal bekijken"
+    approve_moment: "Goedkeuren"
+    moment_approved: "Moment goedgekeurd voor de openbare pagina"
+    moment_approved_error: "Dit moment kon niet worden goedgekeurd"
     reported_users: Gerapporteerde Gebruikers
     banned_users: Verbannen Gebruikers
     reasons: Redenen

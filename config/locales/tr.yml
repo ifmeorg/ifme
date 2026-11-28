@@ -111,11 +111,11 @@ tr:
     days: Günler
   reports:
     admin_dashboard: Yönetici paneli
-    pending_public_moments: Moments Awaiting Public Approval
-    view_story: View Story
-    approve_moment: Approve
-    moment_approved: Moment approved for the public page
-    moment_approved_error: Could not approve this moment
+    pending_public_moments: "Herkese Açık Onay Bekleyen Anlar"
+    view_story: "Hikâyeyi Görüntüle"
+    approve_moment: "Onayla"
+    moment_approved: "An, herkese açık sayfa için onaylandı"
+    moment_approved_error: "Bu an onaylanamadı"
     reported_users: Şikâyet edilen kullanıcılar
     banned_users: Erişimi engellenen kullanıcılar
     reasons: Gerekçeler

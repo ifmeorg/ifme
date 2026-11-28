@@ -112,11 +112,11 @@ id:
     days: Hari
   reports:
     admin_dashboard: Dasbor Admin
-    pending_public_moments: Moments Awaiting Public Approval
-    view_story: View Story
-    approve_moment: Approve
-    moment_approved: Moment approved for the public page
-    moment_approved_error: Could not approve this moment
+    pending_public_moments: "Momen yang Menunggu Persetujuan Publik"
+    view_story: "Lihat Cerita"
+    approve_moment: "Setujui"
+    moment_approved: "Momen disetujui untuk halaman publik"
+    moment_approved_error: "Tidak dapat menyetujui momen ini"
     reported_users: Pengguna yang Dilaporkan
     banned_users: Pengguna yang Diblokir
     reasons: Alasan

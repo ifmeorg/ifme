@@ -62,12 +62,14 @@ class PagesController < ApplicationController
   def admin_dashboard
     @reports = Report.order('created_at DESC').all
     @banned_users = User.where(banned: true)
-    @pending_moments = Moment.where(make_public: true, public_approved_at: nil)
+    @pending_moments = Moment.published
+                             .where(make_public: true, public_approved_at: nil)
                              .order('created_at DESC')
   end
 
   def approve_public_moment
-    moment = Moment.where(make_public: true, public_approved_at: nil)
+    moment = Moment.published
+                   .where(make_public: true, public_approved_at: nil)
                    .find_by(id: params[:moment_id])
     if moment.present?
       moment.update_column(:public_approved_at, Time.zone.now)

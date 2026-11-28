@@ -169,4 +169,16 @@ describe Moment do
       end
     end
   end
+
+  describe 'public sharing attributes' do
+    let(:moment) { create(:moment, :with_user) }
+
+    it 'is not public by default' do
+      expect(moment.reload.make_public).to be false
+    end
+
+    it 'is not approved by default' do
+      expect(moment.reload.public_approved_at).to be_nil
+    end
+  end
 end

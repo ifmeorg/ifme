@@ -223,4 +223,144 @@ describe "Pages", type: :request do
       expect(response).to be_successful
     end
   end
+
+  describe "public moment approval" do
+    let(:author) { create(:user1) }
+    let(:admin) { create(:user2, admin: true) }
+    let(:pending_moment) do
+      create(:moment, :with_published_at,
+             user: author, name: "Pending Story", make_public: true)
+    end
+
+    describe "#admin_dashboard" do
+      before { sign_in admin }
+
+      it "lists a moment awaiting approval with its approve link" do
+        pending_moment
+
+        get admin_dashboard_path
+
+        expect(response).to be_successful
+        expect(assigns(:pending_moments)).to contain_exactly(pending_moment)
+        expect(response.body).to include("Pending Story")
+        expect(response.body)
+          .to include(approve_public_moment_path(moment_id: pending_moment.id))
+      end
+
+      it "leaves out private and already approved moments" do
+        create(:moment, :with_published_at, user: author)
+        create(:moment, :with_published_at,
+               user: author, make_public: true,
+               public_approved_at: Time.zone.now)
+
+        get admin_dashboard_path
+
+        expect(assigns(:pending_moments)).to be_empty
+        expect(response.body).to include("No Moments Awaiting Public Approval")
+      end
+
+      it "leaves out unpublished drafts" do
+        create(:moment, user: author, make_public: true)
+
+        get admin_dashboard_path
+
+        expect(assigns(:pending_moments)).to be_empty
+      end
+
+      it "lists the newest moment first" do
+        older = create(:moment, :with_published_at,
+                       user: author, make_public: true, created_at: 2.days.ago)
+        newer = pending_moment
+
+        get admin_dashboard_path
+
+        expect(assigns(:pending_moments).to_a).to eq([newer, older])
+      end
+    end
+
+    describe "#approve_public_moment" do
+      def approve(id)
+        post approve_public_moment_path(moment_id: id)
+      end
+
+      context "when not signed in" do
+        it "redirects to sign in without approving" do
+          approve(pending_moment.id)
+
+          expect(response).to redirect_to(new_user_session_path)
+          expect(pending_moment.reload.public_approved_at).to be_nil
+        end
+      end
+
+      context "when signed in as a non-admin" do
+        it "does not let the author approve their own moment" do
+          sign_in author
+
+          approve(pending_moment.id)
+
+          expect(response).to redirect_to("/")
+          expect(pending_moment.reload.public_approved_at).to be_nil
+        end
+      end
+
+      context "when signed in as an admin" do
+        before { sign_in admin }
+
+        it "approves a pending moment" do
+          approve(pending_moment.id)
+
+          expect(response).to redirect_to(admin_dashboard_path)
+          expect(flash[:notice]).to eq("Moment approved for the public page")
+          expect(pending_moment.reload.public_approved_at).to be_present
+        end
+
+        it "removes the approved moment from the pending list" do
+          approve(pending_moment.id)
+
+          get admin_dashboard_path
+
+          expect(assigns(:pending_moments)).to be_empty
+        end
+
+        it "does not approve a moment that was not requested to be public" do
+          private_moment = create(:moment, :with_published_at, user: author)
+
+          approve(private_moment.id)
+
+          expect(response).to redirect_to(admin_dashboard_path)
+          expect(flash[:alert]).to eq("Could not approve this moment")
+          expect(private_moment.reload.public_approved_at).to be_nil
+        end
+
+        it "does not approve an unpublished draft" do
+          draft = create(:moment, user: author, make_public: true)
+
+          approve(draft.id)
+
+          expect(response).to redirect_to(admin_dashboard_path)
+          expect(flash[:alert]).to eq("Could not approve this moment")
+          expect(draft.reload.public_approved_at).to be_nil
+        end
+
+        it "does not overwrite the date of an approved moment" do
+          approved_at = 3.days.ago.change(usec: 0)
+          approved = create(:moment, :with_published_at,
+                            user: author, make_public: true,
+                            public_approved_at: approved_at)
+
+          approve(approved.id)
+
+          expect(flash[:alert]).to eq("Could not approve this moment")
+          expect(approved.reload.public_approved_at).to eq(approved_at)
+        end
+
+        it "shows an error for a moment that does not exist" do
+          approve(-1)
+
+          expect(response).to redirect_to(admin_dashboard_path)
+          expect(flash[:alert]).to eq("Could not approve this moment")
+        end
+      end
+    end
+  end
 end

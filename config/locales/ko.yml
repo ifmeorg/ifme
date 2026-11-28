@@ -110,11 +110,11 @@ ko:
     days: 날들
   reports:
     admin_dashboard: 관리자 대시보드
-    pending_public_moments: Moments Awaiting Public Approval
-    view_story: View Story
-    approve_moment: Approve
-    moment_approved: Moment approved for the public page
-    moment_approved_error: Could not approve this moment
+    pending_public_moments: "공개 승인 대기 중인 경험"
+    view_story: "이야기 보기"
+    approve_moment: "승인"
+    moment_approved: "경험이 공개 페이지에 승인되었습니다"
+    moment_approved_error: "이 경험을 승인할 수 없습니다"
     reported_users: 신고된 사용자
     banned_users: 정지된 사용자
     reasons: 사유

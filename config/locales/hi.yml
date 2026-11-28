@@ -112,11 +112,11 @@ hi:
     days: दिन
   reports:
     admin_dashboard: व्यवस्थापक डैशबोर्ड
-    pending_public_moments: Moments Awaiting Public Approval
-    view_story: View Story
-    approve_moment: Approve
-    moment_approved: Moment approved for the public page
-    moment_approved_error: Could not approve this moment
+    pending_public_moments: "सार्वजनिक स्वीकृति की प्रतीक्षा में लम्हें"
+    view_story: "कहानी देखें"
+    approve_moment: "स्वीकृत करें"
+    moment_approved: "पल को सार्वजनिक पृष्ठ के लिए स्वीकृत किया गया"
+    moment_approved_error: "इस पल को स्वीकृत नहीं किया जा सका"
     reported_users: उपयोगकर्ताओं की सूचना दी
     banned_users: उपयोगकर्ताओं पर प्रतिबंध लगा दिया
     reasons: कारण
