@@ -434,4 +434,58 @@ describe 'Moments', type: :request do
       it_behaves_like :with_no_logged_in_user
     end
   end
+
+  describe 'asking to share a moment publicly' do
+    let(:author) { create(:user1) }
+
+    before { sign_in author }
+
+    it 'saves the request when creating a moment' do
+      post moments_path, params: {
+        moment: { name: 'My Story', why: 'It got better', comment: '0',
+                  make_public: 'true' },
+        publishing: '1'
+      }
+
+      moment = author.moments.last
+      expect(moment.make_public).to be true
+      expect(moment.public_approved_at).to be_nil
+    end
+
+    it 'is off when the author does not ask' do
+      post moments_path, params: {
+        moment: { name: 'My Story', why: 'It got better', comment: '0',
+                  make_public: '0' },
+        publishing: '1'
+      }
+
+      expect(author.moments.last.make_public).to be false
+    end
+
+    it 'does not let the author approve their own moment' do
+      post moments_path, params: {
+        moment: { name: 'My Story', why: 'It got better', comment: '0',
+                  make_public: 'true',
+                  public_approved_at: Time.zone.now.iso8601 },
+        publishing: '1'
+      }
+
+      expect(author.moments.last.public_approved_at).to be_nil
+    end
+
+    it 'sends an edited approved moment back for review' do
+      moment = create(:moment, :with_published_at,
+                      user: author, make_public: true,
+                      public_approved_at: 1.day.ago)
+
+      patch moment_path(moment), params: {
+        moment: { name: moment.name, why: 'New text', comment: '1',
+                  make_public: 'true' },
+        publishing: '1'
+      }
+
+      expect(moment.reload.why).to eq('New text')
+      expect(moment.public_approved_at).to be_nil
+    end
+  end
 end

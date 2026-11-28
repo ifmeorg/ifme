@@ -361,6 +361,8 @@ id:
       bookmarked_question: Tandai momen ini?
       bookmarked_info: Momen yang ditandai muncul di Rencana Perawatan Anda
       resource_recommendations_question: Tampilkan Rekomendasi Sumber Daya?
+      make_public_question: "Minta untuk membagikan momen ini secara publik?"
+      make_public_info: "Admin akan meninjaunya sebelum dapat dibagikan secara publik. Jika Anda mengeditnya nanti, momen ini akan ditinjau kembali."
     index:
       subtitle: >-
         Pelajari momen Anda lebih dalam - peristiwa dan situasi yang

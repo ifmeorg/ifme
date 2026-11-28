@@ -366,6 +366,8 @@ es-AR:
       bookmarked_question: '¿Marcar este momento?'
       bookmarked_info: Los momentos marcados aparecen en tu plan de cuidado
       resource_recommendations_question: '¿Mostrar recomendaciones de recursos?'
+      make_public_question: "¿Querés pedir compartir este momento públicamente?"
+      make_public_info: "Un administrador lo revisa antes de que se pueda compartir públicamente. Si lo editás después, vuelve a revisión."
     index:
       subtitle: >-
         Explorá tus Momentos: los eventos y situaciones que afectan tu salud

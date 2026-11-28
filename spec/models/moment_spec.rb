@@ -169,4 +169,34 @@ describe Moment do
       end
     end
   end
+
+  describe 'resetting public approval' do
+    let!(:moment) do
+      create(:moment, :with_user, :with_published_at,
+             make_public: true, public_approved_at: 1.day.ago)
+    end
+
+    %i[name why fix].each do |field|
+      it "requires a new review when #{field} changes" do
+        moment.update!(field => 'Something the admin has not reviewed')
+        expect(moment.reload.public_approved_at).to be_nil
+        expect(moment.make_public).to be true
+      end
+    end
+
+    it 'removes approval when the author withdraws the request' do
+      moment.update!(make_public: false)
+      expect(moment.reload.public_approved_at).to be_nil
+    end
+
+    it 'removes approval when the moment goes back to draft' do
+      moment.update!(published_at: nil)
+      expect(moment.reload.public_approved_at).to be_nil
+    end
+
+    it 'keeps approval when the reviewed content is unchanged' do
+      moment.update!(bookmarked: true, comment: false)
+      expect(moment.reload.public_approved_at).to be_present
+    end
+  end
 end

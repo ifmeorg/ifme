@@ -358,6 +358,8 @@ nb:
       bookmarked_question: Bokmerke dette øyeblikket?
       bookmarked_info: Bokmerkede øyeblikk vises i pleieplanen din
       resource_recommendations_question: Vise anbefalte ressurser?
+      make_public_question: "Vil du be om å dele dette øyeblikket offentlig?"
+      make_public_info: "En administrator går gjennom det før det kan deles offentlig. Hvis du redigerer det senere, må det vurderes på nytt."
     index:
       subtitle: >-
         Dykk dypt inn i øyeblikkene dine - hendelser og situasjoner som påvirker

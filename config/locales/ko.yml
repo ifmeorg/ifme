@@ -340,6 +340,8 @@ ko:
       bookmarked_question: 이 경험을 북마크 하시겠습니까?
       bookmarked_info: 북마크된 순간은 케어 플랜에 나타납니다.
       resource_recommendations_question: 리소스 권장사항 표시
+      make_public_question: "이 경험의 공개를 요청하시겠습니까?"
+      make_public_info: "공개되기 전에 관리자가 검토합니다. 나중에 수정하면 다시 검토를 받습니다."
     index:
       subtitle: '여러분의 정신 건강에 영향을 미치는 사건들과 상황들, 경험들을 깊이 파고드세요.'
       subtitle_link: 순간에 대한 글쓰기를위한 템플릿을 만들고 구성합니다.

@@ -347,6 +347,8 @@ zh-TW:
       bookmarked_question: 將此心情記事加入書籤？
       bookmarked_info: 您加入書籤的心情記事會顯示在照護計畫中
       resource_recommendations_question: 顯示資源推薦？
+      make_public_question: "要申請公開分享這則心情記事嗎？"
+      make_public_info: "公開分享前需要管理員審核。之後如有修改，需要重新審核。"
     index:
       subtitle: >-
         深入探索心情記事，梳理影響心理健康的事件和情境。

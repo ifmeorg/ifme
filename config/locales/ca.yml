@@ -368,6 +368,8 @@ ca:
       bookmarked_question: Vols marcar aquest moment?
       bookmarked_info: Els moments marcats apareixen en el teu pla de cures
       resource_recommendations_question: Mostrar recomanacions de recursos?
+      make_public_question: "Vols demanar compartir aquest moment públicament?"
+      make_public_info: "Un administrador el revisa abans que es pugui compartir públicament. Si l'edites més tard, es tornarà a revisar."
     index:
       subtitle: >-
         Aprofundeix en els teus moments: esdeveniments i situacions que afecten

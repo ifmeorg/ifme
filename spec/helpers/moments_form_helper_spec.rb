@@ -286,6 +286,24 @@ describe MomentsFormHelper do
               dark: true
             },
             {
+              id: 'moment_make_public_hidden',
+              type: 'hidden',
+              name: 'moment[make_public]',
+              label: nil,
+              value: '0'
+            },
+            {
+              id: 'moment_make_public',
+              type: 'switch',
+              name: 'moment[make_public]',
+              label: 'Ask to share this moment publicly?',
+              value: true,
+              uncheckedValue: false,
+              checked: false,
+              dark: true,
+              info: 'An admin reviews it before it can be shared publicly. Editing it later sends it back for review.'
+            },
+            {
               dark: true,
               id: 'submit',
               type: 'submit',
@@ -557,6 +575,24 @@ describe MomentsFormHelper do
               uncheckedValue: false,
               checked: true,
               dark: true
+            },
+            {
+              id: 'moment_make_public_hidden',
+              type: 'hidden',
+              name: 'moment[make_public]',
+              label: nil,
+              value: '0'
+            },
+            {
+              id: 'moment_make_public',
+              type: 'switch',
+              name: 'moment[make_public]',
+              label: 'Ask to share this moment publicly?',
+              value: true,
+              uncheckedValue: false,
+              checked: false,
+              dark: true,
+              info: 'An admin reviews it before it can be shared publicly. Editing it later sends it back for review.'
             },
             {
               dark: true,
@@ -872,6 +908,24 @@ describe MomentsFormHelper do
               dark: true
             },
             {
+              id: 'moment_make_public_hidden',
+              type: 'hidden',
+              name: 'moment[make_public]',
+              label: nil,
+              value: '0'
+            },
+            {
+              id: 'moment_make_public',
+              type: 'switch',
+              name: 'moment[make_public]',
+              label: 'Ask to share this moment publicly?',
+              value: true,
+              uncheckedValue: false,
+              checked: false,
+              dark: true,
+              info: 'An admin reviews it before it can be shared publicly. Editing it later sends it back for review.'
+            },
+            {
               id: '_method',
               name: '_method',
               type: 'hidden',
@@ -1177,6 +1231,24 @@ describe MomentsFormHelper do
               uncheckedValue: false,
               checked: false,
               dark: true
+            },
+            {
+              id: 'moment_make_public_hidden',
+              type: 'hidden',
+              name: 'moment[make_public]',
+              label: nil,
+              value: '0'
+            },
+            {
+              id: 'moment_make_public',
+              type: 'switch',
+              name: 'moment[make_public]',
+              label: 'Ask to share this moment publicly?',
+              value: true,
+              uncheckedValue: false,
+              checked: false,
+              dark: true,
+              info: 'An admin reviews it before it can be shared publicly. Editing it later sends it back for review.'
             },
             {
               id: '_method',

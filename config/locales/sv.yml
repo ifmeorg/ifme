@@ -365,6 +365,8 @@ sv:
       bookmarked_question: Bokmärk det här ögonblicket?
       bookmarked_info: Bokmärkta ögonblick visas i din vårdplan
       resource_recommendations_question: Visa rekommenderade resurser?
+      make_public_question: "Vill du be om att dela det här ögonblicket offentligt?"
+      make_public_info: "En administratör granskar det innan det kan delas offentligt. Om du redigerar det senare granskas det igen."
     index:
       subtitle: >-
         Fördjupa dig djupt i dina ögonblick - händelser och situationer som

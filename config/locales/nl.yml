@@ -363,6 +363,8 @@ nl:
       bookmarked_question: Bookmark dit moment?
       bookmarked_info: Gemarkeerde momenten verschijnen in uw zorgplan
       resource_recommendations_question: Aanbevolen bronnen weergeven?
+      make_public_question: "Vragen om dit moment openbaar te delen?"
+      make_public_info: "Een beheerder controleert het voordat het openbaar kan worden gedeeld. Als je het later bewerkt, wordt het opnieuw gecontroleerd."
     index:
       subtitle: >-
         Duik diep in je momenten - gebeurtenissen en situaties die invloed

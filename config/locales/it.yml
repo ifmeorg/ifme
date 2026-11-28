@@ -369,6 +369,8 @@ it:
         I momenti contrassegnati vengono visualizzati nel tuo Piano di
         assistenza
       resource_recommendations_question: Mostra raccomandazione sulle risorse?
+      make_public_question: "Vuoi chiedere di condividere questo momento pubblicamente?"
+      make_public_info: "Un amministratore lo esamina prima che possa essere condiviso pubblicamente. Se lo modifichi in seguito, tornerà in revisione."
     index:
       subtitle: >-
         Immergiti nei tuoi momenti - eventi e situazioni che hanno effetto sul
