@@ -13,12 +13,5 @@ export const Fonts = () => (
   </>
 );
 
-Fonts.parameters = {
-  viewMode: 'story',
-  backgrounds: { default: 'white' },
-  previewTabs: {
-    'storybook/docs/panel': {
-      hidden: true,
-    },
-  },
-};
+Fonts.parameters = { viewMode: 'story' };
+Fonts.globals = { backgrounds: { value: 'white' } };

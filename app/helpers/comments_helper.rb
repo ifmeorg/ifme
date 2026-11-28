@@ -1,21 +1,22 @@
 # frozen_string_literal: true
 
 module CommentsHelper
-  def generate_comments(comments)
-    result_comments = []
-    comments.each do |comment|
-      next unless CommentViewersService.viewable?(comment, current_user)
+  include ResourceRouting
 
-      user = User.find(comment.comment_by)
-      result_comments.push(comment_hash(comment, user))
+  def generate_comments(comments)
+    viewable_comments = comments.select do |comment|
+      CommentViewersService.viewable?(comment, current_user)
     end
-    result_comments
+    users_by_id = User.where(id: viewable_comments.map(&:comment_by)).index_by(&:id)
+    viewable_comments.map { |comment| comment_hash(comment, users_by_id[comment.comment_by]) }
   end
 
   def show_with_comments(subject)
     model_name = subject.class.name.downcase
     if current_user.id != subject.user_id && hide_page?(subject)
-      return redirect_to_path(send("#{model_name.pluralize}_path"))
+      return redirect_to_path(
+        resource_index_path(model_name, ResourceRouting::COMMENTABLE_DATA_TYPES)
+      )
     end
 
     @page_author = page_author(subject)

@@ -1,29 +1,7 @@
-<% title t('categories.plural') %>
-<% page_new new_category_path %>
-<div class="subtitle">
-  <%= t('categories.index.subtitle') %>
-</div>
-
-<% if @categories.length > 0 %>
-  <%= render partial: '/search/posts', locals: { data_type: 'category' } %>
-
-  <%= render partial: '/shared/stats', locals: { data_type: 'categories', user: current_user } %>
-  <%= react_component('BaseContainer', props: {
-    container: 'StoryContainer',
-    data: categories_or_moods_props(@categories),
-    fetchUrl: categories_path,
-    lastPage: @categories.last_page?
-  }) %>
-<% else %>
-  <%= raw t('categories.index.instructions') %>
-  <%= button_to t('common.actions.add_all'), premade_categories_path, class: 'smallMarginTop buttonDarkS' %>
-  <div class="gridTwo marginTop">
-    <% (1..4).each do |n| %>
-      <div class="gridTwoItemBoxLight">
-        <%= react_component('Story', html_options: html_options, props: {
-          name: t("categories.index.premade#{n}_name")
-        }) %>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+<%= render 'shared/categories_or_moods/index', translation_prefix: 'categories',
+                                             data_type: 'category',
+                                             elements: @categories,
+                                             new_path: new_category_path,
+                                             premade_path: premade_categories_path,
+                                             fetch_path: categories_path,
+                                             premade_count: 4 %>

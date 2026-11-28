@@ -12,4 +12,16 @@ module SharedBasicConcern
     )
     shared_quick_create(model_object)
   end
+
+  def shared_index_response(elements)
+    respond_to do |format|
+      format.json do
+        render json: {
+          data: categories_or_moods_props(elements),
+          lastPage: elements.last_page?
+        }
+      end
+      format.html
+    end
+  end
 end

@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
   include CategoriesHelper
   include SharedBasicConcern
   include TagsHelper
+  find_resource_by_slug :category, redirect_to: :categories_path
   before_action :set_category, only: %i[show edit update destroy]
   respond_to :json, only: [:index]
 
@@ -12,22 +13,14 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     page_collection('@categories', 'category')
-    respond_to do |format|
-      format.json do
-        render json: {
-          data: categories_or_moods_props(@categories),
-          lastPage: @categories.last_page?
-        }
-      end
-      format.html
-    end
+    shared_index_response(@categories)
   end
 
   # GET /categories/1
   # GET /categories/1.json
   def show
     setup_stories
-    redirect_to_path(categories_path) if @category.user_id != current_user.id
+    redirect_unless_owner!(@category, categories_path)
     @page_new_buttons = [
       { text: t('moments.new'), path: new_moment_path(category: @category.slug) },
       { text: t('strategies.new'), path: new_strategy_path(category: @category.slug) }
@@ -41,9 +34,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
-    return if @category.user_id == current_user.id
-
-    redirect_to_path(category_path(@category))
+    redirect_unless_owner!(@category, category_path(@category))
   end
 
   # POST /categories
@@ -77,13 +68,6 @@ class CategoriesController < ApplicationController
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_category
-    @category = Category.friendly.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    redirect_to_path(categories_path)
-  end
 
   def category_params
     params.require(:category).permit(:name, :description, :visible)

@@ -59,19 +59,21 @@ module ViewersHelper
   def get_viewer_list(data, link)
     return only_you_as_viewer(link) if data.blank?
 
-    names = User.where(id: Array(data)).pluck(:name).to_sentence
+    ids = Array(data)
+    names_by_id = User.where(id: ids).pluck(:id, :name).to_h
+    names = ids.filter_map { |id| names_by_id[id] }.to_sentence
     return only_you_as_viewer(link) if names.blank?
 
     link ? t('shared.viewers.many', viewers: names) : names
   end
 
   def get_viewers(data, data_type, obj)
-    objs = obj.where(user_id: data.user_id).order('created_at DESC')
-    objs.each do |ob|
-      item = ob.send(data_type).pluck(:id)
-      return Array(ob.viewers) if item.include?(data.id)
-    end
-    []
+    match = obj.where(user_id: data.user_id)
+               .joins(data_type.to_sym)
+               .where(data_type.to_sym => { id: data.id })
+               .order('created_at DESC')
+               .first
+    match ? Array(match.viewers) : []
   end
 
   def get_viewers_input(viewers, name, translation_name, obj)

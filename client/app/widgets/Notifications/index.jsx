@@ -90,6 +90,10 @@ export const Notifications = ({ element, pusher }: Props): Node => {
               const channel = pusher.subscribe(
                 `private-${response.data.signed_in}`,
               );
+              // `fetchNotifications`'s identity can change (it depends on
+              // `alreadyMounted`), re-running this effect. Unbind first so
+              // we don't accumulate duplicate listeners on the same channel.
+              channel.unbind('new_notification');
               channel.bind('new_notification', () => {
                 fetchNotifications();
               });

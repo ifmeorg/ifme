@@ -107,7 +107,7 @@ const renderFooter = (
   </div>
 );
 
-export const Story = ({
+const StoryComponent = ({
   date,
   categories,
   moods,
@@ -132,3 +132,7 @@ export const Story = ({
     </div>
   );
 };
+
+// Memoized: StoryContainer re-renders the entire accumulated list on every
+// "load more" click, so unchanged Story cards would otherwise re-render too.
+export const Story = React.memo<Props>(StoryComponent);

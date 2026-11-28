@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class SearchController < ApplicationController
+  include ResourceRouting
+
+  DATA_TYPES = %w[moment category mood strategy medication].freeze
+
   def index
     permitted = params.require(:search).permit(:email)
     raise ActionController::ParameterMissing if permitted.blank?
@@ -16,7 +20,7 @@ class SearchController < ApplicationController
     name = params[:search][:name]
     search_filters = params[:search][:filters]
 
-    return unless data_type.in?(%w[moment category mood strategy medication])
+    return unless data_type.in?(DATA_TYPES)
 
     redirect_to_path(make_path(name, data_type, search_filters))
   end
@@ -34,6 +38,6 @@ class SearchController < ApplicationController
     search_hash[:search] =  name if name.present?
     search_hash[:filters] = search_filters if search_filters.present?
 
-    send("#{data_type.pluralize}_path", search_hash)
+    resource_index_path(data_type, DATA_TYPES, search_hash)
   end
 end

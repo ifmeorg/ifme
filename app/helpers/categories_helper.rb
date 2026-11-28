@@ -57,44 +57,50 @@ module CategoriesHelper
   end
 
   def category_form_inputs
+    taggable_form_inputs('category', @category, info: t('categories.form.name_hint'))
+  end
+
+  # Shared by CategoriesHelper and MoodsHelper: Category and Mood use the
+  # same name/description/visible fields, differing only in the model name
+  # and (for category) a name hint.
+  def taggable_form_inputs(model_name, model, info: nil)
     [
-      category_name(@category&.name),
-      category_description(@category&.description),
-      category_visible(@category&.visible)
+      taggable_name(model_name, model&.name, info),
+      taggable_description(model_name, model&.description),
+      taggable_visible(model_name, model&.visible)
     ]
   end
 
-  def category_name(name)
+  def taggable_name(model_name, name, info)
     {
-      id: 'category_name',
+      id: "#{model_name}_name",
       type: 'text',
-      name: 'category[name]',
+      name: "#{model_name}[name]",
       label: t('common.name'),
       value: name || nil,
       required: true,
-      info: t('categories.form.name_hint'),
       dark: true
-    }
+    }.tap { |input| input[:info] = info if info }
   end
 
-  def category_description(description)
+  def taggable_description(model_name, description)
     {
-      id: 'category_description',
+      id: "#{model_name}_description",
       type: 'textarea',
-      name: 'category[description]',
+      name: "#{model_name}[description]",
       label: t('common.form.description'),
       value: description || nil,
       dark: true
     }
   end
 
-  def category_visible(visible)
+  def taggable_visible(model_name, visible)
     {
-      id: 'category_visible',
+      id: "#{model_name}_visible",
       type: 'switch',
       label: t('shared.stats.make_visible_in_stats'),
       dark: true,
-      name: 'category[visible]',
+      name: "#{model_name}[visible]",
       value: true,
       uncheckedValue: false,
       checked: visible

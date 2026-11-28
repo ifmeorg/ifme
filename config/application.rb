@@ -52,6 +52,9 @@ module Ifme
 
     config.action_view.sanitized_allowed_tags = Rails::Html::Sanitizer.white_list_sanitizer.allowed_tags + ['strike', 'u']
 
+    config.content_security_policy_nonce_generator = ->(_request) { SecureRandom.base64(16) }
+    config.content_security_policy_nonce_directives = %w[script-src]
+
     config.to_prepare do
       Devise::Mailer.layout 'mailer'
     end

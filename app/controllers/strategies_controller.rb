@@ -8,12 +8,13 @@ class StrategiesController < ApplicationController
   include MomentsHelper
   include TagsHelper
 
+  find_resource_by_slug :strategy, redirect_to: :strategies_path
   before_action :set_strategy, only: %i[show edit update destroy]
 
   # GET /strategies
   # GET /strategies.json
   def index
-    page_collection('@strategies', 'strategy')
+    page_collection('@strategies', 'strategy', includes: %i[categories user])
     respond_to do |format|
       format.json do
         render json: { data: moments_or_strategy_props(@strategies),
@@ -48,7 +49,7 @@ class StrategiesController < ApplicationController
 
   # GET /strategies/1/edit
   def edit
-    redirect_to_path(strategy_path(@strategy)) unless @strategy.user_id == current_user.id
+    redirect_unless_owner!(@strategy, strategy_path(@strategy))
     @viewers = current_user.allies_by_status(:accepted)
     @categories = current_user.categories.is_visible
                               .or(Category.where(id: @strategy.category_ids))
@@ -113,13 +114,6 @@ class StrategiesController < ApplicationController
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_strategy
-    @strategy = Strategy.friendly.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    redirect_to_path(strategies_path)
-  end
 
   def quick_create_params(viewers)
     { user_id: current_user.id, comment: true, viewers:, visible: true,

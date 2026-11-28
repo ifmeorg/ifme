@@ -5,28 +5,21 @@ class MoodsController < ApplicationController
   include CategoriesHelper
   include SharedBasicConcern
   include TagsHelper
+  find_resource_by_slug :mood, redirect_to: :moods_path
   before_action :set_mood, only: %i[show edit update destroy]
 
   # GET /moods
   # GET /moods.json
   def index
     page_collection('@moods', 'mood')
-    respond_to do |format|
-      format.json do
-        render json: {
-          data: categories_or_moods_props(@moods),
-          lastPage: @moods.last_page?
-        }
-      end
-      format.html
-    end
+    shared_index_response(@moods)
   end
 
   # GET /moods/1
   # GET /moods/1.json
   def show
     setup_stories
-    redirect_to_path(moods_path) if @mood.user_id != current_user.id
+    redirect_unless_owner!(@mood, moods_path)
   end
 
   # GET /moods/new
@@ -37,9 +30,7 @@ class MoodsController < ApplicationController
 
   # GET /moods/1/edit
   def edit
-    return if @mood.user_id == current_user.id
-
-    redirect_to_path(mood_path(@mood))
+    redirect_unless_owner!(@mood, mood_path(@mood))
   end
 
   # POST /moods
@@ -73,13 +64,6 @@ class MoodsController < ApplicationController
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_mood
-    @mood = Mood.friendly.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    redirect_to_path(moods_path)
-  end
 
   def mood_params
     params.require(:mood).permit(:name, :description, :visible)

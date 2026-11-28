@@ -1,2 +1,2 @@
-<% title "#{t('common.actions.edit_instance', instance: @category.name)}" %>
-<%= react_component('Form', props: edit_category_props) %>
+<%= render 'shared/categories_or_moods/edit', instance_name: @category.name,
+                                            props: edit_category_props %>

@@ -6,7 +6,7 @@ module CollectionPageSetupConcern
     helper_method :page_collection, :setup_collection
   end
 
-  def page_collection(collection, model_name, filters_model = {})
+  def page_collection(collection, model_name, filters_model = {}, includes: [])
     name = params[:search]
     search_filters = params[:filters]
     model = Object.const_get(model_name.capitalize)
@@ -14,8 +14,8 @@ module CollectionPageSetupConcern
       'name ilike ? AND user_id = ?',
       "%#{name}%",
       current_user.id
-    ).all
-    user = model.where(user_id: current_user.id)
+    ).includes(includes)
+    user = model.where(user_id: current_user.id).includes(includes)
     user = apply_filters(user, search_filters, filters_model[:filters]) if search_filters.present?
     setup_collection(collection, user, search, name)
     @multiselect_checkboxes = filters_model[:checkboxes]

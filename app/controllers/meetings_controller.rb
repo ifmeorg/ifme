@@ -2,6 +2,7 @@
 class MeetingsController < ApplicationController
   include MeetingsHelper
   include MeetingsFormHelper
+  find_resource_by_slug :meeting, redirect_to: :groups_path
   before_action :set_meeting, only: %i[show edit update destroy]
 
   # GET /meetings/1
@@ -90,13 +91,6 @@ class MeetingsController < ApplicationController
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_meeting
-    @meeting = Meeting.friendly.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    redirect_to_path(groups_path)
-  end
 
   # Checks if user is a meeting leader, if not redirect to group_path
   def redirect_unless_leader_for(group)

@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::TextHelper
   include PageRedirectConcern
+  include FindResourceConcern
   include CommentsHelper
   include CommentsFormHelper
   include TagsHelper

@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
   include GroupsFormHelper
 
   before_action :authenticate_user!
+  find_resource_by_slug :group, redirect_to: :groups_path
   before_action :set_group, only: %i[show edit update destroy]
 
   # GET /groups
@@ -80,13 +81,6 @@ class GroupsController < ApplicationController
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_group
-    @group = Group.friendly.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    redirect_to_path(groups_path)
-  end
 
   def group_params
     params.require(:group).permit(:name, :description)

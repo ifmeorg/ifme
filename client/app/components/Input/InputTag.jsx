@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import type { Node } from 'react';
 import { useCombobox } from 'downshift';
-import { Utils } from 'utils';
 import { InputCheckbox } from 'components/Input/InputCheckbox';
 import type { Checkbox } from './utils';
 import inputCss from './Input.scss';
@@ -139,7 +138,7 @@ export function InputTag({
       <InputCheckbox
         id={checkbox.id}
         name={name}
-        key={Utils.randomString()}
+        key={checkbox.id}
         value={checkbox.value}
         label={checkbox.label}
         onChange={checkboxChange}
@@ -171,11 +170,9 @@ export function InputTag({
           {isOpen
             && suggestions.map((checkbox: Checkbox, index: number) => (
               <li
-                className={
-                  index === highlightedIndex
-                    ? css.suggestionHighlighted
-                    : css.suggestion
-                }
+                className={`${css.suggestion} ${
+                  index === highlightedIndex ? css.suggestionHighlighted : ''
+                }`}
                 key={checkbox.id}
                 {...getItemProps({ item: checkbox, index })}
               >

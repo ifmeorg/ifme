@@ -8,13 +8,14 @@ class MomentsController < ApplicationController
   include Shared
   include TagsHelper
 
+  find_resource_by_slug :moment, redirect_to: :moments_path
   before_action :set_moment, only: %i[show edit update destroy picture acknowledge_crisis_prevention]
   before_action :load_viewers, only: %i[new edit create update picture]
 
   # GET /moments
   # GET /moments.json
   def index
-    page_collection('@moments', 'moment', multiselect_hash)
+    page_collection('@moments', 'moment', multiselect_hash, includes: %i[categories user])
     respond_to do |format|
       format.json { render json: moments_data_json }
       format.html { moments_data_html }
@@ -41,7 +42,7 @@ class MomentsController < ApplicationController
 
   # GET /moments/1/edit
   def edit
-    redirect_to_path(moment_path(@moment)) unless @moment.user_id == current_user.id
+    redirect_unless_owner!(@moment, moment_path(@moment))
     set_association_variables!
   end
 
@@ -120,12 +121,6 @@ class MomentsController < ApplicationController
   end
 
   private
-
-  def set_moment
-    @moment = Moment.friendly.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    redirect_to_path(moments_path)
-  end
 
   def moment_params
     params.require(:moment).permit(:name, :why, :fix, :comment, :draft,
