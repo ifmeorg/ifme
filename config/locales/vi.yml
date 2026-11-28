@@ -366,6 +366,8 @@ vi:
         Những khoảnh khắc được đánh dấu sẽ xuất hiện trong Kế hoạch chăm sóc của
         bạn
       resource_recommendations_question: Hiển thị tài nguyên được đề xuất?
+      make_public_question: "Yêu cầu chia sẻ công khai khoảnh khắc này?"
+      make_public_info: "Quản trị viên sẽ xem xét trước khi khoảnh khắc có thể được chia sẻ công khai. Nếu bạn chỉnh sửa sau đó, nó sẽ được xem xét lại."
     index:
       subtitle: >-
         Đào sâu vào khoản khắc của bạn – sự kiện tình huống đã ảnh hưởng đến sức

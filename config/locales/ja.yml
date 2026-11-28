@@ -333,6 +333,8 @@ ja:
       bookmarked_question: 'このできごとをブックマークしますか？'
       bookmarked_info: 'ブックマークしたできごとは、セルフケアプランに表示されます'
       resource_recommendations_question: 'おすすめの相談先・情報を表示しますか？'
+      make_public_question: "このできごとの公開を申請しますか？"
+      make_public_info: "公開される前に管理者が内容を確認します。後で編集すると、もう一度確認が必要になります。"
     index:
       subtitle: 'こころの健康に影響したできごと、つまり出来事や状況を深く見つめましょう。'
       subtitle_link: 'できごとを書くためのテンプレートを作って整理しましょう。'

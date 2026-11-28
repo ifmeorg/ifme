@@ -52,6 +52,7 @@ class Moment < ApplicationRecord
   end
   before_save :viewers_array_data
   before_update :reset_crisis_prevention_if_significant_change
+  before_update :reset_public_approval
 
   belongs_to :user
 
@@ -105,6 +106,22 @@ class Moment < ApplicationRecord
   end
 
   private
+
+  # An admin approves a specific published text. If that changes, or the
+  # author withdraws it, the moment has to be reviewed again.
+  def reset_public_approval
+    return if public_approved_at.blank?
+    return unless public_approval_outdated?
+
+    self.public_approved_at = nil
+  end
+
+  def public_approval_outdated?
+    !make_public? || !published? ||
+      will_save_change_to_name? ||
+      will_save_change_to_why? ||
+      will_save_change_to_fix?
+  end
 
   def reset_crisis_prevention_if_significant_change
     return unless crisis_prevention_acknowledged?

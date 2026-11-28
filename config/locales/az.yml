@@ -354,6 +354,8 @@ az:
       bookmarked_question: Bu anı seçilmişlərə əlavə edək?
       bookmarked_info: Seçilmiş anlar qayğı planında görünür
       resource_recommendations_question: Resurs tövsiyələri göstərilsin?
+      make_public_question: "Bu anın ictimai paylaşılmasını istəyirsiniz?"
+      make_public_info: "İctimai paylaşılmazdan əvvəl admin onu yoxlayır. Sonradan redaktə etsəniz, yenidən yoxlamaya göndəriləcək."
     index:
       subtitle: >-
         Psixoloji rifahına təsir edən hadisə və vəziyyətləri — anlarını

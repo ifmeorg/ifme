@@ -336,6 +336,8 @@ zh-CN:
       bookmarked_question: 将日记加上个书签?
       bookmarked_info: 书签时刻出现在您的护理计划中
       resource_recommendations_question: 显示资源推荐？
+      make_public_question: "申请公开分享这篇日记？"
+      make_public_info: "公开分享前需要管理员审核。之后如有修改，需要重新审核。"
     index:
       subtitle: 深入分析影响你心理健康的事件和情况。
       subtitle_link: 創建和組織用於撰寫您的時刻的模板。

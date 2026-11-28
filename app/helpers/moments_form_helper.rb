@@ -114,6 +114,12 @@ module MomentsFormHelper
                        checked: @moment.resource_recommendations)
   end
 
+  def moment_make_public
+    switch_input_props('make_public', 'moments.form.make_public_question',
+                       checked: @moment.make_public,
+                       info: t('moments.form.make_public_info'))
+  end
+
   def moment_form_inputs(edit: false)
     inputs = [
       moment_name,
@@ -126,7 +132,8 @@ module MomentsFormHelper
       moment_comment,
       moment_publishing(edit),
       moment_bookmarked,
-      moment_display_resources
+      moment_display_resources,
+      moment_make_public
     ]
     inputs.flatten.map(&:to_h)
   end

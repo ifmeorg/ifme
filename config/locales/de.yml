@@ -384,6 +384,8 @@ de:
       bookmarked_question: Lesezeichen für dieses Ereignis anlegen?
       bookmarked_info: Markierte Momente erscheinen in Ihrem Behandlungsplan
       resource_recommendations_question: Empfohlene Ressourcen anzeigen?
+      make_public_question: "Veröffentlichung dieses Ereignisses anfragen?"
+      make_public_info: "Ein Admin prüft es, bevor es öffentlich geteilt werden kann. Wenn du es später bearbeitest, wird es erneut geprüft."
     index:
       subtitle: >-
         Setze Dich intensiv mit Ereignissen auseinander, die Deine geistige

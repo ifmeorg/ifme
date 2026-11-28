@@ -382,6 +382,8 @@ fr:
       bookmarked_question: Ajouter ce moment aux favoris?
       bookmarked_info: Les moments marqués apparaissent dans votre plan de soins
       resource_recommendations_question: Voulez-vous afficher la recommandation de ressource?
+      make_public_question: "Demander à partager ce moment publiquement ?"
+      make_public_info: "Un administrateur le vérifie avant qu'il puisse être partagé publiquement. Si vous le modifiez ensuite, il sera de nouveau vérifié."
     index:
       subtitle: >-
         Replonger dans vos moments - événements et situations qui affectent

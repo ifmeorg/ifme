@@ -371,6 +371,8 @@ pt-BR:
       bookmarked_question: Marcar este momento como favorito?
       bookmarked_info: Momentos marcados aparecem no seu Plano de Cuidados
       resource_recommendations_question: Mostrar recomendação de recursos?
+      make_public_question: "Pedir para compartilhar este momento publicamente?"
+      make_public_info: "Um administrador o analisa antes que ele possa ser compartilhado publicamente. Se você editá-lo depois, ele volta para análise."
     index:
       subtitle: >-
         Mergulhe profundamente nos seus momentos - Momentos e situações que

@@ -354,6 +354,8 @@ en:
       bookmarked_question: Bookmark this moment?
       bookmarked_info: Bookmarked moments appear in your Care Plan
       resource_recommendations_question: Display Resource Recommendations?
+      make_public_question: "Ask to share this moment publicly?"
+      make_public_info: "An admin reviews it before it can be shared publicly. Editing it later sends it back for review."
     index:
       subtitle: >-
         Delve deep into your moments - events and situations that affect your

@@ -353,6 +353,8 @@ tr:
       bookmarked_question: Bu an yer imlerine eklensin mi?
       bookmarked_info: Yer imlerine eklediğiniz anlar bakım planınızda görünür
       resource_recommendations_question: Kaynak önerileri gösterilsin mi?
+      make_public_question: "Bu anı herkese açık paylaşmak için istekte bulunulsun mu?"
+      make_public_info: "Herkese açık paylaşılmadan önce bir yönetici inceler. Daha sonra düzenlerseniz yeniden incelemeye gönderilir."
     index:
       subtitle: >-
         Ruh sağlığınızı etkileyen olayları ve durumları, yani anlarınızı daha yakından
