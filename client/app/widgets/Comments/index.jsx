@@ -22,7 +22,7 @@ type CommentResponse = {
 type Comment = {
   id: number,
   currentUserUid: string,
-  commentByUid: string,
+  commentByUid: ?string,
   commentByName: string,
   commentByAvatar?: string,
   commentByAdmin: Boolean,
@@ -73,13 +73,13 @@ export const Comments = ({ comments, formProps }: Props): Node => {
     viewers: ?string,
     deleteAction: ?string,
     currentUserUid: string,
-    uid: string,
+    uid: ?string,
     id: number,
     commentByAdmin: Boolean,
     commentByName: string,
   ): Actions => {
     const actions: Actions = {};
-    if (currentUserUid !== uid && !commentByAdmin) {
+    if (uid && currentUserUid !== uid && !commentByAdmin) {
       actions.report = reportAction(uid, id, commentByName);
     }
     if (viewers) {
@@ -110,7 +110,12 @@ export const Comments = ({ comments, formProps }: Props): Node => {
       createdAt,
       deleteAction,
     } = myComment;
-    const author = <a href={`/profile?uid=${commentByUid}`}>{commentByName}</a>;
+    // Comments from paused accounts have no uid, so there is no profile to link.
+    const author = commentByUid ? (
+      <a href={`/profile?uid=${commentByUid}`}>{commentByName}</a>
+    ) : (
+      commentByName
+    );
     return (
       <article key={id} className={`comment ${css.comment}`}>
         <div className={css.commentContent}>{Utils.renderContent(comment)}</div>

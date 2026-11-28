@@ -93,6 +93,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :paused_account, only: %i[show create destroy]
+
   resources :reports, only: %i[create new] do
     collection do
       get 'admin_dashboard'

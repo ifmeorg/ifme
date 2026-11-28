@@ -940,3 +940,13 @@ zh-CN:
       premade1_description: 發生了什麼，您感覺如何？<br />您想擁有什麼想法？
       premade2_name: 感激
       premade2_description: 您欣賞自己的一件事是什麼？<br />您今天期待什麼？
+  paused_accounts:
+    settings_text: "想暂时离开 if-me.org 休息一下吗？"
+    pause_button: "暂停我的账户"
+    pause_confirm: "要暂停您的账户吗？待处理的盟友请求将被取消。重新登录即可恢复。"
+    title: "您的账户已暂停"
+    description: "其他人看不到您的个人资料和故事。没有任何内容被删除。恢复账户即可继续使用 if-me.org。"
+    resume_button: "恢复我的账户"
+    paused_notice: "您的账户已暂停。想恢复时，随时登录即可。"
+    resumed_notice: "欢迎回来！您的账户已恢复。"
+    comment_author: "[已移除]"

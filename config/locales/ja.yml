@@ -871,3 +871,13 @@ ja:
       premade1_description: '何があって、どう感じていますか？<br />どんなふうに考えられたらいいですか？'
       premade2_name: '感謝'
       premade2_description: '自分のいいところを1つ挙げるとしたら？<br />今日楽しみにしていることは何ですか？'
+  paused_accounts:
+    settings_text: "if-me.orgを少しお休みしますか？"
+    pause_button: "アカウントを一時停止する"
+    pause_confirm: "アカウントを一時停止しますか？保留中の味方リクエストはキャンセルされます。もう一度ログインすれば再開できます。"
+    title: "アカウントは一時停止中です"
+    description: "あなたのプロフィールとストーリーは他の人に表示されません。何も削除されていません。if-me.orgをもう一度使うには、アカウントを再開してください。"
+    resume_button: "アカウントを再開する"
+    paused_notice: "アカウントを一時停止しました。再開したいときはいつでもログインしてください。"
+    resumed_notice: "おかえりなさい！アカウントを再開しました。"
+    comment_author: "[削除済み]"

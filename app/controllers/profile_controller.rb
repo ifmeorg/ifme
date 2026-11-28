@@ -5,6 +5,7 @@ class ProfileController < ApplicationController
 
   def index
     setup_stories
+    redirect_to_path(allies_path) if hidden_profile?
   end
 
   def data
@@ -27,6 +28,11 @@ class ProfileController < ApplicationController
   end
 
   private
+
+  # Admins keep access so that they can still moderate.
+  def hidden_profile?
+    @profile&.paused? && @profile != current_user && !current_user.admin?
+  end
 
   def update_and_email(user, banned)
     user.update(banned:)

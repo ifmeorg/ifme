@@ -1169,3 +1169,13 @@ nl:
         hebben?
       premade2_name: Dankbaarheid
       premade2_description: Wat waardeer je aan jezelf?<br />Waar kijk je vandaag naar uit?
+  paused_accounts:
+    settings_text: "Even pauze nodig van if-me.org?"
+    pause_button: "Mijn account pauzeren"
+    pause_confirm: "Je account pauzeren? Openstaande bondgenootverzoeken worden geannuleerd. Je kunt het hervatten door opnieuw in te loggen."
+    title: "Je account is gepauzeerd"
+    description: "Je profiel en verhalen zijn verborgen voor anderen. Er is niets verwijderd. Hervat je account om if-me.org weer te gebruiken."
+    resume_button: "Mijn account hervatten"
+    paused_notice: "Je account is gepauzeerd. Log in wanneer je het wilt hervatten."
+    resumed_notice: "Welkom terug! Je account is hervat."
+    comment_author: "[verwijderd]"

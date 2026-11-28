@@ -28,7 +28,8 @@ module CommentsHelper
   private
 
   def hide_page?(subject)
-    (!current_user.mutual_allies?(subject.user) \
+    subject.user.paused? \
+    || (!current_user.mutual_allies?(subject.user) \
     && !subject.viewer?(current_user)) \
     || !subject.published?
   end
@@ -48,7 +49,19 @@ module CommentsHelper
       viewers: CommentViewersService.viewers(comment, current_user),
       createdAt: created_at(comment.created_at),
       deleteAction: delete_action(comment)
-    }.merge(id: comment.id)
+    }.merge(id: comment.id, **paused_author_overrides(user))
+  end
+
+  def paused_author_overrides(user)
+    return {} unless user.paused?
+
+    {
+      commentByUid: nil,
+      commentByName: t('paused_accounts.comment_author'),
+      commentByAvatar: nil,
+      commentByAdmin: false,
+      viewers: nil
+    }
   end
 
   def page_author(subject)

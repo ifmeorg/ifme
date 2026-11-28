@@ -196,5 +196,8 @@
 <div class="smallerMarginTop"><%= t('users.data_download.description') %></div>
 <%= react_component 'DataDownload', props: {} %>
 
+<div class="label marginTop"><%= t('paused_accounts.settings_text') %></div>
+<%= button_to t('paused_accounts.pause_button'), paused_account_path, data: { confirm: t('paused_accounts.pause_confirm') }, method: :post, class: 'buttonDarkM' %>
+
 <div class="label marginTop"><%= raw t('devise.registrations.edit.delete.text') %></div>
 <%= button_to t('devise.registrations.edit.delete.button'), registration_path(resource_name), data: { confirm: t('devise.registrations.edit.delete.confirm') }, method: :delete, class: 'buttonDarkM' %>

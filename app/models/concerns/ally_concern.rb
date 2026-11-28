@@ -12,7 +12,7 @@ module AllyConcern
 
   def allies_by_status(status)
     allyships.includes(:ally).where(status: ALLY_STATUS[status])
-             .filter_map(&:ally).reject(&:banned)
+             .filter_map(&:ally).reject { |ally| ally.banned || ally.paused? }
   end
 
   def available_groups(order)

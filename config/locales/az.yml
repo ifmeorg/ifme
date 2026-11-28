@@ -1113,3 +1113,13 @@ az:
       premade2_description: >-
         Özündə dəyər verdiyin bir cəhət nədir?<br />Bu gün nəyi
         səbirsizliklə gözləyirsən?
+  paused_accounts:
+    settings_text: "if-me.org-dan fasiləyə ehtiyacınız var?"
+    pause_button: "Hesabımı dayandır"
+    pause_confirm: "Hesabınız dayandırılsın? Gözləyən müttəfiq sorğuları ləğv ediləcək. Yenidən daxil olaraq davam edə bilərsiniz."
+    title: "Hesabınız dayandırılıb"
+    description: "Profiliniz və hekayələriniz başqalarından gizlədilib. Heç nə silinməyib. if-me.org-dan yenidən istifadə etmək üçün hesabınızı bərpa edin."
+    resume_button: "Hesabımı bərpa et"
+    paused_notice: "Hesabınız dayandırıldı. Bərpa etmək istədiyiniz vaxt daxil olun."
+    resumed_notice: "Yenidən xoş gəldiniz! Hesabınız bərpa edildi."
+    comment_author: "[silinib]"

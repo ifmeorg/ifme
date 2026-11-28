@@ -31,6 +31,7 @@ class SearchController < ApplicationController
     User.where(email:)
         .where.not(id: current_user.id)
         .where.not(banned: true)
+        .where(paused_at: nil)
   end
 
   def make_path(name, data_type, search_filters)

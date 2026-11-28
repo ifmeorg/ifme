@@ -53,6 +53,8 @@ class Comment < ApplicationRecord
     end
   end
 
+  validate :author_of_story_not_paused, on: :create
+
   # Notify commentable_id user that they have a new comment
   def notify_of_creation!(creator)
     association = associated_record
@@ -63,6 +65,15 @@ class Comment < ApplicationRecord
   end
 
   private
+
+  def author_of_story_not_paused
+    story_class = { 'moment' => Moment, 'strategy' => Strategy }[
+      commentable_type.to_s.downcase
+    ]
+    return unless story_class&.find_by(id: commentable_id)&.user&.paused?
+
+    errors.add(:base, 'this account is paused')
+  end
 
   def associated_record
     commentable_type.classify.constantize.find(commentable_id)

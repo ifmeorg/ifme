@@ -1238,3 +1238,13 @@ de:
       premade2_description: >-
         Nenne eine Sache, die Du an Dir selbst schätzst.<br />Worauf freust Du
         Dich heute?
+  paused_accounts:
+    settings_text: "Brauchst du eine Pause von if-me.org?"
+    pause_button: "Mein Konto pausieren"
+    pause_confirm: "Konto pausieren? Offene Verbündeten-Anfragen werden storniert. Du kannst es fortsetzen, indem du dich wieder anmeldest."
+    title: "Dein Konto ist pausiert"
+    description: "Dein Profil und deine Geschichten sind für andere verborgen. Nichts wurde gelöscht. Setze dein Konto fort, um if-me.org wieder zu nutzen."
+    resume_button: "Mein Konto fortsetzen"
+    paused_notice: "Dein Konto wurde pausiert. Melde dich an, wann immer du es fortsetzen möchtest."
+    resumed_notice: "Willkommen zurück! Dein Konto wurde fortgesetzt."
+    comment_author: "[entfernt]"

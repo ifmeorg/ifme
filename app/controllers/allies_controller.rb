@@ -17,8 +17,10 @@ class AlliesController < ApplicationController
   end
 
   def add
-    AllyshipCreator.perform(ally_id: params[:ally_id],
-                            current_user:)
+    unless User.find_by(id: params[:ally_id])&.paused?
+      AllyshipCreator.perform(ally_id: params[:ally_id],
+                              current_user:)
+    end
     redirect_to_path(allies_path)
   end
 

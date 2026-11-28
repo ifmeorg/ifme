@@ -1138,3 +1138,13 @@ sv:
       premade2_description: >-
         Vad är en sak du uppskattar med dig själv?<br />Vad ser du fram emot
         idag?
+  paused_accounts:
+    settings_text: "Behöver du en paus från if-me.org?"
+    pause_button: "Pausa mitt konto"
+    pause_confirm: "Vill du pausa ditt konto? Väntande förfrågningar om allierade avbryts. Du kan återuppta det genom att logga in igen."
+    title: "Ditt konto är pausat"
+    description: "Din profil och dina berättelser är dolda för andra. Inget har raderats. Återuppta ditt konto för att använda if-me.org igen."
+    resume_button: "Återuppta mitt konto"
+    paused_notice: "Ditt konto har pausats. Logga in när du vill återuppta det."
+    resumed_notice: "Välkommen tillbaka! Ditt konto har återupptagits."
+    comment_author: "[borttagen]"

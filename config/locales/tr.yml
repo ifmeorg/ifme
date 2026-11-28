@@ -1100,3 +1100,13 @@ tr:
       premade2_description: >-
         Kendinizde değer verdiğiniz bir özellik nedir?<br />Bugün neyi heyecanla
         bekliyorsunuz?
+  paused_accounts:
+    settings_text: "if-me.org'a ara vermek ister misiniz?"
+    pause_button: "Hesabımı duraklat"
+    pause_confirm: "Hesabınız duraklatılsın mı? Bekleyen müttefik istekleri iptal edilecek. Tekrar giriş yaparak devam edebilirsiniz."
+    title: "Hesabınız duraklatıldı"
+    description: "Profiliniz ve hikâyeleriniz başkalarından gizlendi. Hiçbir şey silinmedi. if-me.org'u yeniden kullanmak için hesabınızı sürdürün."
+    resume_button: "Hesabımı sürdür"
+    paused_notice: "Hesabınız duraklatıldı. Sürdürmek istediğiniz zaman giriş yapın."
+    resumed_notice: "Tekrar hoş geldiniz! Hesabınız yeniden etkin."
+    comment_author: "[kaldırıldı]"

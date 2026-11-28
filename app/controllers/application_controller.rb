@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   include ActionView::Helpers::TextHelper
   include PageRedirectConcern
   include FindResourceConcern
+  include PausedAccountConcern
   include CommentsHelper
   include CommentsFormHelper
   include TagsHelper
@@ -14,6 +15,7 @@ class ApplicationController < ActionController::Base
   before_action :if_not_signed_in, unless: :devise_controller?
   before_action :set_sentry_context, if: proc { Rails.env.production? }
   before_action :set_locale
+  before_action :restrict_paused_account
   around_action :with_timezone
 
   private

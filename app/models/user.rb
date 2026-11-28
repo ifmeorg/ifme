@@ -133,6 +133,26 @@ class User < ApplicationRecord
     super && !banned
   end
 
+  # A paused account keeps all of its data but is hidden from other people.
+  # Unlike a banned user, a paused user can still sign in, to resume.
+  def paused?
+    paused_at.present?
+  end
+
+  def pause!
+    return if paused?
+
+    transaction do
+      # Pending ally requests are cancelled. Accepted allies are kept.
+      allyships.where.not(status: ALLY_STATUS[:accepted]).destroy_all
+      update_columns(paused_at: Time.zone.now)
+    end
+  end
+
+  def resume!
+    update_columns(paused_at: nil)
+  end
+
   def self.find_for_oauth(auth)
     user = find_or_initialize_by(email: auth.info.email)
     user.name ||= auth.info.name

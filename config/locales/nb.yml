@@ -1132,3 +1132,13 @@ nb:
       premade2_description: >-
         Hva er en ting du setter pris på med deg selv?<br />Hva gleder du deg
         til i dag?
+  paused_accounts:
+    settings_text: "Trenger du en pause fra if-me.org?"
+    pause_button: "Sett kontoen min på pause"
+    pause_confirm: "Vil du sette kontoen på pause? Ventende forespørsler om støttespillere blir avbrutt. Du kan gjenoppta den ved å logge inn igjen."
+    title: "Kontoen din er satt på pause"
+    description: "Profilen og historiene dine er skjult for andre. Ingenting er slettet. Gjenoppta kontoen for å bruke if-me.org igjen."
+    resume_button: "Gjenoppta kontoen min"
+    paused_notice: "Kontoen din er satt på pause. Logg inn når du vil gjenoppta den."
+    resumed_notice: "Velkommen tilbake! Kontoen din er gjenopptatt."
+    comment_author: "[fjernet]"

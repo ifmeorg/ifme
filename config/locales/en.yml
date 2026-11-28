@@ -1116,3 +1116,13 @@ en:
       premade2_description: >-
         What is one thing you appreciate about yourself?<br />What are you
         looking forward to today?
+  paused_accounts:
+    settings_text: "Need a break from if-me.org?"
+    pause_button: "Pause my account"
+    pause_confirm: "Pause your account? Pending ally requests will be cancelled. You can resume by signing in again."
+    title: "Your account is paused"
+    description: "Your profile and stories are hidden from others. Nothing has been deleted. Resume your account to use if-me.org again."
+    resume_button: "Resume my account"
+    paused_notice: "Your account has been paused. Sign in whenever you want to resume it."
+    resumed_notice: "Welcome back! Your account has been resumed."
+    comment_author: "[removed]"

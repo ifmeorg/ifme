@@ -1154,3 +1154,13 @@ id:
       premade2_description: >-
         Apa yang Anda syukuri tentang diri Anda?<br />Apa yang sedang Anda
         nantikan hari ini?
+  paused_accounts:
+    settings_text: "Butuh jeda dari if-me.org?"
+    pause_button: "Jeda akun saya"
+    pause_confirm: "Jeda akun Anda? Permintaan sekutu yang tertunda akan dibatalkan. Anda dapat melanjutkannya dengan masuk kembali."
+    title: "Akun Anda sedang dijeda"
+    description: "Profil dan cerita Anda disembunyikan dari orang lain. Tidak ada yang dihapus. Lanjutkan akun Anda untuk menggunakan if-me.org lagi."
+    resume_button: "Lanjutkan akun saya"
+    paused_notice: "Akun Anda telah dijeda. Masuk kapan pun Anda ingin melanjutkannya."
+    resumed_notice: "Selamat datang kembali! Akun Anda telah dilanjutkan."
+    comment_author: "[dihapus]"
