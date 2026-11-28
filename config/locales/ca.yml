@@ -1145,3 +1145,13 @@ ca:
       premade2_name: Gratitud
       premade2_description: Què és el que valores de tu mateix/a?<br />Què esperes avui?
 
+  paused_accounts:
+    settings_text: "Necessites un descans d'if-me.org?"
+    pause_button: "Posa el meu compte en pausa"
+    pause_confirm: "Vols posar el compte en pausa? Les sol·licituds d'aliats pendents es cancel·laran. Pots reprendre'l tornant a iniciar la sessió."
+    title: "El teu compte està en pausa"
+    description: "El teu perfil i les teves històries estan amagats per als altres. No s'ha esborrat res. Reprèn el compte per tornar a utilitzar if-me.org."
+    resume_button: "Reprèn el meu compte"
+    paused_notice: "El teu compte està en pausa. Inicia la sessió quan vulguis reprendre'l."
+    resumed_notice: "Benvingut/da de nou! El teu compte s'ha reprès."
+    comment_author: "[eliminat]"

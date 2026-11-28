@@ -25,8 +25,10 @@ module Users
       yield resource if block_given?
 
       if invitation_accepted
-        AllyshipCreator.perform(ally_id: resource.id,
-                                current_user: resource.invited_by)
+        unless resource.invited_by&.paused?
+          AllyshipCreator.perform(ally_id: resource.id,
+                                  current_user: resource.invited_by)
+        end
         if resource.class.allow_insecure_sign_in_after_accept
           flash_message = resource.active_for_authentication? ? :updated : :updated_not_active
           set_flash_message :notice, flash_message if is_flashing_format?

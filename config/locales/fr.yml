@@ -1177,3 +1177,13 @@ fr:
       premade2_description: >-
         Qu'est-ce que vous appréciez chez vous?<br />Qu'attendez-vous
         aujourd'hui?
+  paused_accounts:
+    settings_text: "Besoin d'une pause d'if-me.org ?"
+    pause_button: "Mettre mon compte en pause"
+    pause_confirm: "Mettre votre compte en pause ? Les demandes d'alliés en attente seront annulées. Vous pourrez le réactiver en vous reconnectant."
+    title: "Votre compte est en pause"
+    description: "Votre profil et vos histoires sont masqués aux autres. Rien n'a été supprimé. Réactivez votre compte pour utiliser à nouveau if-me.org."
+    resume_button: "Réactiver mon compte"
+    paused_notice: "Votre compte est en pause. Connectez-vous quand vous voulez le réactiver."
+    resumed_notice: "Ravi de vous revoir ! Votre compte est réactivé."
+    comment_author: "[supprimé]"

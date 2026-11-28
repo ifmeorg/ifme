@@ -985,3 +985,13 @@ ko:
       premade1_description: 무슨 일이 일어 났고 기분이 어때?<br />어떤 생각을하고 싶나요?
       premade2_name: 감사
       premade2_description: 자신에 대해 고마운 점 한 가지는 무엇입니까?<br />오늘 무엇을 기대하십니까?
+  paused_accounts:
+    settings_text: "if-me.org에서 잠시 휴식이 필요하신가요?"
+    pause_button: "내 계정 일시 중지"
+    pause_confirm: "계정을 일시 중지하시겠습니까? 대기 중인 지지자 요청은 취소됩니다. 다시 로그인하면 계정을 재개할 수 있습니다."
+    title: "계정이 일시 중지되었습니다"
+    description: "회원님의 프로필과 이야기는 다른 사람에게 보이지 않습니다. 삭제된 것은 없습니다. if-me.org를 다시 이용하려면 계정을 재개하세요."
+    resume_button: "내 계정 재개"
+    paused_notice: "계정이 일시 중지되었습니다. 재개하고 싶을 때 언제든지 로그인하세요."
+    resumed_notice: "다시 오신 것을 환영합니다! 계정이 재개되었습니다."
+    comment_author: "[삭제됨]"

@@ -979,3 +979,13 @@ zh-TW:
       premade2_name: 感恩
       premade2_description: >-
         您最欣賞自己的一件事是什麼？<br />今天有什麼值得期待的事？
+  paused_accounts:
+    settings_text: "想暫時離開 if-me.org 休息一下嗎？"
+    pause_button: "暫停我的帳戶"
+    pause_confirm: "要暫停您的帳戶嗎？待處理的盟友請求將會取消。重新登入即可恢復。"
+    title: "您的帳戶已暫停"
+    description: "其他人看不到您的個人檔案和故事。沒有任何內容被刪除。恢復帳戶即可繼續使用 if-me.org。"
+    resume_button: "恢復我的帳戶"
+    paused_notice: "您的帳戶已暫停。想恢復時，隨時登入即可。"
+    resumed_notice: "歡迎回來！您的帳戶已恢復。"
+    comment_author: "[已移除]"

@@ -1186,3 +1186,13 @@ pt-BR:
         gostaria de ter?
       premade2_name: Gratidão
       premade2_description: O que você aprecia em você?<br />O que você espera hoje?
+  paused_accounts:
+    settings_text: "Precisa de uma pausa do if-me.org?"
+    pause_button: "Pausar minha conta"
+    pause_confirm: "Pausar sua conta? Os pedidos de aliados pendentes serão cancelados. Você pode retomá-la entrando novamente."
+    title: "Sua conta está pausada"
+    description: "Seu perfil e suas histórias estão ocultos para outras pessoas. Nada foi excluído. Retome sua conta para usar o if-me.org novamente."
+    resume_button: "Retomar minha conta"
+    paused_notice: "Sua conta foi pausada. Entre quando quiser retomá-la."
+    resumed_notice: "Que bom ter você de volta! Sua conta foi retomada."
+    comment_author: "[removido]"

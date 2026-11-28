@@ -1150,3 +1150,13 @@ vi:
       premade2_description: >-
         Bạn đánh giá cao điều gì ở bản thân?<br />Bạn mong đợi điều gì ở ngày
         hôm nay?
+  paused_accounts:
+    settings_text: "Bạn cần tạm nghỉ khỏi if-me.org?"
+    pause_button: "Tạm dừng tài khoản của tôi"
+    pause_confirm: "Tạm dừng tài khoản của bạn? Các yêu cầu đồng minh đang chờ sẽ bị hủy. Bạn có thể tiếp tục bằng cách đăng nhập lại."
+    title: "Tài khoản của bạn đang tạm dừng"
+    description: "Hồ sơ và câu chuyện của bạn được ẩn khỏi người khác. Không có gì bị xóa. Hãy tiếp tục tài khoản để sử dụng lại if-me.org."
+    resume_button: "Tiếp tục tài khoản của tôi"
+    paused_notice: "Tài khoản của bạn đã tạm dừng. Hãy đăng nhập bất cứ khi nào bạn muốn tiếp tục."
+    resumed_notice: "Chào mừng bạn trở lại! Tài khoản của bạn đã được tiếp tục."
+    comment_author: "[đã xóa]"

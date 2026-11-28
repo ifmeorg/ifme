@@ -1166,3 +1166,13 @@ it:
       premade2_description: >-
         Qual è una cosa che apprezzi di te stesso?<br />Cosa aspetti con
         impazienza oggi?
+  paused_accounts:
+    settings_text: "Ti serve una pausa da if-me.org?"
+    pause_button: "Metti in pausa il mio account"
+    pause_confirm: "Mettere in pausa il tuo account? Le richieste di alleati in sospeso verranno annullate. Potrai riattivarlo accedendo di nuovo."
+    title: "Il tuo account è in pausa"
+    description: "Il tuo profilo e le tue storie sono nascosti agli altri. Non è stato eliminato nulla. Riattiva il tuo account per usare di nuovo if-me.org."
+    resume_button: "Riattiva il mio account"
+    paused_notice: "Il tuo account è in pausa. Accedi quando vuoi riattivarlo."
+    resumed_notice: "Che bello rivederti! Il tuo account è stato riattivato."
+    comment_author: "[rimosso]"

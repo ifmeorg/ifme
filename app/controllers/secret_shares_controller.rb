@@ -6,6 +6,8 @@ class SecretSharesController < ApplicationController
   def show
     @moment = Moment.find_secret_share!(params[:id])
     @page_author = User.find(@moment.user_id)
+    raise ActiveRecord::RecordNotFound if @page_author.paused?
+
     render 'moments/show'
   end
 

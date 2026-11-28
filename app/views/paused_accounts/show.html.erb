@@ -1,0 +1,9 @@
+<% title t('paused_accounts.title') %>
+<div><%= t('paused_accounts.description') %></div>
+
+<div class="marginTop">
+  <%= button_to t('paused_accounts.resume_button'), paused_account_path, method: :delete, class: 'buttonDarkM' %>
+</div>
+
+<div class="label marginTop"><%= raw t('devise.registrations.edit.delete.text') %></div>
+<%= button_to t('devise.registrations.edit.delete.button'), registration_path(:user), data: { confirm: t('devise.registrations.edit.delete.confirm') }, method: :delete, class: 'buttonDarkM' %>

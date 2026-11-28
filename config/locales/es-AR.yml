@@ -1126,3 +1126,13 @@ es-AR:
       premade1_description: '¿Qué pasó y cómo te sentís?<br />¿Qué pensamientos te gustaría tener?'
       premade2_name: Gratitud
       premade2_description: '¿Qué es algo que valorás de vos mismo/a?<br />¿Qué te da ganas de que llegue hoy?'
+  paused_accounts:
+    settings_text: "¿Necesitás un descanso de if-me.org?"
+    pause_button: "Pausar mi cuenta"
+    pause_confirm: "¿Pausar tu cuenta? Las solicitudes de aliados pendientes se cancelarán. Podés reanudarla volviendo a iniciar sesión."
+    title: "Tu cuenta está en pausa"
+    description: "Tu perfil y tus historias están ocultos para los demás. No se borró nada. Reanudá tu cuenta para volver a usar if-me.org."
+    resume_button: "Reanudar mi cuenta"
+    paused_notice: "Tu cuenta está en pausa. Iniciá sesión cuando quieras reanudarla."
+    resumed_notice: "¡Qué bueno verte de nuevo! Tu cuenta se reanudó."
+    comment_author: "[eliminado]"
